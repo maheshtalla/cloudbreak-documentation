@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/azure-config/index.html"> 
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <title>Define Infrastructure Templates - Cloudbreak</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+
+
+    <link href="../css/extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-22950817-24', 'auto');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../index.html">Cloudbreak</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get Started <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../index.html">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../aws-launch/index.html">Launch on AWS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-config/index.html">Define Infrastructure Templates</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-cb-ui/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-data/index.html">Access Data on S3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../azure-launch/index.html">Launch on Azure</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="index.html">Define Infrastructure Templates</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-cb-ui/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-data/index.html">Access Data on Azure</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gcp-launch/index.html">Launch on GCP</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-config/index.html">Define Infrastructure Templates</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-cb-ui/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenStack <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../os-launch/index.html">Launch on Open Stack</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-config/index.html">Define Infrastructure Templates</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-cb-ui/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../credentials/index.html">Cloudbreak Credentials</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../tags/index.html">Resource Tagging</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../recipes/index.html">Recipes (Custom Scripts)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../autoscaling/index.html">Auto Scaling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../platforms/index.html">Platforms (TP)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ambari-db/index.html">Ambari Database (TP)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cb-db/index.html">Cloudbreak Database</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../images/index.html">Custom Cloud Images (TP)</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Manage Cloudbreak</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../cb-account/index.html">Manage Your Account</a>
+</li>
+
+        
+            
+<li >
+    <a href="../upgrade/index.html">Upgrade Clodbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../delete/index.html">Delete Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../security/index.html">Network and Security</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../security-profile/index.html">Securing Profile</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ssl-certificate/index.html">SSL Certificate</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ldap/index.html">LDAP/AD</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../kerberos/index.html">Kerberos</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../profile/index.html">Profile File</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQ</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../trouble/index.html">Troubleshooting</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer Docs</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../api/index.html">API</a>
+</li>
+
+        
+            
+<li >
+    <a href="../spi/index.html">SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../flows/index.html">Flows</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li >
+                        <a rel="next" href="../azure-launch/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../azure-create/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/hortonworks/cloudbreak-documentation">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#define-infrastructure-templates-and-blueprints">Define Infrastructure Templates and Blueprints</a></li>
+        
+            <li class="second-level"><a href="#networks">Networks</a></li>
+            
+                <li class="third-level"><a href="#default-network">Default Network</a></li>
+            
+                <li class="third-level"><a href="#add-new-network-and-subnet">Add New Network and Subnet</a></li>
+            
+                <li class="third-level"><a href="#use-existing-network-and-subnet">Use Existing Network and Subnet</a></li>
+            
+        
+            <li class="second-level"><a href="#security-groups">Security Groups</a></li>
+            
+                <li class="third-level"><a href="#default-security-group">Default Security Group</a></li>
+            
+                <li class="third-level"><a href="#add-custom-security-group">Add Custom Security Group</a></li>
+            
+        
+            <li class="second-level"><a href="#vms-and-storage">VMs and Storage</a></li>
+            
+                <li class="third-level"><a href="#default-template">Default Template</a></li>
+            
+                <li class="third-level"><a href="#add-custom-template">Add Custom Template</a></li>
+            
+        
+            <li class="second-level"><a href="#blueprints">Blueprints</a></li>
+            
+                <li class="third-level"><a href="#default-blueprints">Default Blueprints</a></li>
+            
+                <li class="third-level"><a href="#copy-and-edit-existing-blueprint">Copy and Edit Existing Blueprint</a></li>
+            
+                <li class="third-level"><a href="#add-custom-blueprint">Add Custom Blueprint</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="define-infrastructure-templates-and-blueprints">Define Infrastructure Templates and Blueprints</h2>
+<p>After you've logged in to Cloudbreak and created a Cloudbreak credential, you have two options:</p>
+<ul>
+<li>Create clusters using default infrastructure templates and blueprints       </li>
+<li>Define your own infrastructure templates and blueprints  </li>
+</ul>
+<p>The <strong>infrastructure templates</strong> for resources such as <strong>networks</strong>, <strong>security groups</strong>, and <strong>VMs and storage</strong> are saved to Cloudbreak's database and can be reused with multiple clusters to describe the infrastructure. When you add these resources in Cloudbreak web UI, Cloudbreak does not make any requests to your cloud provider account. Resources are only created on your cloud provider account after the create cluster button has been pushed. </p>
+<p>Similarly, <strong>blueprints</strong> are saved to Cloudbreak's database and can be reused with multiple clusters to describe the cluster components.</p>
+<p>This is illustrated in the following image: </p>
+<p><a href="../images/templates-and-blueprints.png" target="_blank" title="click to enlarge"><img src="../images/templates-and-blueprints.png" width="550" title="How Cloudbreak uses templates and blueprints"></a> </p>
+<p>We recommend that you review the default infrastructure  templates for networks, security groups, and VMs and storage, as well as default blueprints to check if they meet your requirements. You can do this by expanding  their corresponding panes in the Cloudbreak web UI (shown in the screenshot) or by reading the documentation below. </p>
+<blockquote>
+<p>If you decide to use the default infrastructure  templates, there is no further action at this point. You can proceed to <a href="../azure-create/index.html">create a cluster</a>. </p>
+</blockquote>
+<p><a href="../images/cb-reusable-configs.png" target="_blank" title="click to enlarge"><img src="../images/cb-reusable-configs.png" width="650" title="Azure Portal"></a> </p>
+<p>The following table describes the basic configurations that require an infrastructure template. If the default infrastructure templates don't work for you, you must create custom templates:</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Description</th>
+<th>Create Cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#networks">Networks</a></td>
+<td>(Required) Virtual networks provide the networking infrastructure (network, subnet, Internet gateway, and so on) in which your clusters run. You can create new virtual networks or reuse existing virtual networks for your clusters. Virtual networks on Azure are called Azure Virtual Networks (VNets). For basic information about VNets, refer to <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview">Azure documentation</a>.</td>
+<td>You can select the network configuration for your clusters in the <strong>Create Cluster</strong> wizard &gt; <strong>Set up Network and Security</strong> page. If no custom network is selected, default is used.</td>
+</tr>
+<tr>
+<td><a href="#security-groups">Security Groups</a></td>
+<td>(Required) Security groups include rules which define inbound traffic allowed to the instances in your cluster. You can define different security group configurations for different nodes of your cluster. For basic information about security groups on Azure, refer to <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Azure documentation</a>.</td>
+<td>You can select the security group configurations for each host group in the <strong>Create Cluster</strong> wizard &gt; <strong>Choose Blueprint</strong> page. If no custom security groups are selected, default is used.</td>
+</tr>
+<tr>
+<td><a href="#vms-and-storage">VMs and Storage</a></td>
+<td>(Required) "Templates" define the Azure infrastructure for the instances on which your cluster runs. You can select the VM types and their attached storage, including storage type, size, and count. You can reuse the same template for different cluster host groups or create different templates for different host groups.</td>
+<td>You can select infrastructure templates for each host group in the <strong>Create Cluster</strong> wizard &gt; <strong>Choose Blueprint</strong> page. If no custom templates are selected, default is used.</td>
+</tr>
+<tr>
+<td><a href="#blueprints">Blueprints</a></td>
+<td>(Required) Blueprints are your declarative definition of a Hadoop cluster, defining the host groups and which components to install on which host group. Ambari uses them as a base for your clusters.</td>
+<td>You can select a blueprint for your cluster in the <strong>Create Cluster</strong> wizard &gt; <strong>Choose Blueprint</strong> page. A few default blueprints are available.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="networks">Networks</h3>
+<p>You have three options:</p>
+<ul>
+<li><strong>Use the default network configuration template</strong>: This requires no further action. Every time a cluster is created with this kind of network setup a new virtual network and a new subnet with the specified IP range will be created for the instances on Azure.  </li>
+<li><strong>Create a new virtual network and a new subnet</strong>: Every time a cluster is created with this kind of network setup a new virtual network and a new subnet with the specified IP range will be created for the instances on Azure.          </li>
+<li><strong>Use an existing subnet in an existing virtual network</strong>: Use this option if you have an existing virtual network with one or more subnets on Azure and you'd like to start the instances of a cluster in one of those subnets.</li>
+</ul>
+<blockquote>
+<p>If using existing subnet in an existing network, make sure that you have enough room within your network space for the new instances. If the CIDR that you specified already exists within the VPC, the provided subnet CIDR range will be ignored and the existing subnet's CIDR range will be used. The security group behavior will be changed in this case: the selected security group will only be applied to the selected Ambari Server node due to the lack of capability to attach multiple security groups to an existing subnet. If you'd like to open ports for Hadoop, you will have to do it on your existing security group.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Clarify the statement above: "If you'd like to open <strong>additional??</strong> ports for Hadoop, you will have to do it <strong>manually??</strong> on your existing security group."</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="default-network">Default Network</h4>
+<p>Cloudbreak includes one pre-defined network configuration called <em>default-azure-network</em>, which is used by default when creating a cluster.  You can see it in the <strong>manage networks</strong> tab. The configuration is: </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>default-azure-network</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Default network settings for Azure clusters.</td>
+</tr>
+<tr>
+<td>Subnet (CIDR)</td>
+<td>10.0.0.0/16</td>
+</tr>
+</tbody>
+</table>
+<p>With this default configuration, a new virtual network with a 10.0.0.0/16 subnet will be created every time a cluster is created. No resources will be created until you create a cluster using this configuration.</p>
+<h4 id="add-new-network-and-subnet">Add New Network and Subnet</h4>
+<p>You can define reusable network configurations for your clusters in the <strong>manage networks</strong> tab:</p>
+<ol>
+<li>
+<p>Click on <strong>Create a new virtual network and a new subnet</strong>.</p>
+</li>
+<li>
+<p>Provide required parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Enter a name for your configuration.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>(Optional) Enter a description.</td>
+</tr>
+<tr>
+<td>Subnet (CIDR)</td>
+<td>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR</a> for a new subnet that will be created within the VNet. For example <code>10.0.0.0/24</code>.</td>
+</tr>
+<tr>
+<td>Public In Account</td>
+<td>(Optional) If this option is checked, all the users belonging to your account will be able to use this network template to create clusters, but they cannot delete it.</td>
+</tr>
+<tr>
+<td>Select Platform</td>
+<td>(Optional) Select a previously created platform.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click on <strong>+create network</strong>.</p>
+<p>No resources will be created until you create a cluster using this configuration.</p>
+</li>
+</ol>
+<h4 id="use-existing-network-and-subnet">Use Existing Network and Subnet</h4>
+<p>You can define reusable network configurations for your clusters in the <strong>manage networks</strong> tab:</p>
+<ol>
+<li>
+<p>Click on <strong>Use an existing subnet in an existing virtual network</strong>. </p>
+</li>
+<li>
+<p>Provide required parameters: </p>
+<blockquote>
+<p>Make sure that the new subnet defined here doesn't overlap with any of your already deployed subnets in the network. </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Enter a name for your configuration.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>(Optional) Enter a description.</td>
+</tr>
+<tr>
+<td>Resource Group Identifier</td>
+<td>Paste the name of the resource group in which the network is located on Azure. You can obtain it from your Azure portal by navigating to the "Properties" of your virtual network and coping the value of the "NAME" property.</td>
+</tr>
+<tr>
+<td>Virtual Network Identifier</td>
+<td>Paste the name of your existing VNet. You can obtain it from your Azure Portal by coping the value of the "NAME" property.</td>
+</tr>
+<tr>
+<td>Subnet Identifier</td>
+<td>Paste the name of your existing subnet. You can obtain it from your Azure Portal  by coping the value of the "NAME" property.</td>
+</tr>
+<tr>
+<td>Public In Account</td>
+<td>(Optional) If this option is checked, all the users belonging to your account will be able to use this network template to create clusters, but they cannot delete it.</td>
+</tr>
+<tr>
+<td>Don't create public IPs</td>
+<td>If you enable this option, Cloudbreak will not assign public IP address to the VMs. You must make sure that Cloudbreak can access the launched instances and that the instances can reach the internet.</td>
+</tr>
+<tr>
+<td>Don't create new firewall rules</td>
+<td>If you enable this option, Cloudbreak will not create security groups. You must make sure (by openining every port in the subnet) that the created instances in the subnet can reach each other.</td>
+</tr>
+<tr>
+<td>Public In Account</td>
+<td>(Optional) If this option is checked, all the users belonging to your account will be able to use this network template to create clusters, but they cannot delete it.</td>
+</tr>
+<tr>
+<td>Select Platform</td>
+<td>(Optional) Select a previously created platform.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click on <strong>+create network</strong>.</p>
+<p>No resources will be created until you create a cluster using this configuration.</p>
+</li>
+</ol>
+<h3 id="security-groups">Security Groups</h3>
+<p>You have two options:</p>
+<ul>
+<li><strong>Use the default security group configuration</strong>: This requires no further action.  </li>
+<li><strong>Add your own custom security group configuration</strong>: You can define your own security group by adding the ports, protocols, and CIDR ranges that you'd like to use. The rules defined here don't need to contain the internal rules (these are automatically added by Cloudbreak to the security group on Azure). </li>
+</ul>
+<p>You can define different security group configurations for different nodes of your cluster.</p>
+<blockquote>
+<p>If using existing subnet in an existing network, the selected security group will only be applied to the selected Ambari Server node due to the lack of capability to attach multiple security groups to an existing subnet. If you'd like to open ports for Hadoop, you will have to do it on your existing security group.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Clarify the statement above: "If you'd like to open <strong>additional??</strong> ports for Hadoop, you will have to do it <strong>manually??</strong> on your existing security group."</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="default-security-group">Default Security Group</h4>
+<p>Cloudbreak includes one pre-defined security group configuration called <em>default-azure-only-ssh-and-ssl</em>, which is used by default when creating a cluster. You can see it in the <strong>manage security groups</strong> tab. The configuration is: </p>
+<table>
+<thead>
+<tr>
+<th>CIDR</th>
+<th>Port</th>
+<th>Protocol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0.0.0/0</td>
+<td>22</td>
+<td>tcp</td>
+</tr>
+<tr>
+<td>0.0.0.0/0</td>
+<td>433</td>
+<td>tcp</td>
+</tr>
+<tr>
+<td>0.0.0.0/0</td>
+<td>9443</td>
+<td>tcp</td>
+</tr>
+</tbody>
+</table>
+<p>No resources will be created until you create a cluster using this configuration.</p>
+<h4 id="add-custom-security-group">Add Custom Security Group</h4>
+<p>You can define reusable security group configurations for your clusters in the <strong>manage security groups</strong> tab: </p>
+<ol>
+<li>Click on <strong>Create a new security group</strong>.</li>
+<li>
+<p>Provide required parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Enter a name for your security group configuration template.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>(Optional) Enter a description.</td>
+</tr>
+<tr>
+<td>Public In Account</td>
+<td>(Optional) If this option is checked, all the users belonging to your account will be able to use this security group template to create clusters, but they cannot delete it.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Provide the following parameters in order to define <strong>Security Rules</strong> for this security group:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CIDR</td>
+<td>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a>, from which the cluster will be accessed.</td>
+</tr>
+<tr>
+<td>Port</td>
+<td>Enter ports that you want to open. You can either list multiple ports, separated by a comma (for example "22,443,9443"), or you can define port ranges (for example "1-65355").</td>
+</tr>
+<tr>
+<td>Protocol</td>
+<td>Enter protocol that you want to use.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Ports 22, 443, and 9443 must be open on every security group; otherwise Cloudbreak will not be able to communicate with your provisioned cluster.</p>
+</blockquote>
+</li>
+<li>
+<p>Click <strong>+Add Rule</strong> to save the security rules. If needed, click <strong>+Add Rule</strong> again to display a new <em>Security Rules</em> form and add another set of rules. </p>
+</li>
+<li>
+<p>Click <strong>+create security group</strong> to save the configuration. </p>
+<p>No resources will be created until you create a cluster using this configuration.</p>
+</li>
+</ol>
+<blockquote>
+<p>Ports used by Hadoop services: Ambari (8080) Consul (8500) NN (50070) RM Web (8088) Scheduler (8030RM) IPC (8050RM) Job history server (19888) HBase master (60000) HBase master web (60010) HBase RS (16020) HBase RS info (60030) Falcon (15000) Storm (8744) Hive metastore (9083) Hive server (10000) Hive server HTTP (10001) Accumulo master (9999) Accumulo Tserver (9997) Atlas (21000) KNOX (8443) Oozie (11000) Spark HS (18080) NM Web (8042) Zeppelin WebSocket (9996) Zeppelin UI (9995) Kibana (3080)  Elasticsearch (9200)</p>
+</blockquote>
+<h3 id="vms-and-storage">VMs and Storage</h3>
+<p>You have two options:</p>
+<ul>
+<li><strong>Use the default infrastructure template</strong>: This requires no further action.  </li>
+<li><strong>Add your own custom infrastructure template</strong>: Use this option if you have specific infrastructure requirements. A typical setup may combine multiple templates in a cluster for the different types of nodes. For example you may want to attach multiple large disks to the data nodes or have memory optimized instances for Spark nodes. </li>
+</ul>
+<h4 id="default-template">Default Template</h4>
+<p>Cloudbreak includes one pre-defined infrastructure template called <em>minviable-azure</em>, which is used by default when creating a cluster. You can see it in the <strong>manage templates</strong> tab. The configuration is:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>minviable-azure</td>
+</tr>
+<tr>
+<td>VM Type</td>
+<td>Standard_D4</td>
+</tr>
+<tr>
+<td>Volume Type</td>
+<td>Locally-redundant storage</td>
+</tr>
+<tr>
+<td>Attached Volumes Per Instance</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Volume Size (GB)</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<h4 id="add-custom-template">Add Custom Template</h4>
+<p>You can define reusable cluster templates in the <strong>manage templates</strong> tab: </p>
+<ol>
+<li>
+<p>Click on <strong>+create template</strong>.</p>
+</li>
+<li>
+<p>Provide required parameters: </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Enter a name for your configuration.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>(Optional) Enter a description.</td>
+</tr>
+<tr>
+<td>Instance Type</td>
+<td>Select a VM type. For more information about instance types on Azure refer to <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general">Azure documentation</a>.</td>
+</tr>
+<tr>
+<td>Volume Type</td>
+<td><p>Select the volume type. The options are:<ul><li>Locally-redundant storage</li><li>Geo-redundant storage</li><li>Premium locally-redundant storage</li></ul> For more information about these options refer to <a href="https://docs.microsoft.com/en-us/azure/storage/storage-introduction" target="_blank">Azure documentation</a>.</td>
+</tr>
+<tr>
+<td>Attached Volumes Per Instance</td>
+<td>Enter the number of volumes attached per instance. Default is 1.</td>
+</tr>
+<tr>
+<td>Managed disk</td>
+<td>Select whether to use managed or unmanaged disk. Only "Locally-redundant storage" volume type is supported for managed disks. Disk sizes will be rounded as described in <a href="https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing">Azure documentation</a>. For more information on managed disks refer to <a href="https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview">Azure documentation</a>.</td>
+</tr>
+<tr>
+<td>Volume Size (GB)</td>
+<td>Enter the size in GBs for each volume. Default is 100.</td>
+</tr>
+<tr>
+<td>Public In Account</td>
+<td>(Optional) If this option is checked, all the users belonging to your account will be able to use this template to create clusters, but they cannot delete it.</td>
+</tr>
+<tr>
+<td>Select Platform</td>
+<td>(Optional) Select a previously created platform.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click on <strong>+create template</strong>.</p>
+<p>No resources will be created until you create a cluster using this configuration.</p>
+</li>
+</ol>
+<h3 id="blueprints">Blueprints</h3>
+<p>You have two options:</p>
+<ul>
+<li>Use one of the pre-defined blueprints.  </li>
+<li>Copy and edit one of the pre-defined blueprints.   </li>
+<li>Add your custom blueprint by uploading a JSON file or pasting the JSON text.  </li>
+</ul>
+<p><a href="https://raw.githubusercontent.com/sequenceiq/cloudbreak/master/integration-test/src/main/resources/blueprint/multi-node-hdfs-yarn.bp">Here</a> is an example of a blueprint. </p>
+<p>The host groups in the JSON will be mapped to a set of instances when starting the cluster, and the specified services and components will be installed on the corresponding nodes. It is not necessary to define a complete configuration in the blueprint. If a configuration is missing, Ambari will fill that with a default value. </p>
+<p>A blueprint can be modified later from the Ambari UI.</p>
+<p>A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, some configurations are hardcoded for example domain names, memory configurations, and so on, that won't be applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually.</p>
+<h4 id="default-blueprints">Default Blueprints</h4>
+<p>Cloudbreak includes three default HDP cluster blueprints:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Services</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hdp-small-default</td>
+<td>Launch a multi-node HDP 2.4 cluster.</td>
+<td>HDFS, YARN, MAPREDUCE2, KNOX, HBASE, HIVE, HCATALOG, WEBHCAT, SLIDER, OOZIE, PIG, SQOOP, METRICS, TEZ, FALCON, ZOOKEEPER</td>
+<td><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-small-default.bp">hdp-small-default.bp</a></td>
+</tr>
+<tr>
+<td>hdp-streaming-cluster</td>
+<td>Launch a multi-node HDP 2.4 cluster optimized for streaming.</td>
+<td>HDFS, YARN, MAPREDUCE2, STORM, KNOX, HBASE, HIVE, HCATALOG, WEBHCAT, SLIDER, OOZIE, PIG, SQOOP, METRICS, TEZ, FALCON, ZOOKEEPER</td>
+<td><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-streaming-cluster.bp">hdp-streaming-cluster.bp</a></td>
+</tr>
+<tr>
+<td>hdp-spark-cluster</td>
+<td>Launch a multi-node HDP 2.4 cluster optimized for Spark analytic jobs.</td>
+<td>HDFS, YARN, MAPREDUCE2, SPARK, ZEPPELIN, KNOX, HBASE, HIVE, HCATALOG, WEBHCAT, SLIDER, OOZIE, PIG, SQOOP, METRICS, TEZ, FALCON, ZOOKEEPER</td>
+<td><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-spark-cluster.bp">hdp-spark-cluster.bp</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="copy-and-edit-existing-blueprint">Copy and Edit Existing Blueprint</h4>
+<p>You can modify default or previously added blueprints in the <strong>manage blueprints</strong> tab. To do that, expand the entry in the Cloudbreak UI and then click <strong>copy &amp; edit</strong>. </p>
+<h4 id="add-custom-blueprint">Add Custom Blueprint</h4>
+<p>You can define reusable blueprints for your clusters in the <strong>manage blueprints</strong> tab. To add your own blueprint, click <strong>+create blueprint</strong> and enter the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Enter a name for your blueprint.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>(Optional) Enter a description for your blueprint.</td>
+</tr>
+<tr>
+<td>Blueprint Source</td>
+<td><p>Select one of: <ul><li><strong>Text</strong>: Paste blueprint in JSON format.</li><li> <strong>File</strong>: Upload a file that contains the blueprint.</li><li> <strong>URL</strong>: Specify the URL for your blueprint.</li></ul></td>
+</tr>
+<tr>
+<td>Public In Account</td>
+<td>(Optional) If this option is checked, all the users belonging to your account will be able to use this blueprint to create clusters, but they cannot delete it.</td>
+</tr>
+</tbody>
+</table>
+<div class="next">
+<a href="../azure-create/index.html">Next: Create a Cluster</a>
+</div></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>© 2011-2017 <a href="http://www.hortonworks.com" target="_blank">Hortonworks Inc</a>. All Rights Reserved. | <a href="http://hortonworks.com/privacy-policy/" target="_blank">Privacy Policy</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
