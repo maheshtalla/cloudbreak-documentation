@@ -501,8 +501,6 @@
             
                 <li class="third-level"><a href="#iptables">Iptables</a></li>
             
-                <li class="third-level"><a href="#docker-service">Docker Service</a></li>
-            
         
             <li class="second-level"><a href="#install-cloudbreak-on-your-own-vm">Install Cloudbreak on Your Own VM</a></li>
             
@@ -565,35 +563,6 @@ iptables --flush FORWARD && \
 service iptables save
 </pre>
 
-<h4 id="docker-service">Docker Service</h4>
-<p>Configure a custom Docker repository for installing the correct version of Docker:</p>
-<pre>
-cat > /etc/yum.repos.d/docker.repo <<"EOF"
-[dockerrepo]
-name=Docker Repository
-baseurl=https://yum.dockerproject.org/repo/main/centos/7
-enabled=1
-gpgcheck=1
-gpgkey=https://yum.dockerproject.org/gpg
-EOF
-</pre>
-
-<p>Next, install the Docker service:</p>
-<pre>
-yum install -y docker-engine-1.9.1 docker-engine-selinux-1.9.1  
-systemctl start docker  
-systemctl enable docker
-</pre>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Docker is already mentioned in System requirements. But it looks like these commands install docker?</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <h3 id="install-cloudbreak-on-your-own-vm">Install Cloudbreak on Your Own VM</h3>
 <p>Install Cloudbreak using the following steps"</p>
 <ol>
@@ -602,15 +571,6 @@ systemctl enable docker
 <p><pre>yum -y install unzip tar
 curl -Ls s3.amazonaws.com/public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_1.16.1_$(uname)_x86_64.tgz | sudo tar -xz -C /bin cbd
 cbd --version</pre></p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: I think the content above is generated automativally.</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <p>Once the Cloudbreak Deployer is installed, you can set up the Cloudbreak application.</p>
 </li>
 <li>
@@ -653,18 +613,9 @@ cbd start</pre></p>
 </ol>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <h4 id="cbd-cannot-get-vms-public-ip">Cbd Cannot Get VM's Public IP</h4>
-<p>By default the <code>cbd</code> tool tries to get the VM's public IP to bind Cloudbreak UI to it. But if <code>cbd</code> cannot get the IP address during the initialization, set the appropriate value in the <code>Profile</code> file using the <code>PUBLIC_IP</code> variable. For example: </p>
+<p>By default the <code>cbd</code> tool tries to get the VM's public IP to bind Cloudbreak UI to it. But if <code>cbd</code> cannot get the IP address during the initialization, you must set it manually. Check your <code>Profile</code> and if <code>PUBLIC_IP</code> is not set, add the <code>PUBLIC_IP</code> variable and set it to the public IP of the VM. For example: </p>
 <pre>export PUBLIC_IP=192.134.23.10</pre>
 
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: How would I know that cbd cannot get the public IP? </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <h4 id="permission-or-connection-problems">Permission or Connection Problems</h4>
 <p>If you face permission or connection issues, disable SELinux:</p>
 <ol>
@@ -675,15 +626,6 @@ cbd start</pre></p>
 <p><presetenforce 0 && sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/ selinux/config</pre></p>
 </li>
 </ol>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Can this be an issue when using pre-built images?</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <h3 id="next-steps">Next Steps</h3>
 <p>Follow the platform-specific instructions. Make sure to review the prerequisites for creating a Cloudbreak credential and then log in to the Cloudbreak web UI and create a credential for Cloubdreak.</p>
 <ul>
