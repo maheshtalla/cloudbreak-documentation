@@ -507,8 +507,26 @@
 
 <h2 id="accessing-data-on-s3">Accessing Data on S3</h2>
 <h4 id="prerequisites">Prerequisites</h4>
+<p>To use S3 storage, you must have one or more S3 buckets on your AWS account. For instructions on how to create a bucket on S3, refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">AWS documentation</a>.</p>
 <h4 id="configuring-access-to-s3">Configuring Access to S3</h4>
+<p>Amazon S3 is not supported as a default file system, but access to data in S3 from your cluster VMs can be automatically configured through attaching an instance profile allowing access to S3. You can optionally create or attach an existing instance profile during <a href="../aws-create/index.html#choose-blueprint">cluster creation</a>, on the <strong>Choose Blueprint</strong> page. </p>
 <h4 id="access-path">Access Path</h4>
+<p>Amazon S3 access path syntax is:</p>
+<pre>s3a://<bucket>/<dir>/<file></pre>
+
+<p>For example, to access a file called "mytestfile" in a directory called "mytestdir", which is stored in a bucket called "mytestbucket", the URL is:</p>
+<pre>s3a://mytestbucket/mytestdir/mytestfile</pre>
+
+<p>The following FileSystem shell commands demonstrate access to a bucket named "mytestbucket": </p>
+<pre>hadoop fs -ls s3a://mytestbucket/
+
+hadoop fs -mkdir s3a://mytestbucket/testDir
+
+hadoop fs -put testFile s3a://mytestbucket/testFile
+
+hadoop fs -cat s3a://mytestbucket/testFile
+test file content</pre>
+
 <h3 id="learn-more">Learn More</h3>
 <p>For more information about configuring the S3 connector and working with data stored on S3, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p></div>
         

@@ -566,7 +566,7 @@
 </code></pre>
 
 <p>You can obtain your access key from the Access keys in your storage account settings.</p>
-<p>Alternatively, it is possible to configure <code>fs.defaultFS</code> to use a wasb or wasbs URL. This causes all bare paths, such as /testDir/testFile to resolve automatically to that file system.</p>
+<p>Alternatively, it is possible, although not recommended or supported, to configure <code>fs.defaultFS</code> to use a wasb or wasbs URL. This causes all bare paths, such as /testDir/testFile to resolve automatically to that file system.</p>
 <h4 id="access-path_1">Access Path</h4>
 <p>WASB access path syntax is:</p>
 <pre>wasb://<b>container_name</b>@<b>storage_account_name</b>.blob.core.windows.net/<b>dir/file</b></pre>
@@ -576,6 +576,16 @@
 
 <p>You can also use "wasbs" prefix to utilize SSL-encrypted HTTPS access:</p>
 <pre>wasbs://<container_name>@<storage_account_name>.blob.core.windows.net/dir/file</pre>
+
+<p>The following Hadoop FileSystem shell commands demonstrate access to a storage account named "myaccount" and a container named "mycontainer":</p>
+<pre>hadoop fs -ls wasb://mycontainer@myaccount.blob.core.windows.net/
+
+hadoop fs -mkdir wasb://mycontainer@myaccount.blob.core.windows.net/testDir
+
+hadoop fs -put testFile wasb://mycontainer@myaccount.blob.core.windows.net/testDir/testFile
+
+hadoop fs -cat wasb://mycontainer@myaccount.blob.core.windows.net/testDir/testFile
+test file content</pre>
 
 <h3 id="learn-more">Learn More</h3>
 <p>For more information about configuring the ADLS and WASB connectors and working with data stored in ADLS and WASB, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p></div>

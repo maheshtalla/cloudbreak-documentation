@@ -527,23 +527,15 @@
 <p>Once you log in to your GCP account, you must either create a project or use an existing project. </p>
 <h4 id="service-account">Service Account</h4>
 <p>In order to launch clusters on GCP via Cloudbreak, you must have a Service Account that Cloudbreak can use to create resources. In addition, you must also have a P12 key associated with the account. If you need to create these, refer to <a href="https://cloud.google.com/storage/docs/authentication#service_accounts">GCP documentation</a> on how to create a service account and generate a P12 key. </p>
-<p>Once you have the service account that you want to use for Cloudbreak, make sure that your service account fulfills one of the following: </p>
+<p>Once you have the service account that you want to use for Cloudbreak, make sure that your service account fulfills one of the following APIs are enabled for your service account:</p>
 <ul>
-<li>The "Editor" role is enabled for your service account, or</li>
-<li>
-<p>The following APIs are enabled for your service account:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Need an updated list. </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
+<li>Compute Image User   </li>
+<li>Compute Instance Admin (v1)  </li>
+<li>Compute Network Admin  </li>
+<li>Compute Security Admin  </li>
 </ul>
-<p>A user with an "Owner" role can assign roles or access rules to service accounts from <strong>IAM &amp; Admin</strong> &gt; <strong>IAM</strong>. </p>
+<p>A user with an "Owner" role can assign roles or access rules to service accounts from <strong>IAM &amp; Admin</strong> &gt; <strong>IAM</strong>. For example:</p>
+<p><a href="../images/gcp-iam.png" target="_blank" title="click to enlarge"><img src="../images/gcp-iam.png" width="650" title="GCP Console"></a> </p>
 <h4 id="vpc-network">VPC Network</h4>
 <p>When launching Cloudbreak, you will be required to select an existing network in which Cloudbreak can be placed. The following ports must be open on the security group: 22 (SSH) and 443 (HTTPS). You may use the <em>default</em> network as long as the aforementioned ports are open. </p>
 <p>You can manage networks under <strong>Networking</strong> &gt; <strong>VPC Networks</strong>. To edit ports, click on the network name and then click on <strong>Add firewall rules</strong>.</p>

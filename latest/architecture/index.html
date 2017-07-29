@@ -495,6 +495,8 @@
         
             <li class="second-level"><a href="#cloudbreak-application-architecture">Cloudbreak Application Architecture</a></li>
             
+                <li class="third-level"><a href="#saltstack">SaltStack</a></li>
+            
         
             <li class="second-level"><a href="#cloud-resources-used">Cloud Resources Used</a></li>
             
@@ -505,6 +507,7 @@
         <div class="col-md-9" role="main">
 
 <h2 id="architecture">Architecture</h2>
+<p><strong>Cloudbreak deployer</strong> installs Cloudbreak components on your AWS VM. Once these components are deployed, you can use <strong>Cloudbreak application</strong> to create, manage, and monitor clusters. </p>
 <h3 id="cloudbreak-deployer-architecture">Cloudbreak Deployer Architecture</h3>
 <p>Cloudbreak deployer includes the following components:</p>
 <table>
@@ -549,7 +552,7 @@
 <p>Cloudbreak deployer includes the following system-level containers:</p>
 <ul>
 <li>Consul: Cloudbreak service registry  </li>
-<li>Registrator: automatically registers/unregisters containers with consul </li>
+<li>Registrator: Automatically registers/unregisters containers with consul </li>
 <li>Database: Database container for cloudbreak, autoscaling, and UAA  </li>
 <li>Traefik: Proxy container </li>
 </ul>
@@ -568,17 +571,9 @@
 </ul>
 <p>The use of blueprints and templates is illustrated in the following image:</p>
 <p><a href="../images/templates-and-blueprints2.png" target="_blank" title="click to enlarge"><img src="../images/templates-and-blueprints2.png" width="550" title="How Cloudbreak uses templates and blueprints"></a> </p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Is this correct?  </p>
-<p>TO-DO: What is the role of Salt and how is it related to Cloudbreak application? </p>
-<p>"Salt manages complex systems at scale. Salt can be used for data-driven orchestration, remote execution for any infrastructure, configuration management for any app stack, and more."</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<h4 id="saltstack">SaltStack</h4>
+<p>Under the hood, Cloudbreak uses SaltStack to manage nodes of the cluster, install packages, change configuration files, and execute recipes. 
+By default Salt master is installed on the same node where Ambari server is installed.  </p>
 <h3 id="cloud-resources-used">Cloud Resources Used</h3>
 <p>Cloubbreak and clusters deployed by it run in your cloud infrastructure. In general, Cloudbreak uses the following types of cloud resources provisioned on your cloud account:</p>
 <table>
@@ -589,6 +584,7 @@
 <th>AWS</th>
 <th>Azure</th>
 <th>GCP</th>
+<th>OpenStack</th>
 </tr>
 </thead>
 <tbody>
@@ -598,6 +594,7 @@
 <td><a href="https://aws.amazon.com/documentation/ec2/">Amazon EC2</a></td>
 <td><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Virtual machines</a></td>
 <td><a href="https://cloud.google.com/compute/docs/">Compute Engine</a></td>
+<td>????</td>
 </tr>
 <tr>
 <td><em>Network and Security</em></td>
@@ -605,6 +602,7 @@
 <td><a href="https://aws.amazon.com/documentation/vpc/">Amazon VPC</a></td>
 <td><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview">Virtual network</a></td>
 <td><a href="https://cloud.google.com/compute/docs/vpc/">Virtual Private Cloud</a></td>
+<td>????</td>
 </tr>
 <tr>
 <td><em>Access Control</em></td>
@@ -612,12 +610,14 @@
 <td>AWS IAM</td>
 <td>Active Directory</td>
 <td>IAM</td>
+<td>????</td>
 </tr>
 <tr>
 <td><em>Resource Management</em></td>
 <td>Cloudbreak uses a designated cloud service to create and manage a collection of related AWS resources.</td>
 <td>AWS CloudFormation</td>
 <td>Resource Groups</td>
+<td>????</td>
 <td>????</td>
 </tr>
 <tr>
@@ -626,6 +626,7 @@
 <td>Amazon S3</td>
 <td>ADLS and <a href="https://docs.microsoft.com/en-us/azure/storage/storage-introduction">WASB</a></td>
 <td>Google Cloud Storage</td>
+<td>????</td>
 </tr>
 </tbody>
 </table>

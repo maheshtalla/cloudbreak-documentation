@@ -531,8 +531,7 @@
 </ul>
 <p>The <strong>infrastructure templates</strong> for resources such as <strong>networks</strong>, <strong>security groups</strong>, and <strong>VMs and storage</strong> are saved to Cloudbreak's database and can be reused with multiple clusters to describe the infrastructure. When you add these resources in Cloudbreak web UI, Cloudbreak does not make any requests to your cloud provider account. Resources are only created on your cloud provider account after the create cluster button has been pushed. </p>
 <p>Similarly, <strong>blueprints</strong> are saved to Cloudbreak's database and can be reused with multiple clusters to describe the cluster components.</p>
-<p>This is illustrated in the following image: </p>
-<p><a href="../images/templates-and-blueprints.png" target="_blank" title="click to enlarge"><img src="../images/templates-and-blueprints.png" width="550" title="How Cloudbreak uses templates and blueprints"></a> </p>
+<p>This is illustrated and further explained in the <a href="../architecture/index.html#cloudbreak-application-architecture">Architecture</a> documentation.</p>
 <p>You can add infrastructure templates and blueprints after expanding their corresponding panes in the Cloudbreak web UI (shown in the screenshot) as described in the documentation below.  </p>
 <p><a href="../images/cb-reusable-configs.png" target="_blank" title="click to enlarge"><img src="../images/cb-reusable-configs.png" width="650" title="Azure Portal"></a> </p>
 <p>The following table describes the basic configurations for which you must create custom tempalates:</p>
@@ -603,7 +602,7 @@
 </tr>
 <tr>
 <td>Subnet (CIDR)</td>
-<td>A valid CIDR notation e.g. 10.0.0.0/24. Define the IP address space usable by your VMs within the cluster. Cloudbreak supports the private address space defined in <a href="https://tools.ietf.org/html/rfc1918">RFC1918</a>.</td>
+<td>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR</a> for a new subnet that will be created within the VPC. For example <code>10.0.0.0/24</code>. This defines the IP address space usable by your VMs within the cluster. Cloudbreak supports the private address space defined in <a href="https://tools.ietf.org/html/rfc1918">RFC1918</a>.</td>
 </tr>
 <tr>
 <td>Floating Pool ID</td>
@@ -654,7 +653,7 @@
 </tr>
 <tr>
 <td>Subnet (CIDR)</td>
-<td>A valid CIDR notation e.g. 10.0.0.0/24</td>
+<td>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR</a> for a new subnet that will be created within the VPC. For example <code>10.0.0.0/24</code>.</td>
 </tr>
 <tr>
 <td>Floating Pool ID</td>
