@@ -722,7 +722,7 @@
 </tr>
 <tr>
 <td>Allow connections to the cloud controller from this address range or <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg#default-tags">default tag</a></td>
-<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or enter <code>INTERNET</code>. For example: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>INTERNET will allow access from all.</li><li>VIRTUAL_NETWORK and LOAD_BALANCER are currently not supported.</li></ul></p></td>
+<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or enter <code>Internet</code>. For example: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all.</li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg#default-tags">Azure documentation</a>.</p></td>
 </tr>
 <tr>
 <td>Enable SmartSense</td>
