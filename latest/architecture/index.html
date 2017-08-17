@@ -514,12 +514,14 @@
         
             <li class="second-level"><a href="#cloudbreak-deployer-architecture">Cloudbreak Deployer Architecture</a></li>
             
-                <li class="third-level"><a href="#system-level-containers">System Level Containers</a></li>
+        
+            <li class="second-level"><a href="#system-level-containers">System Level Containers</a></li>
             
         
             <li class="second-level"><a href="#cloudbreak-application-architecture">Cloudbreak Application Architecture</a></li>
             
-                <li class="third-level"><a href="#saltstack">SaltStack</a></li>
+        
+            <li class="second-level"><a href="#saltstack">SaltStack</a></li>
             
         
             <li class="second-level"><a href="#cloud-resources-used">Cloud Resources Used</a></li>
@@ -571,7 +573,7 @@
 <blockquote>
 <p>These component names are used in Cloudbreak logs, so for troubleshooting purposes it is useful to know what they refer to.</p>
 </blockquote>
-<h4 id="system-level-containers">System Level Containers</h4>
+<h3 id="system-level-containers">System Level Containers</h3>
 <p>Cloudbreak deployer utilizes <strong>containerization</strong> - also known as container-based virtualization or application containerization - which is an OS-level virtualization method for deploying and running distributed applications. </p>
 <p>Cloudbreak deployer includes the following system-level containers:</p>
 <ul>
@@ -595,7 +597,7 @@
 </ul>
 <p>The use of blueprints and templates is illustrated in the following image:</p>
 <p><a href="../images/templates-and-blueprints2.png" target="_blank" title="click to enlarge"><img src="../images/templates-and-blueprints2.png" width="550" title="How Cloudbreak uses templates and blueprints"></a> </p>
-<h4 id="saltstack">SaltStack</h4>
+<h3 id="saltstack">SaltStack</h3>
 <p>Under the hood, Cloudbreak uses SaltStack to manage nodes of the cluster, install packages, change configuration files, and execute recipes. 
 By default Salt master is installed on the same node where Ambari server is installed.  </p>
 <h3 id="cloud-resources-used">Cloud Resources Used</h3>
