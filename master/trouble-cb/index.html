@@ -560,23 +560,23 @@
             
                 <li class="third-level"><a href="#quota-limitations">Quota Limitations</a></li>
             
+                <li class="third-level"><a href="#connection-timeout-ports-not-open">Connection Timeout: Ports Not Open</a></li>
+            
                 <li class="third-level"><a href="#blueprints-invalid-services-and-configurations">Blueprints: Invalid Services and Configurations</a></li>
             
                 <li class="third-level"><a href="#blueprints-high-availability">Blueprints: High Availability</a></li>
             
                 <li class="third-level"><a href="#blueprints-wrong-hdp-version">Blueprints: Wrong HDP Version</a></li>
             
-                <li class="third-level"><a href="#connection-timeout-ports-not-open">Connection Timeout: Ports Not Open</a></li>
-            
                 <li class="third-level"><a href="#recipes-recipe-execution-times-out">Recipes: Recipe Execution Times Out</a></li>
             
                 <li class="third-level"><a href="#recipes-recipe-execution-fails">Recipes: Recipe Execution Fails</a></li>
             
-                <li class="third-level"><a href="#changing-amari-credentials">Changing Amari Credentials</a></li>
+                <li class="third-level"><a href="#invalid-public_ip-in-cbd-profile">Invalid PUBLIC_IP in CBD Profile</a></li>
             
                 <li class="third-level"><a href="#changing-properties-in-the-cloudbreak-profile-file">Changing Properties in the Cloudbreak Profile File</a></li>
             
-                <li class="third-level"><a href="#invalid-public_ip-in-cbd-profile">Invalid PUBLIC_IP in CBD Profile</a></li>
+                <li class="third-level"><a href="#changing-amari-credentials">Changing Amari Credentials</a></li>
             
         
     
@@ -661,6 +661,13 @@
 <li><a href="https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits">Azure subscription and service limits, quotas, and constraints</a></li>
 <li><a href="https://cloud.google.com/compute/quotas">GCP Resource Quotas</a> </li>
 </ul>
+<h4 id="connection-timeout-ports-not-open">Connection Timeout: Ports Not Open</h4>
+<p>In the cluster installation wizard, you must specify on which node you want to run the Ambari server. Cloudbreak communicates with this node to orchestrate the installation.</p>
+<p>A common reason for connection timeout is security group misconfiguration. Cloudbreak allows configuring different security groups for the different instance groups; however, there are certain requirements for the Ambari server node. Specifically, the following ports must be open in order to communicate with that node:</p>
+<ul>
+<li>22 (SSH)  </li>
+<li>9443 (two-way-ssl through nginx) </li>
+</ul>
 <h4 id="blueprints-invalid-services-and-configurations">Blueprints: Invalid Services and Configurations</h4>
 <p>Ambari blueprints are a declarative definition of a cluster. With a blueprint, you specify a stack, the component layout, and the configurations to materialize a Hadoop cluster instance via a REST API without having to use the Ambari cluster install wizard. </p>
 <p>Cloudbreak supports any type of blueprints, which is a common source of errors. These errors are only visible once the core infrastructure is up and running and Cloudbreak tries to initiate the cluster installation through Ambari. Ambari validates the blueprint and  rejects it if it's invalid. </p>
@@ -684,13 +691,6 @@
 {stack='null'; utils='null'}
 . Error: org.apache.ambari.server.controller.spi.NoSuchResourceException: The specified resource doesn't exist: Stack data, Stack HDP 2.6.0.3 is not found in Ambari metainfo</code></p>
 <p>For correct blueprint layout, refer to the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> page.</p>
-<h4 id="connection-timeout-ports-not-open">Connection Timeout: Ports Not Open</h4>
-<p>In the cluster installation wizard, you must specify on which node you want to run the Ambari server. Cloudbreak communicates with this node to orchestrate the installation.</p>
-<p>A common reason for connection timeout is security group misconfiguration. Cloudbreak allows configuring different security groups for the different instance groups; however, there are certain requirements for the Ambari server node. Specifically, the following ports must be open in order to communicate with that node:</p>
-<ul>
-<li>22 (SSH)  </li>
-<li>9443 (two-way-ssl through nginx)   </li>
-</ul>
 <h4 id="recipes-recipe-execution-times-out">Recipes: Recipe Execution Times Out</h4>
 <p>If the scripts are taking too much time to execute, the processes will time out, as the threshold for this is set to 15 minutes. To change this threashold, you must override the default value by adding the following to the cbd Profile file:</p>
 <blockquote>
@@ -716,19 +716,9 @@
 <h4 id="recipes-recipe-execution-fails">Recipes: Recipe Execution Fails</h4>
 <p>It often happens that a script cannot be executed successfully because there are typos or errors in the script. To verify this you can check the recipe logs at
 <code>/var/log/recipes</code>. For each script, there will be a separate log file with the name of the script that you provided on the Cloudbreak UI.</p>
-<h4 id="changing-amari-credentials">Changing Amari Credentials</h4>
-<p>In Cloudbreak versions earlier than 1.14 it is not possible to change the password in the Ambari UI. That is, if you change the admin credentials in the Ambari UI, Cloudbreak is no longer able to orchestrate Ambari. To change the password, you must use the Cloudbreak UI. </p>
-<p>Cloudbreak 1.14 and later creates a new admin user in Ambari, so it’s safe to change the credentials of the admin user. This credential can also be changed in the cluster installation wizard.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Can you clarify this? In the first paragraph (Cloudbreak &lt; 1.14) you talk about users being unable to change password and then changing credentials. Do you just mean password or also admin user name? 
-TO-DO: In the second paragraph (Cloudbreak &gt;=1.14), are we talking about the password or also user name? </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<h4 id="invalid-public_ip-in-cbd-profile">Invalid PUBLIC_IP in CBD Profile</h4>
+<p>The <code>PUBLIC_IP</code> property must be set in the cbd Profile file or else you won’t be able to log in on the Cloudbreak UI. </p>
+<p>If you are migrating your instance, make sure that after the start the IP remains valid. If you need to edit the <code>PUBLIC_IP</code> property in Profile, make sure to restart Cloudbreak using <code>cbd restart</code>.</p>
 <h4 id="changing-properties-in-the-cloudbreak-profile-file">Changing Properties in the Cloudbreak Profile File</h4>
 <p>There are many properties that can be changed in the Cloudbreak application. These values must be changed in the Cloudbreak <code>Profil</code>e file. To see all possible options, use the following command:
 <code>cbd env show</code>.</p>
@@ -748,9 +738,19 @@ TO-DO: In the second paragraph (Cloudbreak &gt;=1.14), are we talking about the 
 <p><code>cbd regenerate</code> regenerates the Docker compose file
 <code>cbd kill</code> removes all Docker containers (there is no stop command for this).
 <code>cbd start</code> starts the application with the new compose file.</p>
-<h4 id="invalid-public_ip-in-cbd-profile">Invalid PUBLIC_IP in CBD Profile</h4>
-<p>The <code>PUBLIC_IP</code> property must be set in the cbd Profile file or else you won’t be able to log in on the Cloudbreak UI. </p>
-<p>If you are migrating your instance, make sure that after the start the IP remains valid. If you need to edit the <code>PUBLIC_IP</code> property in Profile, make sure to restart Cloudbreak using <code>cbd restart</code>.</p></div>
+<h4 id="changing-amari-credentials">Changing Amari Credentials</h4>
+<p>In Cloudbreak versions earlier than 1.14 it is not possible to change the password in the Ambari UI. That is, if you change the admin credentials in the Ambari UI, Cloudbreak is no longer able to orchestrate Ambari. To change the password, you must use the Cloudbreak UI. </p>
+<p>Cloudbreak 1.14 and later creates a new admin user in Ambari, so it’s safe to change the credentials of the admin user. This credential can also be changed in the cluster installation wizard.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Can you clarify this? In the first paragraph (Cloudbreak &lt; 1.14) you talk about users being unable to change password and then changing credentials. Do you just mean password or also admin user name? 
+TO-DO: In the second paragraph (Cloudbreak &gt;=1.14), are we talking about the password or also user name? </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote></div>
         
     </div>
 
