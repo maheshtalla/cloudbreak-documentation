@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/trouble/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/trouble-azure/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Troubleshooting - Cloudbreak</title>
+    <title>Troubleshooting Azure - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -432,9 +432,42 @@
 
                         
                             
-<li class="active">
-    <a href="index.html">Troubleshooting</a>
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Troubleshooting</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../trouble-cb/index.html">General Troubleshooting</a>
 </li>
+
+        
+            
+<li >
+    <a href="../trouble-aws/index.html">Troubleshooting AWS</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="index.html">Troubleshooting Azure</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-gcp/index.html">Troubleshooting GCP</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-os/index.html">Troubleshooting OpenStack</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -480,12 +513,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../faq/index.html">
+                        <a rel="next" href="../trouble-aws/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../get-help/index.html">
+                        <a rel="prev" href="../trouble-gcp/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -510,7 +543,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#troubleshooting">Troubleshooting</a></li>
+        <li class="first-level active"><a href="#troubleshooting-cloudbreak-on-azure">Troubleshooting Cloudbreak on Azure</a></li>
         
             <li class="second-level"><a href="#credential-creation-errors">Credential Creation Errors</a></li>
             
@@ -528,7 +561,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h2 id="troubleshooting-cloudbreak-on-azure">Troubleshooting Cloudbreak on Azure</h2>
 <h3 id="credential-creation-errors">Credential Creation Errors</h3>
 <h4 id="role-already-exists">Role already exists</h4>
 <p><strong>Symptom</strong>: You specified that you want to create a new role for Cloudbreak credential, but an existing role with the same name already exists in Azure.</p>

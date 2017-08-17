@@ -432,9 +432,42 @@
 
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Troubleshooting</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../trouble/index.html">Troubleshooting</a>
+    <a href="../trouble-cb/index.html">General Troubleshooting</a>
 </li>
+
+        
+            
+<li >
+    <a href="../trouble-aws/index.html">Troubleshooting AWS</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-azure/index.html">Troubleshooting Azure</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-gcp/index.html">Troubleshooting GCP</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-os/index.html">Troubleshooting OpenStack</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -514,6 +547,10 @@
         
             <li class="second-level"><a href="#default-blueprints">Default Blueprints</a></li>
             
+                <li class="third-level"><a href="#hdp-version-hdp-26">HDP Version: HDP 2.6</a></li>
+            
+                <li class="third-level"><a href="#hdp-version-hdp-25">HDP Version: HDP 2.5</a></li>
+            
         
             <li class="second-level"><a href="#copy-and-edit-existing-blueprint">Copy and Edit Existing Blueprint</a></li>
             
@@ -542,36 +579,94 @@
 <p>A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, some configurations are hardcoded for example domain names, memory configurations, and so on, that won't be applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually.</p>
 <h3 id="default-blueprints">Default Blueprints</h3>
 <p>Cloudbreak includes three default HDP cluster blueprints:</p>
+<h4 id="hdp-version-hdp-26">HDP Version: <strong>HDP 2.6</strong></h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
-<th>Services</th>
-<th>Source</th>
+<th align="left">Cluster Type</th>
+<th align="left">Services</th>
+<th align="left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>hdp-small-default</td>
-<td>Launch a multi-node HDP 2.4 cluster.</td>
-<td>HDFS, YARN, MAPREDUCE2, KNOX, HBASE, HIVE, HCATALOG, WEBHCAT, SLIDER, OOZIE, PIG, SQOOP, METRICS, TEZ, FALCON, ZOOKEEPER</td>
-<td><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-small-default.bp">hdp-small-default.bp</a></td>
+<td align="left">Data Science</td>
+<td align="left"><i class="fa fa-check" style="color: green"></i> Spark 1.6,<br>Zeppelin 0.7.0</td>
+<td align="left">This cluster configuration includes Spark 1.6 with Zeppelin.</td>
 </tr>
 <tr>
-<td>hdp-streaming-cluster</td>
-<td>Launch a multi-node HDP 2.4 cluster optimized for streaming.</td>
-<td>HDFS, YARN, MAPREDUCE2, STORM, KNOX, HBASE, HIVE, HCATALOG, WEBHCAT, SLIDER, OOZIE, PIG, SQOOP, METRICS, TEZ, FALCON, ZOOKEEPER</td>
-<td><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-streaming-cluster.bp">hdp-streaming-cluster.bp</a></td>
+<td align="left">Data Science</td>
+<td align="left"><i class="fa fa-check" style="color: green"></i> Spark 2.1,<br>Zeppelin 0.7.0</td>
+<td align="left">This cluster configuration includes Spark 2.1 with Zeppelin.</td>
 </tr>
 <tr>
-<td>hdp-spark-cluster</td>
-<td>Launch a multi-node HDP 2.4 cluster optimized for Spark analytic jobs.</td>
-<td>HDFS, YARN, MAPREDUCE2, SPARK, ZEPPELIN, KNOX, HBASE, HIVE, HCATALOG, WEBHCAT, SLIDER, OOZIE, PIG, SQOOP, METRICS, TEZ, FALCON, ZOOKEEPER</td>
-<td><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-spark-cluster.bp">hdp-spark-cluster.bp</a></td>
+<td align="left">EDW - Analytics</td>
+<td align="left"><span><i class="fa fa-check" style="color: green"></i> Hive 2 LLAP</span>,<br>Zeppelin 0.7.0</td>
+<td align="left">This cluster configuration includes Hive 2 LLAP.</td>
+</tr>
+<tr>
+<td align="left">EDW - ETL</td>
+<td align="left"><i class="fa fa-check" style="color: green"></i> Hive 1.2.1,<br>Spark 1.6</td>
+<td align="left">This cluster configuration includes Hive and Spark 1.6.</td>
+</tr>
+<tr>
+<td align="left">EDW - ETL</td>
+<td align="left"><i class="fa fa-check" style="color: green"></i> Hive 1.2.1,<br> Spark 2.1</td>
+<td align="left">This cluster configuration includes Hive and Spark 2.1.</td>
+</tr>
+<tr>
+<td align="left">BI</td>
+<td align="left"><span><i class="fa fa-warning" style="color: orange"></i> Druid 0.9.2</span></td>
+<td align="left">This cluster configuration includes a Technical Preview of Druid.</td>
 </tr>
 </tbody>
 </table>
+<h4 id="hdp-version-hdp-25">HDP Version: <strong>HDP 2.5</strong></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Cluster Type</th>
+<th align="left">Services</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Data Science</td>
+<td align="left"><i class="fa fa-check" style="color: green"></i> Spark 1.6,<br>Zeppelin 0.6.0</td>
+<td align="left">This cluster configuration includes Spark 1.6 and Zeppelin.</td>
+</tr>
+<tr>
+<td align="left">EDW - ETL</td>
+<td align="left"><i class="fa fa-check" style="color: green"></i> Hive 1.2.1,<br>Spark 1.6</td>
+<td align="left">This cluster configuration includes Hive and Spark 1.6.</td>
+</tr>
+<tr>
+<td align="left">EDW - ETL</td>
+<td align="left"><i class="fa fa-warning" style="color: orange"></i> Hive 1.2.1,<br> Spark 2.0</td>
+<td align="left">This cluster configuration includes a Technical Preview of Spark 2.0.</td>
+</tr>
+<tr>
+<td align="left">EDW - Analytics</td>
+<td align="left"><span><i class="fa fa-warning" style="color: orange"></i> Hive 2 LLAP</span>,<br>Zeppelin 0.6.0</td>
+<td align="left">This cluster configuration includes a Technical Preview of Hive 2 LLAP.</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+    <p class="first admonition-title">Choosing Your Configuration</p>
+    <p class="last">
+When creating a cluster, you can choose a more stable cluster configuration for a predicable experience.
+Alternatively, you can try the latest capabilities by choosing a cluster configuration
+that is much more experimental. The following configuration classification applies:
+<ul>
+<li><i class="fa fa-check" style="color: green"></i> Stable configurations are the best choice if you want to avoid issues and other problems with launching and using clusters.</li>
+<li><i class="fa fa-warning" style="color: orange"></i> If you want to use a Technical Preview version of a component in a release of HDP, use these configurations.</li>
+<li><i class="fa fa-warning" style="color: red"></i> These are the most cutting edge of the configurations, including Technical Preview components in a Technical Preview HDP release.</li>
+</ul>
+</p>
+</div>
+
 <h3 id="copy-and-edit-existing-blueprint">Copy and Edit Existing Blueprint</h3>
 <p>You can modify default or previously added blueprints in the <strong>manage blueprints</strong> tab. To do that, expand the entry in the Cloudbreak UI and then click <strong>copy &amp; edit</strong>. </p>
 <h3 id="add-custom-blueprint">Add Custom Blueprint</h3>
