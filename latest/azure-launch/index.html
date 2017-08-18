@@ -601,7 +601,11 @@
 <p>Decide in which Azure region you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://azure.microsoft.com/en-us/regions/">supported by Microsoft Azure</a>. </p>
 <p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it.</p>
 <h4 id="ssh-key-pair">SSH Key Pair</h4>
-<p>When launching Cloudbreak, you will be required to provide your public SSH key. If needed, you can generate a new SSH keypair using <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code></p>
+<p>When launching Cloudbreak, you will be required to provide your public SSH key. If needed, you can generate a new SSH keypair:</p>
+<ul>
+<li>On MacOS and Linux using <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code>  </li>
+<li>On Windows using <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows">puttgen</a></li>
+</ul>
 <h3 id="launch-cloudbreak">Launch Cloudbreak</h3>
 <p>You have two options to launch Cloudbreak on Azure:</p>
 <ul>
@@ -673,11 +677,7 @@
 </tr>
 <tr>
 <td>Remote Location</td>
-<td><p>Allow connections from this address range. Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or enter <code>INTERNET</code>. For example: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>INTERNET will allow access from all.</li><li>VIRTUAL_NETWORK and LOAD_BALANCER are currently not supported.</li></ul></p></td>
-</tr>
-<tr>
-<td>Ssh Key</td>
-<td><p>Paste your SSH public key.</p><p>You can use <code>pbcopy</code> to quickly copy it. For example: <code>pbcopy &lt; /Users/homedir/.ssh/id_rsa.pub</code></p></td>
+<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags such as  <code>Internet</code>. For example: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg#default-tags">Azure documentation</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -779,15 +779,15 @@
 </tr>
 <tr>
 <td>Allow connections to the cloud controller from this address range or <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg#default-tags">default tag</a></td>
-<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or enter <code>Internet</code>. For example: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all.</li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg#default-tags">Azure documentation</a>.</p></td>
+<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags such as  <code>Internet</code>. For example: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg#default-tags">Azure documentation</a>.</p></td>
 </tr>
 <tr>
 <td>Enable SmartSense</td>
-<td>(Optional) Select whether to enable SmartSense telemetry. Default is "I have read and opt-in to SmartSense telemetry. For more information about SmartSense, refer to the <a href="https://hortonworks.com/services/support/smartsense/">Hortonworks website</a>.</td>
+<td>(Optional) Select whether to enable SmartSense telemetry. Default is "I have read and opt-in to SmartSense telemetry. SmartSense provides product telemetry and usage information to Hortonworks. For more information, refer to the <a href="https://hortonworks.com/services/support/smartsense/">Hortonworks website</a>.</td>
 </tr>
 <tr>
 <td>Enter your existing SmartSenseID (if available). You must also opt-in to SmartSense telemetry above</td>
-<td>(Optional) Enter your existing SmartSenseID.</td>
+<td>(Optional) Enter your existing SmartSenseID. Use this option if you would like to use your Flex Support Subscription. For more information, refer to <a href="https://hortonworks.com/services/support/enterprise/">Enterprise Support SUbscriptions</a>.</td>
 </tr>
 <tr>
 <td>Virtual network</td>
@@ -852,6 +852,13 @@
 <ol>
 <li>
 <p>When your deployment succeeds, you will receive a notification in the top-right corner. Click on the notification to navigate to the deployed resource. </p>
+<blockquote>
+<p>This only works right after deployment. At other times, you can find your resource group by selecting <strong>Resource Groups</strong> from the service menu and then finding your resource group by name.</p>
+</blockquote>
+</li>
+<li>
+<p>Once you've navigated to your resource group, click on <strong>Deployments</strong> and then click on <strong>hortonworks.cloudbreal-for-hortonworks-data-platf-...</strong>:</p>
+<p><a href="../images/resource-find.png" target="_blank" title="click to enlarge"><img src="../images/resource-find.png" width="650" title="Azure Portal"></a> </p>
 </li>
 <li>
 <p>From <strong>Outputs</strong>, you can copy the link by clicking on the <img src="../images/copy-icon.png" width="30" title="Icon"> icon:</p>
@@ -859,7 +866,7 @@
 </li>
 <li>
 <p>Paste the link in your browser's address bar.</p>
-<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
+<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception. You can safely proceed to the website. </p>
 <table>
 <thead>
 <tr>
@@ -941,7 +948,7 @@
 </tr>
 <tr>
 <td>Select Platform</td>
-<td>(Optional) Select a platform (if previously configured).</td>
+<td>(Optional advanced option) Select a platform (if previously configured).</td>
 </tr>
 <tr>
 <td>Public In Account</td>
@@ -978,11 +985,11 @@
 <h4 id="create-an-app-based-credential">Create an App Based Credential</h4>
 <ol>
 <li>
-<p>On Azure Portal, navigate to the <strong>Azure Active Directory</strong> and register a new application:</p>
+<p>On Azure Portal, navigate to the <strong>Azure Active Directory</strong> &gt; <strong>App Registrations</strong> and register a new application:</p>
 <p><a href="../images/azure-appbased01.png" target="_blank" title="click to enlarge"><img src="../images/azure-appbased01.png" width="650" title="Azure Portal"></a></p>
 </li>
 <li>
-<p>Navigate to the <strong>Subscriptions</strong> and assign the "Contributor" role to your newly created application:</p>
+<p>Navigate to the <strong>Subscriptions</strong>, choose <strong>Access control (IAM)</strong>. Click <strong>Add</strong> and then assign the "Contributor" role to your newly created application by selecting "Contributor" under <strong>Role</strong> and your app name under <strong>Select</strong>:</p>
 <p><a href="../images/azure-appbased03.png" target="_blank" title="click to enlarge"><img src="../images/azure-appbased03.png" width="650" title="Azure Portal"></a>   </p>
 </li>
 <li>
@@ -1020,15 +1027,15 @@
 </tr>
 <tr>
 <td>App Id</td>
-<td>Copy and paste the Application ID from your <strong>Azure Active Directory</strong> app registration's <strong>Settings</strong> &gt; <strong>Properties</strong>.</td>
+<td>Copy and paste the Application ID from your <strong>Azure Active Directory</strong> &gt; <strong>App Registrations</strong> &gt; your app registration's <strong>Settings</strong> &gt; <strong>Properties</strong>.</td>
 </tr>
 <tr>
 <td>Password</td>
-<td>This is your application key. You can obtain it from your from your <strong>Azure Active Directory</strong> app registration's <strong>Settings</strong> &gt; <strong>Keys</strong>.</td>
+<td>This is your application key. You can generate it from your from your <strong>Azure Active Directory</strong> app registration's <strong>Settings</strong> &gt; <strong>Keys</strong>.</td>
 </tr>
 <tr>
 <td>App Owner Tenant Id</td>
-<td>Paste your App Owner Tenant Id. There are multiple ways to obtain it. For example, you can find it in the <em>PortalDiagnostics.json</em> file, which can be downloaded by clicking on <img src="../images/question-icon.png" width="30" title="Icon"> in the top-right corner and then selecting <strong>Show Diagnostics</strong>.</td>
+<td>Copy and paste your Directory ID from your <strong>Active Directory</strong> &gt; <strong>Properties</strong>.</td>
 </tr>
 <tr>
 <td>SSH Public Key</td>
@@ -1040,7 +1047,7 @@
 </tr>
 <tr>
 <td>Select Platform</td>
-<td>(Optional) Select a platform (if previously configured).</td>
+<td>(Optional advanced option) Select a platform (if previously configured).</td>
 </tr>
 <tr>
 <td>Public In Account</td>
@@ -1048,6 +1055,9 @@
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>If you are having trouble locating the parameters, refer to this <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Azure</a> documentation. </p>
+</blockquote>
 </li>
 <li>
 <p>Click <strong>Next</strong> and then <strong>Finish</strong>.</p>
