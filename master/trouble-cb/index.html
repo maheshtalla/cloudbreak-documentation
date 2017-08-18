@@ -687,9 +687,11 @@
 </blockquote>
 <h4 id="blueprints-wrong-hdp-version">Blueprints: Wrong HDP Version</h4>
 <p>In the blueprint, only the major and minor HDP version should be defined (for example, "2.6"). If wrong version number is provided, the following error can be found in the logs:</p>
-<p><code>5/15/2017 12:23:19 PM testcluster26 - create failed: Cannot use the specified Ambari stack: HDPRepo
+<pre><code>5/15/2017 12:23:19 PM testcluster26 - create failed: Cannot use the specified Ambari stack: HDPRepo
 {stack='null'; utils='null'}
-. Error: org.apache.ambari.server.controller.spi.NoSuchResourceException: The specified resource doesn't exist: Stack data, Stack HDP 2.6.0.3 is not found in Ambari metainfo</code></p>
+. Error: org.apache.ambari.server.controller.spi.NoSuchResourceException: The specified resource doesn't exist: Stack data, Stack HDP 2.6.0.3 is not found in Ambari metainfo
+</code></pre>
+
 <p>For correct blueprint layout, refer to the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> page.</p>
 <h4 id="recipes-recipe-execution-times-out">Recipes: Recipe Execution Times Out</h4>
 <p>If the scripts are taking too much time to execute, the processes will time out, as the threshold for this is set to 15 minutes. To change this threashold, you must override the default value by adding the following to the cbd Profile file:</p>
@@ -702,13 +704,15 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<p><code>export CB_JAVA_OPTS=” -Dcb.max.salt.recipe.execution.retry=90”</code> </p>
+<pre><code>export CB_JAVA_OPTS=” -Dcb.max.salt.recipe.execution.retry=90”
+</code></pre>
+
 <p>This property indicates the number of tries for checking if the scripts have finished with a sleep time of 10 seconds. The default value is 90. To increase the threshold provide a number greater than 90. You must restart Cloudbreak after changing properties in the Profile file.</p>
 <blockquote>
 <blockquote>
 <blockquote>
 <blockquote>
-<p>TO-DO: you mean "slip time of 10 seconds"?</p>
+<p>TO-DO: Do you mean "slip time of 10 seconds"?</p>
 </blockquote>
 </blockquote>
 </blockquote>
@@ -745,8 +749,8 @@
 <blockquote>
 <blockquote>
 <blockquote>
-<p>TO-DO: Can you clarify this? In the first paragraph (Cloudbreak &lt; 1.14) you talk about users being unable to change password and then changing credentials. Do you just mean password or also admin user name? 
-TO-DO: In the second paragraph (Cloudbreak &gt;=1.14), are we talking about the password or also user name? </p>
+<p>TO-DO: Can you clarify this? In the first paragraph (Cloudbreak &lt; 1.14) you talk about users being unable to change password and then changing credentials. Do you just mean password or also admin user name? </p>
+<p>TO-DO: In the second paragraph (Cloudbreak &gt;=1.14), are we talking about the password or also user name? </p>
 </blockquote>
 </blockquote>
 </blockquote>
