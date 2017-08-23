@@ -297,12 +297,12 @@
         }, 
         {
             "location": "/aws-cb-ui/index.html", 
-            "text": "Manage and Monitor Clusters\n\n\nYou can manage monitor your clusters from the Cloudbreak UI. To do that, click on the title representing the cluster that you want to access: \n\n\n \n\n\nAccessing Links to Cluster Services\n\n\nYou can access links to cluster services from the \nServices\n tab.\n\n\nManaging Cluster Nodes\n\n\nYou can view details about your cluster nodes (for example, Public IP addresses) from the \nNodes\n tab. You can also delete nodes using the \nTERMINATE\n option.\n\n\nAccessing Event Log\n\n\nYou can access cluster event log from the \nEvent History\n tab.\n\n\nRepairing Your Cluster\n\n\nTo trigger repair process for your cluster, click \nrepair\n. Faulty nodes will be deleted from the cluster and new ones will be added in their place. \n\n\nTerminating Your Cluster\n\n\nTo terminate your cluster, click \nterminate\n. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted.", 
+            "text": "Manage and Monitor Clusters\n\n\nYou can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access: \n\n\n \n\n\nAccessing Links to Cluster Services\n\n\nYou can access links to cluster services from the \nServices\n tab.\n\n\nManaging Cluster Nodes\n\n\nYou can view details about your cluster nodes (for example, Public IP addresses) from the \nNodes\n tab. You can also delete nodes using the \nTERMINATE\n option.\n\n\nAccessing Event Log\n\n\nYou can access cluster event log from the \nEvent History\n tab.\n\n\nRepairing Your Cluster\n\n\nTo trigger repair process for your cluster, click \nrepair\n. Faulty nodes will be deleted from the cluster and new ones will be added in their place. \n\n\nTerminating Your Cluster\n\n\nTo terminate your cluster, click \nterminate\n. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted.", 
             "title": "Manage and Monitor Clusters"
         }, 
         {
             "location": "/aws-cb-ui/index.html#manage-and-monitor-clusters", 
-            "text": "You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the title representing the cluster that you want to access:", 
+            "text": "You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access:", 
             "title": "Manage and Monitor Clusters"
         }, 
         {
@@ -587,12 +587,12 @@
         }, 
         {
             "location": "/azure-cb-ui/index.html", 
-            "text": "Manage and Monitor Clusters\n\n\nYou can manage monitor your clusters from the Cloudbreak UI. To do that, click on the title representing the cluster that you want to access: \n\n\n \n\n\nAccessing Links to Cluster Services\n\n\nYou can access links to cluster services from the \nServices\n tab.\n\n\nManaging Cluster Nodes\n\n\nYou can view details about your cluster nodes (for example, Public IP addresses) from the \nNodes\n tab. You can also delete nodes using the \nTERMINATE\n option.\n\n\nAccessing Event Log\n\n\nYou can access cluster event log from the \nEvent History\n tab.\n\n\nRepairing Your Cluster\n\n\nTo trigger repair process for your cluster, click \nrepair\n. Faulty nodes will be deleted from the cluster and new ones will be added in their place. \n\n\nTerminating Your Cluster\n\n\nTo terminate your cluster, click \nterminate\n. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted.", 
+            "text": "Manage and Monitor Clusters\n\n\nYou can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access: \n\n\n \n\n\nAccessing Links to Cluster Services\n\n\nYou can access links to cluster services from the \nServices\n tab.\n\n\nManaging Cluster Nodes\n\n\nYou can view details about your cluster nodes (for example, Public IP addresses) from the \nNodes\n tab. You can also delete nodes using the \nTERMINATE\n option.\n\n\nAccessing Event Log\n\n\nYou can access cluster event log from the \nEvent History\n tab.\n\n\nRepairing Your Cluster\n\n\nTo trigger repair process for your cluster, click \nrepair\n. Faulty nodes will be deleted from the cluster and new ones will be added in their place. \n\n\nTerminating Your Cluster\n\n\nTo terminate your cluster, click \nterminate\n. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted.", 
             "title": "Manage and Monitor Clusters"
         }, 
         {
             "location": "/azure-cb-ui/index.html#manage-and-monitor-clusters", 
-            "text": "You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the title representing the cluster that you want to access:", 
+            "text": "You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access:", 
             "title": "Manage and Monitor Clusters"
         }, 
         {
@@ -887,12 +887,12 @@
         }, 
         {
             "location": "/gcp-cb-ui/index.html", 
-            "text": "Manage and Monitor Clusters\n\n\nYou can manage monitor your clusters from the Cloudbreak UI. To do that, click on the title representing the cluster that you want to access: \n\n\n \n\n\nAccessing Links to Cluster Services\n\n\nYou can access links to cluster services from the \nServices\n tab.\n\n\nManaging Cluster Nodes\n\n\nYou can view details about your cluster nodes (for example, Public IP addresses) from the \nNodes\n tab. You can also delete nodes using the \nTERMINATE\n option.\n\n\nAccessing Event Log\n\n\nYou can access cluster event log from the \nEvent History\n tab.\n\n\nRepairing Your Cluster\n\n\nTo trigger repair process for your cluster, click \nrepair\n. Faulty nodes will be deleted from the cluster and new ones will be added in their place. \n\n\nTerminating Your Cluster\n\n\nTo terminate your cluster, click \nterminate\n. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted.", 
+            "text": "Manage and Monitor Clusters\n\n\nYou can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access: \n\n\n \n\n\nAccessing Links to Cluster Services\n\n\nYou can access links to cluster services from the \nServices\n tab.\n\n\nManaging Cluster Nodes\n\n\nYou can view details about your cluster nodes (for example, Public IP addresses) from the \nNodes\n tab. You can also delete nodes using the \nTERMINATE\n option.\n\n\nAccessing Event Log\n\n\nYou can access cluster event log from the \nEvent History\n tab.\n\n\nRepairing Your Cluster\n\n\nTo trigger repair process for your cluster, click \nrepair\n. Faulty nodes will be deleted from the cluster and new ones will be added in their place. \n\n\nTerminating Your Cluster\n\n\nTo terminate your cluster, click \nterminate\n. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted.", 
             "title": "Manage and Monitor Clusters"
         }, 
         {
             "location": "/gcp-cb-ui/index.html#manage-and-monitor-clusters", 
-            "text": "You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the title representing the cluster that you want to access:", 
+            "text": "You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access:", 
             "title": "Manage and Monitor Clusters"
         }, 
         {
@@ -1157,12 +1157,12 @@
         }, 
         {
             "location": "/os-cb-ui/index.html", 
-            "text": "Manage and Monitor Clusters\n\n\nYou can manage monitor your clusters from the Cloudbreak UI. To do that, click on the title representing the cluster that you want to access: \n\n\n \n\n\nAccessing Links to Cluster Services\n\n\nYou can access links to cluster services from the \nServices\n tab.\n\n\nManaging Cluster Nodes\n\n\nYou can view details about your cluster nodes (for example, Public IP addresses) from the \nNodes\n tab. You can also delete nodes using the \nTERMINATE\n option.\n\n\nAccessing Event Log\n\n\nYou can access cluster event log from the \nEvent History\n tab.\n\n\nRepairing Your Cluster\n\n\nTo trigger repair process for your cluster, click \nrepair\n. Faulty nodes will be deleted from the cluster and new ones will be added in their place. \n\n\nTerminating Your Cluster\n\n\nTo terminate your cluster, click \nterminate\n. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted.", 
+            "text": "Manage and Monitor Clusters\n\n\nYou can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access: \n\n\n \n\n\nAccessing Links to Cluster Services\n\n\nYou can access links to cluster services from the \nServices\n tab.\n\n\nManaging Cluster Nodes\n\n\nYou can view details about your cluster nodes (for example, Public IP addresses) from the \nNodes\n tab. You can also delete nodes using the \nTERMINATE\n option.\n\n\nAccessing Event Log\n\n\nYou can access cluster event log from the \nEvent History\n tab.\n\n\nRepairing Your Cluster\n\n\nTo trigger repair process for your cluster, click \nrepair\n. Faulty nodes will be deleted from the cluster and new ones will be added in their place. \n\n\nTerminating Your Cluster\n\n\nTo terminate your cluster, click \nterminate\n. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted.", 
             "title": "Manage and Monitor Clusters"
         }, 
         {
             "location": "/os-cb-ui/index.html#manage-and-monitor-clusters", 
-            "text": "You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the title representing the cluster that you want to access:", 
+            "text": "You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access:", 
             "title": "Manage and Monitor Clusters"
         }, 
         {
