@@ -645,7 +645,7 @@
 <p><strong>Key-based</strong>: This is a simpler option which does not require additional configuration at this point. It requires that you provide your AWS access key and secret key pair in the Cloudbreak web UI later.</p>
 </li>
 <li>
-<p><strong>Role-based</strong>: This requires that you or your AWS admin create two IAM roles: one to grant Cloudbreak access to allow Cloudbreak to assume AWS roles ("AssumeRole" policy) and the second one to provide Cloudbreak with the capabilities required for cluster creation ("cb-policy" policy).</p>
+<p><strong>Role-based</strong>: This requires that you or your AWS admin create two IAM roles: one to allow Cloudbreak to assume AWS roles ("AssumeRole" policy) and the second one to provide Cloudbreak with the capabilities required for cluster creation ("cb-policy" policy).</p>
 </li>
 </ul>
 <p><strong>Option 1: Key-based</strong></p>
@@ -659,6 +659,8 @@
 </li>
 <li>
 <p>Define another policy called "cb-policy" using the following policy definition and then create a new IAM role called "CredentialRole" and attach the "cb-policy" policy to it.  The "cb-policy" policy definition is provided below.</p>
+<p>When creating this role using the AWS Console, make sure that that it is a role for cross-account access and that the trust-relation is set up as follows: 'Account ID' is your own 12-digit AWS account ID and 'External ID' is “provision-ambari”.</p>
+<p><a href="../images/aws-role.png" target="_blank" title="click to enlarge"><img src="../images/aws-role.png" width="650" title="IAM Console"></a> </p>
 <blockquote>
 <p>Alternatively, you can generate the second role later once your VM is running by first <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">configuring AWS CLI</a> on your VM and then running the <code>cbd aws generate-role</code> command. This command creates a role with the name "cbreak-deployer" (equivalent to the "CredentialRole") by default.</p>
 <p>This alternative method also allows you to customize the name of the role. If you'd like to create role with a different name, you must add <code>export AWS_ROLE_NAME=my-cloudbreak-role-name</code> (where "my-cloudbreak-role-name" is your custom role name) as a new line to your Profile. </p>
