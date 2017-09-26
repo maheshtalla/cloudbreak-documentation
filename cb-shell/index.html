@@ -325,25 +325,19 @@
                         
                             
 <li >
-    <a href="../security-profile/index.html">Securing Profile</a>
+    <a href="../security-cb/index.html">Securing Cloudbreak After Launch</a>
 </li>
 
                         
                             
 <li >
-    <a href="../ssl-certificate/index.html">SSL Certificate</a>
+    <a href="../security-ldap/index.html">Configuring LDAP/AD</a>
 </li>
 
                         
                             
 <li >
-    <a href="../ldap/index.html">LDAP/AD</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../kerberos/index.html">Kerberos</a>
+    <a href="../security-kerberos/index.html">Configuring Kerberos</a>
 </li>
 
                         
@@ -438,19 +432,25 @@
         
             
 <li >
-    <a href="../api/index.html">API</a>
+    <a href="../dev-local-dev/index.html">Local Development</a>
 </li>
 
         
             
 <li >
-    <a href="../spi/index.html">SPI</a>
+    <a href="../dev-api/index.html">API</a>
 </li>
 
         
             
 <li >
-    <a href="../flows/index.html">Flows</a>
+    <a href="../dev-spi/index.html">SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flows</a>
 </li>
 
         
@@ -515,7 +515,16 @@
         <div class="col-md-9" role="main">
 
 <h2 id="cloudbreak-shell">Cloudbreak Shell</h2>
-<p>The goal with the Cloudbreak Shell is to provide an interactive command line tool which:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: If we have new CLI, then this info will need to be updated.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Cloudbreak Shell is an interactive command line tool which:</p>
 <ul>
 <li>Supports all functionality available through the REST API and Cloudbreak web UI</li>
 <li>Makes possible complete automation of management task via scripts</li>
@@ -532,10 +541,10 @@
 <li>Build From Source  </li>
 </ul>
 <blockquote>
-<p>The latter two methods run the CLI on your local machine.</p>
+<p>The latter two methods run the CLI on your local machine. The first method runs the CLI on the VM but provides an option to run the commands on your local machine. </p>
 </blockquote>
 <h4 id="from-the-cloudbreak-vm">From the Cloudbreak VM</h4>
-<p>The easiest way to install and start Cloudbreak Shell is from the VM on which you have deployed Cloudbreak. On the VM, navigate to the <code>/var/lib/cloudbreak-deployment/</code> directory and execute:</p>
+<p>The easiest way to install and start Cloudbreak Shell is from the VM on which you have deployed Cloudbreak. On the VM, navigate to the <code>/var/lib/cloudbreak-deployment/</code> directory and run:</p>
 <pre>cbd util cloudbreak-shell</pre>
 
 <p>If you would like to use Cloudbreak Shell from your local machine:</p>
@@ -567,7 +576,7 @@
 <blockquote>
 <blockquote>
 <p>TO-DO: Add from the old doc. Is this still valid? </p>
-<p>TO-DO: Include documentation from: (the repository url change because the project is now under hwx)</p>
+<p>TO-DO: Include documentation from: (the repository url changed because the project is now under hwx)</p>
 </blockquote>
 </blockquote>
 </blockquote>

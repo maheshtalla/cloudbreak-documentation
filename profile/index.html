@@ -325,25 +325,19 @@
                         
                             
 <li >
-    <a href="../security-profile/index.html">Securing Profile</a>
+    <a href="../security-cb/index.html">Securing Cloudbreak After Launch</a>
 </li>
 
                         
                             
 <li >
-    <a href="../ssl-certificate/index.html">SSL Certificate</a>
+    <a href="../security-ldap/index.html">Configuring LDAP/AD</a>
 </li>
 
                         
                             
 <li >
-    <a href="../ldap/index.html">LDAP/AD</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../kerberos/index.html">Kerberos</a>
+    <a href="../security-kerberos/index.html">Configuring Kerberos</a>
 </li>
 
                         
@@ -438,19 +432,25 @@
         
             
 <li >
-    <a href="../api/index.html">API</a>
+    <a href="../dev-local-dev/index.html">Local Development</a>
 </li>
 
         
             
 <li >
-    <a href="../spi/index.html">SPI</a>
+    <a href="../dev-api/index.html">API</a>
 </li>
 
         
             
 <li >
-    <a href="../flows/index.html">Flows</a>
+    <a href="../dev-spi/index.html">SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flows</a>
 </li>
 
         
@@ -498,14 +498,904 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#profile">Profile</a></li>
+        <li class="first-level active"><a href="#profile-variables">Profile Variables</a></li>
+        
+            <li class="second-level"><a href="#setting-provfle-variables">Setting Provfle Variables</a></li>
+            
+        
+            <li class="second-level"><a href="#cloudbreak-variables">Cloudbreak Variables</a></li>
+            
+                <li class="third-level"><a href="#aws-variables">AWS Variables</a></li>
+            
+                <li class="third-level"><a href="#azure-variables">Azure Variables</a></li>
+            
+                <li class="third-level"><a href="#gcp-variables">GCP Variables</a></li>
+            
+        
+            <li class="second-level"><a href="#local-development-variables">Local Development Variables</a></li>
+            
+        
+            <li class="second-level"><a href="#macos-variables">MacOS Variables</a></li>
+            
+        
+            <li class="second-level"><a href="#more">More</a></li>
+            
+                <li class="third-level"><a href="#uaa_default_user_groups">UAA_DEFAULT_USER_GROUPS</a></li>
+            
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="profile">Profile</h2></div>
+<h2 id="profile-variables">Profile Variables</h2>
+<p>During startup, Cloudbreak deployer tries to determine the underlying infrastructure and then sets required environment variables with appropriate default values. If these environment variables are not sufficient for your use case, you can set additional environment variables in your <code>Profile</code> file. Refer to the list below for available custom environment variables. The variables are listed with their default values. If default is unset, no value is listed. </p>
+<h3 id="setting-provfle-variables">Setting Provfle Variables</h3>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: How to set them? </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="cloudbreak-variables">Cloudbreak Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADDRESS_RESOLVING_TIMEOUT</td>
+<td>120000</td>
+<td>DNS lookup timeout for internal service discovery</td>
+</tr>
+<tr>
+<td>CAPTURE_CRON_EXPRESSION</td>
+<td></td>
+<td>SmartSense bundle generation time interval in cron format</td>
+</tr>
+<tr>
+<td>CBD_CERT_ROOT_PATH</td>
+<td>"${PWD}/certs"</td>
+<td>Path where deployer stores Cloudbreak certificates</td>
+</tr>
+<tr>
+<td>CBD_LOG_NAME</td>
+<td>cbreak</td>
+<td>Name of the Cloudbreak log file</td>
+</tr>
+<tr>
+<td>CBD_TRAEFIK_TLS</td>
+<td>"/certs/traefik/client.pem,/certs/traefik/client-key.pem"</td>
+<td>Path inside of the Traefik container where TLS files are located</td>
+</tr>
+<tr>
+<td>CB_BLUEPRINT_DEFAULTS</td>
+<td>"hdp-small-default;hdp-spark-cluster;hdp-streaming-cluster"</td>
+<td>Comma separated list of the default blueprints that Cloudbreak initializes in its database</td>
+</tr>
+<tr>
+<td>CB_BYOS_DFS_DATA_DIR</td>
+<td>"/hadoop/hdfs/data"</td>
+<td>(Deprecated) Default data directory for BYOP orchestrators</td>
+</tr>
+<tr>
+<td>CB_COMPONENT_CLUSTER_ID</td>
+<td></td>
+<td>SmartSense component cluster ID</td>
+</tr>
+<tr>
+<td>CB_COMPONENT_ID</td>
+<td></td>
+<td>SmartSense component ID</td>
+</tr>
+<tr>
+<td>CB_COMPOSE_PROJECT</td>
+<td>cbreak</td>
+<td>Name of the Docker Compose project; it will appear in container names</td>
+</tr>
+<tr>
+<td>CB_DB_ENV_DB</td>
+<td>"cbdb"</td>
+<td>Name of the Cloudbreak database</td>
+</tr>
+<tr>
+<td>CB_DB_ENV_PASS</td>
+<td>""</td>
+<td>Password for the Cloudbreak database authentication</td>
+</tr>
+<tr>
+<td>CB_DB_ENV_SCHEMA</td>
+<td>"public"</td>
+<td>Schema used in the Cloudbreak database</td>
+</tr>
+<tr>
+<td>CB_DB_ENV_USER</td>
+<td>"postgres"</td>
+<td>User for the Cloudbreak database authentication</td>
+</tr>
+<tr>
+<td>CB_DB_ROOT_PATH</td>
+<td>"/var/lib/cloudbreak"</td>
+<td>(Deprecated) Location of the database volume on Cloudbreak host</td>
+</tr>
+<tr>
+<td>CB_DEFAULT_SUBSCRIPTION_ADDRESS</td>
+<td>http://uluwatu.service.consul:3000/notifications</td>
+<td>URL of the default subscription for Cloudbreak notifications</td>
+</tr>
+<tr>
+<td>CB_ENABLEDPLATFORMS</td>
+<td></td>
+<td>Disables Cloudbreak resource called Platform</td>
+</tr>
+<tr>
+<td>CB_ENABLE_CUSTOM_IMAGE</td>
+<td>"false"</td>
+<td>Set to "true" to enable custom cloud images</td>
+</tr>
+<tr>
+<td>CBD_FORCE_START</td>
+<td></td>
+<td>Disables docker-compose.yml and uaa.yml validation</td>
+</tr>
+<tr>
+<td>CB_HBM2DDL_STRATEGY</td>
+<td>"validate"</td>
+<td>Configures hibernate.hbm2ddl.auto in Cloudbreak</td>
+</tr>
+<tr>
+<td>CB_HOST_DISCOVERY_CUSTOM_DOMAIN</td>
+<td>""</td>
+<td>Custom domain of the provisioned cluster</td>
+</tr>
+<tr>
+<td>CB_HTTPS_PROXY</td>
+<td>""</td>
+<td>HTTPS proxy URL</td>
+</tr>
+<tr>
+<td>CB_HTTP_PROXY</td>
+<td>""</td>
+<td>HTTP proxy URL</td>
+</tr>
+<tr>
+<td>CB_IMAGE_CATALOG_URL</td>
+<td>"https://s3-eu-west-1.amazonaws.com/cloudbreak-info/cb-image-catalog.json"</td>
+<td>Image catalog URL</td>
+</tr>
+<tr>
+<td>CB_INSTANCE_NODE_ID</td>
+<td></td>
+<td>Unique identifier of the Cloudbreak node</td>
+</tr>
+<tr>
+<td>CB_INSTANCE_PROVIDER</td>
+<td></td>
+<td>Cloud provider of the Cloudbreak instance</td>
+</tr>
+<tr>
+<td>CB_INSTANCE_REGION</td>
+<td></td>
+<td>Cloud region of the Cloudbreak instance</td>
+</tr>
+<tr>
+<td>CB_INSTANCE_UUID</td>
+<td></td>
+<td>Unique identifier of Cloudbreak deployment</td>
+</tr>
+<tr>
+<td>CB_JAVA_OPTS</td>
+<td>""</td>
+<td>Extra Java options for Autoscale and Cloudbreak</td>
+</tr>
+<tr>
+<td>CB_LOG_LEVEL</td>
+<td>"INFO"</td>
+<td>Log level of the Cloudbreak service</td>
+</tr>
+<tr>
+<td>CB_MAX_SALT_NEW_SERVICE_RETRY</td>
+<td>90</td>
+<td>Salt orchestrator max retry count</td>
+</tr>
+<tr>
+<td>CB_MAX_SALT_RECIPE_EXECUTION_RETRY</td>
+<td>90</td>
+<td>Salt orchestrator max retry count for recipes</td>
+</tr>
+<tr>
+<td>CB_PLATFORM_DEFAULT_REGIONS</td>
+<td></td>
+<td>Comma separated list of default regions by platform. For example: <code>AWS:eu-west-1</code>.</td>
+</tr>
+<tr>
+<td>CB_PRODUCT_ID</td>
+<td></td>
+<td>SmartSense product ID</td>
+</tr>
+<tr>
+<td>CB_SCHEMA_MIGRATION_AUTO</td>
+<td>true</td>
+<td>When set to true, enables Cloudbreak automatic database schema update</td>
+</tr>
+<tr>
+<td>CB_SMARTSENSE_CONFIGURE</td>
+<td>"false"</td>
+<td>Set to “true” to install and configure SmartSense on cluster nodes</td>
+</tr>
+<tr>
+<td>CB_SMARTSENSE_CLUSTER_NAME_PREFIX</td>
+<td></td>
+<td>SmartSense Cloudbreak cluster name prefix</td>
+</tr>
+<tr>
+<td>CB_SMARTSENSE_ID</td>
+<td>""</td>
+<td>SmartSense subscription ID</td>
+</tr>
+<tr>
+<td>CB_TEMPLATE_DEFAULTS</td>
+<td>"minviable-gcp,minviable-azure,minviable-aws"</td>
+<td>Comma separated list of the default templates that Cloudbreak initializes in its database</td>
+</tr>
+<tr>
+<td>CB_UI_MAX_WAIT</td>
+<td>400</td>
+<td>Wait timeout for <code>cbd start-wait</code> command</td>
+</tr>
+<tr>
+<td>CERT_VALIDATION</td>
+<td>"true"</td>
+<td>When set to "true", enables cert validation in Cloudbreak and Autoscale</td>
+</tr>
+<tr>
+<td>CLOUDBREAK_SMTP_AUTH</td>
+<td>"true"</td>
+<td>When set to "true", configures mail.smtp.auth in Cloudbreak</td>
+</tr>
+<tr>
+<td>CLOUDBREAK_SMTP_SENDER_FROM</td>
+<td>"noreply@hortonworks.com"</td>
+<td>Email address of the sender</td>
+</tr>
+<tr>
+<td>CLOUDBREAK_SMTP_SENDER_HOST</td>
+<td>"smtp.service.consul"</td>
+<td>SMTP server address of the hostname</td>
+</tr>
+<tr>
+<td>CLOUDBREAK_SMTP_SENDER_PASSWORD</td>
+<td>"$LOCAL_SMTP_PASSWORD"</td>
+<td>SMTP server password</td>
+</tr>
+<tr>
+<td>CLOUDBREAK_SMTP_SENDER_PORT</td>
+<td>25</td>
+<td>Port of the SMTP server</td>
+</tr>
+<tr>
+<td>CLOUDBREAK_SMTP_SENDER_USERNAME</td>
+<td>"admin"</td>
+<td>Username for SMTP authentication</td>
+</tr>
+<tr>
+<td>CLOUDBREAK_SMTP_STARTTLS_ENABLE</td>
+<td>"false"</td>
+<td>Set to "true" to configure mail.smtp.starttls.enable in Cloudbreak</td>
+</tr>
+<tr>
+<td>CLOUDBREAK_SMTP_TYPE</td>
+<td>"smtp"</td>
+<td>Defines mail.transport.protocol in CLoudbreak</td>
+</tr>
+<tr>
+<td>COMMON_DB</td>
+<td>commondb</td>
+<td>Name of the database container</td>
+</tr>
+<tr>
+<td>COMMON_DB_VOL</td>
+<td>common</td>
+<td>Name of the database volume</td>
+</tr>
+<tr>
+<td>COMPOSE_HTTP_TIMEOUT</td>
+<td>120</td>
+<td>Docker Compose execution timeout</td>
+</tr>
+<tr>
+<td>DB_DUMP_VOLUME</td>
+<td>cbreak_dump</td>
+<td>Name of the database dump volume</td>
+</tr>
+<tr>
+<td>DB_MIGRATION_LOG</td>
+<td>"db_migration.log"</td>
+<td>Database migration log file</td>
+</tr>
+<tr>
+<td>DEFAULT_INBOUND_ACCESS_IP</td>
+<td>""</td>
+<td>Opens default ports on AWS instances for address</td>
+</tr>
+<tr>
+<td>DOCKER_CONSUL_OPTIONS</td>
+<td>""</td>
+<td>Extra options for Consul</td>
+</tr>
+<tr>
+<td>DOCKER_IMAGE_CBD_SMARTSENSE</td>
+<td>hortonworks/cbd-smartsense</td>
+<td>SmartSense Docker image name</td>
+</tr>
+<tr>
+<td>DOCKER_IMAGE_CLOUDBREAK</td>
+<td>hortonworks/cloudbreak</td>
+<td>Cloudbreak Docker image name</td>
+</tr>
+<tr>
+<td>DOCKER_IMAGE_CLOUDBREAK_AUTH</td>
+<td>hortonworks/cloudbreak-auth</td>
+<td>Authentication service Docker image name</td>
+</tr>
+<tr>
+<td>DOCKER_IMAGE_CLOUDBREAK_PERISCOPE</td>
+<td>hortonworks/cloudbreak-autoscale</td>
+<td>Autoscale Docker image name</td>
+</tr>
+<tr>
+<td>DOCKER_IMAGE_CLOUDBREAK_SHELL</td>
+<td>hortonworks/cloudbreak-shell</td>
+<td>Cloudbreak Shell Docker image name</td>
+</tr>
+<tr>
+<td>DOCKER_IMAGE_CLOUDBREAK_WEB</td>
+<td>hortonworks/cloudbreak-web</td>
+<td>Web UI Docker image name</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_ALPINE</td>
+<td>3.1</td>
+<td>Alpine container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_CBD_SMARTSENSE</td>
+<td>0.10.0</td>
+<td>SmartSense container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_CERT_TOOL</td>
+<td>0.2.0</td>
+<td>Cert tool container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_CLOUDBREAK</td>
+<td>2.1.0-dev.70</td>
+<td>Cloudbreak container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_CLOUDBREAK_SHELL</td>
+<td>2.1.0-dev.70</td>
+<td>Cloudbreak Shell container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_CONSUL</td>
+<td>0.5</td>
+<td>Consul container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_HAVEGED</td>
+<td>1.1.0</td>
+<td>Haveged container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_LOGROTATE</td>
+<td>1.0.0</td>
+<td>Logrotate container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_MIGRATION</td>
+<td>1.0.0</td>
+<td>Migration container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_PERISCOPE</td>
+<td>2.1.0-dev.70</td>
+<td>Autoscale container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_POSTFIX</td>
+<td>latest</td>
+<td>Postfix container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_POSTGRES</td>
+<td>9.6.1-alpine</td>
+<td>Postgresql container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_REGISTRATOR</td>
+<td>v5</td>
+<td>Registrator container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_SULTANS</td>
+<td>2.1.0-dev.70</td>
+<td>Authentication service container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_TRAEFIK</td>
+<td>v1.2.0</td>
+<td>Traefik container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_UAA</td>
+<td>3.6.5</td>
+<td>Identity container version</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_ULUWATU</td>
+<td>2.1.0-dev.70</td>
+<td>Web UI container version</td>
+</tr>
+<tr>
+<td>IDENTITY_DB_NAME</td>
+<td>"uaadb"</td>
+<td>Name of the Identity database</td>
+</tr>
+<tr>
+<td>IDENTITY_DB_PASS</td>
+<td>""</td>
+<td>Password for the Identity database authentication</td>
+</tr>
+<tr>
+<td>IDENTITY_DB_URL</td>
+<td>"${COMMON_DB}.service.consul:5432"</td>
+<td>URL for the Identity database connection, including the port number</td>
+</tr>
+<tr>
+<td>IDENTITY_DB_USER</td>
+<td>"postgres"</td>
+<td>User for the Identity database authentication</td>
+</tr>
+<tr>
+<td>LOCAL_SMTP_PASSWORD</td>
+<td>"$UAA_DEFAULT_USER_PW"</td>
+<td>Default password for the internal mail server</td>
+</tr>
+<tr>
+<td>PERISCOPE_DB_HBM2DDL_STRATEGY</td>
+<td>"validate"</td>
+<td>Configures hibernate.hbm2ddl.auto in Autoscale</td>
+</tr>
+<tr>
+<td>PERISCOPE_DB_NAME</td>
+<td>"periscopedb"</td>
+<td>Name of the Autoscale database</td>
+</tr>
+<tr>
+<td>PERISCOPE_DB_PASS</td>
+<td>""</td>
+<td>Password for the Autoscale database authentication</td>
+</tr>
+<tr>
+<td>PERISCOPE_DB_SCHEMA_NAME</td>
+<td>"public"</td>
+<td>Schema used in the Autoscale database</td>
+</tr>
+<tr>
+<td>PERISCOPE_DB_USER</td>
+<td>"postgres"</td>
+<td>User for the Autoscale database authentication</td>
+</tr>
+<tr>
+<td>PERISCOPE_DB_TCP_ADDR</td>
+<td></td>
+<td>Address of the Autoscale database</td>
+</tr>
+<tr>
+<td>PERISCOPE_DB_TCP_PORT</td>
+<td></td>
+<td>Port number of the Autoscale database</td>
+</tr>
+<tr>
+<td>PERISCOPE_LOG_LEVEL</td>
+<td>"INFO"</td>
+<td>Log level of the Autoscale service</td>
+</tr>
+<tr>
+<td>PERISCOPE_SCHEMA_MIGRATION_AUTO</td>
+<td>true</td>
+<td>When set to "true", enables Autoscale automatic database schema update</td>
+</tr>
+<tr>
+<td>PUBLIC_IP</td>
+<td></td>
+<td>IP address or hostname of the public interface</td>
+</tr>
+<tr>
+<td>REST_DEBUG</td>
+<td>"false"</td>
+<td>Set to "true" to enable REST call debug level in Cloudbreak and Autoscale</td>
+</tr>
+<tr>
+<td>SL_ADDRESS_RESOLVING_TIMEOUT</td>
+<td></td>
+<td>DNS lookup timeout of Authentication service for internal service discovery</td>
+</tr>
+<tr>
+<td>SL_NODE_TLS_REJECT_UNAUTHORIZED</td>
+<td>"0"</td>
+<td>When set to "0", enables self-signed certifications in Authentication service</td>
+</tr>
+<tr>
+<td>SULTANS_CONTAINER_PATH</td>
+<td>/sultans</td>
+<td>Default project location in Authentication service container</td>
+</tr>
+<tr>
+<td>TRAEFIK_MAX_IDLE_CONNECTION</td>
+<td>100</td>
+<td>Sets --maxidleconnsperhost for Traefik to the value entered</td>
+</tr>
+<tr>
+<td>UAA_CLOUDBREAK_ID</td>
+<td>cloudbreak</td>
+<td>Identity of the Cloudbreak scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_CLOUDBREAK_SECRET</td>
+<td>$UAA_DEFAULT_SECRET</td>
+<td>Secret of the Cloudbreak scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_CLOUDBREAK_SHELL_ID</td>
+<td>cloudbreak_shell</td>
+<td>Identity of the Cloudbreak Shell scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_DEFAULT_ACCOUNT</td>
+<td>"seq1234567.SequenceIQ"</td>
+<td>Default account for users as an Identity group</td>
+</tr>
+<tr>
+<td>UAA_DEFAULT_SECRET</td>
+<td></td>
+<td>Default secret for all the scopes and encryptions</td>
+</tr>
+<tr>
+<td>UAA_DEFAULT_USER_EMAIL</td>
+<td>admin@example.com</td>
+<td>Email address of default admin user</td>
+</tr>
+<tr>
+<td>UAA_DEFAULT_USER_FIRSTNAME</td>
+<td>Joe</td>
+<td>First name of default admin user</td>
+</tr>
+<tr>
+<td>UAA_DEFAULT_USER_GROUPS</td>
+<td>See <a href="#uaa_default_user_groups">here</a></td>
+<td>Default user groups of the users</td>
+</tr>
+<tr>
+<td>UAA_DEFAULT_USER_LASTNAME</td>
+<td>Admin</td>
+<td>Last name of default admin user</td>
+</tr>
+<tr>
+<td>UAA_DEFAULT_USER_PW</td>
+<td></td>
+<td>Password of default admin user</td>
+</tr>
+<tr>
+<td>UAA_FLEX_USAGE_CLIENT_ID</td>
+<td>flex_usage_client</td>
+<td>Identity of the Flex usage generator scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_FLEX_USAGE_CLIENT_SECRET</td>
+<td>$UAA_DEFAULT_SECRET</td>
+<td>Secret of the Flex usage generator scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_PERISCOPE_ID</td>
+<td>periscope</td>
+<td>Identity of the Autoscale scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_PERISCOPE_SECRET</td>
+<td>$UAA_DEFAULT_SECRET</td>
+<td>Secret of the Autoscale scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_PORT</td>
+<td>8089</td>
+<td>Identity service public port</td>
+</tr>
+<tr>
+<td>UAA_SULTANS_ID</td>
+<td>sultans</td>
+<td>Identity of the Authentication service scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_SULTANS_SECRET</td>
+<td>$UAA_DEFAULT_SECRET</td>
+<td>Secret of the Authentication service scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_ULUWATU_ID</td>
+<td>uluwatu</td>
+<td>Identity of the Web UI scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_ULUWATU_SECRET</td>
+<td>$UAA_DEFAULT_SECRET</td>
+<td>Secret of the Web UI scope in Identity</td>
+</tr>
+<tr>
+<td>UAA_ZONE_DOMAIN</td>
+<td>example.com</td>
+<td>External domain name for zone in Identity</td>
+</tr>
+<tr>
+<td>ULUWATU_CONTAINER_PATH</td>
+<td>/uluwatu</td>
+<td>Default project location in the Web UI container</td>
+</tr>
+<tr>
+<td>ULU_DEFAULT_SSH_KEY</td>
+<td>""</td>
+<td>Default SSH key for the credentials in Cloudbreak</td>
+</tr>
+<tr>
+<td>ULU_HOST_ADDRESS</td>
+<td>"https://$PUBLIC_IP"</td>
+<td>URL for the Web UI host</td>
+</tr>
+<tr>
+<td>ULU_NODE_TLS_REJECT_UNAUTHORIZED</td>
+<td>"0"</td>
+<td>When set to "0", enables self-signed certifications in Web UI</td>
+</tr>
+<tr>
+<td>ULU_OAUTH_REDIRECT_URI</td>
+<td>"$ULU_HOST_ADDRESS/authorize"</td>
+<td>Authorization page on Web UI</td>
+</tr>
+<tr>
+<td>ULU_SUBSCRIBE_TO_NOTIFICATIONS</td>
+<td>"false"</td>
+<td>Set to “true” to enable email notifications for Cloudbreak events</td>
+</tr>
+<tr>
+<td>ULU_SULTANS_ADDRESS</td>
+<td>"https://$PUBLIC_IP/sl"</td>
+<td>Authentication service URL</td>
+</tr>
+<tr>
+<td>VERBOSE_MIGRATION</td>
+<td>false</td>
+<td>When set to true, enables verbose database migration</td>
+</tr>
+</tbody>
+</table>
+<h4 id="aws-variables">AWS Variables</h4>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS_ACCESS_KEY_ID</td>
+<td>""</td>
+<td>Access key of the AWS account</td>
+</tr>
+<tr>
+<td>AWS_ROLE_NAME</td>
+<td>cbreak-deployer</td>
+<td>Name of the AWS role for the <code>cbd aws [generate-rol, show role]</code> commands</td>
+</tr>
+<tr>
+<td>AWS_SECRET_ACCESS_KEY</td>
+<td>""</td>
+<td>Secret access key of the AWS account</td>
+</tr>
+<tr>
+<td>CB_AWS_CUSTOM_CF_TAGS</td>
+<td>""</td>
+<td>Comma separated list of AWS CloudFormation stack tags</td>
+</tr>
+<tr>
+<td>CB_AWS_DEFAULT_CF_TAG</td>
+<td>""</td>
+<td>Default tag for AWS CloudFormation stack</td>
+</tr>
+<tr>
+<td>CB_AWS_DEFAULT_INBOUND_SECURITY_GROUP</td>
+<td>""</td>
+<td>Default inbound policy name for AWS CloudFormation stack</td>
+</tr>
+<tr>
+<td>CB_AWS_EXTERNAL_ID</td>
+<td>provision-ambari</td>
+<td>External ID of the assume role policy</td>
+</tr>
+<tr>
+<td>CB_AWS_HOSTKEY_VERIFY</td>
+<td>"false"</td>
+<td>Enables host fingerprint verification on AWS</td>
+</tr>
+<tr>
+<td>CB_AWS_VPC</td>
+<td>""</td>
+<td>Configures the VPC ID on AWS. Set this variable if you are provisioning cluster to the same VPC where Cloudbreak is deployed on AWS.</td>
+</tr>
+<tr>
+<td>CERTS_BUCKET</td>
+<td>""</td>
+<td>S3 bucket name for backup and restore certificates via <code>cbd aws [certs-restore-s3  certs-upload-s3]</code> commands</td>
+</tr>
+</tbody>
+</table>
+<h4 id="azure-variables">Azure Variables</h4>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AZURE_SUBSCRIPTION_ID</td>
+<td></td>
+<td>Azure subscription ID for interactive login in the web UI</td>
+</tr>
+<tr>
+<td>AZURE_TENANT_ID</td>
+<td></td>
+<td>Azure tenant ID for interactive login in the web UI</td>
+</tr>
+</tbody>
+</table>
+<h4 id="gcp-variables">GCP Variables</h4>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CB_GCP_HOSTKEY_VERIFY</td>
+<td>"false"</td>
+<td>When set to "true", enables host fingerprint verification on GCP</td>
+</tr>
+</tbody>
+</table>
+<h3 id="local-development-variables">Local Development Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CB_LOCAL_DEV_BIND_ADDR</td>
+<td>"192.168.64.1"</td>
+<td>Ambassador external address for local development of Cloudbreak and Autoscale</td>
+</tr>
+<tr>
+<td>CB_SCHEMA_SCRIPTS_LOCATION</td>
+<td>"container"</td>
+<td>Location of Cloudbreak schema update files</td>
+</tr>
+<tr>
+<td>DOCKER_TAG_AMBASSADOR</td>
+<td>0.5.0</td>
+<td>Ambassador container version for local development</td>
+</tr>
+<tr>
+<td>PERISCOPE_SCHEMA_SCRIPTS_LOCATION</td>
+<td>"container"</td>
+<td>Location of Cloudbreak schema update files</td>
+</tr>
+<tr>
+<td>PRIVATE_IP</td>
+<td>$BRIDGE_IP</td>
+<td>IP address or hostname of the private interface</td>
+</tr>
+<tr>
+<td>REMOVE_CONTAINER</td>
+<td>"--rm"</td>
+<td>Keeps side effect containers for debug purpose</td>
+</tr>
+<tr>
+<td>SULTANS_VOLUME_HOST</td>
+<td>/dev/null</td>
+<td>Location of the locally developed Authentication service project</td>
+</tr>
+<tr>
+<td>UAA_SCHEMA_SCRIPTS_LOCATION</td>
+<td>"container"</td>
+<td>Location of Identity schema update files</td>
+</tr>
+<tr>
+<td>ULUWATU_VOLUME_HOST</td>
+<td>/dev/null</td>
+<td>Location of the locally developed web UI project</td>
+</tr>
+</tbody>
+</table>
+<h3 id="macos-variables">MacOS Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DOCKER_MACHINE</td>
+<td>""</td>
+<td>Name of the Docker Machine where Cloudbreak runs</td>
+</tr>
+<tr>
+<td>DOCKER_PROFILE</td>
+<td>Profile</td>
+<td>Profile file for environment variables related to Docker Machine</td>
+</tr>
+<tr>
+<td>MACHINE_CPU</td>
+<td>2</td>
+<td>Number of the CPU cores on the Docker Machine instance</td>
+</tr>
+<tr>
+<td>MACHINE_MEM</td>
+<td>4096</td>
+<td>Amount of RAM on the Docker Machine instance</td>
+</tr>
+<tr>
+<td>MACHINE_NAME</td>
+<td>cbd</td>
+<td>Name of the Docker Machine instance</td>
+</tr>
+<tr>
+<td>MACHINE_OPTS</td>
+<td>"--xhyve-virtio-9p"</td>
+<td>Extra options for Docker Machine instance</td>
+</tr>
+<tr>
+<td>MACHINE_STORAGE_PATH</td>
+<td>$HOME/.docker/machine</td>
+<td>Docker Machine storage path</td>
+</tr>
+</tbody>
+</table>
+<h3 id="more">More</h3>
+<h4 id="uaa_default_user_groups">UAA_DEFAULT_USER_GROUPS</h4>
+<p>Default value fro <code>UAA_DEFAULT_USER_GROUPS</code> is:</p>
+<pre>"openid,cloudbreak.networks,cloudbreak.securitygroups,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.admin,sequenceiq.cloudbreak.user,sequenceiq.account.${UAA_DEFAULT_ACCOUNT},cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user,periscope.cluster,cloudbreak.recipes,cloudbreak.blueprints.read,cloudbreak.templates.read,cloudbreak.credentials.read,cloudbreak.recipes.read,cloudbreak.networks.read,cloudbreak.securitygroups.read,cloudbreak.stacks.read,cloudbreak.sssdconfigs,cloudbreak.sssdconfigs.read,cloudbreak.platforms,cloudbreak.platforms.read"</pre></div>
         
     </div>
 

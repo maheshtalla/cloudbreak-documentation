@@ -130,25 +130,19 @@
     </url>
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//security-profile/index.html</loc>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//security-cb/index.html</loc>
      <lastmod>2017-09-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//ssl-certificate/index.html</loc>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//security-ldap/index.html</loc>
      <lastmod>2017-09-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//ldap/index.html</loc>
-     <lastmod>2017-09-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//kerberos/index.html</loc>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//security-kerberos/index.html</loc>
      <lastmod>2017-09-26</lastmod>
      <changefreq>daily</changefreq>
     </url>

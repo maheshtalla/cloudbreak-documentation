@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/ldap/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/security-cb/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>LDAP/AD - Cloudbreak</title>
+    <title>Securing Cloudbreak After Launch - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -324,26 +324,20 @@
 
                         
                             
-<li >
-    <a href="../security-profile/index.html">Securing Profile</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../ssl-certificate/index.html">SSL Certificate</a>
-</li>
-
-                        
-                            
 <li class="active">
-    <a href="index.html">LDAP/AD</a>
+    <a href="index.html">Securing Cloudbreak After Launch</a>
 </li>
 
                         
                             
 <li >
-    <a href="../kerberos/index.html">Kerberos</a>
+    <a href="../security-ldap/index.html">Configuring LDAP/AD</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../security-kerberos/index.html">Configuring Kerberos</a>
 </li>
 
                         
@@ -438,19 +432,25 @@
         
             
 <li >
-    <a href="../api/index.html">API</a>
+    <a href="../dev-local-dev/index.html">Local Development</a>
 </li>
 
         
             
 <li >
-    <a href="../spi/index.html">SPI</a>
+    <a href="../dev-api/index.html">API</a>
 </li>
 
         
             
 <li >
-    <a href="../flows/index.html">Flows</a>
+    <a href="../dev-spi/index.html">SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flows</a>
 </li>
 
         
@@ -468,12 +468,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../ssl-certificate/index.html">
+                        <a rel="next" href="../security/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../kerberos/index.html">
+                        <a rel="prev" href="../security-ldap/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -498,14 +498,91 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#ldap">LDAP</a></li>
+        <li class="first-level active"><a href="#securing-cloudbreak-after-launch">Securing Cloudbreak After Launch</a></li>
+        
+            <li class="second-level"><a href="#restricting-inbound-access">Restricting Inbound Access</a></li>
+            
+        
+            <li class="second-level"><a href="#configuring-the-profile">Configuring the Profile</a></li>
+            
+        
+            <li class="second-level"><a href="#adding-ssl-certificate-for-cloudbreak">Adding SSL Certificate for Cloudbreak</a></li>
+            
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="ldap">LDAP</h2></div>
+<h2 id="securing-cloudbreak-after-launch">Securing Cloudbreak After Launch</h2>
+<p>Cloudbreak comes with default settings designed for easy first experience rather than strict security. To secure Cloudbreak, follow these recommendations. </p>
+<h3 id="restricting-inbound-access">Restricting Inbound Access</h3>
+<p>We recommend that you block all communication ports except 443 on the firewall or security group (depending on the provider). </p>
+<p>If you have to log in to the Cloudbreak host remotely, use the SSH port (usually 22).</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Is the step above up-to-date? I think ports 80 and 22 is also open. </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="configuring-the-profile">Configuring the Profile</h3>
+<p>Before starting Cloudbreak for the first time, configure the Profile file as directed below. Changes are applied during startup so a restart (<code>cbd restart</code>) is required after each change.</p>
+<ol>
+<li>
+<p>Execute the following command in the directory where you want to store Cloudbreak-related files:</p>
+<p><pre>
+echo export PUBLIC_IP=[the ip or hostname to bind] &gt; Profile
+</pre></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Do you mean that this needs to be executed in the deployment directory? Or?</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>After you have a base Profile file, add the following custom properties to it:</p>
+<p><pre>
+export UAA_DEFAULT_SECRET='[custom secret]'
+export UAA_DEFAULT_USER_EMAIL='[default admin email address]'
+export UAA_DEFAULT_USER_PW='[default admin password]'
+export UAA_DEFAULT_USER_FIRSTNAME='[default admin first name]'
+export UAA_DEFAULT_USER_LASTNAME='[default admin last name]'
+</pre></p>
+<p>Cloudbreak has additional secrets which by default inherit their values from <code>UAA_DEFAULT_SECRET</code>. Instead of using the default, you can define different values in the Profile for each of these service clients:</p>
+<p><pre>
+export UAA_CLOUDBREAK_SECRET='[cloudbreak secret]'
+export UAA_PERISCOPE_SECRET='[auto scaling secret]'
+export UAA_ULUWATU_SECRET='[web ui secret]'
+export UAA_SULTANS_SECRET='[authenticator secret]'
+</pre></p>
+<p>You can change these secrets at any time, except <code>UAA_CLOUDBREAK_SECRET</code> which is used to encrypt sensitive information at database level. </p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: The info below is explained in a way that is confusing. Can you rephrase? </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><code>UAA_DEFAULT_USER_PW</code> is stored in plain text format, but if <code>UAA_DEFAULT_USER_PW</code> is missing from the Profile, it gets a default value. Because default password is not an option, if you set an empty password explicitly in the Profile Cloudbreak deployer will ask for password all the time when it is needed for the operation.</p>
+<p><pre>
+export UAA_DEFAULT_USER_PW=''
+</pre></p>
+<p>In this case, Cloudbreak deployer wouldn't be able to add the default user, so you have to do it manually by executing the following command:</p>
+<p><pre>
+cbd util add-default-user
+</pre></p>
+</li>
+</ol>
+<h3 id="adding-ssl-certificate-for-cloudbreak">Adding SSL Certificate for Cloudbreak</h3></div>
         
     </div>
 

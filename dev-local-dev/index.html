@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/api/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/dev-local-dev/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>API - Cloudbreak</title>
+    <title>Local Development - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -325,25 +325,19 @@
                         
                             
 <li >
-    <a href="../security-profile/index.html">Securing Profile</a>
+    <a href="../security-cb/index.html">Securing Cloudbreak After Launch</a>
 </li>
 
                         
                             
 <li >
-    <a href="../ssl-certificate/index.html">SSL Certificate</a>
+    <a href="../security-ldap/index.html">Configuring LDAP/AD</a>
 </li>
 
                         
                             
 <li >
-    <a href="../ldap/index.html">LDAP/AD</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../kerberos/index.html">Kerberos</a>
+    <a href="../security-kerberos/index.html">Configuring Kerberos</a>
 </li>
 
                         
@@ -438,19 +432,25 @@
         
             
 <li class="active">
-    <a href="index.html">API</a>
+    <a href="index.html">Local Development</a>
 </li>
 
         
             
 <li >
-    <a href="../spi/index.html">SPI</a>
+    <a href="../dev-api/index.html">API</a>
 </li>
 
         
             
 <li >
-    <a href="../flows/index.html">Flows</a>
+    <a href="../dev-spi/index.html">SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flows</a>
 </li>
 
         
@@ -473,7 +473,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../spi/index.html">
+                        <a rel="prev" href="../dev-api/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -498,9 +498,32 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#cloudbreak-apis">Cloudbreak APIs</a></li>
+        <li class="first-level active"><a href="#local-development">Local Development</a></li>
         
-            <li class="second-level"><a href="#api-documentation">API Documentation</a></li>
+            <li class="second-level"><a href="#cloudbreak-application">Cloudbreak Application</a></li>
+            
+                <li class="third-level"><a href="#set-up-local-development">Set up Local Development</a></li>
+            
+                <li class="third-level"><a href="#set-up-idea">Set up IDEA</a></li>
+            
+                <li class="third-level"><a href="#set-up-command-line">Set up Command line</a></li>
+            
+                <li class="third-level"><a href="#set-up-database-development">Set up Database Development</a></li>
+            
+                <li class="third-level"><a href="#building">Building</a></li>
+            
+        
+            <li class="second-level"><a href="#cloudbreak-deployer">Cloudbreak Deployer</a></li>
+            
+                <li class="third-level"><a href="#contributing">Contributing</a></li>
+            
+                <li class="third-level"><a href="#taking-snapshots">Taking Snapshots</a></li>
+            
+                <li class="third-level"><a href="#testing">Testing</a></li>
+            
+                <li class="third-level"><a href="#clodbreak-deployer-release-process">Clodbreak Deployer Release Process</a></li>
+            
+                <li class="third-level"><a href="#acceptance">Acceptance</a></li>
             
         
     
@@ -508,13 +531,296 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="cloudbreak-apis">Cloudbreak APIs</h2>
-<p>Cloudbreak is a RESTful application development platform whose goal is to help developers deploy HDP clusters in various cloud environments. Once Cloudbreak is deployed in your favorite servlet container, it exposes REST APIs, allowing you to spin up Hadoop clusters of any size with your chosen cloud provider.</p>
-<h3 id="api-documentation">API Documentation</h3>
-<p>The Cloudbreak API documentation is available <a href="https://app.swaggerhub.com/apis/Cloudbreak/Cloudbreak/1.16.1">here</a>. </p>
+<h2 id="local-development">Local Development</h2>
+<p>The following documentation will help you set up your local development environment for <a href="#cloudbreak-application">Cloudbreak application</a> and <a href="#cloudbreak-deployer">Cloudbreak Deployer</a>.</p>
+<h3 id="cloudbreak-application">Cloudbreak Application</h3>
+<p>The following steps will help you set up your local development environment for Cloudbreak application.</p>
+<h4 id="set-up-local-development">Set up Local Development</h4>
+<p><strong>Prerequisites</strong> <br />
+To use this development environment on Mac OS X, you need to have Docker and Boot2docker installed.</p>
+<p><strong>Steps</strong>  </p>
+<ol>
+<li>
+<p>The simplest way to prepare the working environment is to start the Cloudbreak application on your local machine using <a href="https://github.com/hortonworks/cloudbreak-deployer">Cloudbreak deployer</a>.</p>
 <blockquote>
-<p>This documentation was generated from the code using <a href="https://swagger.io/">Swagger</a>.</p>
-</blockquote></div>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: What exactly do I need to do in the step above? Am I supposed to clone this repo? How do I "start" the Cloudbreak applicaton?</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>Create a directory which will store the necessary configuration files and dependencies of Cloudbreak deployer. This directory must be created outside of the cloned Cloudbreak git repository:</p>
+<p><pre>
+mkdir cbd-local</pre></p>
+</li>
+<li>
+<p>To start the complete Cloudbreak ecosystem on your machine, execute the following sequence of commands:</p>
+<p><pre>
+cd cbd-local
+curl https://raw.githubusercontent.com/hortonworks/cloudbreak-deployer/master/install | sh &amp;&amp; cbd --version
+cbd update master
+cbd init
+cbd start</pre></p>
+</li>
+<li>
+<p>After running these commands, Cloudbreak is available at http://192.168.59.103:3000. For more details and config parameters please check the documentation of <a href="https://github.com/hortonworks/cloudbreak-deployer">Cloudbreak Deployer</a>.</p>
+<p>Furthermore, Cloudbreak deployer generates a <code>certs</code> directory inside the <code>cbd-local</code> directory. You will need it later when setting up the IDEA.</p>
+</li>
+<li>
+<p>Open the <code>cbd-local/Profile</code> file with a text editor and add the CB_SCHEMA_SCRIPTS_LOCATION environment variable to configure the location of SQL scripts, which is the 'core/src/main/resources/schema' directory located in the cloned Cloudbreak git repository. Note that the full path needs to be configured and environment variables like $USER cannot be used. For example:</p>
+<p><pre>
+export CB_SCHEMA_SCRIPTS_LOCATION=/Users/myusername/prj/cloudbreak/core/src/main/resources/schema</pre></p>
+</li>
+</ol>
+<p><strong>Tip</strong>: If you need to kill a Cloudbreak container running inside the boot2docker and redirect the Cloudbreak related traffic to the Cloudbreak running in IDEA, use the following command:</p>
+<pre>
+cbd util local-dev</pre>
+
+<h4 id="set-up-idea">Set up IDEA</h4>
+<p>The following steps will help you set up IDEA for the local development environment of Cloudbreak application.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Import Cloudbreak into IDEA as gradle project. Once done, import the proper code formatter by using the <strong>File &gt; Import Settings...</strong> menu and selecting the <code>idea_settings.jar</code> located in the <code>config</code> directory in Cloudbreak git repository.</p>
+</li>
+<li>
+<p>To launch the Cloudbreak application execute the <code>com.sequenceiq.cloudbreak.CloudbreakApplication</code> class with VM options. </p>
+<p>The <code>FULL_PATH_OF_THE_CERTS_DIR_GENERATED_BY_CBD</code> below needs to be replaced with the full path of <code>certs</code> directory generated by Cloudbreak deployer; for example: <code>-Dcb.cert.dir=/Users/myusername/prj/cbd-local/certs</code>.</p>
+<p><pre>
+-XX:MaxPermSize=1024m
+-Dcb.cert.dir=FULL_PATH_OF_THE_CERTS_DIR_GENERATED_BY_CBD
+-Dcb.client.id=cloudbreak
+-Dcb.client.secret=cbsecret2015
+-Dcb.db.port.5432.tcp.addr=192.168.59.103
+-Dcb.db.port.5432.tcp.port=5432
+-Dspring.cloud.consul.host=192.168.59.103
+-Dcb.identity.server.url=http://192.168.59.103:8089
+-Dserver.port=9091</pre></p>
+</li>
+</ol>
+<h4 id="set-up-command-line">Set up Command line</h4>
+<p>The following steps will help you set up the command line for the local development environment of Cloudbreak application..</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>To run Cloudbreak from command line, create a property file, for example "application.properties", with the content below
+    <pre>
+cb.cert.dir=FULL_PATH_OF_THE_CERTS_DIR_GENERATED_BY_CBD
+cb.client.id=cloudbreak
+cb.client.secret=cbsecret2015
+cb.db.port.5432.tcp.addr=192.168.59.103
+cb.db.port.5432.tcp.port=5432
+spring.cloud.consul.host=192.168.59.103
+cb.identity.server.url=http://192.168.59.103:8089
+server.port=9091</pre></p>
+</li>
+<li>
+<p>Execute the <code>./gradlew bootRun -Dspring.config.location=file:/path/of/property/application.properties</code> command at project root.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Do you mean "at the project's root directory" or "as the root user"? </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<h4 id="set-up-database-development">Set up Database Development</h4>
+<p>If schema change is required in Cloudbreak database (cbdb), then the developer needs to write SQL scripts to migrate the database accordingly. In Cloudbreak, the schema migration is managed by the <a href="https://github.com/mybatis/migrations">MYBATIS Migrations</a>, for which the cbd tool provides an easy-to-use wrapper. The syntax for using the migration commands is </p>
+<p><code>cbd migrate &lt;database name&gt; &lt;command&gt; [parameters]</code></p>
+<p>For example:</p>
+<p><code>cbd migrate migrate status</code></p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Create a SQL template for schema changes:</p>
+<p><pre>
+cbd migrate cbdb new "CLOUD-123 schema change for new feature"
+</pre></p>
+<p>As as result of the above command, an SQL file template is generated under the path specified in <code>CB_SCHEMA_SCRIPTS_LOCATION</code> environment variable, which is defined in Profile. The structure of the generated SQL template looks like the following:</p>
+<p><pre>
+-- // CLOUD-123 schema change for new feature
+-- Migration SQL that makes the change goes here.</p>
+<p>-- //@UNDO
+-- SQL to undo the change goes here.
+</pre></p>
+</li>
+<li>
+<p>Once you have implemented your SQLs, you can execute them by using:</p>
+<p><pre>
+cbd migrate cbdb up
+</pre></p>
+</li>
+</ol>
+<p><strong>Optional Steps</strong></p>
+<p>If you would like to rollback the last SQL file, use the <code>down</code> command:</p>
+<pre>
+cbd migrate cbdb down</pre>
+
+<p>In order to check the status of database, use: </p>
+<pre><code>cbd migrate cbdb status
+
+#Every script that has not been executed will be marked as ...pending... in the output of status command:
+
+------------------------------------------------------------------------
+-- MyBatis Migrations - status
+------------------------------------------------------------------------
+ID             Applied At          Description
+================================================================================
+20150421140021 2015-07-08 10:04:28 create changelog
+20150421150000 2015-07-08 10:04:28 CLOUD-607 create baseline schema
+20150507121756 2015-07-08 10:04:28 CLOUD-576 change instancegrouptype hostgroup to core
+20151008090632    ...pending...    CLOUD-123 schema change for new feature
+
+------------------------------------------------------------------------
+</code></pre>
+
+<h4 id="building">Building</h4>
+<p>Cloudbreak uses Gradle for build and dependency management. Gradle wrapper is added to Cloudbreak git repository, therefore you build by using the following command:</p>
+<pre>
+./gradlew clean build
+</pre>
+
+<h3 id="cloudbreak-deployer">Cloudbreak Deployer</h3>
+<p>The following steps will help you set up your local development environment for Cloudbreak deployer.</p>
+<h4 id="contributing">Contributing</h4>
+<p>When developing, work on separate branches and then open a pull request.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Branching from master or from the latest released branch?</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>To build the project for the first time, use:</p>
+<pre>
+make deps
+
+make install
+</pre>
+
+<blockquote>
+<p>You only need to run <code>make deps</code> once.</p>
+</blockquote>
+<p>To build the project, use:</p>
+<pre>
+make install
+</pre>
+
+<p>To run the unit tests, use:</p>
+<pre>
+make tests
+</pre>
+
+<p>To test the binary CircleCI build from your branch named <code>fix-something</code>, to validate the PR binary <code>cbd</code> tool will be tested. It is built by CircleCI for each branch.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Can you rephrase the paragraph above? I don't understand it at all. </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre>
+cbd update fix-something
+</pre>
+
+<h4 id="taking-snapshots">Taking Snapshots</h4>
+<p>We recommend to always use the latest release.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: How is this recommendation related to taking snapshots?</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>All successful builds from the <code>master</code> branch are uploaded to the public S3 bucket. You can download a build using:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: How is this related to taking snapshots?</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre>
+curl -L s3.amazonaws.com/public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_snapshot_$(uname)_x86_64.tgz | tar -xz
+</pre>
+
+<p>Instead of overwriting the released version, download it to a local directory and use it by referring to it as <code>./cbd</code></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: How is this related to taking snapshots?</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre>
+./cbd --version
+</pre>
+
+<h4 id="testing">Testing</h4>
+<p>Shell scripts shouldn’t raise exceptions when it comes to unit testing. </p>
+<p><a href="https://github.com/progrium/basht">basht</a> is
+ used for testing. See <a href="https://github.com/progrium/basht#why-not-bats-or-shunit2">why not bats or shunit2</a>.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Do you mean "Shell scripts shouldn’t raise exceptions <strong>during</strong> unit testing."?</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Cover your bash functions with unit tests and run tests using:</p>
+<pre>
+make tests
+</pre>
+
+<h4 id="clodbreak-deployer-release-process">Clodbreak Deployer Release Process</h4>
+<p>The master branch is always built on <a href="https://circleci.com/gh/hortonworks/cloudbreak-deployer">CircleCI</a>.</p>
+<p>To create a new release, all you have to do is run:</p>
+<pre>
+make release-next-ver
+</pre>
+
+<p>This performs the following steps:</p>
+<ul>
+<li>On the <code>master</code> branch:<ul>
+<li>Updates the <code>VERSION</code> file by increasing the <strong>patch</strong> version number (for example, from 0.5.2 to 0.5.3).</li>
+<li>Updates <code>CHANGELOG.md</code> with the release date.</li>
+<li>Creates a new <strong>Unreleased</strong> section at the top of <code>CHANGELOG.md</code>.</li>
+</ul>
+</li>
+<li>Creates a pull request for the release branch:<ul>
+<li>Creates a new branch with a name like <code>release-0.5.x</code>. This branch should be the same as <code>origin/master</code>.</li>
+<li>Creates a pull request to the <code>release</code> branch.</li>
+</ul>
+</li>
+</ul>
+<h4 id="acceptance">Acceptance</h4>
+<p>You can get the release by using <code>cbd update release-x.y.z</code>. 
+Test it and when done, comment using "LGTM" (Looking Good To Me).</p>
+<p>Once the PR is merged, CircleCI will:</p>
+<ul>
+<li>Create a new release on <a href="https://github.com/hortonworks/cloudbreak-deployer/releases">GitHub releases tab</a>, with the
+ help of <a href="https://github.com/progrium/gh-release">gh-release</a></li>
+<li>Create the git tag with <code>v</code> prefix such as <code>v0.0.3</code></li>
+</ul></div>
         
     </div>
 
