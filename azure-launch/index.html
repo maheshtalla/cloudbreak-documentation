@@ -498,7 +498,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#launch-cloudbreak-on-azure">Launch Cloudbreak on Azure</a></li>
+        <li class="first-level active"><a href="#launching-cloudbreak-on-azure">Launching Cloudbreak on Azure</a></li>
         
             <li class="second-level"><a href="#meet-the-prerequisites">Meet the Prerequisites</a></li>
             
@@ -538,7 +538,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="launch-cloudbreak-on-azure">Launch Cloudbreak on Azure</h2>
+<h2 id="launching-cloudbreak-on-azure">Launching Cloudbreak on Azure</h2>
 <p>Before launching Cloudbreak on Azure, review and meet the prerequisites. Next, launch Cloudbreak using one of the two available methods. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential. </p>
 <h3 id="meet-the-prerequisites">Meet the Prerequisites</h3>
 <p>Before launching Cloudbreak on Azure, you must meet the following prerequisites.</p>
@@ -600,15 +600,15 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 <tbody>
 <tr>
 <td>Subscription</td>
-<td>Select which existing subscription you want to use.</td>
+<td>(Required) Select which existing subscription you want to use.</td>
 </tr>
 <tr>
 <td>Resource group</td>
-<td>Only <strong>Create new</strong> is supported. Select <strong>Create new</strong> to create a new resource group and enter a name for your new resource group. Cloudbreak resources will later be accessible in that chosen resource group.</td>
+<td>(Required) Select an existing resource group or create a new one by selecting <strong>Create new</strong> and entering a name for your new resource group. Cloudbreak resources will later be accessible in that chosen resource group.</td>
 </tr>
 <tr>
 <td>Location</td>
-<td>Select an Azure region in which you want to deploy Cloudbreak.</td>
+<td>(Required) Select an Azure region in which you want to deploy Cloudbreak.</td>
 </tr>
 </tbody>
 </table>
@@ -622,6 +622,14 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 </thead>
 <tbody>
 <tr>
+<td>Base Url</td>
+<td>This is the URL to the page where the template is stored.</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>This is an internal parameter. Do not change it.</td>
+</tr>
+<tr>
 <td>VM Size</td>
 <td>Select virtual machine instance type to use for the Cloudbreak controller. The minimum instance type suitable for Cloudbreak is <em>D2</em>.</td>
 </tr>
@@ -631,7 +639,7 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 </tr>
 <tr>
 <td>Admin User Password</td>
-<td>Password for the admin login. Must be at least 8 characters containing letters, numbers, and symbols.</td>
+<td>(Required) Password for the admin login. Must be at least 8 characters containing letters, numbers, and symbols.</td>
 </tr>
 <tr>
 <td>Username</td>
@@ -643,7 +651,35 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 </tr>
 <tr>
 <td>Remote Location</td>
-<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags such as  <code>Internet</code>. For example: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg#default-tags">Azure documentation</a>.</p></td>
+<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags. Default value is <code>Internet</code> which allows access from all IP addresses. Examples: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg#default-tags">Azure documentation</a>.</p></td>
+</tr>
+<tr>
+<td>Ssh Key</td>
+<td><p>(Required) Paste your SSH public key.</p><p>You can use <code>pbcopy</code> to quickly copy it. For example: <code>pbcopy &lt; /Users/homedir/.ssh/id_rsa.pub</code></p></td>
+</tr>
+<tr>
+<td>Vnet New Or Existing</td>
+<td>By default, Cloudbreak is launched in a new VNet called <code>cbdeployerVnet</code> and a new subnet called <code>cbdeployerSubnet</code>; if needed, you can customize the settings for the new VNet using available VNet and Subnet parameters.</td>
+</tr>
+<tr>
+<td>Vnet Name</td>
+<td>Provide the name for a new Vnet. Default is <code>`cbdeployerVnet</code>.</td>
+</tr>
+<tr>
+<td>Vnet Subnet Name</td>
+<td>Provide a name for a new subnet. Default is <code>cbdeployerSubnet</code>.</td>
+</tr>
+<tr>
+<td>Vnet Address Prefix</td>
+<td>Provide a CIDR for the virtual network. Default is <code>10.0.0.0/16</code>.</td>
+</tr>
+<tr>
+<td>Vnet Subnet Address Prefix</td>
+<td>Provide a CIDR for the subnet. Default is <code>10.0.0.0/24</code>.</td>
+</tr>
+<tr>
+<td>Vnet RG Name</td>
+<td>The name of the resource group in which the Vnet is located. If creating a new Vnet, enter the same resource group name as provided in the <code>Resource group</code> field in the <strong>BASICS</strong> section.</td>
 </tr>
 </tbody>
 </table>

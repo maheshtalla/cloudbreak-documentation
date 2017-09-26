@@ -498,7 +498,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#launch-cloudbreak-on-aws">Launch Cloudbreak on AWS</a></li>
+        <li class="first-level active"><a href="#launching-cloudbreak-on-aws">Launching Cloudbreak on AWS</a></li>
         
             <li class="second-level"><a href="#meet-the-prerequisites">Meet the Prerequisites</a></li>
             
@@ -535,7 +535,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="launch-cloudbreak-on-aws">Launch Cloudbreak on AWS</h2>
+<h2 id="launching-cloudbreak-on-aws">Launching Cloudbreak on AWS</h2>
 <p>Before launching Cloudbreak on AWS, review and meet the prerequisites. Next, launch a VM using a Cloudbreak Amazon Machine Image (AMI), SSH to the VM, and start Cloudbreak. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential. </p>
 <h3 id="meet-the-prerequisites">Meet the Prerequisites</h3>
 <p>Before launching Cloudbreak on AWS, you must meet the following prerequisites.</p>
@@ -655,25 +655,7 @@
 </li>
 <li>
 <p>Click <strong>Select</strong> next to "Create Your Own Policy".</p>
-<p><a href="../images/aws_role-12.png" target="_blank" title="click to enlarge"><img src="../images/aws_role-12.png" width="650" title="IAM Console"></a> </p>
-</li>
-<li>
-<p>Copy the following "AssumeRole" policy definition: </p>
-<p><pre>{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1400068149000",
-      "Effect": "Allow",
-      "Action": [
-        "sts:AssumeRole"
-      ],
-      "Resource": [
-        "*"
-      ]
-    }
-  ]
-}</pre>    </p>
+<p><a href="../images/aws_role-12.png" target="_blank" title="click to enlarge"><img src="../images/aws_role-12.png" width="650" title="IAM Console"></a>  </p>
 </li>
 <li>
 <p>In the <strong>Policy Name</strong> field, enter "AssumeRole" and in the <strong>Policy Document</strong> paste the policy declaration as provided in the previous step.</p>
@@ -724,32 +706,7 @@
 <p><a href="../images/aws_role3.png" target="_blank" title="click to enlarge"><img src="../images/aws_role3.png" width="650" title="IAM Console"></a> </p>
 </li>
 <li>
-<p>Copy the following "cb-policy" policy definition: </p>
-<p><pre>{
-  "Version": "2012-10-17",
-  "Statement": [
-{
-  "Effect": "Allow",
-  "Action": [ "cloudformation:<em>" ],
-  "Resource": [ "</em>" ]
-},
-{
-  "Effect": "Allow",
-  "Action": [ "ec2:<em>" ],
-  "Resource": [ "</em>" ]
-},
-{
-  "Effect": "Allow",
-  "Action": [ "iam:PassRole" ],
-  "Resource": [ "<em>" ]
-},
-{
-  "Effect": "Allow",
-  "Action": [ "autoscaling:</em>" ],
-  "Resource": [ "*" ]
-}
-  ]
-}</pre>    </p>
+<p>Copy the "cb-policy" policy definition (see below).   </p>
 </li>
 <li>
 <p>In the <strong>Policy Name</strong> field, enter "cb-policy" and in the <strong>Policy Document</strong> paste the policy declaration as provided below.</p>
@@ -773,6 +730,51 @@
 <p>When done, click <strong>Create role</strong> to finish the role creation process.</p>
 </li>
 </ol>
+<p><strong>Policy Definitions</strong></p>
+<p>The "AssumeRole" policy definition: </p>
+<pre>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1400068149000",
+      "Effect": "Allow",
+      "Action": [
+        "sts:AssumeRole"
+      ],
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}</pre>
+
+<p>The "cb-policy" policy definition: </p>
+<pre>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [ "cloudformation:*" ],
+      "Resource": [ "*" ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [ "ec2:*" ],
+      "Resource": [ "*" ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [ "iam:PassRole" ],
+      "Resource": [ "*" ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [ "autoscaling:*" ],
+      "Resource": [ "*" ]
+    }
+  ]
+}</pre>
+
 <p>For more information about IAM, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html" target="_blank">Using Instance Profiles</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html" target="_blank">Using an IAM Role to Grant Permissions to Applications Running on Amazon EC2 Instances</a>.    </p>
 <h3 id="launch-the-vm">Launch the VM</h3>
 <p>Now that you've met the prerequisites, you can launch the Cloudbreak deployer VM available as a Community AMI.</p>
@@ -806,39 +808,39 @@
 <tbody>
 <tr>
 <td>eu-west-1</td>
-<td>ami-711d0317</td>
+<td>ami-79c63f00</td>
 </tr>
 <tr>
 <td>sa-east-1</td>
-<td>ami-bd365dd1</td>
+<td>ami-1af18176</td>
 </tr>
 <tr>
 <td>us-east-1</td>
-<td>ami-10a78606</td>
+<td>ami-e9bdbc92</td>
 </tr>
 <tr>
 <td>us-west-1</td>
-<td>ami-01735e61</td>
+<td>ami-2dd1e44d</td>
 </tr>
 <tr>
 <td>us-west-2</td>
-<td>ami-6ccbc015</td>
+<td>ami-ae6c85d6</td>
 </tr>
 <tr>
 <td>eu-central-1</td>
-<td>ami-d116b2be</td>
+<td>ami-bc18b3d3</td>
 </tr>
 <tr>
 <td>ap-northeast-1</td>
-<td>ami-97c4ccf0</td>
+<td>ami-f2fb0494</td>
 </tr>
 <tr>
 <td>ap-southeast-1</td>
-<td>ami-d162e0b2</td>
+<td>ami-47036324</td>
 </tr>
 <tr>
 <td>ap-southeast-2</td>
-<td>ami-a7dacbc4</td>
+<td>ami-370b1154</td>
 </tr>
 </tbody>
 </table>

@@ -498,7 +498,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#launch-cloudbreak-on-openstack">Launch Cloudbreak on OpenStack</a></li>
+        <li class="first-level active"><a href="#launching-cloudbreak-on-openstack">Launching Cloudbreak on OpenStack</a></li>
         
             <li class="second-level"><a href="#meet-minimum-system-requirements">Meet Minimum System Requirements</a></li>
             
@@ -551,7 +551,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="launch-cloudbreak-on-openstack">Launch Cloudbreak on OpenStack</h2>
+<h2 id="launching-cloudbreak-on-openstack">Launching Cloudbreak on OpenStack</h2>
 <p>Before launching Cloudbreak on OpenStack, review and meet the prerequisites. Next, import Cloudbreak image, launch a VM, SSH to the VM, and start Cloudbreak. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential. </p>
 <h3 id="meet-minimum-system-requirements">Meet Minimum System Requirements</h3>
 <p>Before launching Cloudbreak on your OpenStack, make sure that your OpenStack deployment fulfills the following requirements.</p>
@@ -586,11 +586,11 @@
 <ol>
 <li>
 <p>Download the latest Cloudbreak deployer image to your local machine: </p>
-<p><pre>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer-1161-2017-06-15.img</pre></p>
+<p><pre>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer-1164-2017-08-25.img</pre></p>
 </li>
 <li>
 <p>Set the following environment variables for the OpenStack image import: </p>
-<p><pre>export CBD_LATEST_IMAGE=cloudbreak-deployer-1161-2017-06-15.img
+<p><pre>export CBD_LATEST_IMAGE=cloudbreak-deployer-1164-2017-08-25.img
 export OS_IMAGE_NAME=cloudbreak-deployer-1161-2017-06-15.img
 export OS_USERNAME=your_os_user_name
 export OS_AUTH_URL=your_authentication_url
@@ -615,12 +615,11 @@ export OS_TENANT_NAME=your_os_tenant_name</pre></p>
 <ol>
 <li>
 <p>Download the latest HDP image to your local machine: </p>
-<p><pre>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/hdc-hdp--1705081316.img
-</pre></p>
+<p><pre>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/hdc-hdp--1706141444.img</pre></p>
 </li>
 <li>
 <p>Set the following environment variables for the OpenStack image import: </p>
-<p><pre>export CB_LATEST_IMAGE=hdc-hdp--1705081316.img
+<p><pre>export CB_LATEST_IMAGE=hdc-hdp--1706141444.img 
 export CB_LATEST_IMAGE_NAME=hdc-hdp--1705081316.img
 export OS_USERNAME=your_os_user_name
 export OS_AUTH_URL=your_authentication_url
