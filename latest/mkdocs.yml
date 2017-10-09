@@ -1,0 +1,70 @@
+site_name: Cloudbreak 
+site_favicon: /images/favicon.png
+theme_dir: custom_cinder
+extra_css:
+  - css/extra.css
+dev_addr: 0.0.0.0:8000
+strict: true
+copyright: © 2011-2017 <a href="http://www.hortonworks.com" target="_blank">Hortonworks Inc</a>. All Rights Reserved. | <a href="http://hortonworks.com/privacy-policy/" target="_blank">Privacy Policy</a>
+google_analytics: ['UA-22950817-24', 'auto']
+markdown_extensions:
+  - markdown_include.include
+use_directory_urls: false
+pages:
+    - Get Started:
+      - Introduction: index.md
+      - Architecture: architecture.md
+    - AWS:
+      - Launch on AWS: aws-launch.md
+      - Define Infrastructure Templates: aws-config.md
+      - Create a Cluster: aws-create.md
+      - Manage and Monitor Clusters: aws-cb-ui.md
+      - Access Data on S3: aws-data.md
+    - Azure:
+      - Launch on Azure: azure-launch.md
+      - Define Infrastructure Templates: azure-config.md
+      - Create a Cluster: azure-create.md
+      - Manage and Monitor Clusters: azure-cb-ui.md
+      - Access Data on Azure: azure-data.md
+    - GCP:
+      - Launch on GCP: gcp-launch.md
+      - Define Infrastructure Templates: gcp-config.md
+      - Create a Cluster: gcp-create.md
+      - Manage and Monitor Clusters: gcp-cb-ui.md
+    - OpenStack:
+      - Launch on Open Stack: os-launch.md
+      - Define Infrastructure Templates: os-config.md
+      - Create a Cluster: os-create.md
+      - Manage and Monitor Clusters: os-cb-ui.md
+    - Config & Admin:
+      - Cloudbreak Credentials: credentials.md  
+      - Resource Tagging: tags.md 
+      - Recipes (Custom Scripts): recipes.md
+      - Auto Scaling: autoscaling.md
+      - Platforms (TP): platforms.md 
+      - Ambari Database (TP): ambari-db.md
+      - Cloudbreak Database: cb-db.md
+      - Custom Cloud Images (TP): images.md
+      - Manage Cloudbreak:
+        - Manage Your Account: cb-account.md
+        - Upgrade Clodbreak: upgrade.md
+        - Delete Cloudbreak: delete.md 
+        - Install on Your Own VM: vm-launch.md
+    - Security: 
+      - Network and Security: security.md
+      - Securing Profile: security-profile.md
+      - SSL Certificate: ssl-certificate.md 
+      - LDAP/AD: ldap.md
+      - Kerberos: kerberos.md
+    - Reference:
+      - Release Notes: releasenotes.md
+      - Cloudbreak Shell: cb-shell.md
+      - Profile File: profile.md
+      - FAQ: faq.md 
+      - Troubleshooting: trouble.md
+      - Getting Help: get-help.md
+      - Developer Docs:
+        - API: api.md
+        - SPI: spi.md
+        - Flows: flows.md 
+
