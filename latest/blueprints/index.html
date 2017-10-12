@@ -101,6 +101,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -586,7 +586,8 @@ Furthermore, a blueprint can be modified later from the Ambari UI.</p>
 <p>A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, some configurations are hardcoded for example domain names, memory configurations, and so on, that won't be applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually.</p>
 <p>Also see <a href="#example-blueprints">Example Blueprints</a> and <a href="#blueprint-components">Blueprint Components</a>.</p>
 <h4 id="upload-a-blueprint">Upload a Blueprint</h4>
-<p>Once you have your blueprint ready:</p>
+<p>Once you have your blueprint ready, perform these steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Navigate to the <strong>manage blueprints</strong> tab. To add your own blueprint, click <strong>+create blueprint</strong> and enter the following parameters:</p>
@@ -622,7 +623,8 @@ Furthermore, a blueprint can be modified later from the Ambari UI.</p>
 </li>
 </ol>
 <h3 id="copy-and-edit-existing-blueprint">Copy and Edit Existing Blueprint</h3>
-<p>You can reuse default and previously added blueprints by using the <strong>copy &amp; edit</strong> option, which allows you to clone and edit an existing blueprint without changing or deleting the original blueprint. To do this: </p>
+<p>You can reuse default and previously added blueprints by using the <strong>copy &amp; edit</strong> option, which allows you to clone and edit an existing blueprint without changing or deleting the original blueprint. </p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Navigate to the <strong>manage blueprints</strong> tab, expand the blueprint entry, and then click <strong>copy &amp; edit</strong>.</p>

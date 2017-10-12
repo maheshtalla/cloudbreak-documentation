@@ -101,6 +101,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -594,6 +594,7 @@
 </table>
 <h3 id="enable-auto-scaling">Enable Auto Scaling</h3>
 <p>Auto scaling is disabled by default. Once the cluster is running, you can enable it for the cluster from the cluster's <strong>autoscaling SLA policies</strong> page. </p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>Click on the cluster tile to navigate to cluster <strong>details</strong> page.</li>
 <li>Click <strong>autoscaling SLA policies</strong>.</li>
@@ -601,6 +602,7 @@
 </ol>
 <p>Example: </p>
 <p><a href="../images/autoscaling-enable.png" target="_blank" title="click to enlarge"><img src="../images/autoscaling-enable.png" width="650" title="Cloudbreak web UI"></a> </p>
+<p><strong>Next Steps</strong></p>
 <p>After you have enabled auto scaling, perform these steps:</p>
 <ol>
 <li>Create either <a href="#create-a-metric-based-alert">a metric-based alert</a> or <a href="#create-a-time-based-alert">a time-based alert</a>.  </li>
@@ -609,7 +611,8 @@
 </ol>
 <h4 id="create-a-metric-based-alert">Create a Metric-based Alert</h4>
 <p>Metric-based alerts use Ambari metrics. These metrics have a default threshold value configured in Ambari, which you can modify in Ambari web UI.</p>
-<p>To create a new metric-based alert in the Cloudbreak UI:</p>
+<p>To create a new metric-based alert in the Cloudbreak UI, use the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>Enable auto scaling by clicking <strong>enable</strong>. </li>
 <li>Select <strong>metric based</strong>. </li>
@@ -637,7 +640,8 @@
 <p><a href="../images/ambari_threshold.png" target="_blank" title="click to enlarge"><img src="../images/ambari_threshold.png" width="650" title="Ambari web UI"></a> </p>
 <h4 id="create-a-time-based-alert">Create a Time-based Alert</h4>
 <p>Time-based alerts are based on cron expressions, allowing alerts to be triggered based on time.</p>
-<p>To create a new time-based alert in the Cloudbreak UI:</p>
+<p>To create a new time-based alert in the Cloudbreak UI, use the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>Enable auto scaling by clicking <strong>enable</strong>.  </li>
 <li>Select <strong>time based</strong>. </li>
@@ -649,7 +653,8 @@
 <p>Example:</p>
 <p><a href="../images/autoscaling-alert2.png" target="_blank" title="click to enlarge"><img src="../images/autoscaling-alert2.png" width="650" title="Cloudbreak web UI"></a> </p>
 <h4 id="create-a-scaling-policy">Create a Scaling Policy</h4>
-<p>To create a new scaling policy:</p>
+<p>To create a new scaling policy, use the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>Enter the <strong>policy name</strong>. Only alphanumeric characters (min 5, max 100 characters) are allowed.</li>
 <li>Select a type first (node count, percentage, or exact), and then enter a value for the <strong>scaling adjustment</strong>:<ul>
@@ -708,7 +713,8 @@
 </ul>
 <h3 id="disable-auto-scaling">Disable Auto Scaling</h3>
 <p>Auto scaling is disabled by default.</p>
-<p>If you have previously enabled it for a given cluster and you would like to disable it, you can do it from the cluster's <strong>autoscaling SLA policies</strong> page: </p>
+<p>If you have previously enabled it for a given cluster and you would like to disable it, you can do it from the cluster's <strong>autoscaling SLA policies</strong> page.</p>
+<p><strong>Steps</strong> </p>
 <ol>
 <li>Click on the cluster tile to navigate to cluster <strong>details</strong> page.</li>
 <li>Click <strong>autoscaling SLA policies</strong>.</li>

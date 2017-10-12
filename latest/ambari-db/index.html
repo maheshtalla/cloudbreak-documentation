@@ -101,6 +101,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -506,7 +506,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../cb-db/index.html">
+                        <a rel="prev" href="../security/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -533,12 +533,86 @@
     
         <li class="first-level active"><a href="#ambari-database">Ambari Database</a></li>
         
+            <li class="second-level"><a href="#creating-and-configuring-a-remote-datatabase">Creating and Configuring a Remote Datatabase</a></li>
+            
+        
+            <li class="second-level"><a href="#register-the-database-in-cloudbreak-ui">Register the Database in Cloudbreak UI</a></li>
+            
+        
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="ambari-database">Ambari Database</h2></div>
+<h2 id="ambari-database">Ambari Database</h2>
+<blockquote>
+<p>Ambari Database support is technical preview and may not be suitable for production use.</p>
+</blockquote>
+<p>By default, Ambari uses an embedded database to store data. Ambari and Cloudbreak don't perform backups of this database, so although this database is sufficient for ephemeral or test clusters, it is not sufficient for long-running production clusters. Therefore, you may need to configure a remote database for Ambari in Cloudbreak.</p>
+<p>The overall steps are:  </p>
+<ol>
+<li>Configure a remote database. You have two options for configuring a remote database: you can set up a supported database on your own or use a cloud provider database service.  </li>
+<li>Next, you must pass the details to Cloudbreak during cluster creation, and Cloudbreak will configure Ambari to connect to that remote database. </li>
+</ol>
+<p>Cloudbreak supports out-of-the-box PostgreSQL, MariaDB, and MySQL. This means that if you are using any of these databases, you only need to create the database itself and configure user permissions to create the cluster. Cloudbreak will initialize database tables, relations, and default values, and will download JDBC driver for Ambari. For other databases, you have to execute create SQL on your database and deliver JDBC driver to <code>/opt/jdbc-drivers</code> directory on Ambari server node.</p>
+<h3 id="creating-and-configuring-a-remote-datatabase">Creating and Configuring a Remote Datatabase</h3>
+<p>Consider these constraints when setting up your remote datatabase:   </p>
+<ul>
+<li>Cloudbreak doesn't validate the database connection, so wrong connection parameters will cause the cluster installation to fail.  </li>
+<li>Your database must be available to the Ambari server. This means that:  <ul>
+<li>The database must be located in the same region as the Ambari cluster. Slow database connection will cause cluster installation to fail.  </li>
+<li>The database could be on a public server with firewall protection, but for security reasons we suggest that you use a private virtual network with subnet, and configure the Cloudbreak network to use existing resources.  </li>
+</ul>
+</li>
+<li>For the supported out-of-the-box databases, Cloudbreak creates the tables and upgrades Ambari if necessary, but performing any other operations on the database is your responsibility.  </li>
+<li>If you selected PostgreSQL, you must use the <code>public</code> schema. It is not possible to use a different schema for Ambari.  </li>
+<li>Database name, username, and password should not contain the <code>'</code> character. Other special characters are allowed.  </li>
+</ul>
+<h3 id="register-the-database-in-cloudbreak-ui">Register the Database in Cloudbreak UI</h3>
+<p>You can configure Ambari database during cluster creation. The option is available in advanced options, in the <strong>Configure Ambari Database</strong> tab. You must provide the following information:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vendor</td>
+<td>Select database vendor from the list.</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>Enter database host IP.</td>
+</tr>
+<tr>
+<td>Port</td>
+<td>Enter port number.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Enter database name.</td>
+</tr>
+<tr>
+<td>User Name</td>
+<td>Enter database user name.</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Enter database password.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: The shell info should go to shell doc.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote></div>
         
     </div>
 

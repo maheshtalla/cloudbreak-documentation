@@ -8,7 +8,7 @@
     <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/dev-spi/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>SPI - Cloudbreak</title>
+    <title>Cloudbreak SPI - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -98,6 +98,12 @@
                             
 <li >
     <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
 </li>
 
                         
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li class="active">
-    <a href="index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -501,12 +501,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../dev-api/index.html">
+                        <a rel="next" href="../dev-local-dev/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../dev-flows/index.html">
+                        <a rel="prev" href="../dev-api/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -531,19 +531,16 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#service-provider-interface-spi">Service Provider Interface (SPI)</a></li>
+        <li class="first-level active"><a href="#cloudbreak-service-provider-interface-spi">Cloudbreak Service Provider Interface (SPI)</a></li>
         
-            <li class="second-level"><a href="#resource-management">Resource Management</a></li>
+            <li class="second-level"><a href="#supported-resource-management-methods">Supported Resource Management Methods</a></li>
             
                 <li class="third-level"><a href="#template-based-deployments">Template Based Deployments</a></li>
             
                 <li class="third-level"><a href="#individual-resource-based-deployments">Individual Resource Based Deployments</a></li>
             
         
-            <li class="second-level"><a href="#variants">Variants</a></li>
-            
-        
-            <li class="second-level"><a href="#development">Development</a></li>
+            <li class="second-level"><a href="#support-for-modularity">Support for Modularity</a></li>
             
         
     
@@ -551,34 +548,35 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="service-provider-interface-spi">Service Provider Interface (SPI)</h2>
-<p>Cloudbreak not only supports multiple cloud platforms but also provides an easy way to integrate a new provider trough <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-api">Cloudbreak's Service Provider Interface (SPI)</a>, a plugin mechanism that enables seamless integration with any cloud provider. This SPI plugin mechanism has been used to integrate all currently supported providers with Cloudbreak. Consequently, if you use SPI to integrate a new provider, the integration will be seamless.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: What exactly are these links pointing to and how are these useful? </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<h2 id="cloudbreak-service-provider-interface-spi">Cloudbreak Service Provider Interface (SPI)</h2>
+<p>In addition to supporting multiple cloud platforms, Cloudbreak provides an easy way to integrate a new provider trough its <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-api">Service Provider Interface (SPI)</a>, a plugin mechanism that enables seamless integration with any cloud provider. </p>
+<p>This SPI plugin mechanism has been used to integrate all currently supported providers with Cloudbreak. The following links point to the Cloudbreak SPI implementations for AWS, Azure, Google Cloud, and OpenStack. You can use these implementations as a reference:</p>
 <ul>
 <li>The <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-aws">cloud-aws</a> module integrates Amazon Web Services</li>
 <li>The <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-arm">cloud-arm</a> module integrates Microsoft Azure</li>
 <li>The <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-gcp">cloud-gcp</a> module integrates Google Cloud Platform  </li>
 <li>The <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-openstack">cloud-openstack</a> module integrates OpenStack</li>
 </ul>
-<p>The SPI interface is event-based, scalable, and decoupled from Cloudbreak. The core of Cloudbreak uses <a href="http://projectreactor.io/">EventBus</a> to communicate with the providers, but the complexity of event handling is hidden from the provider implementation.</p>
-<h3 id="resource-management">Resource Management</h3>
+<p>The Cloubdreak SPI interface is event-based, scalable, and decoupled from Cloudbreak. The core of Cloudbreak uses <a href="http://projectreactor.io/">EventBus</a> to communicate with the providers, but the complexity of event handling is hidden from the provider implementation.</p>
+<h3 id="supported-resource-management-methods">Supported Resource Management Methods</h3>
 <p>Cloud providers support two kinds of deployment and resource management methods:</p>
 <ul>
 <li>Template based deployments</li>
 <li>Individual resource based deployments</li>
 </ul>
-<p>Cloudbreak's SPI supports both of these methods. It provides a well-defined interfaces, abstract classes, and helper classes, scheduling and polling of resources to aid the integration and to avoid any boilerplate code in the module of cloud provider.</p>
+<p>Cloudbreak's SPI supports both of these methods. It provides a well-defined interface, abstract classes, and helper classes, scheduling and polling of resources to aid the integration and to avoid any boilerplate code in the module of cloud provider.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: The sentence above is confusing. Does the clause "scheduling and polling of resources to aid the integration and to avoid any boilerplate code in the module of cloud provider" refer to the helper classes? Or should this say "It provides a well-defined interface, abstract classes, helper classes, <strong>and</strong> scheduling and polling of resources to aid the integration and to avoid any boilerplate code in the module of cloud provider."</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <h4 id="template-based-deployments">Template Based Deployments</h4>
-<p>Providers with template-based deployments like <a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a>, <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/#">Azure ARM</a> or <a href="https://wiki.openstack.org/wiki/Heat">OpenStack Heat</a> have the ability to create and manage a collection of related cloud resources, provisioning and updating them in an orderly and predictable fashion. </p>
-<p>In such scenario, Cloudbreak needs a reference to the template itself because every change in the infrastructure (for example, creating new instance or deleting one) is managed through this templating mechanism.</p>
+<p>Providers with template-based deployments such as <a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a>, <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/#">Azure ARM</a> or <a href="https://wiki.openstack.org/wiki/Heat">OpenStack Heat</a> have the ability to create and manage a collection of related cloud resources, provisioning and updating them in an orderly and predictable fashion. </p>
+<p>When working with providers that use template-based deployments, Cloudbreak needs to be provided with a reference to the template, because every change in the infrastructure (for example, creating a new instance or deleting one) is managed through this templating mechanism.</p>
 <p>If a provider has templating support, then the provider's <a href="http://gradle.org/">gradle</a> module depends on the <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-api">cloud-api</a> module:</p>
 <pre><code>apply plugin: 'java'
 
@@ -601,9 +599,9 @@ dependencies {
 
 <p>The entry point for the provider is the  <a href="https://github.com/hortonworks/cloudbreak/blob/master/cloud-api/src/main/java/com/hortonworks/cloudbreak/cloud/CloudConnector.java">CloudConnector</a> interface and every interface that needs to be implemented is reachable trough this interface.</p>
 <h4 id="individual-resource-based-deployments">Individual Resource Based Deployments</h4>
-<p>There are providers such as GCP that do not support suitable templating mechanism, and customizable providers such as OpenStack where the Heat Orchestration (templating) component is optional and individual resources need to be handled separately. </p>
-<p>In such scenarios, resources such as networks, discs, and compute instances need to be created and managed with an ordered sequence of API calls, and Cloudbreak needs to provide a solution to manage the collection of related cloud resources as a whole.</p>
-<p>If the provider has no templating support, then the provider's <a href="http://gradle.org/">gradle</a> module typically depends on the <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-template">cloud-template</a> module, which includes Cloudbreak defined abstract template. This template is a set of abstract and utility classes to support provisioning and updating related resources in an orderly and predictable manner trough ordered sequences of cloud API calls:</p>
+<p>There are providers such as GCP that do not support a templating mechanism, and customizable providers such as OpenStack where the Heat Orchestration (templating) component is optional and individual resources need to be handled separately. </p>
+<p>When working with such providers, resources such as networks, discs, and compute instances need to be created and managed with an ordered sequence of API calls, and Cloudbreak needs to provide a solution to manage the collection of related cloud resources as a whole.</p>
+<p>If the provider has no templating support, then the provider's <a href="http://gradle.org/">gradle</a> module typically depends on the <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-template">cloud-template</a> module, which includes Cloudbreak-defined abstract template. This template is a set of abstract and utility classes to support provisioning and updating related resources in an orderly and predictable manner trough ordered sequences of cloud API calls:</p>
 <pre><code>apply plugin: 'java'
 
 sourceCompatibility = 1.7
@@ -623,12 +621,10 @@ dependencies {
 }
 </code></pre>
 
-<h3 id="variants">Variants</h3>
-<p>OpenStack is highly modular. It allows you to install different components, for example for volume storage or networking (Nova networking, Neutron, etc.). Or, in some scenarios, some components such as Heat may not installed at all.</p>
-<p>Cloudbreak's SPI interface reflects this flexibility using so called variants. This means that if some part of cloud provider (typically OpenStack) is using different component, you don't need re-implement the complete stack but just use a different variant and re-implement the part that is different.</p>
-<p>The reference implementation for this feature can be found in  <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-openstack">cloud-openstack</a> module which support a HEAT and NATIVE variants. The HEAT variant utilizes the Heat templating to launch a stack, but the NATIVE variant starts the cluster by using a sequence of API calls without Heat to achieve the same result, although both of them are using the same authentication and credential management.</p>
-<h3 id="development">Development</h3>
-<p>For instructions to set up your development environment, see <a href="../dev-local-dev/index.html">Local Development Setup</a>.</p></div>
+<h3 id="support-for-modularity">Support for Modularity</h3>
+<p>Cloudbreak uses <strong>variants</strong> to deal with highly modular providers such as OpenStack, which allows you to install different components (for volume storage, networking, and so on) and to entirely exclude certain components. For example, Nova or Neutron can be used for networking in OpenStack and some components such as Heat may not installed at all in some deployment scenarios. </p>
+<p>Cloudbreak SPI interface uses variants to support this flexibility: if some part of the cloud provider uses a different component, you don't need to re-implement the complete stack, but just use a different variant and re-implement the part that is different.</p>
+<p>An example implementation for this feature can be found in the <a href="https://github.com/hortonworks/cloudbreak/tree/master/cloud-openstack">cloud-openstack</a> module which supports a HEAT and NATIVE variants. While the HEAT variant utilizes the Heat templating to launch a stack, the NATIVE variant starts the cluster by using a sequence of API calls without Heat to achieve the same result. Both of them use the same authentication and credential management.</p></div>
         
     </div>
 

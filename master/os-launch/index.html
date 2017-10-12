@@ -101,6 +101,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -616,6 +616,8 @@
 <h3 id="import-images-to-openstack">Import Images to OpenStack</h3>
 <p>An OpenStack administrator must perform these steps to add the Cloudbreak deployer and HDP images to your OpenStack deployment.</p>
 <h4 id="import-cloudbreak-deployer-image">Import Cloudbreak Deployer Image</h4>
+<p>Import Cloudbreak deployer image using the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Download the latest Cloudbreak deployer image to your local machine: </p>
@@ -645,6 +647,8 @@ export OS_TENANT_NAME=your_os_tenant_name</pre></p>
 </blockquote>
 </blockquote>
 <h4 id="import-hdp-image">Import HDP Image</h4>
+<p>Import HDP image using the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Download the latest HDP image to your local machine: </p>
@@ -690,7 +694,8 @@ export OS_TENANT_NAME=your_os_tenant_name</pre></p>
 <li>You can obtain the VM's IP address from the details of your instance.</li>
 </ul>
 <h3 id="initialize-your-profile">Initialize Your Profile</h3>
-<p>After accessing the VM via SSH: </p>
+<p>After accessing the VM via SSH, you must initialize your Profile.</p>
+<p><strong>Steps</strong> </p>
 <ol>
 <li>
 <p>Navigate to the cloudbreak-deployment directory:</p>
@@ -717,7 +722,8 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 </blockquote>
 <h4 id="configuring-a-self-signed-certificate">Configuring a Self-Signed Certificate</h4>
 <p>If your OpenStack is secured with a self-signed certificate, you need to import that certificate into Cloudbreak, or else Cloudbreak won't be able to communicate with your OpenStack. </p>
-<p>To import the certificate, place the certificate file in the <code>/certs/trusted/</code> directory:</p>
+<p>To import the certificate, place the certificate file in the <code>/certs/trusted/</code> directory, follow these steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>Navigate to the <code>certs</code> directory (automatically generated).</li>
 <li>Create the <code>trusted</code> directory.</li>
@@ -745,6 +751,8 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 <p>If you are performing this after you have started cbd, perform <code>cbd restart</code>.  </p>
 </blockquote>
 <h3 id="launch-cloudbreak-deployer">Launch Cloudbreak Deployer</h3>
+<p>Launch Cloudbreak deployer using the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Start the Cloudbreak application by using the following command:</p>
@@ -770,6 +778,8 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 </li>
 </ol>
 <h3 id="access-cloudbreak-ui">Access Cloudbreak UI</h3>
+<p>Log in to the Cloudbreak UI using the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>You can log into the Cloudbreak application at <code>https://IP_Address</code> where "IP_Address" if the public IP of your OpenStack VM. For example <code>https://34.212.141.253</code>.</p>
@@ -789,6 +799,7 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 </ol>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak Credential</h3>
 <p>Cloudbreak works by connecting your OpenStack account through this credential, and then uses it to create resources on your behalf. Before you can start provisioning cluster using Cloudbreak, you must create a Cloudbreak credential.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>In the Cloudbreak web UI, open the <strong>manage credentials</strong> pane. </p>

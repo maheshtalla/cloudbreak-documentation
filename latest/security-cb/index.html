@@ -101,6 +101,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -539,7 +539,10 @@
             <li class="second-level"><a href="#configuring-the-profile">Configuring the Profile</a></li>
             
         
-            <li class="second-level"><a href="#adding-ssl-certificate-for-cloudbreak">Adding SSL Certificate for Cloudbreak</a></li>
+            <li class="second-level"><a href="#adding-ssl-certificate-for-cloudbreak-ui">Adding SSL Certificate for Cloudbreak UI</a></li>
+            
+        
+            <li class="second-level"><a href="#configure-access-from-custom-domains">Configure Access from Custom Domains</a></li>
             
         
     
@@ -615,8 +618,85 @@ cbd util add-default-user
 </pre></p>
 </li>
 </ol>
-<h3 id="adding-ssl-certificate-for-cloudbreak">Adding SSL Certificate for Cloudbreak</h3>
-<p>https://community.hortonworks.com/articles/140915/replace-cloudbreak-mini-knox-self-signed-certifica.html </p></div>
+<p>For more information about setting environment variables in Profile, refer to <a href="../profile/index.html#configure-profile-variables">Configure Profile Variables</a>.</p>
+<h3 id="adding-ssl-certificate-for-cloudbreak-ui">Adding SSL Certificate for Cloudbreak UI</h3>
+<p>By default Cloudbreak has been configured with a self-signed certificate for access via HTTPS. This is sufficient for many deployments such as trials, development, testing, or staging. However, for production deployments, a trusted certificate is preferred and can be configured in the controller. Follow these steps to configure the cloud controller to use your own trusted certificate. </p>
+<p><strong>Prerequisites</strong></p>
+<p>To use your own certificate, you must have:</p>
+<ul>
+<li>A resolvable fully qualified domain name (FQDN) for the controller host IP address. For example, this can be set up in <a href="https://aws.amazon.com/documentation/route53/">Amazon Route 53</a>.  </li>
+<li>A valid SSL certificate for this fully qualified domain name. The certificate can be obtained from a number of certificate providers.  </li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>SSH to the Cloudbreak host instance:</p>
+<p><pre>ssh -i mykeypair.pem cloudbreak@[CONTROLLER-IP-ADDRESS]</pre></p>
+</li>
+<li>
+<p>Make sure that the target fully qualified domain name (FQDN) which you plan to use for Cloudbreak is resolvable:</p>
+<p><pre>nslookup [TARGET-CONTROLLER-FQDN]</pre></p>
+<p>For example:</p>
+<p><pre>nslookup hdcloud.example.com</pre></p>
+</li>
+<li>
+<p>Browse to the Cloudbreak deployment directory and edit the <code>Profile</code> file:</p>
+<p><pre>vi /var/lib/cloudbreak-deployment/Profile</pre></p>
+</li>
+<li>
+<p>Replace the value of the <code>PUBLIC_IP</code> variable with the <code>TARGET-CONTROLLER-FQDN</code> value:</p>
+<p><pre>PUBLIC_IP=[TARGET-CONTROLLER-FQDN]</pre></p>
+</li>
+<li>
+<p>Copy your private key and certificate files for the FQDN onto the Cloudbreak host. These files must be placed under <code>/var/lib/cloudbreak-deployment/certs/traefik/</code> directory.</p>
+<blockquote>
+<p>File permissions for the private key and certificate files can be set to 600.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PRIV-KEY-LOCATION</td>
+<td>/var/lib/cloudbreak-deployment/certs/traefik/hdcloud.example.com.key</td>
+</tr>
+<tr>
+<td>CERT-LOCATION</td>
+<td>/var/lib/cloudbreak-deployment/certs/traefik/hdcloud.example.com.crt</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Configure TLS details in your <code>Profile</code> by adding the following line at the end of the file.</p>
+<blockquote>
+<p>Notice that <code>CERT-LOCATION</code> and <code>PRIV-KEY-LOCATION</code> are file locations from Step 5, starting at the <code>/certs/...</code> path.</p>
+</blockquote>
+<p><pre>export CBD_TRAEFIK_TLS=”[CERT-LOCATION],[PRIV-KEY-LOCATION]”</pre></p>
+<p>For example:</p>
+<p><pre>export CBD_TRAEFIK_TLS="/certs/traefik/hdcloud.example.com.crt,/certs/traefik/hdcloud.example.com.key"</pre></p>
+</li>
+<li>
+<p>Restart Cloudbreak deployer:</p>
+<p><pre>cbd restart</pre></p>
+</li>
+<li>
+<p>Using your web browser, access to the Cloudbreak UI using the new resolvable fully qualified domain name.</p>
+</li>
+<li>
+<p>Confirm that the connection is SSL-protected and that the certificate used is the certificate that you provided to Cloudbreak.</p>
+</li>
+</ol>
+<h3 id="configure-access-from-custom-domains">Configure Access from Custom Domains</h3>
+<p>Cloudbreak Deployer, which uses UAA as an identity provider, supports multitenancy. In UAA, multitenancy is managed through identity zones. An identity zone is accessed through a unique subdomain. For example, if the standard UAA responds to <code>https://uaa.10.244.0.34.xip.io</code>, a zone on this UAA can be accessed through a unique subdomain <code>https://testzone1.uaa.10.244.0.34.xip.io</code>.</p>
+<p>If you want to use a custom domain for your identity or deployment, add the <code>UAA_ZONE_DOMAIN</code> line to your <code>Profile</code>:</p>
+<pre>export UAA_ZONE_DOMAIN=my-subdomain.example.com</pre>
+
+<p>This variable is necessary for UAA to identify which zone provider should handle the requests that arrive to that domain.</p></div>
         
     </div>
 

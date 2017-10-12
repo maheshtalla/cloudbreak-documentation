@@ -8,7 +8,7 @@
     <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/security-kerberos/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Enable Kerberos for Your Cluster - Cloudbreak</title>
+    <title>Use Kerberos for Your Cluster - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -98,6 +98,12 @@
                             
 <li >
     <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
 </li>
 
                         
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li class="active">
-    <a href="index.html">Enable Kerberos for Your Cluster</a>
+    <a href="index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -506,7 +506,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../credentials/index.html">
+                        <a rel="prev" href="../vm-launch/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -533,12 +533,268 @@
     
         <li class="first-level active"><a href="#kerberos">Kerberos</a></li>
         
+            <li class="second-level"><a href="#create-new-mit-kerberos-at-cluster-provisioning">Create new MIT Kerberos at Cluster Provisioning</a></li>
+            
+                <li class="third-level"><a href="#enable-kerberos">Enable Kerberos</a></li>
+            
+        
+            <li class="second-level"><a href="#use-existing-mit-kerberos-server-with-a-cloudbreak-provisioned-cluster">Use Existing MIT Kerberos Server with a Cloudbreak Provisioned cluster</a></li>
+            
+        
+            <li class="second-level"><a href="#use-existing-active-directory-with-a-cloudbreak-provisioned-cluster">Use Existing Active Directory with a Cloudbreak Provisioned Cluster</a></li>
+            
+                <li class="third-level"><a href="#enable-kerberos_1">Enable Kerberos</a></li>
+            
+        
+            <li class="second-level"><a href="#create-hadoop-users">Create Hadoop Users</a></li>
+            
+        
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="kerberos">Kerberos</h2></div>
+<h2 id="kerberos">Kerberos</h2>
+<blockquote>
+<p>This feature is <code>TECHNICAL PREVIEW</code>.</p>
+</blockquote>
+<p>Cloudbreak supports three ways of provisioning Kerberos-enabled clusters:</p>
+<ul>
+<li>Create new MIT Kerberos at cluster provisioning time  </li>
+<li>Use your existing MIT Kerberos server with a Cloudbreak provisioned cluster  </li>
+<li>Use your existing Active Directory with a Cloudbreak provisioned cluster  </li>
+</ul>
+<h3 id="create-new-mit-kerberos-at-cluster-provisioning">Create new MIT Kerberos at Cluster Provisioning</h3>
+<p>Cloudbreak supports using Kerberos security on the cluster. When creating a cluster, provide your Kerberos configuration details, and Cloudbreak will install an MIT KDC and enable Kerberos on the cluster.</p>
+<h4 id="enable-kerberos">Enable Kerberos</h4>
+<p>To enable Kerberos on a cluster, do the following when creating your cluster via Cloudbreak web UI:</p>
+<ol>
+<li>In the <strong>Create cluster</strong> wizard, in the <strong>Setup Network and Security</strong> tab, check the <strong>Enable security</strong> option and select <strong>Create New MIT Kerberos</strong>.</li>
+<li>Fill in the following fields:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kerberos master key</td>
+<td>The master key to use for the KDC.</td>
+</tr>
+<tr>
+<td>Kerberos admin</td>
+<td>The KDC admin username to use for the KDC.</td>
+</tr>
+<tr>
+<td>Kerberos password</td>
+<td>The KDC admin password to use for the KDC.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/kerberosnew.png" />
+<sub><em>Full size <a href="../images/kerberosnew.png">here</a>.</em></sub></p>
+<h5 id="testing-kerberos">Testing Kerberos</h5>
+<p>To run a job on the cluster, you can use one of the default Hadoop users, like <code>ambari-qa</code>.
+Once kerberos is enabled, you need a <code>ticket</code> to execute any job on the cluster. </p>
+<p>Here's an example of how to get a ticket:</p>
+<pre><code>kinit -V -kt /etc/security/keytabs/smokeuser.headless.keytab ambari-qa-sparktest-rec@NODE.DC1.CONSUL
+</code></pre>
+
+<p>Here is an example job:</p>
+<pre><code class="java">export HADOOP_LIBS=/usr/hdp/current/hadoop-mapreduce-client
+export JAR_EXAMPLES=$HADOOP_LIBS/hadoop-mapreduce-examples.jar
+export JAR_JOBCLIENT=$HADOOP_LIBS/hadoop-mapreduce-client-jobclient.jar
+
+hadoop jar $JAR_EXAMPLES teragen 10000000 /user/ambari-qa/terasort-input
+
+hadoop jar $JAR_JOBCLIENT mrbench -baseDir /user/ambari-qa/smallJobsBenchmark -numRuns 5 -maps 10 -reduces 5 -inputLines 10 -inputType ascending
+</code></pre>
+
+<h3 id="use-existing-mit-kerberos-server-with-a-cloudbreak-provisioned-cluster">Use Existing MIT Kerberos Server with a Cloudbreak Provisioned cluster</h3>
+<p>Cloudbreak supports using Kerberos security on the cluster with an existing MIT Kerberos. When creating a cluster, provide your Kerberos configuration details, and Cloudbreak will automatically extend your blueprint configuration with the defined properties. <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_Ambari_Security_Guide/content/_use_an_exisiting_mit_kdc.html">Setup an exiting MIT KDC</a></p>
+<p>To enable Kerberos on a cluster, do the following when creating your cluster via Cloudbreak web UI:</p>
+<ol>
+<li>In the <strong>Create cluster</strong> wizard, in the <strong>Setup Network and Security</strong> tab, check the <strong>Enable security</strong> option and select <strong>Use Existing MIT Kerberos</strong>.</li>
+<li>Fill in the following fields:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kerberos Password</td>
+<td>The KDC admin password to use for the KDC.</td>
+</tr>
+<tr>
+<td>Existing Kerberos Principal</td>
+<td>The KDC principal in your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>Existing Kerberos URL</td>
+<td>The location of your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>Use Tcp Connection</td>
+<td>The connection type for your existing MIT KDC (default is <strong>UDP</strong>).</td>
+</tr>
+<tr>
+<td>Existing Kerberos Realm</td>
+<td>The realm in your existing MIT KDC.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/kerberosmit.png" />
+<sub><em>Full size <a href="../images/kerberosmit.png">here</a>.</em></sub></p>
+<p>To enable Kerberos on a cluster, do the following when creating your cluster via Cloudbreak shell:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--kerberosPassword</td>
+<td>The KDC admin password to use for the KDC.</td>
+</tr>
+<tr>
+<td>--kerberosPrincipal</td>
+<td>The KDC principal in your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>--kerberosUrl</td>
+<td>The location of your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>--kerberosTcpAllowed</td>
+<td>The connection type for your existing MIT KDC (default is <strong>UDP</strong>).</td>
+</tr>
+<tr>
+<td>--kerberosRealm</td>
+<td>The realm in your existing MIT KDC.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="use-existing-active-directory-with-a-cloudbreak-provisioned-cluster">Use Existing Active Directory with a Cloudbreak Provisioned Cluster</h3>
+<p>Cloudbreak supports using Kerberos security on the cluster with an existing Active Directory. When creating a cluster, provide your Kerberos configuration details, and Cloudbreak will automatically extend your blueprint configuration with the defined properties. <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_Ambari_Security_Guide/content/_use_an_existing_active_directory_domain.html">Setup an Active Directory for Kerberos</a></p>
+<h4 id="enable-kerberos_1">Enable Kerberos</h4>
+<p>To enable Kerberos on a cluster, do the following when creating your cluster via Cloudbreak web UI:</p>
+<ol>
+<li>In the <strong>Create cluster</strong> wizard, in the <strong>Setup Network and Security</strong> tab, check the <strong>Enable security</strong> option and select <strong>Use Existing Active Directory</strong>.</li>
+<li>Fill in the following fields:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kerberos Password</td>
+<td>The KDC admin password to use for the KDC.</td>
+</tr>
+<tr>
+<td>Existing Kerberos Principal</td>
+<td>The KDC principal in your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>Existing Kerberos URL</td>
+<td>The location of your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>Use Tcp Connection</td>
+<td>The connection type for your existing MIT KDC (default is <strong>UDP</strong>).</td>
+</tr>
+<tr>
+<td>Existing Kerberos Realm</td>
+<td>The realm in your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>Existing Kerberos Ldap AD Url</td>
+<td>The url of the existing secure ldap (eg. ldaps://10.1.1.5).</td>
+</tr>
+<tr>
+<td>Existing Kerberos AD Container DN</td>
+<td>Active Directory User container for principals. For example, "OU=Hadoop,OU=People,dc=apache,dc=org".</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/kerberosad.png" />
+<sub><em>Full size <a href="../images/kerberosad.png">here</a>.</em></sub></p>
+<p>To enable Kerberos on a cluster, do the following when creating your cluster via Cloudbreak shell:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--kerberosPassword</td>
+<td>The KDC admin password to use for the KDC.</td>
+</tr>
+<tr>
+<td>--kerberosPrincipal</td>
+<td>The KDC principal in your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>--kerberosUrl</td>
+<td>The location of your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>--kerberosTcpAllowed</td>
+<td>The connection type for your existing MIT KDC (default is <strong>UDP</strong>).</td>
+</tr>
+<tr>
+<td>--kerberosRealm</td>
+<td>The realm in your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>--kerberosLdapUrl</td>
+<td>The url of the existing secure ldap (eg. ldaps://10.1.1.5).</td>
+</tr>
+<tr>
+<td>--kerberosContainerDn</td>
+<td>Active Directory User container for principals. For example, "OU=Hadoop,OU=People,dc=apache,dc=org".</td>
+</tr>
+</tbody>
+</table>
+<h3 id="create-hadoop-users">Create Hadoop Users</h3>
+<p>To create Hadoop users, follow the steps below.</p>
+<ul>
+<li>Log in via SSH to the node where the Ambari Server is (IP address is the same as the Ambari UI) and run:</li>
+</ul>
+<pre><code>kadmin -p [admin_user]/[admin_user]@NODE.DC1.CONSUL (type admin password)
+addprinc custom-user (type user password twice)
+</code></pre>
+
+<ul>
+<li>Log in via SSH to all other nodes and, on each node, run:</li>
+</ul>
+<pre><code>useradd custom-user
+</code></pre>
+
+<ul>
+<li>Log in via SSH to one of the nodes and run:</li>
+</ul>
+<pre><code>su custom-user
+kinit -p custom-user (type user password)
+hdfs dfs -mkdir input
+hdfs dfs -put /tmp/wait-for-host-number.sh input
+yarn jar $(find /usr/hdp -name hadoop-mapreduce-examples.jar) wordcount input output
+hdfs dfs -cat output/*
+</code></pre></div>
         
     </div>
 

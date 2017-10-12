@@ -101,6 +101,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -501,7 +501,7 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../architecture/index.html">
+                        <a rel="next" href="../releasenotes/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -670,6 +670,8 @@
 </table>
 <p>You can create these roles in the <strong>IAM console</strong>, on the <strong>Roles</strong> page via the <strong>Create Role</strong> option. Detailed steps are provided below. </p>
 <p><strong>Create CloudbreakRole</strong></p>
+<p>Use these steps to create CloudbreakRole.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Navigate to the <strong>IAM console</strong> &gt; <strong>Roles</strong> and click <strong>Create Role</strong>.</p>
@@ -713,6 +715,8 @@
 </li>
 </ol>
 <p><strong>Create CredentialRole</strong></p>
+<p>Use these steps to create CredentialRole.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Navigate to the <strong>IAM console</strong> &gt; <strong>Roles</strong> and click <strong>Create Role</strong>.</p>
@@ -811,6 +815,7 @@
 <p>For more information about IAM, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html" target="_blank">Using Instance Profiles</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html" target="_blank">Using an IAM Role to Grant Permissions to Applications Running on Amazon EC2 Instances</a>.    </p>
 <h3 id="launch-the-vm">Launch the VM</h3>
 <p>Now that you've met the prerequisites, you can launch the Cloudbreak deployer VM available as a Community AMI.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>In the AWS Management Console, navigate to the EC2 Console.  </p>
@@ -925,7 +930,8 @@
 </strong> or <strong>IPv4 Public IP</strong> parameter.</li>
 </ul>
 <h3 id="launch-cloudbreak-deployer">Launch Cloudbreak Deployer</h3>
-<p>After accessing the VM via SSH: </p>
+<p>After accessing the VM via SSH, launch Cloudbreak deployer using the following steps.</p>
+<p><strong>Steps</strong> </p>
 <ol>
 <li>
 <p>Navigate to the cloudbreak-deployment directory:</p>
@@ -967,6 +973,8 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 </li>
 </ol>
 <h3 id="access-cloudbreak-ui">Access Cloudbreak UI</h3>
+<p>Log in to the Cloudbreak UI using the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>You can log into the Cloudbreak application at <code>https://IPv4_Public_IP&gt;/</code> or <code>https://Public_DNS</code>. For example <code>https://34.212.141.253</code> or <code>https://ec2-34-212-141-253.us-west-2.compute.amazonaws.com</code>. </p>
@@ -988,8 +996,9 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 <p>As part of the prerequisites, you had two options to <a href="#authorization-for-cloudbreak">authorize Cloudbreak</a> to create resources on your behalf: key-based or role-based authorization. </p>
 <p>Depending on your earlier choice, you must configure a key-based or role-based credential. Without this credential, you will not be able to create clusters via Cloudbreak. </p>
 <h4 id="create-key-based-credential">Create Key-Based Credential</h4>
-<p>To perform these steps, you must know your access and secret key as well as your public SSH key. If needed, you can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong>. Next, select a user and click on the <strong>Security credentials</strong> tab. </p>
+<p>To perform these steps, you must know your access and secret key as well as your public SSH key. If needed, you can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong> &gt; select a user &gt; <strong>Security credentials</strong>. </p>
 <p><a href="../images/aws-cred-key.png" target="_blank" title="click to enlarge"><img src="../images/aws-cred-key.png" width="650" title="Cloudbreak web UI"></a>  </p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>In the Cloudbreak web UI, open the <strong>manage credentials</strong> pane. </p>
@@ -1056,6 +1065,7 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 <h4 id="create-role-based-credential">Create Role-Based Credential</h4>
 <p>To perform these steps, you must know the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" (configured as a <a href="#authorization-for-cloudbreak">prerequisite</a>). You must also have your public SSH key. </p>
 <p><a href="../images/aws-cred-role.png" target="_blank" title="click to enlarge"><img src="../images/aws-cred-role.png" width="650" title="Cloudbreak web UI"></a>  </p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>In the Cloudbreak web UI, open the <strong>manage credentials</strong> pane. </p>

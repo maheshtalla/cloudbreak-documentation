@@ -8,7 +8,7 @@
     <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/profile/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Profile File - Cloudbreak</title>
+    <title>Configure Profile Variables - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -98,6 +98,12 @@
                             
 <li >
     <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
 </li>
 
                         
@@ -202,7 +208,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -365,8 +371,14 @@
 
         
             
+<li class="active">
+    <a href="index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -379,33 +391,9 @@
                 
                 
                 
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -501,12 +501,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../cb-shell/index.html">
+                        <a rel="next" href="../delete/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../faq/index.html">
+                        <a rel="prev" href="../cb-db/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -531,12 +531,17 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#profile-variables">Profile Variables</a></li>
+        <li class="first-level active"><a href="#configure-profile-variables">Configure Profile Variables</a></li>
         
-            <li class="second-level"><a href="#setting-provfle-variables">Setting Provfle Variables</a></li>
+            <li class="second-level"><a href="#set-profile-variables">Set Profile Variables</a></li>
             
         
-            <li class="second-level"><a href="#cloudbreak-variables">Cloudbreak Variables</a></li>
+            <li class="second-level"><a href="#check-available-profile-variables">Check Available Profile Variables</a></li>
+            
+        
+            <li class="second-level"><a href="#profile-variables">Profile Variables</a></li>
+            
+                <li class="third-level"><a href="#cloudbreak-variables">Cloudbreak Variables</a></li>
             
                 <li class="third-level"><a href="#aws-variables">AWS Variables</a></li>
             
@@ -544,16 +549,20 @@
             
                 <li class="third-level"><a href="#gcp-variables">GCP Variables</a></li>
             
-        
-            <li class="second-level"><a href="#local-development-variables">Local Development Variables</a></li>
+                <li class="third-level"><a href="#local-development-variables">Local Development Variables</a></li>
             
-        
-            <li class="second-level"><a href="#macos-variables">MacOS Variables</a></li>
-            
-        
-            <li class="second-level"><a href="#more">More</a></li>
+                <li class="third-level"><a href="#macos-variables">MacOS Variables</a></li>
             
                 <li class="third-level"><a href="#uaa_default_user_groups">UAA_DEFAULT_USER_GROUPS</a></li>
+            
+        
+            <li class="second-level"><a href="#change-smtp-parameters">Change SMTP Parameters</a></li>
+            
+        
+            <li class="second-level"><a href="#configure-consul">Configure Consul</a></li>
+            
+        
+            <li class="second-level"><a href="#create-environment-specific-profiles">Create Environment Specific Profiles</a></li>
             
         
     
@@ -561,19 +570,41 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="profile-variables">Profile Variables</h2>
-<p>During startup, Cloudbreak deployer tries to determine the underlying infrastructure and then sets required environment variables with appropriate default values. If these environment variables are not sufficient for your use case, you can set additional environment variables in your <code>Profile</code> file. Refer to the list below for available custom environment variables. The variables are listed with their default values. If default is unset, no value is listed. </p>
-<h3 id="setting-provfle-variables">Setting Provfle Variables</h3>
+<h2 id="configure-profile-variables">Configure Profile Variables</h2>
+<p>Cloudbreak deployer configuration is based on environment variables.  </p>
+<p>During startup, Cloudbreak deployer tries to determine the underlying infrastructure and then sets required environment variables with appropriate default values. If these environment variables are not sufficient for your use case, you can set additional environment variables in your <code>Profile</code> file. </p>
+<p>Cloudbreak deployer always opens a new bash subprocess without inheriting environment variables. Only the following environment variables are inherited:</p>
+<ul>
+<li><code>HOME</code>  </li>
+<li><code>DEBUG</code>  </li>
+<li><code>TRACE</code>  </li>
+<li><code>CBD_DEFAULT_PROFILE</code>  </li>
+<li>all <code>DOCKER_XXX</code> </li>
+</ul>
 <blockquote>
 <blockquote>
 <blockquote>
 <blockquote>
-<p>TO-DO: How to set them? </p>
+<p>TO-DO: What do you mean by "Cloudbreak deployer <strong>always</strong> opens a new bash subprocess without inheriting environment variables?" Do you mean during startup or when? Without inheriting from where?</p>
 </blockquote>
 </blockquote>
 </blockquote>
 </blockquote>
-<h3 id="cloudbreak-variables">Cloudbreak Variables</h3>
+<h3 id="set-profile-variables">Set Profile Variables</h3>
+<p>To set environment variables relevant for Cloudbreak Deployer, add them to a file called <code>Profile</code> located in the Cloudbreak deployment directory (typically <code>/var/lib/cloudbreak-deployment</code>).</p>
+<p>The <code>Profile</code> file is sourced, so you can use the usual syntax to set configuration values:</p>
+<pre><code>export MY_VAR=some_value
+export MY_OTHER_VAR=another_value 
+</code></pre>
+
+<h3 id="check-available-profile-variables">Check Available Profile Variables</h3>
+<p>To see all available environment variables with their default values, use:</p>
+<pre><code>cbd env show
+</code></pre>
+
+<h3 id="profile-variables">Profile Variables</h3>
+<h4 id="cloudbreak-variables">Cloudbreak Variables</h4>
+<p>Refer to this list for available environment variables. The variables are listed with their default values. If default is unset, no value is listed. </p>
 <table>
 <thead>
 <tr>
@@ -1321,7 +1352,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="local-development-variables">Local Development Variables</h3>
+<h4 id="local-development-variables">Local Development Variables</h4>
 <table>
 <thead>
 <tr>
@@ -1378,7 +1409,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="macos-variables">MacOS Variables</h3>
+<h4 id="macos-variables">MacOS Variables</h4>
 <table>
 <thead>
 <tr>
@@ -1425,10 +1456,48 @@
 </tr>
 </tbody>
 </table>
-<h3 id="more">More</h3>
 <h4 id="uaa_default_user_groups">UAA_DEFAULT_USER_GROUPS</h4>
 <p>Default value fro <code>UAA_DEFAULT_USER_GROUPS</code> is:</p>
-<pre>"openid,cloudbreak.networks,cloudbreak.securitygroups,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.admin,sequenceiq.cloudbreak.user,sequenceiq.account.${UAA_DEFAULT_ACCOUNT},cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user,periscope.cluster,cloudbreak.recipes,cloudbreak.blueprints.read,cloudbreak.templates.read,cloudbreak.credentials.read,cloudbreak.recipes.read,cloudbreak.networks.read,cloudbreak.securitygroups.read,cloudbreak.stacks.read,cloudbreak.sssdconfigs,cloudbreak.sssdconfigs.read,cloudbreak.platforms,cloudbreak.platforms.read"</pre></div>
+<pre>"openid,cloudbreak.networks,cloudbreak.securitygroups,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.admin,sequenceiq.cloudbreak.user,sequenceiq.account.${UAA_DEFAULT_ACCOUNT},cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user,periscope.cluster,cloudbreak.recipes,cloudbreak.blueprints.read,cloudbreak.templates.read,cloudbreak.credentials.read,cloudbreak.recipes.read,cloudbreak.networks.read,cloudbreak.securitygroups.read,cloudbreak.stacks.read,cloudbreak.sssdconfigs,cloudbreak.sssdconfigs.read,cloudbreak.platforms,cloudbreak.platforms.read"</pre>
+
+<h3 id="change-smtp-parameters">Change SMTP Parameters</h3>
+<p>If you want to change SMTP parameters, add them your <code>Profile</code>.</p>
+<p>The default values of the SMTP parameters are:</p>
+<pre><code>export CLOUDBREAK_SMTP_SENDER_USERNAME=
+export CLOUDBREAK_SMTP_SENDER_PASSWORD=
+export CLOUDBREAK_SMTP_SENDER_HOST=
+export CLOUDBREAK_SMTP_SENDER_PORT=25
+export CLOUDBREAK_SMTP_SENDER_FROM=
+export CLOUDBREAK_SMTP_AUTH=true
+export CLOUDBREAK_SMTP_STARTTLS_ENABLE=true
+export CLOUDBREAK_SMTP_TYPE=smtp
+</code></pre>
+
+<p>If your SMTP server uses SMTPS, you must set the protocol in your <code>Profile</code> to smtps:</p>
+<pre><code>export CLOUDBREAK_SMTP_TYPE=smtps
+</code></pre>
+
+<h3 id="configure-consul">Configure Consul</h3>
+<p>Cloudbreak uses <a href="https://www.consul.io/">Consul</a> for DNS resolution. All Cloudbreak related services are registered as someservice.service.consul.</p>
+<p>Consul’s built-in DNS server is able to fallback on another DNS server. This option is called <code>-recursor</code>. Clodbreak Deployer first tries to discover the DNS settings of the host by looking for nameserver entry in the <code>/etc/resolv.conf</code> file. If it finds one, consul will use it as a recursor. Otherwise, it will use <code>8.8.8.8</code>.</p>
+<p>For a full list of available consul config options, refer to <a href="https://www.consul.io/docs/agent/options.html">Consul documentation</a>.</p>
+<p>To pass any additional Consul configuration, define the <code>DOCKER_CONSUL_OPTIONS</code> variable in the Profile file.</p>
+<h3 id="create-environment-specific-profiles">Create Environment Specific Profiles</h3>
+<p>If you would like to use a different versions of Cloudbreak for prod and qa profile, you must create two environment specific configurations that can be sourced. For example:</p>
+<ul>
+<li>Profile.prod  </li>
+<li>Profile.qa   </li>
+</ul>
+<p>For example, to create and use a prod profile, you need to:</p>
+<ol>
+<li>Create a file called <code>Profile.prod</code>  </li>
+<li>Write the environment-specific <code>export DOCKER_TAG_CLOUDBREAK=0.3.99</code> into <code>Profile.prod</code> to specify Docker image.  </li>
+<li>Set the environment variable: <code>CBD_DEFAULT_PROFILE=prod</code>  </li>
+</ol>
+<p>To use the prod specific profile once, set:  </p>
+<pre>CBD_DEFAULT_PROFILE=prod cbd some_commands</pre>
+
+<p>To permanently use the prod profile, set <code>export CBD_DEFAULT_PROFILE=prod</code> in your <code>.bash_profile</code>.</p></div>
         
     </div>
 

@@ -101,6 +101,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -553,18 +553,23 @@
         <div class="col-md-9" role="main">
 
 <h2 id="custom-images">Custom Images</h2>
-<p>By default, Cloudbreak launches clusters from an image that includes default configuration and default tooling for provisioning. These are considered the Standard default images and these images.</p>
+<p>By default, Cloudbreak launches clusters from an image that includes default configuration and default tooling for provisioning. These are considered the Standard default images.</p>
 <p>In some cases, these default images might not fit the requirements of users: for example when they need custom OS hardening, libraries, tooling, and so on. In such cases, the user would like to start their clusters from their own custom image.</p>
 <h3 id="building-custom-images">Building Custom Images</h3>
 <p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a>. This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to register and use these images with Cloudbreak.</p>
 <h3 id="registering-custom-images">Registering Custom Images</h3>
-<p>Register your custom image(s) in Cloudbreak by placing <code>yml</code> files that declare your custom images in the <code>/var/lib/cloudbreak-deployment/etc</code> directory on the Cloudbreak host. The <code>etc</code> directory does not exist by default, so you need to create it.</p>
+<p>Register your custom images in Cloudbreak by placing <code>yml</code> files that declare your custom images in the <code>/var/lib/cloudbreak-deployment/etc</code> directory on the Cloudbreak host. The <code>etc</code> directory does not exist by default, so you need to create it.</p>
 <p>The format of the <code>yml</code> files is cloud provider specific and described in the following sections.  </p>
 <blockquote>
 <p>If you register the images after Cloudbreak has been started, you need to restart Cloudbreak after updating the images.</p>
 </blockquote>
 <h4 id="register-images-for-aws">Register Images for AWS</h4>
-<p>To override the default images, create the following file: <code>/var/lib/cloudbreak-deployment/etc/aws-images.yml</code> and update its content by replacing the images listed with your custom image for each region that you want to use. The default content of the <code>yml</code> file is:</p>
+<p>To override the default images, perform these steps.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>Navigate to the <code>/var/lib/cloudbreak-deployment/</code> directory and create a new directory called <code>etc</code>.</li>
+<li>Navigate to <code>/var/lib/cloudbreak-deployment/etc/</code> and create a new file called <code>aws-images.yml</code>. Use the content below as base content for <code>aws-images.yml</code> but replace the images listed with your custom images for each region that you want to use:</li>
+</ol>
 <pre>
 aws:
   ap-northeast-1: ami-76729917
@@ -580,7 +585,12 @@ aws:
 </pre>
 
 <h4 id="register-images-for-azure">Register Images for Azure</h4>
-<p>To override the default images, create the following file: <code>/var/lib/cloudbreak-deployment/etc/arm-images.yml</code> and update its content by replacing the images listed with your custom image for each region that you want to use. The default content of the <code>yml</code> file is:</p>
+<p>To override the default images, perform these steps.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>Navigate to the <code>/var/lib/cloudbreak-deployment/</code> directory and create a new directory called <code>etc</code>.</li>
+<li>Navigate to <code>/var/lib/cloudbreak-deployment/etc/</code> and create a new file called <code>arm-images.yml</code>. Use the content below as base content for <code>arm-images.yml</code> but replace the images listed with your custom images for each region that you want to use:</li>
+</ol>
 <pre><code>azure_rm:
   East Asia: https://sequenceiqeastasia2.blob.core.windows.net/images/cb-2016-06-14-03-27.vhd
   East US: https://sequenceiqeastus2.blob.core.windows.net/images/cb-2016-06-14-03-27.vhd
@@ -598,14 +608,24 @@ aws:
 </code></pre>
 
 <h4 id="register-images-for-gcp">Register Images for GCP</h4>
-<p>To override the default images, create the following file: <code>/var/lib/cloudbreak-deployment/etc/gcp-images.yml</code> and update its content by replacing the images listed with your custom image for each region that you want to use. It is not required to have an image in every region, as the <code>default</code> is used everywhere. The default content of the <code>yml</code> file is:</p>
+<p>To override the default images, perform these steps.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>Navigate to the <code>/var/lib/cloudbreak-deployment/</code> directory and create a new directory called <code>etc</code>.</li>
+<li>Navigate to <code>/var/lib/cloudbreak-deployment/etc/</code> and create a new file called <code>gcp-images.yml</code>. Use the content below as base content for <code>gcp-images.yml</code> but replace the images listed with your custom images for each region that you want to use:</li>
+</ol>
 <pre>
 gcp:
   default: sequenceiqimage/cb-2016-06-14-03-27.tar.gz
 </pre>
 
 <h4 id="register-images-for-openstack">Register Images for OpenStack</h4>
-<p>To override the default images, create the following file: <code>/var/lib/cloudbreak-deployment/etc/os-images.yml</code> and update its content by replacing the images listed with your custom image for each region that you want to use. It is not required to have an image in every region, as the <code>default</code> is used everywhere. The default content of the <code>yml</code> file is:</p>
+<p>To override the default images, perform these steps.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>Navigate to the <code>/var/lib/cloudbreak-deployment/</code> directory and create a new directory called <code>etc</code>.</li>
+<li>Navigate to <code>/var/lib/cloudbreak-deployment/etc/</code> and create a new file called <code>os-images.yml</code>. Use the content below as base content for <code>os-images.yml</code> but replace the images listed with your custom images for each region that you want to use:</li>
+</ol>
 <pre>
 openstack:
   default: cloudbreak-2016-06-14-10-58

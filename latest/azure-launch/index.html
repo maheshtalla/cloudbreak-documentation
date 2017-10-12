@@ -101,6 +101,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev-local-dev/index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev-local-dev/index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -612,6 +612,8 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 <li>Launch from Azure Marketplace (Technical Preview)</li>
 </ul>
 <h4 id="option-1-launch-via-azure-resource-manager-template">(Option 1) Launch via Azure Resource Manager Template</h4>
+<p>Launch Cloudbreak deployer using the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Log in to your <a href="https://portal.azure.com">Azure Portal</a>.</p>
@@ -728,9 +730,11 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 </li>
 </ol>
 <h4 id="option-2-launch-from-azure-marketplace">(Option 2) Launch from Azure Marketplace</h4>
+<p>Launch Cloudbreak deployer using the following steps.</p>
 <blockquote>
 <p>This feature is Technical Preview.  </p>
 </blockquote>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Log in to your <a href="https://portal.azure.com">Azure Portal</a>.</p>
@@ -850,6 +854,7 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 <p>This step is optional.  </p>
 </blockquote>
 <p>While the deployment is in progress, you can optionally navigate to the newly created resource group and see what Azure resources are being created.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>From the left pane, select <img src="../images/resource-icon.png" width="150" title="Icon">.</p>
@@ -880,6 +885,8 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 </li>
 </ol>
 <h3 id="access-cloudbreak-ui">Access Cloudbreak UI</h3>
+<p>Log in to the Cloudbreak UI using the following steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>When your deployment succeeds, you will receive a notification in the top-right corner. You can click on the link provided to navigate to the resource group created earlier.</p>
@@ -939,6 +946,7 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 </li>
 </ul>
 <h4 id="create-an-interactive-credential">Create an Interactive Credential</h4>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Open the <strong>manage credentials</strong> pane:</p>
@@ -1017,6 +1025,7 @@ will have access and test access to ADLS. Refer to <a href="../azure-data/index.
 </li>
 </ol>
 <h4 id="create-an-app-based-credential">Create an App Based Credential</h4>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>On Azure Portal, navigate to the <strong>Active Directory</strong> &gt; <strong>App Registrations</strong> and register a new application. For more information, refer to <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Create an Azure AD Application</a>.</p>

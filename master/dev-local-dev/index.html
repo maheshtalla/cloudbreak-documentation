@@ -8,7 +8,7 @@
     <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/dev-local-dev/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Local Development - Cloudbreak</title>
+    <title>Set up Local Environment - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -98,6 +98,12 @@
                             
 <li >
     <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
 </li>
 
                         
@@ -292,12 +298,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../cb-db/index.html">Cloudbreak Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -321,13 +321,13 @@
         
             
 <li >
-    <a href="../security-ldap/index.html">Enable LDAP/AD for Cloudbreak</a>
+    <a href="../security-ldap/index.html">Use LDAP/AD for Cloudbreak</a>
 </li>
 
         
             
 <li >
-    <a href="../security-kerberos/index.html">Enable Kerberos for Your Cluster</a>
+    <a href="../security-kerberos/index.html">Use Kerberos for Your Cluster</a>
 </li>
 
         
@@ -339,6 +339,12 @@
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Manage Cloudbreak</a>
     <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
         
             
 <li >
@@ -366,7 +372,13 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+    <a href="../profile/index.html">Configure Profile Variables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
 </li>
 
         
@@ -380,32 +392,8 @@
                 
                 
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../profile/index.html">Profile File</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
                         
                             
   <li class="dropdown-submenu">
@@ -448,6 +436,51 @@
                         
                             
 <li >
+    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li class="active">
+    <a href="index.html">Set up Local Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../get-help/index.html">Getting Help</a>
 </li>
 
@@ -456,39 +489,6 @@
 <li >
     <a href="../smartsense/index.html">SmartSense</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer Docs</a>
-    <ul class="dropdown-menu">
-        
-            
-<li class="active">
-    <a href="index.html">Local Development</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">API</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flows</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                         </ul>
@@ -501,12 +501,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../smartsense/index.html">
+                        <a rel="next" href="../cb-shell/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../dev-api/index.html">
+                        <a rel="prev" href="../dev-spi/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -531,7 +531,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#local-development">Local Development</a></li>
+        <li class="first-level active"><a href="#set-up-local-environment">Set up Local Environment</a></li>
         
             <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
@@ -560,7 +560,16 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="local-development">Local Development</h2>
+<h2 id="set-up-local-environment">Set up Local Environment</h2>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: What are some use cases where someone would want to use this? How are SPI, APIs, and flows related?  </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <p>The following documentation will help you set up your local development environment on Mac OS X.</p>
 <h3 id="prerequisites">Prerequisites</h3>
 <p>To use this development environment on Mac OS X, you need the following:</p>
@@ -591,6 +600,7 @@ brew cask install virtualbox
 </ul>
 <h3 id="set-up-cloudbreak-deployer">Set up Cloudbreak Deployer</h3>
 <p>The simplest way to prepare the working environment is to start the Cloudbreak application on your local machine using <a href="https://github.com/hortonworks/cloudbreak-deployer">Cloudbreak deployer</a>.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Create a directory which will store the necessary configuration files and dependencies of the Cloudbreak deployer. This directory must be created outside of the cloned Cloudbreak deployer git repository:</p>
@@ -670,6 +680,7 @@ cbd util local-dev
 <h4 id="check-out-the-cloudbreak-repository">Check out the Cloudbreak Repository</h4>
 <p>Go to https://github.com/hortonworks/cloudbreak, and clone or download the repo. If you want to use SSH, see <a href="https://help.github.com/articles/connecting-to-github-with-ssh/">https://help.github.com/articles/connecting-to-github-with-ssh/</a>. </p>
 <h4 id="update-project-settings-in-idea">Update Project Settings in IDEA</h4>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>In IDEA, set your SDK to your Java version under <strong>Configure &gt; Project Defaults &gt; Project Structure &gt; Project SDK</strong>.</p>
