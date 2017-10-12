@@ -38,7 +38,7 @@
     </url>
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//clusters-access/index.html</loc>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-clusters-access/index.html</loc>
      <lastmod>2017-10-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -66,7 +66,7 @@
     </url>
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//clusters-access/index.html</loc>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-clusters-access/index.html</loc>
      <lastmod>2017-10-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -94,7 +94,7 @@
     </url>
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//clusters-access/index.html</loc>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-clusters-access/index.html</loc>
      <lastmod>2017-10-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -116,7 +116,7 @@
     </url>
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//clusters-access/index.html</loc>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//os-clusters-access/index.html</loc>
      <lastmod>2017-10-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
