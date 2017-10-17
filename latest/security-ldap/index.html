@@ -549,11 +549,9 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#ldapad">LDAP/AD</a></li>
+        <li class="first-level active"><a href="#configuring-ldapad">Configuring LDAP/AD</a></li>
         
-            <li class="second-level"><a href="#ldapad-configuration">LDAP/AD configuration</a></li>
-            
-                <li class="third-level"><a href="#mapping-oauth2-scopes-to-ldap-groups">Mapping Oauth2 scopes to LDAP groups</a></li>
+            <li class="second-level"><a href="#mapping-oauth2-scopes-to-ldap-groups">Mapping Oauth2 scopes to LDAP groups</a></li>
             
         
     
@@ -561,11 +559,10 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="ldapad">LDAP/AD</h2>
+<h2 id="configuring-ldapad">Configuring LDAP/AD</h2>
 <blockquote>
 <p>This feature is <code>TECHNICAL PREVIEW</code>.</p>
 </blockquote>
-<h3 id="ldapad-configuration">LDAP/AD configuration</h3>
 <p>There are cases where it might be useful to authenticate Cloudbreak users against an existing enterprise LDAP/AD server as it might already have all the users preconfigured. Cloudbreak supports this without the need to modify the existing LDAP schema.</p>
 <p>To setup LDAP/AD authentication for Cloudbreak, the <code>/var/lib/cloudbreak-deployment/uaa.yml</code> must be changed as it is described in <a href="https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-LDAP.md">Cloudfoundry's documentation</a>.</p>
 <p>Sample for LDAP authentication (the CN of the users in LDAP is the e-mail address in this case, as Cloudbreak uses an e-mail address as identifier):</p>
@@ -606,7 +603,7 @@ cbd start
 </code></pre>
 
 <p><code>Note:</code> DO NOT use the <code>cbd restart</code> command as it regenerates all the yml files so the changes will be lost in uaa.yml.</p>
-<h4 id="mapping-oauth2-scopes-to-ldap-groups">Mapping Oauth2 scopes to LDAP groups</h4>
+<h3 id="mapping-oauth2-scopes-to-ldap-groups">Mapping Oauth2 scopes to LDAP groups</h3>
 <p>In order for the users to have access to Cloudbreak resources and to be able to create clusters the Oauth2 scopes must be mapped to LDAP groups. At the moment Cloudbreak only supports <code>one LDAP group per user</code> scenario.
 To see the Oauth2 scopes, execute the following command:</p>
 <pre><code>docker exec -it cbreak_commondb_1 psql -U postgres -d uaadb -c &quot;select displayname from groups where displayname like 'cloudbreak%' or displayname like 'sequenceiq.account%' or displayname='sequenceiq.cloudbreak.user';&quot;
