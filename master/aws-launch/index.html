@@ -900,15 +900,6 @@
 </tr>
 </tbody>
 </table>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: This table should be automatically generated.</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 </li>
 <li>
 <p>Click <strong>Select</strong>.  </p>
@@ -1002,16 +993,19 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 <p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
 </li>
 <li>
+<p>The login page is displayed:</p>
+<p><a href="../images/cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
 <p>Log in to the Cloudbreak web UI: </p>
 <ul>
-<li>The default username is <code>admin@example.com</code> but you should sign up with your own email address.</li>
+<li>The default username is <code>admin@example.com</code> but you should sign up with your own email address.    </li>
 <li>The password is the value of the <code>UAA_DEFAULT_USER_PW</code> variable that you configured in your <code>Profile</code> file when <a href="#launch-cloudbreak-deployer">launching Cloudbreak deployer</a>.</li>
 </ul>
-<p><a href="../images/cloudbreak-ui.png" target="_blank" title="click to enlarge"><img src="../images/cloudbreak-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 </ol>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak Credential</h3>
-<p>As part of the prerequisites, you had two options to <a href="#authorization-for-cloudbreak">authorize Cloudbreak</a> to create resources on your behalf: key-based or role-based authorization. </p>
+<p>As part of the <a href="../(#authentication)">prerequisites</a>, you had two options to allow Cloudbreak to authenticate with AWS and create resources on your behalf: key-based or role-based authentication. </p>
 <p>Depending on your earlier choice, you must configure a key-based or role-based credential. Without this credential, you will not be able to create clusters via Cloudbreak. </p>
 <h4 id="create-key-based-credential">Create Key-Based Credential</h4>
 <p>To perform these steps, you must know your access and secret key as well as your public SSH key. If needed, you can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong> &gt; select a user &gt; <strong>Security credentials</strong>. </p>
@@ -1019,13 +1013,13 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>In the Cloudbreak web UI, open the <strong>manage credentials</strong> pane. </p>
+<p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the left pane. </p>
 </li>
 <li>
-<p>Click <strong>+create credential</strong>. </p>
+<p>Click <strong>Create Credential</strong>. </p>
 </li>
 <li>
-<p>Select the AWS cloud provider.</p>
+<p>Under <strong>Cloud provider</strong>, select "Amazon Web Services".</p>
 </li>
 <li>
 <p>Provide the following information:</p>
@@ -1057,27 +1051,15 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 <td>Secret Access Key</td>
 <td>Paste your secret key.</td>
 </tr>
-<tr>
-<td>SSH Public Key</td>
-<td>Paste your SSH public key.</td>
-</tr>
-<tr>
-<td>Select Platform</td>
-<td>(Optional) Select a platform (if previously configured).</td>
-</tr>
-<tr>
-<td>Public In Account</td>
-<td>(Optional) If you check this, other users added to your Cloudbreak instance will be able to use this credential to create clusters.</td>
-</tr>
 </tbody>
 </table>
 </li>
 <li>
-<p>Click <strong>+create credential</strong>.</p>
+<p>Click <strong>Create</strong>.</p>
 </li>
 <li>
-<p>Your credential should now be displayed in the <strong>manage credentials</strong> tab.</p>
-<p>Congratulations! You've successfully launched and configured Cloudbreak. Now you can use Cloudbreak to <a href="../aws-create/index.html">create clusters</a>. </p>
+<p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
+<p>Congratulations! You've successfully launched Cloudbreak and create a Cloudbreak credential. Now it's time to <a href="../aws-create/index.html">create a cluster</a>. </p>
 </li>
 </ol>
 <h4 id="create-role-based-credential">Create Role-Based Credential</h4>
@@ -1086,13 +1068,13 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>In the Cloudbreak web UI, open the <strong>manage credentials</strong> pane. </p>
+<p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the left pane. </p>
 </li>
 <li>
-<p>Click <strong>+create credential</strong>. </p>
+<p>Click <strong>Create Credential</strong>. </p>
 </li>
 <li>
-<p>Select the AWS cloud provider.</p>
+<p>Under <strong>Cloud provider</strong>, select "Amazon Web Services".</p>
 </li>
 <li>
 <p>Provide the following information:</p>
@@ -1106,7 +1088,7 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 <tbody>
 <tr>
 <td>Select Credential Type</td>
-<td>Select <strong>Role Based</strong>.</td>
+<td>Select <strong>Role Based</strong> (default value).</td>
 </tr>
 <tr>
 <td>Name</td>
@@ -1118,29 +1100,17 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 </tr>
 <tr>
 <td>IAM Role ARN</td>
-<td>Paste the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" that you created earlier. For example <code>arn:aws:iam::315627065446:role/CredentialRole</code></td>
-</tr>
-<tr>
-<td>SSH Public Key</td>
-<td>Paste your SSH public key.</td>
-</tr>
-<tr>
-<td>Select Platform</td>
-<td>(Optional) Select a platform (if previously configured).</td>
-</tr>
-<tr>
-<td>Public In Account</td>
-<td>(Optional) If you check this, other users added to your Cloudbreak instance will be able to use this credential to create clusters.</td>
+<td>Paste the IAM Role ARN corresponding to the "CredentialRole" that you created earlier. For example <code>arn:aws:iam::315627065446:role/CredentialRole</code> is a valid IAM Role ARN.</td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p>Click <strong>+create credential</strong>.</p>
+<p>Click <strong>Create</strong>.</p>
 </li>
 <li>
-<p>Your credential should now be displayed in the <strong>manage credentials</strong> tab.</p>
-<p>Congratulations! You've successfully launched and configured Cloudbreak.</p>
+<p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
+<p>Congratulations! You've successfully launched Cloudbreak and create a Cloudbreak credential. Now it's time to <a href="../aws-create/index.html">create a cluster</a>. </p>
 </li>
 </ol>
 <div class="next">
