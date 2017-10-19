@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/autoscaling/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cli/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Auto Scaling - Cloudbreak</title>
+    <title>CLI - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -232,7 +232,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -248,39 +248,6 @@
 
         
             
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Templates</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../templates-aws/index.html">Templates for AWS</a>
-</li>
-
-        
-            
-<li >
-    <a href="../templates-azure/index.html">Templates for Azure</a>
-</li>
-
-        
-            
-<li >
-    <a href="../templates-gcp/index.html">Templates for GCP</a>
-</li>
-
-        
-            
-<li >
-    <a href="../templates-os/index.html">Templates for OpenStack</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
 <li >
     <a href="../recipes/index.html">Recipes</a>
 </li>
@@ -289,12 +256,6 @@
             
 <li >
     <a href="../tags/index.html">Resource Tagging</a>
-</li>
-
-        
-            
-<li class="active">
-    <a href="index.html">Auto Scaling</a>
 </li>
 
         
@@ -339,7 +300,13 @@
         
             
 <li >
-    <a href="../cb-account/index.html">Manage Your Account</a>
+    <a href="../upgrade/index.html">Upgrade Clodbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../delete/index.html">Delete Cloudbreak</a>
 </li>
 
         
@@ -355,25 +322,13 @@
 </li>
 
         
-            
-<li >
-    <a href="../upgrade/index.html">Upgrade Clodbreak</a>
-</li>
-
-        
-            
-<li >
-    <a href="../delete/index.html">Delete Cloudbreak</a>
-</li>
-
-        
     </ul>
   </li>
 
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Configuring Security</a>
+    <a tabindex="-1" href="">Security</a>
     <ul class="dropdown-menu">
         
             
@@ -384,19 +339,13 @@
         
             
 <li >
-    <a href="../security-cb/index.html">Basics</a>
+    <a href="../security-cb/index.html">Configure Basic Security</a>
 </li>
 
         
             
 <li >
-    <a href="../security-ldap/index.html">LDAP/AD</a>
-</li>
-
-        
-            
-<li >
-    <a href="../security-kerberos/index.html">Kerberos</a>
+    <a href="../security-kerberos/index.html">Configure Kerberos</a>
 </li>
 
         
@@ -409,13 +358,13 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../cb-shell/index.html">Cloudbreak Shell</a>
+<li class="active">
+    <a href="index.html">CLI</a>
 </li>
 
                         
@@ -426,7 +375,7 @@
         
             
 <li >
-    <a href="../dev-local-dev/index.html">Setting up Local Environment</a>
+    <a href="../dev/index.html">Developer Docs</a>
 </li>
 
         
@@ -519,12 +468,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../tags/index.html">
+                        <a rel="next" href="../security-kerberos/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../images/index.html">
+                        <a rel="prev" href="../dev/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -549,23 +498,15 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#auto-scaling">Auto Scaling</a></li>
+        <li class="first-level active"><a href="#cloudbreak-shell">Cloudbreak Shell</a></li>
         
-            <li class="second-level"><a href="#enable-auto-scaling">Enable Auto Scaling</a></li>
+            <li class="second-level"><a href="#install-and-start-cloudbreak-shell">Install and Start Cloudbreak Shell</a></li>
             
-                <li class="third-level"><a href="#create-a-metric-based-alert">Create a Metric-based Alert</a></li>
+                <li class="third-level"><a href="#from-the-cloudbreak-vm">From the Cloudbreak VM</a></li>
             
-                <li class="third-level"><a href="#create-a-time-based-alert">Create a Time-based Alert</a></li>
+                <li class="third-level"><a href="#from-the-docker-image">From the Docker Image</a></li>
             
-                <li class="third-level"><a href="#create-a-scaling-policy">Create a Scaling Policy</a></li>
-            
-                <li class="third-level"><a href="#configure-auto-scaling">Configure Auto Scaling</a></li>
-            
-        
-            <li class="second-level"><a href="#disable-auto-scaling">Disable Auto Scaling</a></li>
-            
-        
-            <li class="second-level"><a href="#create-a-custom-ambari-alert-and-use-it-for-cloudbreak-autoscaling-policies">Create a Custom Ambari Alert and Use it for Cloudbreak Autoscaling Policies</a></li>
+                <li class="third-level"><a href="#build-from-source">Build From Source</a></li>
             
         
     
@@ -573,187 +514,79 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="auto-scaling">Auto Scaling</h2>
+<h2 id="cloudbreak-shell">Cloudbreak Shell</h2>
 <blockquote>
 <blockquote>
 <blockquote>
 <blockquote>
-<p>TO-DO: I'm not sure if the auto scaling options in the new UI will be similar to auto scaling in HDCloud or the auto scaling in the old Cloudbreak. </p>
+<p>TO-DO: If we have new CLI, then this info will need to be updated.</p>
 </blockquote>
 </blockquote>
 </blockquote>
 </blockquote>
-<p>The auto scaling capability is based on <a href="https://cwiki.apache.org/confluence/display/AMBARI/Metrics">Ambari Metrics</a> and <a href="https://cwiki.apache.org/confluence/display/AMBARI/Alerts">Ambari Alerts</a>. Based on the blueprint used and the services running, Cloudbreak accesses all available metrics from the subsystem and defines alerts based on these metrics.</p>
-<p>For each cluster you can optionally enable auto scaling, which allows you to define one or more scaling policies to automatically increase or decrease the capacity of the cluster or an application running on it based on an alert and according to the policy definition. Scaling granularity is at the host group level; thus you have an option to scale services or components only, not the whole cluster.</p>
-<p>In other words:</p>
+<p>Cloudbreak Shell is an interactive command line tool which:</p>
 <ul>
-<li>An <strong>alert</strong> triggers a scaling policy.  </li>
-<li>A <strong>scaling policy</strong> adds or removes a set number of worker or compute nodes based on a scaling metric definition.</li>
+<li>Supports all functionality available through the REST API and Cloudbreak web UI</li>
+<li>Makes possible complete automation of management task via scripts</li>
+<li>Includes context-aware commands</li>
+<li>Allows tab completion</li>
+<li>Supports required and optional parameters</li>
+<li>Includes a hint command to guide you</li>
 </ul>
-<p>The following table includes examples of scaling policies and alerts attached to them:</p>
-<table>
-<thead>
-<tr>
-<th>Alert</th>
-<th>Scaling Policy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>If CPU usage is more than 70% for 5 minutes (averaged across all cluster nodes).</td>
-<td>Add 3 compute nodes</td>
-</tr>
-<tr>
-<td>If HDFS usage is less than 10% for 15 minutes.</td>
-<td>Remove 5 worker nodes</td>
-</tr>
-<tr>
-<td>If Memory usage is more than 50% for 10 minutes (averaged across all cluster nodes).</td>
-<td>Add 3 compute nodes</td>
-</tr>
-</tbody>
-</table>
-<h3 id="enable-auto-scaling">Enable Auto Scaling</h3>
-<p>Auto scaling is disabled by default. Once the cluster is running, you can enable it for the cluster from the cluster's <strong>autoscaling SLA policies</strong> page. </p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>Click on the cluster tile to navigate to cluster <strong>details</strong> page.</li>
-<li>Click <strong>autoscaling SLA policies</strong>.</li>
-<li>Click <strong>enable</strong> to enable auto-scaling for the cluster.</li>
-</ol>
-<p>Example: </p>
-<p><a href="../images/autoscaling-enable.png" target="_blank" title="click to enlarge"><img src="../images/autoscaling-enable.png" width="650" title="Cloudbreak web UI"></a> </p>
-<p><strong>Next Steps</strong></p>
-<p>After you have enabled auto scaling, perform these steps:</p>
-<ol>
-<li>Create either <a href="#create-a-metric-based-alert">a metric-based alert</a> or <a href="#create-a-time-based-alert">a time-based alert</a>.  </li>
-<li><a href="#create-a-scaling-policy">Create a scaling policy</a>.    </li>
-<li><a href="#configure-auto-scaling">Configure auto scaling</a> if needed. </li>
-</ol>
-<h4 id="create-a-metric-based-alert">Create a Metric-based Alert</h4>
-<p>Metric-based alerts use Ambari metrics. These metrics have a default threshold value configured in Ambari, which you can modify in Ambari web UI.</p>
-<p>To create a new metric-based alert in the Cloudbreak UI, use the following steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>Enable auto scaling by clicking <strong>enable</strong>. </li>
-<li>Select <strong>metric based</strong>. </li>
-<li>Enter <strong>alert name</strong>. Only alphanumeric characters (min 5, max 100 characters) are allowed.  </li>
-<li>(Optional) Enter a <strong>description</strong> for the new alert.  </li>
-<li>Select a metric, and then its <strong>desired state</strong>. The Ambari metrics available are based on installed services and their state is based on the Ambari threshold value:  <ul>
-<li>OK  </li>
-<li>WARN  </li>
-<li>CRITICAL  </li>
-</ul>
-</li>
-<li>Enter the <strong>period</strong> (in minutes) to define the metric state endurance after the alert has been triggered. Only numeric characters are allowed.</li>
-</ol>
-<p>Example:</p>
-<p><a href="../images/autoscaling-alert1.png" target="_blank" title="click to enlarge"><img src="../images/autoscaling-alert1.png" width="650" title="Cloudbreak web UI"></a> </p>
-<p>You can change default threshold for an Ambari metric in the Ambari web UI by using the following steps:</p>
-<ol>
-<li>Log in to Ambari web UI.  </li>
-<li>From the header menu, select <strong>Alerts</strong> to open the Alerts page.  </li>
-<li>Select an alert from the list.  </li>
-<li>In the Configuration panel, click <strong>Edit</strong>.  </li>
-<li>Now you can modify the values in the <strong>Threshold</strong> section.</li>
-</ol>
-<p>Example:</p>
-<p><a href="../images/ambari_threshold.png" target="_blank" title="click to enlarge"><img src="../images/ambari_threshold.png" width="650" title="Ambari web UI"></a> </p>
-<h4 id="create-a-time-based-alert">Create a Time-based Alert</h4>
-<p>Time-based alerts are based on cron expressions, allowing alerts to be triggered based on time.</p>
-<p>To create a new time-based alert in the Cloudbreak UI, use the following steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>Enable auto scaling by clicking <strong>enable</strong>.  </li>
-<li>Select <strong>time based</strong>. </li>
-<li>Enter <strong>alert name</strong>. Only alphanumeric characters (min 5, max 100 characters) are allowed.  </li>
-<li>(Optional) Enter <strong>description</strong> for the new alert.   </li>
-<li>Select a <strong>time zone</strong> for the new alert.    </li>
-<li>Provide the <strong>cron expression</strong> to define the time-based job scheduler (cron expression) for this alert.</li>
-</ol>
-<p>Example:</p>
-<p><a href="../images/autoscaling-alert2.png" target="_blank" title="click to enlarge"><img src="../images/autoscaling-alert2.png" width="650" title="Cloudbreak web UI"></a> </p>
-<h4 id="create-a-scaling-policy">Create a Scaling Policy</h4>
-<p>To create a new scaling policy, use the following steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>Enter the <strong>policy name</strong>. Only alphanumeric characters (min 5, max 100 characters) are allowed.</li>
-<li>Select a type first (node count, percentage, or exact), and then enter a value for the <strong>scaling adjustment</strong>:<ul>
-<li><strong>node count</strong> - number of nodes to be added or removed</li>
-<li><strong>percentage</strong> - computed percentage adjustment based on the cluster size</li>
-<li><strong>exact</strong> - specific target size of the cluster</li>
-</ul>
-</li>
-<li>Select the <strong>host group</strong> to which this scaling policy will be applied.  </li>
-<li>Select the previously created Cloudbreak alert to apply the scaling policy to it. </li>
-</ol>
-<p>Example: </p>
-<p><a href="../images/autoscaling-addpolicy.png" target="_blank" title="click to enlarge"><img src="../images/autoscaling-addpolicy.png" width="650" title="Cloudbreak web UI"></a> </p>
-<p>A scaling policy may contain multiple alerts. When an alert is triggered, a scaling adjustment is applied.</p>
-<p>In a scaling policy, the triggered rules are applied in order.</p>
-<h4 id="configure-auto-scaling">Configure Auto Scaling</h4>
-<p>You can configure cluster scaling by adjusting the following parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-<th>Default Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cooldown Time</td>
-<td>After an auto scaling event occurs, the amount of time to wait before enforcing another scaling policy.</td>
-<td>30 minutes</td>
-</tr>
-<tr>
-<td>Cluster Size Limit</td>
-<td>The minimum and maximum size allowed for the cluster despite scaling adjustments. Auto scaling policies cannot scale the cluster above or below this size.</td>
-<td>Min 3 nodes, max 100 nodes</td>
-</tr>
-</tbody>
-</table>
-<p><a href="../images/autoscaling-config.png" target="_blank" title="click to enlarge"><img src="../images/autoscaling-config.png" width="650" title="Cloudbreak web UI"></a> </p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Is this min 3 nodes including or excluding master node? </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>To make sure the scaling adjustments don't oversize or undersize your cluster, you can keep the cluster size within defined boundaries using <strong>cluster size min.</strong> and <strong>cluster size max.</strong>.</p>
-<p>To avoid stressing the cluster, Cloudbreak uses the <strong>cooldown time period</strong> (in minutes) setting. When an alert is raised and there is an associated scaling policy, the system will not apply the policy until the configured cooldown timeframe has elapsed.</p>
-<p>To keep your cluster healthy, Cloudbreak auto scaling runs several background checks during a downscale operation.</p>
+<h3 id="install-and-start-cloudbreak-shell">Install and Start Cloudbreak Shell</h3>
+<p>There are three ways to install and run Cloudbreak Shell:</p>
 <ul>
-<li>Cloudbreak never removes application master nodes from a cluster. In order to make sure that the node running Ambari Metrics is not removed, Cloudbreak has to be able to access the YARN Resource Manager. When creating a cluster using the default secure network template, make sure that the RM's port is open on that node.  </li>
-<li>In order to keep a healthy HDFS during downscale, Cloudbreak always keeps the replication factor configured and makes sure that there is enough space on HDFS to rebalance data.  </li>
-<li>During downscale, in order to minimize the rebalancing, replication, and HDFS storms, Cloudbreak checks block locations and computes the least costly operations.  </li>
+<li>From the Cloudbreak VM (Recommended) </li>
+<li>From the Docker Image  </li>
+<li>Build From Source  </li>
 </ul>
-<h3 id="disable-auto-scaling">Disable Auto Scaling</h3>
-<p>Auto scaling is disabled by default.</p>
-<p>If you have previously enabled it for a given cluster and you would like to disable it, you can do it from the cluster's <strong>autoscaling SLA policies</strong> page.</p>
-<p><strong>Steps</strong> </p>
+<blockquote>
+<p>The latter two methods run the CLI on your local machine. The first method runs the CLI on the VM but provides an option to run the commands on your local machine. </p>
+</blockquote>
+<h4 id="from-the-cloudbreak-vm">From the Cloudbreak VM</h4>
+<p>The easiest way to install and start Cloudbreak Shell is from the VM on which you have deployed Cloudbreak. On the VM, navigate to the <code>/var/lib/cloudbreak-deployment/</code> directory and run:</p>
+<pre>cbd util cloudbreak-shell</pre>
+
+<p>If you would like to use Cloudbreak Shell from your local machine, follow these steps.</p>
+<p><strong>Steps</strong></p>
 <ol>
-<li>Click on the cluster tile to navigate to cluster <strong>details</strong> page.</li>
-<li>Click <strong>autoscaling SLA policies</strong>.</li>
-<li>Click <strong>disable</strong> to enable auto-scaling for the cluster.</li>
+<li>
+<p>Execute <code>cbd util cloudbreak-shell-remote</code> on the VM where Cloudbreak is running.</p>
+</li>
+<li>
+<p>Copy the output of the above command. </p>
+</li>
+<li>
+<p>Paste and execute the output on your local machine.</p>
+</li>
 </ol>
-<p>The alert definitions and policy definitions will be preserved so that you can use them when you enable auto scaling in the future.</p>
+<h4 id="from-the-docker-image">From the Docker Image</h4>
+<p>You can find the docker image and its documentation <a href="https://github.com/hortonworks/docker-cloudbreak-shell">here</a>.</p>
 <blockquote>
 <blockquote>
 <blockquote>
 <blockquote>
-<p>TO-DO: Will this delete policies and alerts? Or will they be available if I click "enable" again?</p>
-<p>TO-DO: Can I edit and delete policies and alerts?  </p>
+<p>TO-DO: Add from the github doc? Is this still valid? </p>
 </blockquote>
 </blockquote>
 </blockquote>
 </blockquote>
-<h3 id="create-a-custom-ambari-alert-and-use-it-for-cloudbreak-autoscaling-policies">Create a Custom Ambari Alert and Use it for Cloudbreak Autoscaling Policies</h3>
-<p>Refer to the <a href="https://community.hortonworks.com/articles/143762/how-to-create-a-custom-ambari-alert-and-use-it-for.html">Create a Custom Ambari Alert and Use it for Cloudbreak Autoscaling Policies</a> HCC tutorial.</p></div>
+<h4 id="build-from-source">Build From Source</h4>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: Add from the old doc. Is this still valid? </p>
+<p>TO-DO: Include documentation from: (the repository url changed because the project is now under hwx)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li><a href="http://sequenceiq.com/cloudbreak-docs/latest/shell/">Cloudbreak docs</a> </li>
+<li><a href="https://github.com/sequenceiq/cloudbreak/tree/master/shell">Cloudbreak Shell</a> </li>
+<li>Provisioning clusters via Cloudbreak Shell </li>
+</ul></div>
         
     </div>
 

@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-shell/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/dev/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Cloudbreak Shell - Cloudbreak</title>
+    <title>Developer Docs - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -248,39 +248,6 @@
 
         
             
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Templates</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../templates-aws/index.html">Templates for AWS</a>
-</li>
-
-        
-            
-<li >
-    <a href="../templates-azure/index.html">Templates for Azure</a>
-</li>
-
-        
-            
-<li >
-    <a href="../templates-gcp/index.html">Templates for GCP</a>
-</li>
-
-        
-            
-<li >
-    <a href="../templates-os/index.html">Templates for OpenStack</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
 <li >
     <a href="../recipes/index.html">Recipes</a>
 </li>
@@ -289,12 +256,6 @@
             
 <li >
     <a href="../tags/index.html">Resource Tagging</a>
-</li>
-
-        
-            
-<li >
-    <a href="../autoscaling/index.html">Auto Scaling</a>
 </li>
 
         
@@ -339,7 +300,13 @@
         
             
 <li >
-    <a href="../cb-account/index.html">Manage Your Account</a>
+    <a href="../upgrade/index.html">Upgrade Clodbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../delete/index.html">Delete Cloudbreak</a>
 </li>
 
         
@@ -355,25 +322,13 @@
 </li>
 
         
-            
-<li >
-    <a href="../upgrade/index.html">Upgrade Clodbreak</a>
-</li>
-
-        
-            
-<li >
-    <a href="../delete/index.html">Delete Cloudbreak</a>
-</li>
-
-        
     </ul>
   </li>
 
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Configuring Security</a>
+    <a tabindex="-1" href="">Security</a>
     <ul class="dropdown-menu">
         
             
@@ -384,19 +339,13 @@
         
             
 <li >
-    <a href="../security-cb/index.html">Basics</a>
+    <a href="../security-cb/index.html">Configure Basic Security</a>
 </li>
 
         
             
 <li >
-    <a href="../security-ldap/index.html">LDAP/AD</a>
-</li>
-
-        
-            
-<li >
-    <a href="../security-kerberos/index.html">Kerberos</a>
+    <a href="../security-kerberos/index.html">Configure Kerberos</a>
 </li>
 
         
@@ -414,8 +363,8 @@
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="index.html">Cloudbreak Shell</a>
+<li >
+    <a href="../cli/index.html">CLI</a>
 </li>
 
                         
@@ -425,8 +374,8 @@
     <ul class="dropdown-menu">
         
             
-<li >
-    <a href="../dev-local-dev/index.html">Setting up Local Environment</a>
+<li class="active">
+    <a href="index.html">Developer Docs</a>
 </li>
 
         
@@ -519,12 +468,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../security-kerberos/index.html">
+                        <a rel="next" href="../cli/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../dev-local-dev/index.html">
+                        <a rel="prev" href="../dev-spi/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -549,15 +498,28 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#cloudbreak-shell">Cloudbreak Shell</a></li>
+        <li class="first-level active"><a href="#setting-up-local-environment">Setting up Local Environment</a></li>
         
-            <li class="second-level"><a href="#install-and-start-cloudbreak-shell">Install and Start Cloudbreak Shell</a></li>
+            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
-                <li class="third-level"><a href="#from-the-cloudbreak-vm">From the Cloudbreak VM</a></li>
+        
+            <li class="second-level"><a href="#set-up-cloudbreak-deployer">Set up Cloudbreak Deployer</a></li>
             
-                <li class="third-level"><a href="#from-the-docker-image">From the Docker Image</a></li>
+        
+            <li class="second-level"><a href="#set-up-idea">Set up IDEA</a></li>
             
-                <li class="third-level"><a href="#build-from-source">Build From Source</a></li>
+                <li class="third-level"><a href="#check-out-the-cloudbreak-repository">Check out the Cloudbreak Repository</a></li>
+            
+                <li class="third-level"><a href="#update-project-settings-in-idea">Update Project Settings in IDEA</a></li>
+            
+        
+            <li class="second-level"><a href="#set-up-command-line">Set up Command Line</a></li>
+            
+        
+            <li class="second-level"><a href="#set-up-database-development">Set up Database Development</a></li>
+            
+        
+            <li class="second-level"><a href="#building">Building</a></li>
             
         
     
@@ -565,79 +527,234 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="cloudbreak-shell">Cloudbreak Shell</h2>
+<h2 id="setting-up-local-environment">Setting up Local Environment</h2>
 <blockquote>
 <blockquote>
 <blockquote>
 <blockquote>
-<p>TO-DO: If we have new CLI, then this info will need to be updated.</p>
+<p>TO-DO: What are some use cases where someone would want to use this? How are SPI, APIs, and flows related?  </p>
 </blockquote>
 </blockquote>
 </blockquote>
 </blockquote>
-<p>Cloudbreak Shell is an interactive command line tool which:</p>
+<p>The following documentation will help you set up your local development environment on Mac OS X.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>To use this development environment on Mac OS X, you need the following:</p>
 <ul>
-<li>Supports all functionality available through the REST API and Cloudbreak web UI</li>
-<li>Makes possible complete automation of management task via scripts</li>
-<li>Includes context-aware commands</li>
-<li>Allows tab completion</li>
-<li>Supports required and optional parameters</li>
-<li>Includes a hint command to guide you</li>
+<li>
+<p><strong>Brew</strong>: Follow the install instructions on the <a href="https://brew.sh">brew homepage</a>.</p>
+</li>
+<li>
+<p><strong>Java and Docker</strong>: You can get these with the following commands:</p>
+<p><pre>
+brew cask install java
+brew install docker
+brew install docker-machine
+brew install boot2docker
+</pre></p>
+</li>
+<li>
+<p><strong>Hypervisor</strong>: Cloudbreak deployer has built-in xhyve setup option, but some of us use VirtualBox instead (and so do the docker docs). Cloudbreak deployer works with both; the choice is up to you.</p>
+<p>To set up xhyve:</p>
+<p><pre>
+brew install docker-machine-driver-xhyve
+</pre></p>
+<p>To set up VirtualBox:</p>
+<p><pre>
+brew cask install virtualbox
+</pre></p>
+</li>
 </ul>
-<h3 id="install-and-start-cloudbreak-shell">Install and Start Cloudbreak Shell</h3>
-<p>There are three ways to install and run Cloudbreak Shell:</p>
-<ul>
-<li>From the Cloudbreak VM (Recommended) </li>
-<li>From the Docker Image  </li>
-<li>Build From Source  </li>
-</ul>
-<blockquote>
-<p>The latter two methods run the CLI on your local machine. The first method runs the CLI on the VM but provides an option to run the commands on your local machine. </p>
-</blockquote>
-<h4 id="from-the-cloudbreak-vm">From the Cloudbreak VM</h4>
-<p>The easiest way to install and start Cloudbreak Shell is from the VM on which you have deployed Cloudbreak. On the VM, navigate to the <code>/var/lib/cloudbreak-deployment/</code> directory and run:</p>
-<pre>cbd util cloudbreak-shell</pre>
-
-<p>If you would like to use Cloudbreak Shell from your local machine, follow these steps.</p>
+<h3 id="set-up-cloudbreak-deployer">Set up Cloudbreak Deployer</h3>
+<p>The simplest way to prepare the working environment is to start the Cloudbreak application on your local machine using <a href="https://github.com/hortonworks/cloudbreak-deployer">Cloudbreak deployer</a>.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>Execute <code>cbd util cloudbreak-shell-remote</code> on the VM where Cloudbreak is running.</p>
+<p>Create a directory which will store the necessary configuration files and dependencies of the Cloudbreak deployer. This directory must be created outside of the cloned Cloudbreak deployer git repository:</p>
+<p><pre>
+mkdir cbd-local
+cd cbd-local</pre></p>
 </li>
 <li>
-<p>Copy the output of the above command. </p>
+<p>Get the cloudbreak-deployer onto your machine:</p>
+<p><pre>
+curl https://raw.githubusercontent.com/hortonworks/cloudbreak-deployer/master/install-dev | sh [-s branch] &amp;&amp; cbd --version
+</pre></p>
+<p>Add the <code>-s</code> branch option for <code>sh</code> in case you'd like to checkout a branch different than master.</p>
 </li>
 <li>
-<p>Paste and execute the output on your local machine.</p>
+<p>Next, you must set up your docker-machinep. Depending on whether you chose to use xhyve or VirtualBox, type the commands listed below. </p>
+<p>xhyve:</p>
+<p><pre>
+cbd machine create
+eval $(docker-machine env cbd)
+</pre></p>
+<p>VirtualBox:</p>
+<p><pre>
+docker-machine create --driver virtualbox --virtualbox-disk-size "50000" cbd
+eval $(docker-machine env cbd)
+</pre></p>
+</li>
+<li>
+<p>IP settings are based on your docker-machine configuration. Use the <code>docker-machine ip cbd</code> command to print the IP address of your docker machine. This is the address which you should use in multiple places below. Let's refer to this address as "YOUR_IP" throughout this document: <code>YOUR_IP=$(docker-machine ip cbd)</code>.
+</pre>  </p>
+</li>
+<li>
+<p>Create a file called <code>Profile</code> in the cbd-local directory that you just created, and, depending on whether you are using xhyve or VirtualBox, add the content listed below. </p>
+<p>The CB_SCHEMA_SCRIPTS_LOCATION environment variable configures the location of SQL scripts that are in the 'core/src/main/resources/schema' directory in the cloned Cloudbreak git repository. Note that the full path needs to be configured and environment variables such as <code>$USER</code> cannot be used. You must also set a password for your local Cloudbreak in UAA_DEFAULT_USER_PW:</p>
+<p>xhyve:</p>
+<p><pre>
+export PRIVATE_IP=$PUBLIC_IP
+export ULU_SUBSCRIBE_TO_NOTIFICATIONS=true
+export CB_INSTANCE_UUID=$(uuidgen | tr '[:upper:]' '[:lower:]')
+export CB_SCHEMA_SCRIPTS_LOCATION=/Users/YOUR_USERNAME/YOUR_PROJECT_DIR/cloudbreak/core/src/main/resources/schema
+export UAA_DEFAULT_USER_PW=YOUR_PASSWORD
+</pre></p>
+<p>VirtualBox:</p>
+<p><pre>
+export PUBLIC_IP=$(docker-machine ip cbd)
+export DOCKER_MACHINE=cbd
+export PRIVATE_IP=$PUBLIC_IP
+export ULU_SUBSCRIBE_TO_NOTIFICATIONS=true
+export CB_INSTANCE_UUID=$(uuidgen | tr '[:upper:]' '[:lower:]')
+export CB_SCHEMA_SCRIPTS_LOCATION=/Users/YOUR_USERNAME/YOUR_PROJECT_DIR/cloudbreak/core/src/main/resources/schema
+export UAA_DEFAULT_USER_PW=YOUR_PASSWORD
+</pre></p>
+</li>
+<li>
+<p>Next, run these commands to start Cloudbreak and show the Cloudbreak logs:</p>
+<p><pre>
+cbd start
+cbd logs cloudbreak
+</pre></p>
+<p>If you see <code>org.apache.ibatis.migration.MigrationException</code> at the end of the logs, run the following commands to fix the DB.</p>
+<p><pre>
+cbd migrate cbdb up
+cbd migrate cbdb pending
+</pre></p>
+<p>Next, rerun <code>cbd start</code> and <code>cbd logs cloudbreak</code> commands.</p>
+</li>
+<li>
+<p>After performing these steps, Cloudbreak is available at http://YOUR_IP. For more details and config parameters check the documentation for <a href="https://github.com/hortonworks/cloudbreak-deployer">Cloudbreak Deployer</a>.</p>
+<p>The deployer generated a <code>certs</code> directory under the <code>cbd-local</code> directory. You will need it later during the IDEA setup.</p>
+<p>In order to kill Cloudbreak container running in docker/boot2docker and redirect the Cloudbreak related traffic to the Cloudbreak running in IDEA use the followig command:</p>
+<p><pre>
+cbd util local-dev
+</pre></p>
 </li>
 </ol>
-<h4 id="from-the-docker-image">From the Docker Image</h4>
-<p>You can find the docker image and its documentation <a href="https://github.com/hortonworks/docker-cloudbreak-shell">here</a>.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Add from the github doc? Is this still valid? </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<h4 id="build-from-source">Build From Source</h4>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Add from the old doc. Is this still valid? </p>
-<p>TO-DO: Include documentation from: (the repository url changed because the project is now under hwx)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<ul>
-<li><a href="http://sequenceiq.com/cloudbreak-docs/latest/shell/">Cloudbreak docs</a> </li>
-<li><a href="https://github.com/sequenceiq/cloudbreak/tree/master/shell">Cloudbreak Shell</a> </li>
-<li>Provisioning clusters via Cloudbreak Shell </li>
-</ul></div>
+<h3 id="set-up-idea">Set up IDEA</h3>
+<h4 id="check-out-the-cloudbreak-repository">Check out the Cloudbreak Repository</h4>
+<p>Go to https://github.com/hortonworks/cloudbreak, and clone or download the repo. If you want to use SSH, see <a href="https://help.github.com/articles/connecting-to-github-with-ssh/">https://help.github.com/articles/connecting-to-github-with-ssh/</a>. </p>
+<h4 id="update-project-settings-in-idea">Update Project Settings in IDEA</h4>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>In IDEA, set your SDK to your Java version under <strong>Configure &gt; Project Defaults &gt; Project Structure &gt; Project SDK</strong>.</p>
+</li>
+<li>
+<p>You can import Cloudbreak into IDEA as gradle project by specifying the cloudbreak repo root under <strong>Import Project</strong>. </p>
+</li>
+<li>
+<p>Import the proper code formatter by using the <strong>File &gt; Import Settings...</strong> menu and selecting the <code>idea_settings.jar</code> located in the <code>config/idea</code> directory in the Cloudbreak git repository.</p>
+</li>
+<li>
+<p>To launch the Cloudbreak application, execute the <code>com.sequenceiq.cloudbreak.CloudbreakApplication</code> class with VM options:</p>
+<p><pre>
+-XX:MaxPermSize=1024m
+-Dcb.cert.dir=FULL_PATH_OF_THE_CERTS_DIR_GENERATED_BY_CBD
+-Dcb.client.id=cloudbreak
+-Dcb.client.secret=CB_SECRET_GENERATED_BY_CBD
+-Dcb.db.port.5432.tcp.addr=YOUR_IP
+-Dcb.db.port.5432.tcp.port=5432
+-Dcb.identity.server.url=http://YOUR_IP:8089
+-Dserver.port=9091
+-Dcb.schema.migration.auto=true
+</pre></p>
+<p>The <code>-Dcb.cert.dir=FULL_PATH_OF_THE_CERTS_DIR_GENERATED_BY_CBD</code> value above needs to be replaced with the full path of <code>certs</code> directory generated by the Cloudbreak deployer; for example <code>/Users/YOUR_USERNAME/YOUR_PROJECT_DIR/cbd-local/certs</code>.</p>
+<p>The <code>-Dcb.client.secret=CB_SECRET_GENERATED_BY_CBD</code> value needs to be replaced with the value of UAA_DEFAULT_SECRET from the cdb-local/Profile file.</p>
+<p>The database migration is ran automatically by Cloudbreak when <code>-Dcb.schema.migration.auto=true</code>; to turn off automated migration, set the <code>-Dcb.schema.migration.auto=false</code> VM option.</p>
+</li>
+</ol>
+<h3 id="set-up-command-line">Set up Command Line</h3>
+<p>To run Cloudbreak from command line, list the JVM parameters from above for gradle:</p>
+<pre>
+./gradlew :core:bootRun -PjvmArgs="-Dcb.cert.dir=FULL_PATH_OF_THE_CERTS_DIR_GENERATED_BY_CBD \
+-Dcb.client.id=cloudbreak \
+-Dcb.client.secret=CB_SECRET_GENERATED_BY_CBD \
+-Dcb.db.port.5432.tcp.addr=YOUR_IP \
+-Dcb.db.port.5432.tcp.port=5432 \
+-Dcb.identity.server.url=http://YOUR_IP:8089 \
+-Dserver.port=9091"
+</pre>
+
+<p>Same as with IDEA, the <code>-Dcb.cert.dir=FULL_PATH_OF_THE_CERTS_DIR_GENERATED_BY_CBD</code> value above needs to be replaced with the full path to the <code>certs</code> directory generated by the Cloudbreak deployer; for example <code>/Users/YOUR_USERNAME/YOUR_PROJECT_DIR/cbd-local/certs</code>.</p>
+<p>The <code>-Dcb.client.secret=CB_SECRET_GENERATED_BY_CBD</code> value needs to be replaced with the value of UAA_DEFAULT_SECRET from the cdb-local/Profile file.</p>
+<p>The database migration is ran automatically by Cloudbreak when <code>-Dcb.schema.migration.auto=true</code>; to turn off automated migration, set the <code>-Dcb.schema.migration.auto=false</code> VM option.</p>
+<h3 id="set-up-database-development">Set up Database Development</h3>
+<p>If schema change is required in Cloudbreak database (cbdb), then the developer needs to write SQL scripts to migrate the database accordingly. In Cloudbreak, the schema migration is managed by <a href="https://github.com/mybatis/migrations">MYBATIS Migrations</a> and the cbd tool provides an easy-to-use wrapper for it. </p>
+<p>The syntax for using the migration commands is: </p>
+<p><code>cbd migrate &lt;database name&gt; &lt;command&gt; [parameters]</code></p>
+<p>For example: </p>
+<p><code>cbd migrate migrate status</code></p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Create a SQL template for schema changes:</p>
+<p><pre>
+cbd migrate cbdb new "CLOUD-123 schema change for new feature"
+</pre></p>
+<p>As as result of the above command an SQL file template is generated under the path specified in <code>CB_SCHEMA_SCRIPTS_LOCATION</code> environment variable, which is defined in Profile. The structure of the generated SQL template looks like the following:</p>
+<p><pre>
+-- // CLOUD-123 schema change for new feature
+-- Migration SQL that makes the change goes here.
+</pre></p>
+<p><pre>
+-- //@UNDO
+-- SQL to undo the change goes here.
+</pre></p>
+</li>
+<li>
+<p>Once you have implemented your SQLs, you can execute them with:</p>
+<p><pre>
+cbd migrate cbdb up
+</pre></p>
+</li>
+<li>
+<p>Make sure that pending SQLs run as well:</p>
+<p><pre>
+cbd migrate cbdb pending
+</pre></p>
+</li>
+</ol>
+<p><strong>Optional Steps</strong></p>
+<p>If you would like to rollback the last SQL file, use the <code>down</code> command:</p>
+<pre><code>cbd migrate cbdb down
+</code></pre>
+
+<p>To check the status of database use:</p>
+<pre><code>cbd migrate cbdb status
+
+#Every script that has not been executed will be marked as ...pending... in the output of status command:
+
+------------------------------------------------------------------------
+-- MyBatis Migrations - status
+------------------------------------------------------------------------
+ID             Applied At          Description
+================================================================================
+20150421140021 2015-07-08 10:04:28 create changelog
+20150421150000 2015-07-08 10:04:28 CLOUD-607 create baseline schema
+20150507121756 2015-07-08 10:04:28 CLOUD-576 change instancegrouptype hostgroup to core
+20151008090632    ...pending...    CLOUD-123 schema change for new feature
+
+------------------------------------------------------------------------
+</code></pre>
+
+<h3 id="building">Building</h3>
+<p>Gradle is used for build and dependency management. Gradle wrapper is added to Cloudbreak git repository, therefore building can be done with:</p>
+<pre>
+./gradlew clean build
+</pre></div>
         
     </div>
 
