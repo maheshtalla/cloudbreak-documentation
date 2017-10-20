@@ -540,15 +540,6 @@
         <div class="col-md-9" role="main">
 
 <h2 id="troubleshooting-cloudbreak">Troubleshooting Cloudbreak</h2>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: How about 'cbd doctor'? I read in the Cloudbreak docs that "The doctor command helps you diagnose problems with your environment, such as common problems with your docker or boot2docker configuration. You can also use it to check cbd versions." </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <h3 id="checking-the-logs">Checking the Logs</h3>
 <p>When troubleshooting, you can access the following Cloudbreak logs.</p>
 <h4 id="cloudbreak-logs">Cloudbreak Logs</h4>
@@ -588,18 +579,6 @@
 <p><strong>Ambari Agent Logs</strong></p>
 <p>Ambari agent logs can be found on the nodes where Ambari agent is installed in the following locations:</p>
 <p><code>/var/log/ambari-agent/ambari-agent.log</code></p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>This doc http://hortonworks.github.io/cloudbreak-docs/release-1.16.4/operations/#ambari-server-node mentions more HDP/Ambari logs than these mentioned above. It says:
-You can access Hadoop logs from the host and from the container in the /hadoopfs/fs1/logs directory.
-You can access Ambari logs from the host instance in the `/hadoopfs/fs1/logs folder.
-How are these logs different than these mentioned above?</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <h4 id="recipe-logs">Recipe Logs</h4>
 <p>Cloudbreak supports "recipes" - user-provided customization scripts that can be run prior to or after cluster installtion. It is the user’s responsibility to provide an idempotent well tested script. If the execution fails, the recipe logs can be found at <code>/var/log/recipes</code> on the nodes on which the recipes were executed.</p>
 <p>It is advised, but not required to have an advanced logging mechanism in the script, as Cloudbreak always logs every script that are run. Recipes are often the sources of installation failures as users might try to remove necessary packages or reconfigure services.</p>

@@ -522,15 +522,6 @@
 <h3 id="restricting-inbound-access">Restricting Inbound Access</h3>
 <p>We recommend that you block all communication ports except 443 on the firewall or security group (depending on the provider). </p>
 <p>If you have to log in to the Cloudbreak host remotely, use the SSH port (usually 22).</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Is the step above up-to-date? I think ports 80 and 22 is also open. </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <h3 id="configuring-the-profile">Configuring the Profile</h3>
 <p>Before starting Cloudbreak for the first time, configure the Profile file as directed below. Changes are applied during startup so a restart (<code>cbd restart</code>) is required after each change.</p>
 <ol>
@@ -539,15 +530,7 @@
 <p><pre>
 echo export PUBLIC_IP=[the ip or hostname to bind] &gt; Profile
 </pre></p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: Do you mean that this needs to be executed in the deployment directory? Or?</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p><a href="" title="TO-DO: Is the step above up-to-date? I think ports 80 and 22 is also open.">comment</a>: &lt;&gt; (TO-DO: Do you mean that this needs to be executed in the deployment directory? Or?)</p>
 </li>
 <li>
 <p>After you have a base Profile file, add the following custom properties to it:</p>
@@ -566,15 +549,7 @@ export UAA_ULUWATU_SECRET='[web ui secret]'
 export UAA_SULTANS_SECRET='[authenticator secret]'
 </pre></p>
 <p>You can change these secrets at any time, except <code>UAA_CLOUDBREAK_SECRET</code> which is used to encrypt sensitive information at database level. </p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: The info below is explained in a way that is confusing. Can you rephrase? </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p><a href="" title="TO-DO: Is the step above up-to-date? I think ports 80 and 22 is also open.">comment</a>: &lt;&gt; (TO-DO: The info below is explained in a way that is confusing. Can you rephrase?) </p>
 <p><code>UAA_DEFAULT_USER_PW</code> is stored in plain text format, but if <code>UAA_DEFAULT_USER_PW</code> is missing from the Profile, it gets a default value. Because default password is not an option, if you set an empty password explicitly in the Profile Cloudbreak deployer will ask for password all the time when it is needed for the operation.</p>
 <p><pre>
 export UAA_DEFAULT_USER_PW=''

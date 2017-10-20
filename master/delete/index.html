@@ -500,10 +500,20 @@
     
         <li class="first-level active"><a href="#deleting-resources">Deleting Resources</a></li>
         
-            <li class="second-level"><a href="#delete-cloudbreak-controller">Delete Cloudbreak Controller</a></li>
+            <li class="second-level"><a href="#deleting-resources-on-aws">Deleting Resources on AWS</a></li>
             
         
-            <li class="second-level"><a href="#deleting-clusters">Deleting Clusters</a></li>
+            <li class="second-level"><a href="#deleting-resources-on-azure">Deleting Resources on Azure</a></li>
+            
+                <li class="third-level"><a href="#deleting-clusters-on-azure">Deleting Clusters on Azure</a></li>
+            
+                <li class="third-level"><a href="#delete-cloudbreak-on-azure">Delete Cloudbreak on Azure</a></li>
+            
+        
+            <li class="second-level"><a href="#deleting-resources-on-gcp">Deleting Resources on GCP</a></li>
+            
+        
+            <li class="second-level"><a href="#deleting-resources-on-openstack">Deleting Resources on OpenStack</a></li>
             
         
     
@@ -512,8 +522,15 @@
         <div class="col-md-9" role="main">
 
 <h2 id="deleting-resources">Deleting Resources</h2>
-<h3 id="delete-cloudbreak-controller">Delete Cloudbreak Controller</h3>
-<p>To delete Cloudbreak Controller, delete the whole related resource group.</p>
+<p>In general, you can delete clusters from the Cloudbreak UI. If needed, you can also delete the cluster resources manually via the cloud provider tools. </p>
+<h3 id="deleting-resources-on-aws">Deleting Resources on AWS</h3>
+<p>TBD</p>
+<h3 id="deleting-resources-on-azure">Deleting Resources on Azure</h3>
+<h4 id="deleting-clusters-on-azure">Deleting Clusters on Azure</h4>
+<p>You can delete clusters from the Cloudbreak UI. If needed, you can also delete the cluster manually by deleting the whole resource group created when the cluster was deployed. </p>
+<p>The name of the resource group, under which the cluster-related resources are organized always includes the name of the cluster, so you should be able to find the group by searching for that name in the <strong>Resource groups</strong>.</p>
+<h4 id="delete-cloudbreak-on-azure">Delete Cloudbreak on Azure</h4>
+<p>To delete Cloudbreak, delete the whole related resource group.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>From the Microsoft Azure Portal dashboard, select <img src="../images/resource-icon.png" width="150" title="Icon">.</li>
@@ -525,9 +542,10 @@
 <p>Type the name of the resource group to delete and click <strong>Delete</strong>.</p>
 </li>
 </ol>
-<h3 id="deleting-clusters">Deleting Clusters</h3>
-<p>You can delete clusters from the Cloudbreak UI. If needed, you can also delete the cluster manually by deleting the whole resource group created when the cluster was deployed. </p>
-<p>The name of the resource group, under which the cluster-related resources are organized always includes the name of the cluster, so you should be able to find the group by searching for that name in the <strong>Resource groups</strong>.</p></div>
+<h3 id="deleting-resources-on-gcp">Deleting Resources on GCP</h3>
+<p>TBD</p>
+<h3 id="deleting-resources-on-openstack">Deleting Resources on OpenStack</h3>
+<p>TBD</p></div>
         
     </div>
 
