@@ -238,7 +238,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Cluster Options</a>
+    <a tabindex="-1" href="">Advanced Cluster Options</a>
     <ul class="dropdown-menu">
         
             
@@ -648,13 +648,27 @@
 <li>
 <p>On the <strong>Add File System</strong> page, select to use one of the following filesystems:</p>
 <ul>
-<li><em>Local HDFS</em>: No external storage outside of HDFS will be used</li>
-<li><em>Windows Azure Data Lake Storage</em>: If you select this option, you must provide <em>Data Lake Store account name</em>.  <blockquote>
-<p>You must configure access control for Cloudbreak's service principal manually after cluster installation. You can obtain the service principal ID from the Cloudbreak UI. For more information, refer to <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-access-control">Azure documentation</a>.  </p>
-</blockquote>
+<li><em>Local HDFS</em>: No external storage outside of HDFS will be used.</li>
+<li>
+<p><em>Windows Azure Data Lake Storage</em>: If you select this option, HDFS will be used as your default file system and access to ADLS will be through the adl connector. You must provide:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Lake Store account name</td>
+<td>Enter your account name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Postrequisites</strong>: After cluster installation, you must perform additional steps described in <a href="../azure-data/index.html#configuring-access-to-adls">Configuring Access to ADLS</a>. </p>
 </li>
 <li>
-<p><em>Windows Azure Blob Storage</em>: If you select this option, you must provide:</p>
+<p><em>Windows Azure Blob Storage</em>: If you select this option, HDFS will be used as your default file system and access to WASB will be through the wasb connector, unless you select <strong>Use File System As Default</strong>. You must provide:</p>
 <table>
 <thead>
 <tr>

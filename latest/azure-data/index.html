@@ -238,7 +238,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Cluster Options</a>
+    <a tabindex="-1" href="">Advanced Cluster Options</a>
     <ul class="dropdown-menu">
         
             
@@ -543,12 +543,10 @@ from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as read
 <h4 id="prerequisites">Prerequisites</h4>
 <p>If you want to use <a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store</a> to store your data, you must enable Azure subscription for Data Lake Store, and then create an Azure Data Lake Store <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">storage account</a>.</p>
 <h4 id="configuring-access-to-adls">Configuring Access to ADLS</h4>
-<p>ADLS is not supported as a default file system, but access to data in ADLS is automatically configured if you select ADLS during <a href="../azure-create/index.html">cluster creation</a>, on the <strong>Add File System</strong> page. After the <a href="../azure-create/index.html">cluster is deployed</a>, you must perform the following steps.</p>
+<p>ADLS is not supported as a default file system, but access to data in ADLS via the adl connector is configured if you select ADLS during <a href="../azure-create/index.html">cluster creation</a>, on the <strong>Add File System</strong> page. This option automates the configuration of the cluster with ADLS with the exception of the last step. </p>
+<p>After the <a href="../azure-create/index.html">cluster is deployed</a>, you must perform the following steps manually to define which parts of the ADLS store this cluster will have access by adding the client credentials for the cluster to the data access control for the ADLS account. </p>
+<p>This last configuration option should not be automated, since you need to select which files in ADLS the cluster should access. For more information, review the <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-secure-data#filepermissions">documentation</a> on the Microsoft Azure Portal.  </p>
 <p><strong>Steps</strong></p>
-<ol>
-<li>
-<p><em>Define which parts of the ADLS store this cluster will have access by adding the client credentials for the cluster to the data access control for the ADLS account.</em> </p>
-<p>Cloudbreak automated the configuration of the cluster with ADLS with the exception of this last step. This last configuration option should not be automated, since you need to select which files in ADLS the cluster should access. For more information, review the <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-secure-data#filepermissions">documentation</a> on the Microsoft Azure Portal. </p>
 <ol>
 <li>In the Cloudbreak UI, navigate to the <strong>Manage Credentials</strong> section, select the credential used to deploy your cluster, and copy the "App Id” associated with it.   </li>
 <li>Navigate to the Azure Portal &gt; <strong>Data Lake Store</strong> and select your account.</li>
@@ -556,11 +554,7 @@ from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as read
 <li>Select the <strong>Access</strong> tab at the top and then click <strong>Add</strong>.</li>
 <li>Click <strong>+Add</strong> and paste the App Id (copied in step 1) in the search box to find client certificate name for the cluster.  (Alternatively, you can look up the App Name in the <strong>Azure Active Directory</strong> &gt; <strong>App Registrations</strong>).</li>
 <li>Choose the appropriate permissions. Note that if you do select the root folder, you need to provide “execute” access to all parent directories. For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-secure-data#filepermissions">Azure documentation</a>. </li>
-</ol>
-</li>
-<li>
-<p><em>Test access to ADLS.</em> Review the next sections for information on how to access data in ADLS from the cluster once it is deployed, for example from the command line of the cluster name node.</p>
-</li>
+<li>Test access to ADLS. Review the next sections for information on how to access data in ADLS from the cluster once it is deployed, for example from the command line of the cluster name node.</li>
 </ol>
 <h4 id="access-path">Access Path</h4>
 <p>ADLS access path syntax is:</p>
