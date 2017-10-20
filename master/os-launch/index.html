@@ -642,6 +642,8 @@ export OS_TENANT_NAME=your_os_tenant_name</pre></p>
 <li>The SSH user is called "cloudbreak".</li>
 <li>You can obtain the VM's IP address from the details of your instance.</li>
 </ul>
+<p>On Mac OS, you can SSH to the VM by running the following from the Terminal app: <code>ssh -i "your-private-key.pem" cloudnreak@instance_IP</code> where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.</p>
+<p>On Windows, you can use <a href="http://www.putty.org/">PuTTy</a>.</p>
 <h3 id="initialize-your-profile">Initialize Your Profile</h3>
 <p>After accessing the VM via SSH, you must initialize your Profile.</p>
 <p><strong>Steps</strong> </p>
@@ -754,13 +756,14 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>In the Cloudbreak web UI, open the <strong>manage credentials</strong> pane. </p>
+<p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the left pane. </p>
 </li>
 <li>
-<p>Select the GCP cloud provider.</p>
+<p>Click <strong>Create Credential</strong>. </p>
 </li>
 <li>
-<p>Click <strong>+create credential</strong>. </p>
+<p>Under <strong>Cloud provider</strong>, select "Google Cloud Platform".</p>
+<p><a href="../images/gcp-cred.png" target="_blank" title="click to enlarge"><img src="../images/gcp-cred.png" width="650" title="Cloudbreak web UI"></a> </p>
 </li>
 <li>
 <p>Provide the following information:</p>
@@ -804,26 +807,14 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 <td>API Facing</td>
 <td>Select <em>public</em> or <em>private</em>.</td>
 </tr>
-<tr>
-<td>SSH Public Key</td>
-<td>Paste your SSH public key.</td>
-</tr>
-<tr>
-<td>Select Platform</td>
-<td>(Optional) Select a platform (if previously configured).</td>
-</tr>
-<tr>
-<td>Public In Account</td>
-<td>(Optional) If you check this, other users added to your Cloudbreak instance will be able to use this credential to create clusters.</td>
-</tr>
 </tbody>
 </table>
 </li>
 <li>
-<p>Click <strong>+create credential</strong>.</p>
+<p>Click <strong>Create</strong>.</p>
 </li>
 <li>
-<p>Your credential should now be displayed at the top of the page and in the <strong>manage credentials</strong> tab.</p>
+<p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
 <p>Congratulations! You've successfully launched and configured Cloudbreak. Now you can use Cloudbreak to <a href="../os-create/index.html">create clusters</a>. </p>
 </li>
 </ol>
