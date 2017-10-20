@@ -519,16 +519,17 @@
 <h2 id="troubleshooting-cloudbreak-on-azure">Troubleshooting Cloudbreak on Azure</h2>
 <h3 id="credential-creation-errors">Credential Creation Errors</h3>
 <h4 id="role-already-exists">Role already exists</h4>
-<p><strong>Symptom</strong>: You specified that you want to create a new role for Cloudbreak credential, but an existing role with the same name already exists in Azure.</p>
-<p><a href="../images/new-role-already-exists.png" target="_blank"><img src="../images/new-role-already-exists.png" width="650" title="Role already exists"></a></p>
+<p>Example error message: <em><span class="cfn-output3">Role already exists in Azure with the name: CloudbreakCustom50</span></em></p>
+<p><strong>Symptom</strong>: You specified that you want to create a new role for Cloudbreak credential, but an existing role with the same name already exists in Azure. </p>
 <p><strong>Solution</strong>: You should either rename the role during credential creation or select the <code>Reuse existing custom role</code> option. </p>
 <h4 id="role-does-not-exist">Role does not exist</h4>
+<p>Example error message: <em><span class="cfn-output3">Role does not exist in Azure with the name: CloudbreakCustom60</span></em></p>
 <p><strong>Symptom</strong>: You specified that you want to reuse an existing role for your Cloudbreak credential, but that particular role does not exist in Azure.</p>
-<p><a href="../images/reuse-role-not-exists.png" target="_blank"><img src="../images/reuse-role-not-exists.png" width="650" title="Role does not exist"></a></p>
 <p><strong>Solution</strong>: You should either rename the new role during the credential creation to match the existing role's name or select the <code>Let Cloudbreak create a custom role</code> option. </p>
 <h4 id="role-does-not-have-enough-privileges">Role does not have enough privileges</h4>
+<p>Example error message: <em><span class="cfn-output3">CloudbreakCustom 50 role does not have enough privileges to be used by Cloudbreak!</span><br />
+<span class="cfn-output3">Please contact the documentaion for more information!</span></em></p>
 <p><strong>Symptom</strong>: You specified that you want to reuse an  existing role for your Cloudbreak credential, but that particular role does not have the necessary privileges for Cloudbreak cluster management.</p>
-<p><a href="../images/reuse-role-insuff-permissions.png" target="_blank"><img src="../images/reuse-role-insuff-permissions.png" width="650" title="Role has insufficent permissions"></a></p>
 <p><strong>Solution</strong>: You should either select an existing role with enough privileges or select the <code>Let Cloudbreak create a custom role</code> option.</p>
 <p>The necessary action set for Cloudbreak to be able to manage the clusters includes:
         <code>"Microsoft.Compute/*",
@@ -536,8 +537,8 @@
         "Microsoft.Storage/*",
         "Microsoft.Resources/*"</code></p>
 <h4 id="cloud-not-validate-publickey-certificate">Cloud not validate publickey certificate</h4>
+<p>Example error message: <em><span class="cfn-output3">Could not validate publickey certificate [certificate: 'fdfdsf'], detailed message: Corrupt or unknown public key file format</span></em></p>
 <p><strong>Symptom</strong>: The syntax of your SSH public key is incorrect.</p>
-<p><a href="../images/invalid-ssh-key.png" target="_blank"><img src="../images/invalid-ssh-key.png" width="650" title="Role already exists"></a></p>
 <p><strong>Solution</strong>: You must correct the syntax of your SSH key. For information about the correct syntax, refer to <a href="https://tools.ietf.org/html/rfc4716#section-3.6">this</a> page.</p></div>
         
     </div>
