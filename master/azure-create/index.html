@@ -508,9 +508,9 @@
         
             <li class="second-level"><a href="#advanced-options">Advanced Options</a></li>
             
-                <li class="third-level"><a href="#configure-cluster">Configure Cluster</a></li>
+                <li class="third-level"><a href="#general-configuration">General Configuration</a></li>
             
-                <li class="third-level"><a href="#choose-blueprint">Choose Blueprint</a></li>
+                <li class="third-level"><a href="#hardware-and-storage">Hardware and Storage</a></li>
             
                 <li class="third-level"><a href="#add-file-system">Add File System</a></li>
             
@@ -535,22 +535,19 @@
 <p>If you are just getting started with Cloudbreak, follow the steps below to create a cluster using the default blueprints. </p>
 <p>If you are already familiar with Cloudbreak and you want to use custom blueprints, refer to the <a href="../blueprints/index.html">Blueprints</a> documentation to customize your blueprints.</p>
 <h3 id="basic-options">Basic Options</h3>
-<p>Use the steps to create a cluster.</p>
+<p>Use these steps to create a cluster.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Log in to the Cloudbreak UI.</p>
 </li>
 <li>
-<p>In the top right corner, select the credential that you want to use to create a cluster:</p>
-<p><a href="../images/cb-ui-credential.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui-credential.png" width="650" title="Azure Portal"></a>  </p>
+<p>Click <strong>Create Cluster</strong> and the <em>Create Cluster</em> form is displayed.</p>
 </li>
 <li>
-<p>Click <strong>+create cluster</strong> and the <em>Create cluster</em> form is displayed.</p>
-</li>
-<li>
-<p>On the <strong>Configure Cluster</strong> page, provide the following parameters:</p>
+<p>On the <strong>General Configuration</strong> page, provide the following parameters:</p>
 <blockquote>
-<p>To view advanced options, click <strong>Show Advanced Options</strong>. To learn about advanced options, refer to <a href="#advanced-options">Advanced Options</a>.</p>
+<p>To view advanced options, click <strong>Advanced</strong>. To learn about advanced options, refer to <a href="#advanced-options">Advanced Options</a>.</p>
 </blockquote>
 <table>
 <thead>
@@ -560,6 +557,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Select Credential</td>
+<td>Select a previously created credential.</td>
+</tr>
 <tr>
 <td>Cluster Name</td>
 <td>Enter a name for your cluster. The name must be between 5 and 40 characters, must start with a letter, must only include lowercase letters, numbers, and hyphens.</td>
@@ -576,10 +577,6 @@
 <td>Send Email When Cluster is Ready</td>
 <td>(Optional) Check this to receive an email each time the cluster status changes.</td>
 </tr>
-<tr>
-<td>Public In Account</td>
-<td>(Optional) If this option is checked, all the users belonging to your account will be able to use this cluster, but they cannot delete it.</td>
-</tr>
 </tbody>
 </table>
 <blockquote>
@@ -587,32 +584,7 @@
 </blockquote>
 </li>
 <li>
-<p>On the <strong>Set up Network and Security</strong> page, provide the following parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Network</td>
-<td>Select the virtual network in which you would like your cluster to be provisioned. You can define custom network configurations or use default network configurations.</td>
-</tr>
-<tr>
-<td>Enable Knox Gateway</td>
-<td>(Optional) Select this option to enable secure access to Ambari web UI and other cluster UIs via Knox gateway.</td>
-</tr>
-<tr>
-<td>Enable Kerberos Security</td>
-<td>(Optional) Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to Kerberos <a href="http://sequenceiq.com/cloudbreak-docs/latest/kerberos/">documentation</a>.</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>On the <strong>Choose Blueprint</strong> page, select the blueprint that you would like to use for your cluster. You can either choose one of the pre-configured blueprints, or add your own in the <strong>manage blueprints</strong> tab.</p>
+<p>On the <strong>Hardware and Storage</strong> page, select the blueprint that you would like to use for your cluster. You can either choose one of the pre-configured blueprints, or add your own in the <strong>Blueprints</strong> tab.</p>
 <p>For each host group you must provide the following:</p>
 <table>
 <thead>
@@ -646,7 +618,7 @@
 </table>
 </li>
 <li>
-<p>On the <strong>Add File System</strong> page, select to use one of the following filesystems:</p>
+<p>On the <strong>File System</strong> page, select to use one of the following filesystems:</p>
 <ul>
 <li><em>Local HDFS</em>: No external storage outside of HDFS will be used.</li>
 <li>
@@ -695,7 +667,35 @@
 </ul>
 </li>
 <li>
-<p>Click on <strong>Review and Launch</strong> and then <strong>+create and start cluster</strong>.</p>
+<p>On the <strong>Network</strong> page, provide the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network</td>
+<td>Select the virtual network in which you would like your cluster to be provisioned. You can define custom network configurations or use default network configurations.</td>
+</tr>
+<tr>
+<td>Enable Knox Gateway</td>
+<td>(Optional) Select this option to enable secure access to Ambari web UI and other cluster UIs via Knox gateway.</td>
+</tr>
+<tr>
+<td>Enable Kerberos Security</td>
+<td>(Optional) Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to Kerberos <a href="http://sequenceiq.com/cloudbreak-docs/latest/kerberos/">documentation</a>.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>On the <strong>Security</strong> page, provide the following parameters:</p>
+</li>
+<li>
+<p>Click on <strong>Create Cluster</strong> to create a cluster.</p>
 </li>
 <li>
 <p>You will be redirected to the Cloudbreak dashboard, and a new tile representing your cluster will appear at the top of the page.</p>
@@ -703,7 +703,7 @@
 </ol>
 <h3 id="advanced-options">Advanced Options</h3>
 <p>Click on <strong>Show Advanced Options</strong> to enter additional configuration options.</p>
-<h4 id="configure-cluster">Configure Cluster</h4>
+<h4 id="general-configuration">General Configuration</h4>
 <p>You can optionally configure the following advanced parameters:</p>
 <table>
 <thead>
@@ -739,7 +739,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="choose-blueprint">Choose Blueprint</h4>
+<h4 id="hardware-and-storage">Hardware and Storage</h4>
 <p>After selecting a blueprint, you can optionally configure the following advanced parameters:</p>
 <table>
 <thead>
