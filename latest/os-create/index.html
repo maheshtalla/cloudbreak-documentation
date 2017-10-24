@@ -643,13 +643,13 @@
 </table>
 <p>If you choose to create a new security group, the <em>New Security Group</em> wizard will open.</p>
 <ol>
-<li>TCP ports 22, 443, and 9443 will be open by default. </li>
-</ol>
-<blockquote>
-<p>These ports must be open on every security group; otherwise Cloudbreak will not be able to communicate with your provisioned cluster.</p>
-</blockquote>
-<ol>
-<li>You may open additional ports by defining the <strong>CIDR</strong>, <strong>Port</strong>, and <strong>Protocol</strong> for each and clicking <strong>Add Rule</strong>. </li>
+<li>
+<p>TCP ports 22, 443, and 9443 will be open by default.<br />
+These ports must be open on every security group; otherwise Cloudbreak will not be able to communicate with your provisioned cluster.</p>
+</li>
+<li>
+<p>You may open additional ports by defining the <strong>CIDR</strong>, <strong>Port</strong>, and <strong>Protocol</strong> for each and clicking <strong>Add Rule</strong>. </p>
+</li>
 <li>Once done, click <strong>SAVE</strong> to save your security group settings.</li>
 <li>Once you define a custom security group for one host group, you can reuse this definition for other node groups.</li>
 </ol>
