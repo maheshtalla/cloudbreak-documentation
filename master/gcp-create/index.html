@@ -500,25 +500,17 @@
     
         <li class="first-level active"><a href="#create-a-cluster-on-gcp">Create a Cluster on GCP</a></li>
         
-            <li class="second-level"><a href="#optional-prerequisites">Optional Prerequisites</a></li>
-            
-        
-            <li class="second-level"><a href="#basic-options">Basic Options</a></li>
-            
-        
             <li class="second-level"><a href="#advanced-options">Advanced Options</a></li>
             
                 <li class="third-level"><a href="#general-configuration">General Configuration</a></li>
             
                 <li class="third-level"><a href="#hardware-and-storage">Hardware and Storage</a></li>
             
-                <li class="third-level"><a href="#choose-failure-action">Choose Failure Action</a></li>
+                <li class="third-level"><a href="#filesystem">FileSystem</a></li>
             
-                <li class="third-level"><a href="#configure-ambari-repos">Configure Ambari Repos</a></li>
+                <li class="third-level"><a href="#network">Network</a></li>
             
-                <li class="third-level"><a href="#configure-hdp-repos">Configure HDP Repos</a></li>
-            
-                <li class="third-level"><a href="#configure-ambari-database">Configure Ambari Database</a></li>
+                <li class="third-level"><a href="#security">Security</a></li>
             
         
     
@@ -527,10 +519,6 @@
         <div class="col-md-9" role="main">
 
 <h2 id="create-a-cluster-on-gcp">Create a Cluster on GCP</h2>
-<h3 id="optional-prerequisites">Optional Prerequisites</h3>
-<p>If you are just getting started with Cloudbreak, follow the steps below to create a cluster using the default blueprints. </p>
-<p>If you are already familiar with Cloudbreak and you want to use custom blueprints, refer to the <a href="../blueprints/index.html">Blueprints</a> documentation to customize your blueprints.</p>
-<h3 id="basic-options">Basic Options</h3>
 <p>Use these steps to create a cluster.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -541,7 +529,7 @@
 <p>Click <strong>Create Cluster</strong> and the <em>Create Cluster</em> form is displayed.</p>
 </li>
 <li>
-<p>On the <strong>General Configuration</strong> page, provide the following parameters:</p>
+<p>On the <strong>General Configuration</strong> page, specify the following general parameters for your cluster:</p>
 <blockquote>
 <p>To view advanced options, click <strong>Advanced</strong>. To learn about advanced options, refer to <a href="#advanced-options">Advanced Options</a>.</p>
 </blockquote>
@@ -555,37 +543,41 @@
 <tbody>
 <tr>
 <td>Select Credential</td>
-<td>Select a previously created credential.</td>
+<td>Choose a previously created credential.</td>
 </tr>
 <tr>
 <td>Cluster Name</td>
-<td>Enter a name for your cluster. The name must be between 5 and 40 characters, must start with a letter, must only include lowercase letters, numbers, and hyphens.</td>
-</tr>
-<tr>
-<td>Tags</td>
-<td>(Optional) You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account.</td>
+<td>Enter a name for your cluster. The name must be between 5 and 40 characters, must start with a letter, and must only include lowercase letters, numbers, and hyphens.</td>
 </tr>
 <tr>
 <td>Region</td>
 <td>Select the region in which you would like to launch your cluster.</td>
 </tr>
 <tr>
-<td><strong>Availability Zone</strong></td>
-<td>Select the availability zone in which you would like to launch your cluster.</td>
+<td>Availability Zone</td>
+<td>Choose one of the availability zones within the selected region.</td>
 </tr>
 <tr>
-<td>Send Email When Cluster is Ready</td>
-<td>(Optional) Check this to receive an email each time the cluster status changes.</td>
+<td>HDP Version</td>
+<td>Choose the HDP version to use for this cluster.</td>
+</tr>
+<tr>
+<td>Cluster Type</td>
+<td>Choose one of default cluster configurations, or, if you have defined your own cluster configuration via Ambari blueprint, you can choose it here. For more information, refer to <a href="../blueprints/index.html">Blueprints</a>.</td>
+</tr>
+<tr>
+<td>Enable Lifetime Management</td>
+<td>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minutes) has passed.</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>(Optional) You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account.</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>By default, Ambari Username and Ambari Password are set to <code>admin</code>. You can override it in the "<a href="#configure-cluster">Configure Cluster</a>" tab.</p>
-</blockquote>
 </li>
 <li>
-<p>On the <strong>Hardware and Storage</strong> page, select the blueprint that you would like to use for your cluster. You can either choose one of the pre-configured blueprints, or add your own in the <strong>Blueprints</strong> tab.</p>
-<p>For each host group you must provide the following:</p>
+<p>On the <strong>Hardware and Storage</strong> page, for each host group (master, worker, and compute) provide the following information to define your cluster nodes and attached storage:</p>
 <table>
 <thead>
 <tr>
@@ -595,24 +587,28 @@
 </thead>
 <tbody>
 <tr>
-<td>Group Size</td>
-<td>Enter a number defining how many nodes to create per host group. Default is 1. The "Group Size" for that host group on which Ambari Server is installed must be set to "1".</td>
+<td>Instance Type</td>
+<td>Select a VM instance type. For more information about instance types on Azure refer to <a href="https://cloud.google.com/compute/docs/machine-types">GCP documentation</a>.</td>
 </tr>
 <tr>
-<td>Template</td>
-<td>If you have previously created a template for VMs and storage, you can select it here. If you don't make a selection, default will be used.</td>
+<td>Instance Count</td>
+<td>Enter the number of instances of a given type. Default is 1.</td>
 </tr>
 <tr>
-<td>Security Group</td>
-<td>If you have previously created a template for a security group, you can select it here. If you don't make a selection, default will be used.</td>
+<td>Storage Type</td>
+<td><p>Select the volume type. The options are:<ul><li>Standard persistent disks (HDD)<li><li>Solid-state persistent disks (SSD)<li></ul> For more information about these options refer to <a href="https://cloud.google.com/compute/docs/disks/" target="_blank">GCP documentation</a>.</td>
+</tr>
+<tr>
+<td>Attached Volumes Per Instance</td>
+<td>Enter the number of volumes attached per instance. Default is 1.</td>
+</tr>
+<tr>
+<td>Volume Size (GB)</td>
+<td>Enter the size in GBs for each volume. Default is 100.</td>
 </tr>
 <tr>
 <td>Ambari Server</td>
 <td>You must select one node for Ambari Server. The "Group Size" for that host group must be set to "1".</td>
-</tr>
-<tr>
-<td>Recipes</td>
-<td>You can select a previously added recipe (custom script) to be executed on all nodes of the host group. Refer to <a href="../recipes/index.html">Recipes</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -649,7 +645,7 @@
 </ul>
 </li>
 <li>
-<p>On the <strong>Network</strong> page, provide the following parameters:</p>
+<p>On the <strong>Network</strong> page, provide the following to specify the networking resources that will be used for your cluster:</p>
 <table>
 <thead>
 <tr>
@@ -659,22 +655,68 @@
 </thead>
 <tbody>
 <tr>
-<td>Network</td>
-<td>Select the virtual network in which you would like your cluster to be provisioned. You can define custom network configurations or use default network configurations.</td>
+<td>Select Network</td>
+<td>Select the virtual network in which you would like your cluster to be provisioned. You can select an existing network or create a new network.</td>
 </tr>
 <tr>
-<td>Enable Knox Gateway</td>
-<td>(Optional) Select this option to enable secure access to Ambari web UI and other cluster UIs via Knox gateway.</td>
+<td>Select Subnet</td>
+<td>Select the subnet in which you would like your cluster to be provisioned. You must create a new subnet.</td>
 </tr>
 <tr>
-<td>Enable Kerberos Security</td>
-<td>(Optional) Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to Kerberos <a href="http://sequenceiq.com/cloudbreak-docs/latest/kerberos/">documentation</a>.</td>
+<td>Subnet (CIDR)</td>
+<td>If you selected to create a new subnet, you must define a valid <a href="http://www.ipaddressguide.com/cidr">CIDR</a> for the subnet. Default is 10.0.0.0/16.</td>
+</tr>
+<tr>
+<td>Security Group</td>
+<td><p>For each host group, select one of the options:<ul><li>Create new security group</li><li>Do not use security group</li>&lt;.li&gt;Select an existing security group</li></ul></p></td>
 </tr>
 </tbody>
 </table>
+<p>If you choose to create a new security group, the <em>New Security Group</em> wizard will open.</p>
+<ol>
+<li>TCP ports 22, 443, and 9443 will be open by default. </li>
+</ol>
+<blockquote>
+<p>These ports must be open on every security group; otherwise Cloudbreak will not be able to communicate with your provisioned cluster.</p>
+</blockquote>
+<ol>
+<li>You may open additional ports by defining the <strong>CIDR</strong>, <strong>Port</strong>, and <strong>Protocol</strong> for each and clicking <strong>Add Rule</strong>. </li>
+<li>Once done, click <strong>SAVE</strong> to save your security group settings.</li>
+<li>Once you define a custom security group for one host group, you can reuse this definition for other node groups.</li>
+</ol>
 </li>
 <li>
 <p>On the <strong>Security</strong> page, provide the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cluster User</td>
+<td>You can log in to the Ambari UI using this username. By default, this is set to <code>admin</code>.</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>You can log in to the Ambari UI using this password.</td>
+</tr>
+<tr>
+<td>Confirm Password</td>
+<td>Confirm the password.</td>
+</tr>
+<tr>
+<td>SSH Key Pair</td>
+<td>Select an existing public key or specify a new public key. You will use the matching private key to access your cluster nodes via SSH.</td>
+</tr>
+<tr>
+<td>Enable Kerberos Security</td>
+<td>(Optional) Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to <a href="../security-kerberos/index.html">Kerberos</a> documentation.</td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p>Click on <strong>Create Cluster</strong> to create a cluster.</p>
@@ -684,179 +726,12 @@
 </li>
 </ol>
 <h3 id="advanced-options">Advanced Options</h3>
-<p>Click on <strong>Show Advanced Options</strong> to enter additional configuration options.</p>
+<p>Click on <strong>Advanced</strong> to view and enter additional configuration options.</p>
 <h4 id="general-configuration">General Configuration</h4>
-<p>You can optionally configure the following advanced parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ambari Username</td>
-<td>You can log in to the Ambari UI using this username. By default, this is set to <code>admin</code>.</td>
-</tr>
-<tr>
-<td>Ambari Password</td>
-<td>You can log in to the Ambari UI using this password. By default, this is set to <code>admin</code>.</td>
-</tr>
-<tr>
-<td>Provision Cluster</td>
-<td><strong>SALT</strong> is pre-selected to provision your cluster.</td>
-</tr>
-<tr>
-<td>Enable Lifetime Management</td>
-<td>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minuter) has passed.</td>
-</tr>
-<tr>
-<td>Flex Subscription</td>
-<td>This option will appear if you have configured your deployment for a <a href="../get-help/index.html#flex-subscription">Flex Subscription</a>.</td>
-</tr>
-</tbody>
-</table>
 <h4 id="hardware-and-storage">Hardware and Storage</h4>
-<p>After selecting a blueprint, you can optionally configure the following advanced parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Config Recommendation Strategy (Stack Advisor)</td>
-<td>Select how configuration recommendations generated by stack advisor will be applied. Select one of <p><ul><li>ALWAYS_APPLY: Configuration recommendations will be applied automatically.</li><li>ALWAYS_APPLY_DONT_OVERRIDE_CUSTOM_VALUES: Configuration recommendations will be applied automatically, but they will be ignored for custom configurations.</li><li>NEVER_APPLY: Configuration recommendations will be ignored.</li><li>ONLY_STACK_DEFAULTS_APPLY: Configuration recommendations will be applied only on the default configurations for all included services.</li></ul></p></td>
-</tr>
-<tr>
-<td>Validate Blueprint</td>
-<td>Select to validate the blueprint.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="choose-failure-action">Choose Failure Action</h4>
-<p>You can optionally select what to do if cluster creation fails or if there aren't enough instances available to create all requested nodes:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Failure Action</td>
-<td><p>Select one of: <strong>do NOT rollback resources</strong> (default) or <strong>rollback resources</strong>. </p><p>By default, if creating a cluster fails, the Azure resources that were created up to that point will not be rolled back. This means that they will remain accessible for troubleshooting and you will need to to delete them manually.</p></td>
-</tr>
-<tr>
-<td>Minimum Cluster Size</td>
-<td>This defines the provisioning strategy in case the cloud provider cannot allocate all the requested nodes. Select <strong>best effort</strong> or <strong>exact</strong>.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="configure-ambari-repos">Configure Ambari Repos</h4>
-<p>You can optionally configure a different version of Ambari than the default by providing the following information:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ambari Version</td>
-<td>Enter Ambari version.</td>
-</tr>
-<tr>
-<td>Ambari Repo URL</td>
-<td>Enter Ambari repo URL.</td>
-</tr>
-<tr>
-<td>Ambari Repo Gpg Key URL</td>
-<td>Enter gpgkey URL.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="configure-hdp-repos">Configure HDP Repos</h4>
-<p>You can optionally configure a different version of HDP than the default by providing the following information:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Stack</td>
-<td>Enter stack name.</td>
-</tr>
-<tr>
-<td>Version</td>
-<td>Enter stack version.</td>
-</tr>
-<tr>
-<td>Stack Repo ID</td>
-<td>Enter stack repo ID.</td>
-</tr>
-<tr>
-<td>Base URL</td>
-<td>Ener stack repo base URL.</td>
-</tr>
-<tr>
-<td>Utils Repo ID</td>
-<td>Enter Utils repo ID.</td>
-</tr>
-<tr>
-<td>Utils Base URL</td>
-<td>Enter Utils repo base URL.</td>
-</tr>
-<tr>
-<td>Verify</td>
-<td>Select to verify the repo information.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="configure-ambari-database">Configure Ambari Database</h4>
-<p>By default, Ambari stores data on an embedded database, which is sufficient for ephemeral or test clusters. However, as Ambari and Cloudbreak don't perform backups of this database, it is insufficient for long-running production clusters, and you may need to configure a remote database for Ambari and Cloudbreak.</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Vendor</td>
-<td>Select database vendor from the list.</td>
-</tr>
-<tr>
-<td>Host</td>
-<td>Enter database host IP.</td>
-</tr>
-<tr>
-<td>Port</td>
-<td>Enter port number.</td>
-</tr>
-<tr>
-<td>Name</td>
-<td>Enter database name.</td>
-</tr>
-<tr>
-<td>User Name</td>
-<td>Enter database user name.</td>
-</tr>
-<tr>
-<td>Password</td>
-<td>Enter database password.</td>
-</tr>
-</tbody>
-</table>
+<h4 id="filesystem">FileSystem</h4>
+<h4 id="network">Network</h4>
+<h4 id="security">Security</h4>
 <div class="next">
 <a href="../gcp-clusters-access/index.html">Next: Access Cluster</a>
 </div></div>
