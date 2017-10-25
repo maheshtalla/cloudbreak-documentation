@@ -75,7 +75,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="../index.html">Cloudbreak</a>
+            <a class="navbar-brand" href="../getting-started/index.html">Cloudbreak</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -91,7 +91,7 @@
                         
                             
 <li >
-    <a href="../index.html">Introduction</a>
+    <a href="../getting-started/index.html">Introduction</a>
 </li>
 
                         
@@ -554,13 +554,23 @@
 <td>Select the region in which you would like to launch your cluster.</td>
 </tr>
 <tr>
-<td>HDP Version</td>
+<td>Platform Version</td>
 <td>Choose the HDP version to use for this cluster.</td>
 </tr>
 <tr>
 <td>Cluster Type</td>
 <td>Choose one of default cluster configurations, or, if you have defined your own cluster configuration via Ambari blueprint, you can choose it here. For more information, refer to <a href="../blueprints/index.html">Blueprints</a>.</td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>Enable Lifetime Management</td>
 <td>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minutes) has passed.</td>
@@ -573,7 +583,7 @@
 </table>
 </li>
 <li>
-<p>On the <strong>Hardware and Storage</strong> page, for each host group (master, worker, and compute) provide the following information to define your cluster nodes and attached storage:</p>
+<p>On the <strong>Hardware and Storage</strong> page, for each host group  provide the following information to define your cluster nodes and attached storage:</p>
 <table>
 <thead>
 <tr>
@@ -591,6 +601,20 @@
 <td>Enter the number of instances of a given type. Default is 1.</td>
 </tr>
 <tr>
+<td>Ambari Server</td>
+<td>You must select one node for Ambari Server. The "Group Size" for that host group must be set to "1".</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>Storage Type</td>
 <td><p>Select the volume type. The options are:<ul><li>Locally-redundant storage</li><li>Geo-redundant storage</li><li>Premium locally-redundant storage</li></ul> For more information about these options refer to <a href="https://docs.microsoft.com/en-us/azure/storage/storage-introduction" target="_blank">Azure documentation</a>.</td>
 </tr>
@@ -601,10 +625,6 @@
 <tr>
 <td>Volume Size (GB)</td>
 <td>Enter the size in GBs for each volume. Default is 100.</td>
-</tr>
-<tr>
-<td>Ambari Server</td>
-<td>You must select one node for Ambari Server. The "Group Size" for that host group must be set to "1".</td>
 </tr>
 </tbody>
 </table>
@@ -695,6 +715,16 @@
 <td>Select Subnet</td>
 <td>Select the subnet in which you would like your cluster to be provisioned. You can select an existing subnet or create a new subnet.</td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>Subnet (CIDR)</td>
 <td>If you selected to create a new subnet, you must define a valid <a href="http://www.ipaddressguide.com/cidr">CIDR</a> for the subnet. Default is 10.0.0.0/16.</td>
@@ -744,6 +774,16 @@ These ports must be open on every security group; otherwise Cloudbreak will not 
 <td>SSH Key Pair</td>
 <td>Specify a public SSH key. You will use the matching private key to access your cluster nodes via SSH.</td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>Enable Kerberos Security</td>
 <td>Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to <a href="../security-kerberos/index.html">Kerberos</a> documentation.</td>

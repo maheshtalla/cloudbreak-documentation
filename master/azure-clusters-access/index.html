@@ -75,7 +75,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="../index.html">Cloudbreak</a>
+            <a class="navbar-brand" href="../getting-started/index.html">Cloudbreak</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -91,7 +91,7 @@
                         
                             
 <li >
-    <a href="../index.html">Introduction</a>
+    <a href="../getting-started/index.html">Introduction</a>
 </li>
 
                         
@@ -502,6 +502,16 @@
         
             <li class="second-level"><a href="#finding-cluster-details">Finding Cluster Details</a></li>
             
+                <li class="third-level"><a href="#cluster-summary">Cluster Summary</a></li>
+            
+                <li class="third-level"><a href="#cluster-information">Cluster Information</a></li>
+            
+                <li class="third-level"><a href="#hardware">Hardware</a></li>
+            
+                <li class="third-level"><a href="#tags">Tags</a></li>
+            
+                <li class="third-level"><a href="#event-history">Event History</a></li>
+            
         
             <li class="second-level"><a href="#access-cluster-via-ssh">Access Cluster via SSH</a></li>
             
@@ -514,13 +524,30 @@
 <h2 id="accessing-your-cluster">Accessing Your Cluster</h2>
 <p>The following section describes how to access the various services in the cluster.</p>
 <h3 id="finding-cluster-details">Finding Cluster Details</h3>
-<p>Once your cluster is up and running, you can find information about the cluster on the cluster details page in the Cloudbreak UI. To access cluster details page, click on the tile representing your cluster in the Cloudbreak UI. The information presented includes:</p>
+<p>Once your cluster is up and running, click on the tile representing your cluster in the Cloudbreak UI to find information about the cluster. </p>
+<p><a href="../images/cb-ui-clinfo.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui-clinfo.png" width="650" title="Cluster Information"></a> </p>
+<p>The information presented includes:</p>
 <ul>
-<li>Cluster status</li>
-<li>Event history </li>
+<li><a href="#cluster-summary">Cluster Summary</a></li>
+<li><a href="#cluster-information">Cluster Information</a> </li>
+<li><a href="#hardware">Hardware</a></li>
+<li><a href="#tags">Tags</a> </li>
+<li><a href="#event-history">Event History</a> </li>
+</ul>
+<h4 id="cluster-summary">Cluster Summary</h4>
+<h4 id="cluster-information">Cluster Information</h4>
+<ul>
 <li>Cluster instance public IP addresses</li>
 <li>UI links </li>
 </ul>
+<h4 id="hardware">Hardware</h4>
+<p>This section includes information about your cluster nodes: instance names, instance IDs (with links to the EC2 console), public IPs, and SSH connection information (with a copy option).</p>
+<h4 id="tags">Tags</h4>
+<p>This section lists user-defined tags, in the same order as you added them.</p>
+<h4 id="event-history">Event History</h4>
+<p>The EVENT HISTORY tab shows you events logged for the cluster, with the most recent event at the top. For example, after your cluster has been created, the following messages will be written to the log:</p>
+<pre></pre>
+
 <h3 id="access-cluster-via-ssh">Access Cluster via SSH</h3>
 <p>If you plan to access the cluster via the command line clients, SSH into the master node instance in the cluster. </p>
 <ul>
@@ -532,7 +559,7 @@
 <pre>ssh -i "privatekey.pem" cloudbreak@publicIP</pre>
 For example:
 <pre>ssh -i "dominika-kp.pem" cloudbreak@p52.25.169.132</pre></p>
-<p>On Windows, you can SSH using an SSH client such as PuTTY. </p></div>
+<p>On Windows, you can SSH using an SSH client such as PuTTY.</p></div>
         
     </div>
 
