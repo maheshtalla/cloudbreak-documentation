@@ -184,12 +184,6 @@
     
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation/</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//faq/index.html</loc>
      <lastmod>2017-10-26</lastmod>
      <changefreq>daily</changefreq>
@@ -204,6 +198,12 @@
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//smartsense/index.html</loc>
      <lastmod>2017-10-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation/</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
