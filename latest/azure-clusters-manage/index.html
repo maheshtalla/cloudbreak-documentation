@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/azure-clusters-manage/index.html"> 
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <title>Manage and Monitor Clusters - Cloudbreak</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+
+
+    <link href="../css/extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-22950817-24', 'auto');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../index.html">Cloudbreak</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get Started <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../index.html">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../aws-launch/index.html">Launch on AWS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-clusters-manage/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-data/index.html">Access Data on S3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../azure-launch/index.html">Launch on Azure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-data/index.html">Access Data on Azure</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gcp-launch/index.html">Launch on GCP</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-clusters-manage/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenStack <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../os-launch/index.html">Launch on Open Stack</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-clusters-manage/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Advanced Cluster Options</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../blueprints/index.html">Blueprints</a>
+</li>
+
+        
+            
+<li >
+    <a href="../recipes/index.html">Recipes</a>
+</li>
+
+        
+            
+<li >
+    <a href="../tags/index.html">Resource Tagging</a>
+</li>
+
+        
+            
+<li >
+    <a href="../images/index.html">Custom Images</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ambari-db/index.html">Ambari Database</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Managing Cloudbreak</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
+        
+            
+<li >
+    <a href="../upgrade/index.html">Upgrade Clodbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../delete/index.html">Delete Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../profile/index.html">Configure Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../credentials/index.html">Manage Cloudbreak Credentials</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Security</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../security/index.html">Security Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb/index.html">Configure Basic Security</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-kerberos/index.html">Configure Kerberos</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../cli/index.html">CLI</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Troubleshooting</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../trouble-cb/index.html">General Troubleshooting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-aws/index.html">Troubleshooting AWS</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-azure/index.html">Troubleshooting Azure</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-gcp/index.html">Troubleshooting GCP</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-os/index.html">Troubleshooting OpenStack</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev/index.html">Developer Docs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li >
+                        <a rel="next" href="../azure-clusters-access/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../azure-data/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/hortonworks/cloudbreak-documentation">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#managing-and-monitoring-your-clusters">Managing and Monitoring Your Clusters</a></li>
+        
+            <li class="second-level"><a href="#repairing-your-cluster">Repairing Your Cluster</a></li>
+            
+        
+            <li class="second-level"><a href="#synchronizing-with-cloud-provider">Synchronizing with Cloud Provider</a></li>
+            
+        
+            <li class="second-level"><a href="#resizing-your-cluster">Resizing Your Cluster</a></li>
+            
+        
+            <li class="second-level"><a href="#stopping-and-restarting">Stopping and Restarting</a></li>
+            
+        
+            <li class="second-level"><a href="#terminating-your-cluster">Terminating Your Cluster</a></li>
+            
+        
+            <li class="second-level"><a href="#viewing-cluster-history">Viewing Cluster History</a></li>
+            
+                <li class="third-level"><a href="#history-report-content">History Report Content</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="managing-and-monitoring-your-clusters">Managing and Monitoring Your Clusters</h2>
+<p>You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access: </p>
+<p><a href="../images/cb-ui3.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui3.png" width="650" title="Azure Portal"></a> </p>
+<h3 id="repairing-your-cluster">Repairing Your Cluster</h3>
+<p>To trigger repair process for your cluster, click <strong>repair</strong>. Faulty nodes will be deleted from the cluster and new ones will be added in their place.</p>
+<h3 id="synchronizing-with-cloud-provider">Synchronizing with Cloud Provider</h3>
+<p>TBD</p>
+<h3 id="resizing-your-cluster">Resizing Your Cluster</h3>
+<p>To resize a cluster, follow these steps.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Browse to the cluster details.</p>
+</li>
+<li>
+<p>Click <strong>CLUSTER ACTIONS</strong> and select <strong>Resize</strong>. The cluster resize dialog is displayed.</p>
+</li>
+<li>
+<p>Using the +/- control, you can adjust how many worker and compute nodes to add or remove from the cluster. </p>
+</li>
+<li>
+<p>Click <strong>RESIZE CLUSTER</strong> to initiate the scale-up/scale-down.</p>
+</li>
+</ol>
+<h3 id="stopping-and-restarting">Stopping and Restarting</h3>
+<p>TBD</p>
+<h3 id="terminating-your-cluster">Terminating Your Cluster</h3>
+<p>To terminate your cluster, click <strong>terminate</strong>. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted. </p>
+<h3 id="viewing-cluster-history">Viewing Cluster History</h3>
+<p>From the navigation menu in the Cloudbreak UI, you can access the History page that allows you to generate a report showing basic information related to the clusters that were running within the specified range of dates.</p>
+<p>To generate a report, follow these steps.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>From the Cloudbreak UI navigation menu, select <strong>History</strong>.</p>
+</li>
+<li>
+<p>On the History page, select the range of dates and click <strong>Show history</strong> to generate a report for the selected period.</p>
+</li>
+</ol>
+<h4 id="history-report-content">History Report Content</h4>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>TO-DO: How are these entries broken down? Is there one entry per instance group?</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Each entry in the report represents one cluster instance group. For each entry, the report includes the following information:</p>
+<ul>
+<li><strong>Created</strong> - The date when your cluster was created (YYYY-MM-DD).</li>
+<li><strong>Provider</strong> - The name of the cloud provider (AWS, Azure, Google, or OpenStack) on which the cluster instances are/were running.</li>
+<li><strong>Cluster Name</strong> - The name that you selected for the cluster.</li>
+<li><strong>Worker Count</strong> - The number of worker nodes in the cluster. This number may be a decimal if a cluster has been resized.</li>
+<li><strong>Instance Type</strong> - Provider-specific VM type of the cluster instances.</li>
+<li><strong>Instance Group</strong> - The name of the instance group.  </li>
+<li><strong>Region</strong> - The AWS region in which your cluster is running.</li>
+<li><strong>Running Time (hours)</strong> - The sum of the running times for all the nodes in the instance group.</li>
+</ul>
+<p>The <strong>AGGREGATE RUNNING TIME</strong> is the sum of the Running Times, adjusted for the selected time range.</p>
+<p>To learn about how your cloud provider bills you for the VMs, refer to their documentation:</p>
+<ul>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-hour-billing/">AWS</a>      </li>
+<li><a href="https://azure.microsoft.com/en-us/pricing/faq/virtual-machines-how-do-instance-sizes-get-billed/">Azure</a>     </li>
+<li><a href="https://cloud.google.com/compute/pricing">GCP</a>   </li>
+</ul></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>© 2011-2017 <a href="http://www.hortonworks.com" target="_blank">Hortonworks Inc</a>. All Rights Reserved. | <a href="http://hortonworks.com/privacy-policy/" target="_blank">Privacy Policy</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

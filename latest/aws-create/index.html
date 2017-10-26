@@ -136,6 +136,12 @@
                         
                             
 <li >
+    <a href="../aws-clusters-manage/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../aws-data/index.html">Access Data on S3</a>
 </li>
 
@@ -164,6 +170,12 @@
                             
 <li >
     <a href="../azure-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-clusters-manage/index.html">Manage and Monitor Clusters</a>
 </li>
 
                         
@@ -200,6 +212,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../gcp-clusters-manage/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -224,6 +242,12 @@
                             
 <li >
     <a href="../os-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-clusters-manage/index.html">Manage and Monitor Clusters</a>
 </li>
 
                         
@@ -276,12 +300,6 @@
 
                         
                             
-<li >
-    <a href="../clusters-manage/index.html">Manage and Monitor Clusters</a>
-</li>
-
-                        
-                            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Managing Cloudbreak</a>
     <ul class="dropdown-menu">
@@ -289,12 +307,6 @@
             
 <li >
     <a href="../vm-launch/index.html">Install on Your Own VM</a>
-</li>
-
-        
-            
-<li >
-    <a href="../credentials/index.html">Manage Cloudbreak Credentials</a>
 </li>
 
         
@@ -313,6 +325,12 @@
             
 <li >
     <a href="../profile/index.html">Configure Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../credentials/index.html">Manage Cloudbreak Credentials</a>
 </li>
 
         
@@ -353,52 +371,10 @@
   </li>
 
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
                             
 <li >
     <a href="../cli/index.html">CLI</a>
 </li>
-
-                        
-                            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Developer</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../dev/index.html">Developer Docs</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-api/index.html">Cloudbreak APIs</a>
-</li>
-
-        
-            
-<li >
-    <a href="../dev-flows/index.html">Flow Diagrams</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                             
@@ -433,6 +409,48 @@
             
 <li >
     <a href="../trouble-os/index.html">Troubleshooting OpenStack</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev/index.html">Developer Docs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
 </li>
 
         
@@ -715,7 +733,7 @@ These ports must be open on every security group; otherwise Cloudbreak will not 
 </tr>
 <tr>
 <td>SSH Key Pair</td>
-<td>Select an existing public key or specify a new public key. You will use the matching private key to access your cluster nodes via SSH.</td>
+<td>Select an existing public key. You will use the matching private key to access your cluster nodes via SSH.</td>
 </tr>
 </tbody>
 </table>
@@ -727,6 +745,10 @@ These ports must be open on every security group; otherwise Cloudbreak will not 
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Specify new SSH public key pair</td>
+<td>Specify a new public key. You will use the matching private key to access your cluster nodes via SSH.</td>
+</tr>
 <tr>
 <td>Enable Kerberos Security</td>
 <td>Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to <a href="../security-kerberos/index.html">Kerberos</a> documentation.</td>
