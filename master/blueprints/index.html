@@ -257,7 +257,7 @@
                 
                 
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -527,12 +527,15 @@
             
                 <li class="third-level"><a href="#creating-a-blueprint">Creating a Blueprint</a></li>
             
-                <li class="third-level"><a href="#upload-a-blueprint">Upload a Blueprint</a></li>
-            
                 <li class="third-level"><a href="#example-blueprints">Example Blueprints</a></li>
+            
+                <li class="third-level"><a href="#upload-a-blueprint">Upload a Blueprint</a></li>
             
         
             <li class="second-level"><a href="#delete-blueprint">Delete Blueprint</a></li>
+            
+        
+            <li class="second-level"><a href="#modifying-existing-blueprints">Modifying Existing Blueprints</a></li>
             
         
     
@@ -550,10 +553,9 @@
 <p>We recommend that you review the default blueprints to check if they meet your requirements. You can do this by expanding  the <strong>manage bluerints</strong> pane in the Cloudbreak web UI or by reading the documentation below.</p>
 <h3 id="use-default-blueprints">Use Default Blueprints</h3>
 <p>To use one of the default blueprints, simply select them when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Stack Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. </p>
-<p>To review default blueprints, refer to <a href="#default-blueprints">Default Blueprints</a>.</p>
 <h4 id="default-blueprints">Default Blueprints</h4>
 <p>Cloudbreak includes the following default HDP cluster blueprints:</p>
-<p>HDP Version: <strong>HDP 2.6</strong></p>
+<p>Platform Version: <strong>HDP 2.6</strong></p>
 <table>
 <thead>
 <tr>
@@ -615,13 +617,21 @@ that is much more experimental. The following configuration classification appli
 <p>Ambari blueprints are specified in the JSON format. After you provide the blueprint to Cloudbreak, the host groups in the JSON will be mapped to a set of instances when starting the cluster, and the specified services and components will be installed on the corresponding nodes. It is not necessary to define a complete configuration in the blueprint. If a configuration is missing, Ambari will fill that with a default value. 
 Furthermore, a blueprint can be modified later from the Ambari UI.</p>
 <p>A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, some configurations are hardcoded for example domain names, memory configurations, and so on, that won't be applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually.</p>
-<p>Also see <a href="#example-blueprints">Example Blueprints</a> and <a href="#blueprint-components">Blueprint Components</a>.</p>
+<h4 id="example-blueprints">Example Blueprints</h4>
+<p>Here are blueprint examples:  </p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/sequenceiq/cloudbreak/master/integration-test/src/main/resources/blueprint/multi-node-hdfs-yarn.bp">Smallest Possible HDP 2.4</a></li>
+<li><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-small-default.bp">Small HDP 2.4</a></li>
+<li><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-streaming-cluster.bp">Small HDP 2.4 Streaming</a></li>
+<li><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-spark-cluster.bp">Small HDP 2.4 Spark</a></li>
+</ul>
 <h4 id="upload-a-blueprint">Upload a Blueprint</h4>
 <p>Once you have your blueprint ready, perform these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
+<li>In the Cloudbreak UI, select <strong>Blueprints</strong> from the left pane. </li>
 <li>
-<p>In the Cloudbreak UI, select <strong>Blueprints</strong> from the left pane. To add your own blueprint, click <strong>Create Blueprint</strong> and enter the following parameters:</p>
+<p>To add your own blueprint, click <strong>Create Blueprint</strong> and enter the following parameters:</p>
 <table>
 <thead>
 <tr>
@@ -644,21 +654,20 @@ Furthermore, a blueprint can be modified later from the Ambari UI.</p>
 </tr>
 </tbody>
 </table>
+<p><a href="../images/blueprint-add.png" target="_blank" title="click to enlarge"><img src="../images/blueprint-add.png" width="650" title="Cloudbreak web UI"></a> </p>
 </li>
 <li>
-<p>To use the uploaded blueprints, simply select it when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Stack Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. </p>
+<p>To use the uploaded blueprints, select it when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Platform Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. </p>
+<p><a href="../images/blueprint-select.png" target="_blank" title="click to enlarge"><img src="../images/blueprint-select.png" width="650" title="Cloudbreak web UI"></a> </p>
 </li>
 </ol>
-<h4 id="example-blueprints">Example Blueprints</h4>
-<p>Here are blueprint examples:  </p>
-<ul>
-<li><a href="https://raw.githubusercontent.com/sequenceiq/cloudbreak/master/integration-test/src/main/resources/blueprint/multi-node-hdfs-yarn.bp">Smallest Possible HDP 2.4</a></li>
-<li><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-small-default.bp">Small HDP 2.4</a></li>
-<li><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-streaming-cluster.bp">Small HDP 2.4 Streaming</a></li>
-<li><a href="https://raw.githubusercontent.com/hortonworks/cloudbreak/master/core/src/main/resources/defaults/blueprints/hdp-spark-cluster.bp">Small HDP 2.4 Spark</a></li>
-</ul>
 <h3 id="delete-blueprint">Delete Blueprint</h3>
-<p>You can delete previously added items by selecting and item and using the <strong>delete</strong> option. </p></div>
+<p>You can delete previously added items by selecting and item and using the <strong>delete</strong> option. </p>
+<h3 id="modifying-existing-blueprints">Modifying Existing Blueprints</h3>
+<ul>
+<li>You cannot directly modify default blueprints.</li>
+<li>You cannot directly modify the custom blueprints that you have uploaded or pasted. However, If you provided a URL to the location where the blueprint is stored, in order to modify the blueprint simply update it in the location to which the URL is pointing.       </li>
+</ul></div>
         
     </div>
 

@@ -257,7 +257,7 @@
                 
                 
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -529,7 +529,7 @@
             <li class="second-level"><a href="#deleting-recipes">Deleting Recipes</a></li>
             
         
-            <li class="second-level"><a href="#modifying-recipes">Modifying Recipes</a></li>
+            <li class="second-level"><a href="#modifying-existing-recipes">Modifying Existing Recipes</a></li>
             
         
     
@@ -585,30 +585,25 @@ ENDOF
 </tr>
 <tr>
 <td>Execution Type</td>
-<td>Select <strong>PRE</strong> or <strong>POST</strong>, depending on whether you want the script to be executed prior to or post Ambari cluster deployment.</td>
+<td>Select one of the following options: <ul><li><strong>PRE</strong>: The script will be executed prior to Ambari cluster deployment.</li><li><strong>POST</strong>: The script will be executed after Ambari cluster deployment.</li></ul></td>
 </tr>
 <tr>
 <td>Script</td>
 <td><p>Select one of: <ul><li><strong>Script</strong>: Paste the script.</li><li> <strong>File</strong>: Point to a file on your machine that contains the recipe.</li><li> <strong>URL</strong>: Specify the URL for your recipe.</li></ul></td>
 </tr>
-<tr>
-<td>Public In Account</td>
-<td>(Optional) If this option is checked, all the users belonging to your account will be able to use this recipe to create clusters, but they cannot delete it.</td>
-</tr>
 </tbody>
 </table>
-<p>Example: </p>
 <p><a href="../images/recipe-add.png" target="_blank" title="click to enlarge"><img src="../images/recipe-add.png" width="650" title="Cloudbreak web UI"></a> </p>
 </li>
 <li>
-<p>When creating a cluster, select <strong>Show Advanced Options</strong> &gt; <strong>Choose Blueprint</strong> and specify which recipe you want to execute on which host group. </p>
-<p>Example: </p>
+<p>When creating a cluster, you can select previously added recipes using the <strong>Recipes</strong> option available in the advanced <strong>General Configuration</strong> section. </p>
 <p><a href="../images/recipe-select.png" target="_blank" title="click to enlarge"><img src="../images/recipe-select.png" width="650" title="Cloudbreak web UI"></a> </p>
+<p><a href="" title="TO-DO: Move Shell commands to the Cb Shell doc.">comment</a>: &lt;&gt; (Provide more details once the new UI is ready.)</p>
 </li>
 </ol>
 <h3 id="deleting-recipes">Deleting Recipes</h3>
 <p>You can delete previously added items by selecting and item and using the <strong>delete</strong> option. </p>
-<h3 id="modifying-recipes">Modifying Recipes</h3>
+<h3 id="modifying-existing-recipes">Modifying Existing Recipes</h3>
 <p>To modify previously added recipes:</p>
 <ul>
 <li>If you pasted or uploaded your recipe in the Cloudbreak UI, in order to modify it you must delete the entry and add the recipe again in a new entry.   </li>

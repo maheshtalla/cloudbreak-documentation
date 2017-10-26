@@ -257,7 +257,7 @@
                 
                 
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -524,6 +524,9 @@
             <li class="second-level"><a href="#check-available-profile-variables">Check Available Profile Variables</a></li>
             
         
+            <li class="second-level"><a href="#create-environment-specific-profiles">Create Environment Specific Profiles</a></li>
+            
+        
             <li class="second-level"><a href="#profile-variables">Profile Variables</a></li>
             
                 <li class="third-level"><a href="#cloudbreak-variables">Cloudbreak Variables</a></li>
@@ -547,7 +550,7 @@
             <li class="second-level"><a href="#configure-consul">Configure Consul</a></li>
             
         
-            <li class="second-level"><a href="#create-environment-specific-profiles">Create Environment Specific Profiles</a></li>
+            <li class="second-level"><a href="#add-tags-in-profile-aws">Add Tags in Profile (AWS)</a></li>
             
         
     
@@ -578,6 +581,22 @@ export MY_OTHER_VAR=another_value
 <pre><code>cbd env show
 </code></pre>
 
+<h3 id="create-environment-specific-profiles">Create Environment Specific Profiles</h3>
+<p>If you would like to use a different versions of Cloudbreak for prod and qa profile, you must create two environment specific configurations that can be sourced. For example:</p>
+<ul>
+<li>Profile.prod  </li>
+<li>Profile.qa   </li>
+</ul>
+<p>For example, to create and use a prod profile, you need to:</p>
+<ol>
+<li>Create a file called <code>Profile.prod</code>  </li>
+<li>Write the environment-specific <code>export DOCKER_TAG_CLOUDBREAK=0.3.99</code> into <code>Profile.prod</code> to specify Docker image.  </li>
+<li>Set the environment variable: <code>CBD_DEFAULT_PROFILE=prod</code>  </li>
+</ol>
+<p>To use the prod specific profile once, set:  </p>
+<pre>CBD_DEFAULT_PROFILE=prod cbd some_commands</pre>
+
+<p>To permanently use the prod profile, set <code>export CBD_DEFAULT_PROFILE=prod</code> in your <code>.bash_profile</code>.</p>
 <h3 id="profile-variables">Profile Variables</h3>
 <h4 id="cloudbreak-variables">Cloudbreak Variables</h4>
 <p>Refer to this list for available environment variables. The variables are listed with their default values. If default is unset, no value is listed. </p>
@@ -1458,22 +1477,24 @@ export CLOUDBREAK_SMTP_TYPE=smtp
 <p>Consul’s built-in DNS server is able to fallback on another DNS server. This option is called <code>-recursor</code>. Clodbreak Deployer first tries to discover the DNS settings of the host by looking for nameserver entry in the <code>/etc/resolv.conf</code> file. If it finds one, consul will use it as a recursor. Otherwise, it will use <code>8.8.8.8</code>.</p>
 <p>For a full list of available consul config options, refer to <a href="https://www.consul.io/docs/agent/options.html">Consul documentation</a>.</p>
 <p>To pass any additional Consul configuration, define the <code>DOCKER_CONSUL_OPTIONS</code> variable in the Profile file.</p>
-<h3 id="create-environment-specific-profiles">Create Environment Specific Profiles</h3>
-<p>If you would like to use a different versions of Cloudbreak for prod and qa profile, you must create two environment specific configurations that can be sourced. For example:</p>
+<h3 id="add-tags-in-profile-aws">Add Tags in Profile (AWS)</h3>
+<p>In order to differentiate launched instances, you can optionally define custom tags for your AWS resources deployed by Cloudbreak. </p>
 <ul>
-<li>Profile.prod  </li>
-<li>Profile.qa   </li>
-</ul>
-<p>For example, to create and use a prod profile, you need to:</p>
-<ol>
-<li>Create a file called <code>Profile.prod</code>  </li>
-<li>Write the environment-specific <code>export DOCKER_TAG_CLOUDBREAK=0.3.99</code> into <code>Profile.prod</code> to specify Docker image.  </li>
-<li>Set the environment variable: <code>CBD_DEFAULT_PROFILE=prod</code>  </li>
-</ol>
-<p>To use the prod specific profile once, set:  </p>
-<pre>CBD_DEFAULT_PROFILE=prod cbd some_commands</pre>
-
-<p>To permanently use the prod profile, set <code>export CBD_DEFAULT_PROFILE=prod</code> in your <code>.bash_profile</code>.</p></div>
+<li>
+<p>If you want just one custom tag for your Cloudformation resources, set this variable in the <code>Profile</code>:</p>
+<p><code>export CB_AWS_DEFAULT_CF_TAG=mytagcontent</code></p>
+<p>In this example, the name of the tag will be <code>CloudbreakId</code> and the value will be <code>mytagcontent</code>.</p>
+</li>
+<li>
+<p>If you prefer to customize the tag name, set this variable:</p>
+<p><code>export CB_AWS_CUSTOM_CF_TAGS=mytagname:mytagvalue</code></p>
+<p>In this example the name of the tag will be <code>mytagname</code> and the value will be <code>mytagvalue</code>. </p>
+</li>
+<li>
+<p>You can specify a list of tags with a comma separated list: </p>
+<p><code>export CB_AWS_CUSTOM_CF_TAGS=tag1:value1,tag2:value2,tag3:value3</code></p>
+</li>
+</ul></div>
         
     </div>
 

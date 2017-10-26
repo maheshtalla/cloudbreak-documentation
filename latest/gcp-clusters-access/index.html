@@ -257,7 +257,7 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -516,9 +516,9 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#accessing-your-cluster">Accessing Your Cluster</a></li>
+        <li class="first-level active"><a href="#access-your-cluster">Access Your Cluster</a></li>
         
-            <li class="second-level"><a href="#finding-cluster-details">Finding Cluster Details</a></li>
+            <li class="second-level"><a href="#finding-cluster-information-in-the-ui">Finding Cluster Information in the UI</a></li>
             
                 <li class="third-level"><a href="#cluster-summary">Cluster Summary</a></li>
             
@@ -539,9 +539,9 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="accessing-your-cluster">Accessing Your Cluster</h2>
+<h2 id="access-your-cluster">Access Your Cluster</h2>
 <p>The following section describes how to access the various services in the cluster.</p>
-<h3 id="finding-cluster-details">Finding Cluster Details</h3>
+<h3 id="finding-cluster-information-in-the-ui">Finding Cluster Information in the UI</h3>
 <p>Once your cluster is up and running, click on the tile representing your cluster in the Cloudbreak UI to find information about the cluster. </p>
 <p><a href="../images/cb-ui-clinfo.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui-clinfo.png" width="650" title="Cluster Information"></a> </p>
 <p>The information presented includes:</p>
@@ -564,7 +564,29 @@
 <p>This section lists user-defined tags, in the same order as you added them.</p>
 <h4 id="event-history">Event History</h4>
 <p>The EVENT HISTORY tab shows you events logged for the cluster, with the most recent event at the top. For example, after your cluster has been created, the following messages will be written to the log:</p>
-<pre></pre>
+<pre>
+Ambari cluster built; Ambari ip:34.215.103.66
+10/26/2017, 9:41:58 AM
+Building Ambari cluster; Ambari ip:34.215.103.66
+10/26/2017, 9:30:20 AM
+Starting Ambari cluster services
+10/26/2017, 9:27:12 AM
+Setting up infrastructure metadata
+10/26/2017, 9:27:11 AM
+Bootstrapping infrastructure cluster
+10/26/2017, 9:26:38 AM
+Infrastructure successfully provisioned
+10/26/2017, 9:26:37 AM
+Billing started, Infrastructure successfully provisioned
+10/26/2017, 9:26:37 AM
+Infrastructure metadata collection finished
+10/26/2017, 9:25:39 AM
+Infrastructure creation took 194 seconds
+10/26/2017, 9:25:37 AM
+Creating infrastructure
+10/26/2017, 9:22:22 AM
+Setting up HDP image
+10/26/2017, 9:22:21 AM</pre>
 
 <h3 id="access-cluster-via-ssh">Access Cluster via SSH</h3>
 <p>If you plan to access the cluster via the command line clients, SSH into the master node instance in the cluster. </p>

@@ -257,7 +257,7 @@
                 
                 
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -521,9 +521,6 @@
             <li class="second-level"><a href="#add-tags-when-creating-a-cluster">Add Tags When Creating a Cluster</a></li>
             
         
-            <li class="second-level"><a href="#add-tags-in-profile-aws">Add Tags in Profile (AWS)</a></li>
-            
-        
             <li class="second-level"><a href="#cloud-provider-documentation">Cloud Provider Documentation</a></li>
             
         
@@ -542,25 +539,7 @@
 <ul>
 <li>It is not possible to add tags after your cluster has been created.  </li>
 <li>When you clone your cluster, all tags associated with the source cluster will be added to the template of the clone.  </li>
-<li>When you save a cluster template, all tags will be saved as part of the template, and they will be listed on the cluster template page.  </li>
-</ul>
-<h3 id="add-tags-in-profile-aws">Add Tags in Profile (AWS)</h3>
-<p>In order to differentiate launched instances, you can optionally define custom tags for your AWS resources deployed by Cloudbreak. </p>
-<ul>
-<li>
-<p>If you want just one custom tag for your Cloudformation resources, set this variable in the <code>Profile</code>:</p>
-<p><code>export CB_AWS_DEFAULT_CF_TAG=mytagcontent</code></p>
-<p>In this example, the name of the tag will be <code>CloudbreakId</code> and the value will be <code>mytagcontent</code>.</p>
-</li>
-<li>
-<p>If you prefer to customize the tag name, set this variable:</p>
-<p><code>export CB_AWS_CUSTOM_CF_TAGS=mytagname:mytagvalue</code></p>
-<p>In this example the name of the tag will be <code>mytagname</code> and the value will be <code>mytagvalue</code>. </p>
-</li>
-<li>
-<p>You can specify a list of tags with a comma separated list: </p>
-<p><code>export CB_AWS_CUSTOM_CF_TAGS=tag1:value1,tag2:value2,tag3:value3</code></p>
-</li>
+<li>When you save a cluster template, all tags will be saved as part of the template, and they will be listed on the cluster template page.    </li>
 </ul>
 <h3 id="cloud-provider-documentation">Cloud Provider Documentation</h3>
 <p>To learn more about tags and their restrictions, refer to the cloud provider documentation:</p>

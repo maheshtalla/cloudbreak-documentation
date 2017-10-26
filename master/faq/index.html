@@ -257,7 +257,7 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config & Admin <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -518,31 +518,28 @@
     
         <li class="first-level active"><a href="#faqs">FAQs</a></li>
         
-            <li class="second-level"><a href="#how-to-generate-ssh-key-pair">How to Generate SSH Key Pair</a></li>
+            <li class="second-level"><a href="#generate-ssh-key-pair">Generate SSH Key Pair</a></li>
             
         
-            <li class="second-level"><a href="#how-to-recover-public-ssh-key">How to Recover Public SSH Key</a></li>
+            <li class="second-level"><a href="#recover-public-ssh-key">Recover Public SSH Key</a></li>
             
         
-            <li class="second-level"><a href="#how-to-ssh-to-the-hosts">How to SSH to the Hosts</a></li>
+            <li class="second-level"><a href="#ssh-to-the-hosts">SSH to the Hosts</a></li>
             
         
-            <li class="second-level"><a href="#how-to-check-cloudbreak-version">How to Check Cloudbreak Version</a></li>
+            <li class="second-level"><a href="#check-cloudbreak-version">Check Cloudbreak Version</a></li>
             
         
-            <li class="second-level"><a href="#how-to-check-available-environment-variables">How to Check Available Environment Variables</a></li>
+            <li class="second-level"><a href="#check-available-environment-variables">Check Available Environment Variables</a></li>
             
         
-            <li class="second-level"><a href="#how-to-access-cloudbreak-logs">How to Access Cloudbreak Logs</a></li>
+            <li class="second-level"><a href="#access-cloudbreak-logs">Access Cloudbreak Logs</a></li>
             
         
-            <li class="second-level"><a href="#how-to-debug-in-cloudbreak-shell">How to Debug in Cloudbreak Shell</a></li>
+            <li class="second-level"><a href="#debug-in-cloudbreak-shell">Debug in Cloudbreak Shell</a></li>
             
         
-            <li class="second-level"><a href="#how-to-configure-and-test-proxy-settings">How to Configure and Test Proxy Settings</a></li>
-            
-        
-            <li class="second-level"><a href="#where-are-data-volumes-mounted">Where are Data Volumes Mounted</a></li>
+            <li class="second-level"><a href="#configure-and-test-proxy-settings">Configure and Test Proxy Settings</a></li>
             
         
     
@@ -551,7 +548,8 @@
         <div class="col-md-9" role="main">
 
 <h2 id="faqs">FAQs</h2>
-<h4 id="how-to-generate-ssh-key-pair">How to Generate SSH Key Pair</h4>
+<p>How to...</p>
+<h4 id="generate-ssh-key-pair">Generate SSH Key Pair</h4>
 <p>All the instances created by Cloudbreak are configured to allow key-based SSH, so you'll need to provide an SSH public key that can be used later to SSH onto the instances in the clusters you'll create with Cloudbreak. You can use one of your existing keys or you can generate a new one.</p>
 <p>To generate a new SSH key pair, execute:</p>
 <pre>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -570,11 +568,11 @@
 # 01:0f:f4:3b:ca:85:sd:17:sd:7d:sd:68:9d:sd:a2:sd your_email@example.com</pre>
 
 <p>Later you'll need to pass the content of the <code>.pub</code> file to Cloudbreak and use the private key file to SSH to the instances. </p>
-<h4 id="how-to-recover-public-ssh-key">How to Recover Public SSH Key</h4>
+<h4 id="recover-public-ssh-key">Recover Public SSH Key</h4>
 <p>The <code>-y</code> option of <code>ssh-keygen</code> outputs the public key. For example:</p>
 <pre>ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub</pre>
 
-<h4 id="how-to-ssh-to-the-hosts">How to SSH to the Hosts</h4>
+<h4 id="ssh-to-the-hosts">SSH to the Hosts</h4>
 <p>To connect to a running VM through SSH, you need to know its public IP address and have your private key available. </p>
 <p>The private key that you must use to access the VM is the counterpart of the public key that you specified when creating a Cloudbreak credential.</p>
 <p>You can find the IP addresses of all the running VMs in the Cloudbreak UI, on the cluster details page. Only key-based authentication is supported. </p>
@@ -583,21 +581,24 @@
 <pre><code>ssh -i ~/.ssh/your-private-key.pem cloudbreak@&lt;public-ip&gt;
 </code></pre>
 
-<h4 id="how-to-check-cloudbreak-version">How to Check Cloudbreak Version</h4>
-<p>To check Cloudbreak version, navigate to the Cloudbreak home directory and execute the <code>cbd doctor</code> command.</p>
-<h4 id="how-to-check-available-environment-variables">How to Check Available Environment Variables</h4>
+<h4 id="check-cloudbreak-version">Check Cloudbreak Version</h4>
+<p>To check Cloudbreak version, navigate to the Cloudbreak home directory and execute the following command:</p>
+<pre><code>cbd doctor
+</code></pre>
+
+<h4 id="check-available-environment-variables">Check Available Environment Variables</h4>
 <p>To see all available environment variables with their default values, use:</p>
 <pre><code>cbd env show
 </code></pre>
 
-<h4 id="how-to-access-cloudbreak-logs">How to Access Cloudbreak Logs</h4>
+<h4 id="access-cloudbreak-logs">Access Cloudbreak Logs</h4>
 <p>Refer to <a href="../trouble-cb/index.html#checking-the-logs">Troubleshooting</a>.</p>
-<h4 id="how-to-debug-in-cloudbreak-shell">How to Debug in Cloudbreak Shell</h4>
+<h4 id="debug-in-cloudbreak-shell">Debug in Cloudbreak Shell</h4>
 <p>To get more detailed command prompt output, set the DEBUG environment variable to non-zero:</p>
 <pre><code>DEBUG=1 cbd &lt;some_command&gt;
 </code></pre>
 
-<h4 id="how-to-configure-and-test-proxy-settings">How to Configure and Test Proxy Settings</h4>
+<h4 id="configure-and-test-proxy-settings">Configure and Test Proxy Settings</h4>
 <p><strong>For cbd</strong></p>
 <p>To configure proxy settings for Cloudbreak Deployer, add the following configs to your Profile:</p>
 <pre><code>export http_proxy=&quot;http://YOUR_PROXY_ADDRESS:YOUR_PROXY_PORT/&quot;
@@ -626,10 +627,7 @@ ENDOF
 
 <p>Its output should start with:</p>
 <pre><code>HTTP/1.1 200 OK
-</code></pre>
-
-<h4 id="where-are-data-volumes-mounted">Where are Data Volumes Mounted</h4>
-<p>The disks that are attached to the instances serving as cluster nodes are automatically mounted to <code>/hadoopfs/fs1</code>, <code>/hadoopfs/fs2</code>, ... , <code>/hadoopfs/fsN</code> respectively. </p></div>
+</code></pre></div>
         
     </div>
 
