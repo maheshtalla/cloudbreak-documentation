@@ -542,7 +542,7 @@
 <h2 id="access-your-cluster">Access Your Cluster</h2>
 <p>The following section describes how to access the various services in the cluster.</p>
 <h3 id="finding-cluster-information-in-the-ui">Finding Cluster Information in the UI</h3>
-<p>Once your cluster is up and running, click on the tile representing your cluster in the Cloudbreak UI to find information about the cluster. </p>
+<p>Once your cluster is up and running, click on the tile representing your cluster in the Cloudbreak UI to access information related the cluster and access cluster actions. </p>
 <p><a href="../images/cb-ui-clinfo.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui-clinfo.png" width="650" title="Cluster Information"></a> </p>
 <p>The information presented includes:</p>
 <ul>
@@ -552,18 +552,114 @@
 <li><a href="#tags">Tags</a> </li>
 <li><a href="#event-history">Event History</a> </li>
 </ul>
-<h4 id="cluster-summary">Cluster Summary</h4>
-<h4 id="cluster-information">Cluster Information</h4>
-<ul>
-<li>Cluster instance public IP addresses</li>
-<li>UI links </li>
+<div class="note">
+  <p class="first admonition-title">Tips</p>
+  <p class="last"><ul>
+  <li> Access cluster actions such as resize and sync by clicking on <b>ACTIONS</b>.</li>
+  <li> Access Ambari web UI by clicking on the link in the <b>CLUSTER INFORMATION</b> section.</li>
+<li> View public IP addresses for all cluster instances in the <b>HARDWARE</b> section. Click on the links to view the instances in the cloud console.</li>
+<li> The SSH user that you must use when accessing cluster VMs is "cloudbreak".</li> 
 </ul>
+</p>
+</div>
+
+<h4 id="cluster-summary">Cluster Summary</h4>
+<p>The summary bar includes the following information about your cluster:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Provider</td>
+<td>The logo of the cloud provider on which the cluster is running.</td>
+</tr>
+<tr>
+<td>Credential</td>
+<td>The name of the credential used to create the cluster.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Current status. When a cluster is healthy, the status is <em>Running</em>.</td>
+</tr>
+<tr>
+<td>Nodes</td>
+<td>The current number of cluster nodes, including the master node.</td>
+</tr>
+<tr>
+<td>Uptime</td>
+<td>The amount of time (HH:MM) that the cluster has been in the running state.</td>
+</tr>
+<tr>
+<td>Created</td>
+<td>The date when the cluster was created. The date format is Mon DD, YYYY. For exampple: Oct 27, 2017.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cluster-information">Cluster Information</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network</td>
+<td>The name of the network in which the cluster is running.</td>
+</tr>
+<tr>
+<td>Subnet</td>
+<td>The name of the subnet in which the cluster is running.</td>
+</tr>
+<tr>
+<td>Cluster User</td>
+<td>The name of the cluster user that you created when creating the cluster.</td>
+</tr>
+<tr>
+<td>SSH Username</td>
+<td>The SSH user which you must use when accessing cluster VMs via SSH. The SSH user is always "cloudbreak".</td>
+</tr>
+<tr>
+<td>Remote Access</td>
+<td>Link to the Ambari web UI.</td>
+</tr>
+<tr>
+<td>Region</td>
+<td>The region in which the cluster is running in the cloud provider infrastructure.</td>
+</tr>
+<tr>
+<td>Availability Zone</td>
+<td>The availability zone within the region in which the cluster is running.</td>
+</tr>
+<tr>
+<td>Blueprint</td>
+<td>The name of the blueprint selected under "Cluster Type" to create this cluster.</td>
+</tr>
+<tr>
+<td>Started With</td>
+<td>The version of Cloubdreak used to create this cluster.</td>
+</tr>
+<tr>
+<td>Ambari Version</td>
+<td>The Ambari version which this cluster is currently running.</td>
+</tr>
+<tr>
+<td>HDP Version</td>
+<td>The HDP version which this cluster is currently running.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="hardware">Hardware</h4>
-<p>This section includes information about your cluster nodes: instance names, instance IDs (with links to the EC2 console), public IPs, and SSH connection information (with a copy option).</p>
+<p>This section includes information about your cluster nodes: instance names, instance IDs (with links to the cloud provider console), and public IPs.</p>
 <h4 id="tags">Tags</h4>
 <p>This section lists user-defined tags, in the same order as you added them.</p>
 <h4 id="event-history">Event History</h4>
-<p>The EVENT HISTORY tab shows you events logged for the cluster, with the most recent event at the top. For example, after your cluster has been created, the following messages will be written to the log:</p>
+<p>The Event History section shows you events logged for the cluster, with the most recent event at the top. For example, after your cluster has been created, the following messages will be written to the log:</p>
 <pre>
 Ambari cluster built; Ambari ip:34.215.103.66
 10/26/2017, 9:41:58 AM

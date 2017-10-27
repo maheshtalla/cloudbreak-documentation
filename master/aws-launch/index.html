@@ -516,7 +516,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#launching-cloudbreak-on-aws">Launching Cloudbreak on AWS</a></li>
+        <li class="first-level active"><a href="#launch-cloudbreak-on-aws">Launch Cloudbreak on AWS</a></li>
         
             <li class="second-level"><a href="#meet-the-prerequisites">Meet the Prerequisites</a></li>
             
@@ -553,7 +553,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="launching-cloudbreak-on-aws">Launching Cloudbreak on AWS</h2>
+<h2 id="launch-cloudbreak-on-aws">Launch Cloudbreak on AWS</h2>
 <p>Before launching Cloudbreak on AWS, review and meet the prerequisites. Next, launch a VM using a Cloudbreak Amazon Machine Image, access the VM, and then start Cloudbreak. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential. </p>
 <h3 id="meet-the-prerequisites">Meet the Prerequisites</h3>
 <p>Before launching Cloudbreak on AWS, you must meet the following prerequisites.</p>
@@ -769,20 +769,15 @@
 <p><strong>Policy Definitions</strong></p>
 <p>The "AssumeRole" policy definition: </p>
 <pre>{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1400068149000",
-      "Effect": "Allow",
-      "Action": [
-        "sts:AssumeRole"
-      ],
-      "Resource": [
-        "*"
-      ]
-    }
-  ]
-}</pre>
+  "Version": "2012-10-17",
+  "Statement": {
+    "Sid": "Stmt1400068149000",
+    "Effect": "Allow",
+    "Action": ["sts:AssumeRole"],
+    "Resource": "*"
+  }
+}
+</pre>
 
 <p>The "cb-policy" policy definition: </p>
 <pre>{

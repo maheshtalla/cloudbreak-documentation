@@ -518,13 +518,10 @@
     
         <li class="first-level active"><a href="#manage-and-monitor-clusters">Manage and Monitor Clusters</a></li>
         
-            <li class="second-level"><a href="#repairing-your-cluster">Repairing Your Cluster</a></li>
+            <li class="second-level"><a href="#resizing-your-cluster">Resizing Your Cluster</a></li>
             
         
             <li class="second-level"><a href="#synchronizing-with-cloud-provider">Synchronizing with Cloud Provider</a></li>
-            
-        
-            <li class="second-level"><a href="#resizing-your-cluster">Resizing Your Cluster</a></li>
             
         
             <li class="second-level"><a href="#stopping-and-restarting">Stopping and Restarting</a></li>
@@ -544,12 +541,19 @@
         <div class="col-md-9" role="main">
 
 <h2 id="manage-and-monitor-clusters">Manage and Monitor Clusters</h2>
-<p>You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access: </p>
-<p><a href="../images/cb-ui3.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui3.png" width="650" title="Azure Portal"></a> </p>
-<h3 id="repairing-your-cluster">Repairing Your Cluster</h3>
-<p>To trigger repair process for your cluster, click <strong>repair</strong>. Faulty nodes will be deleted from the cluster and new ones will be added in their place.</p>
-<h3 id="synchronizing-with-cloud-provider">Synchronizing with Cloud Provider</h3>
-<p>TBD</p>
+<p>You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access. The actions available for your cluster are listed in the top right corner: </p>
+<p><a href="../images/cb-ui2.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui2.png" width="650" title="Cloudbreak web UI"></a> </p>
+<div class="note">
+  <p class="first admonition-title">Tips</p>
+  <p class="last"><ul>
+  <li>To add or remove nodes from your cluster click <b>ACTIONS>Resize</b>.</li>
+  <li>To synchronize your cluster with the cloud provider account click <b>ACTIONS>Sync</b>.</li>
+  <li>To temporarily stop your cluster click <b>STOP</b>.</li>
+  <li>To terminate your cluster click <b>TERMINATE</b>.</li>
+</ul>
+</p>
+</div>
+
 <h3 id="resizing-your-cluster">Resizing Your Cluster</h3>
 <p>To resize a cluster, follow these steps.</p>
 <p><strong>Steps</strong></p>
@@ -558,19 +562,21 @@
 <p>Browse to the cluster details.</p>
 </li>
 <li>
-<p>Click <strong>CLUSTER ACTIONS</strong> and select <strong>Resize</strong>. The cluster resize dialog is displayed.</p>
+<p>Click <strong>Cluster Actions</strong> and select <strong>Resize</strong>. The cluster resize dialog is displayed.</p>
 </li>
 <li>
-<p>Using the +/- control, you can adjust how many worker and compute nodes to add or remove from the cluster. </p>
+<p>Using the +/- controls, adjust how many nodes to add or remove from each host group.  </p>
 </li>
 <li>
-<p>Click <strong>RESIZE CLUSTER</strong> to initiate the scale-up/scale-down.</p>
+<p>Click <strong>Yes</strong> to initiate the scale-up/scale-down.</p>
 </li>
 </ol>
+<h3 id="synchronizing-with-cloud-provider">Synchronizing with Cloud Provider</h3>
+<p>This doesn't seem to work yet.</p>
 <h3 id="stopping-and-restarting">Stopping and Restarting</h3>
-<p>TBD</p>
+<p>This doesn't seem to work yet.</p>
 <h3 id="terminating-your-cluster">Terminating Your Cluster</h3>
-<p>To terminate your cluster, click <strong>terminate</strong>. All cluster-related resources will be deleted, unless the network is used by other VMs, in which case it will not be deleted. </p>
+<p>To terminate your cluster, click <strong>Terminate</strong>. All cluster-related resources will be deleted, unless the network and subnet are used by other VMs in which case they will be preserved. </p>
 <h3 id="viewing-cluster-history">Viewing Cluster History</h3>
 <p>From the navigation menu in the Cloudbreak UI, you can access the History page that allows you to generate a report showing basic information related to the clusters that were running within the specified range of dates.</p>
 <p>To generate a report, follow these steps.</p>
@@ -580,19 +586,10 @@
 <p>From the Cloudbreak UI navigation menu, select <strong>History</strong>.</p>
 </li>
 <li>
-<p>On the History page, select the range of dates and click <strong>Show history</strong> to generate a report for the selected period.</p>
+<p>On the History page, select the range of dates and click <strong>Show History</strong> to generate a report for the selected period.</p>
 </li>
 </ol>
 <h4 id="history-report-content">History Report Content</h4>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>TO-DO: How are these entries broken down? Is there one entry per instance group?</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <p>Each entry in the report represents one cluster instance group. For each entry, the report includes the following information:</p>
 <ul>
 <li><strong>Created</strong> - The date when your cluster was created (YYYY-MM-DD).</li>

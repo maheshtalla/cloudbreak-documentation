@@ -534,13 +534,9 @@
 <p>The tags added during cluster creation will be displayed on your cloud account, allowing you to track your resources. </p>
 <p>You can use tags to categorize your cloud resources by purpose, owner, and so on. Tags come in especially handy when you are using a corporate AWS account and you want to quickly identify which resources belong to your cluster(s). In fact, your corporate cloud account admin may require you to tag all the resources that you create, in particular resources, such as VMs, which incur charges.</p>
 <h3 id="add-tags-when-creating-a-cluster">Add Tags When Creating a Cluster</h3>
-<p>You can tag the cloud resources used for a cluster by providing custom tag names and values when creating a cluster via UI or CLI. In the UI, this option is available on the <strong>Configure Cluster</strong> page &gt; <strong>Tags</strong>.</p>
-<p>Note that:</p>
-<ul>
-<li>It is not possible to add tags after your cluster has been created.  </li>
-<li>When you clone your cluster, all tags associated with the source cluster will be added to the template of the clone.  </li>
-<li>When you save a cluster template, all tags will be saved as part of the template, and they will be listed on the cluster template page.    </li>
-</ul>
+<p>You can tag the cloud resources used for a cluster by providing custom tag names and values when creating a cluster via UI or CLI. In the Cloudbreak UI, this option is available in the create clusetr wizard, in the advanced <strong>General Configuration</strong> &gt; <strong>Tags</strong> section:</p>
+<p><a href="../images/tags.png" target="_blank" title="click to enlarge"><img src="../images/tags.png" width="650" title="Cloudbreak web UI"></a> </p>
+<p>It is not possible to add tags after your cluster has been created.  </p>
 <h3 id="cloud-provider-documentation">Cloud Provider Documentation</h3>
 <p>To learn more about tags and their restrictions, refer to the cloud provider documentation:</p>
 <ul>

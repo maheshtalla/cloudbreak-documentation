@@ -516,7 +516,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#accessing-data-on-s3">Accessing Data on S3</a></li>
+        <li class="first-level active"><a href="#access-data-on-s3">Access Data on S3</a></li>
         
             <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
@@ -524,7 +524,7 @@
             <li class="second-level"><a href="#configuring-access-to-s3">Configuring Access to S3</a></li>
             
         
-            <li class="second-level"><a href="#access-path">Access Path</a></li>
+            <li class="second-level"><a href="#testing-access-to-s3">Testing Access to S3</a></li>
             
         
             <li class="second-level"><a href="#learn-more">Learn More</a></li>
@@ -535,12 +535,13 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="accessing-data-on-s3">Accessing Data on S3</h2>
+<h2 id="access-data-on-s3">Access Data on S3</h2>
 <h4 id="prerequisites">Prerequisites</h4>
 <p>To use S3 storage, you must have one or more S3 buckets on your AWS account. For instructions on how to create a bucket on S3, refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">AWS documentation</a>.</p>
 <h4 id="configuring-access-to-s3">Configuring Access to S3</h4>
-<p>Amazon S3 is not supported as a default file system, but access to data in S3 from your cluster VMs can be automatically configured through attaching an instance profile allowing access to S3. You can optionally create or attach an existing instance profile during <a href="../aws-create/index.html#choose-blueprint">cluster creation</a>, on the <strong>Choose Blueprint</strong> page. </p>
-<h4 id="access-path">Access Path</h4>
+<p>Amazon S3 is not supported as a default file system, but access to data in S3 from your cluster VMs can be automatically configured through attaching an instance profile allowing access to S3. You can optionally create or attach an existing instance profile during <a href="../aws-create/index.html#choose-blueprint">cluster creation</a>, on the <strong>File System</strong> page. </p>
+<h4 id="testing-access-to-s3">Testing Access to S3</h4>
+<p>To tests access to S3, SSH to a cluster node and run a few hadoop fs shell commands against your existing S3 bucket.</p>
 <p>Amazon S3 access path syntax is:</p>
 <pre>s3a://bucket/dir/file</pre>
 
@@ -558,7 +559,7 @@ hadoop fs -cat s3a://mytestbucket/testFile
 test file content</pre>
 
 <h3 id="learn-more">Learn More</h3>
-<p>For more information about configuring the S3 connector and working with data stored on S3, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
+<p>For more information about configuring the S3 connector and working with data stored on S3, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
 <div class="next">
 <a href="../clusters-access/index.html">Next: Access Cluster</a>
 </div></div>

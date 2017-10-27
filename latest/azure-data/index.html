@@ -516,7 +516,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#accessing-data-on-azure">Accessing Data on Azure</a></li>
+        <li class="first-level active"><a href="#access-data-on-azure">Access Data on Azure</a></li>
         
             <li class="second-level"><a href="#accessing-data-in-adls">Accessing Data in ADLS</a></li>
             
@@ -524,7 +524,7 @@
             
                 <li class="third-level"><a href="#configuring-access-to-adls">Configuring Access to ADLS</a></li>
             
-                <li class="third-level"><a href="#access-path">Access Path</a></li>
+                <li class="third-level"><a href="#testing-access-to-adls">Testing Access to ADLS</a></li>
             
         
             <li class="second-level"><a href="#accessing-data-in-wasb">Accessing Data in WASB</a></li>
@@ -533,7 +533,7 @@
             
                 <li class="third-level"><a href="#configuring-access-to-wasb">Configuring Access to WASB</a></li>
             
-                <li class="third-level"><a href="#access-path_1">Access Path</a></li>
+                <li class="third-level"><a href="#testing-access-to-wasb">Testing Access to WASB</a></li>
             
         
             <li class="second-level"><a href="#learn-more">Learn More</a></li>
@@ -544,7 +544,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="accessing-data-on-azure">Accessing Data on Azure</h2>
+<h2 id="access-data-on-azure">Access Data on Azure</h2>
 <p>Hortonworks Data Platform (HDP) supports reading and writing both block blobs and page blobs
 from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as reading and writing files stored in an
 <em>Azure Data Lake Storage (ADLS)</em> account. This allows you to:</p>
@@ -574,7 +574,8 @@ from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as read
 <li>Choose the appropriate permissions. Note that if you do select the root folder, you need to provide “execute” access to all parent directories. For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-secure-data#filepermissions">Azure documentation</a>. </li>
 <li>Test access to ADLS. Review the next sections for information on how to access data in ADLS from the cluster once it is deployed, for example from the command line of the cluster name node.</li>
 </ol>
-<h4 id="access-path">Access Path</h4>
+<h4 id="testing-access-to-adls">Testing Access to ADLS</h4>
+<p>To tests access to ADLS, SSH to a cluster node and run a few hadoop fs shell commands against your existing ADLS account.</p>
 <p>ADLS access path syntax is:</p>
 <pre>adl://<b>account_name</b>.azuredatalakestore.net/<b>dir/file</b></pre>
 
@@ -603,7 +604,8 @@ from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as read
 
 <p>You can obtain your access key from the Access keys in your storage account settings.</p>
 <p>Alternatively, it is possible, although not recommended or supported, to configure <code>fs.defaultFS</code> to use a wasb or wasbs URL. This causes all bare paths, such as /testDir/testFile to resolve automatically to that file system.</p>
-<h4 id="access-path_1">Access Path</h4>
+<h4 id="testing-access-to-wasb">Testing Access to WASB</h4>
+<p>To tests access to WASB, SSH to a cluster node and run a few hadoop fs shell commands against your existing WASB account.</p>
 <p>WASB access path syntax is:</p>
 <pre>wasb://<b>container_name</b>@<b>storage_account_name</b>.blob.core.windows.net/<b>dir/file</b></pre>
 
@@ -624,7 +626,7 @@ hadoop fs -cat wasb://mycontainer@myaccount.blob.core.windows.net/testDir/testFi
 test file content</pre>
 
 <h3 id="learn-more">Learn More</h3>
-<p>For more information about configuring the ADLS and WASB connectors and working with data stored in ADLS and WASB, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
+<p>For more information about configuring the ADLS and WASB connectors and working with data stored in ADLS and WASB, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
 <div class="next">
 <a href="../clusters-access/index.html">Next: Access Cluster</a>
 </div></div>
