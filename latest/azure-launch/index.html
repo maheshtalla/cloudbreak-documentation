@@ -794,16 +794,33 @@
 <p>The last task that you need to perform before you can use Cloudbreak is to <a href="#create-cloudbreak-credential">create a cloudbreak credential</a>.         </p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak Credential</h3>
 <p>Before you can start creating clusters, you must first create a <a href="../architecture/index.html#cloudbreak-credential">Cloudbreak credential</a>. Without this credential, you will not be able to create clusters via Cloudbreak. Cloudbreak works by connecting your Azure account through this credential, and then uses it to create resources on your behalf.</p>
-<p>There are two ways to create a Cloudbreak credential:</p>
-<ul>
-<li>
-<p><strong>Interactive</strong>: This is the recommended simpler method. The advantage of using this method is that the app and service principal creation and role assignment is fully automated, so the only input that you need to provide is the name and the SSH key. To configure an interactive credential, refer to <a href="#create-an-interactive-credential">Create an Interactive Credential</a>.  </p>
-</li>
-<li>
-<p><strong>App-based</strong>: This is the more complex method. The advantage of the app-based credential creation is that it allows you to create a credential without logging in to the Azure account, as long as you have been given all the information. In addition to providing your <code>tenant_id</code> and <code>subscription_id</code>, you must provide information for your previously created Azure AD application, including its password. To configure an app based credential, refer to <a href="#create-an-app-based-credential">Create an App Based Credential</a>. Alternatively, when using this method, you use a utility called <code>azure-cli-tools</code>. The utility supports app creation and role assignment. It is available at <a href="https://github.com/sequenceiq/azure-cli-tools/blob/master/cli_tools">https://github.com/sequenceiq/azure-cli-tools/blob/master/cli_tools</a>.</p>
-</li>
-</ul>
+<p>There are two methods for creating a Cloudbreak credential:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Prerequisite</th>
+<th>Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Interactive</strong></td>
+<td>The advantage of using this method is that the app and service principal creation and role assignment are fully automated, so the only input that you need to provide is the Subscription ID and Directory ID. During the interactive credential creation, you must log in to your Azure account.</td>
+<td>Your account must have the "Owner" role in the subscription.</td>
+<td>To configure an interactive credential, refer to <a href="#create-an-interactive-credential">Create an Interactive Credential</a>.</td>
+</tr>
+<tr>
+<td><strong>App-based</strong></td>
+<td>The advantage of the app-based credential creation is that it allows you to create a credential without logging in to the Azure account, as long as you have been given all the information. In addition to providing your Subscription ID and  Directory ID, you must provide information for your previously created Azure AD application, including its password.</td>
+<td>Your account must have the "Contributor" role in the subscription.</td>
+<td>To configure an app based credential, refer to <a href="#create-an-app-based-credential">Create an App Based Credential</a>.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="create-an-interactive-credential">Create an Interactive Credential</h4>
+<p>Follow these steps to create an interactive Cloudbreak credential.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -880,10 +897,14 @@
 </li>
 </ol>
 <h4 id="create-an-app-based-credential">Create an App Based Credential</h4>
+<p>Follow these steps to create an app based Cloudbreak credential.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>On Azure Portal, navigate to the <strong>Active Directory</strong> &gt; <strong>App Registrations</strong> and register a new application. For more information, refer to <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Create an Azure AD Application</a>.</p>
+<blockquote>
+<p>Aa an alternative to the steps listed below for creating an application registration, you use a utility called <code>azure-cli-tools</code>. The utility supports app creation and role assignment. It is available at <a href="https://github.com/sequenceiq/azure-cli-tools/blob/master/cli_tools">https://github.com/sequenceiq/azure-cli-tools/blob/master/cli_tools</a>.</p>
+</blockquote>
 <p><a href="../images/azure-appbased01.png" target="_blank" title="click to enlarge"><img src="../images/azure-appbased01.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 <li>
