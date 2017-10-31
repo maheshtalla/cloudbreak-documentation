@@ -575,7 +575,7 @@
 <p>Your account must have the "<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Contributor</a>" role (or higher) in the subscription in order to <a href="#create-cloudbreak-credential">create a Cloudbreak credential</a> using the app-based credential method. </p>
 </li>
 </ul>
-<p>To check the roles that your subscription has, in your Azure account navigate to <strong>Subscriptions</strong>. </p>
+<p>To check the roles in your subscription, log in to your Azure account and navigate to <strong>Subscriptions</strong>. </p>
 <h4 id="azure-region">Azure Region</h4>
 <p>Decide in which Azure region you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://azure.microsoft.com/en-us/regions/">supported by Microsoft Azure</a>. </p>
 <p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it.</p>
@@ -951,24 +951,16 @@
 <td>Copy and paste the Subscription ID from your <strong>Subscriptions</strong>.</td>
 </tr>
 <tr>
+<td>Tenant Id</td>
+<td>Copy and paste your Directory ID from your <strong>Active Directory</strong> &gt; <strong>Properties</strong>.</td>
+</tr>
+<tr>
 <td>App Id</td>
 <td>Copy and paste the Application ID from your <strong>Azure Active Directory</strong> &gt; <strong>App Registrations</strong> &gt; your app registration's <strong>Settings</strong> &gt; <strong>Properties</strong>.</td>
 </tr>
 <tr>
 <td>Password</td>
 <td>This is your application key. You can generate it from your from your <strong>Azure Active Directory</strong> app registration's <strong>Settings</strong> &gt; <strong>Keys</strong>.</td>
-</tr>
-<tr>
-<td>App Owner Tenant Id</td>
-<td>Copy and paste your Directory ID from your <strong>Active Directory</strong> &gt; <strong>Properties</strong>.</td>
-</tr>
-<tr>
-<td>SSH Public Key</td>
-<td>The SSH key that you provided when launching Cloudbreak should be pre-entered.</td>
-</tr>
-<tr>
-<td>Select Azure role type</td>
-<td><p>You have the following options:<ul><li>"Use existing Contributor role" (default): If you select this option, Cloudbreak will use the "<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Contributor</a>" role to create resources. This requires no further input.</li><li>"Reuse existing custom role": If you select this option and enter the name of an existing role, Cloudbreak will use this role to create resources.</li><li>"Let Cloudbreak create a custom role": If you select this option and enter a name for the new role, the role will be created. When choosing role name, make sure that there is no existing role with the name chosen. For information on creating custom roles, refer to <a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles">Azure</a> documentation. </li></ul></p><p>If using a custom role, make sure that it includes the necessary Action set for Cloudbreak to be able to manage clusters: <code>Microsoft.Compute/*</code>, <code>Microsoft.Network/*</code>, <code>Microsoft.Storage/*</code>, <code>Microsoft.Resources/*</code>.</p></td>
 </tr>
 </tbody>
 </table>
