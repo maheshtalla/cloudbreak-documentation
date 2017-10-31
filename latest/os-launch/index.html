@@ -101,12 +101,6 @@
 </li>
 
                         
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
                         </ul>
                     </li>
                 
@@ -289,12 +283,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../ambari-db/index.html">Ambari Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -372,9 +360,24 @@
 
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CLI</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../cli/index.html">CLI</a>
+    <a href="../cli-install/index.html">Install the CLI</a>
 </li>
+
+        
+            
+<li >
+    <a href="../cli-using/index.html">Using the CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -416,33 +419,6 @@
   </li>
 
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../get-help/index.html">Getting Help</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../smartsense/index.html">SmartSense</a>
-</li>
-
-                        
                             
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Developer</a>
@@ -474,6 +450,39 @@
         
     </ul>
   </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
 
                         
                         </ul>
@@ -660,7 +669,7 @@ export OS_TENANT_NAME=your_os_tenant_name</pre></p>
 <li>The SSH user is called "cloudbreak".</li>
 <li>You can obtain the VM's IP address from the details of your instance.</li>
 </ul>
-<p>On Mac OS, you can SSH to the VM by running the following from the Terminal app: <code>ssh -i "your-private-key.pem" cloudnreak@instance_IP</code> where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.</p>
+<p>On Mac OS X, you can SSH to the VM by running the following from the Terminal app: <code>ssh -i "your-private-key.pem" cloudnreak@instance_IP</code> where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.</p>
 <p>On Windows, you can use <a href="http://www.putty.org/">PuTTy</a>.</p>
 <h3 id="initialize-your-profile">Initialize Your Profile</h3>
 <p>After accessing the VM via SSH, you must initialize your Profile.</p>
@@ -768,6 +777,10 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 <li>The password is the value of the <code>UAA_DEFAULT_USER_PW</code> variable that you configured in your <code>Profile</code> file when <a href="#launch-cloudbreak-deployer">launching Cloudbreak deployer</a>.</li>
 </ul>
 </li>
+<li>
+<p>Upon a successful login, you are redirected to the dashboard:</p>
+<p><a href="../images/cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
 </ol>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak Credential</h3>
 <p>Cloudbreak works by connecting your OpenStack account through this credential, and then uses it to create resources on your behalf. Before you can start provisioning cluster using Cloudbreak, you must create a Cloudbreak credential.</p>
@@ -781,7 +794,7 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 </li>
 <li>
 <p>Under <strong>Cloud provider</strong>, select "Google Cloud Platform".</p>
-<p><a href="../images/gcp-cred.png" target="_blank" title="click to enlarge"><img src="../images/gcp-cred.png" width="650" title="Cloudbreak web UI"></a> </p>
+<p><a href="../images/cb-gcp-cred.png" target="_blank" title="click to enlarge"><img src="../images/cb-gcp-cred.png" width="650" title="Cloudbreak web UI"></a> </p>
 </li>
 <li>
 <p>Provide the following information:</p>

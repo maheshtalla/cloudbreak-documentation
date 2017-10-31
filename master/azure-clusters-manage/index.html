@@ -101,12 +101,6 @@
 </li>
 
                         
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
                         </ul>
                     </li>
                 
@@ -289,12 +283,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../ambari-db/index.html">Ambari Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -372,9 +360,24 @@
 
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CLI</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../cli/index.html">CLI</a>
+    <a href="../cli-install/index.html">Install the CLI</a>
 </li>
+
+        
+            
+<li >
+    <a href="../cli-using/index.html">Using the CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -416,33 +419,6 @@
   </li>
 
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../get-help/index.html">Getting Help</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../smartsense/index.html">SmartSense</a>
-</li>
-
-                        
                             
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Developer</a>
@@ -474,6 +450,39 @@
         
     </ul>
   </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
 
                         
                         </ul>
@@ -518,19 +527,21 @@
     
         <li class="first-level active"><a href="#manage-and-monitor-clusters">Manage and Monitor Clusters</a></li>
         
-            <li class="second-level"><a href="#resizing-your-cluster">Resizing Your Cluster</a></li>
+            <li class="second-level"><a href="#resize-your-cluster">Resize Your Cluster</a></li>
             
         
-            <li class="second-level"><a href="#synchronizing-with-cloud-provider">Synchronizing with Cloud Provider</a></li>
+            <li class="second-level"><a href="#synchronize-with-cloud-provider">Synchronize with Cloud Provider</a></li>
             
         
-            <li class="second-level"><a href="#stopping-and-restarting">Stopping and Restarting</a></li>
+            <li class="second-level"><a href="#stop-and-restart">Stop and Restart</a></li>
             
         
-            <li class="second-level"><a href="#terminating-your-cluster">Terminating Your Cluster</a></li>
+            <li class="second-level"><a href="#terminate-your-cluster">Terminate Your Cluster</a></li>
+            
+                <li class="third-level"><a href="#force-terminate">Force Terminate</a></li>
             
         
-            <li class="second-level"><a href="#viewing-cluster-history">Viewing Cluster History</a></li>
+            <li class="second-level"><a href="#view-cluster-history">View Cluster History</a></li>
             
                 <li class="third-level"><a href="#history-report-content">History Report Content</a></li>
             
@@ -554,7 +565,7 @@
 </p>
 </div>
 
-<h3 id="resizing-your-cluster">Resizing Your Cluster</h3>
+<h3 id="resize-your-cluster">Resize Your Cluster</h3>
 <p>To resize a cluster, follow these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -562,22 +573,83 @@
 <p>Browse to the cluster details.</p>
 </li>
 <li>
-<p>Click <strong>Cluster Actions</strong> and select <strong>Resize</strong>. The cluster resize dialog is displayed.</p>
+<p>Click <strong>Actions</strong> and select <strong>Resize</strong>. The cluster resize dialog is displayed.</p>
 </li>
 <li>
 <p>Using the +/- controls, adjust how many nodes to add or remove from each host group.  </p>
 </li>
 <li>
-<p>Click <strong>Yes</strong> to initiate the scale-up/scale-down.</p>
+<p>Click <strong>Yes</strong> to confirm the scale-up/scale-down.</p>
 </li>
 </ol>
-<h3 id="synchronizing-with-cloud-provider">Synchronizing with Cloud Provider</h3>
-<p>This doesn't seem to work yet.</p>
-<h3 id="stopping-and-restarting">Stopping and Restarting</h3>
-<p>This doesn't seem to work yet.</p>
-<h3 id="terminating-your-cluster">Terminating Your Cluster</h3>
-<p>To terminate your cluster, click <strong>Terminate</strong>. All cluster-related resources will be deleted, unless the network and subnet are used by other VMs in which case they will be preserved. </p>
-<h3 id="viewing-cluster-history">Viewing Cluster History</h3>
+<h3 id="synchronize-with-cloud-provider">Synchronize with Cloud Provider</h3>
+<p>If you have just made changes on your cloud provider size (for example, deleted cluster VMs) and you would like to synchronize Cloudbreak with the cloud provider, use the <strong>sync</strong> option. </p>
+<p>To synchronize your cluster with the cloud provider, follow these steps. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Browse to the cluster details.</p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and select <strong>Sync</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Yes</strong> to confirm.</p>
+</li>
+</ol>
+<h3 id="stop-and-restart">Stop and Restart</h3>
+<p>Cloudbreak supports stopping and restarting clusters. To stop and restart a cluster managed by Cloudbreak, use the options available from the Coudbreak UI. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Browse to the cluster details.</p>
+</li>
+<li>
+<p>Click <strong>Stop</strong> to stop a currently running cluster.  </p>
+</li>
+<li>
+<p>Click <strong>Yes</strong> to confirm.</p>
+</li>
+<li>
+<p>When you are ready to restart the cluster, click <strong>Restart</strong>. This option is only availble when the cluster has been stopped. </p>
+</li>
+<li>
+<p>Click <strong>Yes</strong> to confirm.</p>
+</li>
+</ol>
+<h3 id="terminate-your-cluster">Terminate Your Cluster</h3>
+<p>To terminate a cluster managed by Cloudbreak, use the option available from the Coudbreak UI. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Browse to the cluster details.</p>
+</li>
+<li>
+<p>Click <strong>Terminate</strong>. </p>
+</li>
+<li>
+<p>Click <strong>Yes</strong> to confirm.</p>
+</li>
+</ol>
+<p>All cluster-related resources will be deleted, unless the resources (such as networks and subnets) existed prior to cluster creation or are used by other VMs in which case they will be preserved. </p>
+<h4 id="force-terminate">Force Terminate</h4>
+<p>If the deletion fails, try <strong>Terminate</strong> &gt; <strong>Force terminate</strong>.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Browse to the cluster details.</p>
+</li>
+<li>
+<p>Click <strong>Terminate</strong>. </p>
+</li>
+<li>
+<p>Check  <strong>Force terminate</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Yes</strong> to confirm.</p>
+</li>
+</ol>
+<h3 id="view-cluster-history">View Cluster History</h3>
 <p>From the navigation menu in the Cloudbreak UI, you can access the History page that allows you to generate a report showing basic information related to the clusters that were running within the specified range of dates.</p>
 <p>To generate a report, follow these steps.</p>
 <p><strong>Steps</strong></p>
@@ -607,7 +679,10 @@
 <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-hour-billing/">AWS</a>      </li>
 <li><a href="https://azure.microsoft.com/en-us/pricing/faq/virtual-machines-how-do-instance-sizes-get-billed/">Azure</a>     </li>
 <li><a href="https://cloud.google.com/compute/pricing">GCP</a>   </li>
-</ul></div>
+</ul>
+<div class="next">
+<a href="../azure-data/index.html">Next: Access Data</a>
+</div></div>
         
     </div>
 

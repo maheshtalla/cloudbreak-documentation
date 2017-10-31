@@ -101,12 +101,6 @@
 </li>
 
                         
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
                         </ul>
                     </li>
                 
@@ -289,12 +283,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../ambari-db/index.html">Ambari Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -372,9 +360,24 @@
 
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CLI</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../cli/index.html">CLI</a>
+    <a href="../cli-install/index.html">Install the CLI</a>
 </li>
+
+        
+            
+<li >
+    <a href="../cli-using/index.html">Using the CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -416,33 +419,6 @@
   </li>
 
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../get-help/index.html">Getting Help</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../smartsense/index.html">SmartSense</a>
-</li>
-
-                        
                             
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Developer</a>
@@ -474,6 +450,39 @@
         
     </ul>
   </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
 
                         
                         </ul>
@@ -539,7 +548,18 @@
 <h4 id="prerequisites">Prerequisites</h4>
 <p>To use S3 storage, you must have one or more S3 buckets on your AWS account. For instructions on how to create a bucket on S3, refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">AWS documentation</a>.</p>
 <h4 id="configuring-access-to-s3">Configuring Access to S3</h4>
-<p>Amazon S3 is not supported as a default file system, but access to data in S3 from your cluster VMs can be automatically configured through attaching an instance profile allowing access to S3. You can optionally create or attach an existing instance profile during <a href="../aws-create/index.html#choose-blueprint">cluster creation</a>, on the <strong>File System</strong> page. </p>
+<p>Amazon S3 is not supported as a default file system, but access to data in Amazon S3 via the s3a connector. To configure access to Amazon S3 from a cluster crated via Cloudbreak, declare your access key and secret key in a configuration file such as <code>core-site.xml</code>:</p>
+<pre><code class="xml">&lt;property&gt;
+  &lt;name&gt;fs.s3a.access.key&lt;/name&gt;
+  &lt;value&gt;ACCESS-KEY&lt;/value&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;name&gt;fs.s3a.secret.key&lt;/name&gt;
+  &lt;value&gt;SECRET-KEY&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+
 <h4 id="testing-access-to-s3">Testing Access to S3</h4>
 <p>To tests access to S3, SSH to a cluster node and run a few hadoop fs shell commands against your existing S3 bucket.</p>
 <p>Amazon S3 access path syntax is:</p>

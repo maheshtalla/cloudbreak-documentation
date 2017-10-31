@@ -101,12 +101,6 @@
 </li>
 
                         
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
                         </ul>
                     </li>
                 
@@ -289,12 +283,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../ambari-db/index.html">Ambari Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -372,9 +360,24 @@
 
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CLI</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../cli/index.html">CLI</a>
+    <a href="../cli-install/index.html">Install the CLI</a>
 </li>
+
+        
+            
+<li >
+    <a href="../cli-using/index.html">Using the CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -416,33 +419,6 @@
   </li>
 
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../get-help/index.html">Getting Help</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../smartsense/index.html">SmartSense</a>
-</li>
-
-                        
                             
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Developer</a>
@@ -474,6 +450,39 @@
         
     </ul>
   </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
 
                         
                         </ul>
@@ -518,20 +527,19 @@
     
         <li class="first-level active"><a href="#delete-resources">Delete Resources</a></li>
         
-            <li class="second-level"><a href="#deleting-resources-on-aws">Deleting Resources on AWS</a></li>
+            <li class="second-level"><a href="#delete-clusters">Delete Clusters</a></li>
             
         
-            <li class="second-level"><a href="#deleting-resources-on-azure">Deleting Resources on Azure</a></li>
-            
-                <li class="third-level"><a href="#deleting-clusters-on-azure">Deleting Clusters on Azure</a></li>
-            
-                <li class="third-level"><a href="#delete-cloudbreak-on-azure">Delete Cloudbreak on Azure</a></li>
+            <li class="second-level"><a href="#delete-cloudbreak-on-aws">Delete Cloudbreak on AWS</a></li>
             
         
-            <li class="second-level"><a href="#deleting-resources-on-gcp">Deleting Resources on GCP</a></li>
+            <li class="second-level"><a href="#delete-cloudbreak-on-azure">Delete Cloudbreak on Azure</a></li>
             
         
-            <li class="second-level"><a href="#deleting-resources-on-openstack">Deleting Resources on OpenStack</a></li>
+            <li class="second-level"><a href="#delete-cloudbreak-on-gcp">Delete Cloudbreak on GCP</a></li>
+            
+        
+            <li class="second-level"><a href="#deleting-cloudbreak-on-openstack">Deleting Cloudbreak on OpenStack</a></li>
             
         
     
@@ -540,30 +548,94 @@
         <div class="col-md-9" role="main">
 
 <h2 id="delete-resources">Delete Resources</h2>
-<p>In general, you can delete clusters from the Cloudbreak UI. If needed, you can also delete the cluster resources manually via the cloud provider tools. </p>
-<h3 id="deleting-resources-on-aws">Deleting Resources on AWS</h3>
-<p>TBD</p>
-<h3 id="deleting-resources-on-azure">Deleting Resources on Azure</h3>
-<h4 id="deleting-clusters-on-azure">Deleting Clusters on Azure</h4>
-<p>You can delete clusters from the Cloudbreak UI. If needed, you can also delete the cluster manually by deleting the whole resource group created when the cluster was deployed. </p>
-<p>The name of the resource group, under which the cluster-related resources are organized always includes the name of the cluster, so you should be able to find the group by searching for that name in the <strong>Resource groups</strong>.</p>
-<h4 id="delete-cloudbreak-on-azure">Delete Cloudbreak on Azure</h4>
-<p>To delete Cloudbreak, delete the whole related resource group.</p>
+<p>You must terminate all clusters associated with a Cloudbreak before you can terminate the Cloudbreak instance. In general, you should delete clusters from the Cloudbreak UI. If needed, you can also delete the cluster resources manually via the cloud provider tools. </p>
+<h4 id="delete-clusters">Delete Clusters</h4>
+<p>The proper way to delete clusters is to use the the <strong>Terminate</strong> option available in the Cloudbreak UI. If the terminate process fails, try the <strong>Terminate</strong> &gt; <strong>Force terminate</strong> option.</p>
+<p>If the force termination does not delete all cluster resources, delete the resources manually:</p>
+<ul>
+<li>To find the VMs, click on the links available in the cluster details. </li>
+<li>To find the network and subnet, see the <strong>Cluster Information</strong> in the cluster details. </li>
+<li>On Azure, you can delete the cluster manually by deleting the whole resource group created when the cluster was deployed. The name of the resource group, under which the cluster-related resources are organized always includes the name of the cluster, so you should be able to find the group by searching for that name in the <strong>Resource groups</strong>.</li>
+</ul>
+<h4 id="delete-cloudbreak-on-aws">Delete Cloudbreak on AWS</h4>
+<p>If you want to delete the Cloudbreak instance, you can do so by deleting the EC2 instance on which it is running.</p>
 <p><strong>Steps</strong></p>
 <ol>
-<li>From the Microsoft Azure Portal dashboard, select <img src="../images/resource-icon.png" width="150" title="Icon">.</li>
 <li>
-<p>Find the resource group that you want to delete, click on <strong>...</strong> and select <strong>Delete</strong>:</p>
-<p><a href="../images/resource-delete.png" target="_blank" title="click to enlarge"><img src="../images/resource-delete.png" width="650" title="Azure Portal"></a>  </p>
+<p>Log in to the AWS Management Console.</p>
 </li>
 <li>
-<p>Type the name of the resource group to delete and click <strong>Delete</strong>.</p>
+<p>Browse to the EC2 Management Console.</p>
+</li>
+<li>
+<p>navigate to <strong>Instances</strong>.</p>
+</li>
+<li>
+<p>Select the instance that you want to delete and then select <strong>Actions</strong> &gt; <strong>Instance State</strong> &gt; <strong>Terminate</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Yes, Terminate</strong> to confirm.</p>
+<p><a href="../images/aws-delete.png" target="_blank" title="click to enlarge"><img src="../images/aws-delete.png" width="650" title="Azure Portal"></a>  </p>
 </li>
 </ol>
-<h3 id="deleting-resources-on-gcp">Deleting Resources on GCP</h3>
-<p>TBD</p>
-<h3 id="deleting-resources-on-openstack">Deleting Resources on OpenStack</h3>
-<p>TBD</p></div>
+<h3 id="delete-cloudbreak-on-azure">Delete Cloudbreak on Azure</h3>
+<p>You can delete Cloudbreak instance from your Azure account by deleting related resoucres. To delete a Cloudbreak instance:</p>
+<ul>
+<li>
+<p>If you deployed Cloudbreak in a new resource group: to delete Cloudbreak, delete the whole related resource group.</p>
+</li>
+<li>
+<p>If you deployed Cloudbreak in an existing resource group: navigate to the group and delete only Cloubdreak-related resources such as the VM.</p>
+</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>From the Microsoft Azure Portal dashboard, select <strong>Resource groups</strong>.</p>
+</li>
+<li>
+<p>Find the resource group that you want to delete.</p>
+</li>
+<li>
+<p>If you deployed Cloudbreak in a new resource group, you can delete the whole resource group. Click on <strong>...</strong> and select <strong>Delete</strong>:</p>
+<p><a href="../images/azure-delete.png" target="_blank" title="click to enlarge"><img src="../images/azure-delete.png" width="650" title="Azure Portal"></a>  </p>
+<p>Next, type the name of the resource group to delete and click <strong>Delete</strong>.</p>
+</li>
+<li>
+<p>If you deployed Cloudbreak in an existing resource group, navigate to the details of the resource group and delete only Cloudbreak-related resources such as the VM.    </p>
+</li>
+</ol>
+<h3 id="delete-cloudbreak-on-gcp">Delete Cloudbreak on GCP</h3>
+<p>You can delete Cloudbreak instance from your Google Cloud account. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Navigate to your Google Cloud account.</p>
+</li>
+<li>
+<p>Navigate to <strong>Compute Engine</strong> &gt; <strong>VM instances</strong>.</p>
+</li>
+<li>
+<p>Select the instance that to delete.</p>
+</li>
+<li>
+<p>Click on the delete icon and then confirm delete. </p>
+</li>
+</ol>
+<h3 id="deleting-cloudbreak-on-openstack">Deleting Cloudbreak on OpenStack</h3>
+<p>You can delete Cloudbreak instance from your OpeenStack console. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Navigate to your OpenStack account.</p>
+</li>
+<li>
+<p>Navigate to <strong>Instances</strong>.</p>
+</li>
+<li>
+<p>Select the instance to delete, click <strong>Terminate Instances</strong>, and confirm.</p>
+</li>
+</ol></div>
         
     </div>
 

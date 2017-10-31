@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cli/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cli-install/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>CLI - Cloudbreak</title>
+    <title>Install the CLI - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -98,12 +98,6 @@
                             
 <li >
     <a href="../architecture/index.html">Architecture</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
 </li>
 
                         
@@ -289,12 +283,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../ambari-db/index.html">Ambari Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -372,9 +360,24 @@
 
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CLI</a>
+    <ul class="dropdown-menu">
+        
+            
 <li class="active">
-    <a href="index.html">CLI</a>
+    <a href="index.html">Install the CLI</a>
 </li>
+
+        
+            
+<li >
+    <a href="../cli-using/index.html">Using the CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -416,33 +419,6 @@
   </li>
 
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../get-help/index.html">Getting Help</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../smartsense/index.html">SmartSense</a>
-</li>
-
-                        
                             
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Developer</a>
@@ -480,6 +456,39 @@
                     </li>
                 
                 
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
                 </ul>
             
 
@@ -491,7 +500,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../trouble-cb/index.html">
+                        <a rel="prev" href="../cli-using/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -516,15 +525,105 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#cloudbreak-shell">Cloudbreak Shell</a></li>
+        <li class="first-level active"><a href="#install-cloudbreak-cli">Install Cloudbreak CLI</a></li>
+        
+            <li class="second-level"><a href="#install">Install</a></li>
+            
+        
+            <li class="second-level"><a href="#configure">Configure</a></li>
+            
+        
+            <li class="second-level"><a href="#get-help">Get Help</a></li>
+            
+        
+            <li class="second-level"><a href="#debug">Debug</a></li>
+            
+        
+            <li class="second-level"><a href="#check-cli-version">Check CLI Version</a></li>
+            
+        
+            <li class="second-level"><a href="#command-structure">Command Structure</a></li>
+            
+        
+            <li class="second-level"><a href="#command-output">Command Output</a></li>
+            
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="cloudbreak-shell">Cloudbreak Shell</h2>
-<p>Coming soon... </p></div>
+<h2 id="install-cloudbreak-cli">Install Cloudbreak CLI</h2>
+<p>The Cloudbreak Command Line Interface (CLI) is a tool to help you manage your Cloudbreak cluster instances. This tool can be used to interact with Cloudbreak for automating cluster creation, management, monitoring, and termination. </p>
+<p>The CLI is available for Linux, Mac OS X, and Windows. </p>
+<h3 id="install">Install</h3>
+<p>After you have launched Cloudbreak, the CLI is available for download from that Cloudbreak instance.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>Browse to your Cloudbreak instance and log in to the Cloubdreak web UI.  </li>
+<li>From the menu, select <strong>Download CLI</strong>. The CLI is available for Linux, Mac OS X, and Windows.  </li>
+<li>Download the selected bundle to your local machine.  </li>
+<li>Extract the bundle.  </li>
+<li>You can optionally add <code>cb</code> to your system path.</li>
+<li>Run the executable to verify the CLI: 
+    <pre>cb --version</pre></li>
+</ol>
+<h3 id="configure">Configure</h3>
+<p>Once you have installed the CLI, you need to configure the CLI to work with Cloudbreak.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Use the <code>cb configure</code> command to set up the CLI configuration file. The configuration options are:  </p>
+<ul>
+<li><strong>--server</strong> server address [$CB_SERVER_ADDRESS]  </li>
+<li><strong>--username</strong> user name (e-mail address) [$CB_USER_NAME]  </li>
+<li><strong>--password</strong> password [$CB_PASSWORD]  </li>
+</ul>
+<p>The password configuration is optional. If you do not provide the password, no password is stored in the CLI configuration file. Therefore, you will need to provide the password with each command you execute or via an environment variable.</p>
+</li>
+<li>
+<p>The CLI configuration file will be saved at <code>~/.cb/config</code>.</p>
+</li>
+</ol>
+<div class="note">
+    <p class="first admonition-title">Configuration Precedence</p>
+    <p class="last">
+    The CLI can look for configuration options from different locations. You can optionally
+    pass the configuration options on each command or from environment variables. The following
+    order is used for the CLI to look for configuration options: <strong>Command Line</strong>, <strong>Environment Variables</strong>
+    and the <strong>Configuration File</strong>.
+    </p>
+</div>
+
+<h3 id="get-help">Get Help</h3>
+<p>To get CLI help, you can add help to the end of a command. The following will list help for the CLI at the top-level:</p>
+<pre>cb help</pre>
+
+<p>The following will list help for the create-cluster command, including its command options and global options:</p>
+<pre>cb create-cluster help</pre>
+
+<h3 id="debug">Debug</h3>
+<p>To use debugging mode, pass the <code>--debug</code> option. </p>
+<h3 id="check-cli-version">Check CLI Version</h3>
+<p>To check CLI version, use <code>cb --version</code>.</p>
+<h3 id="command-structure">Command Structure</h3>
+<p>The CLI command can contain multiple parts. The first part is a set of global options. The next part is the command. The next part is a set of command options and arguments which could include sub-commands.</p>
+<pre>cb [global options] command [command options] [arguments...]</pre>
+
+<h3 id="command-output">Command Output</h3>
+<p>You can control the output from the CLI using the --output argument. The possible output formats include:</p>
+<ul>
+<li>Formatted table (table)</li>
+<li>JSON (json)</li>
+</ul>
+<p>For example:</p>
+<pre>cb list-clusters --output json</pre>
+
+<pre>cb list-clusters --output table</pre>
+
+<div class="next">
+<a href="../cli-using/index.html">Next:Using Cloudbreak CLI</a>
+</div></div>
         
     </div>
 

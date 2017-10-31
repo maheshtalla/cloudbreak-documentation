@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/ambari-db/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cli-using/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Ambari Database - Cloudbreak</title>
+    <title>Using the CLI - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -98,12 +98,6 @@
                             
 <li >
     <a href="../architecture/index.html">Architecture</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
 </li>
 
                         
@@ -289,12 +283,6 @@
 </li>
 
         
-            
-<li class="active">
-    <a href="index.html">Ambari Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -372,9 +360,24 @@
 
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CLI</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../cli/index.html">CLI</a>
+    <a href="../cli-install/index.html">Install the CLI</a>
 </li>
+
+        
+            
+<li class="active">
+    <a href="index.html">Using the CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -416,33 +419,6 @@
   </li>
 
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../get-help/index.html">Getting Help</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../smartsense/index.html">SmartSense</a>
-</li>
-
-                        
                             
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Developer</a>
@@ -480,18 +456,51 @@
                     </li>
                 
                 
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
                 </ul>
             
 
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../images/index.html">
+                        <a rel="next" href="../cli-install/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../vm-launch/index.html">
+                        <a rel="prev" href="../trouble-cb/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -516,12 +525,18 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#ambari-database">Ambari Database</a></li>
+        <li class="first-level active"><a href="#using-cloudbreak-cli">Using Cloudbreak CLI</a></li>
         
-            <li class="second-level"><a href="#creating-and-configuring-a-remote-datatabase">Creating and Configuring a Remote Datatabase</a></li>
+            <li class="second-level"><a href="#credentials">Credentials</a></li>
             
         
-            <li class="second-level"><a href="#register-the-database-in-cloudbreak-ui">Register the Database in Cloudbreak UI</a></li>
+            <li class="second-level"><a href="#clusters">Clusters</a></li>
+            
+        
+            <li class="second-level"><a href="#blueprints">Blueprints</a></li>
+            
+        
+            <li class="second-level"><a href="#recipes">Recipes</a></li>
             
         
     
@@ -529,63 +544,35 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="ambari-database">Ambari Database</h2>
-<p>By default, Ambari uses an embedded database to store data. Ambari and Cloudbreak don't perform backups of this database, so although this database is sufficient for ephemeral or test clusters, it is not sufficient for long-running production clusters. Therefore, you may need to configure a remote database for Ambari in Cloudbreak.</p>
-<p>The overall steps are:  </p>
-<ol>
-<li>Configure a remote database. You have two options for configuring a remote database: you can set up a supported database on your own or use a cloud provider database service.  </li>
-<li>Next, you must pass the details to Cloudbreak during cluster creation, and Cloudbreak will configure Ambari to connect to that remote database. </li>
-</ol>
-<p>Cloudbreak supports out-of-the-box PostgreSQL, MariaDB, and MySQL. This means that if you are using any of these databases, you only need to create the database itself and configure user permissions to create the cluster. Cloudbreak will initialize database tables, relations, and default values, and will download JDBC driver for Ambari. For other databases, you have to execute create SQL on your database and deliver JDBC driver to <code>/opt/jdbc-drivers</code> directory on Ambari server node.</p>
-<h3 id="creating-and-configuring-a-remote-datatabase">Creating and Configuring a Remote Datatabase</h3>
-<p>Consider these constraints when setting up your remote datatabase:   </p>
-<ul>
-<li>Cloudbreak doesn't validate the database connection, so wrong connection parameters will cause the cluster installation to fail.  </li>
-<li>Your database must be available to the Ambari server. This means that:  <ul>
-<li>The database must be located in the same region as the Ambari cluster. Slow database connection will cause cluster installation to fail.  </li>
-<li>The database could be on a public server with firewall protection, but for security reasons we suggest that you use a private virtual network with subnet, and configure the Cloudbreak network to use existing resources.  </li>
-</ul>
-</li>
-<li>For the supported out-of-the-box databases, Cloudbreak creates the tables and upgrades Ambari if necessary, but performing any other operations on the database is your responsibility.  </li>
-<li>If you selected PostgreSQL, you must use the <code>public</code> schema. It is not possible to use a different schema for Ambari.  </li>
-<li>Database name, username, and password should not contain the <code>'</code> character. Other special characters are allowed.  </li>
-</ul>
-<h3 id="register-the-database-in-cloudbreak-ui">Register the Database in Cloudbreak UI</h3>
-<p>You can configure Ambari database during cluster creation. The option is available in advanced options, in the <strong>Configure Ambari Database</strong> tab. You must provide the following information:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Vendor</td>
-<td>Select database vendor from the list.</td>
-</tr>
-<tr>
-<td>Host</td>
-<td>Enter database host IP.</td>
-</tr>
-<tr>
-<td>Port</td>
-<td>Enter port number.</td>
-</tr>
-<tr>
-<td>Name</td>
-<td>Enter database name.</td>
-</tr>
-<tr>
-<td>User Name</td>
-<td>Enter database user name.</td>
-</tr>
-<tr>
-<td>Password</td>
-<td>Enter database password.</td>
-</tr>
-</tbody>
-</table></div>
+<h2 id="using-cloudbreak-cli">Using Cloudbreak CLI</h2>
+<p>This section will help you get started with the Cloudbreak CLI after you have <a href="../cli-install/index.html">installed and configured it</a>.</p>
+<h3 id="credentials">Credentials</h3>
+<p>Create Credential</p>
+<p>Delete Credential </p>
+<p>List Credentials </p>
+<p>Describe Credential</p>
+<h3 id="clusters">Clusters</h3>
+<p>Generate Cluster Template</p>
+<p>Create Cluster</p>
+<p>Scale Cluster</p>
+<p>Start</p>
+<p>Stop</p>
+<p>Sync </p>
+<p>Repair</p>
+<p>Change Ambari Password</p>
+<p>Delete Cluster</p>
+<p>List Clusters </p>
+<p>Describe Cluster</p>
+<h3 id="blueprints">Blueprints</h3>
+<p>Create Blueprint</p>
+<p>Delete Blueprint </p>
+<p>List Blueprints </p>
+<p>Describe Blueprint</p>
+<h3 id="recipes">Recipes</h3>
+<p>Create Recipe</p>
+<p>Delete Recipe </p>
+<p>List Recipes </p>
+<p>Describe Recipe</p></div>
         
     </div>
 

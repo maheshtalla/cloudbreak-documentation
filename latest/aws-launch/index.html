@@ -101,12 +101,6 @@
 </li>
 
                         
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
                         </ul>
                     </li>
                 
@@ -289,12 +283,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../ambari-db/index.html">Ambari Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -372,9 +360,24 @@
 
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CLI</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../cli/index.html">CLI</a>
+    <a href="../cli-install/index.html">Install the CLI</a>
 </li>
+
+        
+            
+<li >
+    <a href="../cli-using/index.html">Using the CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -416,33 +419,6 @@
   </li>
 
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../get-help/index.html">Getting Help</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../smartsense/index.html">SmartSense</a>
-</li>
-
-                        
                             
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Developer</a>
@@ -480,13 +456,46 @@
                     </li>
                 
                 
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
                 </ul>
             
 
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../releasenotes/index.html">
+                        <a rel="next" href="../architecture/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -655,21 +664,37 @@
 <tr>
 <td><strong>CloudbreakRole</strong></td>
 <td>Allows Cloudbreak to assume other IAM roles - specifically the CredentialRole.</td>
-<td><p>Create a role called "CloudbreakRole" and attach the "AssumeRole" policy. The "AssumeRole" policy definition is provided below.</p><p>Alternatively, you can generate the "CredentialRole" role later once your VM is running and once you have <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">configured AWS CLI</a> on your VM by running the <code>cbd aws generate-role</code> command. This command creates a role with the name "cbreak-deployer" (equivalent to the "CredentialRole"). To customize the name of the role, add <code>export AWS_ROLE_NAME=my-cloudbreak-role-name</code> (where "my-cloudbreak-role-name" is your custom role name) as a new line to your Profile.</p></td>
+<td>Create a role called "CloudbreakRole" and attach the "AssumeRole" policy. The "AssumeRole" policy definition and steps for creating the CloudbreakRole are provided below.</td>
 <td><p>When launching your Cloudbreak VM, during <strong>Step 3: Configure Instance Details</strong> &gt; <strong>IAM</strong>, you will attach the "CloudbreakRole" IAM role to the VM.</p></td>
 </tr>
 <tr>
 <td><strong>CredentialRole</strong></td>
 <td>Allows Cloudbreak to create AWS resources required for clusters.</td>
-<td><p>Create a new IAM role called "CredentialRole" and attach the "cb-policy" policy to it. The "cb-policy" policy definition is provided below.</p><p> When creating this role using the AWS Console, make sure that that it is a role for cross-account access and that the trust-relation is set up as follows: 'Account ID' is your own 12-digit AWS account ID and 'External ID' is “provision-ambari”.</p></td>
-<td>Once you log in to the Cloudbreak UI and are ready to create clusters, you will use this role to create the Cloudbreak Credential.</td>
+<td><p>Create a new IAM role called "CredentialRole" and attach the "cb-policy" policy to it. The "cb-policy" policy definition and steps for creating the CredentialRole are provided below.</p><p> When creating this role using the AWS Console, make sure that that it is a role for cross-account access and that the trust-relation is set up as follows: 'Account ID' is your own 12-digit AWS account ID and 'External ID' is “provision-ambari”. See steps below.</p></td>
+<td>Once you log in to the Cloudbreak UI and are ready to create clusters, you will use this role to create the Cloudbreak credential.</td>
 </tr>
 </tbody>
 </table>
-<p>You can create these roles in the <strong>IAM console</strong>, on the <strong>Roles</strong> page via the <strong>Create Role</strong> option. Detailed steps are provided below. </p>
-<p>For more information about IAM, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html" target="_blank">Using Instance Profiles</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html" target="_blank">Using an IAM Role to Grant Permissions to Applications Running on Amazon EC2 Instances</a>. </p>
+<blockquote>
+<p>The following alternative steps are available for the <strong>CloudbreakRole</strong>:</p>
+<p>Alternatively, you can generate the "CredentialRole" role later once your Cloudbreak VM is running and once you have <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">configured AWS CLI</a> on your VM, by running the <code>cbd aws generate-role</code> command. This command creates a role with the name "cbreak-deployer" (equivalent to the "CredentialRole"). To customize the name of the role, add <code>export AWS_ROLE_NAME=my-cloudbreak-role-name</code> (where "my-cloudbreak-role-name" is your custom role name) as a new line to your Profile.</p>
+<p>Alternatively, instead of attaching the "CloudbreakRole" role during the VM launch, you can assign the "CloudbreakRole" to an IAM user and then add the access and security key of that user to your 'Profile'.</p>
+</blockquote>
+<p>You can create these roles in the <strong>IAM console</strong>, on the <strong>Roles</strong> page via the <strong>Create Role</strong> option. Detailed steps are provided below. For more information about IAM, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html" target="_blank">Using Instance Profiles</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html" target="_blank">Using an IAM Role to Grant Permissions to Applications Running on Amazon EC2 Instances</a>. </p>
 <p><strong>Create CloudbreakRole</strong></p>
-<p>Use these steps to create CloudbreakRole.</p>
+<p>Use these steps to create CloudbreakRole. </p>
+<p>Use the following "AssumeRole" policy definition: </p>
+<pre>{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Sid": "Stmt1400068149000",
+    "Effect": "Allow",
+    "Action": ["sts:AssumeRole"],
+    "Resource": "*"
+  }
+}
+</pre>
+
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -692,7 +717,7 @@
 <p><a href="../images/aws_role-12.png" target="_blank" title="click to enlarge"><img src="../images/aws_role-12.png" width="650" title="IAM Console"></a>  </p>
 </li>
 <li>
-<p>In the <strong>Policy Name</strong> field, enter "AssumeRole" and in the <strong>Policy Document</strong> paste the policy declaration as provided in the previous step.</p>
+<p>In the <strong>Policy Name</strong> field, enter "AssumeRole" and in the <strong>Policy Document</strong> paste the policy definition provided above.</p>
 <p><a href="../images/aws_role-13.png" target="_blank" title="click to enlarge"><img src="../images/aws_role-13.png" width="650" title="IAM Console"></a>  </p>
 </li>
 <li>
@@ -706,7 +731,7 @@
 <p>When done, click <strong>Next: Review</strong>.</p>
 </li>
 <li>
-<p>In the <strong>Roles name</strong> field, enter "CloudbreakRole". </p>
+<p>In the <strong>Roles name</strong> field, enter role name, for example "CloudbreakRole". </p>
 <p><a href="../images/aws_role-15.png" target="_blank" title="click to enlarge"><img src="../images/aws_role-15.png" width="650" title="IAM Console"></a> </p>
 </li>
 <li>
@@ -715,6 +740,33 @@
 </ol>
 <p><strong>Create CredentialRole</strong></p>
 <p>Use these steps to create CredentialRole.</p>
+<p>Use the following "cb-policy" policy definition: </p>
+<pre>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [ "cloudformation:*" ],
+      "Resource": [ "*" ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [ "ec2:*" ],
+      "Resource": [ "*" ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [ "iam:PassRole" ],
+      "Resource": [ "*" ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [ "autoscaling:*" ],
+      "Resource": [ "*" ]
+    }
+  ]
+}</pre>
+
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -745,7 +797,7 @@
 <p>Copy the "cb-policy" policy definition (see below).   </p>
 </li>
 <li>
-<p>In the <strong>Policy Name</strong> field, enter "cb-policy" and in the <strong>Policy Document</strong> paste the policy declaration as provided below.</p>
+<p>In the <strong>Policy Name</strong> field, enter "cb-policy" and in the <strong>Policy Document</strong> paste the policy definition provided above.</p>
 <p><a href="../images/aws_role4.png" target="_blank" title="click to enlarge"><img src="../images/aws_role4.png" width="650" title="IAM Console"></a>  </p>
 </li>
 <li>
@@ -759,53 +811,13 @@
 <p>When done, click <strong>Next: Review</strong>.</p>
 </li>
 <li>
-<p>In the <strong>Roles name</strong> field, enter "CredentialRole". </p>
+<p>In the <strong>Roles name</strong> field, enter role name, for example "CredentialRole". </p>
 <p><a href="../images/aws_role6.png" target="_blank" title="click to enlarge"><img src="../images/aws_role6.png" width="650" title="IAM Console"></a> </p>
 </li>
 <li>
-<p>When done, click <strong>Create role</strong> to finish the role creation process.</p>
+<p>When done, click <strong>Create role</strong> to finish the role creation process. </p>
 </li>
 </ol>
-<p><strong>Policy Definitions</strong></p>
-<p>The "AssumeRole" policy definition: </p>
-<pre>{
-  "Version": "2012-10-17",
-  "Statement": {
-    "Sid": "Stmt1400068149000",
-    "Effect": "Allow",
-    "Action": ["sts:AssumeRole"],
-    "Resource": "*"
-  }
-}
-</pre>
-
-<p>The "cb-policy" policy definition: </p>
-<pre>{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [ "cloudformation:*" ],
-      "Resource": [ "*" ]
-    },
-    {
-      "Effect": "Allow",
-      "Action": [ "ec2:*" ],
-      "Resource": [ "*" ]
-    },
-    {
-      "Effect": "Allow",
-      "Action": [ "iam:PassRole" ],
-      "Resource": [ "*" ]
-    },
-    {
-      "Effect": "Allow",
-      "Action": [ "autoscaling:*" ],
-      "Resource": [ "*" ]
-    }
-  ]
-}</pre>
-
 <p>Once you are done, you can proceed to <a href="#launch-the-vm">Launch the VM</a>.   </p>
 <h3 id="launch-the-vm">Launch the VM</h3>
 <p>Now that you've met the prerequisites, you can launch the Cloudbreak deployer VM available as a Community AMI.</p>
@@ -914,7 +926,7 @@
 <li>You can obtain the host IP from the EC2 console &gt; <strong>Instances</strong> view by selecting the instance, selecting the <strong>Description</strong> tab, and copying the value of the <strong>Public DNS (IPv4)
 </strong> or <strong>IPv4 Public IP</strong> parameter.</li>
 </ul>
-<p>On Mac OS, you can SSH to the VM by running the following from the Terminal app: <code>ssh -i "your-private-key.pem" cloudnreak@instance_IP</code> where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.</p>
+<p>On Mac OS X, you can SSH to the VM by running the following from the Terminal app: <code>ssh -i "your-private-key.pem" cloudnreak@instance_IP</code> where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.</p>
 <p>On Windows, you can use <a href="http://www.putty.org/">PuTTy</a>.</p>
 <h3 id="launch-cloudbreak-deployer">Launch Cloudbreak Deployer</h3>
 <p>After accessing the VM via SSH, launch Cloudbreak deployer using the following steps.</p>
@@ -982,8 +994,8 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 </ul>
 </li>
 <li>
-<p>Upon a successful login, you are redirected to the Cluster dashboard:</p>
-<p><a href="../images/cloudbreak-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cloudbreak-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
+<p>Upon a successful login, you are redirected to the dashboard:</p>
+<p><a href="../images/cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 </ol>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak Credential</h3>
@@ -1004,7 +1016,7 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 </li>
 <li>
 <p>Under <strong>Cloud provider</strong>, select "Amazon Web Services":</p>
-<p><a href="../images/aws-cred-key.png" target="_blank" title="click to enlarge"><img src="../images/aws-cred-key.png" width="650" title="Cloudbreak web UI"></a>  </p>
+<p><a href="../images/cb-aws-cred-key.png" target="_blank" title="click to enlarge"><img src="../images/cb-aws-cred-key.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 <li>
 <p>Provide the following information:</p>
@@ -1059,7 +1071,7 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 </li>
 <li>
 <p>Under <strong>Cloud provider</strong>, select "Amazon Web Services":</p>
-<p><a href="../images/aws-cred-key.png" target="_blank" title="click to enlarge"><img src="../images/aws-cred-key.png" width="650" title="Cloudbreak web UI"></a>  </p>
+<p><a href="../images/cb-aws-cred-role.png" target="_blank" title="click to enlarge"><img src="../images/cb-aws-cred-role.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 <li>
 <p>Provide the following information:</p>

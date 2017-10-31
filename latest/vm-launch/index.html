@@ -101,12 +101,6 @@
 </li>
 
                         
-                            
-<li >
-    <a href="../releasenotes/index.html">Release Notes</a>
-</li>
-
-                        
                         </ul>
                     </li>
                 
@@ -289,12 +283,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../ambari-db/index.html">Ambari Database</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -372,9 +360,24 @@
 
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CLI</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../cli/index.html">CLI</a>
+    <a href="../cli-install/index.html">Install the CLI</a>
 </li>
+
+        
+            
+<li >
+    <a href="../cli-using/index.html">Using the CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                             
@@ -416,33 +419,6 @@
   </li>
 
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../faq/index.html">FAQs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../get-help/index.html">Getting Help</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../smartsense/index.html">SmartSense</a>
-</li>
-
-                        
                             
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Developer</a>
@@ -480,13 +456,46 @@
                     </li>
                 
                 
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
                 </ul>
             
 
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../ambari-db/index.html">
+                        <a rel="next" href="../images/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -531,15 +540,10 @@
             
                 <li class="third-level"><a href="#iptables">Iptables</a></li>
             
+                <li class="third-level"><a href="#more">More</a></li>
+            
         
             <li class="second-level"><a href="#install-cloudbreak-on-your-own-vm">Install Cloudbreak on Your Own VM</a></li>
-            
-        
-            <li class="second-level"><a href="#troubleshooting">Troubleshooting</a></li>
-            
-                <li class="third-level"><a href="#cbd-cannot-get-vms-public-ip">Cbd Cannot Get VM's Public IP</a></li>
-            
-                <li class="third-level"><a href="#permission-or-connection-problems">Permission or Connection Problems</a></li>
             
         
             <li class="second-level"><a href="#next-steps">Next Steps</a></li>
@@ -593,6 +597,14 @@ iptables --flush FORWARD && \
 service iptables save
 </pre>
 
+<h4 id="more">More</h4>
+<p>Additionally, review the following prerequisites: </p>
+<ul>
+<li><a href="../aws-launch/index.html#meet-the-prerequisites">Prerequisites on AWS</a></li>
+<li><a href="../azure-launch/index.html#meet-the-prerequisites">Prerequisites on Azure</a></li>
+<li><a href="../gcp-launch/index.html#meet-the-prerequisites">Prerequisites on GCP</a></li>
+<li><a href="../os-launch/index.html#meet-the-prerequisites">Prerequisites on OpenStack</a> </li>
+</ul>
 <h3 id="install-cloudbreak-on-your-own-vm">Install Cloudbreak on Your Own VM</h3>
 <p>Install Cloudbreak using the following steps.</p>
 <p><strong>Steps</strong></p>
@@ -642,28 +654,13 @@ cbd start</pre></p>
 <p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
 </li>
 </ol>
-<h3 id="troubleshooting">Troubleshooting</h3>
-<h4 id="cbd-cannot-get-vms-public-ip">Cbd Cannot Get VM's Public IP</h4>
-<p>By default the <code>cbd</code> tool tries to get the VM's public IP to bind Cloudbreak UI to it. But if <code>cbd</code> cannot get the IP address during the initialization, you must set it manually. Check your <code>Profile</code> and if <code>PUBLIC_IP</code> is not set, add the <code>PUBLIC_IP</code> variable and set it to the public IP of the VM. For example: </p>
-<pre>export PUBLIC_IP=192.134.23.10</pre>
-
-<h4 id="permission-or-connection-problems">Permission or Connection Problems</h4>
-<p>If you face permission or connection issues, disable SELinux:</p>
-<ol>
-<li>Set <code>SELINUX=disabled</code> in <code>/etc/selinux/config</code>.  </li>
-<li>Reboot the machine.  </li>
-<li>
-<p>Ensure the SELinux is not turned on afterwards:</p>
-<p><presetenforce 0 && sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/ selinux/config</pre></p>
-</li>
-</ol>
 <h3 id="next-steps">Next Steps</h3>
-<p>Follow the platform-specific instructions. Make sure to review the prerequisites for creating a Cloudbreak credential and then log in to the Cloudbreak web UI and create a credential for Cloubdreak.</p>
+<p>Log in to the Cloudbreak web UI and create a credential for Cloubdreak using the following platform-specific instructions:</p>
 <ul>
-<li><a href="../aws-launch/index.html">Launch on AWS</a></li>
-<li><a href="../azure-launch/index.html">Launch on Azure</a></li>
-<li><a href="../gcp-launch/index.html">Launch on GCP</a></li>
-<li><a href="../os-launch/index.html">Launch on OpenStack</a></li>
+<li><a href="../aws-launch/index.html#access-cloudbreak-ui">Access Cloudbreak UI on AWS</a></li>
+<li><a href="../azure-launch/index.html#access-cloudbreak-ui">Access Cloudbreak UI on Azure</a></li>
+<li><a href="../gcp-launch/index.html#access-cloudbreak-ui">Access Cloudbreak UI on GCP</a></li>
+<li><a href="../os-launch/index.html#access-cloudbreak-ui">Access Cloudbreak UI on OpenStack</a></li>
 </ul></div>
         
     </div>
