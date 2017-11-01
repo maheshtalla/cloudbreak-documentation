@@ -372,7 +372,7 @@
         
             
 <li >
-    <a href="../cli-using/index.html">Using the CLI</a>
+    <a href="../cli-reference/index.html">CLI Reference</a>
 </li>
 
         
@@ -500,7 +500,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../cli-using/index.html">
+                        <a rel="prev" href="../cli-reference/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -532,20 +532,18 @@
         
             <li class="second-level"><a href="#configure">Configure</a></li>
             
-        
-            <li class="second-level"><a href="#get-help">Get Help</a></li>
+                <li class="third-level"><a href="#add-multiple-configurations">Add Multiple Configurations</a></li>
+            
+                <li class="third-level"><a href="#configure-default-output">Configure Default Output</a></li>
             
         
-            <li class="second-level"><a href="#debug">Debug</a></li>
+            <li class="second-level"><a href="#getting-help">Getting Help</a></li>
             
         
-            <li class="second-level"><a href="#check-cli-version">Check CLI Version</a></li>
+            <li class="second-level"><a href="#debugging">Debugging</a></li>
             
         
-            <li class="second-level"><a href="#command-structure">Command Structure</a></li>
-            
-        
-            <li class="second-level"><a href="#command-output">Command Output</a></li>
+            <li class="second-level"><a href="#checking-cli-version">Checking CLI Version</a></li>
             
         
     
@@ -561,7 +559,8 @@
 <p><strong>Steps</strong></p>
 <ol>
 <li>Browse to your Cloudbreak instance and log in to the Cloubdreak web UI.  </li>
-<li>Select <strong>Download CLI</strong> from the menu. The CLI is available for Linux, Mac OS X, and Windows.  </li>
+<li>Select <strong>Download CLI</strong> from the navigation pane. </li>
+<li>Select your operating system. The CLI is available for Linux, Mac OS X, and Windows.  </li>
 <li>Download the selected bundle to your local machine.  </li>
 <li>Extract the bundle.  </li>
 <li>You can optionally add <code>cb</code> to your system path.</li>
@@ -582,9 +581,18 @@
 <li><strong>--password</strong> password [$CB_PASSWORD]  </li>
 </ul>
 <p>The password configuration is optional. If you do not provide the password, no password is stored in the CLI configuration file. Therefore, you will need to provide the password with each command you execute or via an environment variable.</p>
+<p>For example:</p>
+<p><pre>cb configure --server https://ec2-11-111-111-11.compute-1.amazonaws.com --username admin@hortonworks.com</pre></p>
 </li>
 <li>
-<p>The CLI configuration file will be saved at <code>~/.cb/config</code>.</p>
+<p>The CLI configuration file will be saved at <code>~/.cb/config</code>. The content will look similar to the following:</p>
+<p><pre>default:
+  username: admin@hortonworks.com
+  server: https://ec2-11-111-111-11.compute-1.amazonaws.com</pre></p>
+</li>
+<li>
+<p>Run any command to verify that you can connect to the Cloudbreak instance via CLI. For example:</p>
+<p><pre>cb list-clusters</pre>  </p>
 </li>
 </ol>
 <div class="note">
@@ -597,34 +605,36 @@
     </p>
 </div>
 
-<h3 id="get-help">Get Help</h3>
+<h4 id="add-multiple-configurations">Add Multiple Configurations</h4>
+<p>If you are using multiple profiles for multiple environments, you can manually add them as separate entries in the <code>config</code> file. For example:</p>
+<pre>default
+  username: admin@hortonworks.com
+  server: https://192.167.65.4
+staging
+  username: test@hortonworks.com
+  server: https://192.176.122.1  
+</pre>
+
+<h4 id="configure-default-output">Configure Default Output</h4>
+<p>By default, JSON format is used in command output. For example, if you run <code>cb list-clusters</code> without specifying output type, the output will be JSON. If you would like to change default output, add it to the config file. For example:</p>
+<pre>default
+  username: admin@hortonworks.com
+  server: https://192.167.65.4
+  output: table</pre>
+
+<h3 id="getting-help">Getting Help</h3>
 <p>To get CLI help, you can add help to the end of a command. The following will list help for the CLI at the top-level:</p>
 <pre>cb help</pre>
 
 <p>The following will list help for the create-cluster command, including its command options and global options:</p>
 <pre>cb create-cluster help</pre>
 
-<h3 id="debug">Debug</h3>
+<h3 id="debugging">Debugging</h3>
 <p>To use debugging mode, pass the <code>--debug</code> option. </p>
-<h3 id="check-cli-version">Check CLI Version</h3>
+<h3 id="checking-cli-version">Checking CLI Version</h3>
 <p>To check CLI version, use <code>cb --version</code>.</p>
-<h3 id="command-structure">Command Structure</h3>
-<p>The CLI command can contain multiple parts. The first part is a set of global options. The next part is the command. The next part is a set of command options and arguments which could include sub-commands.</p>
-<pre>cb [global options] command [command options] [arguments...]</pre>
-
-<h3 id="command-output">Command Output</h3>
-<p>You can control the output from the CLI using the --output argument. The possible output formats include:</p>
-<ul>
-<li>Formatted table (table)</li>
-<li>JSON (json)</li>
-</ul>
-<p>For example:</p>
-<pre>cb list-clusters --output json</pre>
-
-<pre>cb list-clusters --output table</pre>
-
 <div class="next">
-<a href="../cli-using/index.html">Next:Using Cloudbreak CLI</a>
+<a href="../cli-reference/index.html">Next: CLI Reference</a>
 </div></div>
         
     </div>

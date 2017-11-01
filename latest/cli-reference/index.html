@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cli-reference/index.html"> 
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <title>CLI Reference - Cloudbreak</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+
+
+    <link href="../css/extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-22950817-24', 'auto');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../index.html">Cloudbreak</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get Started <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../index.html">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../aws-launch/index.html">Launch on AWS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-clusters-manage/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-data/index.html">Access Data on S3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../azure-launch/index.html">Launch on Azure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-clusters-manage/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-data/index.html">Access Data on Azure</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gcp-launch/index.html">Launch on GCP</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-clusters-manage/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenStack <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../os-launch/index.html">Launch on Open Stack</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-create/index.html">Create a Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-clusters-access/index.html">Access Cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-clusters-manage/index.html">Manage and Monitor Clusters</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Advanced Cluster Options</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../blueprints/index.html">Blueprints</a>
+</li>
+
+        
+            
+<li >
+    <a href="../recipes/index.html">Recipes</a>
+</li>
+
+        
+            
+<li >
+    <a href="../tags/index.html">Resource Tagging</a>
+</li>
+
+        
+            
+<li >
+    <a href="../images/index.html">Custom Images</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Managing Cloudbreak</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../vm-launch/index.html">Install on Your Own VM</a>
+</li>
+
+        
+            
+<li >
+    <a href="../upgrade/index.html">Upgrade Clodbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../delete/index.html">Delete Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../credentials/index.html">Manage Cloudbreak Credentials</a>
+</li>
+
+        
+            
+<li >
+    <a href="../profile/index.html">Configure Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Security</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../security/index.html">Security Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb/index.html">Configure Basic Security</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-kerberos/index.html">Configure Kerberos</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CLI</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../cli-install/index.html">Install the CLI</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="index.html">CLI Reference</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Troubleshooting</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../trouble-cb/index.html">General Troubleshooting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-aws/index.html">Troubleshooting AWS</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-azure/index.html">Troubleshooting Azure</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-gcp/index.html">Troubleshooting GCP</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-os/index.html">Troubleshooting OpenStack</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Developer</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dev/index.html">Developer Docs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-spi/index.html">Cloudbreak SPI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-api/index.html">Cloudbreak APIs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dev-flows/index.html">Flow Diagrams</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting Help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li >
+                        <a rel="next" href="../cli-install/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../trouble-cb/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/hortonworks/cloudbreak-documentation">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#using-cloudbreak-cli">Using Cloudbreak CLI</a></li>
+        
+            <li class="second-level"><a href="#command-structure">Command Structure</a></li>
+            
+        
+            <li class="second-level"><a href="#command-output">Command Output</a></li>
+            
+        
+            <li class="second-level"><a href="#commands">Commands</a></li>
+            
+                <li class="third-level"><a href="#configure">configure</a></li>
+            
+                <li class="third-level"><a href="#create-credential">create-credential</a></li>
+            
+                <li class="third-level"><a href="#describe-credential">describe-credential</a></li>
+            
+                <li class="third-level"><a href="#list-credentials">list-credentials</a></li>
+            
+                <li class="third-level"><a href="#delete-credential">delete-credential</a></li>
+            
+                <li class="third-level"><a href="#create-blueprint">create-blueprint</a></li>
+            
+                <li class="third-level"><a href="#describe-blueprint">describe-blueprint</a></li>
+            
+                <li class="third-level"><a href="#list-blueprints">list-blueprints</a></li>
+            
+                <li class="third-level"><a href="#delete-blueprint">delete-blueprint</a></li>
+            
+                <li class="third-level"><a href="#generate-cluster-template">generate-cluster-template</a></li>
+            
+                <li class="third-level"><a href="#create-cluster">create-cluster</a></li>
+            
+                <li class="third-level"><a href="#describe-cluster">describe-cluster</a></li>
+            
+                <li class="third-level"><a href="#scale-cluster">scale-cluster</a></li>
+            
+                <li class="third-level"><a href="#start-cluster">start-cluster</a></li>
+            
+                <li class="third-level"><a href="#stop-cluster">stop-cluster</a></li>
+            
+                <li class="third-level"><a href="#sync-cluster">sync-cluster</a></li>
+            
+                <li class="third-level"><a href="#repair-cluster">repair-cluster</a></li>
+            
+                <li class="third-level"><a href="#change-ambari-password">change-ambari-password</a></li>
+            
+                <li class="third-level"><a href="#list-clusters">list-clusters</a></li>
+            
+                <li class="third-level"><a href="#delete-cluster">delete-cluster</a></li>
+            
+                <li class="third-level"><a href="#create-recipe">create-recipe</a></li>
+            
+                <li class="third-level"><a href="#describe-recipe">describe-recipe</a></li>
+            
+                <li class="third-level"><a href="#list-recipes">list-recipes</a></li>
+            
+                <li class="third-level"><a href="#delete-recipe">delete-recipe</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="using-cloudbreak-cli">Using Cloudbreak CLI</h2>
+<p>This section will help you get started with the Cloudbreak CLI after you have <a href="../cli-install/index.html">installed and configured it</a>.</p>
+<h3 id="command-structure">Command Structure</h3>
+<p>The CLI command can contain multiple parts. The first part is a set of global options. The next part is the command. The next part is a set of command options and arguments which could include sub-commands.</p>
+<pre>cb [global options] command [command options] [arguments...]</pre>
+
+<h3 id="command-output">Command Output</h3>
+<p>You can control the output from the CLI using the --output argument. The possible output formats include:</p>
+<ul>
+<li>JSON (<code>json</code>)</li>
+<li>YAML (<code>yaml</code>)</li>
+<li>Formatted table (<code>table</code>)</li>
+</ul>
+<p>For example:</p>
+<pre>cb list-clusters --output json</pre>
+
+<pre>cb list-clusters --output yaml</pre>
+
+<pre>cb list-clusters --output table</pre>
+
+<h3 id="commands">Commands</h3>
+<p>General:  </p>
+<ul>
+<li><a href="#configure">configure</a>  </li>
+</ul>
+<p>Credentials:  </p>
+<ul>
+<li><a href="#create-credential">create-credential</a>         </li>
+<li><a href="#describe-credential">describe-credential</a>        </li>
+<li><a href="#list-credentials">list-credentials</a>         </li>
+<li><a href="#delete-credential">delete-credential</a>   </li>
+</ul>
+<p>Blueprints:   </p>
+<ul>
+<li><a href="#create-blueprint">create-blueprint</a>           </li>
+<li><a href="#describe-blueprint">describe-blueprint</a>         </li>
+<li><a href="#list-blueprints">list-blueprints</a>           </li>
+<li><a href="#delete-blueprint">delete-blueprint</a>   </li>
+</ul>
+<p>Clusters: </p>
+<ul>
+<li><a href="#generate-cluster-template">generate-cluster-template</a>  </li>
+<li><a href="#create-cluster">create-cluster</a>             </li>
+<li><a href="#describe-cluster">describe-cluster</a>           </li>
+<li><a href="#scale-cluster">scale-cluster</a>      </li>
+<li><a href="#start-cluster">start-cluster</a>        </li>
+<li><a href="#stop-cluster">stop-cluster</a>              </li>
+<li><a href="#sync-cluster">sync-cluster</a>             </li>
+<li><a href="#repair-cluster">repair-cluster</a>            </li>
+<li><a href="#change-ambari-password">change-ambari-password</a>     </li>
+<li><a href="#list-clusters">list-clusters</a>             </li>
+<li><a href="#delete-cluster">delete-cluster</a>  </li>
+</ul>
+<p>Recipes:  </p>
+<ul>
+<li><a href="#create-recipe">create-recipe</a>              </li>
+<li><a href="#describe-recipe">describe-recipe</a>            </li>
+<li><a href="#list-recipes">list-recipes</a>              </li>
+<li><a href="#delete-recipe">delete-recipe</a>               </li>
+</ul>
+<hr />
+<h4 id="configure">configure</h4>
+<p>Configures the Cloudbreak server address and credentials used to communicate with this server.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--server value</code></strong>       server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username value</code></strong>      user name (e-mail address) [$CB_USER_NAME]  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--password value</code></strong>  password [$CB_PASSWORD]<br />
+<strong><code>--profile value</code></strong>   selects a config profile to use [$CB_PROFILE] <br />
+<strong><code>--output value</code></strong>    supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  </p>
+<p><strong>Examples</strong></p>
+<p>This example configures the server address with username and password:</p>
+<pre>cb configure --server https://ec2-11-111-111-11.compute-1.amazonaws.com --username admin@hortonworks.com --password MySecurePassword123</pre>
+
+<p>This example configures the server address with username but without a password:</p>
+<pre>cb configure --server https://ec2-11-111-111-11.compute-1.amazonaws.com --username admin@hortonworks.com</pre>
+
+<hr />
+<h4 id="create-credential">create-credential</h4>
+<p>Creates a new Cloudbreak credential.</p>
+<p><strong>Commands</strong></p>
+<p><strong><code>aws role-based</code></strong>  Creates a new AWS credential<br />
+<strong><code>aws key-based</code></strong>  Creates a new AWS credential<br />
+<strong><code>azure app-based</code></strong> Creates a new app-based Azure credential<br />
+<strong><code>gcp</code></strong> Creates a new gcp credential<br />
+<strong><code>openstack keystone-v2</code></strong> Creates a new OpenStack credential<br />
+<strong><code>openstack keystone-v3</code></strong> Creates a new OpenStack credential </p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>aws role-based</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Credential name<br />
+<strong><code>--role-arn &lt;value&gt;</code></strong> IAM Role ARN of the role used for Cloudbreak credential  </p>
+<p><strong><code>aws key-based</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Credential name<br />
+<strong><code>--access-key &lt;value&gt;</code></strong>  AWS Access Key<br />
+<strong><code>--secret-key &lt;value&gt;</code></strong>  AWS Secret Key  </p>
+<p><strong><code>azure app-based</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Credential name<br />
+<strong><code>--subscription-id &lt;value&gt;</code></strong>  Subscription ID from your Azure Subscriptions<br />
+<strong><code>--tenant-id &lt;value&gt;</code></strong>  Directory ID from your Azure Active Directory &gt; Properties    <br />
+<strong><code>--app-id &lt;value&gt;</code></strong>  Application ID of your app from your Azure Active Directory &gt; App Registrations          <br />
+<strong><code>--app-password &lt;value&gt;</code></strong>  Your application key from app registration's Settings &gt; Keys  </p>
+<p><strong><code>gcp</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Credential name <br />
+<strong><code>--project-id &lt;value&gt;</code></strong>  Project ID from your GCP account                      <br />
+<strong><code>--service-account-id &lt;value&gt;</code></strong>  Your GCP Service account ID from IAM &amp; Admin &gt; Service accounts               <br />
+<strong><code>--service-account-private-key-file &lt;value&gt;</code></strong>  P12 key from your GCP service account  </p>
+<p><strong><code>openstack keystone-v2</code></strong>  </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Credential name<br />
+<strong><code>--tenant-user &lt;value&gt;</code></strong>  OpenStack user name   <br />
+<strong><code>--tenant-password &lt;value&gt;</code></strong>  OpenStack password<br />
+<strong><code>--tenant-name &lt;value&gt;</code></strong>  OpenStack tenant name    <br />
+<strong><code>--endpoint &lt;value&gt;</code></strong>   OpenStack endpoint   </p>
+<p><strong><code>openstack keystone-v3</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Credential name<br />
+<strong><code>--tenant-user &lt;value&gt;</code></strong>  OpenStack user name   <br />
+<strong><code>--tenant-password &lt;value&gt;</code></strong>  OpenStack password<br />
+<strong><code>--user-domain &lt;value&gt;</code></strong>  OpenStack user domain    <br />
+<strong><code>--endpoint &lt;value&gt;</code></strong>   OpenStack endpoint  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description of the resource<br />
+<strong><code>--public</code></strong>  Public in account<br />
+<strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE]  </p>
+<p>Additionally, the following option is available for OpenStack Keystone2 and Keystone3:</p>
+<p><strong><code>--facing &lt;value&gt;</code></strong> API facing. One of: public, admin, internal</p>
+<p>Additionally, the following option is available for OpenStack Keystone3:</p>
+<p><strong><code>--keystone-scope &lt;value&gt;</code></strong> OpenStack keystone scope. One of: default, domain, project </p>
+<p><strong>Examples</strong></p>
+<p>Creates a role-based credential on AWS:</p>
+<pre>cb create-credential aws role-based --name my-credential1 --role-arn arn:aws:iam::517127065441:role/CredentialRole</pre>
+
+<p>Creates a key-based credential on AWS:</p>
+<pre>cb create-credential aws key-based --name my-credential2 --access-key ABDVIRDFV3K4HLJ45SKA --secret-key D89L5pOPM+426Rtj3curKzJEJL3lYoNcP8GvguBV</pre>
+
+<p>Creates an app-based credential on Azure:</p>
+<pre>cb create-credential azure app-based --name my-credential3 --subscription-id b8e7379e-568g-55d3-na82-45b8d421e998 --tenant-id  c79n5399-3231-65ba-8dgg-2g4e2a40085e --app-id 6d147d89-48d2-5de2-eef8-b89775bbfcg1 --app-password 4a8hBgfI52s/C8R5Sea2YHGnBFrD3fRONfdG8w7F2Ua=</pre>
+
+<p>Creates a credential on Google Cloud:</p>
+<pre>cb create-credential gcp --name my-credential4 --project-id test-proj --service-account-id test@test-proj.iam.gserviceaccount.com --service-account-private-key-file /Users/test/3fff57a6f68e.p12</pre>
+
+<p>Creates a role-based credential on OpenStack with Keystone-v2:</p>
+<pre>cb create-credential openstack keystone-v2 --name my-credential5 --tenant-user test --tenant-password MySecurePass123 --tenant-name test --endpoint http://openstack.test.organization.com:5000/v2.0</pre>
+
+<hr />
+<h4 id="describe-credential">describe-credential</h4>
+<p>Describes an existing credential.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name of the credential </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb describe-credential --name testcred
+{
+  "Name": "testcred",
+  "Description": "",
+  "CloudPlatform": "AZURE"
+}</pre>
+
+<hr />
+<h4 id="list-credentials">list-credentials</h4>
+<p>Lists existing Cloudbreak credentials.</p>
+<p><strong>Required Options</strong></p>
+<p>None</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<p>Lists credentials:</p>
+<pre>cb list-credentials
+[
+  {
+    "Name": "testcred",
+    "Description": "",
+    "CloudPlatform": "AZURE"
+  }
+]
+</pre>
+
+<p>Lists credentials, with output formatted in a table format:</p>
+<pre>cb list-credentials --output table
++---------+-------------+---------------+
+|  NAME   | DESCRIPTION | CLOUDPLATFORM |
++---------+-------------+---------------+
+| armcred |             | AZURE         |
++---------+-------------+---------------+</pre>
+
+<hr />
+<h4 id="delete-credential">delete-credential</h4>
+<p>Deletes an existing Cloudbreak credential.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&lt;</code></strong>  Name of the credential </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE] </p>
+<p><strong>Examples</strong></p>
+<pre>cb delete-credential --name test-cred</pre>
+
+<hr />
+<h4 id="create-blueprint">create-blueprint</h4>
+<p>Adds a new blueprint from a file or from a URL.</p>
+<p><strong>Commands</strong></p>
+<p><strong><code>from-url</code></strong> Creates a blueprint by downloading it from a URL location<br />
+<strong><code>from-file</code></strong> Creates a blueprint by reading it from a local file</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>from-url</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint<br />
+<strong><code>--url &lt;value&gt;</code></strong> URL location of the Ambari blueprint JSON file</p>
+<p><strong><code>from-file</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint<br />
+<strong><code>--file &lt;value&gt;</code></strong> Location of the Ambari blueprint JSON file on the local machine</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description of the resource<br />
+<strong><code>--public</code></strong>  Public in account<br />
+<strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE] </p>
+<p><strong>Examples</strong></p>
+<p>Adds a blueprint from a URL:</p>
+<pre>cb create-blueprint from-url --url https://someurl.com/test.bp --name test1</pre>
+
+<p>Adds a blueprint from a local file:</p>
+<pre>cb create-blueprint from-file --file /Users/test/Documents/blueprints/test.bp --name test2</pre>
+
+<hr />
+<h4 id="describe-blueprint">describe-blueprint</h4>
+<p>Describes an existing blueprint.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb describe-blueprint --name "Data Science: Apache Spark 2.1, Apache Zeppelin 0.7.0"
+{
+  "Name": "Data Science: Apache Spark 2.1, Apache Zeppelin 0.7.0",
+  "Description": "Data Science: Apache Spark 2.1, Apache Zeppelin 0.7.0",
+  "HDPVersion": "2.6",
+  "HostgroupCount": "3",
+  "Tags": "DEFAULT"
+}</pre>
+
+<hr />
+<h4 id="list-blueprints">list-blueprints</h4>
+<p>Lists available blueprints.</p>
+<p><strong>Required Options</strong></p>
+<p>Nome</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong> Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  </p>
+<p><strong>Examples</strong></p>
+<pre>cb list-blueprints
+[
+  {
+    "Name": "Data Science: Apache Spark 2.1, Apache Zeppelin 0.7.0",
+    "Description": "Data Science: Apache Spark 2.1, Apache Zeppelin 0.7.0",
+    "HDPVersion": "2.6",
+    "HostgroupCount": "3",
+    "Tags": "DEFAULT"
+  },
+  {
+    "Name": "EDW-ETL: Apache Hive 1.2.1, Apache Spark 2.1",
+    "Description": "EDW-ETL: Apache Hive 1.2.1, Apache Spark 2.1",
+    "HDPVersion": "2.6",
+    "HostgroupCount": "3",
+    "Tags": "DEFAULT"
+  },
+  {
+    "Name": "26EDW-ETL: Apache Hive 1.2.1, Apache Spark 1.6",
+    "Description": "26EDW-ETL: Apache Hive 1.2.1, Apache Spark 1.6",
+    "HDPVersion": "2.6",
+    "HostgroupCount": "3",
+    "Tags": "DEFAULT"
+  },
+  {
+    "Name": "Data Science: Apache Spark 1.6, Apache Zeppelin 0.7.0",
+    "Description": "Data Science: Apache Spark 1.6, Apache Zeppelin 0.7.0",
+    "HDPVersion": "2.6",
+    "HostgroupCount": "3",
+    "Tags": "DEFAULT"
+  },
+  {
+    "Name": "BI: Druid 0.9.2 (Technical Preview)",
+    "Description": "BI: Druid 0.9.2 (Technical Preview)",
+    "HDPVersion": "2.6",
+    "HostgroupCount": "3",
+    "Tags": "DEFAULT"
+  },
+  {
+    "Name": "EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0",
+    "Description": "EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0",
+    "HDPVersion": "2.6",
+    "HostgroupCount": "3",
+    "Tags": "DEFAULT"
+  },
+  {
+    "Name": "EDW-ETL: Apache Hive 1.2.1, Apache Spark 1.6",
+    "Description": "EDW-ETL: Apache Hive 1.2.1, Apache Spark 1.6",
+    "HDPVersion": "2.6",
+    "HostgroupCount": "3",
+    "Tags": "DEFAULT"
+  }
+]</pre>
+
+<hr />
+<h4 id="delete-blueprint">delete-blueprint</h4>
+<p>Deletes an existing blueprint.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE] </p>
+<p><strong>Examples</strong></p>
+<pre>cb delete-blueprint --name "testbp"</pre>
+
+<hr />
+<h4 id="generate-cluster-template">generate-cluster-template</h4>
+<p>Generates a cluster template in JSON format.</p>
+<p><strong>Commands</strong></p>
+<p><strong><code>aws new-network</code></strong> Generates an AWS cluster JSON template with new network<br />
+<strong><code>aws existing-network</code></strong> Generates an AWS cluster JSON template with existing network<br />
+<strong><code>aws existing-subnet</code></strong> Generates an AWS cluster JSON template with existing network and subnet  </p>
+<p><strong><code>azure new-network</code></strong> Generates an Azure cluster JSON template with new network<br />
+<strong><code>azure existing-subnet</code></strong> Generates an Azure cluster JSON template with existing network and subnet  </p>
+<p><strong><code>gcp new-network</code></strong> Generates an GCP cluster JSON template with new network<br />
+<strong><code>gcp existing-network</code></strong> Generates an GCP cluster JSON template with existing network <br />
+<strong><code>gcp existing-subnet</code></strong> Generates an GCP cluster JSON template with existing network and subnet<br />
+<strong><code>gcp legacy-network</code></strong> Generates an GCP cluster JSON template with legacy network without subnets    </p>
+<p><strong><code>openstack new-network</code></strong> Generates an OS cluster JSON template with new network <br />
+<strong><code>openstack existing-network</code></strong> Generates an OS cluster JSON template with existing network <br />
+<strong><code>openstack existing-subnet</code></strong> Generates an OS cluster JSON template with existing network and subnet   </p>
+<hr />
+<h4 id="create-cluster">create-cluster</h4>
+<p>Creates a new cluster based on a JSON template.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the cluster<br />
+<strong><code>--cli-input-json &lt;value&gt;</code></strong>  User provided file in JSON format  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description of resource <br />
+<strong><code>--public</code></strong>  Public in account <br />
+<strong><code>--input-json-param-password &lt;value&gt;</code></strong>  Password for the cluster and Ambari <br />
+<strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required <br />
+<strong><code>--server &lt;value&gt;</code></strong>   Server address   [$CB_SERVER_ADDRESS] <br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]  </p>
+<p><strong>Examples</strong></p>
+<p>Creates a cluster called "testcluster" based on a local JSON file called "mytemplate.json" located in the /Users/test/Documents directory:   </p>
+<pre>cb create-cluster --name testcluster --cli-input-json /Users/test/Documents/mytemplate.json</pre>
+
+<hr />
+<h4 id="describe-cluster">describe-cluster</h4>
+<p>Describes an existing cluster.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  </p>
+<p><strong>Examples</strong></p>
+<p>Returns a JSON file describing an existing cluster called "test1234":</p>
+<pre>./cb describe-cluster --name test1234</pre>
+
+<p>The command returns JSON output which due to space limitation was not captured in the example.</p>
+<hr />
+<h4 id="scale-cluster">scale-cluster</h4>
+<p>Scales a cluster by adding or removing nodes.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name of the cluster
+<strong><code>--group-name &lt;value&gt;</code></strong>  Name of the group to scale
+<strong><code>--desired-node-count &lt;value&gt;</code></strong>  Desired number of nodes</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  </p>
+<p><strong>Examples</strong></p>
+<pre>cb scale-cluster --name test1234 --group-name worker --desired node-count 3</pre>
+
+<hr />
+<h4 id="start-cluster">start-cluster</h4>
+<p>Starts a cluster which has previously been stopped.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb start-cluster --name test1234</pre>
+
+<hr />
+<h4 id="stop-cluster">stop-cluster</h4>
+<p>Stops a cluster.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb stop-cluster --name test1234</pre>
+
+<hr />
+<h4 id="sync-cluster">sync-cluster</h4>
+<p>Synchronizes a cluster with the cloud provider.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb sync-cluster --name test1234</pre>
+
+<hr />
+<h4 id="repair-cluster">repair-cluster</h4>
+<p>Repairs a cluster if cluster installation failed.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb repair-cluster --name test1234</pre>
+
+<hr />
+<h4 id="change-ambari-password">change-ambari-password</h4>
+<p>Changes Ambari password.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name<br />
+<strong><code>--old-password &lt;value&gt;</code></strong> Old Ambari password <br />
+<strong><code>--new-password &lt;value&gt;</code></strong>  New Ambari password  <br />
+<strong><code>--ambari-user</code></strong>  Ambari user   </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<p>Changes password for Ambari user called "admin" for a cluster called "test1234":</p>
+<pre>cb change-ambari-password --name test1234 --old-password 123456 --new-password Ambari123456 --ambari-user admin</pre>
+
+<hr />
+<h4 id="list-clusters">list-clusters</h4>
+<p>Lists all clusters which are currently associated with the Cloudbreak instance.</p>
+<p><strong>Required Options</strong></p>
+<p>None</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<p>Lists available clusters: </p>
+<pre>cb list-clusters
+[
+  {
+    "Name": "test1234",
+    "Description": "",
+    "CloudPlatform": "AZURE",
+    "StackStatus": "UPDATE_IN_PROGRESS",
+    "ClusterStatus": "REQUESTED"
+  }
+]</pre>
+
+<p>Lists available clusters, with output in a table format:</p>
+<pre>cb list-clusters --output table
++----------+-------------+---------------+--------------------+---------------+
+|   NAME   | DESCRIPTION | CLOUDPLATFORM |    STACKSTATUS     | CLUSTERSTATUS |
++----------+-------------+---------------+--------------------+---------------+
+| test1234 |             | AZURE         | UPDATE_IN_PROGRESS | REQUESTED     |
++----------+-------------+---------------+--------------------+---------------+</pre>
+
+<hr />
+<h4 id="delete-cluster">delete-cluster</h4>
+<p>Deletes an existing cluster. </p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--force</code></strong>  Force the operation<br />
+<strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]   </p>
+<p><strong>Examples</strong></p>
+<pre>cb delete-cluster --name test1234</pre>
+
+<hr />
+<h4 id="create-recipe">create-recipe</h4>
+<p>Adds a new recipe from a file or from a URL.</p>
+<p><strong>Commands</strong></p>
+<p><strong><code>from-url</code></strong>  Creates a recipe by downloading it from a URL location<br />
+<strong><code>from-file</code></strong>  Creates a recipe by reading it from a local file  </p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>from-url</code></strong>  </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe <br />
+<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre, post]<br />
+<strong><code>--url &lt;value&gt;</code></strong>  URL location of the Ambari blueprint JSON file  </p>
+<p><strong><code>from-file</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe<br />
+<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre, post]<br />
+<strong><code>--file &lt;value&gt;</code></strong>  Location of the Ambari blueprint JSON file  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description for the recipe <br />
+<strong><code>--public</code></strong>   Public in account<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]  </p>
+<p><strong>Examples</strong></p>
+<p>Adds a new recipe called "test1" from a URL:</p>
+<pre>cb create-recipe from-url --name "test1" --execution post --url http://some-site.com/test.sh</pre>
+
+<p>Adds a new recipe called "test2" from a file:</p>
+<pre>cb create-recipe from-url --name "test2" --execution post --file /Users/test/Documents/test.sh</pre>
+
+<hr />
+<h4 id="describe-recipe">describe-recipe</h4>
+<p>Describes an existing recipe.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe    </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<p>Describes a recipe called "test":</p>
+<pre>cb describe-recipe --name test
+{
+  "Name": "test",
+  "Description": "",
+  "ExecutionType": "POST"
+}</pre>
+
+<p>Describes a recipe called "test", with output presented in a table format:</p>
+<pre>cb describe-recipe --name test --output table
++------+-------------+----------------+
+| NAME | DESCRIPTION | EXECUTION TYPE |
++------+-------------+----------------+
+| test |             | POST           |
++------+-------------+----------------+</pre>
+
+<hr />
+<h4 id="list-recipes">list-recipes</h4>
+<p>Lists all available recipes.</p>
+<p><strong>Required Options</strong></p>
+<p>None</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<p>Lists existing recipes:</p>
+<pre>cb list-recipes
+[
+  {
+    "Name": "test",
+    "Description": "",
+    "ExecutionType": "POST"
+  }
+]</pre>
+
+<p>Lists existing recipes, with output presented in a table format:</p>
+<pre>cb list-recipes --output table
++------+-------------+----------------+
+| NAME | DESCRIPTION | EXECUTION TYPE |
++------+-------------+----------------+
+| test |             | POST           |
++------+-------------+----------------+
+</pre>
+
+<hr />
+<h4 id="delete-recipe">delete-recipe</h4>
+<p>Deletes an existing recipe.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb delete-recipe --name test</pre></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>© 2011-2017 <a href="http://www.hortonworks.com" target="_blank">Hortonworks Inc</a>. All Rights Reserved. | <a href="http://hortonworks.com/privacy-policy/" target="_blank">Privacy Policy</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
