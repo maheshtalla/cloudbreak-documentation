@@ -535,29 +535,45 @@
         
             <li class="second-level"><a href="#commands">Commands</a></li>
             
+                <li class="third-level"><a href="#change-ambari-password">change-ambari-password</a></li>
+            
                 <li class="third-level"><a href="#configure">configure</a></li>
-            
-                <li class="third-level"><a href="#create-credential">create-credential</a></li>
-            
-                <li class="third-level"><a href="#describe-credential">describe-credential</a></li>
-            
-                <li class="third-level"><a href="#list-credentials">list-credentials</a></li>
-            
-                <li class="third-level"><a href="#delete-credential">delete-credential</a></li>
             
                 <li class="third-level"><a href="#create-blueprint">create-blueprint</a></li>
             
-                <li class="third-level"><a href="#describe-blueprint">describe-blueprint</a></li>
+                <li class="third-level"><a href="#create-cluster">create-cluster</a></li>
             
-                <li class="third-level"><a href="#list-blueprints">list-blueprints</a></li>
+                <li class="third-level"><a href="#create-credential">create-credential</a></li>
             
                 <li class="third-level"><a href="#delete-blueprint">delete-blueprint</a></li>
             
-                <li class="third-level"><a href="#generate-cluster-template">generate-cluster-template</a></li>
+                <li class="third-level"><a href="#create-recipe">create-recipe</a></li>
             
-                <li class="third-level"><a href="#create-cluster">create-cluster</a></li>
+                <li class="third-level"><a href="#delete-cluster">delete-cluster</a></li>
+            
+                <li class="third-level"><a href="#delete-credential">delete-credential</a></li>
+            
+                <li class="third-level"><a href="#delete-recipe">delete-recipe</a></li>
+            
+                <li class="third-level"><a href="#describe-blueprint">describe-blueprint</a></li>
             
                 <li class="third-level"><a href="#describe-cluster">describe-cluster</a></li>
+            
+                <li class="third-level"><a href="#describe-credential">describe-credential</a></li>
+            
+                <li class="third-level"><a href="#describe-recipe">describe-recipe</a></li>
+            
+                <li class="third-level"><a href="#generate-cluster-template">generate-cluster-template</a></li>
+            
+                <li class="third-level"><a href="#list-blueprints">list-blueprints</a></li>
+            
+                <li class="third-level"><a href="#list-clusters">list-clusters</a></li>
+            
+                <li class="third-level"><a href="#list-credentials">list-credentials</a></li>
+            
+                <li class="third-level"><a href="#list-recipes">list-recipes</a></li>
+            
+                <li class="third-level"><a href="#repair-cluster">repair-cluster</a></li>
             
                 <li class="third-level"><a href="#scale-cluster">scale-cluster</a></li>
             
@@ -566,22 +582,6 @@
                 <li class="third-level"><a href="#stop-cluster">stop-cluster</a></li>
             
                 <li class="third-level"><a href="#sync-cluster">sync-cluster</a></li>
-            
-                <li class="third-level"><a href="#repair-cluster">repair-cluster</a></li>
-            
-                <li class="third-level"><a href="#change-ambari-password">change-ambari-password</a></li>
-            
-                <li class="third-level"><a href="#list-clusters">list-clusters</a></li>
-            
-                <li class="third-level"><a href="#delete-cluster">delete-cluster</a></li>
-            
-                <li class="third-level"><a href="#create-recipe">create-recipe</a></li>
-            
-                <li class="third-level"><a href="#describe-recipe">describe-recipe</a></li>
-            
-                <li class="third-level"><a href="#list-recipes">list-recipes</a></li>
-            
-                <li class="third-level"><a href="#delete-recipe">delete-recipe</a></li>
             
         
     
@@ -650,6 +650,24 @@
 <li><a href="#delete-recipe">delete-recipe</a>               </li>
 </ul>
 <hr />
+<h4 id="change-ambari-password">change-ambari-password</h4>
+<p>Changes Ambari password.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name<br />
+<strong><code>--old-password &lt;value&gt;</code></strong> Old Ambari password <br />
+<strong><code>--new-password &lt;value&gt;</code></strong>  New Ambari password  <br />
+<strong><code>--ambari-user</code></strong>  Ambari user   </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<p>Changes password for Ambari user called "admin" for a cluster called "test1234":</p>
+<pre>cb change-ambari-password --name test1234 --old-password 123456 --new-password Ambari123456 --ambari-user admin</pre>
+
+<hr />
 <h4 id="configure">configure</h4>
 <p>Configures the Cloudbreak server address and credentials used to communicate with this server.</p>
 <p><strong>Required Options</strong></p>
@@ -666,6 +684,58 @@
 <p>This example configures the server address with username but without a password:</p>
 <pre>cb configure --server https://ec2-11-111-111-11.compute-1.amazonaws.com --username admin@hortonworks.com</pre>
 
+<p><strong>Related Links</strong></p>
+<p><a href="../cli-install/index.html#configure">Configure CLI</a></p>
+<hr />
+<h4 id="create-blueprint">create-blueprint</h4>
+<p>Adds a new blueprint from a file or from a URL.</p>
+<p><strong>Commands</strong></p>
+<p><strong><code>from-url</code></strong> Creates a blueprint by downloading it from a URL location<br />
+<strong><code>from-file</code></strong> Creates a blueprint by reading it from a local file</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>from-url</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint<br />
+<strong><code>--url &lt;value&gt;</code></strong> URL location of the Ambari blueprint JSON file</p>
+<p><strong><code>from-file</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint<br />
+<strong><code>--file &lt;value&gt;</code></strong> Location of the Ambari blueprint JSON file on the local machine</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description of the resource<br />
+<strong><code>--public</code></strong>  Public in account<br />
+<strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE] </p>
+<p><strong>Examples</strong></p>
+<p>Adds a blueprint from a URL:</p>
+<pre>cb create-blueprint from-url --url https://someurl.com/test.bp --name test1</pre>
+
+<p>Adds a blueprint from a local file:</p>
+<pre>cb create-blueprint from-file --file /Users/test/Documents/blueprints/test.bp --name test2</pre>
+
+<p><strong>Related Links</strong></p>
+<p><a href="../blueprints/index.html">Blueprints</a></p>
+<hr />
+<h4 id="create-cluster">create-cluster</h4>
+<p>Creates a new cluster based on a JSON template.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the cluster<br />
+<strong><code>--cli-input-json &lt;value&gt;</code></strong>  User provided file in JSON format  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description of resource <br />
+<strong><code>--public</code></strong>  Public in account <br />
+<strong><code>--input-json-param-password &lt;value&gt;</code></strong>  Password for the cluster and Ambari <br />
+<strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required <br />
+<strong><code>--server &lt;value&gt;</code></strong>   Server address   [$CB_SERVER_ADDRESS] <br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]  </p>
+<p><strong>Examples</strong></p>
+<p>Creates a cluster called "testcluster" based on a local JSON file called "mytemplate.json" located in the /Users/test/Documents directory:   </p>
+<pre>cb create-cluster --name testcluster --cli-input-json /Users/test/Documents/mytemplate.json</pre>
+
+<p><strong>Related Commands</strong></p>
+<p><a href="#generate-cluster-template">generate-cluster-template</a></p>
 <hr />
 <h4 id="create-credential">create-credential</h4>
 <p>Creates a new Cloudbreak credential.</p>
@@ -734,56 +804,74 @@
 <p>Creates a role-based credential on OpenStack with Keystone-v2:</p>
 <pre>cb create-credential openstack keystone-v2 --name my-credential5 --tenant-user test --tenant-password MySecurePass123 --tenant-name test --endpoint http://openstack.test.organization.com:5000/v2.0</pre>
 
+<p><strong>Related Links</strong></p>
+<p><a href="../aws-launch/index.html#create-credential">Create Credential on AWS</a><br />
+<a href="../azure-launch/index.html#create-credential">Create Credential on Azure</a><br />
+<a href="../gcp-launch/index.html#create-credential">Create Credential on GCP</a><br />
+<a href="../os-launch/index.html#create-credential">Create Credential on OpenStack</a>  </p>
 <hr />
-<h4 id="describe-credential">describe-credential</h4>
-<p>Describes an existing credential.</p>
+<h4 id="delete-blueprint">delete-blueprint</h4>
+<p>Deletes an existing blueprint.</p>
 <p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name of the credential </p>
+<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
 <strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
 <strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE] </p>
 <p><strong>Examples</strong></p>
-<pre>cb describe-credential --name testcred
-{
-  "Name": "testcred",
-  "Description": "",
-  "CloudPlatform": "AZURE"
-}</pre>
+<pre>cb delete-blueprint --name "testbp"</pre>
 
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-blueprints">list-blueprints</a></p>
 <hr />
-<h4 id="list-credentials">list-credentials</h4>
-<p>Lists existing Cloudbreak credentials.</p>
+<h4 id="create-recipe">create-recipe</h4>
+<p>Adds a new recipe from a file or from a URL.</p>
+<p><strong>Commands</strong></p>
+<p><strong><code>from-url</code></strong>  Creates a recipe by downloading it from a URL location<br />
+<strong><code>from-file</code></strong>  Creates a recipe by reading it from a local file  </p>
 <p><strong>Required Options</strong></p>
-<p>None</p>
+<p><strong><code>from-url</code></strong>  </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe <br />
+<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre, post]<br />
+<strong><code>--url &lt;value&gt;</code></strong>  URL location of the Ambari blueprint JSON file  </p>
+<p><strong><code>from-file</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe<br />
+<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre, post]<br />
+<strong><code>--file &lt;value&gt;</code></strong>  Location of the Ambari blueprint JSON file  </p>
 <p><strong>Options</strong></p>
-<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description for the recipe <br />
+<strong><code>--public</code></strong>   Public in account<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]  </p>
 <p><strong>Examples</strong></p>
-<p>Lists credentials:</p>
-<pre>cb list-credentials
-[
-  {
-    "Name": "testcred",
-    "Description": "",
-    "CloudPlatform": "AZURE"
-  }
-]
-</pre>
+<p>Adds a new recipe called "test1" from a URL:</p>
+<pre>cb create-recipe from-url --name "test1" --execution post --url http://some-site.com/test.sh</pre>
 
-<p>Lists credentials, with output formatted in a table format:</p>
-<pre>cb list-credentials --output table
-+---------+-------------+---------------+
-|  NAME   | DESCRIPTION | CLOUDPLATFORM |
-+---------+-------------+---------------+
-| armcred |             | AZURE         |
-+---------+-------------+---------------+</pre>
+<p>Adds a new recipe called "test2" from a file:</p>
+<pre>cb create-recipe from-url --name "test2" --execution post --file /Users/test/Documents/test.sh</pre>
 
+<p><strong>Related Links</strong></p>
+<p><a href="../recipes/index.html">Recipes</a></p>
+<hr />
+<h4 id="delete-cluster">delete-cluster</h4>
+<p>Deletes an existing cluster. </p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--force</code></strong>  Force the operation<br />
+<strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]   </p>
+<p><strong>Examples</strong></p>
+<pre>cb delete-cluster --name test1234</pre>
+
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-clusters">list-clusters</a></p>
 <hr />
 <h4 id="delete-credential">delete-credential</h4>
 <p>Deletes an existing Cloudbreak credential.</p>
@@ -797,33 +885,24 @@
 <p><strong>Examples</strong></p>
 <pre>cb delete-credential --name test-cred</pre>
 
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-credentials">list-credentials</a></p>
 <hr />
-<h4 id="create-blueprint">create-blueprint</h4>
-<p>Adds a new blueprint from a file or from a URL.</p>
-<p><strong>Commands</strong></p>
-<p><strong><code>from-url</code></strong> Creates a blueprint by downloading it from a URL location<br />
-<strong><code>from-file</code></strong> Creates a blueprint by reading it from a local file</p>
+<h4 id="delete-recipe">delete-recipe</h4>
+<p>Deletes an existing recipe.</p>
 <p><strong>Required Options</strong></p>
-<p><strong><code>from-url</code></strong> </p>
-<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint<br />
-<strong><code>--url &lt;value&gt;</code></strong> URL location of the Ambari blueprint JSON file</p>
-<p><strong><code>from-file</code></strong> </p>
-<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint<br />
-<strong><code>--file &lt;value&gt;</code></strong> Location of the Ambari blueprint JSON file on the local machine</p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe  </p>
 <p><strong>Options</strong></p>
-<p><strong><code>--description &lt;value&gt;</code></strong>  Description of the resource<br />
-<strong><code>--public</code></strong>  Public in account<br />
-<strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE] </p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
 <p><strong>Examples</strong></p>
-<p>Adds a blueprint from a URL:</p>
-<pre>cb create-blueprint from-url --url https://someurl.com/test.bp --name test1</pre>
+<pre>cb delete-recipe --name test</pre>
 
-<p>Adds a blueprint from a local file:</p>
-<pre>cb create-blueprint from-file --file /Users/test/Documents/blueprints/test.bp --name test2</pre>
-
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-recipes">list-recipes</a></p>
 <hr />
 <h4 id="describe-blueprint">describe-blueprint</h4>
 <p>Describes an existing blueprint.</p>
@@ -845,6 +924,95 @@
   "Tags": "DEFAULT"
 }</pre>
 
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-blueprints">list-blueprints</a></p>
+<hr />
+<h4 id="describe-cluster">describe-cluster</h4>
+<p>Describes an existing cluster.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  </p>
+<p><strong>Examples</strong></p>
+<p>Returns a JSON file describing an existing cluster called "test1234":</p>
+<pre>./cb describe-cluster --name test1234</pre>
+
+<p>The command returns JSON output which due to space limitation was not captured in the example.</p>
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-clusters">list-clusters</a></p>
+<hr />
+<h4 id="describe-credential">describe-credential</h4>
+<p>Describes an existing credential.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name of the credential </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb describe-credential --name testcred
+{
+  "Name": "testcred",
+  "Description": "",
+  "CloudPlatform": "AZURE"
+}</pre>
+
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-credentials">list-credentials</a></p>
+<hr />
+<h4 id="describe-recipe">describe-recipe</h4>
+<p>Describes an existing recipe.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe    </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<p>Describes a recipe called "test":</p>
+<pre>cb describe-recipe --name test
+{
+  "Name": "test",
+  "Description": "",
+  "ExecutionType": "POST"
+}</pre>
+
+<p>Describes a recipe called "test", with output presented in a table format:</p>
+<pre>cb describe-recipe --name test --output table
++------+-------------+----------------+
+| NAME | DESCRIPTION | EXECUTION TYPE |
++------+-------------+----------------+
+| test |             | POST           |
++------+-------------+----------------+</pre>
+
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-recipes">list-recipes</a></p>
+<hr />
+<h4 id="generate-cluster-template">generate-cluster-template</h4>
+<p>Generates a cluster template in JSON format.</p>
+<p><strong>Commands</strong></p>
+<p><strong><code>aws new-network</code></strong> Generates an AWS cluster JSON template with new network<br />
+<strong><code>aws existing-network</code></strong> Generates an AWS cluster JSON template with existing network<br />
+<strong><code>aws existing-subnet</code></strong> Generates an AWS cluster JSON template with existing network and subnet  </p>
+<p><strong><code>azure new-network</code></strong> Generates an Azure cluster JSON template with new network<br />
+<strong><code>azure existing-subnet</code></strong> Generates an Azure cluster JSON template with existing network and subnet  </p>
+<p><strong><code>gcp new-network</code></strong> Generates an GCP cluster JSON template with new network<br />
+<strong><code>gcp existing-network</code></strong> Generates an GCP cluster JSON template with existing network <br />
+<strong><code>gcp existing-subnet</code></strong> Generates an GCP cluster JSON template with existing network and subnet<br />
+<strong><code>gcp legacy-network</code></strong> Generates an GCP cluster JSON template with legacy network without subnets    </p>
+<p><strong><code>openstack new-network</code></strong> Generates an OS cluster JSON template with new network <br />
+<strong><code>openstack existing-network</code></strong> Generates an OS cluster JSON template with existing network <br />
+<strong><code>openstack existing-subnet</code></strong> Generates an OS cluster JSON template with existing network and subnet   </p>
+<p><strong>Related Commands</strong></p>
+<p><a href="#create-cluster">create-cluster</a></p>
 <hr />
 <h4 id="list-blueprints">list-blueprints</h4>
 <p>Lists available blueprints.</p>
@@ -910,164 +1078,8 @@
   }
 ]</pre>
 
-<hr />
-<h4 id="delete-blueprint">delete-blueprint</h4>
-<p>Deletes an existing blueprint.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint </p>
-<p><strong>Options</strong></p>
-<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE] </p>
-<p><strong>Examples</strong></p>
-<pre>cb delete-blueprint --name "testbp"</pre>
-
-<hr />
-<h4 id="generate-cluster-template">generate-cluster-template</h4>
-<p>Generates a cluster template in JSON format.</p>
-<p><strong>Commands</strong></p>
-<p><strong><code>aws new-network</code></strong> Generates an AWS cluster JSON template with new network<br />
-<strong><code>aws existing-network</code></strong> Generates an AWS cluster JSON template with existing network<br />
-<strong><code>aws existing-subnet</code></strong> Generates an AWS cluster JSON template with existing network and subnet  </p>
-<p><strong><code>azure new-network</code></strong> Generates an Azure cluster JSON template with new network<br />
-<strong><code>azure existing-subnet</code></strong> Generates an Azure cluster JSON template with existing network and subnet  </p>
-<p><strong><code>gcp new-network</code></strong> Generates an GCP cluster JSON template with new network<br />
-<strong><code>gcp existing-network</code></strong> Generates an GCP cluster JSON template with existing network <br />
-<strong><code>gcp existing-subnet</code></strong> Generates an GCP cluster JSON template with existing network and subnet<br />
-<strong><code>gcp legacy-network</code></strong> Generates an GCP cluster JSON template with legacy network without subnets    </p>
-<p><strong><code>openstack new-network</code></strong> Generates an OS cluster JSON template with new network <br />
-<strong><code>openstack existing-network</code></strong> Generates an OS cluster JSON template with existing network <br />
-<strong><code>openstack existing-subnet</code></strong> Generates an OS cluster JSON template with existing network and subnet   </p>
-<hr />
-<h4 id="create-cluster">create-cluster</h4>
-<p>Creates a new cluster based on a JSON template.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the cluster<br />
-<strong><code>--cli-input-json &lt;value&gt;</code></strong>  User provided file in JSON format  </p>
-<p><strong>Options</strong></p>
-<p><strong><code>--description &lt;value&gt;</code></strong>  Description of resource <br />
-<strong><code>--public</code></strong>  Public in account <br />
-<strong><code>--input-json-param-password &lt;value&gt;</code></strong>  Password for the cluster and Ambari <br />
-<strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required <br />
-<strong><code>--server &lt;value&gt;</code></strong>   Server address   [$CB_SERVER_ADDRESS] <br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]  </p>
-<p><strong>Examples</strong></p>
-<p>Creates a cluster called "testcluster" based on a local JSON file called "mytemplate.json" located in the /Users/test/Documents directory:   </p>
-<pre>cb create-cluster --name testcluster --cli-input-json /Users/test/Documents/mytemplate.json</pre>
-
-<hr />
-<h4 id="describe-cluster">describe-cluster</h4>
-<p>Describes an existing cluster.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
-<p><strong>Options</strong></p>
-<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  </p>
-<p><strong>Examples</strong></p>
-<p>Returns a JSON file describing an existing cluster called "test1234":</p>
-<pre>./cb describe-cluster --name test1234</pre>
-
-<p>The command returns JSON output which due to space limitation was not captured in the example.</p>
-<hr />
-<h4 id="scale-cluster">scale-cluster</h4>
-<p>Scales a cluster by adding or removing nodes.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name of the cluster
-<strong><code>--group-name &lt;value&gt;</code></strong>  Name of the group to scale
-<strong><code>--desired-node-count &lt;value&gt;</code></strong>  Desired number of nodes</p>
-<p><strong>Options</strong></p>
-<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
-<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  </p>
-<p><strong>Examples</strong></p>
-<pre>cb scale-cluster --name test1234 --group-name worker --desired node-count 3</pre>
-
-<hr />
-<h4 id="start-cluster">start-cluster</h4>
-<p>Starts a cluster which has previously been stopped.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
-<p><strong>Options</strong></p>
-<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
-<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
-<p><strong>Examples</strong></p>
-<pre>cb start-cluster --name test1234</pre>
-
-<hr />
-<h4 id="stop-cluster">stop-cluster</h4>
-<p>Stops a cluster.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
-<p><strong>Options</strong></p>
-<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
-<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
-<p><strong>Examples</strong></p>
-<pre>cb stop-cluster --name test1234</pre>
-
-<hr />
-<h4 id="sync-cluster">sync-cluster</h4>
-<p>Synchronizes a cluster with the cloud provider.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
-<p><strong>Options</strong></p>
-<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
-<p><strong>Examples</strong></p>
-<pre>cb sync-cluster --name test1234</pre>
-
-<hr />
-<h4 id="repair-cluster">repair-cluster</h4>
-<p>Repairs a cluster if cluster installation failed.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
-<p><strong>Options</strong></p>
-<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
-<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
-<p><strong>Examples</strong></p>
-<pre>cb repair-cluster --name test1234</pre>
-
-<hr />
-<h4 id="change-ambari-password">change-ambari-password</h4>
-<p>Changes Ambari password.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name<br />
-<strong><code>--old-password &lt;value&gt;</code></strong> Old Ambari password <br />
-<strong><code>--new-password &lt;value&gt;</code></strong>  New Ambari password  <br />
-<strong><code>--ambari-user</code></strong>  Ambari user   </p>
-<p><strong>Options</strong></p>
-<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
-<p><strong>Examples</strong></p>
-<p>Changes password for Ambari user called "admin" for a cluster called "test1234":</p>
-<pre>cb change-ambari-password --name test1234 --old-password 123456 --new-password Ambari123456 --ambari-user admin</pre>
-
+<p><strong>Related Commands</strong></p>
+<p><a href="#describe-blueprint">describe-blueprint</a></p>
 <hr />
 <h4 id="list-clusters">list-clusters</h4>
 <p>Lists all clusters which are currently associated with the Cloudbreak instance.</p>
@@ -1100,78 +1112,41 @@
 | test1234 |             | AZURE         | UPDATE_IN_PROGRESS | REQUESTED     |
 +----------+-------------+---------------+--------------------+---------------+</pre>
 
+<p><strong>Related Commands</strong></p>
+<p><a href="#describe-cluster">describe-cluster</a></p>
 <hr />
-<h4 id="delete-cluster">delete-cluster</h4>
-<p>Deletes an existing cluster. </p>
+<h4 id="list-credentials">list-credentials</h4>
+<p>Lists existing Cloudbreak credentials.</p>
 <p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p>None</p>
 <p><strong>Options</strong></p>
-<p><strong><code>--force</code></strong>  Force the operation<br />
-<strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
-<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<p><strong><code>--server &lt;value&gt;</code></strong> Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong> User name (e-mail address) [$CB_USER_NAME]<br />
 <strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]   </p>
-<p><strong>Examples</strong></p>
-<pre>cb delete-cluster --name test1234</pre>
-
-<hr />
-<h4 id="create-recipe">create-recipe</h4>
-<p>Adds a new recipe from a file or from a URL.</p>
-<p><strong>Commands</strong></p>
-<p><strong><code>from-url</code></strong>  Creates a recipe by downloading it from a URL location<br />
-<strong><code>from-file</code></strong>  Creates a recipe by reading it from a local file  </p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>from-url</code></strong>  </p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe <br />
-<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre, post]<br />
-<strong><code>--url &lt;value&gt;</code></strong>  URL location of the Ambari blueprint JSON file  </p>
-<p><strong><code>from-file</code></strong> </p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe<br />
-<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre, post]<br />
-<strong><code>--file &lt;value&gt;</code></strong>  Location of the Ambari blueprint JSON file  </p>
-<p><strong>Options</strong></p>
-<p><strong><code>--description &lt;value&gt;</code></strong>  Description for the recipe <br />
-<strong><code>--public</code></strong>   Public in account<br />
-<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]  </p>
-<p><strong>Examples</strong></p>
-<p>Adds a new recipe called "test1" from a URL:</p>
-<pre>cb create-recipe from-url --name "test1" --execution post --url http://some-site.com/test.sh</pre>
-
-<p>Adds a new recipe called "test2" from a file:</p>
-<pre>cb create-recipe from-url --name "test2" --execution post --file /Users/test/Documents/test.sh</pre>
-
-<hr />
-<h4 id="describe-recipe">describe-recipe</h4>
-<p>Describes an existing recipe.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe    </p>
-<p><strong>Options</strong></p>
-<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--profile &lt;value&gt;</code></strong> Selects a config profile to use [$CB_PROFILE]<br />
 <strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
 <p><strong>Examples</strong></p>
-<p>Describes a recipe called "test":</p>
-<pre>cb describe-recipe --name test
-{
-  "Name": "test",
-  "Description": "",
-  "ExecutionType": "POST"
-}</pre>
+<p>Lists credentials:</p>
+<pre>cb list-credentials
+[
+  {
+    "Name": "testcred",
+    "Description": "",
+    "CloudPlatform": "AZURE"
+  }
+]
+</pre>
 
-<p>Describes a recipe called "test", with output presented in a table format:</p>
-<pre>cb describe-recipe --name test --output table
-+------+-------------+----------------+
-| NAME | DESCRIPTION | EXECUTION TYPE |
-+------+-------------+----------------+
-| test |             | POST           |
-+------+-------------+----------------+</pre>
+<p>Lists credentials, with output formatted in a table format:</p>
+<pre>cb list-credentials --output table
++---------+-------------+---------------+
+|  NAME   | DESCRIPTION | CLOUDPLATFORM |
++---------+-------------+---------------+
+| armcred |             | AZURE         |
++---------+-------------+---------------+</pre>
 
+<p><strong>Related Commands</strong></p>
+<p><a href="#describe-credential">describe-credential</a></p>
 <hr />
 <h4 id="list-recipes">list-recipes</h4>
 <p>Lists all available recipes.</p>
@@ -1203,19 +1178,91 @@
 +------+-------------+----------------+
 </pre>
 
+<p><strong>Related Commands</strong></p>
+<p><a href="#describe-recipe">describe-recipe</a></p>
 <hr />
-<h4 id="delete-recipe">delete-recipe</h4>
-<p>Deletes an existing recipe.</p>
+<h4 id="repair-cluster">repair-cluster</h4>
+<p>Repairs a cluster if cluster installation failed.</p>
 <p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe  </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
 <p><strong>Options</strong></p>
-<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
 <strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
 <strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
 <strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
 <p><strong>Examples</strong></p>
-<pre>cb delete-recipe --name test</pre></div>
+<pre>cb repair-cluster --name test1234</pre>
+
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-clusters">list-clusters</a></p>
+<hr />
+<h4 id="scale-cluster">scale-cluster</h4>
+<p>Scales a cluster by adding or removing nodes.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name of the cluster
+<strong><code>--group-name &lt;value&gt;</code></strong>  Name of the group to scale
+<strong><code>--desired-node-count &lt;value&gt;</code></strong>  Desired number of nodes</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  </p>
+<p><strong>Examples</strong></p>
+<pre>cb scale-cluster --name test1234 --group-name worker --desired node-count 3</pre>
+
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-clusters">list-clusters</a></p>
+<hr />
+<h4 id="start-cluster">start-cluster</h4>
+<p>Starts a cluster which has previously been stopped.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb start-cluster --name test1234</pre>
+
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-clusters">list-clusters</a></p>
+<hr />
+<h4 id="stop-cluster">stop-cluster</h4>
+<p>Stops a cluster.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb stop-cluster --name test1234</pre>
+
+<p><strong>Related Commands</strong></p>
+<p><a href="#list-clusters">list-clusters</a></p>
+<hr />
+<h4 id="sync-cluster">sync-cluster</h4>
+<p>Synchronizes a cluster with the cloud provider.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb sync-cluster --name test1234</pre></div>
         
     </div>
 
