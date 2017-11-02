@@ -537,6 +537,9 @@
                 <li class="third-level"><a href="#configure-default-output">Configure Default Output</a></li>
             
         
+            <li class="second-level"><a href="#get-started-with-the-cli">Get Started with the CLI</a></li>
+            
+        
             <li class="second-level"><a href="#getting-help">Getting Help</a></li>
             
         
@@ -622,6 +625,44 @@ staging
   server: https://192.167.65.4
   output: table</pre>
 
+<h3 id="get-started-with-the-cli">Get Started with the CLI</h3>
+<p>After <a href="#install">installing</a> and <a href="#configure">configuring</a> the CLI, you can use it to perform the same tasks as are available in the Cloudbreak UI: create and manage clusters, credentials, blueprints, and recipes.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>The first step is to create at least one Cloudbreak credential using the <a href="../cli-reference/index.html#create-credential">create-credential</a> command.   </p>
+</li>
+<li>
+<p>If you are just getting started, you may want to try one of the default blueprints. You can use <a href="../cli-reference/index.html#list-blueprints">list-blueprints</a> and <a href="../cli-reference/index.html#describe-blueprint">describe-blueprint</a> to learn about those default blueprints.  </p>
+<p>In case you would like to use your own blueprint, you can add it using <a href="../cli-reference/index.html#crate-blueprint">crate-blueprint</a> command.</p>
+</li>
+<li>
+<p>(Optional) You can optionally create <a href="../recipes/index.html">recipes</a> (custom scrpts) and add them using the <a href="../cli-reference/index.html#create-recipe">create-recipe</a> command.  </p>
+</li>
+<li>
+<p>To create a cluster, first generate a JSON skeleton using the <a href="../cli-reference/index.html#generate-cluster-template">generate-cluster-template</a> command. You can copy it to a text editor and save it in JSON format.</p>
+</li>
+<li>
+<p>Edit the JSON file by providing your parameters.  </p>
+</li>
+<li>
+<p>Once your JSON file is ready, you can use it to create a cluster via the <a href="../cli-reference/index.html#create-cluster">create-cluster</a> command.</p>
+</li>
+<li>
+<p>Once your cluster is running, use can use the CLI to manage and monitor your cluster:</p>
+<ul>
+<li><a href="../cli-reference/index.html#list-clusters">list-clusters</a>  </li>
+<li><a href="../cli-reference/index.html#describe-cluster">describe-cluster</a>  </li>
+<li><a href="../cli-reference/index.html#repair-cluster">repair-cluster</a>  </li>
+<li><a href="../cli-reference/index.html#scale-cluster">scale-cluster</a>  </li>
+<li><a href="../cli-reference/index.html#start-cluster">start-cluster</a>  </li>
+<li><a href="../cli-reference/index.html#stop-cluster">stop-cluster</a>  </li>
+<li><a href="../cli-reference/index.html#sync-cluster">sync-cluster</a>  </li>
+<li><a href="../cli-reference/index.html#change-ambari-passowrd">change-ambari-passowrd</a>  </li>
+</ul>
+</li>
+</ol>
+<p>For a full list of commands, refer to <a href="../cli-reference/index.html">CLI Reference</a>.    </p>
 <h3 id="getting-help">Getting Help</h3>
 <p>To get CLI help, you can add help to the end of a command. The following will list help for the CLI at the top-level:</p>
 <pre>cb help</pre>
