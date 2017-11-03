@@ -1912,18 +1912,13 @@
         }, 
         {
             "location": "/releasenotes/index.html", 
-            "text": "Release Notes\n\n\nSystem Info\n\n\nCloudbreak 2.1.0 Technical Preview \n\n\n2.1.0 TP\n\n\nThis release is technical preview: it is not suitable for production environments.\n\n\nNew Features\n\n\nNew UI/UX\n\n\nCloudbreak 2.1.0 TP introduces a new user interface.\n\n\nNew CLI\n\n\nCloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the \nInstall CLI\n and \nCLI Reference\n documentation. \n\n\nBehavioral Changes\n\n\nCreating Custom Images\n\n\nThe functionality which enables you to create custom images was changed and improved. Refer to  \nCustom Images\n.\n\n\nRemoval of Cloudbreak Shell\n\n\nCloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the \nCloudbreak CLI\n.\n\n\nRemoval of Platforms\n\n\nThe \nplatforms\n feature was removed. \n\n\nRemoval of Mesos\n\n\nCloudbreak 2.1.0 TP does not support Mesos cloud provider.\n\n\nRemoval of Templates\n\n\nEarlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard. \n\n\nKnown Issues\n\n\nAuto-scaling Is Not Available\n\n\nAuto-scaling functionality is not available in Cloudbreak 2.1.0 TP.", 
+            "text": "Release Notes\n\n\n2.1.0 TP\n\n\nThis release is technical preview: it is not suitable for production environments.\n\n\nNew Features\n\n\nNew UI/UX\n\n\nCloudbreak 2.1.0 TP introduces a new user interface.\n\n\nNew CLI\n\n\nCloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the \nInstall CLI\n and \nCLI Reference\n documentation. \n\n\nBehavioral Changes\n\n\nCreating Custom Images\n\n\nThe functionality which enables you to create custom images was changed and improved. Refer to  \nCustom Images\n.\n\n\nRemoval of Cloudbreak Shell\n\n\nCloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the \nCloudbreak CLI\n.\n\n\nRemoval of Platforms\n\n\nThe \nplatforms\n feature was removed. \n\n\nRemoval of Mesos\n\n\nCloudbreak 2.1.0 TP does not support Mesos cloud provider.\n\n\nRemoval of Templates\n\n\nEarlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard. \n\n\nKnown Issues\n\n\nAuto-scaling Is Not Available\n\n\nAuto-scaling functionality is not available in Cloudbreak 2.1.0 TP.", 
             "title": "Release Notes"
         }, 
         {
             "location": "/releasenotes/index.html#release-notes", 
             "text": "", 
             "title": "Release Notes"
-        }, 
-        {
-            "location": "/releasenotes/index.html#system-info", 
-            "text": "Cloudbreak 2.1.0 Technical Preview", 
-            "title": "System Info"
         }, 
         {
             "location": "/releasenotes/index.html#210-tp", 
