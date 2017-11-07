@@ -535,8 +535,13 @@
         
             <li class="second-level"><a href="#identity-management">Identity Management</a></li>
             
-        
-            <li class="second-level"><a href="#kerberos">Kerberos</a></li>
+                <li class="third-level"><a href="#authentication-with-aws">Authentication with AWS</a></li>
+            
+                <li class="third-level"><a href="#authentication-with-azure">Authentication with Azure</a></li>
+            
+                <li class="third-level"><a href="#authentication-with-gcp">Authentication with GCP</a></li>
+            
+                <li class="third-level"><a href="#authentication-with-openstack">Authentication with OpenStack</a></li>
             
         
     
@@ -545,7 +550,7 @@
         <div class="col-md-9" role="main">
 
 <h2 id="security-overview">Security Overview</h2>
-<p>To ensure maximum security for your clusters, Cloudbreak utilizes cloud provider security resources such as virtual networks, security groups, and identity and access management. In addition, Coudbreak allows you to configure Kerberos to ensure secure authentication.</p>
+<p>Cloudbreak utilizes cloud provider security resources such as virtual networks, security groups, and identity and access management:</p>
 <ol>
 <li><strong>Network isolation</strong> is achieved via user-configured virtual networks and subnets.<br />
     Read more about <a href="#virtual-networks">Virtual Networks</a>.  </li>
@@ -553,7 +558,6 @@
     Read more about <a href="#network-security">Network Security</a>.   </li>
 <li><strong>Controlled use of cloud resources</strong> using IAM roles (AWS, GCP) or Active Directory (in case of Azure). 
     Read more about <a href="#identity-management">Identity Management</a>.    </li>
-<li><strong>Authentication</strong> using Kerberos. Read more about <a href="#kerberos">Kerberos</a>.   </li>
 </ol>
 <h3 id="virtual-networks">Virtual Networks</h3>
 <p>Cloud providers use virtual networks which resemble traditional networks. Depending on the options that you selected during deployment, your Cloudbreak instance and clusters are launched into new or existing cloud provider networking infrastructure (virtual networks and subnets). For more information about virtual networks, refer to the cloud-provider documentation:</p>
@@ -611,35 +615,53 @@
 <tr>
 <th>Cloud Provider</th>
 <th>Documentation Link</th>
-<th>How is IAM used by Cloudbreak</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>AWS</td>
-<td>IAM <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html">documentation</a></td>
-<td>When launching Cloudbreak on AWS, you can select to use key-based or role-based authenticaton. While key-based authentication uses your Access key and Secret key, role-based authentication uses IAM roles.</td>
+<td><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html">IAM</a></td>
 </tr>
 <tr>
 <td>Azure</td>
-<td>Active Directory <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis">documentation</a></td>
-<td>After launching Cloudbread on Azure, you are required to create a Cloudbreak credential, which uses your Azure Active Directory to authenticate with the Azure cloud provider.</td>
+<td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis">Active Directory</a></td>
 </tr>
 <tr>
 <td>Google</td>
-<td>IAM <a href="https://cloud.google.com/iam/docs/overview">documentation</a></td>
-<td>When launching Cloudbreak on GCP, you are required to create a service account that Cloudbreak can use to authenticate with your account.</td>
+<td><a href="https://cloud.google.com/iam/docs/overview">IAM</a></td>
+</tr>
+<tr>
+<td>OpenStack</td>
+<td><a href="https://docs.openstack.org/keystone/pike/">Keystone</a></td>
 </tr>
 </tbody>
 </table>
-<h3 id="kerberos">Kerberos</h3>
-<p>Cloudbreak supports using Kerberos security for its managed clusters. It supports three ways of provisioning Kerberos-enabled clusters:</p>
+<p>Cloudbreak utilizes cloud provider’s identity management services via Cloudbreak credential. After launching Cloudbreak on your chosen cloud provider, you must create a Cloudbreak credential, which allows Cloudbreak to authenticate with your cloud provider identity management service. Only after you have completed this step, Cloudbreak can create resources on your behalf. </p>
+<h4 id="authentication-with-aws">Authentication with AWS</h4>
+<p>When launching Cloudbreak on AWS, you must select a way for Cloudbreak to authenticate with your AWS account and create resources on your behalf. While key-based authentication uses your AWS access key and secret key, role-based authentication uses IAM roles.</p>
+<p><strong>Related Links</strong></p>
+<p><a href="../aws-launch/index.html#authentication">Meet the Prerequisites: Authentication</a></p>
+<h4 id="authentication-with-azure">Authentication with Azure</h4>
+<p>After launching Cloudbread on Azure, you are required to create a Cloudbreak credential, which allows Cloudbreak to authenticate with your Azure Active Directory. </p>
+<p>You have two options:</p>
 <ul>
-<li>Create new MIT Kerberos at cluster provisioning time  </li>
-<li>Use your existing MIT Kerberos server with a Cloudbreak provisioned cluster  </li>
-<li>Use your existing Active Directory with a Cloudbreak provisioned cluster  </li>
+<li>
+<p>Interactive: The app and service principal creation and role assignment are fully automated, so the only input that you need to provide to Cloudbreak is your Subscription ID and Directory ID. </p>
+</li>
+<li>
+<p>App-based: The app and service principal creation and role assignment are not automated You must create an Azure Active Directory application registration and then provide its parameters to Cloudbreak, in addition to providing your Subscription ID and Directory ID. </p>
+</li>
 </ul>
-<p>For more information about Kerberos, refer to <a href="../security-kerberos/index.html">Configure Kerberos</a> documentation.</p></div>
+<p><strong>Related Links</strong></p>
+<p><a href="../azure-launch/index.html#create-cloudbreak-credential">Create Cloudbreak Credential</a></p>
+<h4 id="authentication-with-gcp">Authentication with GCP</h4>
+<p>After launching Cloudbreak on GCP, you are required to register a service account in Cloudbrak via creating a Cloudbreak credential. Cloudbreak uses this account to authenticate with the GCP identity management service.</p>
+<p><strong>Related Links</strong></p>
+<p><a href="../gcp-launch/index.html#service-account">Meet the Prerequisites: Service Account</a></p>
+<h4 id="authentication-with-openstack">Authentication with OpenStack</h4>
+<p>After launching Cloudbread on OpenStack, you are required to create a Cloudbreak credential, which allows Cloudbreak to authenticate with keystone. </p>
+<p><strong>Related Links</strong></p>
+<p><a href="../os-launch/index.html#create-cloudbreak-credential">Create Cloudbreak Credential</a></p></div>
         
     </div>
 
