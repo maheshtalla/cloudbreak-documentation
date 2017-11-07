@@ -543,6 +543,12 @@
             <li class="second-level"><a href="#access-cluster-via-ssh">Access Cluster via SSH</a></li>
             
         
+            <li class="second-level"><a href="#access-ambari">Access Ambari</a></li>
+            
+        
+            <li class="second-level"><a href="#user-accounts">User Accounts</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -705,6 +711,78 @@ Setting up HDP image
 For example:
 <pre>ssh -i "dominika-kp.pem" cloudbreak@p52.25.169.132</pre></p>
 <p>On Windows, you can SSH using an SSH client such as PuTTY.</p>
+<h3 id="access-ambari">Access Ambari</h3>
+<p>You can access Ambari web UI by clicking on the links provided in the <strong>Cluster Information</strong> &gt; <strong>Ambari URL</strong>.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>From the cluster dashboard, click on the tile representing your cluster to navigate to cluster details.</p>
+</li>
+<li>
+<p>Find the Ambairi URL in the <strong>Cluster Information</strong> section. This URL is available once the Ambari cluster creation process has completed.  </p>
+</li>
+<li>
+<p>Click on the <strong>Ambari URL</strong> link.</p>
+</li>
+<li>
+<p>The first time you access the server, your browser will attempt to confirm that the SSL Certificate is valid. Since Cloudbreak automatically generates a self-signed certificate, your browser will warn you about an Untrusted Connection and ask you to confirm a Security Exception. Depending on your browser, perform the steps below to proceed.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Add Exception...</strong> &gt; Click <strong>Confirm Security Exception</strong></td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Click <strong>Continue</strong></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Proceed...</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="user-accounts">User Accounts</h3>
+<p>The following table describes what credentials to use to access Cloudbreak and Cloudbreak-managed clusters:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloudbreak</td>
+<td>Web UI, CLI</td>
+<td>Access with the username and password provided when launching Cloudbreak on the cloud provider.</td>
+</tr>
+<tr>
+<td>Cloudbreak</td>
+<td>SSH to VM</td>
+<td>Access as the "cloudbreak" user with the SSH key provided when launching Cloudbreak on the cloud provider.</td>
+</tr>
+<tr>
+<td>Cluster</td>
+<td>SSH to VMs</td>
+<td>Access as the "cloudbreak" user with the SSH key provided during cluster creation.</td>
+</tr>
+<tr>
+<td>Cluster</td>
+<td>Ambari UI</td>
+<td>Access with the credentials provided in the “Cluster User” parameter during cluster creation.</td>
+</tr>
+</tbody>
+</table>
 <div class="next">
 <a href="../azure-clusters-manage/index.html">Next: Manage and Monitor Clusters</a>
 </div></div>
