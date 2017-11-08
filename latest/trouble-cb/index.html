@@ -562,8 +562,6 @@
             
                 <li class="third-level"><a href="#changing-properties-in-the-cloudbreak-profile-file">Changing Properties in the Cloudbreak Profile File</a></li>
             
-                <li class="third-level"><a href="#changing-amari-credentials">Changing Amari Credentials</a></li>
-            
         
     
     </ul>
@@ -680,10 +678,7 @@
 <p>In versions earlier than 1.4.0, you must run the following three commands:</p>
 <p><code>cbd regenerate</code> regenerates the Docker compose file
 <code>cbd kill</code> removes all Docker containers (there is no stop command for this).
-<code>cbd start</code> starts the application with the new compose file.</p>
-<h4 id="changing-amari-credentials">Changing Amari Credentials</h4>
-<p>In Cloudbreak 1.14 and later, Cloudbreak creates a new admin user in Ambari, so you can change the credentials of the admin user in the Ambari web UI. You can also set the admin user credentials in the cluster installation wizard in the Cloudbreak UI.</p>
-<p>In Cloudbreak versions earlier than 1.14 it is not possible to change the password in the Ambari UI.  If you change the admin credentials in the Ambari UI, Cloudbreak will no longer be able to orchestrate Ambari. To change the password, you must use the option available on the cluster details page in the Cloudbreak UI.</p></div>
+<code>cbd start</code> starts the application with the new compose file.</p></div>
         
     </div>
 
