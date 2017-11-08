@@ -576,12 +576,16 @@
 </ul>
 <p>A user with an "Owner" role can assign roles or access rules to service accounts from <strong>IAM &amp; Admin</strong> &gt; <strong>IAM</strong>. For example:</p>
 <p><a href="../images/gcp-iam.png" target="_blank" title="click to enlarge"><img src="../images/gcp-iam.png" width="650" title="GCP Console"></a> </p>
+<p><strong>Related Links</strong><br />
+<a href="https://cloud.google.com/storage/docs/authentication#service_accounts">Service Account Credentials</a> (External)  </p>
 <h4 id="vpc-network">VPC Network</h4>
 <p>When launching Cloudbreak, you will be required to select an existing network in which Cloudbreak can be placed. The following ports must be open on the security group: 22 (SSH) and 443 (HTTPS). You may use the <em>default</em> network as long as the aforementioned ports are open. </p>
 <p>You can manage networks under <strong>Networking</strong> &gt; <strong>VPC Networks</strong>. To edit ports, click on the network name and then click on <strong>Add firewall rules</strong>.</p>
 <h4 id="region-and-zone">Region and Zone</h4>
 <p>Decide in which region and zone you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones">supported by GCP</a>.  </p>
 <p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it. </p>
+<p><strong>Related Links</strong><br />
+<a href="https://cloud.google.com/compute/docs/regions-zones/">Regions and Zones</a> (External)  </p>
 <h3 id="launch-the-vm">Launch the VM</h3>
 <p><strong>Steps</strong></p>
 <ol>
@@ -595,7 +599,6 @@
 <li>
 <p>Import the Cloudbreak deployer image by executing the following command: </p>
 <p><pre>gcloud compute images create cloudbreak-deployer-1164-2017-08-29 --source-uri gs://sequenceiqimage/cloudbreak-deployer-1164-2017-08-29.tar.gz</pre></p>
-<p>[comment]: &lt;&gt; (TO-DO: This should be generated automatically.) </p>
 </li>
 <li>
 <p>In the GCP UI, from the <strong>Products and services</strong> menu, select <strong>Compute Engine</strong> &gt; <strong>Images</strong>.</p>

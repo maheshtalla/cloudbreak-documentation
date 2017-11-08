@@ -576,9 +576,14 @@
 </li>
 </ul>
 <p>To check the roles in your subscription, log in to your Azure account and navigate to <strong>Subscriptions</strong>. </p>
+<p><strong>Related Links</strong><br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Built-in Roles: Owner</a> (External)<br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Built-in Roles: Contributor</a> (External)</p>
 <h4 id="azure-region">Azure Region</h4>
 <p>Decide in which Azure region you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://azure.microsoft.com/en-us/regions/">supported by Microsoft Azure</a>. </p>
 <p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it.</p>
+<p><strong>Related Links</strong><br />
+<a href="https://azure.microsoft.com/en-us/regions/">Azure regions</a> (External) </p>
 <h4 id="ssh-key-pair">SSH Key Pair</h4>
 <p>When launching Cloudbreak, you will be required to provide your public SSH key. If needed, you can generate a new SSH keypair:</p>
 <ul>
@@ -660,7 +665,7 @@
 </tr>
 <tr>
 <td>Remote Location</td>
-<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags. Default value is <code>Internet</code> which allows access from all IP addresses. Examples: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg#default-tags">Azure documentation</a>.</p></td>
+<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags. Default value is <code>Internet</code> which allows access from all IP addresses. Examples: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Azure documentation</a>.</p></td>
 </tr>
 <tr>
 <td>Ssh Key</td>
@@ -703,6 +708,9 @@
 <p>Proceed to the next step: <a href="#explore-newly-created-resources">Explore Newly Created Resources</a>.</p>
 </li>
 </ol>
+<p><strong>Related Links</strong><br />
+<a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> (External) <br />
+<a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter Network Traffic with Network Security Groups</a> (External)  </p>
 <h3 id="explore-newly-created-resources">Explore Newly Created Resources</h3>
 <blockquote>
 <p>This step is optional.  </p>
@@ -898,10 +906,6 @@
 </ol>
 <h4 id="create-an-app-based-credential">Create an App Based Credential</h4>
 <p>Follow these steps to create an app based Cloudbreak credential.</p>
-<blockquote>
-<p>Alternatively, instead of performing the steps on the Azure portal, you use a utility called <b>azure-cli-tools</b>.
-The utility supports app creation and role assignment. It is available at <a href="https://github.com/sequenceiq/azure-cli-tools/blob/master/cli_tools" target="_blank">https://github.com/sequenceiq/azure-cli-tools/blob/master/cli_tools</a>.</p>
-</blockquote>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -981,6 +985,9 @@ The utility supports app creation and role assignment. It is available at <a hre
 <p>Congratulations! You've successfully launched and configured Cloudbreak. Now you can use Cloudbreak to <a href="../azure-create/index.html">create clusters</a>.</p>
 </li>
 </ol>
+<p><strong>Related Links</strong><br />
+<a href="https://github.com/hortonworks/cloudbreak-azure-cli-tools/blob/master/cli_tools">CLI Tools</a> (Hortonworks)  <br />
+<a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Use Portal to Create an Azure Active Directory Application</a> (External)     </p>
 <div class="next">
 <a href="../azure-create/index.html">Next: Create a Cluster</a>
 </div></div>

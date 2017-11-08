@@ -568,7 +568,7 @@ from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as read
 <h3 id="accessing-data-in-adls">Accessing Data in ADLS</h3>
 <p><a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store (ADLS)</a> is an enterprise-wide hyper-scale repository for big data analytic workloads.</p>
 <h4 id="prerequisites">Prerequisites</h4>
-<p>If you want to use <a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store</a> to store your data, you must enable Azure subscription for Data Lake Store, and then create an Azure Data Lake Store <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">storage account</a>.</p>
+<p>If you want to use ADLS to store your data, you must enable Azure subscription for Data Lake Store, and then create an Azure Data Lake Store <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">storage account</a>.</p>
 <h4 id="configuring-access-to-adls">Configuring Access to ADLS</h4>
 <p>ADLS is not supported as a default file system, but access to data in ADLS via the adl connector. To configure access to ADLS from a cluster managed via Cloudbreak use the steps described in <a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to Configure Authentication with ADLS</a>.</p>
 <h4 id="testing-access-to-adls">Testing Access to ADLS</h4>
@@ -586,6 +586,10 @@ from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as read
     [-D hadoop.security.credential.provider.path=localjceks://file/home/user/adls.jceks]
     hdfs://<b>namenode_hostname</b>:9001/user/foo/007020615
     adl://<b>myaccount</b>.azuredatalakestore.net/testDir/</pre></p>
+<p><strong>Related Links</strong><br />
+<a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store</a> (External)  <br />
+<a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">Get started with Azure Data Lake Store</a> (External)<br />
+<a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to Configure Authentication with ADLS</a> (Hortonworks)</p>
 <h3 id="accessing-data-in-wasb">Accessing Data in WASB</h3>
 <p>Windows Azure Storage Blob (WASB) is an object store service available on Azure.</p>
 <h4 id="prerequisites_1">Prerequisites</h4>
@@ -623,9 +627,9 @@ test file content</pre>
 
 <h3 id="learn-more">Learn More</h3>
 <p>For more information about configuring the ADLS and WASB connectors and working with data stored in ADLS and WASB, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
-<div class="next">
-<a href="../clusters-access/index.html">Next: Access Cluster</a>
-</div></div>
+<p><strong>Related Links</strong> <br />
+<a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks) <br />
+<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a Storage Account</a> (External)   </p></div>
         
     </div>
 
