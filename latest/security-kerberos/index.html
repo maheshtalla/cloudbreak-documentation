@@ -641,37 +641,6 @@ hadoop jar $JAR_JOBCLIENT mrbench -baseDir /user/ambari-qa/smallJobsBenchmark -n
 </tr>
 </tbody>
 </table>
-<p>To enable Kerberos on a cluster, do the following when creating your cluster via Cloudbreak shell:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>--kerberosPassword</td>
-<td>The KDC admin password to use for the KDC.</td>
-</tr>
-<tr>
-<td>--kerberosPrincipal</td>
-<td>The KDC principal in your existing MIT KDC.</td>
-</tr>
-<tr>
-<td>--kerberosUrl</td>
-<td>The location of your existing MIT KDC.</td>
-</tr>
-<tr>
-<td>--kerberosTcpAllowed</td>
-<td>The connection type for your existing MIT KDC (default is <strong>UDP</strong>).</td>
-</tr>
-<tr>
-<td>--kerberosRealm</td>
-<td>The realm in your existing MIT KDC.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="use-existing-active-directory-with-a-cloudbreak-provisioned-cluster">Use Existing Active Directory with a Cloudbreak Provisioned Cluster</h3>
 <p>Cloudbreak supports using Kerberos security on the cluster with an existing Active Directory. When creating a cluster, provide your Kerberos configuration details, and Cloudbreak will automatically extend your blueprint configuration with the defined properties. <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_Ambari_Security_Guide/content/_use_an_existing_active_directory_domain.html">Setup an Active Directory for Kerberos</a></p>
 <p>To enable Kerberos on a cluster, perform these steps when creating your cluster via Cloudbreak UI.</p>

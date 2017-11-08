@@ -530,10 +530,10 @@
             <li class="second-level"><a href="#restricting-inbound-access">Restricting Inbound Access</a></li>
             
         
-            <li class="second-level"><a href="#configuring-the-profile">Configuring the Profile</a></li>
+            <li class="second-level"><a href="#secure-the-profile">Secure the Profile</a></li>
             
         
-            <li class="second-level"><a href="#adding-ssl-certificate-for-cloudbreak-ui">Adding SSL Certificate for Cloudbreak UI</a></li>
+            <li class="second-level"><a href="#add-ssl-certificate-for-cloudbreak-ui">Add SSL Certificate for Cloudbreak UI</a></li>
             
         
             <li class="second-level"><a href="#configure-access-from-custom-domains">Configure Access from Custom Domains</a></li>
@@ -549,7 +549,7 @@
 <h3 id="restricting-inbound-access">Restricting Inbound Access</h3>
 <p>We recommend that you block all communication ports except 443 on the firewall or security group (depending on the provider). </p>
 <p>If you have to log in to the Cloudbreak host remotely, use the SSH port (usually 22).</p>
-<h3 id="configuring-the-profile">Configuring the Profile</h3>
+<h3 id="secure-the-profile">Secure the Profile</h3>
 <p>Before starting Cloudbreak for the first time, configure the Profile file as directed below. Changes are applied during startup so a restart (<code>cbd restart</code>) is required after each change.</p>
 <ol>
 <li>
@@ -588,7 +588,7 @@ cbd util add-default-user
 </li>
 </ol>
 <p>For more information about setting environment variables in Profile, refer to <a href="../profile/index.html#configure-profile-variables">Configure Profile Variables</a>.</p>
-<h3 id="adding-ssl-certificate-for-cloudbreak-ui">Adding SSL Certificate for Cloudbreak UI</h3>
+<h3 id="add-ssl-certificate-for-cloudbreak-ui">Add SSL Certificate for Cloudbreak UI</h3>
 <p>By default Cloudbreak has been configured with a self-signed certificate for access via HTTPS. This is sufficient for many deployments such as trials, development, testing, or staging. However, for production deployments, a trusted certificate is preferred and can be configured in the controller. Follow these steps to configure the cloud controller to use your own trusted certificate. </p>
 <p><strong>Prerequisites</strong></p>
 <p>To use your own certificate, you must have:</p>
