@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/gcp-create/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/acknowledge/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Create a Cluster - Cloudbreak</title>
+    <title>Acknowledgements - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -184,7 +184,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -195,8 +195,8 @@
 
                         
                             
-<li class="active">
-    <a href="index.html">Create a Cluster</a>
+<li >
+    <a href="../gcp-create/index.html">Create a Cluster</a>
 </li>
 
                         
@@ -430,7 +430,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -464,8 +464,8 @@
     <ul class="dropdown-menu">
         
             
-<li >
-    <a href="../acknowledge/index.html">Acknowledgements</a>
+<li class="active">
+    <a href="index.html">Acknowledgements</a>
 </li>
 
         
@@ -483,12 +483,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../gcp-launch/index.html">
+                        <a rel="next" href="../smartsense/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../gcp-clusters-access/index.html">
+                    <li class="disabled">
+                        <a rel="prev" >
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -513,25 +513,12 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#create-a-cluster-on-gcp">Create a Cluster on GCP</a></li>
+        <li class="first-level active"><a href="#acknowledgements">Acknowledgements</a></li>
         
-            <li class="second-level"><a href="#advanced-options">Advanced Options</a></li>
+            <li class="second-level"><a href="#copyrights-and-trademarks">Copyrights and Trademarks</a></li>
             
-                <li class="third-level"><a href="#availability-zone">Availability Zone</a></li>
-            
-                <li class="third-level"><a href="#custom-images">Custom Images</a></li>
-            
-                <li class="third-level"><a href="#enable-lifetime-management">Enable Lifetime Management</a></li>
-            
-                <li class="third-level"><a href="#tags">Tags</a></li>
-            
-                <li class="third-level"><a href="#storage">Storage</a></li>
-            
-                <li class="third-level"><a href="#recipes">Recipes</a></li>
-            
-                <li class="third-level"><a href="#security-groups">Security Groups</a></li>
-            
-                <li class="third-level"><a href="#enable-kerberos-security">Enable Kerberos Security</a></li>
+        
+            <li class="second-level"><a href="#contact-information">Contact Information</a></li>
             
         
     
@@ -539,207 +526,52 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="create-a-cluster-on-gcp">Create a Cluster on GCP</h2>
-<p>Use these steps to create a cluster.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Log in to the Cloudbreak UI.</p>
-</li>
-<li>
-<p>Click <strong>Create Cluster</strong> and the <em>Create Cluster</em> form is displayed.</p>
-<p>To view advanced options, click <strong>Advanced</strong>. To learn about advanced options, refer to <a href="#advanced-options">Advanced Options</a>.</p>
-<p><a href="../images/cb-create.png" target="_blank" title="click to enlarge"><img src="../images/cb-create.png" width="650" title="Cluster Information"></a> </p>
-</li>
-<li>
-<p>On the <strong>General Configuration</strong> page, specify the following general parameters for your cluster:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Select Credential</td>
-<td>Choose a previously created credential.</td>
-</tr>
-<tr>
-<td>Cluster Name</td>
-<td>Enter a name for your cluster. The name must be between 5 and 40 characters, must start with a letter, and must only include lowercase letters, numbers, and hyphens.</td>
-</tr>
-<tr>
-<td>Region</td>
-<td>Select the GCP region in which you would like to launch your cluster. For information on available GCP regions, refer to <a href="https://cloud.google.com/about/locations/">GCP documentation</a>.</td>
-</tr>
-<tr>
-<td>Platform Version</td>
-<td>Choose the HDP version to use for this cluster.</td>
-</tr>
-<tr>
-<td>Cluster Type</td>
-<td>Choose one of default cluster configurations, or, if you have defined your own cluster configuration via Ambari blueprint, you can choose it here. For more information on default and custom blueprints, refer to <a href="../blueprints/index.html">Blueprints</a>.</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>On the <strong>Hardware and Storage</strong> page, for each host group provide the following information to define your cluster nodes and attached storage:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Instance Type</td>
-<td>Select a VM instance type. For information about instance types on GCP refer to <a href="https://cloud.google.com/compute/docs/machine-types">GCP documentation</a>.</td>
-</tr>
-<tr>
-<td>Instance Count</td>
-<td>Enter the number of instances of a given type. Default is 1.</td>
-</tr>
-<tr>
-<td>Ambari Server</td>
-<td>You must select one node for Ambari Server. The "Group Size" for that host group must be set to "1".</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>On the <strong>Network</strong> page, provide the following to specify the networking resources that will be used for your cluster:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Select Network</td>
-<td>Select the virtual network in which you would like your cluster to be provisioned. You can select an existing network or create a new network.</td>
-</tr>
-<tr>
-<td>Select Subnet</td>
-<td>Select the subnet in which you would like your cluster to be provisioned. You can select an existing subnet or create a new subnet.</td>
-</tr>
-<tr>
-<td>Subnet (CIDR)</td>
-<td>If you selected to create a new subnet, you must define a valid <a href="http://www.ipaddressguide.com/cidr">CIDR</a> for the subnet. Default is 10.0.0.0/16.</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>On the <strong>Security</strong> page, provide the following parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cluster User</td>
-<td>You can log in to the Ambari UI using this username. By default, this is set to <code>admin</code>.</td>
-</tr>
-<tr>
-<td>Password</td>
-<td>You can log in to the Ambari UI using this password.</td>
-</tr>
-<tr>
-<td>Confirm Password</td>
-<td>Confirm the password.</td>
-</tr>
-<tr>
-<td>SSH Public Key</td>
-<td>Specify a public SSH key. You will use the matching private key to access your cluster nodes via SSH.</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Click on <strong>Create Cluster</strong> to create a cluster.</p>
-</li>
-<li>
-<p>You will be redirected to the Cloudbreak dashboard, and a new tile representing your cluster will appear at the top of the page</p>
-</li>
-</ol>
-<p><strong>Related Links</strong><br />
-<a href="../blueprints/index.html">Blueprints</a> <br />
-<a href="http://www.ipaddressguide.com/cidr">CIDR</a> (External) <br />
-<a href="https://cloud.google.com/about/locations/">Cloud Locations</a> (External)<br />
-<a href="https://cloud.google.com/compute/docs/machine-types">Machine Types</a> (External)     </p>
-<h3 id="advanced-options">Advanced Options</h3>
-<p>Click on <strong>Advanced</strong> to view and enter additional configuration options</p>
-<h4 id="availability-zone">Availability Zone</h4>
-<p>Choose one of the availability zones within the selected region. </p>
-<h4 id="custom-images">Custom Images</h4>
-<p>By default, Cloudbreak uses a CentOS image and which HDP and Ambari versions??</p>
-<p><strong>Base Image</strong> option: Allows you to customize Ambari/HDP version while using the default CentOS image.</p>
-<p><strong>Prewarmed Image</strong> option: Allows you to select a previously created custom image other than CentOS.</p>
-<h4 id="enable-lifetime-management">Enable Lifetime Management</h4>
-<p>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minutes) has passed. </p>
-<h4 id="tags">Tags</h4>
-<p>You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account. refer to <a href="../tags/index.html">Resource Tagging</a>.</p>
-<p><strong>Related Links</strong>  <br />
-<a href="../tags/index.html">Resource Tagging</a>  </p>
-<h4 id="storage">Storage</h4>
-<p>You can optionally specify the following storage options for your cluster:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Storage Type</td>
-<td><p>Select the volume type. The options are:<ul><li>Standard persistent disks (HDD)</li><li>Solid-state persistent disks (SSD)</li></ul> For more information about these options refer to <a href="https://cloud.google.com/compute/docs/disks/" target="_blank">GCP documentation</a>.</td>
-</tr>
-<tr>
-<td>Attached Volumes Per Instance</td>
-<td>Enter the number of volumes attached per instance. Default is 1.</td>
-</tr>
-<tr>
-<td>Volume Size (GB)</td>
-<td>Enter the size in GBs for each volume. Default is 100.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Related Links</strong><br />
-<a href="https://cloud.google.com/compute/docs/disks/">Storage Options</a> (External)   </p>
-<h4 id="recipes">Recipes</h4>
-<p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>. </p>
-<p><strong>Related Links</strong> <br />
-<a href="../recipes/index.html">Recipes</a> </p>
-<h4 id="security-groups">Security Groups</h4>
-<p>For each host group, select one of the options:</p>
-<ul>
-<li>Create new security group  </li>
-<li>Do not use security group  </li>
-<li>Select an existing security group</li>
-</ul>
-<p>If you choose to create a new security group, the <em>New Security Group</em> wizard will open.</p>
-<ol>
-<li>TCP ports 22, 443, and 9443 will be open by default. These ports must be open on every security group; otherwise Cloudbreak will not be able to communicate with your provisioned cluster.  </li>
-<li>You may open additional ports by defining the <strong>CIDR</strong>, <strong>Port</strong>, and <strong>Protocol</strong> for each and clicking <strong>Add Rule</strong>. </li>
-<li>Once done, click <strong>SAVE</strong> to save your security group settings.</li>
-<li>Once you define a custom security group for one host group, you can reuse this definition for other node groups.</li>
-</ol>
-<h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
-<p>Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to <a href="../security-kerberos/index.html">Kerberos</a> documentation. </p>
-<p><strong>Related Links</strong> <br />
-<a href="../security-kerberos/index.html">Kerberos</a> </p>
-<div class="next">
-<a href="../gcp-clusters-access/index.html">Next: Access Cluster</a>
-</div></div>
+<!---
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+<h3 id="copyrights-and-trademarks">Copyrights and Trademarks</h3>
+<p>© 2011-2016 Hortonworks Inc. All Rights Reserved. Hortonworks and HDP are registered trademarks
+or trademarks of Hortonworks, Inc. in the United States and other jurisdictions.  All other
+trademarks and trade names are the property of their respective owners.</p>
+<p>Apache, Hadoop, Falcon, Atlas, Tez, Sqoop, Flume, Kafka, Pig, Hive,
+HBase, Accumulo, Storm, Solr, Spark, Ranger, Knox, Ambari, ZooKeeper,
+Oozie, Metron, Druid, and the Hadoop elephant logo are either registered trademarks or
+trademarks of the <a href="http://www.apache.org/" target="_blank">Apache Software Foundation</a> in
+the United States or other countries.</p>
+<p>"Amazon Web Services", "AWS", "Amazon EC2", "EC2", "Amazon Elastic Compute Cloud", "Amazon S3", "S3", "Amazon Virtual Private Cloud",
+"Amazon VPC", "Amazon Relational Database",  "Amazon RDS", the "Amazon Web Services" logo, and other
+AWS graphics and logos are trademarks of Amazon Technologies, Inc. or its affiliates in the United States and/or other countries.</p>
+<p>"Windows Azure", the "Azure" logo, and other
+Azure graphics and logos are trademarks of Microsoft Corporation or its affiliates in the United States and/or other countries.</p>
+<p>"Google Cloud", the "Google Cloud Platform" logo, and other
+Google Cloud graphics and logos are trademarks of Google LLC. or its affiliates in the United States and/or other countries.</p>
+<p>"OpenStack", the "OpenStack" logo, and other
+OpenStack graphics and logos are trademarks of OpenStack, LLC. or its affiliates in the United States and/or other countries.</p>
+<p>Documentation was built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> and the
+<a href="http://sourcefoundry.org/cinder/" target="_blank">Cinder Theme</a>, licensed under
+the <a href="https://github.com/chrissimpkins/cinder/blob/master/LICENSE.md" target="_blank">MIT license</a>.</p>
+<h3 id="contact-information">Contact Information</h3>
+<p>Hortonworks, Inc.
+<br>
+5470 Great America Parkway
+<br>
+Santa Clara, CA 95054
+<br>
+<strong>Website:</strong> <a href="http://hortonworks.com" target="_blank">www.hortonworks.com</a>
+<br>
+<strong>Community:</strong> <a href="http://community.hortonworks.com" target="_blank">community.hortonworks.com</a></p></div>
         
     </div>
 

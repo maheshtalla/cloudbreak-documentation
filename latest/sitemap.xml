@@ -207,6 +207,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation/</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

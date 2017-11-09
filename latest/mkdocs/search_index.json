@@ -2159,6 +2159,26 @@
             "location": "/smartsense/index.html#disable-bundle-upload-for-an-existing-cluster", 
             "text": "SSH into the Master node for the cluster.    Edit  /etc/hst/conf/hst-server.ini .    Change  [gateway]  configuration to  false : \n     [gateway]\nenabled=false    Restart the SmartSense Server:\n     hst restart    (Optional) Disable SmartSense daily bundle capture:   SmartSense is scheduled to capture a telemetry bundle daily. With the bundle upload disabled, the bundle will still\nbe captured but just saved locally (i.e. not uploaded).  To disable the bundle capture, execute the following: hst capture-schedule -a pause     Repeat on all existing clusters.", 
             "title": "Disable Bundle Upload for an Existing Cluster"
+        }, 
+        {
+            "location": "/acknowledge/index.html", 
+            "text": "Acknowledgements\n\n\nCopyrights and Trademarks\n\n\n\u00a9 2011-2016 Hortonworks Inc. All Rights Reserved. Hortonworks and HDP are registered trademarks\nor trademarks of Hortonworks, Inc. in the United States and other jurisdictions.  All other\ntrademarks and trade names are the property of their respective owners.\n\n\nApache, Hadoop, Falcon, Atlas, Tez, Sqoop, Flume, Kafka, Pig, Hive,\nHBase, Accumulo, Storm, Solr, Spark, Ranger, Knox, Ambari, ZooKeeper,\nOozie, Metron, Druid, and the Hadoop elephant logo are either registered trademarks or\ntrademarks of the \nApache Software Foundation\n in\nthe United States or other countries.\n\n\n\"Amazon Web Services\", \"AWS\", \"Amazon EC2\", \"EC2\", \"Amazon Elastic Compute Cloud\", \"Amazon S3\", \"S3\", \"Amazon Virtual Private Cloud\",\n\"Amazon VPC\", \"Amazon Relational Database\",  \"Amazon RDS\", the \"Amazon Web Services\" logo, and other\nAWS graphics and logos are trademarks of Amazon Technologies, Inc. or its affiliates in the United States and/or other countries.\n\n\n\"Windows Azure\", the \"Azure\" logo, and other\nAzure graphics and logos are trademarks of Microsoft Corporation or its affiliates in the United States and/or other countries.\n\n\n\"Google Cloud\", the \"Google Cloud Platform\" logo, and other\nGoogle Cloud graphics and logos are trademarks of Google LLC. or its affiliates in the United States and/or other countries.\n\n\n\"OpenStack\", the \"OpenStack\" logo, and other\nOpenStack graphics and logos are trademarks of OpenStack, LLC. or its affiliates in the United States and/or other countries.\n\n\nDocumentation was built with \nMkDocs\n and the\n\nCinder Theme\n, licensed under\nthe \nMIT license\n.\n\n\nContact Information\n\n\nHortonworks, Inc.\n\n\n5470 Great America Parkway\n\n\nSanta Clara, CA 95054\n\n\n\nWebsite:\n \nwww.hortonworks.com\n\n\n\n\nCommunity:\n \ncommunity.hortonworks.com", 
+            "title": "Acknowledgements"
+        }, 
+        {
+            "location": "/acknowledge/index.html#acknowledgements", 
+            "text": "", 
+            "title": "Acknowledgements"
+        }, 
+        {
+            "location": "/acknowledge/index.html#copyrights-and-trademarks", 
+            "text": "\u00a9 2011-2016 Hortonworks Inc. All Rights Reserved. Hortonworks and HDP are registered trademarks\nor trademarks of Hortonworks, Inc. in the United States and other jurisdictions.  All other\ntrademarks and trade names are the property of their respective owners.  Apache, Hadoop, Falcon, Atlas, Tez, Sqoop, Flume, Kafka, Pig, Hive,\nHBase, Accumulo, Storm, Solr, Spark, Ranger, Knox, Ambari, ZooKeeper,\nOozie, Metron, Druid, and the Hadoop elephant logo are either registered trademarks or\ntrademarks of the  Apache Software Foundation  in\nthe United States or other countries.  \"Amazon Web Services\", \"AWS\", \"Amazon EC2\", \"EC2\", \"Amazon Elastic Compute Cloud\", \"Amazon S3\", \"S3\", \"Amazon Virtual Private Cloud\",\n\"Amazon VPC\", \"Amazon Relational Database\",  \"Amazon RDS\", the \"Amazon Web Services\" logo, and other\nAWS graphics and logos are trademarks of Amazon Technologies, Inc. or its affiliates in the United States and/or other countries.  \"Windows Azure\", the \"Azure\" logo, and other\nAzure graphics and logos are trademarks of Microsoft Corporation or its affiliates in the United States and/or other countries.  \"Google Cloud\", the \"Google Cloud Platform\" logo, and other\nGoogle Cloud graphics and logos are trademarks of Google LLC. or its affiliates in the United States and/or other countries.  \"OpenStack\", the \"OpenStack\" logo, and other\nOpenStack graphics and logos are trademarks of OpenStack, LLC. or its affiliates in the United States and/or other countries.  Documentation was built with  MkDocs  and the Cinder Theme , licensed under\nthe  MIT license .", 
+            "title": "Copyrights and Trademarks"
+        }, 
+        {
+            "location": "/acknowledge/index.html#contact-information", 
+            "text": "Hortonworks, Inc. \n5470 Great America Parkway \nSanta Clara, CA 95054  Website:   www.hortonworks.com   Community:   community.hortonworks.com", 
+            "title": "Contact Information"
         }
     ]
 }
