@@ -537,6 +537,7 @@
 <p>Cloudbreak 2.1.0 TP introduces a new user interface.</p>
 <h5 id="new-cli">New CLI</h5>
 <p>Cloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the <a href="../cli-install/index.html">Install CLI</a> and <a href="../cli-reference/index.html">CLI Reference</a> documentation. </p>
+<hr />
 <h4 id="behavioral-changes">Behavioral Changes</h4>
 <h5 id="creating-custom-images">Creating Custom Images</h5>
 <p>The functionality which enables you to create custom images was changed and improved. Refer to  <a href="../images/index.html">Custom Images</a>.</p>
@@ -548,9 +549,33 @@
 <p>Cloudbreak 2.1.0 TP does not support Mesos cloud provider.</p>
 <h5 id="removal-of-templates">Removal of Templates</h5>
 <p>Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard. </p>
+<hr />
 <h4 id="known-issues">Known Issues</h4>
-<h5 id="auto-scaling-is-not-available">Auto-scaling Is Not Available</h5>
-<p>Auto-scaling functionality is not available in Cloudbreak 2.1.0 TP. </p></div>
+<h5 id="rmp-10114-auto-scaling-is-not-available">(RMP-10114) Auto-scaling Is Not Available</h5>
+<p>Auto-scaling functionality is not available in Cloudbreak 2.1.0 TP. </p>
+<h5 id="bug-91540-disabled-buttons-in-create-cluster">(BUG-91540) Disabled Buttons in Create Cluster</h5>
+<p>You may experience an intermittent issue where some buttons in the "Create cluster" wizard are disabled.</p>
+<p><strong>Workaround</strong>: Refresh the page.</p>
+<h5 id="bug-91543-networks-with-no-subnets-are-not-supported">(BUG-91543) Networks With No Subnets Are Not Supported</h5>
+<p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:</p>
+<pre><code>Infrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]
+</code></pre>
+
+<p><strong>Workaround</strong>: Do not use this option. It will be removed in a future release.  </p>
+<h5 id="bug-90848-do-not-use-security-group-does-not-work-for-new-network">(BUG-90848) "Do Not Use Security Group" Does Not Work for New Network</h5>
+<p>In the <em>Network</em> section of the create cluster wizard, when you select to create a new network and subnet, there is a security group option "Do Not Use Security Group". This option does not work wen using a new network and subnet: if you select it, new security groups are created. This option will be removed in a future release.</p>
+<h5 id="bug-91071-syntax-error-during-cluster-downscale">(BUG-91071) Syntax Error During Cluster Downscale</h5>
+<p>When trying to downscale your cluster below the minimum required number of nodes, you may get the following error:</p>
+<pre><code>SyntaxError: Unexpected end of JSON input
+</code></pre>
+
+<p>The log provides more information on the error: <code>New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation.</code></p>
+<p><strong>Workaround</strong>: Do not scale the cluster below the minimum required number of nodes.</p>
+<h5 id="bug-91077-nodes-are-unhealthy-after-sync">(BUG-91077) Nodes Are Unhealthy After Sync</h5>
+<p>If your blueprint contains Druid, cluster node status may change to "unhealthy" after synchronizing with the cloud provider using the "Sync" option.  </p>
+<p><strong>Workaround</strong>: Manually start Druid by using Ambari web UI.</p>
+<h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
+<p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the <em>Hardware</em> section is incorrect. </p></div>
         
     </div>
 
