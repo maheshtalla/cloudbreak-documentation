@@ -576,7 +576,7 @@
 </tbody>
 </table>
 <h3 id="network-security">Network Security</h3>
-<p>Security groups are set up to control network traffic to the instances in the system. By default, the system is configured to restrict inbound network traffic to the minimal set of ports. You can add or modify rules to each security group that allow traffic to or from its associated instances: you can do this either when creating your cluster or when the cluster is already running.  </p>
+<p>Security groups are setup to control network traffic to the instances in the system.</p>
 <p>The following table lists the minimum security group port configuration required for the Cloudbreak instance:</p>
 <table>
 <thead>
@@ -591,8 +591,56 @@
 <td>SSH access to the Cloudbreak VM.</td>
 </tr>
 <tr>
+<td>80</td>
+<td>HTTP access to the Cloudbreak UI. This is automatically redirected to the HTTPS (443) port.</td>
+</tr>
+<tr>
 <td>443</td>
-<td>HTTP access to the Cloudbreak UI.</td>
+<td>HTTPS access to the Cloudbreak UI.</td>
+</tr>
+</tbody>
+</table>
+<p>For clusters, by default Cloudbreak allows you to select from two default security groups (that will be created automatically during cluster create):</p>
+<ul>
+<li>default-ambari-security-group</li>
+<li>default-security-group</li>
+</ul>
+<p>These security groups is configured to limit inbound network traffic to a minimal set of ports. Alternatively, you can select from your existing set of security groups, which can be modified using the cloud provider tooling.</p>
+<p><strong>Cluster Host Group with Ambari Server (default-ambari-security-group)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Inbound Port</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22</td>
+<td>SSH access to the VM instance.</td>
+</tr>
+<tr>
+<td>443</td>
+<td>HTTPS access to the Ambari UI.</td>
+</tr>
+<tr>
+<td>8443/9443</td>
+<td>Management ports, used by Cloudbreak to communicate with the cluster node VM.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cluster Host Groups without the Ambari Server (default-security-group)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Inbound Port</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22</td>
+<td>SSH access to the VM instance.</td>
 </tr>
 </tbody>
 </table>

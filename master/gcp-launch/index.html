@@ -567,7 +567,7 @@
 <p><strong>Related Links</strong><br />
 <a href="https://cloud.google.com/storage/docs/authentication#service_accounts">Service Account Credentials</a> (External)  </p>
 <h4 id="vpc-network">VPC Network</h4>
-<p>When launching Cloudbreak, you will be required to select an existing network in which Cloudbreak can be placed. The following ports must be open on the security group: 22 (SSH) and 443 (HTTPS). You may use the <em>default</em> network as long as the aforementioned ports are open. </p>
+<p>When launching Cloudbreak, you will be required to select an existing network in which Cloudbreak can be placed. The following ports must be open on the security group: 22 (for access via SSH), 80 (for access via HTTP), and 443 (for access via HTTPS). You may use the <em>default</em> network as long as the aforementioned ports are open. </p>
 <p>You can manage networks under <strong>Networking</strong> &gt; <strong>VPC Networks</strong>. To edit ports, click on the network name and then click on <strong>Add firewall rules</strong>.</p>
 <h4 id="region-and-zone">Region and Zone</h4>
 <p>Decide in which region and zone you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones">supported by GCP</a>.  </p>
