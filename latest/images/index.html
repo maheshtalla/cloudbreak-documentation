@@ -518,10 +518,14 @@
             <li class="second-level"><a href="#building-custom-images">Building Custom Images</a></li>
             
         
-    
-        <li class="first-level "><a href="#registering-custom-images">Registering Custom Images</a></li>
+            <li class="second-level"><a href="#preparing-the-json-file-with-image-catalog">Preparing the JSON File with Image Catalog</a></li>
+            
+                <li class="third-level"><a href="#structure-of-the-image-catalog-json-file">Structure of the Image Catalog JSON File</a></li>
+            
+                <li class="third-level"><a href="#example-image-catalog-json-file">Example Image Catalog JSON File</a></li>
+            
         
-            <li class="second-level"><a href="#structure-of-the-image-catalog-json">Structure of the image catalog JSON</a></li>
+            <li class="second-level"><a href="#register-custom-images">Register Custom Images</a></li>
             
         
     
@@ -530,139 +534,152 @@
         <div class="col-md-9" role="main">
 
 <h2 id="custom-images">Custom Images</h2>
-<p>By default, Cloudbreak launches clusters from an image that includes default configuration and default tooling for provisioning. These are considered the Standard default images.</p>
-<p>In some cases, these default images might not fit the requirements of users: for example when they need custom OS hardening, libraries, tooling, and so on. In such cases, the user would like to start their clusters from their own custom image.</p>
+<p>By default, Cloudbreak launches clusters from <strong>standard default images</strong>, which include default configuration and default tooling. These images are available by default for each supported provider and region. </p>
+<p>Since the standard default images may not fit the requirements of some users (for example when user requirements include custom OS hardening, custom libraries, custom tooling, and so on), Cloudbeak allows you to use your own <strong>custom images</strong>.</p>
+<p>In order to use your own custom images you must:</p>
+<ol>
+<li>Build your custom images </li>
+<li>Prepare the image catalog JSON file </li>
+<li>Register your custom images with Cloudbreak  </li>
+<li>Select a custom image when creating a cluster</li>
+</ol>
 <h3 id="building-custom-images">Building Custom Images</h3>
-<p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a>. This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to register and use these images with Cloudbreak.</p>
-<h2 id="registering-custom-images">Registering Custom Images</h2>
-<p>Register your custom image(s) in Cloudbreak by export the <code>CB_IMAGE_CATALOG_URL</code> variable in your Profile file that points to an image catalog <code>JSON</code> file that
-declare your custom images. It's value could be an <strong>URL</strong> of a remote file that is reachable by Cloudbreak through <code>HTTP/HTTPS</code> or the <strong>path</strong> of the file
-relatively to the <code>/var/lib/cloudbreak-deployment/etc</code> directory on the Cloudbreak host.
-The<code>etc</code> directory does not exist by default so you need to create it.</p>
-<blockquote>
-<p>Important: If you register images after Cloudbreak has been started, you may need to wait until the cached data will be refreshed.
-Cloudbreak stores the image catalog related data only for 15 minutes.</p>
-</blockquote>
-<h3 id="structure-of-the-image-catalog-json">Structure of the image catalog JSON</h3>
-<p>The <code>JSON</code> file has two main sections the <code>images</code> that contains information about the burned images and the <code>versions</code> that contains the mappings between
-Cloudbreak versions and the available image identifiers for them in the list under the <code>cloudrbeak</code> key.</p>
-<p>The burned images are stored under the <code>images</code> main section in 3 categories based on the platform that is pre-warmed:
-- <code>base-images</code> section of the not pre-warmed images
-- <code>hdf-images</code> contains the HDF related images
-- <code>hdp-images</code> contains the HDP related images</p>
-<p>The image 'records' in the 3 categories are almost the same except that the <code>base-images</code> section's records doesn't contain the version and repo information
-of the pre-warmed Ambari and platform (<strong>HDF/HDP</strong>). So the platform related images must contain the <code>version</code>, <code>repo</code> and <code>stack-details</code> fields. The <code>repo</code>
-field must contain the Ambari's installer package <strong>URL</strong> by the given os-type. The <code>stack-details</code> field must contain a <code>version</code> field that is identifies
-the version of the pre-warmed platform and a <code>repo</code> field that contains the necessary package information for the platform.</p>
-<p>Every image 'record' must contain the <code>os</code>, <code>date</code>, <code>uuid</code> and <code>images</code> fields. The <code>uuid</code> field should be a unique identifier within the file and
-the <code>images</code> field must contain a map that contains the image sets by a provider and an image set must store the virtual machine image ids by the related
-region of the provider. The virtual machine image ids come from the result of the image burning process and must be an existing identifier of a virtual
-machine image on the related provider side.</p>
-<blockquote>
-<p>The providers which use global images the region should be <strong><code>default</code></strong>, as the example <code>JSON</code> describes.</p>
-</blockquote>
-<p><strong>Example image catalog:</strong></p>
-<pre><code>{
-  &quot;images&quot;: {
-    &quot;base-images&quot;: [
+<p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a>. This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to create an image catalog, and register and use these images with Cloudbreak.</p>
+<h3 id="preparing-the-json-file-with-image-catalog">Preparing the JSON File with Image Catalog</h3>
+<p>Once you've built the custom images, you must create an image catalog JSON file. An example is available <a href="#example-image-catalog-json-file">here</a>.  </p>
+<h4 id="structure-of-the-image-catalog-json-file">Structure of the Image Catalog JSON File</h4>
+<p>The image catalog JSON file includes the following two high-level sections: </p>
+<ul>
+<li><code>images</code>: Contains information about the burned images.   </li>
+<li><code>versions</code>: Contains the mappings between Cloudbreak versions and the image identifiers of burned images available for these versions in the list under the <code>cloudrbeak</code> key.  </li>
+</ul>
+<p>The burned images are stored in the <code>images</code> section in three categories, based on the platform that is pre-warmed:</p>
+<ul>
+<li><code>base-images</code>: Contains the non pre-warmed images  </li>
+<li><code>hdf-images</code>: Contains the HDF related images  </li>
+<li><code>hdp-images</code>: Contains the HDP related images  </li>
+</ul>
+<p>Each of these sections stores image "records". Every image "record" must contain the <code>os</code>, <code>date</code>, <code>uuid</code> and <code>images</code> fields. The <code>uuid</code> field must be a unique identifier within the file, and the <code>images</code> field must contain a map that contains the image sets by a provider and an image set must store the virtual machine image IDs by the related region of the provider. The virtual machine image IDs come from the result of the image burning process and must be an existing identifier of a virtual machine image on the related provider side.  </p>
+<p>In addition, the platform-related images (<code>hdf-images</code> and <code>hdp-images</code>) must contain the version and repo information of the pre-warmed Ambari and platform (<strong>HDF/HDP</strong>) images: the <code>version</code>, <code>repo</code>, and <code>stack-details</code> fields. The <code>repo</code> field must contain the Ambari's installer package <strong>URL</strong> by the given os-type. The <code>stack-details</code> field must contain a <code>version</code> field, which identifies the version of the pre-warmed platform and, a <code>repo</code> field, which contains the necessary package information for the platform. </p>
+<p>For the providers which use global rather than per-region images, the region should be replaced with <strong><code>default</code></strong>, as the example image catalog JSON illustrates.</p>
+<h4 id="example-image-catalog-json-file">Example Image Catalog JSON File</h4>
+<pre>
+{
+  "images": {
+    "base-images": [
       {
-        &quot;date&quot;: &quot;2017-10-13&quot;,
-        &quot;description&quot;: &quot;Cloudbreak official base image&quot;,
-        &quot;images&quot;: {
-          &quot;mock&quot;: {
-            &quot;default&quot;: &quot;mockimage/hdc-hdp--1710161226.tar.gz&quot;
+        "date": "2017-10-13",
+        "description": "Cloudbreak official base image",
+        "images": {
+          "mock": {
+            "default": "mockimage/hdc-hdp--1710161226.tar.gz"
           }
         },
-        &quot;os&quot;: &quot;centos7&quot;,
-        &quot;uuid&quot;: &quot;f6e778fc-7f17-4535-9021-515351df3691&quot;
+        "os": "centos7",
+        "uuid": "f6e778fc-7f17-4535-9021-515351df3691"
       },
       {
-        &quot;date&quot;: &quot;2017-10-13&quot;,
-        &quot;description&quot;: &quot;Cloudbreak official base image&quot;,
-        &quot;images&quot;: {
-          &quot;aws&quot;: {
-            &quot;ap-northeast-1&quot;: &quot;ami-78e9311e&quot;,
-            &quot;ap-northeast-2&quot;: &quot;ami-84b613ea&quot;,
-            &quot;ap-southeast-1&quot;: &quot;ami-75226716&quot;,
-            &quot;ap-southeast-2&quot;: &quot;ami-92ce23f0&quot;,
-            &quot;eu-central-1&quot;: &quot;ami-d95be5b6&quot;,
-            &quot;eu-west-1&quot;: &quot;ami-46429e3f&quot;,
-            &quot;sa-east-1&quot;: &quot;ami-86d5abea&quot;,
-            &quot;us-east-1&quot;: &quot;ami-51a2742b&quot;,
-            &quot;us-west-1&quot;: &quot;ami-21ccfe41&quot;,
-            &quot;us-west-2&quot;: &quot;ami-2a1cdc52&quot;
+        "date": "2017-10-13",
+        "description": "Cloudbreak official base image",
+        "images": {
+          "aws": {
+            "ap-northeast-1": "ami-78e9311e",
+            "ap-northeast-2": "ami-84b613ea",
+            "ap-southeast-1": "ami-75226716",
+            "ap-southeast-2": "ami-92ce23f0",
+            "eu-central-1": "ami-d95be5b6",
+            "eu-west-1": "ami-46429e3f",
+            "sa-east-1": "ami-86d5abea",
+            "us-east-1": "ami-51a2742b",
+            "us-west-1": "ami-21ccfe41",
+            "us-west-2": "ami-2a1cdc52"
           },
-          &quot;gcp&quot;: {
-            &quot;default&quot;: &quot;sequenceiqimage/hdc-hdp--1710161226.tar.gz&quot;
+          "gcp": {
+            "default": "sequenceiqimage/hdc-hdp--1710161226.tar.gz"
           },
-          &quot;openstack&quot;: {
-            &quot;default&quot;: &quot;hdc-hdp--1710161226&quot;
+          "openstack": {
+            "default": "hdc-hdp--1710161226"
           }
         },
-        &quot;os&quot;: &quot;centos7&quot;,
-        &quot;uuid&quot;: &quot;f6e778fc-7f17-4535-9021-515351df3692&quot;
+        "os": "centos7",
+        "uuid": "f6e778fc-7f17-4535-9021-515351df3692"
       }
     ],
-    &quot;hdf-images&quot;: [],
-    &quot;hdp-images&quot;: [
+    "hdf-images": [],
+    "hdp-images": [
       {
-        &quot;date&quot;: &quot;2017-08-07&quot;,
-        &quot;description&quot;: &quot;Cloudbreak official image&quot;,
-        &quot;images&quot;: {
-          &quot;aws&quot;: {
-            &quot;ap-northeast-1&quot;: &quot;ami-e621ca80&quot;,
-            &quot;ap-northeast-2&quot;: &quot;ami-6a29f004&quot;,
-            &quot;ap-southeast-1&quot;: &quot;ami-3e01985d&quot;,
-            &quot;ap-southeast-2&quot;: &quot;ami-ed253c8e&quot;,
-            &quot;eu-central-1&quot;: &quot;ami-76812f19&quot;,
-            &quot;eu-west-1&quot;: &quot;ami-8d3dcbf4&quot;,
-            &quot;sa-east-1&quot;: &quot;ami-1897e174&quot;,
-            &quot;us-east-1&quot;: &quot;ami-5428072f&quot;,
-            &quot;us-west-1&quot;: &quot;ami-36351e56&quot;,
-            &quot;us-west-2&quot;: &quot;ami-b7d435cf&quot;
+        "date": "2017-08-07",
+        "description": "Cloudbreak official image",
+        "images": {
+          "aws": {
+            "ap-northeast-1": "ami-e621ca80",
+            "ap-northeast-2": "ami-6a29f004",
+            "ap-southeast-1": "ami-3e01985d",
+            "ap-southeast-2": "ami-ed253c8e",
+            "eu-central-1": "ami-76812f19",
+            "eu-west-1": "ami-8d3dcbf4",
+            "sa-east-1": "ami-1897e174",
+            "us-east-1": "ami-5428072f",
+            "us-west-1": "ami-36351e56",
+            "us-west-2": "ami-b7d435cf"
           },
-          &quot;azure&quot;: null,
-          &quot;gcp&quot;: null,
-          &quot;openstack&quot;: null
+          "azure": null,
+          "gcp": null,
+          "openstack": null
         },
-        &quot;os&quot;: &quot;centos6&quot;,
-        &quot;uuid&quot;: &quot;2.4.2.2-1-aec0d3ca-e04a-47bf-9970-d649b0c579b9-2.5.0.1-265&quot;,
-        &quot;stack-details&quot;: {
-          &quot;repo&quot;: {
-            &quot;stack&quot;: {
-              &quot;redhat6&quot;: &quot;http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-265&quot;,
-              &quot;repoid&quot;: &quot;HDP-2.5&quot;
+        "os": "centos6",
+        "uuid": "2.4.2.2-1-aec0d3ca-e04a-47bf-9970-d649b0c579b9-2.5.0.1-265",
+        "stack-details": {
+          "repo": {
+            "stack": {
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-265",
+              "repoid": "HDP-2.5"
             },
-            &quot;util&quot;: {
-              &quot;redhat6&quot;: &quot;http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6&quot;,
-              &quot;repoid&quot;: &quot;HDP-UTILS-1.1.0.21&quot;
+            "util": {
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "repoid": "HDP-UTILS-1.1.0.21"
             }
           },
-          &quot;version&quot;: &quot;2.5.0.1-265&quot;
+          "version": "2.5.0.1-265"
         },
-        &quot;repo&quot;: {
-          &quot;redhat6&quot;: &quot;http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/&quot;
+        "repo": {
+          "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/"
         },
-        &quot;version&quot;: &quot;2.4.2.2-1&quot;
+        "version": "2.4.2.2-1"
       }
     ]
   },
-  &quot;versions&quot;: {
-    &quot;cloudbreak&quot;: [
+  "versions": {
+    "cloudbreak": [
       {
-        &quot;images&quot;: [
-          &quot;f6e778fc-7f17-4535-9021-515351df3691&quot;,
-          &quot;f6e778fc-7f17-4535-9021-515351df3692&quot;,
-          &quot;2.4.2.2-1-aec0d3ca-e04a-47bf-9970-d649b0c579b9-2.5.0.1-265&quot;
+        "images": [
+          "f6e778fc-7f17-4535-9021-515351df3691",
+          "f6e778fc-7f17-4535-9021-515351df3692",
+          "2.4.2.2-1-aec0d3ca-e04a-47bf-9970-d649b0c579b9-2.5.0.1-265"
         ],
-        &quot;versions&quot;: [
-          &quot;2.1.0-rc.1&quot;
+        "versions": [
+          "2.1.0-rc.1"
         ]
       }
     ]
   }
 }
-</code></pre></div>
+</pre>
+
+<h3 id="register-custom-images">Register Custom Images</h3>
+<p>Register your custom images in Cloudbreak by using the following steps. In general, you must edit your Profile file, by adding <code>export CB_IMAGE_CATALOG_URL=</code> pointing to the JSON file which contains your image catalog. </p>
+<p>You may register the images either before starting Cloudbreak or after Cloudbreak is already running. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>SSH to the Cloudbreak VM and navigate to the Cloudbreak deployment directory, which usually is <code>/var/lib/cloudbreak-deployment</code> and edit the Profile file.</li>
+<li>To register your custom images, add <code>export CB_IMAGE_CATALOG_URL=</code> to your profile and set it to the location of your <code>JSON</code> file which declares your custom images. Its value can be:  <ul>
+<li>A <strong>URL</strong> of a remote file that is reachable by Cloudbreak through HTTP/HTTPS or  </li>
+<li>A <strong>path</strong> to the file, relative to the <code>/var/lib/cloudbreak-deployment/etc</code> directory on the Cloudbreak host. The<code>etc</code> directory does not exist by default so you must create it. For example If you have an image catalog file called "custom-catalog.json" located in the <code>/var/lib/cloudbreak-deployment/etc</code> directory, you can simply enter in your Profile <code>export CB_IMAGE_CATALOG_URL=custom-catalog.json</code>.  </li>
+</ul>
+</li>
+<li>If you register images after Cloudbreak has been started, you may need to wait until the cached data is refreshed.
+Cloudbreak stores the image catalog related data only for 15 minutes.</li>
+</ol></div>
         
     </div>
 
