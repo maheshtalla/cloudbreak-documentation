@@ -528,6 +528,9 @@
             <li class="second-level"><a href="#register-custom-images">Register Custom Images</a></li>
             
         
+            <li class="second-level"><a href="#select-a-custom-image-when-creating-a-cluster">Select a Custom Image When Creating a Cluster</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -538,10 +541,10 @@
 <p>Since the standard default images may not fit the requirements of some users (for example when user requirements include custom OS hardening, custom libraries, custom tooling, and so on), Cloudbeak allows you to use your own <strong>custom images</strong>.</p>
 <p>In order to use your own custom images you must:</p>
 <ol>
-<li>Build your custom images </li>
-<li>Prepare the image catalog JSON file </li>
-<li>Register your custom images with Cloudbreak  </li>
-<li>Select a custom image when creating a cluster</li>
+<li>Build your custom images  </li>
+<li>Prepare the image catalog JSON file  </li>
+<li>Register your custom images with Cloudbreak   </li>
+<li>Select a custom image when creating a cluster  </li>
 </ol>
 <h3 id="building-custom-images">Building Custom Images</h3>
 <p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a>. This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to create an image catalog, and register and use these images with Cloudbreak.</p>
@@ -550,19 +553,70 @@
 <h4 id="structure-of-the-image-catalog-json-file">Structure of the Image Catalog JSON File</h4>
 <p>The image catalog JSON file includes the following two high-level sections: </p>
 <ul>
-<li><code>images</code>: Contains information about the burned images.   </li>
-<li><code>versions</code>: Contains the mappings between Cloudbreak versions and the image identifiers of burned images available for these versions in the list under the <code>cloudrbeak</code> key.  </li>
-</ul>
-<p>The burned images are stored in the <code>images</code> section in three categories, based on the platform that is pre-warmed:</p>
-<ul>
+<li><code>images</code>: Contains information about the burned images. The burned images are stored in the <code>images</code> section in three categories, based on the platform that is pre-warmed:  <ul>
 <li><code>base-images</code>: Contains the non pre-warmed images  </li>
 <li><code>hdf-images</code>: Contains the HDF related images  </li>
-<li><code>hdp-images</code>: Contains the HDP related images  </li>
+<li><code>hdp-images</code>: Contains the HDP related images   </li>
 </ul>
-<p>Each of these sections stores image "records". Every image "record" must contain the <code>os</code>, <code>date</code>, <code>uuid</code> and <code>images</code> fields. The <code>uuid</code> field must be a unique identifier within the file, and the <code>images</code> field must contain a map that contains the image sets by a provider and an image set must store the virtual machine image IDs by the related region of the provider. The virtual machine image IDs come from the result of the image burning process and must be an existing identifier of a virtual machine image on the related provider side.  </p>
-<p>In addition, the platform-related images (<code>hdf-images</code> and <code>hdp-images</code>) must contain the version and repo information of the pre-warmed Ambari and platform (<strong>HDF/HDP</strong>) images: the <code>version</code>, <code>repo</code>, and <code>stack-details</code> fields. The <code>repo</code> field must contain the Ambari's installer package <strong>URL</strong> by the given os-type. The <code>stack-details</code> field must contain a <code>version</code> field, which identifies the version of the pre-warmed platform and, a <code>repo</code> field, which contains the necessary package information for the platform. </p>
-<p>For the providers which use global rather than per-region images, the region should be replaced with <strong><code>default</code></strong>, as the example image catalog JSON illustrates.</p>
+</li>
+<li><code>versions</code>: Contains the <code>cloudrbeak</code> entry including mapping between Cloudbreak versions and the image identifiers of burned images available for these Cloudbreak versions.  </li>
+</ul>
+<p>Each of the three <code>images</code> sub-sections stores image "records". Every image "record" must contain the  <code>date</code>, <code>description</code> <code>images</code>, <code>os</code>, and <code>uuid</code>  fields: </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td>Date for your image catalog entry.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Description for your image catalog entry.</td>
+</tr>
+<tr>
+<td>images</td>
+<td>the <code>images</code> field must contain a map that contains the image sets by a provider and an image set must store the virtual machine image IDs by the related region of the provider. The virtual machine image IDs come from the result of the image burning process and must be an existing identifier of a virtual machine image on the related provider side. For the providers which use global rather than per-region images, the region should be replaced with <strong><code>default</code></strong>, as the example image catalog JSON illustrates.</td>
+</tr>
+<tr>
+<td>os</td>
+<td>The operating system used for the image.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>The <code>uuid</code> field must be a unique identifier within the file.</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to those mentioned above, the platform-related images (<code>hdf-images</code> and <code>hdp-images</code>) must contain the version and repo information of the pre-warmed Ambari and platform (HDP/HDF) images: the <code>version</code>, <code>repo</code>, and <code>stack-details</code> fields. </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repo</td>
+<td>The <code>repo</code> field must contain the Ambari's installer package URL by the given os-type.</td>
+</tr>
+<tr>
+<td>stack-details</td>
+<td>The <code>stack-details</code> field must contain a <code>version</code> field, which identifies the version of the pre-warmed platform and a <code>repo</code> field, which contains the necessary package information for the platform.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>The platform version.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="example-image-catalog-json-file">Example Image Catalog JSON File</h4>
+<p>Here is an example JSON image catalog file: </p>
 <pre>
 {
   "images": {
@@ -679,7 +733,9 @@
 </li>
 <li>If you register images after Cloudbreak has been started, you may need to wait until the cached data is refreshed.
 Cloudbreak stores the image catalog related data only for 15 minutes.</li>
-</ol></div>
+</ol>
+<h3 id="select-a-custom-image-when-creating-a-cluster">Select a Custom Image When Creating a Cluster</h3>
+<p>TO-DO: Need to describe this </p></div>
         
     </div>
 
