@@ -553,9 +553,6 @@
 <h4 id="known-issues">Known Issues</h4>
 <h5 id="rmp-10114-auto-scaling-is-not-available">(RMP-10114) Auto-scaling Is Not Available</h5>
 <p>Auto-scaling functionality is not available in Cloudbreak 2.1.0 TP. </p>
-<h5 id="bug-91540-disabled-buttons-in-create-cluster">(BUG-91540) Disabled Buttons in Create Cluster</h5>
-<p>You may experience an intermittent issue where some buttons in the "Create cluster" wizard are disabled.<br />
-<em>Workaround</em>: Refresh the page. If this does not help, try clearing the cache or using a different browser.  </p>
 <h5 id="bug-91543-networks-with-no-subnets-are-not-supported">(BUG-91543) Networks With No Subnets Are Not Supported</h5>
 <p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:</p>
 <pre><code>Infrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]

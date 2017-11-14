@@ -517,9 +517,9 @@
         
             <li class="second-level"><a href="#advanced-options">Advanced Options</a></li>
             
-                <li class="third-level"><a href="#base-image">Base Image</a></li>
+                <li class="third-level"><a href="#choose-os-type">Choose OS Type</a></li>
             
-                <li class="third-level"><a href="#prewarmed-image">Prewarmed Image</a></li>
+                <li class="third-level"><a href="#base-images">Base Images</a></li>
             
                 <li class="third-level"><a href="#enable-lifetime-management">Enable Lifetime Management</a></li>
             
@@ -681,7 +681,11 @@
 <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general">General Purpose Linux VM Sizes</a> (External)  </p>
 <h3 id="advanced-options">Advanced Options</h3>
 <p>Click on <strong>Advanced</strong> to view and enter additional configuration options</p>
-<h4 id="base-image">Base Image</h4>
+<h4 id="choose-os-type">Choose OS Type</h4>
+<p>By default, the <strong>Choose OS Type</strong> is set to the default image that is provided with Cloudbreak. If you would like to use a different image, you must register it in a custom image catalog, as described in the <a href="../images/index.html">Custom Images</a> documentation.</p>
+<p><strong>Related Links</strong> <br />
+<a href="../images/index.html">Custom Images</a></p>
+<h4 id="base-images">Base Images</h4>
 <p>The <strong>Base Image</strong> option allows you to customize Ambari and/or HDP version used. </p>
 <p><em>Ambari Parameters</em></p>
 <table>
@@ -689,23 +693,23 @@
 <tr>
 <th>Parameter</th>
 <th>Description</th>
-<th>Example</th>
+<th>Default Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Version</td>
-<td>Enter Ambari version.</td>
+<td>Ambari version.</td>
 <td>2.5.1.0</td>
 </tr>
 <tr>
 <td>Repo Url</td>
-<td></td>
+<td>URL to the Ambari version repo.</td>
 <td>http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.1.0</td>
 </tr>
 <tr>
 <td>Repo Gpg Key Url</td>
-<td></td>
+<td>URL to the repo GPG key. Each stable RPM package that is published by CentOS Project is signed with a GPG signature. By default, yum and the graphical update tools will verify these signatures and refuse to install any packages that are not signed, or have an incorrect signature.</td>
 <td>http://public-repo-1.hortonworks.com/ambari/centos6/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins</td>
 </tr>
 </tbody>
@@ -716,41 +720,47 @@
 <tr>
 <th>Parameter</th>
 <th>Description</th>
+<th>Default Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Stack</td>
-<td></td>
+<td>Stack name.</td>
+<td>HDP</td>
 </tr>
 <tr>
 <td>Version</td>
-<td></td>
+<td>Stack version.</td>
+<td>2.6</td>
 </tr>
 <tr>
 <td>OS</td>
-<td></td>
+<td>Operating system.</td>
+<td>centos7</td>
 </tr>
 <tr>
 <td>Stack Repo Id</td>
-<td></td>
+<td>Identifier for the repo linked in "Base Url".</td>
+<td>HDP-2.6</td>
 </tr>
 <tr>
 <td>Base Url</td>
-<td></td>
+<td>URL to the repo storing the desired stack version.</td>
+<td>http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.1.0</td>
 </tr>
 <tr>
 <td>Utils Repo Id</td>
-<td></td>
+<td>Identifier for the repo linked in "Utils Base Url".</td>
+<td>HDP-UTILS-1.1.0.21</td>
 </tr>
 <tr>
 <td>Utils Base Url</td>
-<td></td>
+<td>URL to the repo storing utilities for the desired stack version.</td>
+<td>http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos7</td>
 </tr>
 </tbody>
 </table>
-<h4 id="prewarmed-image">Prewarmed Image</h4>
-<p>The <strong>Prewarmed Image</strong> option allows you to select a previously created custom image other than CentOS.</p>
 <h4 id="enable-lifetime-management">Enable Lifetime Management</h4>
 <p>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minutes) has passed. </p>
 <h4 id="tags">Tags</h4>

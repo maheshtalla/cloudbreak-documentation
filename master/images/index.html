@@ -553,26 +553,31 @@
 <table>
 <thead>
 <tr>
-<th></th>
+<th>Cloud Provider</th>
 <th>Base Images</th>
+<th>Prewarmed Images</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>AWS</td>
 <td>Amazon Linux 2017</td>
+<td><ul><li>Amazon Linux 2017 with HDP 2.6 and Ambari 2.5</li><li>Amazon Linux 2017 with HDP 2.5 and Ambari 2.4</li></ul></td>
 </tr>
 <tr>
 <td>Azure</td>
 <td>CentOS 7</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td>GCP</td>
 <td>CentOS 7</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td>OpenStack</td>
 <td>CentOS 7</td>
+<td>N/A</td>
 </tr>
 </tbody>
 </table>
@@ -584,9 +589,7 @@
 <li>Register your custom images with Cloudbreak   </li>
 <li>Select a custom image when creating a cluster  </li>
 </ol>
-<blockquote>
 <p>Only base images can be created and registered as custom images. Do not create or register prewarmed images using the instructions below. </p>
-</blockquote>
 <h3 id="building-custom-images">Building Custom Images</h3>
 <p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a>. This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to create an image catalog, and register and use these images with Cloudbreak.</p>
 <h3 id="preparing-the-image-catalog">Preparing the Image Catalog</h3>
