@@ -518,7 +518,7 @@
             <li class="second-level"><a href="#building-custom-images">Building Custom Images</a></li>
             
         
-            <li class="second-level"><a href="#preparing-the-image-catalog-json-file">Preparing the Image Catalog JSON File</a></li>
+            <li class="second-level"><a href="#preparing-the-image-catalog">Preparing the Image Catalog</a></li>
             
                 <li class="third-level"><a href="#structure-of-the-image-catalog-json-file">Structure of the Image Catalog JSON File</a></li>
             
@@ -541,17 +541,55 @@
 
 <h2 id="custom-images">Custom Images</h2>
 <p>By default, Cloudbreak launches clusters from <strong>standard default images</strong>, which include default configuration and default tooling. These images are available by default for each supported provider and region. </p>
+<p>Cloudbreak includes both base images and prewarmed images, depending on the cloud provider. </p>
+<ul>
+<li>
+<p><strong>Base images</strong> do not include Ambari or HDP software. These images can be used regardless of your choice of Ambari or HDP because that software is installed as part of the VM create and cluster provisioning process. This means you have more flexibility to use a base image but it can take longer to provision since more software is installed during cluster create.</p>
+</li>
+<li>
+<p><strong>Prewarmed images</strong> include Ambari and HDP software pre-installed. This reduces the VM create and cluster provisioning process time but these images can only be used with a specific Ambari and HDP version.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Base Images</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS</td>
+<td>Amazon Linux 2017</td>
+</tr>
+<tr>
+<td>Azure</td>
+<td>CentOS 7</td>
+</tr>
+<tr>
+<td>GCP</td>
+<td>CentOS 7</td>
+</tr>
+<tr>
+<td>OpenStack</td>
+<td>CentOS 7</td>
+</tr>
+</tbody>
+</table>
 <p>Since the standard default images may not fit the requirements of some users (for example when user requirements include custom OS hardening, custom libraries, custom tooling, and so on), Cloudbeak allows you to use your own <strong>custom images</strong>.</p>
-<p>In order to use your own custom images you must:</p>
+<p>In order to use your own custom base images you must:</p>
 <ol>
 <li>Build your custom images  </li>
 <li>Prepare the image catalog JSON file  </li>
 <li>Register your custom images with Cloudbreak   </li>
 <li>Select a custom image when creating a cluster  </li>
 </ol>
+<blockquote>
+<p>Only base images can be created and registered as custom images. Do not create or register prewarmed images using the instructions below. </p>
+</blockquote>
 <h3 id="building-custom-images">Building Custom Images</h3>
 <p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a>. This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to create an image catalog, and register and use these images with Cloudbreak.</p>
-<h3 id="preparing-the-image-catalog-json-file">Preparing the Image Catalog JSON File</h3>
+<h3 id="preparing-the-image-catalog">Preparing the Image Catalog</h3>
 <p>Once you've built the custom images, create the <code>custom-image-catalog.json</code> file and save it on your Cloudbreak machine in the <code>/var/lib/cloudbreak-deployment/etc</code> directory. The etc directory does not exist by default so you must create it. </p>
 <p>The structure of the image catalog JSON file file and an example image catalog JSON file are provided below. </p>
 <h4 id="structure-of-the-image-catalog-json-file">Structure of the Image Catalog JSON File</h4>
