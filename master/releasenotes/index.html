@@ -554,15 +554,25 @@
 <h5 id="rmp-10114-auto-scaling-is-not-available">(RMP-10114) Auto-scaling Is Not Available</h5>
 <p>Auto-scaling functionality is not available in Cloudbreak 2.1.0 TP. </p>
 <h5 id="bug-91543-networks-with-no-subnets-are-not-supported">(BUG-91543) Networks With No Subnets Are Not Supported</h5>
-<p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:</p>
+<p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   </p>
 <pre><code>Infrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]
 </code></pre>
 
 <p><em>Workaround</em>: Do not use this option. It will be removed in a future release.  </p>
 <h5 id="bug-90848-do-not-use-security-group-does-not-work-for-new-network">(BUG-90848) "Do Not Use Security Group" Does Not Work for New Network</h5>
 <p>In the <em>Network</em> section of the create cluster wizard, when you select to create a new network and subnet, there is a security group option "Do Not Use Security Group". This option does not work wen using a new network and subnet: if you select it, new security groups are created. This option will be removed in a future release.</p>
+<h5 id="bug-90985-openstack-cluster-creation-fails-at-network-configuration">(BUG-90985) OpenStack Cluster Creation Fails at Network Configuration</h5>
+<p>When creating a cluster on OpenStack, if you do not select an existing network and subnet, the cluster fails with an error similar to:  </p>
+<pre><code>Infrastructure creation failed. Reason: At least one of the following properties must be specified: network, network_id.
+</code></pre>
+
+<p>or   </p>
+<pre><code>Infrastructure creation failed. Reason: The Parameter (router_id) was not provided.
+</code></pre>
+
+<p><em>Workaround</em>: When creating a cluster on OpenStack, you must select an existing network and subnet. </p>
 <h5 id="bug-91071-syntax-error-during-cluster-downscale">(BUG-91071) Syntax Error During Cluster Downscale</h5>
-<p>When trying to downscale your cluster below the minimum required number of nodes, you may get the following error:</p>
+<p>When trying to downscale your cluster below the minimum required number of nodes, you may get the following error:  </p>
 <pre><code>SyntaxError: Unexpected end of JSON input
 </code></pre>
 
@@ -573,16 +583,9 @@
 <em>Workaround</em>: Manually start Druid by using Ambari web UI.  </p>
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
-<h5 id="bug-90985-openstack-cluster-creation-fails-at-network-configuration">(BUG-90985) OpenStack Cluster Creation Fails at Network Configuration</h5>
-<p>When creating a cluster on OpenStack, if you do not select an existing network and subnet, the cluster fails with an error similar to:</p>
-<pre><code>Infrastructure creation failed. Reason: At least one of the following properties must be specified: network, network_id.
-</code></pre>
-
-<p>or</p>
-<pre><code>Infrastructure creation failed. Reason: The Parameter (router_id) was not provided.
-</code></pre>
-
-<p><em>Workaround</em>: When creating a cluster on OpenStack, you must select an existing network and subnet. </p></div>
+<h5 id="bug-91674-network-and-subnet-listed-as-na">(BUG-91674) Network and Subnet Listed as N/A</h5>
+<p>When creating a new network and subnet for your cluster, the network and subnet information is unavailable on the cluster details page, showing "N/A".</p>
+<p><em>Workaround</em>: If you want to check which network and subnet are used for your cluster, navigate to the cloud provider account and find the cluster instances that were created for your cluster. Next, check which virtual network and subnet they are associated with. The steps vary depending on the provider.  </p></div>
         
     </div>
 

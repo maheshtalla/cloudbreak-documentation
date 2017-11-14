@@ -743,13 +743,15 @@
     cd /var/lib/cloudbreak-deployment    </li>
 <li>Edit the Profile file:   <br />
     vi Profile      </li>
-<li>Add export CB_IMAGE_CATALOG_URL and set it to the location of your JSON file which declares your custom images. Its value can be:<ul>
+<li>Add <code>export CB_IMAGE_CATALOG_URL</code> to the file and set it to the location of your JSON file which declares your custom images. Its value can be:<ul>
 <li>A <strong>URL</strong> of a remote file that is reachable by Cloudbreak through HTTP/HTTPS or    </li>
 <li>A <strong>PATH</strong> to the file, relative to the /var/lib/cloudbreak-deployment/etc directory on the Cloudbreak host. For example: <code>export CB_IMAGE_CATALOG_URL=custom-image-catalog.json</code>    </li>
 </ul>
 </li>
-<li>Save the Profile file and restart Cloudbreak: <br />
-<code>cbd restart</code></li>
+<li>Save the Profile file.</li>
+<li>Navigate back to the Cloudbrak deployment directory and restart Cloudbreak: <br />
+    <pre>cd ..
+cbd restart</pre></li>
 </ol>
 <h3 id="select-a-custom-image-when-creating-a-cluster">Select a Custom Image When Creating a Cluster</h3>
 <p>Once you have registered the custom images you can use them when creating a cluster. </p>
