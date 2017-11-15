@@ -540,13 +540,13 @@
         <div class="col-md-9" role="main">
 
 <h2 id="custom-images">Custom Images</h2>
-<p>By default, Cloudbreak launches clusters from <strong>default base images</strong>, which include default configuration and default tooling. These images are available by default for each supported provider and region. These images are <strong>base images</strong>: they include the OS but do not include Ambari or HDP software. The Ambari and HDP software is installed as part of the VM create and cluster provisioning process.</p>
-<p>The following table lists the standard default images available for each platform: </p>
+<p>By default, Cloudbreak launches clusters from <strong>default base images</strong>, which include default configuration and default tooling. These images are base images: they include the OS but do not include Ambari or HDP software. The Ambari and HDP software is installed as part of the VM create and cluster provisioning process. </p>
+<p>Default base images are available for each supported cloud provider and region. The following table lists the default base images available: </p>
 <table>
 <thead>
 <tr>
 <th>Cloud Provider</th>
-<th>Base Images</th>
+<th>Base Image</th>
 </tr>
 </thead>
 <tbody>
@@ -568,7 +568,7 @@
 </tr>
 </tbody>
 </table>
-<p>Since these standard default images may not fit the requirements of some users (for example when user requirements include custom OS hardening, custom libraries, custom tooling, and so on), Cloudbeak allows you to use your own <strong>custom base images</strong>.</p>
+<p>Since these standard default images may not fit the requirements of some users (for example when user requirements include custom OS hardening, custom libraries, custom tooling, and so on) Cloudbeak allows you to use your own <strong>custom base images</strong>.</p>
 <p>In order to use your own custom base images you must:</p>
 <ol>
 <li>Build your custom images  </li>
@@ -601,9 +601,10 @@ vi custom-image-catalog.json</pre>
 <p>The image catalog JSON file includes the following two high-level sections: </p>
 <ul>
 <li><code>images</code>: Contains information about the created images. The burned images are stored in the <code>base-images</code> section.  </li>
-<li><code>versions</code>: Contains the <code>cloudbreak</code> entry, which includes mapping between Cloudbreak versions and the image identifiers of burned images available for these Cloudbreak versions.   </li>
+<li><code>versions</code>: Contains the <code>cloudbreak</code> entry, which includes mapping between Cloudbreak versions and the image identifiers of burned images available for these Cloudbreak versions. </li>
 </ul>
-<p>The <code>base-images</code> section stores one or more image "records". Every image "record" must contain the date, description, images, os, os_type, and uuid fields.</p>
+<p><strong>Images Section</strong>  </p>
+<p>The burned images are stored in the <code>base-images</code> sub-section of <code>images</code>. The <code>base-images</code> section stores one or more image "records". Every image "record" must contain the date, description, images, os, os_type, and uuid fields.</p>
 <table>
 <thead>
 <tr>
@@ -622,7 +623,7 @@ vi custom-image-catalog.json</pre>
 </tr>
 <tr>
 <td>images</td>
-<td>the <code>images</code> field must contain a map that contains the image sets by a provider and an image set must store the virtual machine image IDs by the related region of the provider. The virtual machine image IDs come from the result of the image burning process and must be an existing identifier of a virtual machine image on the related provider side. For the providers which use global rather than per-region images, the region should be replaced with <strong><code>default</code></strong>, as the example image catalog JSON illustrates.</td>
+<td>The image sets by cloud provider. An image set must store the virtual machine image IDs by the related region of the provider (AWS, Azure) or contain a one default image for all regions (GCP, OpenStack). The virtual machine image IDs come from the result of the image burning process and must be an existing identifier of a virtual machine image on the related provider side. For the providers which use global rather than per-region images, the region should be replaced with <strong><code>default</code></strong>.</td>
 </tr>
 <tr>
 <td>os</td>
@@ -638,6 +639,7 @@ vi custom-image-catalog.json</pre>
 </tr>
 </tbody>
 </table>
+<p><strong>Versions Section</strong>  </p>
 <p>The <code>versions</code> section includes a single "cloudbreak" entry, which maps the uuids to a specific Cloudbreak version:</p>
 <table>
 <thead>
@@ -658,12 +660,22 @@ vi custom-image-catalog.json</pre>
 </tbody>
 </table>
 <h4 id="example-image-catalog-json-file">Example Image Catalog JSON File</h4>
-<p>Here is an example image catalog JSON file that includes a custom base image:</p>
+<p>Here is an example image catalog JSON file that includes two sets of custom base images: </p>
 <ul>
-<li>For AWS, Azure, Google, and OpenStack  </li>
-<li>That is using CentOS 7 operating system   </li>
-<li>Has a unique ID of f6e778fc-7f17-4535-9021-515351df3692  </li>
-<li>Is available to Cloudbreak 2.1.0  </li>
+<li>A custom base image for AWS:<ul>
+<li>That is using Amazon Linux operating system </li>
+<li>That will use the Redhat 6 repos as default Ambari and HDP repositories during cluster create     </li>
+<li>Has a unique ID of "44b140a4-bd0b-457d-b174-e988bee3ca47"</li>
+<li>Is available for Cloudbreak 2.1.0    </li>
+</ul>
+</li>
+<li>A custom base image for Azure, Google, and OpenStack: <ul>
+<li>That is using CentOS 7 operating system </li>
+<li>That will use the Redhat 7 repos as default Ambari and HDP repositories during cluster create   </li>
+<li>Has a unique ID of "f6e778fc-7f17-4535-9021-515351df3692"</li>
+<li>Is available to Cloudbreak 2.1.0      </li>
+</ul>
+</li>
 </ul>
 <p>You can also download it from <a href="https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cb-doc-resources/custom-image-catalog.json">here</a>.</p>
 <pre>
