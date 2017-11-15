@@ -572,9 +572,13 @@
 <em>Infrastructure creation failed. Reason: The Parameter (router_id) was not provided.</em></p>
 <p><em>Workaround</em>: When creating a cluster on OpenStack, you must select an existing network and subnet. </p>
 <hr />
+<h5 id="bug-91077-node-status-is-not-consistent-with-ambari">(BUG-91077) Node Status Is Not Consistent with Ambari</h5>
+<p>If your blueprint contains Druid, cluster node status may be "healthy" after a cluster is created, even though the Druid component has not started.   <br />
+<em>Workaround</em>: Manually start Druid by using Ambari web UI.  </p>
+<hr />
 <h5 id="bug-91077-nodes-are-unhealthy-after-sync">(BUG-91077) Nodes Are Unhealthy After Sync</h5>
 <p>If your blueprint contains Druid, cluster node status may change to "unhealthy" after synchronizing with the cloud provider using the "Sync" option.  <br />
-<em>Workaround</em>: Manually start Druid by using Ambari web UI.  </p>
+<em>Workaround</em>: Manually start Druid by using Ambari web UI and then "Sync" again.  </p>
 <hr />
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
