@@ -815,16 +815,16 @@ The following Ambari and HDP versions are supported:<ul><li>Ambari <b>2.5.x</b><
 <h4 id="security-groups">Security Groups</h4>
 <p>For each host group, select one of the options:</p>
 <ul>
-<li>Create new security group  </li>
-<li>Do not use security group  </li>
-<li>Select an existing security group</li>
+<li>Create new security group with custom rules  </li>
+<li>Create a new security group with <a href="../security/index.html#default-cluster-security-groups">default rules</a> </li>
+<li>Select an existing security group  </li>
+<li>Do not use security group (only available for existing network and subnet)  </li>
 </ul>
 <p>If you choose to create a new security group, the <em>New Security Group</em> wizard will open.</p>
 <ol>
-<li>TCP ports 22, 443, and 9443 will be open by default. These ports must be open on every security group; otherwise Cloudbreak will not be able to communicate with your provisioned cluster.  </li>
-<li>You may open additional ports by defining the <strong>CIDR</strong>, <strong>Port</strong>, and <strong>Protocol</strong> for each and clicking <strong>Add Rule</strong>. </li>
-<li>Once done, click <strong>SAVE</strong> to save your security group settings.</li>
-<li>Once you define a custom security group for one host group, you can reuse this definition for other node groups.</li>
+<li>You may open ports by defining the <strong>CIDR</strong>, <strong>Port</strong>, and <strong>Protocol</strong> for each and clicking <strong>Add Rule</strong>.   </li>
+<li>Once done, click <strong>SAVE</strong> to save your security group settings.  </li>
+<li>Once you define a custom security group for one host group, you can reuse this definition for other node groups.  </li>
 </ol>
 <h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
 <p>Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to <a href="../security-kerberos/index.html">Kerberos</a> documentation. </p>
