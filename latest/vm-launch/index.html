@@ -602,7 +602,7 @@ service iptables save
 <p><pre>yum -y install unzip tar
 curl -Ls s3.amazonaws.com/public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_1.16.1_$(uname)_x86_64.tgz | sudo tar -xz -C /bin cbd
 cbd --version</pre></p>
-<p>Once the Cloudbreak Deployer is installed, you can set up the Cloudbreak application.</p>
+<p>Once the Cloudbreak deployer is installed, you can set up the Cloudbreak application.</p>
 </li>
 <li>
 <p>Create a Cloudbreak deployment directory and navigate to it:</p>
@@ -617,7 +617,7 @@ export UAA_DEFAULT_USER_PW=MY-PASSWORD</pre></p>
 <p><pre>export UAA_DEFAULT_SECRET=MySecret123
 export UAA_DEFAULT_USER_PW=MySecurePassword123</pre></p>
 <blockquote>
-<p>You will need to provide the password when logging in to the Cloudbreak web UI and when using the Cloudbreak Shell. The secret will be used by Cloudbreak for authentication.</p>
+<p>You will need to provide the password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.</p>
 </blockquote>
 </li>
 <li>
@@ -637,7 +637,7 @@ cbd start</pre></p>
 <p>This will start the Docker containers and initialize the application. The first time you start the Coudbreak app, the process will take longer than usual due to the download of all the necessary docker images.</p>
 </li>
 <li>
-<p>Next, check Cloudbreak Application logs: </p>
+<p>Next, check Cloudbreak application logs: </p>
 <p><pre>cbd logs cloudbreak</pre></p>
 <p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
 </li>

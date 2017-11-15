@@ -597,7 +597,7 @@
 <p>Ambari agent logs can be found on the nodes where Ambari agent is installed in the following locations:</p>
 <p><code>/var/log/ambari-agent/ambari-agent.log</code></p>
 <h4 id="recipe-logs">Recipe Logs</h4>
-<p>Cloudbreak supports "recipes" - user-provided customization scripts that can be run prior to or after cluster installtion. It is the user’s responsibility to provide an idempotent well tested script. If the execution fails, the recipe logs can be found at <code>/var/log/recipes</code> on the nodes on which the recipes were executed.</p>
+<p>Cloudbreak supports "recipes" - user-provided customization scripts that can be run prior to or after cluster installation. It is the user’s responsibility to provide an idempotent well tested script. If the execution fails, the recipe logs can be found at <code>/var/log/recipes</code> on the nodes on which the recipes were executed.</p>
 <p>It is advised, but not required to have an advanced logging mechanism in the script, as Cloudbreak always logs every script that are run. Recipes are often the sources of installation failures as users might try to remove necessary packages or reconfigure services.</p>
 <h3 id="common-errors">Common Errors</h3>
 <h4 id="quota-limitations">Quota Limitations</h4>
