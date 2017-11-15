@@ -613,6 +613,13 @@ that is much more experimental. The following configuration classification appli
 
 <h3 id="add-custom-blueprint">Add Custom Blueprint</h3>
 <p>This option allows you to save your custom blueprints. For correct blueprint layout and other useful information about Ambari blueprints, refer to the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> page.</p>
+<div class="note">
+    <p class="first admonition-title">Supported Ambari and HDP Versions</p>
+    <p class="last">
+Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.x</b></li><li>HDP <b>2.6.x</b> and HDP <b>2.5.x</b></li></ul>Ambari 2.6.x is not supported.
+</p>
+</div>
+
 <h4 id="creating-a-blueprint">Creating a Blueprint</h4>
 <p>Ambari blueprints are specified in the JSON format. After you provide the blueprint to Cloudbreak, the host groups in the JSON will be mapped to a set of instances when starting the cluster, and the specified services and components will be installed on the corresponding nodes. It is not necessary to define a complete configuration in the blueprint. If a configuration is missing, Ambari will fill that with a default value. 
 Furthermore, a blueprint can be modified later from the Ambari UI.</p>
