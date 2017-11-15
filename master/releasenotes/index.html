@@ -532,13 +532,16 @@
 <h2 id="release-notes">Release Notes</h2>
 <h3 id="210-tp">2.1.0 TP</h3>
 <p>This release is technical preview: it is not suitable for production environments.</p>
+<hr />
 <h4 id="new-features">New Features</h4>
+<hr />
 <h5 id="new-uiux">New UI/UX</h5>
 <p>Cloudbreak 2.1.0 TP introduces a new user interface.</p>
 <h5 id="new-cli">New CLI</h5>
 <p>Cloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the <a href="../cli-install/index.html">Install CLI</a> and <a href="../cli-reference/index.html">CLI Reference</a> documentation. </p>
 <hr />
 <h4 id="behavioral-changes">Behavioral Changes</h4>
+<hr />
 <h5 id="creating-custom-images">Creating Custom Images</h5>
 <p>The functionality which enables you to create custom images was changed and improved. Refer to  <a href="../images/index.html">Custom Images</a>.</p>
 <h5 id="removal-of-cloudbreak-shell">Removal of Cloudbreak Shell</h5>
@@ -551,49 +554,53 @@
 <p>Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard. </p>
 <hr />
 <h4 id="known-issues">Known Issues</h4>
+<hr />
 <h5 id="rmp-10114-auto-scaling-is-not-available">(RMP-10114) Auto-scaling Is Not Available</h5>
 <p>Auto-scaling functionality is not available in Cloudbreak 2.1.0 TP. </p>
+<hr />
 <h5 id="bug-91543-networks-with-no-subnets-are-not-supported">(BUG-91543) Networks With No Subnets Are Not Supported</h5>
 <p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   </p>
-<pre><code>Infrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]
-</code></pre>
-
+<p><em>Infrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]</em></p>
 <p><em>Workaround</em>: Do not use this option. It will be removed in a future release.  </p>
+<hr />
 <h5 id="bug-90848-do-not-use-security-group-does-not-work-for-new-network">(BUG-90848) "Do Not Use Security Group" Does Not Work for New Network</h5>
 <p>In the <em>Network</em> section of the create cluster wizard, when you select to create a new network and subnet, there is a security group option "Do Not Use Security Group". This option does not work wen using a new network and subnet: if you select it, new security groups are created. This option will be removed in a future release.</p>
+<hr />
 <h5 id="bug-90985-openstack-cluster-creation-fails-at-network-configuration">(BUG-90985) OpenStack Cluster Creation Fails at Network Configuration</h5>
-<p>When creating a cluster on OpenStack, if you do not select an existing network and subnet, the cluster fails with an error similar to:  </p>
-<pre><code>Infrastructure creation failed. Reason: At least one of the following properties must be specified: network, network_id.
-</code></pre>
-
-<p>or   </p>
-<pre><code>Infrastructure creation failed. Reason: The Parameter (router_id) was not provided.
-</code></pre>
-
+<p>When creating a cluster on OpenStack, if you do not select an existing network and subnet, the cluster fails with an error similar to:<br />
+<em>Infrastructure creation failed. Reason: At least one of the following properties must be specified: network, network_id.</em> <br />
+<em>Infrastructure creation failed. Reason: The Parameter (router_id) was not provided.</em></p>
 <p><em>Workaround</em>: When creating a cluster on OpenStack, you must select an existing network and subnet. </p>
+<hr />
 <h5 id="bug-91077-nodes-are-unhealthy-after-sync">(BUG-91077) Nodes Are Unhealthy After Sync</h5>
 <p>If your blueprint contains Druid, cluster node status may change to "unhealthy" after synchronizing with the cloud provider using the "Sync" option.  <br />
 <em>Workaround</em>: Manually start Druid by using Ambari web UI.  </p>
+<hr />
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
+<hr />
 <h5 id="bug-91071-syntax-error-during-cluster-downscale">(BUG-91071) Syntax Error During Cluster Downscale</h5>
-<p>When trying to downscale your cluster below the minimum required number of nodes, you may get the following error:  </p>
-<pre><code>SyntaxError: Unexpected end of JSON input
-</code></pre>
-
+<p>When trying to downscale your cluster below the minimum required number of nodes, you may get the following error: <em>SyntaxError: Unexpected end of JSON input</em>.</p>
 <p><em>Workaround</em>: </p>
-<p>Check the <em>Event History</em> for more information. If you tried to scale the cluster below the minimum required number of nodes, you will see: <code>New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation.</code> It may take a few minutes for this message to appear in the the <em>Event History</em>.   </p>
+<p>Check the <em>Event History</em> for more information:  </p>
+<ul>
+<li>If you tried to scale the cluster below the minimum required number of nodes, you will see: <em>New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation.</em> It may take a few minutes for this message to appear in the the <em>Event History</em>.   </li>
+<li>In other cases, you should see a message informing you that downscale was successful. It may take a few minutes for this message to appear in the the <em>Event History</em>.  </li>
+</ul>
+<hr />
 <h5 id="bug-91701-cluster-resize-is-unclear">(BUG-91701) Cluster Resize Is Unclear</h5>
 <p>If you try to resize your cluster, you may notice that the cluster name and cluster information in the text above the scaling controls are incorrect. </p>
 <p><em>Workaround</em>:</p>
 <ul>
 <li>Ignore the "shared-services-demo2" mention and other information in the text above the scaling controls.  </li>
 <li>Note that by default the controls in the resize dialog are set to the <em>current</em> number of nodes. So if your cluster currently has 1 master and 5 worker nodes, the controls will be set to these values by default. To resize, adjust to the desired number of nodes.        </li>
-<li>Do not resize the master node host group.  </li>
+<li>Do not resize the Ambari node host group.  </li>
 </ul>
+<hr />
 <h5 id="bug-91674-network-and-subnet-listed-as-na">(BUG-91674) Network and Subnet Listed as N/A</h5>
 <p>When creating a new network and subnet for your cluster, the network and subnet information is unavailable on the cluster details page, showing "N/A".</p>
-<p><em>Workaround</em>: If you want to check which network and subnet are used for your cluster, navigate to the cloud provider account and find the cluster instances that were created for your cluster. Next, check which virtual network and subnet they are associated with. The steps vary depending on the provider.  </p></div>
+<p><em>Workaround</em>: If you want to check which network and subnet are used for your cluster, navigate to the cloud provider account and find the cluster instances that were created for your cluster. Next, check which virtual network and subnet they are associated with. The steps vary depending on the provider.  </p>
+<hr /></div>
         
     </div>
 
