@@ -601,7 +601,7 @@
 <li><code>images</code>: Contains information about the created images. The burned images are stored in the <code>base-images</code> section.  </li>
 <li><code>versions</code>: Contains the <code>cloudbreak</code> entry, which includes mapping between Cloudbreak versions and the image identifiers of burned images available for these Cloudbreak versions.   </li>
 </ul>
-<p>The <code>base-images</code> section stores one or more image "records". Every image "record" must contain the date, description, images, os, and uuid fields.</p>
+<p>The <code>base-images</code> section stores one or more image "records". Every image "record" must contain the date, description, images, os, os_type, and uuid fields.</p>
 <table>
 <thead>
 <tr>
@@ -625,6 +625,10 @@
 <tr>
 <td>os</td>
 <td>The operating system used in the image.</td>
+</tr>
+<tr>
+<td>os_type</td>
+<td></td>
 </tr>
 <tr>
 <td>uuid</td>
@@ -725,6 +729,7 @@
           }
         },
         "os": "centos7",
+        "os_type": "redhat7",
         "uuid": "f6e778fc-7f17-4535-9021-515351df3691"
       }
     ]
