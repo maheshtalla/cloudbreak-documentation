@@ -571,23 +571,25 @@
 </code></pre>
 
 <p><em>Workaround</em>: When creating a cluster on OpenStack, you must select an existing network and subnet. </p>
-<h5 id="bug-91071-syntax-error-during-cluster-downscale">(BUG-91071) Syntax Error During Cluster Downscale</h5>
-<p>When trying to downscale your cluster below the minimum required number of nodes, you may get the following error:  </p>
-<pre><code>SyntaxError: Unexpected end of JSON input
-</code></pre>
-
-<p>The log provides more information on the error: <code>New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation.</code><br />
-<em>Workaround</em>: Do not scale the cluster below the minimum required number of nodes.  </p>
 <h5 id="bug-91077-nodes-are-unhealthy-after-sync">(BUG-91077) Nodes Are Unhealthy After Sync</h5>
 <p>If your blueprint contains Druid, cluster node status may change to "unhealthy" after synchronizing with the cloud provider using the "Sync" option.  <br />
 <em>Workaround</em>: Manually start Druid by using Ambari web UI.  </p>
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
+<h5 id="bug-91071-syntax-error-during-cluster-downscale">(BUG-91071) Syntax Error During Cluster Downscale</h5>
+<p>When trying to downscale your cluster below the minimum required number of nodes, you may get the following error:  </p>
+<pre><code>SyntaxError: Unexpected end of JSON input
+</code></pre>
+
+<p><em>Workaround</em>: </p>
+<p>Check the <em>Event History</em> for more information. If you tried to scale the cluster below the minimum required number of nodes, you will see: <code>New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation.</code> It may take a few minutes for this message to appear in the the <em>Event History</em>.   </p>
 <h5 id="bug-91701-cluster-resize-is-unclear">(BUG-91701) Cluster Resize Is Unclear</h5>
-<p>If you try to resize your cluster, you may notice that:</p>
+<p>If you try to resize your cluster, you may notice that the cluster name and cluster information in the text above the scaling controls are incorrect. </p>
+<p><em>Workaround</em>:</p>
 <ul>
-<li>The cluster name mentioned is incorrect.  </li>
-<li>The host group names may be incorrect, if you are using a custom blueprint.  </li>
+<li>Ignore the "shared-services-demo2" mention and other information in the text above the scaling controls.  </li>
+<li>Note that by default the controls in the resize dialog are set to the <em>current</em> number of nodes. So if your cluster currently has 1 master and 5 worker nodes, the controls will be set to these values by default. To resize, adjust to the desired number of nodes.        </li>
+<li>Do not resize the master node host group.  </li>
 </ul>
 <h5 id="bug-91674-network-and-subnet-listed-as-na">(BUG-91674) Network and Subnet Listed as N/A</h5>
 <p>When creating a new network and subnet for your cluster, the network and subnet information is unavailable on the cluster details page, showing "N/A".</p>
