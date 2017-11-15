@@ -583,6 +583,12 @@
 <em>Workaround</em>: Manually start Druid by using Ambari web UI.  </p>
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
+<h5 id="bug-91701-cluster-resize-is-unclear">(BUG-91701) Cluster Resize Is Unclear</h5>
+<p>If you try to resize your cluster, you may notice that:</p>
+<ul>
+<li>The cluster name mentioned is incorrect.  </li>
+<li>The host group names may be incorrect, if you are using a custom blueprint.  </li>
+</ul>
 <h5 id="bug-91674-network-and-subnet-listed-as-na">(BUG-91674) Network and Subnet Listed as N/A</h5>
 <p>When creating a new network and subnet for your cluster, the network and subnet information is unavailable on the cluster details page, showing "N/A".</p>
 <p><em>Workaround</em>: If you want to check which network and subnet are used for your cluster, navigate to the cloud provider account and find the cluster instances that were created for your cluster. Next, check which virtual network and subnet they are associated with. The steps vary depending on the provider.  </p></div>

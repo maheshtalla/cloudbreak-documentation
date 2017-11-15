@@ -540,8 +540,7 @@
         <div class="col-md-9" role="main">
 
 <h2 id="custom-images">Custom Images</h2>
-<p>By default, Cloudbreak launches clusters from <strong>standard default images</strong>, which include default configuration and default tooling. These images are available by default for each supported provider and region. </p>
-<p><strong>Base images</strong> do not include Ambari or HDP software. These images can be used regardless of your choice of Ambari or HDP because that software is installed as part of the VM create and cluster provisioning process. This means you have more flexibility to use a base image but it can take longer to provision since more software is installed during cluster create.</p>
+<p>By default, Cloudbreak launches clusters from <strong>standard default images</strong>, which include default configuration and default tooling. These images are available by default for each supported provider and region:  </p>
 <table>
 <thead>
 <tr>
@@ -568,15 +567,22 @@
 </tr>
 </tbody>
 </table>
-<p>Since the standard default images may not fit the requirements of some users (for example when user requirements include custom OS hardening, custom libraries, custom tooling, and so on), Cloudbeak allows you to use your own <strong>custom images</strong>.</p>
+<p>These default images are <strong>base images</strong>, which do not include Ambari or HDP software. These images can be used regardless of your choice of Ambari or HDP because that software is installed as part of the VM create and cluster provisioning process. This means you have more flexibility to use a base image but it can take longer to provision since more software is installed during cluster create. </p>
+<p>Since these standard default images may not fit the requirements of some users (for example when user requirements include custom OS hardening, custom libraries, custom tooling, and so on), Cloudbeak allows you to use your own <strong>custom base images</strong>.</p>
 <p>In order to use your own custom base images you must:</p>
 <ol>
 <li>Build your custom images  </li>
 <li>Prepare the image catalog JSON file  </li>
 <li>Register your custom images with Cloudbreak   </li>
-<li>Select a custom image when creating a cluster  </li>
+<li>Select a custom image when creating a cluster  \</li>
 </ol>
-<p>Only base images can be created and registered as custom images. Do not create or register prewarmed images using the instructions below. </p>
+<div class="danger">
+    <p class="first admonition-title">Important</p>
+    <p class="last">
+Only base images can be created and registered as custom images. Do not create or register prewarmed images using instructions provided in this section. 
+</p>
+</div>
+
 <h3 id="building-custom-images">Building Custom Images</h3>
 <p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a>. This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to create an image catalog, and register and use these images with Cloudbreak.</p>
 <h3 id="preparing-the-image-catalog">Preparing the Image Catalog</h3>
@@ -615,7 +621,7 @@
 </tr>
 <tr>
 <td>os_type</td>
-<td></td>
+<td>The type of operating system which will be used to determine the default Ambari and HDP repositories to use. Set <code>os_type</code> to "redhat6" for amazonlinux or centos6 images. Set <code>os_type</code> to "redhat7" for centos7 or rhel7 images.</td>
 </tr>
 <tr>
 <td>uuid</td>
