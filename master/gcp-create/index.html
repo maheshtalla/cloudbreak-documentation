@@ -816,7 +816,8 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 <li>Select an existing security group  </li>
 <li>(Only available for existing network and subnet) Do not use security group   </li>
 </ul>
-<p>Unless you make a different selection, the cluster security groups will be created using the <a href="../security/index.html#default-cluster-security-groups">default rules</a>: </p>
+<p><strong>Default Security Groups</strong></p>
+<p>Unless you make a different selection, the cluster security groups will be created using the <a href="../security/index.html#default-cluster-security-groups">default rules</a>:</p>
 <ul>
 <li><em>default-ambari-security-group</em>: for Ambari host group  </li>
 <li><em>default-security-group</em>: for all other host groups     </li>
@@ -824,10 +825,11 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 <div class="danger">
     <p class="first admonition-title">Important</p>
     <p class="last">
-By default, port 9443 is set to 0.0.0.0/0 CIDR for inbound access on the <b>default-ambari-security-group</b>. If you choose to use this default <b>default-ambari-security-group</b>  for your Ambari host group security group, It is strongly recommended that you limit this CIDR in the security group to only allow traffic from your Cloudbreak VM instance IP. 
+By default, port 9443 is set to 0.0.0.0/0 CIDR for inbound access on the <b>default-ambari-security-group</b>. If you choose to use the <b>default-ambari-security-group</b> for your Ambari host group security group, it is strongly recommended that you limit this CIDR in the security group to only allow traffic from your Cloudbreak VM instance IP. 
 </p>
 </div>
 
+<p><strong>Creating New Security Groups</strong></p>
 <p>If you choose to create a new security group, the <em>New Security Group</em> wizard will open.</p>
 <ol>
 <li>You may open ports by defining the <strong>CIDR</strong>, <strong>Port</strong>, and <strong>Protocol</strong> for each and clicking <strong>Add Rule</strong>.   </li>
