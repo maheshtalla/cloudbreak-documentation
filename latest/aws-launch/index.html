@@ -936,10 +936,12 @@
 <li>
 <p>Initialize your profile by creating a new file called <code>Profile</code> and adding the following content:</p>
 <p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
-export UAA_DEFAULT_USER_PW=MY-PASSWORD</pre>  </p>
+export UAA_DEFAULT_USER_PW=MY-PASSWORD
+export UAA_DEFAULT_USER_EMAIL=MY-EMAIL</pre>  </p>
 <p>For example: </p>
 <p><pre>export UAA_DEFAULT_SECRET=MySecret123
-export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
+export UAA_DEFAULT_USER_PW=MySecurePassword123
+export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
 <blockquote>
 <p>You will need to provide the password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.  </p>
 </blockquote>
@@ -983,10 +985,10 @@ export UAA_DEFAULT_USER_PW=MySecurePassword123</pre> </p>
 <p><a href="../images/cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 <li>
-<p>Log in to the Cloudbreak web UI: </p>
+<p>Log in to the Cloudbreak web UI using the credential that you configured in your <code>Profile</code> file when <a href="#launch-cloudbreak-deployer">launching Cloudbreak deployer</a>:</p>
 <ul>
-<li>The default username is <code>admin@example.com</code>.    </li>
-<li>The password is the value of the <code>UAA_DEFAULT_USER_PW</code> variable that you configured in your <code>Profile</code> file when <a href="#launch-cloudbreak-deployer">launching Cloudbreak deployer</a>.</li>
+<li>The username is the <code>UAA_DEFAULT_USER_EMAIL</code>     </li>
+<li>The password is the <code>UAA_DEFAULT_USER_PW</code> </li>
 </ul>
 </li>
 <li>
