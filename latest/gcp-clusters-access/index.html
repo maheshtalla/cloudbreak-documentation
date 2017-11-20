@@ -547,11 +547,13 @@
 <p><a href="../images/cb-ui-clinfo.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui-clinfo.png" width="650" title="Cluster Information"></a> </p>
 <p>The information presented includes:</p>
 <ul>
-<li><a href="#cluster-summary">Cluster Summary</a></li>
-<li><a href="#cluster-information">Cluster Information</a> </li>
-<li><a href="#hardware">Hardware</a></li>
-<li><a href="#tags">Tags</a> </li>
-<li><a href="#event-history">Event History</a> </li>
+<li><a href="#cluster-summary">Cluster Summary</a>  </li>
+<li><a href="#cluster-information">Cluster Information</a>  </li>
+<li><a href="#hardware">Hardware</a>  </li>
+<li><a href="#tags">Tags</a>   </li>
+<li><a href="#recipes">Recipes</a>  </li>
+<li><a href="#repository-details">Repository Details</a>  </li>
+<li><a href="#event-history">Event History</a>  </li>
 </ul>
 <div class="note">
   <p class="first admonition-title">Tips</p>
@@ -638,11 +640,15 @@
 <td>The availability zone within the region in which the cluster is running.</td>
 </tr>
 <tr>
+<td>Image</td>
+<td>The base image with the operating system that was used to launch the Cloudbreak instance.</td>
+</tr>
+<tr>
 <td>Blueprint</td>
 <td>The name of the blueprint selected under "Cluster Type" to create this cluster.</td>
 </tr>
 <tr>
-<td>Started With</td>
+<td>Created With</td>
 <td>The version of Cloubdreak used to create this cluster.</td>
 </tr>
 <tr>
@@ -656,13 +662,13 @@
 </tbody>
 </table>
 <h4 id="hardware">Hardware</h4>
-<p>This section includes information about your cluster nodes: instance names, instance IDs (with links to the cloud provider console), and public IPs.</p>
+<p>This section includes information about your cluster instances: instance names, instance IDs, instance types, their status, funny qualified domain names (FQDNs), and private and public IPs. </p>
 <h4 id="tags">Tags</h4>
-<p>This section lists user-defined tags, in the same order as you added them.</p>
+<p>This section lists keys and values of the user-defined tags, in the same order as you added them.</p>
 <h4 id="recipes">Recipes</h4>
-<p>This section lists recipes executed on the host groups of the cluster.</p>
+<p>This section includes recipe-related information. For each recipe, you can see the host group on which a recipe was executed, recipe name, and recipe type. </p>
 <h4 id="repository-details">Repository Details</h4>
-<p>This sections includes Ambari and HDP repository information. </p>
+<p>This section includes Ambari and HDP repository information, as you provided it in the "Base Images" section when creating a cluster. </p>
 <h4 id="event-history">Event History</h4>
 <p>The Event History section shows you events logged for the cluster, with the most recent event at the top. For example, after your cluster has been created, the following messages will be written to the log:</p>
 <pre>
