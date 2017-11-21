@@ -514,7 +514,7 @@
                 <li class="third-level"><a href="#default-blueprints">Default Blueprints</a></li>
             
         
-            <li class="second-level"><a href="#add-custom-blueprint">Add Custom Blueprint</a></li>
+            <li class="second-level"><a href="#use-custom-blueprint">Use Custom Blueprint</a></li>
             
                 <li class="third-level"><a href="#creating-a-blueprint">Creating a Blueprint</a></li>
             
@@ -538,8 +538,8 @@
         <div class="col-md-9" role="main">
 
 <h2 id="blueprints">Blueprints</h2>
-<p><strong>Ambari blueprints</strong> are your declarative definition of a Hadoop cluster, defining the host groups and which components to install on which host group. Ambari uses them as a base for your clusters. </p>
-<p>You have three options concerning using blueprints with Cloudbreak:</p>
+<p><strong>Ambari blueprints</strong> are your declarative definition of your HDP cluster, defining the host groups and which components to install on which host group. Ambari uses them as a base for your clusters. </p>
+<p>You have two options concerning using blueprints with Cloudbreak:</p>
 <ul>
 <li>Use one of the pre-defined blueprints.    </li>
 <li>Add your custom blueprint by uploading a JSON file or pasting the JSON text. </li>
@@ -598,22 +598,14 @@
 </tr>
 </tbody>
 </table>
-<div class="note">
-    <p class="first admonition-title">Choosing Your Configuration</p>
-    <p class="last">
-When creating a cluster, you can choose a more stable cluster configuration for a predicable experience.
-Alternatively, you can try the latest capabilities by choosing a cluster configuration
-that is much more experimental. The following configuration classification applies:
+<p>The following configuration classification applies:
 <ul>
 <li><i class="fa fa-check" style="color: green"></i> Stable configurations are the best choice if you want to avoid issues and other problems with launching and using clusters.</li>
 <li><i class="fa fa-warning" style="color: orange"></i> If you want to use a Technical Preview version of a component in a release of HDP, use these configurations.</li>
 <li><i class="fa fa-warning" style="color: red"></i> These are the most cutting edge of the configurations, including Technical Preview components in a Technical Preview HDP release.</li>
-</ul>
-</p>
-</div>
-
-<h3 id="add-custom-blueprint">Add Custom Blueprint</h3>
-<p>This option allows you to save your custom blueprints. For correct blueprint layout and other useful information about Ambari blueprints, refer to the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> page.</p>
+</ul></p>
+<h3 id="use-custom-blueprint">Use Custom Blueprint</h3>
+<p>This option allows you to create and save your custom blueprints. For correct blueprint layout and other useful information about Ambari blueprints, refer to the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> page.</p>
 <div class="note">
     <p class="first admonition-title">Supported Ambari and HDP Versions</p>
     <p class="last">

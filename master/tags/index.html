@@ -521,13 +521,12 @@
         <div class="col-md-9" role="main">
 
 <h2 id="resource-tagging">Resource Tagging</h2>
-<p>When you manually create resources (such as VMs) in the cloud, you have an option to add custom tags that help you track these resources. Likewise, when creating clusters, you can instruct Cloudbreak to tag the cloud resources that it creates on your behalf.</p>
-<p>The tags added during cluster creation will be displayed on your cloud account, allowing you to track your resources. </p>
+<p>When you manually create resources in the cloud, you have an option to add custom tags that help you track these resources. Likewise, when creating clusters, you can instruct Cloudbreak to tag the cloud resources that it creates on your behalf. The tags added during cluster creation are displayed in your cloud account on the resources that Cloudbreak provisioned for your clusters. </p>
 <p>You can use tags to categorize your cloud resources by purpose, owner, and so on. Tags come in especially handy when you are using a corporate AWS account and you want to quickly identify which resources belong to your cluster(s). In fact, your corporate cloud account admin may require you to tag all the resources that you create, in particular resources, such as VMs, which incur charges.</p>
 <h3 id="add-tags-when-creating-a-cluster">Add Tags When Creating a Cluster</h3>
 <p>You can tag the cloud resources used for a cluster by providing custom tag names and values when creating a cluster via UI or CLI. In the Cloudbreak UI, this option is available in the create cluster wizard, in the advanced <strong>General Configuration</strong> &gt; <strong>Tags</strong> section:</p>
 <p><a href="../images/cb-tags.png" target="_blank" title="click to enlarge"><img src="../images/cb-tags.png" width="650" title="Cloudbreak web UI"></a> </p>
-<p>It is not possible to add tags after your cluster has been created.  </p>
+<p>It is not possible to add tags via Cloudbreak after your cluster has been created.  </p>
 <h3 id="cloud-provider-documentation">Cloud Provider Documentation</h3>
 <p>To learn more about tags and their restrictions, refer to the cloud provider documentation:</p>
 <ul>
