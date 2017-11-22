@@ -615,7 +615,7 @@ docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dum
 <p>Stop your running Cloudbreak application by using the <code>cbd kill</code> command.  </p>
 </li>
 <li>
-<p>Create three database dumps (cbdb, uaadb, periscopedb) and save them to the host:  </p>
+<p>Create three database dumps (cbdb, uaadb, periscopedb) and save them to the host instance:  </p>
 <p><pre><small>cbd db dump common cbdb
 cbd db dump common uaadb
 cbd db dump common periscopedb</small></pre></p>
@@ -637,7 +637,7 @@ create database periscopedb;</small></pre></p>
 <p>Exit the external database's management interface.  </p>
 </li>
 <li>
-<p>Import the previously exported dump for each database. This can be done by executing the following commands:</p>
+<p>For each database that you just created, import the previously exported dump. This can be done by executing the following commands:</p>
 <p><pre><small>docker exec -i cbreak_commondb_1 psql -U postgres cbdb &lt; cbdb.sql
 docker exec -i cbreak_commondb_1 psql -U postgres uaadb &lt; uaadb.sql
 docker exec -i cbreak_commondb_1 psql -U postgres periscopedb &lt; periscopedb.sql</small></pre></p>
