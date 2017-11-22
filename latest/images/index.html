@@ -512,11 +512,18 @@
             <li class="second-level"><a href="#building-custom-images">Building Custom Images</a></li>
             
         
-            <li class="second-level"><a href="#preparing-the-image-catalog">Preparing the Image Catalog</a></li>
+            <li class="second-level"><a href="#prepare-the-image-catalog">Prepare the Image Catalog</a></li>
             
                 <li class="third-level"><a href="#structure-of-the-image-catalog-json-file">Structure of the Image Catalog JSON File</a></li>
             
                 <li class="third-level"><a href="#example-image-catalog-json-file">Example Image Catalog JSON File</a></li>
+            
+        
+            <li class="second-level"><a href="#save-the-image-catalog">Save the Image Catalog</a></li>
+            
+                <li class="third-level"><a href="#save-image-catalog-on-the-cloudbreak-vm">Save Image Catalog on the Cloudbreak VM</a></li>
+            
+                <li class="third-level"><a href="#create-a-remote-image-catalog">Create a Remote Image Catalog</a></li>
             
         
             <li class="second-level"><a href="#register-custom-images">Register Custom Images</a></li>
@@ -566,8 +573,9 @@
 <p>In order to use your own custom base images you must:</p>
 <ol>
 <li>Build your custom images  </li>
-<li>Prepare the image catalog JSON file  </li>
-<li>Register your custom images with Cloudbreak   </li>
+<li>Prepare the image catalog JSON file   </li>
+<li>Save the JSON file in a location accessible to the Cloudbreak VM  </li>
+<li>Register your custom images with Cloudbreak    </li>
 <li>Select a custom image when creating a cluster  </li>
 </ol>
 <div class="danger">
@@ -580,17 +588,8 @@ Only base images can be created and registered as custom images. Do not create o
 <h3 id="building-custom-images">Building Custom Images</h3>
 <p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a> for information on how to build custom images. </p>
 <p>This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to create an image catalog and register it with Cloudbreak.</p>
-<h3 id="preparing-the-image-catalog">Preparing the Image Catalog</h3>
-<p><strong>(Option 1) Image Catalog on the Cloudbreak VM</strong></p>
-<p>Once you've built the custom images, create the <code>custom-image-catalog.json</code> file and save it on your Cloudbreak machine in the <code>/var/lib/cloudbreak-deployment/etc</code> directory. The etc directory does not exist by default so you must create it. For example:</p>
-<pre>cd /var/lib/cloudbreak-deployment
-mkdir etc
-vi custom-image-catalog.json</pre>
-
-<p>The structure of the image catalog JSON file file and an example image catalog JSON file are provided below. </p>
-<p><strong>(Option 2) Remote Image Catalog</strong> </p>
-<p>As an alternative to creating the <code>custom-image-catalog.json</code> image catalog on the Cloudbreak VM you can place the <code>custom-image-catalog.json</code> file in a location accessible via HTTP/HTTPS.   </p>
-<p>The structure of the image catalog JSON file file and an example image catalog JSON file are provided below. </p>
+<h3 id="prepare-the-image-catalog">Prepare the Image Catalog</h3>
+<p>Once you've built the custom images, prepare your custom image catalog JSON file. </p>
 <h4 id="structure-of-the-image-catalog-json-file">Structure of the Image Catalog JSON File</h4>
 <p>The image catalog JSON file includes the following two high-level sections: </p>
 <ul>
@@ -609,15 +608,15 @@ vi custom-image-catalog.json</pre>
 <tbody>
 <tr>
 <td>date</td>
-<td>Date for your image catalog entry.</td>
+<td>(Optional) Date for your image catalog entry.</td>
 </tr>
 <tr>
 <td>description</td>
-<td>Description for your image catalog entry.</td>
+<td>(Optional) Description for your image catalog entry.</td>
 </tr>
 <tr>
 <td>images</td>
-<td>The image sets by cloud provider. An image set must store the virtual machine image IDs by the related region of the provider (AWS, Azure) or contain a one default image for all regions (GCP, OpenStack). The virtual machine image IDs come from the result of the image burning process and must be an existing identifier of a virtual machine image on the related provider side. For the providers which use global rather than per-region images, the region should be replaced with <strong><code>default</code></strong>.</td>
+<td>The image sets by cloud provider. An image set must store the virtual machine image IDs by the related region of the provider (AWS, Azure) or contain one default image for all regions (GCP, OpenStack). The virtual machine image IDs come from the result of the image burning process and must be an existing identifier of a virtual machine image on the related provider side. For the providers which use global rather than per-region images, the region should be replaced with <strong><code>default</code></strong>.</td>
 </tr>
 <tr>
 <td>os</td>
@@ -758,6 +757,20 @@ vi custom-image-catalog.json</pre>
 }
 </pre>
 
+<h3 id="save-the-image-catalog">Save the Image Catalog</h3>
+<p>Once your image catalog JSON file is ready, you have two options for where to place it:</p>
+<ul>
+<li>You can save your image catalog an the Cloudbreak VM  </li>
+<li>You can save it in a location accessible to Cloudbreak via HTTP/HTTPS    </li>
+</ul>
+<h4 id="save-image-catalog-on-the-cloudbreak-vm">Save Image Catalog on the Cloudbreak VM</h4>
+<p>Once you've built the custom images, create the image catalog JSON file and save it on your Cloudbreak machine in the <code>/var/lib/cloudbreak-deployment/etc</code> directory. The etc directory does not exist by default so you must create it. For example:</p>
+<pre>cd /var/lib/cloudbreak-deployment
+mkdir etc
+vi custom-image-catalog.json</pre>
+
+<h4 id="create-a-remote-image-catalog">Create a Remote Image Catalog</h4>
+<p>As an alternative to creating the image catalog JSON file on the Cloudbreak VM you can place it in a location accessible via HTTP/HTTPS.   </p>
 <h3 id="register-custom-images">Register Custom Images</h3>
 <p>Now that you have created your image catalog JSON file, register it with your Cloudbreak instance. </p>
 <p><strong>Steps</strong></p>
@@ -776,10 +789,12 @@ vi custom-image-catalog.json</pre>
 </ol>
 <h3 id="select-a-custom-image-when-creating-a-cluster">Select a Custom Image When Creating a Cluster</h3>
 <p>Once you have registered your image catalog, you can use your custom image(s) when creating a cluster. </p>
+<p><strong>Select a Custom Image in Cloudbreak UI</strong></p>
 <p>In the web UI, your custom image should be available under the <strong>Choose OS Type</strong> in the advanced <strong>General Configuration</strong> section of the wizard:</p>
 <p><a href="../images/cb-images.png" target="_blank" title="click to enlarge"><img src="../images/cb-images.png" width="650" title="Cloudbreak UI"></a></p>
 <p>The "os" that you specified in the image catalog will be displayed in the selection and the content of the "description" will be displayed in green.  </p>
 <p>You can leave the default entries for the Ambari and HDP repositories, or you can customize to point to specific versions of Ambari and HDP that you want to use for the cluster. </p>
+<p><strong>Select a Custom Image in CLI</strong></p>
 <p>In the CLI, to use the custom image when creating a cluster, add the "ImageId" parameter and set it to the uuid of the image(s) registered. For example: </p>
 <p><a href="../images/images-cli.png" target="_blank" title="click to enlarge"><img src="../images/images-cli.png" width="650" title="CLI JSON file showing images entry"></a> </p>
 <h3 id="reverting-to-default-images">Reverting to Default Images</h3>
