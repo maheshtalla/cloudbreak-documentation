@@ -614,7 +614,7 @@ docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dum
 <p>To configure an external PostgreSQL database for Cloudbreak, perform these steps. </p>
 <p><strong>Steps</strong></p>
 <ol>
-<li>Stop your running Cloudbreak application by using the <code>cbd stop</code> command.   </li>
+<li>Stop your running Cloudbreak application by using the <code>cbd kill</code> command.   </li>
 <li>
 <p>Create three database dumps (cbdb, uaadb, periscopedb) and save them to the host:  </p>
 <p><pre><small>cbd db dump common cbdb

@@ -579,21 +579,21 @@ cbd util add-default-user
 <ol>
 <li>
 <p>SSH to the Cloudbreak host instance:</p>
-<p><pre>ssh -i mykeypair.pem cloudbreak@[CONTROLLER-IP-ADDRESS]</pre></p>
+<p><pre><small>ssh -i mykeypair.pem cloudbreak@[CONTROLLER-IP-ADDRESS]</small></pre></p>
 </li>
 <li>
 <p>Make sure that the target fully qualified domain name (FQDN) which you plan to use for Cloudbreak is resolvable:</p>
-<p><pre>nslookup [TARGET-CONTROLLER-FQDN]</pre></p>
+<p><pre><small>nslookup [TARGET-CONTROLLER-FQDN]</small></pre></p>
 <p>For example:</p>
-<p><pre>nslookup hdcloud.example.com</pre></p>
+<p><pre><small>nslookup hdcloud.example.com</small></pre></p>
 </li>
 <li>
 <p>Browse to the Cloudbreak deployment directory and edit the <code>Profile</code> file:</p>
-<p><pre>vi /var/lib/cloudbreak-deployment/Profile</pre></p>
+<p><pre><small>vi /var/lib/cloudbreak-deployment/Profile</small></pre></p>
 </li>
 <li>
 <p>Replace the value of the <code>PUBLIC_IP</code> variable with the <code>TARGET-CONTROLLER-FQDN</code> value:</p>
-<p><pre>PUBLIC_IP=[TARGET-CONTROLLER-FQDN]</pre></p>
+<p><pre><small>PUBLIC_IP=[TARGET-CONTROLLER-FQDN]</small></pre></p>
 </li>
 <li>
 <p>Copy your private key and certificate files for the FQDN onto the Cloudbreak host. These files must be placed under <code>/var/lib/cloudbreak-deployment/certs/traefik/</code> directory.</p>
@@ -624,13 +624,13 @@ cbd util add-default-user
 <blockquote>
 <p>Notice that <code>CERT-LOCATION</code> and <code>PRIV-KEY-LOCATION</code> are file locations from Step 5, starting at the <code>/certs/...</code> path.</p>
 </blockquote>
-<p><pre>export CBD_TRAEFIK_TLS=”[CERT-LOCATION],[PRIV-KEY-LOCATION]”</pre></p>
+<p><pre><small>export CBD_TRAEFIK_TLS=”[CERT-LOCATION],[PRIV-KEY-LOCATION]”</small></pre></p>
 <p>For example:</p>
-<p><pre>export CBD_TRAEFIK_TLS="/certs/traefik/hdcloud.example.com.crt,/certs/traefik/hdcloud.example.com.key"</pre></p>
+<p><pre><small>export CBD_TRAEFIK_TLS="/certs/traefik/hdcloud.example.com.crt,/certs/traefik/hdcloud.example.com.key"</small></pre></p>
 </li>
 <li>
 <p>Restart Cloudbreak deployer:</p>
-<p><pre>cbd restart</pre></p>
+<p><pre><small>cbd restart</small></pre></p>
 </li>
 <li>
 <p>Using your web browser, access to the Cloudbreak UI using the new resolvable fully qualified domain name.</p>

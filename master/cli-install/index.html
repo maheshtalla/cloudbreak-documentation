@@ -546,7 +546,7 @@
 <li>You can optionally add <code>cb</code> to your system path.</li>
 <li>
 <p>Run the executable to verify the CLI: </p>
-<p><pre>cb --version</pre></p>
+<p><pre><small>cb --version</small></pre></p>
 </li>
 </ol>
 <h3 id="configure-the-cli">Configure the CLI</h3>
@@ -562,17 +562,17 @@
 </ul>
 <p>The password configuration is optional. If you do not provide the password, no password is stored in the CLI configuration file. Therefore, you will need to provide the password with each command you execute or via an environment variable.</p>
 <p>For example:</p>
-<p><pre>cb configure --server https://ec2-11-111-111-11.compute-1.amazonaws.com --username admin@hortonworks.com</pre></p>
+<p><pre><small>cb configure --server https://ec2-11-111-111-11.compute-1.amazonaws.com --username admin@hortonworks.com</small></pre></p>
 </li>
 <li>
 <p>The CLI configuration file will be saved at <code>~/.cb/config</code>. The content will look similar to the following:</p>
-<p><pre>default:
+<p><pre><small>default:
   username: admin@hortonworks.com
-  server: https://ec2-11-111-111-11.compute-1.amazonaws.com</pre></p>
+  server: https://ec2-11-111-111-11.compute-1.amazonaws.com</small></pre></p>
 </li>
 <li>
 <p>Run any command to verify that you can connect to the Cloudbreak instance via CLI. For example:</p>
-<p><pre>cb list-clusters</pre>  </p>
+<p><pre><small>cb list-clusters</small></pre>  </p>
 </li>
 </ol>
 <div class="note">
@@ -587,16 +587,16 @@
 
 <h4 id="add-multiple-configurations">Add Multiple Configurations</h4>
 <p>If you are using multiple profiles for multiple environments, you can configure them using the <code>cb configure</code> command and passing the name of your environment-specific profile file using the <code>--profile</code> parameter. After running the command, the configuration will be added as a new entry to the <code>config</code> file. For example, running the following command <code>cb configure --server https://192.167.65.4 --username test@hortonworks.com --profile staging</code> will add the "staging" entry:</p>
-<pre>default:
+<pre><small>default:
   username: admin@hortonworks.com
   server: https://192.167.65.4
 staging:
   username: test@hortonworks.com
   server: https://192.167.65.4  
-</pre>
+</small></pre>
 
 <p>For example:</p>
-<pre>#cb configure --server https://192.167.65.4 --username test@hortonworks.com --profile staging
+<pre><small>#cb configure --server https://192.167.65.4 --username test@hortonworks.com --profile staging
 INFO:  [writeConfigToFile] dir already exists: /Users/rkovacs/.cb
 INFO:  [writeConfigToFile] writing credentials to file: /Users/rkovacs/.cb/config
 # cat /Users/rkovacs/.cb/config
@@ -606,14 +606,14 @@ default:
   output: table
 staging:
   username: test@hortonworks.com
-  server: https://192.167.65.4</pre>
+  server: https://192.167.65.4</small></pre>
 
 <h4 id="configure-default-output">Configure Default Output</h4>
 <p>By default, JSON format is used in command output. For example, if you run <code>cb list-clusters</code> without specifying output type, the output will be JSON. If you would like to change default output, add it to the config file. For example:</p>
-<pre>default:
+<pre><small>default:
   username: admin@hortonworks.com
   server: https://192.167.65.4
-  output: table</pre>
+  output: table</small></pre>
 
 <h3 id="get-started-with-the-cli">Get Started with the CLI</h3>
 <p>After <a href="#install-the-cli">installing</a> and <a href="#configure-the-cli">configuring</a> the CLI, you can use it to perform the same tasks as are available in the Cloudbreak UI: create and manage clusters, credentials, blueprints, and recipes.</p>
@@ -655,16 +655,16 @@ staging:
 <p>For a full list of commands, refer to <a href="../cli-reference/index.html">CLI Reference</a>.    </p>
 <h3 id="get-help">Get Help</h3>
 <p>To get CLI help, you can add help to the end of a command. The following will list help for the CLI at the top-level:</p>
-<pre>cb help</pre>
+<pre><small>cb help</small></pre>
 
 <p>or </p>
-<pre>cb h</pre>
+<pre><small>cb h</small></pre>
 
 <p>The following will list help for the create-cluster command, including its command options and global options:</p>
-<pre>cb create-cluster help</pre>
+<pre><small>cb create-cluster help</small></pre>
 
 <p>or</p>
-<pre>cb create-cluster h</pre>
+<pre><small>cb create-cluster h</small></pre>
 
 <div class="next">
 <a href="../cli-reference/index.html">Next: CLI Reference</a>
