@@ -509,13 +509,22 @@
     
         <li class="first-level active"><a href="#release-notes">Release Notes</a></li>
         
-            <li class="second-level"><a href="#210-tp">2.1.0 TP</a></li>
+            <li class="second-level"><a href="#220-tp">2.2.0 TP</a></li>
             
                 <li class="third-level"><a href="#new-features">New Features</a></li>
             
                 <li class="third-level"><a href="#behavioral-changes">Behavioral Changes</a></li>
             
+                <li class="third-level"><a href="#fixed-issues">Fixed Issues</a></li>
+            
                 <li class="third-level"><a href="#known-issues">Known Issues</a></li>
+            
+        
+            <li class="second-level"><a href="#210-tp">2.1.0 TP</a></li>
+            
+                <li class="third-level"><a href="#new-features_1">New Features</a></li>
+            
+                <li class="third-level"><a href="#behavioral-changes_1">Behavioral Changes</a></li>
             
         
     
@@ -524,28 +533,17 @@
         <div class="col-md-9" role="main">
 
 <h2 id="release-notes">Release Notes</h2>
-<h3 id="210-tp">2.1.0 TP</h3>
+<h3 id="220-tp">2.2.0 TP</h3>
 <p>This release is technical preview: it is not suitable for production environments.</p>
 <hr />
 <h4 id="new-features">New Features</h4>
 <hr />
-<h5 id="new-uiux">New UI/UX</h5>
-<p>Cloudbreak 2.1.0 TP introduces a new user interface.</p>
-<h5 id="new-cli">New CLI</h5>
-<p>Cloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the <a href="../cli-install/index.html">Install CLI</a> and <a href="../cli-reference/index.html">CLI Reference</a> documentation. </p>
 <hr />
 <h4 id="behavioral-changes">Behavioral Changes</h4>
 <hr />
-<h5 id="creating-custom-images">Creating Custom Images</h5>
-<p>The functionality which enables you to create custom images was changed and improved. Refer to  <a href="../images/index.html">Custom Images</a>.</p>
-<h5 id="removal-of-cloudbreak-shell">Removal of Cloudbreak Shell</h5>
-<p>Cloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the <a href="../cli-install/index.html">Cloudbreak CLI</a>.</p>
-<h5 id="removal-of-platforms">Removal of Platforms</h5>
-<p>The <a href="http://hortonworks.github.io/cloudbreak-docs/release-1.16.4/topologies/">platforms</a> feature was removed. </p>
-<h5 id="removal-of-mesos">Removal of Mesos</h5>
-<p>Cloudbreak 2.1.0 TP does not support Mesos cloud provider.</p>
-<h5 id="removal-of-templates">Removal of Templates</h5>
-<p>Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard. </p>
+<hr />
+<h4 id="fixed-issues">Fixed Issues</h4>
+<hr />
 <hr />
 <h4 id="known-issues">Known Issues</h4>
 <hr />
@@ -614,7 +612,29 @@
 <h5 id="bug-91892-recipe-name-already-taken-error">(BUG-91892) Recipe Name Already Taken Error</h5>
 <p>If your recipe description is longer than 255 characters, you will get the error: <em>The recipe name ' recipe10' is already taken, please choose a different one</em>. </p>
 <p><em>Workaround</em>: Shorten the recipe description to less than 255 characters.    </p>
-<hr /></div>
+<hr />
+<h3 id="210-tp">2.1.0 TP</h3>
+<p>This release is technical preview: it is not suitable for production environments.</p>
+<hr />
+<h4 id="new-features_1">New Features</h4>
+<hr />
+<h5 id="new-uiux">New UI/UX</h5>
+<p>Cloudbreak 2.1.0 TP introduces a new user interface.</p>
+<h5 id="new-cli">New CLI</h5>
+<p>Cloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the <a href="../cli-install/index.html">Install CLI</a> and <a href="../cli-reference/index.html">CLI Reference</a> documentation. </p>
+<hr />
+<h4 id="behavioral-changes_1">Behavioral Changes</h4>
+<hr />
+<h5 id="creating-custom-images">Creating Custom Images</h5>
+<p>The functionality which enables you to create custom images was changed and improved. Refer to  <a href="../images/index.html">Custom Images</a>.</p>
+<h5 id="removal-of-cloudbreak-shell">Removal of Cloudbreak Shell</h5>
+<p>Cloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the <a href="../cli-install/index.html">Cloudbreak CLI</a>.</p>
+<h5 id="removal-of-platforms">Removal of Platforms</h5>
+<p>The <a href="http://hortonworks.github.io/cloudbreak-docs/release-1.16.4/topologies/">platforms</a> feature was removed. </p>
+<h5 id="removal-of-mesos">Removal of Mesos</h5>
+<p>Cloudbreak 2.1.0 TP does not support Mesos cloud provider.</p>
+<h5 id="removal-of-templates">Removal of Templates</h5>
+<p>Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard. </p></div>
         
     </div>
 
