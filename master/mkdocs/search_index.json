@@ -2077,7 +2077,7 @@
         }, 
         {
             "location": "/releasenotes/index.html", 
-            "text": "Release Notes\n\n\n2.2.0 TP\n\n\nThis release is technical preview: it is not suitable for production environments.\n\n\n\n\nNew Features\n\n\n\n\n\n\nBehavioral Changes\n\n\n\n\n\n\nFixed Issues\n\n\n\n\n\n\nKnown Issues\n\n\n\n\n(RMP-10114) Auto-scaling Is Not Available\n\n\nAuto-scaling functionality is not available in Cloudbreak 2.1.0 TP. \n\n\n\n\n(BUG-91835) Default Ambari Node Security Group Has Port 9443 Inbound CIDR Set to 0.0.0.0/0\n\n\nBy default, port 9443 is set to 0.0.0.0/0 CIDR for inbound access on the default-ambari-security-group.  \n\n\nWorkaround\n: If you choose to use the default-ambari-security-group for your Ambari host group security group, it is strongly recommended that you limit this CIDR in the security group to only allow traffic from your Cloudbreak VM instance IP.  \n\n\n\n\n(BUG-91543) Networks With No Subnets Are Not Supported\n\n\nYou cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   \n\n\nInfrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]\n\n\nWorkaround\n: Do not use this option. It will be removed in a future release.  \n\n\n\n\n(BUG-90848) \"Do Not Use Security Group\" Does Not Work for New Network\n\n\nIn the \nNetwork\n section of the create cluster wizard, when you select to create a new network and subnet, there is a security group option \"Do Not Use Security Group\". This option does not work wen using a new network and subnet: if you select it, new security groups are created. This option will be removed in a future release.\n\n\n\n\n(BUG-90985) OpenStack Cluster Creation Fails at Network Configuration\n\n\nWhen creating a cluster on OpenStack, if you do not select an existing network and subnet, the cluster fails with an error similar to:\n\n\nInfrastructure creation failed. Reason: At least one of the following properties must be specified: network, network_id.\n \n\n\nInfrastructure creation failed. Reason: The Parameter (router_id) was not provided.\n\n\nWorkaround\n: When creating a cluster on OpenStack, you must select an existing network and subnet. \n\n\n\n\n(BUG-91768) Adding Tags Is Not Possible\n\n\nWhen creating a cluster via Cloubdreak web UI, you may experience an issue where \nAdd\n button used for adding tags is disabled. \n\n\nWorkaround\n: Refresh the page or exist and reopen the create cluster wizard. \n\n\n\n\n(BUG-91674) Network and Subnet Listed as N/A\n\n\nWhen creating a new network and subnet for your cluster, the network and subnet information is unavailable on the cluster details page, showing \"N/A\".\n\n\nWorkaround\n: If you want to check which network and subnet are used for your cluster, navigate to the cloud provider account and find the cluster instances that were created for your cluster. Next, check which virtual network and subnet they are associated with. The steps vary depending on the provider.  \n\n\n\n\n(BUG-91077) Node Status Is Not Consistent with Ambari\n\n\nIf your blueprint contains Druid, cluster node status may be \"healthy\" after a cluster is created, even though the Druid component has not started.   \n\n\nWorkaround\n: Manually start Druid by using Ambari web UI.  \n\n\n\n\n(BUG-91077) Nodes Are Unhealthy After Sync\n\n\nIf your blueprint contains Druid, cluster node status may change to \"unhealthy\" after synchronizing with the cloud provider using the \"Sync\" option.  \n\n\nWorkaround\n: Manually start Druid by using Ambari web UI and then \"Sync\" again.  \n\n\n\n\n(BUG-91013) Incorrect Node Status After Cluster Restart\n\n\nYou may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the \"Hardware\" section is incorrect.   \n\n\n\n\n(BUG-91071) Syntax Error During Cluster Downscale\n\n\nWhen trying to downscale your cluster below the minimum required number of nodes, you may get the following error: \nSyntaxError: Unexpected end of JSON input\n.\n\n\nWorkaround\n: \n\n\nCheck the \nEvent History\n for more information:  \n\n\n\n\nIf you tried to scale the cluster below the minimum required number of nodes, you will see: \nNew node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation.\n It may take a few minutes for this message to appear in the the \nEvent History\n.   \n\n\nIn other cases, you should see a message informing you that downscale was successful. It may take a few minutes for this message to appear in the the \nEvent History\n.  \n\n\n\n\n\n\n(BUG-91701) Cluster Resize Is Unclear\n\n\nIf you try to resize your cluster, you may notice that the cluster name and cluster information in the text above the scaling controls are incorrect. \n\n\nWorkaround\n:\n\n\n\n\nIgnore the \"shared-services-demo2\" mention and other information in the text above the scaling controls.  \n\n\nNote that by default the controls in the resize dialog are set to the \ncurrent\n number of nodes. So if your cluster currently has 1 master and 5 worker nodes, the controls will be set to these values by default. To resize, adjust to the desired number of nodes.        \n\n\nDo not resize the Ambari node host group.  \n\n\n\n\n\n\n(BUG-91827) After Cluster Stop Event History Shows \"Infrastructure Has Been Terminated\"\n\n\nAfter you stopped your cluster, you may see the following message in the \nEvent History\n: \nInfrastructure have been terminated\n.\n\n\nWorkaround\n: If the cluster status is \"Stopped\" and the preceding messages in the \nEvent History\n confirm that the cluster has been stopped, you can ignore this message.    \n\n\n\n\n(BUG-91892) Recipe Name Already Taken Error\n\n\nIf your recipe description is longer than 255 characters, you will get the error: \nThe recipe name ' recipe10' is already taken, please choose a different one\n. \n\n\nWorkaround\n: Shorten the recipe description to less than 255 characters.    \n\n\n\n\n2.1.0 TP\n\n\nThis release is technical preview: it is not suitable for production environments.\n\n\n\n\nNew Features\n\n\n\n\nNew UI/UX\n\n\nCloudbreak 2.1.0 TP introduces a new user interface.\n\n\nNew CLI\n\n\nCloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the \nInstall CLI\n and \nCLI Reference\n documentation. \n\n\n\n\nBehavioral Changes\n\n\n\n\nCreating Custom Images\n\n\nThe functionality which enables you to create custom images was changed and improved. Refer to  \nCustom Images\n.\n\n\nRemoval of Cloudbreak Shell\n\n\nCloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the \nCloudbreak CLI\n.\n\n\nRemoval of Platforms\n\n\nThe \nplatforms\n feature was removed. \n\n\nRemoval of Mesos\n\n\nCloudbreak 2.1.0 TP does not support Mesos cloud provider.\n\n\nRemoval of Templates\n\n\nEarlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard.", 
+            "text": "Release Notes\n\n\n2.2.0 TP\n\n\nThe Cloudbreak 2.2.0 TP release is technical preview: it is not suitable for production environments.\n\n\n\n\nNew Features\n\n\n\n\nNew UI/UX\n\n\nCloudbreak 2.1.0 TP introduces a new user interface.\n\n\nNew CLI\n\n\nCloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the \nInstall CLI\n and \nCLI Reference\n documentation. \n\n\n\n\nBehavioral Changes\n\n\n\n\nCreating Custom Images\n\n\nThe functionality which enables you to create custom images was changed and improved. Refer to  \nCustom Images\n.\n\n\nRemoval of Cloudbreak Shell\n\n\nCloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the \nCloudbreak CLI\n.\n\n\nRemoval of Platforms\n\n\nThe \nplatforms\n feature was removed. \n\n\nRemoval of Mesos\n\n\nCloudbreak 2.1.0 TP does not support Mesos cloud provider.\n\n\nRemoval of Templates\n\n\nEarlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard. \n\n\n\n\nFixed Issues\n\n\n\n\nThe following issues have been fixed in Cloudbreak 2.2 TP: \n\n\n\n\n\n\n\n\nJira\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKnown Issues\n\n\n\n\n(RMP-10114) Auto-scaling Is Not Available\n\n\nAuto-scaling functionality is not available in Cloudbreak 2.1.0 TP. \n\n\n\n\n(BUG-91835) Default Ambari Node Security Group Has Port 9443 Inbound CIDR Set to 0.0.0.0/0\n\n\nBy default, port 9443 is set to 0.0.0.0/0 CIDR for inbound access on the default-ambari-security-group.  \n\n\nWorkaround\n: If you choose to use the default-ambari-security-group for your Ambari host group security group, it is strongly recommended that you limit this CIDR in the security group to only allow traffic from your Cloudbreak VM instance IP.  \n\n\n\n\n(BUG-91543) Networks With No Subnets Are Not Supported\n\n\nYou cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   \n\n\nInfrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]\n\n\nWorkaround\n: Do not use this option. It will be removed in a future release.  \n\n\n\n\n(BUG-90848) \"Do Not Use Security Group\" Does Not Work for New Network\n\n\nIn the \nNetwork\n section of the create cluster wizard, when you select to create a new network and subnet, there is a security group option \"Do Not Use Security Group\". This option does not work wen using a new network and subnet: if you select it, new security groups are created. This option will be removed in a future release.\n\n\n\n\n(BUG-90985) OpenStack Cluster Creation Fails at Network Configuration\n\n\nWhen creating a cluster on OpenStack, if you do not select an existing network and subnet, the cluster fails with an error similar to:\n\n\nInfrastructure creation failed. Reason: At least one of the following properties must be specified: network, network_id.\n \n\n\nInfrastructure creation failed. Reason: The Parameter (router_id) was not provided.\n\n\nWorkaround\n: When creating a cluster on OpenStack, you must select an existing network and subnet. \n\n\n\n\n(BUG-91768) Adding Tags Is Not Possible\n\n\nWhen creating a cluster via Cloubdreak web UI, you may experience an issue where \nAdd\n button used for adding tags is disabled. \n\n\nWorkaround\n: Refresh the page or exist and reopen the create cluster wizard. \n\n\n\n\n(BUG-91674) Network and Subnet Listed as N/A\n\n\nWhen creating a new network and subnet for your cluster, the network and subnet information is unavailable on the cluster details page, showing \"N/A\".\n\n\nWorkaround\n: If you want to check which network and subnet are used for your cluster, navigate to the cloud provider account and find the cluster instances that were created for your cluster. Next, check which virtual network and subnet they are associated with. The steps vary depending on the provider.  \n\n\n\n\n(BUG-91077) Node Status Is Not Consistent with Ambari\n\n\nIf your blueprint contains Druid, cluster node status may be \"healthy\" after a cluster is created, even though the Druid component has not started.   \n\n\nWorkaround\n: Manually start Druid by using Ambari web UI.  \n\n\n\n\n(BUG-91077) Nodes Are Unhealthy After Sync\n\n\nIf your blueprint contains Druid, cluster node status may change to \"unhealthy\" after synchronizing with the cloud provider using the \"Sync\" option.  \n\n\nWorkaround\n: Manually start Druid by using Ambari web UI and then \"Sync\" again.  \n\n\n\n\n(BUG-91013) Incorrect Node Status After Cluster Restart\n\n\nYou may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the \"Hardware\" section is incorrect.   \n\n\n\n\n(BUG-91071) Syntax Error During Cluster Downscale\n\n\nWhen trying to downscale your cluster below the minimum required number of nodes, you may get the following error: \nSyntaxError: Unexpected end of JSON input\n.\n\n\nWorkaround\n: \n\n\nCheck the \nEvent History\n for more information:  \n\n\n\n\nIf you tried to scale the cluster below the minimum required number of nodes, you will see: \nNew node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation.\n It may take a few minutes for this message to appear in the the \nEvent History\n.   \n\n\nIn other cases, you should see a message informing you that downscale was successful. It may take a few minutes for this message to appear in the the \nEvent History\n.  \n\n\n\n\n\n\n(BUG-91701) Cluster Resize Is Unclear\n\n\nIf you try to resize your cluster, you may notice that the cluster name and cluster information in the text above the scaling controls are incorrect. \n\n\nWorkaround\n:\n\n\n\n\nIgnore the \"shared-services-demo2\" mention and other information in the text above the scaling controls.  \n\n\nNote that by default the controls in the resize dialog are set to the \ncurrent\n number of nodes. So if your cluster currently has 1 master and 5 worker nodes, the controls will be set to these values by default. To resize, adjust to the desired number of nodes.        \n\n\nDo not resize the Ambari node host group.  \n\n\n\n\n\n\n(BUG-91827) After Cluster Stop Event History Shows \"Infrastructure Has Been Terminated\"\n\n\nAfter you stopped your cluster, you may see the following message in the \nEvent History\n: \nInfrastructure have been terminated\n.\n\n\nWorkaround\n: If the cluster status is \"Stopped\" and the preceding messages in the \nEvent History\n confirm that the cluster has been stopped, you can ignore this message.    \n\n\n\n\n(BUG-91892) Recipe Name Already Taken Error\n\n\nIf your recipe description is longer than 255 characters, you will get the error: \nThe recipe name ' recipe10' is already taken, please choose a different one\n. \n\n\nWorkaround\n: Shorten the recipe description to less than 255 characters.", 
             "title": "Release Notes"
         }, 
         {
@@ -2087,7 +2087,7 @@
         }, 
         {
             "location": "/releasenotes/index.html#220-tp", 
-            "text": "This release is technical preview: it is not suitable for production environments.", 
+            "text": "The Cloudbreak 2.2.0 TP release is technical preview: it is not suitable for production environments.", 
             "title": "2.2.0 TP"
         }, 
         {
@@ -2096,13 +2096,48 @@
             "title": "New Features"
         }, 
         {
+            "location": "/releasenotes/index.html#new-uiux", 
+            "text": "Cloudbreak 2.1.0 TP introduces a new user interface.", 
+            "title": "New UI/UX"
+        }, 
+        {
+            "location": "/releasenotes/index.html#new-cli", 
+            "text": "Cloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the  Install CLI  and  CLI Reference  documentation.", 
+            "title": "New CLI"
+        }, 
+        {
             "location": "/releasenotes/index.html#behavioral-changes", 
             "text": "", 
             "title": "Behavioral Changes"
         }, 
         {
+            "location": "/releasenotes/index.html#creating-custom-images", 
+            "text": "The functionality which enables you to create custom images was changed and improved. Refer to   Custom Images .", 
+            "title": "Creating Custom Images"
+        }, 
+        {
+            "location": "/releasenotes/index.html#removal-of-cloudbreak-shell", 
+            "text": "Cloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the  Cloudbreak CLI .", 
+            "title": "Removal of Cloudbreak Shell"
+        }, 
+        {
+            "location": "/releasenotes/index.html#removal-of-platforms", 
+            "text": "The  platforms  feature was removed.", 
+            "title": "Removal of Platforms"
+        }, 
+        {
+            "location": "/releasenotes/index.html#removal-of-mesos", 
+            "text": "Cloudbreak 2.1.0 TP does not support Mesos cloud provider.", 
+            "title": "Removal of Mesos"
+        }, 
+        {
+            "location": "/releasenotes/index.html#removal-of-templates", 
+            "text": "Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard.", 
+            "title": "Removal of Templates"
+        }, 
+        {
             "location": "/releasenotes/index.html#fixed-issues", 
-            "text": "", 
+            "text": "The following issues have been fixed in Cloudbreak 2.2 TP:      Jira  Description", 
             "title": "Fixed Issues"
         }, 
         {
@@ -2179,56 +2214,6 @@
             "location": "/releasenotes/index.html#bug-91892-recipe-name-already-taken-error", 
             "text": "If your recipe description is longer than 255 characters, you will get the error:  The recipe name ' recipe10' is already taken, please choose a different one .   Workaround : Shorten the recipe description to less than 255 characters.", 
             "title": "(BUG-91892) Recipe Name Already Taken Error"
-        }, 
-        {
-            "location": "/releasenotes/index.html#210-tp", 
-            "text": "This release is technical preview: it is not suitable for production environments.", 
-            "title": "2.1.0 TP"
-        }, 
-        {
-            "location": "/releasenotes/index.html#new-features_1", 
-            "text": "", 
-            "title": "New Features"
-        }, 
-        {
-            "location": "/releasenotes/index.html#new-uiux", 
-            "text": "Cloudbreak 2.1.0 TP introduces a new user interface.", 
-            "title": "New UI/UX"
-        }, 
-        {
-            "location": "/releasenotes/index.html#new-cli", 
-            "text": "Cloudbreak 2.1.0 TP introduces a new CLI tool. For more information, refer to the  Install CLI  and  CLI Reference  documentation.", 
-            "title": "New CLI"
-        }, 
-        {
-            "location": "/releasenotes/index.html#behavioral-changes_1", 
-            "text": "", 
-            "title": "Behavioral Changes"
-        }, 
-        {
-            "location": "/releasenotes/index.html#creating-custom-images", 
-            "text": "The functionality which enables you to create custom images was changed and improved. Refer to   Custom Images .", 
-            "title": "Creating Custom Images"
-        }, 
-        {
-            "location": "/releasenotes/index.html#removal-of-cloudbreak-shell", 
-            "text": "Cloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the  Cloudbreak CLI .", 
-            "title": "Removal of Cloudbreak Shell"
-        }, 
-        {
-            "location": "/releasenotes/index.html#removal-of-platforms", 
-            "text": "The  platforms  feature was removed.", 
-            "title": "Removal of Platforms"
-        }, 
-        {
-            "location": "/releasenotes/index.html#removal-of-mesos", 
-            "text": "Cloudbreak 2.1.0 TP does not support Mesos cloud provider.", 
-            "title": "Removal of Mesos"
-        }, 
-        {
-            "location": "/releasenotes/index.html#removal-of-templates", 
-            "text": "Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard.", 
-            "title": "Removal of Templates"
         }, 
         {
             "location": "/faq/index.html", 
