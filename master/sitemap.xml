@@ -5,13 +5,13 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//architecture/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -21,31 +21,31 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-launch/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-create/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-clusters-access/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-clusters-manage/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-data/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -55,31 +55,31 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-launch/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-create/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-clusters-access/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-clusters-manage/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-data/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -89,25 +89,25 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-launch/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-create/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-clusters-access/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-clusters-manage/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -117,25 +117,25 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//os-launch/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//os-create/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//os-clusters-access/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//os-clusters-manage/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -175,7 +175,7 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//dev/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -185,25 +185,25 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//releasenotes/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//faq/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//get-help/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//smartsense/index.html</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
