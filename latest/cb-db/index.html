@@ -516,7 +516,7 @@
             
                 <li class="third-level"><a href="#external-database-support-matrix">External Database Support Matrix</a></li>
             
-                <li class="third-level"><a href="#configure-external-database-for-cloudbreak">Configure External Database for Cloudbreak</a></li>
+                <li class="third-level"><a href="#configure-an-external-database-for-cloudbreak">Configure an External Database for Cloudbreak</a></li>
             
         
     
@@ -610,7 +610,7 @@ docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dum
 </tr>
 </tbody>
 </table>
-<h4 id="configure-external-database-for-cloudbreak">Configure External Database for Cloudbreak</h4>
+<h4 id="configure-an-external-database-for-cloudbreak">Configure an External Database for Cloudbreak</h4>
 <p>To configure an external PostgreSQL database for Cloudbreak, perform these steps. </p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -629,9 +629,9 @@ docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dum
 </li>
 <li>
 <p>On your external database, create three databases: <code>cbdb, uaadb, periscopedb</code>. If you would not like to change any database specifics (such as Owner, Tablespace), you can create these databases using the following commands:</p>
-<p><pre>create database cbdb;
+<p><pre><small>create database cbdb;
 create database uaadb;
-create database periscopedb;</pre></p>
+create database periscopedb;</small></pre></p>
 <p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html">PostgreSQL documentation</a>.</p>
 </li>
 <li>
