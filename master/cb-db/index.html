@@ -576,18 +576,15 @@ docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dum
 <h3 id="using-an-external-database-for-cloudbreak">Using an External Database for Cloudbreak</h3>
 <p>By default Cloudbreak uses a built-in PostgreSQL database but you can optionally configure Cloudbreak to use an external database, typically one provided by a cloud provider.</p>
 <h4 id="external-database-support-matrix">External Database Support Matrix</h4>
+<p>An embedded PostgreSQL 9.6.1 database is used by Cloudbreak by default. If you would like to use an external database for Cloudbreak, you may use the following supported database types and versions: </p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
-<th>Version supported</th>
+<th>Database Type</th>
+<th>Supported Version</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Default (embedded)</td>
-<td>9.6.1</td>
-</tr>
 <tr>
 <td>External PostgreSQL</td>
 <td>9.x</td>
