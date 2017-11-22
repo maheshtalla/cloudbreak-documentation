@@ -509,7 +509,7 @@
     
         <li class="first-level active"><a href="#manage-cloudbreak-database">Manage Cloudbreak Database</a></li>
         
-            <li class="second-level"><a href="#dump-and-restore-database">Dump and Restore Database</a></li>
+            <li class="second-level"><a href="#using-an-external-database-for-cloudbreak">Using an External Database for Cloudbreak</a></li>
             
         
     
@@ -519,7 +519,7 @@
 
 <h2 id="manage-cloudbreak-database">Manage Cloudbreak Database</h2>
 <p>By default, Cloudbreak uses a built-in PostgreSQL database to persist data. For production environments, we suggest that you use an external database, an RDS served by your cloud provider. However, if you choose to use the default database, you should know that Cloudbreak deployer includes features for dumping and restoring built-in databases.</p>
-<h3 id="dump-and-restore-database">Dump and Restore Database</h3>
+<h3 id="dump-and-restore-database"><a name="dump_and_restore"></a> Dump and Restore Database</h3>
 <p>Cloudbreak deployer uses Docker for the underlying infrastructure and uses Docker volume for storing data. There are two separate volumes: </p>
 <ul>
 <li>a volume called <code>common</code> for storing live data  </li>
@@ -565,7 +565,96 @@ cbd db restore-volume-from-dump common periscopedb
 <pre><code>docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/cbdb/latest/dump.sql &gt; cbdb.sql
 docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/uaadb/latest/dump.sql &gt; uaadb.sql
 docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dump.sql &gt; periscopedb.sql
-</code></pre></div>
+</code></pre>
+
+<h3 id="using-an-external-database-for-cloudbreak">Using an External Database for Cloudbreak</h3>
+<p>By default, Cloudbreak uses a built-in PostgreSQL database. There is the possibility to configure the application to use an external database, typically one provided by a cloud provider.</p>
+<p><strong>Database support matrix</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Version supported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default (embedded)</td>
+<td>9.6.1</td>
+</tr>
+<tr>
+<td>External PostgreSQL</td>
+<td>9.x</td>
+</tr>
+<tr>
+<td>External MySQL</td>
+<td>Not supported</td>
+</tr>
+<tr>
+<td>External MariaDB</td>
+<td>Not supported</td>
+</tr>
+<tr>
+<td>External Oracle</td>
+<td>Not supported</td>
+</tr>
+<tr>
+<td>External SQL Server</td>
+<td>Not supported</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Steps</strong></p>
+<ol>
+<li>Stop your running Cloudbreak application</li>
+<li>Create and save the three database dumps to the host as it is documented <a href="#dump_and_restore">here</a></li>
+<li>
+<p>Log in to the management interface of your External Database</p>
+<ol>
+<li>
+<p>Create the needed databases: <code>cbdb, uaadb, periscopedb</code>. If you would not like to change any database specifics (e.g. Owner, Tablespace), you can execute the following commands:</p>
+<p><code>create database cbdb;
+create database uaadb;
+create database periscopedb;</code> </p>
+<p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html">official documentation</a>.</p>
+</li>
+<li>
+<p>Exit</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Import  the previously exported dump for each database, e.g. with executing the following commands:</p>
+<p><code>docker exec -i cbreak_commondb_1 psql -U postgres cbdb &lt; cbdb.sql
+docker exec -i cbreak_commondb_1 psql -U postgres uaadb &lt; uaadb.sql
+docker exec -i cbreak_commondb_1 psql -U postgres periscopedb &lt; periscopedb.sql</code></p>
+<p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/backup-dump.html#BACKUP-DUMP-RESTORE">official documentation</a>.</p>
+</li>
+<li>
+<p>Set the following variables in Cloudbreak Profile file. <strong>You should modify RDS_URL parameter only</strong> as the other parameter's values are derived from that.</p>
+<p>```
+export RDS_URL=localhost:5432</p>
+<p>export CB_DB_PORT_5432_TCP_ADDR=${RDS_URL%%:<em>}
+export CB_DB_PORT_5432_TCP_PORT=${RDS_URL##</em>:}
+export CB_DB_ENV_USER=postgres
+export CB_DB_ENV_PASS=postgres
+export CB_DB_ENV_DB=cloudbreak_database_name</p>
+<p>export PERISCOPE_DB_TCP_ADDR=${RDS_URL%%:<em>}
+export PERISCOPE_DB_TCP_PORT=${RDS_URL##</em>:}
+export PERISCOPE_DB_USER=postgres
+export PERISCOPE_DB_PASS=postgres
+export PERISCOPE_DB_NAME=autoscale_database_name
+export PERISCOPE_DB_SCHEMA_NAME=autoscale_schema_name</p>
+<p>export IDENTITY_DB_URL=$RDS_URL
+export IDENTITY_DB_USER=postgres
+export IDENTITY_DB_PASS=postgres
+export IDENTITY_DB_NAME=ideontity_database_name
+```</p>
+</li>
+<li>
+<p>Start Cloudbreak application.</p>
+</li>
+</ol></div>
         
     </div>
 
