@@ -645,7 +645,7 @@ docker exec -i cbreak_commondb_1 psql -U postgres periscopedb &lt; periscopedb.s
 </li>
 <li>
 <p>Set the following variables in Cloudbreak Profile file.<br />
-    Modify the RDS_URL parameter by passing the ENDPOINT:PORT of your external database. Do not need to modify values of any other parameters, as their values are derived from the RDS_URL.</p>
+    Modify the RDS_URL parameter by passing the ENDPOINT:PORT of your external database. There is no need to modify values of any other parameters, as their values are derived from the RDS_URL.</p>
 <p><pre><small>export RDS_URL=localhost:5432</p>
 <p>export CB_DB_PORT_5432_TCP_ADDR=${RDS_URL%%:<em>}
 export CB_DB_PORT_5432_TCP_PORT=${RDS_URL##</em>:}
