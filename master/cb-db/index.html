@@ -675,7 +675,7 @@ docker cp cbreak_commondb_1:/periscopedb.dump ./periscopedb.dump</small></pre></
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p><a href="#back-up-cloudbreak-database">Create a backup</a> of the Cloudbreak database.  </p>
+<p><a href="#back-up-cloudbreak-database">Create a backup</a> of your current Cloudbreak database. </p>
 </li>
 <li>
 <p>Set the following environment variables according to the settings of your external database: </p>
@@ -685,12 +685,12 @@ export PGPASSWORD=admin123
 </small></pre></p>
 </li>
 <li>
-<p>On your external database, create three databases: <code>cbdb, uaadb, periscopedb</code>. If you would not like to change any database specifics (such as Owner, Tablespace), you can create these databases using the <code>createdb</code> utility with the following commands:</p>
+<p>On your external database, create three databases: <code>cbdb, uaadb, periscopedb</code>. You can create these databases using the <code>createdb</code> utility with the following commands:</p>
 <p><pre><small>createdb -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} cbdb
 createdb -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} uaadb
 createdb -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} periscopedb</small></pre></p>
 <p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/app-createdb.html">PostgreSQL documentation</a>. <br />
-Alternatively, you can log in to the management interface of your external database and execute <code>create database</code> commands <a href="https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html">directly</a>. </p>
+Alternatively, you can log in to the management interface of your external database and execute [create database]](https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html) commands directly. </p>
 </li>
 <li>
 <p>For each database that you just created, import the previously exported dump. This can be done by executing the following commands:</p>
@@ -700,7 +700,7 @@ pg_restore -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} --no-owner
 <p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/app-pgrestore.html">PostgreSQL documentation</a>.</p>
 </li>
 <li>
-<p>Set the following variables in Cloudbreak Profile file.<br />
+<p>Set the following variables in your Cloudbreak Profile file.<br />
     Modify the RDS_URL parameter by passing the ENDPOINT:PORT of your external database. There is no need to modify values of any other parameters, as their values are derived from the RDS_URL.</p>
 <p><pre><small>export RDS_URL=localhost:5432
 export RDS_USER=admin

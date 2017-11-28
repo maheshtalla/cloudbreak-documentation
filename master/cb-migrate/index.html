@@ -529,20 +529,22 @@
 <h2 id="move-the-cloudbreak-instance">Move the Cloudbreak Instance</h2>
 <p>To transfer a Cloudbreak Server that uses the default embedded PostgreSQL database from one host to a new host, perform these tasks:</p>
 <ol>
-<li><a href="../cb-db/index.html#back-up-cloudbreak-database">Back up current data</a> from the original Cloudbreak database  </li>
-<li><a href="../index.html#launch-cloudbreak">Launch the new Cloudbreak instance</a> on the target host  </li>
-<li><a href="#populate-databases-with-information-from-the-original-server">Populate databases with information from the original server</a>  </li>
+<li>Back up current data - from the original Cloudbreak database.<br />
+    Refer to <a href="../cb-db/index.html#back-up-cloudbreak-database">Back up Cloudbreak Database</a>   </li>
+<li>Launch a new Cloudbreak instance.<br />
+    Refer to <a href="../index.html#launch-cloudbreak">Launch Cloudbreak</a>   </li>
+<li><a href="#populate-databases-with-information-from-the-original-server">Populate Databases with Information from the Original Server</a> - on the new host.  </li>
 <li><a href="#modify-cloudbreak-profile">Modify Cloudbreak Profile</a>  </li>
 </ol>
-<h4 id="populate-databases-with-information-from-the-original-server">Populate Databases with Information from the Original Server</h4>
+<h3 id="populate-databases-with-information-from-the-original-server">Populate Databases with Information from the Original Server</h3>
 <p>Perform these steps to populate databases with information from the original server.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>Copy the dump files to the remote server.</p>
+<p>Copy the saved database files from <a href="../cb-db/index.html#back-up-cloudbreak-database">Back up Cloudbreak Database</a> to the new Cloudbreak server host.</p>
 </li>
 <li>
-<p>Copy the dump files into the database container with the following commands. Please modify the original location as necessary (currently <code>/tmp</code>):</p>
+<p>Copy the dump files into the database container with the following commands. Modify the original location as necessary (currently <code>/tmp</code>):</p>
 <p><pre><small>docker cp /tmp/cbdb.dump cbreak_commondb_1:/cbdb.dump
 docker cp /tmp/uaadb.dump cbreak_commondb_1:/uaadb.dump
 docker cp /tmp/periscopedb.dump cbreak_commondb_1:/periscopedb.dump</small></pre></p>
@@ -560,7 +562,7 @@ create database uaadb ;
 create database cbdb;
 create database periscopedb;</small></pre></p>
 <blockquote>
-<p>NOTE: If you receive <code>ERROR:  database "uaadb" is being accessed by other users</code> error then please ensure that    cbreak_identity_1 container is not running, then retry dropping uaadb.  </p>
+<p>If you get <code>ERROR:  database "uaadb" is being accessed by other users</code> error, ensure that    cbreak_identity_1 container is not running and then retry dropping uaadb.  </p>
 </blockquote>
 </li>
 <li>
@@ -574,10 +576,10 @@ pg_restore -U postgres -d cbdb cbdb.dump
 pg_restore -U postgres -d uaadb uaadb.dump</small></pre></p>
 </li>
 <li>
-<p>Quit from the container with shortcut <code>CTRL+d</code>     </p>
+<p>Quit from the container with the shortcut <code>CTRL+d</code>.     </p>
 </li>
 </ol>
-<h4 id="modify-cloudbreak-profile">Modify Cloudbreak Profile</h4>
+<h3 id="modify-cloudbreak-profile">Modify Cloudbreak Profile</h3>
 <p>Perform these steps to ensure that your new Profile file is correctly set up. </p>
 <p><strong>Steps</strong></p>
 <ol>
