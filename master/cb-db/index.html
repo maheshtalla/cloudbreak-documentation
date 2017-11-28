@@ -515,10 +515,22 @@
     
         <li class="first-level active"><a href="#manage-cloudbreak-database">Manage Cloudbreak Database</a></li>
         
-            <li class="second-level"><a href="#back-up-cloudbreak-database">Back up Cloudbreak Database</a></li>
+            <li class="second-level"><a href="#dump-and-restore-cloudbreak-database">Dump and Restore Cloudbreak Database</a></li>
+            
+                <li class="third-level"><a href="#create-database-dumps">Create Database Dumps</a></li>
+            
+                <li class="third-level"><a href="#list-existing-dumps">List Existing Dumps</a></li>
+            
+                <li class="third-level"><a href="#set-existing-dump-as-latest">Set Existing Dump as Latest</a></li>
+            
+                <li class="third-level"><a href="#remove-existing-common-volume">Remove Existing common Volume</a></li>
+            
+                <li class="third-level"><a href="#restore-databases-from-dumps">Restore Databases from Dumps</a></li>
+            
+                <li class="third-level"><a href="#save-dumps-to-host">Save Dumps to Host</a></li>
             
         
-            <li class="second-level"><a href="#dump-and-restore-cloudbreak-database">Dump and Restore Cloudbreak Database</a></li>
+            <li class="second-level"><a href="#back-up-cloudbreak-database">Back up Cloudbreak Database</a></li>
             
         
             <li class="second-level"><a href="#use-an-external-database-for-cloudbreak">Use an External Database for Cloudbreak</a></li>
@@ -534,7 +546,60 @@
         <div class="col-md-9" role="main">
 
 <h2 id="manage-cloudbreak-database">Manage Cloudbreak Database</h2>
-<p>By default, Cloudbreak uses a built-in PostgreSQL database to persist data. For production environments, we suggest that you use an external database, an RDS served by your cloud provider. However, if you choose to use the default database, you should know that Cloudbreak deployer includes features for dumping and restoring built-in databases.</p>
+<p>By default, Cloudbreak uses a built-in PostgreSQL database to persist data. For production environments, we suggest that you <a href="#configure-an-external-database-for-cloudbreak">configure an external database</a>, an RDS served by your cloud provider. </p>
+<h3 id="dump-and-restore-cloudbreak-database">Dump and Restore Cloudbreak Database</h3>
+<p>Cloudbreak deployer uses Docker for the underlying infrastructure and uses Docker volume for storing data. There are two separate volumes: </p>
+<ul>
+<li>a volume called <code>common</code> for storing live data  </li>
+<li>a volume called <code>cbreak_dump</code> for database dumps </li>
+</ul>
+<p>You can override default live data volume any time by extending your <code>Profile</code> with the following variable:</p>
+<pre><small>export COMMON_DB_VOL="my-live-data-volume"
+</small></pre>
+
+<h4 id="create-database-dumps">Create Database Dumps</h4>
+<p>To create database dumps, execute the following commands:</p>
+<pre><small>cbd db dump common cbdb
+cbd db dump common uaadb
+cbd db dump common periscopedb
+</small></pre>
+
+<p>The dump command has an optional third parameter, the <code>name</code> of the dump. If you give your dump a name, Cloudbreak deployer will create a symbolic link which points to the SQL dump. For example: </p>
+<pre><small>cbd db dump common cbdb name-of-the-dump
+</small></pre>
+
+<h4 id="list-existing-dumps">List Existing Dumps</h4>
+<p>To list existing dumps, execute the <code>cbd db list-dumps</code> command. Each kind of database dump (cbdb, uaadb, periscopedb) has a link to the latest dump on the <code>cbreak_dump</code> volume. During the restore process, Cloudbreak deployer restores from latest dump. To check which dump is the latest, execute:</p>
+<pre><small>docker run --rm -v cbreak_dump:/dump -it alpine ls -lsa /dump/cbdb/latest
+</small></pre>
+
+<h4 id="set-existing-dump-as-latest">Set Existing Dump as Latest</h4>
+<p>To set any of the existing dumps as latest use the <code>set-dump</code> command. You can set both regular or named dumps. For example: </p>
+<pre><small>cbd db set-dump cbdb 20170628_1805
+</small></pre>
+
+<p>or
+<pre><small>cbd db set-dump cbdb name-of-the-dump
+</small></pre></p>
+<h4 id="remove-existing-common-volume">Remove Existing <code>common</code> Volume</h4>
+<p>To remove the existing <code>common</code> volume, stop all the related Cloudbreak containers with <code>cbd kill</code> command, and then remove the volume:</p>
+<pre><small>docker volume rm common
+</small></pre>
+
+<h4 id="restore-databases-from-dumps">Restore Databases from Dumps</h4>
+<p>To restore databases from dumps, execute:</p>
+<pre><small>cbd db restore-volume-from-dump common cbdb
+cbd db restore-volume-from-dump common uaadb
+cbd db restore-volume-from-dump common periscopedb
+</small></pre>
+
+<h4 id="save-dumps-to-host">Save Dumps to Host</h4>
+<p>To save your dumps to the host machine, execute:</p>
+<pre><small>docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/cbdb/latest/dump.sql > cbdb.sql
+docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/uaadb/latest/dump.sql > uaadb.sql
+docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dump.sql > periscopedb.sql
+</small></pre>
+
 <h3 id="back-up-cloudbreak-database">Back up Cloudbreak Database</h3>
 <p>To create a backup of the internal PostgreSQL database of Cloudbreak, perform these steps:</p>
 <p><strong>Steps</strong></p>
@@ -564,53 +629,6 @@ docker cp cbreak_commondb_1:/uaadb.dump ./uaadb.dump
 docker cp cbreak_commondb_1:/periscopedb.dump ./periscopedb.dump</small></pre></p>
 </li>
 </ol>
-<h3 id="dump-and-restore-cloudbreak-database">Dump and Restore Cloudbreak Database</h3>
-<p>Cloudbreak deployer uses Docker for the underlying infrastructure and uses Docker volume for storing data. There are two separate volumes: </p>
-<ul>
-<li>a volume called <code>common</code> for storing live data  </li>
-<li>a volume called <code>cbreak_dump</code> for database dumps </li>
-</ul>
-<p>You can override default live data volume any time by extending your <code>Profile</code> with the following variable:</p>
-<pre><small>export COMMON_DB_VOL="my-live-data-volume"
-</small></pre>
-
-<p>To create database dumps, execute the following commands:</p>
-<pre><small>cbd db dump common cbdb
-cbd db dump common uaadb
-cbd db dump common periscopedb
-</small></pre>
-
-<p>The dump command has an optional third parameter, the <code>name</code> of the dump. If you give your dump a name, Cloudbreak deployer will create a symbolic link which points to the SQL dump. For example: </p>
-<pre><small>cbd db dump common cbdb name-of-the-dump
-</small></pre>
-
-<p>To list existing dumps, execute the <code>cbd db list-dumps</code> command. Each kind of database dump (cbdb, uaadb, periscopedb) has a link to the latest dump on the <code>cbreak_dump</code> volume. During the restore process, Cloudbreak deployer restores from latest dump. To check which dump is the latest, execute:</p>
-<pre><small>docker run --rm -v cbreak_dump:/dump -it alpine ls -lsa /dump/cbdb/latest
-</small></pre>
-
-<p>To set any of the existing dumps as latest use the <code>set-dump</code> command. You can set both regular or named dumps. For example: </p>
-<pre><small>cbd db set-dump cbdb 20170628_1805
-</small></pre>
-
-<p>or
-<pre><small>cbd db set-dump cbdb name-of-the-dump
-</small></pre></p>
-<p>To remove the existing <code>common</code> volume, stop all the related Cloudbreak containers with <code>cbd kill</code> command, and then remove the volume:</p>
-<pre><small>docker volume rm common
-</small></pre>
-
-<p>To restore databases from dumps, execute:</p>
-<pre><small>cbd db restore-volume-from-dump common cbdb
-cbd db restore-volume-from-dump common uaadb
-cbd db restore-volume-from-dump common periscopedb
-</small></pre>
-
-<p>To save your dumps to the host machine, execute:</p>
-<pre><small>docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/cbdb/latest/dump.sql > cbdb.sql
-docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/uaadb/latest/dump.sql > uaadb.sql
-docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dump.sql > periscopedb.sql
-</small></pre>
-
 <h3 id="use-an-external-database-for-cloudbreak">Use an External Database for Cloudbreak</h3>
 <p>By default Cloudbreak uses a built-in PostgreSQL database but you can optionally configure Cloudbreak to use an external database, typically one provided by a cloud provider.</p>
 <h4 id="external-database-support-matrix">External Database Support Matrix</h4>
@@ -657,10 +675,10 @@ docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dum
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p><a href="#back-up-cloudbreak-database">Create a backup</a> of the Cloudbreak database </p>
+<p><a href="#back-up-cloudbreak-database">Create a backup</a> of the Cloudbreak database.  </p>
 </li>
 <li>
-<p>Set the following environment variables according to the settings of your external database:</p>
+<p>Set the following environment variables according to the settings of your external database: </p>
 <p><pre><small>export RDS_URL=localhost:5432
 export RDS_USER=admin
 export PGPASSWORD=admin123
@@ -671,7 +689,8 @@ export PGPASSWORD=admin123
 <p><pre><small>createdb -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} cbdb
 createdb -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} uaadb
 createdb -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} periscopedb</small></pre></p>
-<p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/app-createdb.html">PostgreSQL documentation</a> . Alternatively, you can log in to the management interface of your external database and execute <code>create database</code> commands <a href="https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html">directly</a>. </p>
+<p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/app-createdb.html">PostgreSQL documentation</a>. <br />
+Alternatively, you can log in to the management interface of your external database and execute <code>create database</code> commands <a href="https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html">directly</a>. </p>
 </li>
 <li>
 <p>For each database that you just created, import the previously exported dump. This can be done by executing the following commands:</p>
