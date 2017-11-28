@@ -525,6 +525,8 @@
             
                 <li class="third-level"><a href="#storage">Storage</a></li>
             
+                <li class="third-level"><a href="#use-spot-instances">Use Spot Instances</a></li>
+            
                 <li class="third-level"><a href="#recipes">Recipes</a></li>
             
                 <li class="third-level"><a href="#security-groups">Security Groups</a></li>
@@ -805,6 +807,19 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 </table>
 <p><strong>Related Links</strong><br />
 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 Instance Store</a> (External)  </p>
+<h4 id="use-spot-instances">Use Spot Instances</h4>
+<p>Check this option to use EC2 spot instances as your cluster nodes. Next, enter your bid price. The price that is pre-loaded in the form is the current on-demand price for your chosen EC2 instance type.   </p>
+<p>Note that: </p>
+<ul>
+<li>We recommend not using spot instances for any host group that includes Ambari server components.  </li>
+<li>If you choose to use spot instances for host group nodes when creating your cluster, any nodes that you add to that host group (during cluster creation or later) will be using spot instances. Any additional nodes will be requested at the same bid price that you entered when creating a cluster.  </li>
+<li>If you decide not to use spot instances when creating your cluster, any compute nodes that you add to your cluster (during cluster creation or later) will be using standard on-demand instances.     </li>
+<li>Once someone outbids you, the spot instances will be taken away, removing the nodes from the cluster. </li>
+<li>If spot instances are not available right away, creating a cluster will take longer than usual. </li>
+</ul>
+<p>After creating a cluster, you can view your spot instance requests, including bid price, on the EC2 dashboard under <strong>INSTANCES</strong> &gt; <strong>Spot Requests</strong>. For more information about spot instances, refer to <a href="https://aws.amazon.com/ec2/spot/">AWS documentation</a>.  </p>
+<p><strong>Related Links</strong> <br />
+<a href="https://aws.amazon.com/ec2/spot/">Amazon EC2 Spot Instances</a>  </p>
 <h4 id="recipes">Recipes</h4>
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>. </p>
 <p><strong>Related Links</strong> <br />
