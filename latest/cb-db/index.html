@@ -322,6 +322,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../cb-migrate/index.html">Move Cloudbreak Instance</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -482,7 +488,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../security/index.html">
+                        <a rel="prev" href="../cb-migrate/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -509,10 +515,13 @@
     
         <li class="first-level active"><a href="#manage-cloudbreak-database">Manage Cloudbreak Database</a></li>
         
+            <li class="second-level"><a href="#back-up-cloudbreak-database">Back up Cloudbreak Database</a></li>
+            
+        
             <li class="second-level"><a href="#dump-and-restore-cloudbreak-database">Dump and Restore Cloudbreak Database</a></li>
             
         
-            <li class="second-level"><a href="#using-an-external-database-for-cloudbreak">Using an External Database for Cloudbreak</a></li>
+            <li class="second-level"><a href="#use-an-external-database-for-cloudbreak">Use an External Database for Cloudbreak</a></li>
             
                 <li class="third-level"><a href="#external-database-support-matrix">External Database Support Matrix</a></li>
             
@@ -526,6 +535,35 @@
 
 <h2 id="manage-cloudbreak-database">Manage Cloudbreak Database</h2>
 <p>By default, Cloudbreak uses a built-in PostgreSQL database to persist data. For production environments, we suggest that you use an external database, an RDS served by your cloud provider. However, if you choose to use the default database, you should know that Cloudbreak deployer includes features for dumping and restoring built-in databases.</p>
+<h3 id="back-up-cloudbreak-database">Back up Cloudbreak Database</h3>
+<p>To create a backup of the internal PostgreSQL database of Cloudbreak, perform these steps:</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>SSH to Cloudbreak Server instance</p>
+</li>
+<li>
+<p>If it is not running, start the database container with <code>docker start cbreak_commondb_1</code> command</p>
+</li>
+<li>
+<p>Execute <code>docker exec -it cbreak_commondb_1 bash</code> command to enter the container of the database.</p>
+</li>
+<li>
+<p>Create three database dumps (cbdb, uaadb, periscopedb):  </p>
+<p><pre><small>pg_dump -Fc -U postgres cbdb &gt; cbdb.dump
+pg_dump -Fc -U postgres uaadb &gt; uaadb.dump
+pg_dump -Fc -U postgres periscopedb &gt; periscopedb.dump</small></pre></p>
+</li>
+<li>
+<p>Quit from the container with shortcut <code>CTRL+d</code></p>
+</li>
+<li>
+<p>Save the previously created dumps to the host instance:               </p>
+<p><pre><small>docker cp cbreak_commondb_1:/cbdb.dump ./cbdb.dump
+docker cp cbreak_commondb_1:/uaadb.dump ./uaadb.dump
+docker cp cbreak_commondb_1:/periscopedb.dump ./periscopedb.dump</small></pre></p>
+</li>
+</ol>
 <h3 id="dump-and-restore-cloudbreak-database">Dump and Restore Cloudbreak Database</h3>
 <p>Cloudbreak deployer uses Docker for the underlying infrastructure and uses Docker volume for storing data. There are two separate volumes: </p>
 <ul>
@@ -573,7 +611,7 @@ docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/uaadb/latest/dump.sql 
 docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dump.sql > periscopedb.sql
 </small></pre>
 
-<h3 id="using-an-external-database-for-cloudbreak">Using an External Database for Cloudbreak</h3>
+<h3 id="use-an-external-database-for-cloudbreak">Use an External Database for Cloudbreak</h3>
 <p>By default Cloudbreak uses a built-in PostgreSQL database but you can optionally configure Cloudbreak to use an external database, typically one provided by a cloud provider.</p>
 <h4 id="external-database-support-matrix">External Database Support Matrix</h4>
 <p>An embedded PostgreSQL 9.6.1 database is used by Cloudbreak by default. If you would like to use an external database for Cloudbreak, you may use the following supported database types and versions: </p>
@@ -619,25 +657,7 @@ docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dum
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>If it is not running, start the database container with <code>docker start cbreak_commondb_1</code> command</p>
-</li>
-<li>
-<p>Execute <code>docker exec -it cbreak_commondb_1 bash</code> command to enter the container of the database.</p>
-</li>
-<li>
-<p>Create three database dumps (cbdb, uaadb, periscopedb):  </p>
-<p><pre><small>pg_dump -Fc -U postgres cbdb &gt; cbdb.dump
-pg_dump -Fc -U postgres uaadb &gt; uaadb.dump
-pg_dump -Fc -U postgres periscopedb &gt; periscopedb.dump</small></pre></p>
-</li>
-<li>
-<p>Quit from the container with shortcut <code>CTRL+d</code></p>
-</li>
-<li>
-<p>Save the previously created dumps to the host instance:               </p>
-<p><pre><small>docker cp cbreak_commondb_1:/cbdb.dump ./cbdb.dump
-docker cp cbreak_commondb_1:/uaadb.dump ./uaadb.dump
-docker cp cbreak_commondb_1:/periscopedb.dump ./periscopedb.dump</small></pre></p>
+<p><a href="#back-up-cloudbreak-database">Create a backup</a> of the Cloudbreak database </p>
 </li>
 <li>
 <p>Set the following environment variables according to the settings of your external database:</p>
@@ -683,7 +703,7 @@ export IDENTITY_DB_PASS=$RDS_PASS
 export IDENTITY_DB_NAME=uaadb</small></pre></p>
 </li>
 <li>
-<p>Start Cloudbreak application by using the <code>cbd restart</code> command. </p>
+<p>Restart Cloudbreak application by using the <code>cbd restart</code> command. </p>
 </li>
 </ol></div>
         
