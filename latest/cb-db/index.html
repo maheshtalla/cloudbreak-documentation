@@ -605,10 +605,10 @@ docker run --rm -v cbreak_dump:/dump -it alpine cat /dump/periscopedb/latest/dum
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>SSH to Cloudbreak Server instance</p>
+<p>SSH to Cloudbreak Server instance.</p>
 </li>
 <li>
-<p>If it is not running, start the database container with <code>docker start cbreak_commondb_1</code> command</p>
+<p>If it is not running, start the database container by using the <code>docker start cbreak_commondb_1</code> command.</p>
 </li>
 <li>
 <p>Execute <code>docker exec -it cbreak_commondb_1 bash</code> command to enter the container of the database.</p>
@@ -620,7 +620,7 @@ pg_dump -Fc -U postgres uaadb &gt; uaadb.dump
 pg_dump -Fc -U postgres periscopedb &gt; periscopedb.dump</small></pre></p>
 </li>
 <li>
-<p>Quit from the container with shortcut <code>CTRL+d</code></p>
+<p>Quit from the container with shortcut <code>CTRL+d</code>.</p>
 </li>
 <li>
 <p>Save the previously created dumps to the host instance:               </p>
@@ -686,17 +686,17 @@ export PGPASSWORD=admin123
 </li>
 <li>
 <p>On your external database, create three databases: <code>cbdb, uaadb, periscopedb</code>. If you would not like to change any database specifics (such as Owner, Tablespace), you can create these databases using the <code>createdb</code> utility with the following commands:</p>
-<p><pre><small>createdb -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} cbdb
-createdb -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} uaadb
-createdb -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} periscopedb</small></pre></p>
+<p><pre><small>createdb -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} cbdb
+createdb -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} uaadb
+createdb -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} periscopedb</small></pre></p>
 <p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/app-createdb.html">PostgreSQL documentation</a>. <br />
 Alternatively, you can log in to the management interface of your external database and execute <code>create database</code> commands <a href="https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html">directly</a>. </p>
 </li>
 <li>
 <p>For each database that you just created, import the previously exported dump. This can be done by executing the following commands:</p>
-<p><pre><small>pg_restore -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} --no-owner --role=${RDS_USER} -n public -d cbdb ./cbdb.dump
-pg_restore -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} --no-owner --role=${RDS_USER} -n public -d uaadb ./uaadb.dump
-pg_restore -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} --no-owner --role=${RDS_USER} -n public -d periscopedb ./periscopedb.dump</small></pre></p>
+<p><pre><small>pg_restore -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} --no-owner --role=${RDS_USER} -n public -d cbdb ./cbdb.dump
+pg_restore -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} --no-owner --role=${RDS_USER} -n public -d uaadb ./uaadb.dump
+pg_restore -h ${RDS_URL%%:&#42;} -p ${RDS_URL##&#42;:} -U ${RDS_USER} --no-owner --role=${RDS_USER} -n public -d periscopedb ./periscopedb.dump</small></pre></p>
 <p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/app-pgrestore.html">PostgreSQL documentation</a>.</p>
 </li>
 <li>
@@ -705,13 +705,13 @@ pg_restore -h ${RDS_URL%%:<em>} -p ${RDS_URL##</em>:} -U ${RDS_USER} --no-owner 
 <p><pre><small>export RDS_URL=localhost:5432
 export RDS_USER=admin
 export RDS_PASS=admin123</p>
-<p>export CB_DB_PORT_5432_TCP_ADDR=${RDS_URL%%:<em>}
-export CB_DB_PORT_5432_TCP_PORT=${RDS_URL##</em>:}
+<p>export CB_DB_PORT_5432_TCP_ADDR=${RDS_URL%%:&#42;}
+export CB_DB_PORT_5432_TCP_PORT=${RDS_URL##&#42;:}
 export CB_DB_ENV_USER=$RDS_USER
 export CB_DB_ENV_PASS=$RDS_PASS
 export CB_DB_ENV_DB=cbdb</p>
-<p>export PERISCOPE_DB_TCP_ADDR=${RDS_URL%%:<em>}
-export PERISCOPE_DB_TCP_PORT=${RDS_URL##</em>:}
+<p>export PERISCOPE_DB_TCP_ADDR=${RDS_URL%%:&#42;}
+export PERISCOPE_DB_TCP_PORT=${RDS_URL##&#42;:}
 export PERISCOPE_DB_USER=$RDS_USER
 export PERISCOPE_DB_PASS=$RDS_PASS
 export PERISCOPE_DB_NAME=periscopedb
