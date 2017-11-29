@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-migrate/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-disable-provider/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Move Cloudbreak Instance - Cloudbreak</title>
+    <title>Disable Providers - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -311,8 +311,8 @@
 
         
             
-<li >
-    <a href="../cb-disable-provider/index.html">Disable Providers</a>
+<li class="active">
+    <a href="index.html">Disable Providers</a>
 </li>
 
         
@@ -329,8 +329,8 @@
 
         
             
-<li class="active">
-    <a href="index.html">Move Cloudbreak Instance</a>
+<li >
+    <a href="../cb-migrate/index.html">Move Cloudbreak Instance</a>
 </li>
 
         
@@ -489,12 +489,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../cb-db/index.html">
+                        <a rel="next" href="../credentials/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../security/index.html">
+                        <a rel="prev" href="../cb-profile/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -519,84 +519,39 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#move-the-cloudbreak-instance">Move the Cloudbreak Instance</a></li>
-        
-            <li class="second-level"><a href="#populate-databases-with-information-from-the-original-server">Populate Databases with Information from the Original Server</a></li>
-            
-        
-            <li class="second-level"><a href="#modify-cloudbreak-profile">Modify Cloudbreak Profile</a></li>
-            
+        <li class="first-level active"><a href="#disable-providers">Disable Providers</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="move-the-cloudbreak-instance">Move the Cloudbreak Instance</h2>
-<p>To transfer a Cloudbreak Server that uses the default embedded PostgreSQL database from one host to a new host, perform these tasks:</p>
-<ol>
-<li>Back up current data - from the original Cloudbreak database.<br />
-    Refer to <a href="../cb-db/index.html#back-up-cloudbreak-database">Back up Cloudbreak Database</a>   </li>
-<li>Launch a new Cloudbreak instance.<br />
-    Refer to <a href="../index.html#launch-cloudbreak">Launch Cloudbreak</a>   </li>
-<li><a href="#populate-databases-with-information-from-the-original-server">Populate Databases with Information from the Original Server</a> - on the new host.  </li>
-<li><a href="#modify-cloudbreak-profile">Modify Cloudbreak Profile</a>  </li>
-</ol>
-<h3 id="populate-databases-with-information-from-the-original-server">Populate Databases with Information from the Original Server</h3>
-<p>Perform these steps to populate databases with information from the original server.</p>
+<h2 id="disable-providers">Disable Providers</h2>
+<p>If you are planning to use Cloubdreak with a specific cloud provider or a specific set of cloud providers, you may want to disable the remaining providers. For example, if you are planning to use Cloubdreak with Azure only, you may want to disable AWS, Google Cloud, and OpenStack. </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>Copy the saved database files from <a href="../cb-db/index.html#back-up-cloudbreak-database">Back up Cloudbreak Database</a> to the new Cloudbreak server host.</p>
+<p>Navigate to the Cloudbreak deployment directory and edit Profile. For example:</p>
+<p><pre>cd /var/lib/cloudbreak-deployment/
+vi Profile</pre></p>
 </li>
 <li>
-<p>Copy the dump files into the database container with the following commands. Modify the original location as necessary (currently <code>/tmp</code>):</p>
-<p><pre><small>docker cp /tmp/cbdb.dump cbreak_commondb_1:/cbdb.dump
-docker cp /tmp/uaadb.dump cbreak_commondb_1:/uaadb.dump
-docker cp /tmp/periscopedb.dump cbreak_commondb_1:/periscopedb.dump</small></pre></p>
+<p>Add the following entry, setting it to the provider that you  would like to see. For example, if you would like to see Azure only, set this to "AZURE":</p>
+<p><pre>export CB_ENABLEDPLATFORMS=AZURE</pre></p>
+<p>Accepted values are:</p>
+<ul>
+<li>AZURE</li>
+<li>AWS</li>
+<li>GCP</li>
+<li>OPENSTACK</li>
+</ul>
+<p>Any combination of platforms can be used; for example if you would like to see AWS and OpenStack, then use:</p>
+<p><pre>export CB_ENABLEDPLATFORMS=AWS,OPENSTACK</pre></p>
+<p>If you want to reverse the change and see all providers, then either delete CB_ENABLEDPLATFORMS from the Profile or add the following: </p>
+<p><pre>export CB_ENABLEDPLATFORMS=AZURE,AWS,GCP,OPENSTACK</pre></p>
 </li>
 <li>
-<p>Execute <code>docker stop cbreak_identity_1</code></p>
-</li>
-<li>
-<p>Execute <code>docker exec -it cbreak_commondb_1 bash</code> command to enter the container of the database, then execute the following commands:</p>
-<p><pre><small>psql -U postgres
-drop database uaadb ;
-drop database cbdb;
-drop database periscopedb;
-create database uaadb ;
-create database cbdb;
-create database periscopedb;</small></pre></p>
-<blockquote>
-<p>If you get <code>ERROR:  database "uaadb" is being accessed by other users</code> error, ensure that    cbreak_identity_1 container is not running and then retry dropping uaadb.  </p>
-</blockquote>
-</li>
-<li>
-<p>Exit the PostgreSQL interactive terminal.
-    <pre><small>\q</small></pre> </p>
-</li>
-<li>
-<p>Restore the databases from the original backups:</p>
-<p><pre><small>pg_restore -U postgres -d periscopedb periscopedb.dump
-pg_restore -U postgres -d cbdb cbdb.dump
-pg_restore -U postgres -d uaadb uaadb.dump</small></pre></p>
-</li>
-<li>
-<p>Quit from the container with the shortcut <code>CTRL+d</code>.     </p>
-</li>
-</ol>
-<h3 id="modify-cloudbreak-profile">Modify Cloudbreak Profile</h3>
-<p>Perform these steps to ensure that your new Profile file is correctly set up. </p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Ensure that the following parameter values match in the origin and target Profile files and modify Profile file of the target environment, if necessary:</p>
-<p><pre><small>export UAA_DEFAULT_USER_EMAIL=admin@example.com
-export UAA_DEFAULT_SECRET=cbsecret
-export UAA_DEFAULT_USER_PW=cbuser</small></pre></p>
-</li>
-<li>
-<p>Restart Cloudbreak application by using the <code>cbd restart</code> command.  </p>
+<p>Restart Cloudbreak by using <code>cbd restart</code>.      </p>
 </li>
 </ol></div>
         
