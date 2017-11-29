@@ -606,13 +606,9 @@
 </tbody>
 </table>
 <h4 id="default-cluster-security-groups">Default Cluster Security Groups</h4>
-<p>For clusters, by default Cloudbreak allows you to select from two default security groups (that will be created automatically during cluster create):</p>
-<ul>
-<li>default-ambari-security-group</li>
-<li>default-security-group</li>
-</ul>
-<p>These security groups is configured to limit inbound network traffic to a minimal set of ports. Alternatively, you can select from your existing set of security groups, which can be modified using the cloud provider tooling.</p>
-<p><strong>Cluster Host Group with Ambari Server (default-ambari-security-group)</strong></p>
+<p>For clusters, Cloudbreak provides the following security group settings. If you do not modify these settings, the following security rules will be created.</p>
+<p>You can modify these rules either when creating a cluster or later using the cloud provider tools. Furthermore, as an alternative to creating new security groups, you can select from your existing set of security groups, which can be modified using the cloud provider tools.</p>
+<p><strong>Cluster Host Group with Ambari Server</strong></p>
 <table>
 <thead>
 <tr>
@@ -642,7 +638,7 @@ By default, port 9443 is set to 0.0.0.0/0 CIDR for inbound access. It is strongl
 </p>
 </div>
 
-<p><strong>Cluster Host Groups without the Ambari Server (default-security-group)</strong></p>
+<p><strong>Cluster Host Groups without the Ambari Server</strong></p>
 <table>
 <thead>
 <tr>
@@ -657,6 +653,7 @@ By default, port 9443 is set to 0.0.0.0/0 CIDR for inbound access. It is strongl
 </tr>
 </tbody>
 </table>
+<p>When creating a new security group, Cloudbreak uses the following naming convention: <em><clustername>-ClusterNodeSecurityGroup<hostgroupname></em>. </p>
 <h3 id="identity-management">Identity Management</h3>
 <p>To securely control access to cloud resources, cloud providers use identity management services such as IAM roles (AWS and GCP) and Active Directory (Azure). </p>
 <table>
