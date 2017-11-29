@@ -816,7 +816,7 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 <h4 id="dont-create-new-firewall-rules">Don't Create New Firewall Rules</h4>
 <p>This option is available if you are creating a cluster in an existing network and subnet. Select this option if you don't want to create new firewall rules for the network. </p>
 <h4 id="security-groups">Security Groups</h4>
-<p>For each host group, you have two options:</p>
+<p>For each host group, you have the following options:</p>
 <table>
 <thead>
 <tr>
@@ -827,7 +827,7 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 <tbody>
 <tr>
 <td>User Defined</td>
-<td><p>(Default) Creates a new security group with the rules that you defined:</p><p><ul><li>A set of <a href="../security/index.html#default-cluster-security-groups">default rules</a> is provided. You should review and adjust these default rules. If you do not make any modifications, these default rules will be applied. </li><li>You may open ports by defining the CIDR, entering port range, selecting protocol and clicking <strong>+</strong>.</li><li>You may delete default or previously added rules using the delete icon.</li><ul></p></td>
+<td><p>(Default) Creates a new security group with the rules that you defined:</p><p><ul><li>A set of <a href="../security/index.html#default-cluster-security-groups">default rules</a> is provided. You should review and adjust these default rules. If you do not make any modifications, default rules will be applied. </li><li>You may open ports by defining the CIDR, entering port range, selecting protocol and clicking <strong>+</strong>.</li><li>You may delete default or previously added rules using the delete icon.</li><li>If you don't want to use security group, remove the default rules.</li><ul></p></td>
 </tr>
 <tr>
 <td>Provider Security Groups</td>
