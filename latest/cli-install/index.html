@@ -632,51 +632,40 @@ staging:
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>The first step is to create at least one Cloudbreak credential using the <a href="../cli-reference/index.html#create-credential">create-credential</a> command.   </p>
+<p>The first step is to create at least one Cloudbreak credential using the <a href="../cli-reference/index.html#credential-create">credential create</a> command.   </p>
 </li>
 <li>
-<p>If you are just getting started, you may want to try one of the default blueprints. You can use <a href="../cli-reference/index.html#list-blueprints">list-blueprints</a> and <a href="../cli-reference/index.html#describe-blueprint">describe-blueprint</a> to learn about those default blueprints.  </p>
-<p>In case you would like to use your own blueprint, you can add it using <a href="../cli-reference/index.html#crate-blueprint">crate-blueprint</a> command.</p>
+<p>If you are just getting started, you may want to try one of the default blueprints. You can use <a href="../cli-reference/index.html#blueprint-list">blueprint list</a> and <a href="../cli-reference/index.html#blueprint-describe">blueprint describe</a> to learn about those default blueprints.  </p>
+<p>In case you would like to use your own blueprint, you can add it using <a href="../cli-reference/index.html#blueprint-crate">blueprint create</a> command.</p>
 </li>
 <li>
-<p>(Optional) You can optionally create <a href="../recipes/index.html">recipes</a> (custom scrpts) and add them using the <a href="../cli-reference/index.html#create-recipe">create-recipe</a> command.  </p>
+<p>You can optionally create <a href="../recipes/index.html">recipes</a> (custom scrpts) and add them using the <a href="../cli-reference/index.html#recipe-create">recipe create</a> command.  </p>
 </li>
 <li>
-<p>To create a cluster, first generate a JSON skeleton using the <a href="../cli-reference/index.html#generate-cluster-template">generate-cluster-template</a> command. You can copy it to a text editor and save it in JSON format.</p>
+<p>To create a cluster, first generate a JSON skeleton using the <a href="../cli-reference/index.html#cluster-generate-template">cluster generate-template</a> command. You can copy it to a text editor and save it in JSON format.</p>
 </li>
 <li>
-<p>Edit the JSON file by providing your parameters.  </p>
+<p>Edit the JSON file by providing your parameters. </p>
 </li>
 <li>
-<p>Once your JSON file is ready, you can use it to create a cluster via the <a href="../cli-reference/index.html#create-cluster">create-cluster</a> command.</p>
+<p>Once your JSON file is ready, you can use it to create a cluster via the <a href="../cli-reference/index.html#cluster-create">cluster create</a> command.</p>
 </li>
 <li>
-<p>Once your cluster is running, use can use the CLI to manage and monitor your cluster:</p>
-<ul>
-<li><a href="../cli-reference/index.html#list-clusters">list-clusters</a>  </li>
-<li><a href="../cli-reference/index.html#describe-cluster">describe-cluster</a>  </li>
-<li><a href="../cli-reference/index.html#repair-cluster">repair-cluster</a>  </li>
-<li><a href="../cli-reference/index.html#scale-cluster">scale-cluster</a>  </li>
-<li><a href="../cli-reference/index.html#start-cluster">start-cluster</a>  </li>
-<li><a href="../cli-reference/index.html#stop-cluster">stop-cluster</a>  </li>
-<li><a href="../cli-reference/index.html#sync-cluster">sync-cluster</a>  </li>
-<li><a href="../cli-reference/index.html#change-ambari-passowrd">change-ambari-passowrd</a>  </li>
-</ul>
+<p>Once your cluster is running, use can use the CLI to manage and monitor your cluster. For a full list of commands, refer to <a href="../cli-reference/index.html">CLI Reference</a>.    </p>
 </li>
 </ol>
-<p>For a full list of commands, refer to <a href="../cli-reference/index.html">CLI Reference</a>.    </p>
 <h3 id="get-help">Get Help</h3>
 <p>To get CLI help, you can add help to the end of a command. The following will list help for the CLI at the top-level:</p>
-<pre><small>cb help</small></pre>
+<pre><small>cb --help</small></pre>
 
 <p>or </p>
-<pre><small>cb h</small></pre>
+<pre><small>cb --h</small></pre>
 
 <p>The following will list help for the create-cluster command, including its command options and global options:</p>
-<pre><small>cb create-cluster help</small></pre>
+<pre><small>cb cluster --help</small></pre>
 
 <p>or</p>
-<pre><small>cb create-cluster h</small></pre>
+<pre><small>cb cluster --h</small></pre>
 
 <div class="next">
 <a href="../cli-reference/index.html">Next: CLI Reference</a>
