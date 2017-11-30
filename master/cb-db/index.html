@@ -8,7 +8,7 @@
     <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-db/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Manage Cloudbreak Database - Cloudbreak</title>
+    <title>Configure External Cloudbreak Database - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -324,7 +324,7 @@
         
             
 <li class="active">
-    <a href="index.html">Manage Cloudbreak Database</a>
+    <a href="index.html">Configure External Cloudbreak Database</a>
 </li>
 
         
@@ -519,21 +519,17 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#manage-cloudbreak-database">Manage Cloudbreak Database</a></li>
-        
-            <li class="second-level"><a href="#using-cloudbreak-with-external-postgresql">Using Cloudbreak with External PostgreSQL </a></li>
-            
+        <li class="first-level active"><a href="#configuring-external-cloudbreak-database">Configuring External Cloudbreak Database</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="manage-cloudbreak-database">Manage Cloudbreak Database</h2>
+<h2 id="configuring-external-cloudbreak-database">Configuring External Cloudbreak Database</h2>
 <p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak
-configuration, setup and so on. For a production Cloudbreak deployment,
-we suggest that you <a href="#configure-an-external-database-for-cloudbreak">configure an external database</a>. </p>
-<p><em>External Database Support Matrix</em></p>
+configuration, setup and so on. For a production Cloudbreak deployment, we suggest that you configure an external database. </p>
+<p><strong>External Database Support Matrix</strong></p>
 <p>An embedded PostgreSQL 9.6.1 database is used by Cloudbreak by default. If you would like to
 use an external database for Cloudbreak, you may use the following supported database types and versions: </p>
 <table>
@@ -568,7 +564,7 @@ use an external database for Cloudbreak, you may use the following supported dat
 </table>
 <p>The following sections describe how to use Cloudbreak with an existing external database, other than
 the embedded PostgreSQL database instance that Cloudbreak uses by default.</p>
-<h4 id="using-cloudbreak-with-external-postgresql">Using Cloudbreak with External PostgreSQL <a name="postgresql"></a></h4>
+<p><strong>Steps</strong></p>
 <p>To configure an external PostgreSQL database for Cloudbreak, perform these steps. </p>
 <ol>
 <li>
@@ -585,7 +581,7 @@ export DATABASE_PASSWORD=Admin123!
 createdb -h $DATABASE_HOST -p $DATABASE_PORT -U $DATABASE_USERNAME uaadb
 createdb -h $DATABASE_HOST -p $DATABASE_PORT -U $DATABASE_USERNAME periscopedb</small></pre></p>
 <p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/app-createdb.html">PostgreSQL documentation</a>. <br />
-Alternatively, you can log in to the management interface of your external database and execute [create database]](https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html) commands directly. </p>
+Alternatively, you can log in to the management interface of your external database and execute <a href="https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html">create database</a> commands directly. </p>
 </li>
 <li>
 <p>Set the following variables in your Cloudbreak Profile file. </p>

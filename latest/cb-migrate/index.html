@@ -324,7 +324,7 @@
         
             
 <li >
-    <a href="../cb-db/index.html">Manage Cloudbreak Database</a>
+    <a href="../cb-db/index.html">Configure External Cloudbreak Database</a>
 </li>
 
         
@@ -521,13 +521,13 @@
     
         <li class="first-level active"><a href="#moving-a-cloudbreak-instance">Moving a Cloudbreak Instance</a></li>
         
+            <li class="second-level"><a href="#back-up-cloudbreak-database">Back up Cloudbreak Database</a></li>
+            
+        
             <li class="second-level"><a href="#populate-database-with-dump-from-original-cloudbreak-instance">Populate Database with Dump from Original Cloudbreak instance</a></li>
             
         
             <li class="second-level"><a href="#modify-cloudbreak-profile">Modify Cloudbreak Profile</a></li>
-            
-        
-            <li class="second-level"><a href="#backup-cloudbreak-database">Backup Cloudbreak Database</a></li>
             
         
     
@@ -538,10 +538,34 @@
 <h2 id="moving-a-cloudbreak-instance">Moving a Cloudbreak Instance</h2>
 <p>To transfer a Cloudbreak instance from one host to another, perform these tasks:</p>
 <ol>
-<li>If you are using the embedded PostgreSQL database, back up current Cloudbreak data. Refer to <a href="#backup-cloudbreak-database">Backup Cloudbreak Database</a>   </li>
-<li>Launch a new Cloudbreak instance on a new host. Refer to <a href="../index.html#launch-cloudbreak">Launch Cloudbreak</a>   </li>
+<li>If you are using the embedded PostgreSQL database, <a href="#back-up-cloudbreak-database">back up current Cloudbreak database</a> data  </li>
+<li>Launch a new Cloudbreak instance. Refer to <a href="../index.html#launch-cloudbreak">Launch Cloudbreak</a>   </li>
 <li>If you are using the embedded PostgreSQL database, <a href="#populate-database-with-dump-from-original-cloudbreak-instance">populate the new Cloudbreak instance database with the dump from the original Cloudbreak instance</a> on the new host.  </li>
 <li><a href="#modify-cloudbreak-profile">Modify Cloudbreak Profile</a>  </li>
+</ol>
+<h3 id="back-up-cloudbreak-database">Back up Cloudbreak Database</h3>
+<p>To create a backup of the embedded PostgreSQL database, perform these steps:</p>
+<ol>
+<li>
+<p>On your Cloudbreak host machine, execute <code>docker exec -it cbreak_commondb_1 bash</code> command to enter
+  the container of the database. If it is not running, start the database container by
+  using the <code>docker start cbreak_commondb_1</code> command.</p>
+</li>
+<li>
+<p>Create three database dumps (cbdb, uaadb, periscopedb):  </p>
+<p><pre><small>pg_dump -Fc -U postgres cbdb &gt; cbdb.dump
+pg_dump -Fc -U postgres uaadb &gt; uaadb.dump
+pg_dump -Fc -U postgres periscopedb &gt; periscopedb.dump</small></pre></p>
+</li>
+<li>
+<p>Quit from the container with shortcut <code>CTRL+d</code>.</p>
+</li>
+<li>
+<p>Save the previously created dumps to the host instance:               </p>
+<p><pre><small>docker cp cbreak_commondb_1:/cbdb.dump ./cbdb.dump
+docker cp cbreak_commondb_1:/uaadb.dump ./uaadb.dump
+docker cp cbreak_commondb_1:/periscopedb.dump ./periscopedb.dump</small></pre></p>
+</li>
 </ol>
 <h3 id="populate-database-with-dump-from-original-cloudbreak-instance">Populate Database with Dump from Original Cloudbreak instance</h3>
 <p>Perform these steps to populate databases with information from the Cloudbreak server.</p>
@@ -596,30 +620,6 @@ export UAA_DEFAULT_USER_PW=cbuser</small></pre></p>
 </li>
 <li>
 <p>Restart Cloudbreak application by using the <code>cbd restart</code> command.  </p>
-</li>
-</ol>
-<h3 id="backup-cloudbreak-database">Backup Cloudbreak Database</h3>
-<p>To create a backup of the embedded PostgreSQL database, perform these steps:</p>
-<ol>
-<li>
-<p>On your Cloudbreak host machine, execute <code>docker exec -it cbreak_commondb_1 bash</code> command to enter
-  the container of the database. If it is not running, start the database container by
-  using the <code>docker start cbreak_commondb_1</code> command.</p>
-</li>
-<li>
-<p>Create three database dumps (cbdb, uaadb, periscopedb):  </p>
-<p><pre><small>pg_dump -Fc -U postgres cbdb &gt; cbdb.dump
-pg_dump -Fc -U postgres uaadb &gt; uaadb.dump
-pg_dump -Fc -U postgres periscopedb &gt; periscopedb.dump</small></pre></p>
-</li>
-<li>
-<p>Quit from the container with shortcut <code>CTRL+d</code>.</p>
-</li>
-<li>
-<p>Save the previously created dumps to the host instance:               </p>
-<p><pre><small>docker cp cbreak_commondb_1:/cbdb.dump ./cbdb.dump
-docker cp cbreak_commondb_1:/uaadb.dump ./uaadb.dump
-docker cp cbreak_commondb_1:/periscopedb.dump ./periscopedb.dump</small></pre></p>
 </li>
 </ol></div>
         
