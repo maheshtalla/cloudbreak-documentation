@@ -541,8 +541,6 @@
             
                 <li class="third-level"><a href="#dont-create-new-firewall-rules">Don't Create New Firewall Rules</a></li>
             
-                <li class="third-level"><a href="#security-groups">Security Groups</a></li>
-            
                 <li class="third-level"><a href="#enable-kerberos-security">Enable Kerberos Security</a></li>
             
         
@@ -647,6 +645,27 @@
 </table>
 </li>
 <li>
+<p>Next, define security groups for each host group. For each host group, you can either create a new security group and define its rules or use an existing secuirty group:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New Security Group</td>
+<td><p>(Default) Creates a new security group with the rules that you defined:</p><p><ul><li>A set of <a href="../security/index.html#default-cluster-security-groups">default rules</a> is provided. You should review and adjust these default rules. If you do not make any modifications, default rules will be applied. </li><li>You may open ports by defining the CIDR, entering port range, selecting protocol and clicking <strong>+</strong>.</li><li>You may delete default or previously added rules using the delete icon.</li><li>If you don't want to use security group, remove the default rules.</li><ul></p></td>
+</tr>
+<tr>
+<td>Existing Security Groups</td>
+<td>Allows you to select an existing security group that is already available in the selected provider region. This selection is disabled if no existing security groups are available in your chosen region.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
 <p>On the <strong>Security</strong> page, provide the following parameters:</p>
 <table>
 <thead>
@@ -679,9 +698,11 @@
 <p>Click on <strong>Create Cluster</strong> to create a cluster.</p>
 </li>
 <li>
-<p>You will be redirected to the Cloudbreak dashboard, and a new tile representing your cluster will appear at the top of the page</p>
+<p>You will be redirected to the Cloudbreak dashboard, and a new tile representing your cluster will appear at the top of the page.</p>
 </li>
 </ol>
+<p><strong>Related Links</strong> <br />
+<a href="../security/index.html#default-cluster-security-groups">Default Cluster Security Groups</a></p>
 <p><strong>Related Links</strong><br />
 <a href="../blueprints/index.html">Blueprints</a> <br />
 <a href="https://azure.microsoft.com/en-us/regions/">Azure Regions</a> (External)   <br />
@@ -821,28 +842,6 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 <p>This option is available if you are creating a cluster in an existing network and subnet. Select this option if you don't want to use public IPs for the network. </p>
 <h4 id="dont-create-new-firewall-rules">Don't Create New Firewall Rules</h4>
 <p>This option is available if you are creating a cluster in an existing network and subnet. Select this option if you don't want to create new firewall rules for the network. </p>
-<h4 id="security-groups">Security Groups</h4>
-<p>For each host group, you have the following options:</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>User Defined</td>
-<td><p>(Default) Creates a new security group with the rules that you defined:</p><p><ul><li>A set of <a href="../security/index.html#default-cluster-security-groups">default rules</a> is provided. You should review and adjust these default rules. If you do not make any modifications, default rules will be applied. </li><li>You may open ports by defining the CIDR, entering port range, selecting protocol and clicking <strong>+</strong>.</li><li>You may delete default or previously added rules using the delete icon.</li><li>If you don't want to use security group, remove the default rules.</li><ul></p></td>
-</tr>
-<tr>
-<td>Provider Security Groups</td>
-<td>Allows you to select an existing security group that is already available in the selected provider region. This selection is disabled if no existing security groups are available in your chosen region.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Related Links</strong> <br />
-<a href="../security/index.html#default-cluster-security-groups">Default Cluster Security Groups</a></p>
 <h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
 <p>Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to <a href="../security-kerberos/index.html">Kerberos</a> documentation. </p>
 <p><strong>Related Links</strong> <br />
