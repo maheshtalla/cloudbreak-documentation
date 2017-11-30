@@ -553,7 +553,7 @@
             
                 <li class="third-level"><a href="#cluster-describe">cluster describe</a></li>
             
-                <li class="third-level"><a href="#cluster-generate-cluster-template">cluster generate-cluster-template</a></li>
+                <li class="third-level"><a href="#cluster-generate-template">cluster generate-template</a></li>
             
                 <li class="third-level"><a href="#cluster-generate-reinstall-template">cluster generate-reinstall-template</a></li>
             
@@ -996,8 +996,8 @@
 <p><strong>Related Commands</strong></p>
 <p><a href="#cluster-list">cluster list</a></p>
 <hr />
-<h4 id="cluster-generate-cluster-template">cluster generate-cluster-template</h4>
-<p>Generates a cluster template in JSON format.</p>
+<h4 id="cluster-generate-template">cluster generate-template</h4>
+<p>Generates a provider-specific cluster template in JSON format.</p>
 <p><strong>Sub-commands</strong></p>
 <p><strong><code>aws new-network</code></strong> Generates an AWS cluster JSON template with new network<br />
 <strong><code>aws existing-network</code></strong> Generates an AWS cluster JSON template with existing network<br />
@@ -1011,10 +1011,14 @@
 <p><strong><code>openstack new-network</code></strong> Generates an OS cluster JSON template with new network <br />
 <strong><code>openstack existing-network</code></strong> Generates an OS cluster JSON template with existing network <br />
 <strong><code>openstack existing-subnet</code></strong> Generates an OS cluster JSON template with existing network and subnet   </p>
+<p><strong>Examples</strong></p>
+<pre>cb cluster generate-template aws new-network</pre>
+
 <p><strong>Related Commands</strong></p>
-<p><a href="#cluster-create">cluster create</a></p>
+<p><a href="#cluster-create">cluster create</a> </p>
 <hr />
 <h4 id="cluster-generate-reinstall-template">cluster generate-reinstall-template</h4>
+<p>Generates a cluster template  in JSON format based on a blueprint.</p>
 <p><strong>Required Options</strong></p>
 <p><strong><code>--blueprint-name &lt;value&gt;</code></strong>  Name of the blueprint </p>
 <p><strong>Options</strong></p>
@@ -1023,6 +1027,9 @@
 <strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD]<br />
 <strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
 <strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<p><strong>Examples</strong></p>
+<pre>cb cluster generate-reinstall-template --blueprint-name "EDW-ETL: Apache Hive 1.2.1, Apache Spark 2.1"</pre>
+
 <hr />
 <h4 id="cluster-list">cluster list</h4>
 <p>Lists all clusters which are currently associated with the Cloudbreak instance.</p>
