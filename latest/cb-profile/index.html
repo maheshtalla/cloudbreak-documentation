@@ -564,14 +564,6 @@
 <h2 id="edit-cloudbreak-profile">Edit Cloudbreak Profile</h2>
 <p>Cloudbreak deployer configuration is based on environment variables.  </p>
 <p>During startup, Cloudbreak deployer tries to determine the underlying infrastructure and then sets required environment variables with appropriate default values. If these environment variables are not sufficient for your use case, you can set additional environment variables in your <code>Profile</code> file. </p>
-<p>Cloudbreak deployer always opens a new bash subprocess without inheriting environment variables. Only the following environment variables are inherited:</p>
-<ul>
-<li><code>HOME</code>  </li>
-<li><code>DEBUG</code>  </li>
-<li><code>TRACE</code>  </li>
-<li><code>CBD_DEFAULT_PROFILE</code>  </li>
-<li>all <code>DOCKER_XXX</code> </li>
-</ul>
 <h3 id="set-profile-variables">Set Profile Variables</h3>
 <p>To set environment variables relevant for Cloudbreak Deployer, add them to a file called <code>Profile</code> located in the Cloudbreak deployment directory (typically <code>/var/lib/cloudbreak-deployment</code>).</p>
 <p>The <code>Profile</code> file is sourced, so you can use the usual syntax to set configuration values:</p>
