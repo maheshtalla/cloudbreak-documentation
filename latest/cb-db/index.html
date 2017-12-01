@@ -541,7 +541,7 @@ use an external database for Cloudbreak, you may use the following supported dat
 </thead>
 <tbody>
 <tr>
-<td><a href="#postgresql">External PostgreSQL</a></td>
+<td>External PostgreSQL</td>
 <td>9.x</td>
 </tr>
 <tr>
@@ -583,7 +583,7 @@ createdb -h $DATABASE_HOST -p $DATABASE_PORT -U $DATABASE_USERNAME periscopedb</
 Alternatively, you can log in to the management interface of your external database and execute <a href="https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html">create database</a> commands directly. </p>
 </li>
 <li>
-<p>Set the following variables in your Cloudbreak Profile file. </p>
+<p>Set the following variables in your Cloudbreak Profile file. Modify the database parameters according to your external database.</p>
 <p><pre><small>export DATABASE_HOST=my.database.host
 export DATABASE_PORT=5432
 export DATABASE_USERNAME=admin
@@ -607,7 +607,13 @@ export IDENTITY_DB_NAME=uaadb</small></pre></p>
 <li>
 <p>Restart Cloudbreak application by using the <code>cbd restart</code> command. </p>
 </li>
-</ol></div>
+</ol>
+<div class="note">      
+     <p class="first admonition-title">Data migration</p>       
+     <p class="last">       
+     If you want to migrate existing data (e.g. blueprints, recipes etc.) from the embedded database to the external one, then after completing these steps, you should also create a <a href="../cb-migrate/#back-up-cloudbreak-database">backup</a> and <a href="../cb-migrate#populate-database-with-dump-from-original-cloudbreak-instance">restore</a> it in the external database.        
+     </p>       
+</div></div>
         
     </div>
 
