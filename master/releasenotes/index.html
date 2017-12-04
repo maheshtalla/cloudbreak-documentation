@@ -543,11 +543,33 @@
 <hr />
 <h4 id="new-features">New Features</h4>
 <hr />
-<p>TBD</p>
+<h5 id="support-for-kerberos"><strong>Support for Kerberos</strong></h5>
+<p>Creating Kerberos-enabled clusters is supported. Refer to <a href="../security-kerberos">Configure Kerberos</a>. </p>
+<h5 id="configuring-an-external-rdbms-for-cloudbreak"><strong>Configuring an external RDBMS for Cloudbreak</strong></h5>
+<p>Configuring an external RDBMS for Cloubdreak is supported. For configuration instructions, refer to <a href="../cb-db/index.html">Configuring External Cloudbreak Database</a>.</p>
+<h5 id="migrating-cloudbreak-instance"><strong>Migrating Cloudbreak Instance</strong></h5>
+<p>Migrating Cloudbreak from one machine to another is supported. For migration instructions, refer to <a href="../cb-migrate/index.html">Moving a Cloudbreak Instance</a>. </p>
+<h5 id="providing-your-own-jdk"><strong>Providing Your Own JDK</strong></h5>
+<p>Providing your own JDK on a custom base image is supported. For instructions, refer to "Advanced topics" in the <a href="https://github.com/hortonworks/cloudbreak-images">https://github.com/hortonworks/cloudbreak-images</a> repo.  </p>
+<h5 id="spot-instances-on-aws"><strong>Spot Instances on AWS</strong></h5>
+<p>Using spot instances on is supported for clusters created on AWS. The option is available in the advanced <strong>Hardware and Storage</strong> section of the create cluster wizard. Refer to <a href="../aws-create/index.html#use-spot-instances">Use Spot Instances</a>.</p>
+<h5 id="preemptible-instances-on-google-cloud"><strong>Preemptible Instances on Google Cloud</strong></h5>
+<p>Using preemptible instances on Google Cloud is supported for clusters created on Google Cloud. The option is available in the advanced <strong>Hardware and Storage</strong> section of the create cluster wizard. Refer to <a href="../aws-create/index.html#use-preemptible-instances">Use Preemptible Instances</a>.</p>
+<h5 id="new-types-of-recipes"><strong>New Types of Recipes</strong></h5>
+<p>New types of recipes, PRE-AMBARI-START and PRE-DELETE, are supported. Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</p>
+<h5 id="new-cli-commands"><strong>New CLI Commands</strong></h5>
+<p>New <code>cloud</code> commands are available in the CLI, allowing you to get cloud provider details required for a cluster template. Refer to <a href="../cli-reference/index.html">CLI Reference</a>.</p>
 <hr />
 <h4 id="behavioral-changes">Behavioral Changes</h4>
 <hr />
-<p>TBD </p>
+<h5 id="image-catalog-registration"><strong>Image Catalog Registration</strong></h5>
+<p>Image catalog registration steps have been simplified. Refer to updated  <a href="../images/index.html#register-custom-images">Register Custom Images</a> docuemntation.</p>
+<h5 id="create-cluster-user-interface-changes"><strong>Create Cluster User Interface Changes</strong></h5>
+<p>Some sections in the create cluster wizard were changed to ensure better user experience. For example, the security group section was improved to help you provide desired security groups settings. </p>
+<h5 id="cluster-details-user-interface-changes"><strong>Cluster Details User Interface Changes</strong></h5>
+<p>The cluster details page was changed to ensure better user experience. New tabs were created to help you find information related to your cluster. </p>
+<h5 id="cli-syntax"><strong>CLI Syntax</strong></h5>
+<p>The syntax of all CLI commands has changed. All commands start with a singular object followed by an action, for example, <code>blueprint create</code>, instead of <code>create blueprint</code>and <code>blueprint list</code> instead of <code>list blueprints</code>. Refer to updated <a href="../cli-reference/index.html">CLI Reference</a>.</p>
 <hr />
 <h4 id="fixed-issues">Fixed Issues</h4>
 <hr />
