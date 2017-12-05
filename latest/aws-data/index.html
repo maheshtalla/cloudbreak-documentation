@@ -550,17 +550,18 @@
 <p><strong>Related Links</strong><br />
 <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Create a Bucket</a> (External)    </p>
 <h4 id="configuring-access-to-s3">Configuring Access to S3</h4>
-<p>Amazon S3 is not supported as a default file system, but access to data in Amazon S3 via the s3a connector. To configure access to Amazon S3 from a cluster crated via Cloudbreak, declare your access key and secret key in a configuration file such as <code>core-site.xml</code>:</p>
-<pre><code class="xml">&lt;property&gt;
-  &lt;name&gt;fs.s3a.access.key&lt;/name&gt;
-  &lt;value&gt;ACCESS-KEY&lt;/value&gt;
-&lt;/property&gt;
-
-&lt;property&gt;
-  &lt;name&gt;fs.s3a.secret.key&lt;/name&gt;
-  &lt;value&gt;SECRET-KEY&lt;/value&gt;
-&lt;/property&gt;
-</code></pre>
+<p>Amazon S3 is not supported as a default file system, but access to data in Amazon S3 is possible via the s3a connector. </p>
+<p>Data in public S3 buckets can be accessed without any access configuration. </p>
+<p>During cluster creation, Cloudbreak creates a new IAM role "S3AccessRole" to grant the cluster instances access to S3 buckets within your AWS account. The  "S3AccessRole" IAM role policy is as follows: </p>
+<pre>{
+    "Statement": [
+        {
+            "Action": "s3:*",
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+}</pre>
 
 <h4 id="testing-access-to-s3">Testing Access to S3</h4>
 <p>To tests access to S3, SSH to a cluster node and run a few hadoop fs shell commands against your existing S3 bucket.</p>
