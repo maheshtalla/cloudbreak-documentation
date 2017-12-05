@@ -393,6 +393,12 @@
         
             
 <li >
+    <a href="../trouble-cb-logs/index.html">Cloudbreak Logs</a>
+</li>
+
+        
+            
+<li >
     <a href="../trouble-cb/index.html">General Troubleshooting</a>
 </li>
 
@@ -575,7 +581,7 @@
 <p><strong>Related Links</strong><br />
 <a href="https://cloud.google.com/storage/docs/authentication#service_accounts">Service Account Credentials</a> (External)  </p>
 <h4 id="ssh-key-pair">SSH Key Pair</h4>
-<p><a href="../faq/index.html#generate-ssh-key-pair">Generate a new SSH key pair</a> or use an existing SSH key pair. You must provide it when launching the VM.  </p>
+<p><a href="../faq/index.html#generate-ssh-key-pair">Generate a new SSH key pair</a> or use an existing SSH key pair. You will be required to provide it when launching the VM.  </p>
 <h4 id="vpc-network">VPC Network</h4>
 <p>When launching Cloudbreak, you will be required to select an existing network in which Cloudbreak can be placed. The following ports must be open on the security group: 22 (for access via SSH), 80 (for access via HTTP), and 443 (for access via HTTPS). You may use the <em>default</em> network as long as the aforementioned ports are open. </p>
 <p>You can manage networks under <strong>Networking</strong> &gt; <strong>VPC Networks</strong>. To edit ports, click on the network name and then click on <strong>Add firewall rules</strong>.</p>
@@ -685,15 +691,8 @@ export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
 <li>
 <p>Start the Cloudbreak application by using the following command:</p>
 <p><pre>cbd start</pre></p>
-<p>This will start the Docker containers and initialize the application. The first time you start the Coudbreak app, the process will take longer than usual due to the download of all the necessary docker images.</p>
-<p>The <code>cbd start</code> command includes the <code>cbd generate</code> command which applies the following steps:</p>
-<ul>
-<li>Creates the <code>docker-compose.yml</code> file, which describes the configuration of all the Docker containers needed for the Cloudbreak deployment.</li>
-<li>Creates the <code>uaa.yml</code> file, which holds the configuration of the identity server used to authenticate users with Cloudbreak.</li>
-</ul>
-<blockquote>
+<p>This will start the Docker containers and initialize the application. The first time you start the Coudbreak app, this also downloads of all the necessary docker images.</p>
 <p>Once the <code>cbd start</code> has finished, it returns the "Uluwatu (Cloudbreak UI) url" which you can later paste in your browser and log in to Cloudbreak web UI.</p>
-</blockquote>
 </li>
 <li>
 <p>Check Cloudbreak deployer version and health: </p>
@@ -702,7 +701,7 @@ export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
 <li>
 <p>Next, check Cloudbreak Application logs: </p>
 <p><pre>cbd logs cloudbreak</pre></p>
-<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
+<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak takes less than a minute to start. If you try to access the Cloudbreak UI before Cloudbreak started, you will get a "Bad Gateway" error or "Cannot connect to Cloubdreak" error.</p>
 </li>
 </ol>
 <h3 id="access-cloudbreak-ui">Access Cloudbreak UI</h3>
@@ -710,7 +709,7 @@ export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>You can log into the Cloudbreak application at  <code>https://IP_Address</code>. For example <code>https://34.212.141.253</code>.  You can obtain the VM's IP address from <strong>Compute Engine</strong> &gt; <strong>VM Instances</strong>, the <strong>External IP</strong> column.</p>
+<p>You can log into the Cloudbreak application at <code>https://IP_Address</code>. For example <code>https://34.212.141.253</code>. You can obtain the VM's IP address from <strong>Compute Engine</strong> &gt; <strong>VM Instances</strong>, the <strong>External IP</strong> column.</p>
 </li>
 <li>
 <p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>

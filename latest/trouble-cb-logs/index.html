@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/blueprints/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/trouble-cb-logs/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Blueprints - Cloudbreak</title>
+    <title>Cloudbreak Logs - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -260,8 +260,8 @@
     <ul class="dropdown-menu">
         
             
-<li class="active">
-    <a href="index.html">Blueprints</a>
+<li >
+    <a href="../blueprints/index.html">Blueprints</a>
 </li>
 
         
@@ -392,8 +392,8 @@
     <ul class="dropdown-menu">
         
             
-<li >
-    <a href="../trouble-cb-logs/index.html">Cloudbreak Logs</a>
+<li class="active">
+    <a href="index.html">Cloudbreak Logs</a>
 </li>
 
         
@@ -495,12 +495,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../os-clusters-manage/index.html">
+                        <a rel="next" href="../cli-reference/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../recipes/index.html">
+                        <a rel="prev" href="../trouble-cb/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -525,24 +525,28 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#blueprints">Blueprints</a></li>
+        <li class="first-level active"><a href="#checking-cloudbreak-logs">Checking Cloudbreak Logs</a></li>
         
-            <li class="second-level"><a href="#use-default-blueprints">Use Default Blueprints</a></li>
+            <li class="second-level"><a href="#cloudbreak-logs">Cloudbreak Logs</a></li>
             
-                <li class="third-level"><a href="#default-blueprints">Default Blueprints</a></li>
+                <li class="third-level"><a href="#aggregated-logs">Aggregated Logs</a></li>
             
-        
-            <li class="second-level"><a href="#use-custom-blueprint">Use Custom Blueprint</a></li>
+                <li class="third-level"><a href="#individual-service-logs">Individual Service Logs</a></li>
             
-                <li class="third-level"><a href="#creating-a-blueprint">Creating a Blueprint</a></li>
-            
-                <li class="third-level"><a href="#upload-a-blueprint">Upload a Blueprint</a></li>
+                <li class="third-level"><a href="#docker-logs">Docker Logs</a></li>
             
         
-            <li class="second-level"><a href="#view-blueprint-details">View Blueprint Details</a></li>
+            <li class="second-level"><a href="#saltstack-logs">Saltstack Logs</a></li>
             
         
-            <li class="second-level"><a href="#delete-blueprint">Delete Blueprint</a></li>
+            <li class="second-level"><a href="#ambari-logs">Ambari Logs</a></li>
+            
+                <li class="third-level"><a href="#ambari-server-logs">Ambari Server Logs</a></li>
+            
+                <li class="third-level"><a href="#ambari-agent-logs">Ambari Agent Logs</a></li>
+            
+        
+            <li class="second-level"><a href="#recipe-logs">Recipe Logs</a></li>
             
         
     
@@ -550,196 +554,50 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="blueprints">Blueprints</h2>
-<p><strong>Ambari blueprints</strong> are your declarative definition of your HDP cluster, defining the host groups and which components to install on which host group. Ambari uses them as a base for your clusters. </p>
-<p>You have two options concerning using blueprints with Cloudbreak:</p>
-<ul>
-<li>Use one of the pre-defined blueprints.    </li>
-<li>Add your custom blueprint by uploading a JSON file or pasting the JSON text. </li>
-</ul>
-<p>We recommend that you review the default blueprints to check if they meet your requirements. You can do this by selecting <strong>Blueprints</strong> from the navigation pane in the Cloudbreak web UI or by reading the documentation below.</p>
-<h3 id="use-default-blueprints">Use Default Blueprints</h3>
-<p>To use one of the default blueprints, simply select them when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Stack Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. </p>
-<h4 id="default-blueprints">Default Blueprints</h4>
-<p>Cloudbreak includes the following default HDP cluster blueprints:</p>
-<p>Platform Version: <strong>HDP 2.6</strong></p>
-<table>
-<thead>
-<tr>
-<th>Cluster Type</th>
-<th>Main Services</th>
-<th>Description</th>
-<th>List of All Services Included</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Data Science</td>
-<td><i class="fa fa-check" style="color: green"></i> Spark 1.6,<br>Zeppelin 0.7.0</td>
-<td>Useful for data science with Spark 1.6 and Zeppelin.</td>
-<td>HDFS, YARN, MapReduce2, Tez, Hive 1.2.1, Pig, Sqoop, ZooKeeper, Ambari Metrics, Spark 1.6, Zeppelin 0.7.0</td>
-</tr>
-<tr>
-<td>Data Science</td>
-<td><i class="fa fa-check" style="color: green"></i> Spark 2.1,<br>Zeppelin 0.7.0</td>
-<td>Useful for data science with Spark 2.1 and Zeppelin.</td>
-<td>HDFS, YARN, MapReduce2, Tez, Hive 1.2.1, Pig, Sqoop, ZooKeeper, Ambari Metrics, Spark 2.1, Zeppelin 0.7.0</td>
-</tr>
-<tr>
-<td>EDW - Analytics</td>
-<td><span><i class="fa fa-check" style="color: green"></i> Hive 2 LLAP</span>,<br>Zeppelin 0.7.0</td>
-<td>Useful for EDW analytics using Hive LLAP.</td>
-<td>HDFS, YARN, MapReduce2, Tez, Hive 2 LLAP, Druid, Pig, ZooKeeper, Ambari Metrics, Spark 2.1</td>
-</tr>
-<tr>
-<td>EDW - ETL</td>
-<td><i class="fa fa-check" style="color: green"></i> Hive 1.2.1,<br>Spark 1.6</td>
-<td>Useful for ETL data processing with Hive and Spark 1.6.</td>
-<td>HDFS, YARN, MapReduce2, Tez, Hive 1.2.1, Pig, Sqoop, ZooKeeper, Ambari Metrics, Spark 1.6, Druid 0.9.2</td>
-</tr>
-<tr>
-<td>EDW - ETL</td>
-<td><i class="fa fa-check" style="color: green"></i> Hive 1.2.1,<br> Spark 2.1</td>
-<td>Useful for ETL data processing with Hive and Spark 2.1.</td>
-<td>HDFS, YARN, MapReduce2, Tez, Hive 1.2.1, Pig, ZooKeeper, Ambari Metrics, Spark 2.1</td>
-</tr>
-<tr>
-<td>BI</td>
-<td><span><i class="fa fa-warning" style="color: orange"></i> Druid 0.9.2</span></td>
-<td>Technical preview of Druid.</td>
-<td>HDFS, YARN, MapReduce2, Tez, Druid, Sqoop, ZooKeeper, Ambari Metrics</td>
-</tr>
-</tbody>
-</table>
-<p>The following configuration classification applies:
-<ul>
-<li><i class="fa fa-check" style="color: green"></i> Stable configurations are the best choice if you want to avoid issues and other problems with launching and using clusters.</li>
-<li><i class="fa fa-warning" style="color: orange"></i> If you want to use a Technical Preview version of a component in a release of HDP, use these configurations.</li>
-<li><i class="fa fa-warning" style="color: red"></i> These are the most cutting edge of the configurations, including Technical Preview components in a Technical Preview HDP release.</li>
-</ul></p>
-<h3 id="use-custom-blueprint">Use Custom Blueprint</h3>
-<p>This option allows you to create and save your custom blueprints. </p>
-<div class="note">
-    <p class="first admonition-title">Supported Ambari and HDP Versions</p>
-    <p class="last">
-Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.x</b></li><li>HDP <b>2.6.x</b> and HDP <b>2.5.x</b></li></ul>Ambari 2.6.x is not supported.
-</p>
-</div>
-
-<h4 id="creating-a-blueprint">Creating a Blueprint</h4>
-<p>Ambari blueprints are specified in the JSON format. </p>
-<p>A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, it includes  some hardcoded configurations such as domain names, memory configurations, and so on, that are not applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually. </p>
-<p>In general, the blueprint should include the following elements:</p>
-<pre>"Blueprints": {
-    "blueprint_name": "hdp-small-default",
-    "stack_name": "HDP",
-    "stack_version": "2.6"
-  },
-  "settings": [],
-  "configurations": [],
-  "host_groups": [
-  {
-      "name": "master",
-      "configurations": [],
-      "components": []
-    },
-    {
-      "name": "worker",
-      "configurations": [],
-      "components": [ ]
-    },
-    {
-      "name": "compute",
-      "configurations": [],
-      "components": []
-    }
-   ]
-  }</pre>
-
-<p>For correct blueprint layout and other information about Ambari blueprints, refer to the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> page. </p>
-<p>Cloudbreak requires you to define an additional element in the blueprint called "blueprint_name". This should be a unique name within Cloudbreak list of blueprints. That is not included in the Ambari export. For example:</p>
-<pre>"Blueprints": {
-    "blueprint_name": "hdp-small-default",
-    "stack_name": "HDP",
-    "stack_version": "2.6"
-  },
-  "settings": [],
-  "configurations": [],
-  "host_groups": [
-  ...
-</pre>
-
-<p>After you provide the blueprint to Cloudbreak, the host groups in the JSON will be mapped to a set of instances when starting the cluster, and the specified services and components will be installed on the corresponding nodes. It is not necessary to define a complete configuration in the blueprint. If a configuration is missing, Ambari will use a default value. </p>
-<p>Here are a few <a href="https://github.com/hortonworks/cloudbreak/tree/master/core/src/main/resources/defaults/blueprints">blueprint examples</a>. You can also refer to the default blueprints provided in the Cloudbreak UI.</p>
+<h2 id="checking-cloudbreak-logs">Checking Cloudbreak Logs</h2>
+<p>When troubleshooting, you can access the following Cloudbreak logs.</p>
+<h3 id="cloudbreak-logs">Cloudbreak Logs</h3>
+<p>When installing Cloudbreak using a pre-built cloud image, the  Cloudbreak deployer location and the cbd root folder is <code>/var/lib/cloudbreak-deployment</code>. You must execute all cbd actions from the cbd root folder as a cloudbreak user. </p>
+<blockquote>
+<p>Your cbd root directory may be different if you installed Cloudbreak on your own VM. </p>
+</blockquote>
+<h4 id="aggregated-logs">Aggregated Logs</h4>
+<p>Cloudbreak consists of multiple microservices deployed into Docker containers. </p>
+<p>To check aggregated service logs, use the following commands:</p>
+<p><code>cbd logs</code> shows all service logs.</p>
+<p><code>cbd logs | tee cloudbreak.log</code> allows you to redirect the input into a file for sharing these logs.</p>
+<h4 id="individual-service-logs">Individual Service Logs</h4>
+<p>To check individual service logs, use the following commands:</p>
+<p><code>cbd logs cloudbreak</code> shows Cloudbreak logs. This service is the backend service that handles all deployments.</p>
+<p><code>cbd logs uluwatu</code> shows Cloudbreak UI logs. Uluwatu is the UI component of Cloudbreak.</p>
+<p><code>cbd logs identity</code> shows Identity logs. Identity is responsible for authentication and authorization.</p>
+<p><code>cbd logs periscope</code> shows Periscope logs. Periscope is responsible for triggering autoscaling rules.</p>
+<h4 id="docker-logs">Docker Logs</h4>
+<p>The same logs can be accessed via Docker commands:</p>
+<p><code>docker logs cbreak_cloudbreak_1</code> shows the same logs as <code>cbd logs cloudbreak</code>.</p>
+<p>Cloudbreak logs are rotated and can be accessed later from the Cloudbreak deployment folder. Each time you restart the application via cbd restart a new log file is created with a timestamp in the name (for example, cbreak-20170821-105900.log). </p>
+<blockquote>
+<p>There is a symlink called <code>cbreak.log</code> which points to the latest log file. Sharing this symlink does not share the log itself.</p>
+</blockquote>
+<h3 id="saltstack-logs">Saltstack Logs</h3>
+<p>Cloudbreak uses Saltstack to install Ambari and the necessary packages for the HDP provisioning. Salt Master always runs alongside the Ambari Server node. Each instance in the cluster runs a Salt Minion, which connects to the Salt Master. There can be multiple Salt Masters if the cluster is configured to run in HA (High Availability) mode and in this case each Salt Minion connects to each Salt Master.</p>
+<p>Cloudbreak also uses SaltStack to execute user-provided customization scripts called "recipes". </p>
+<p>Salt Master and Salt Minion logs can be found at the following location: <code>/var/log/salt</code></p>
+<h3 id="ambari-logs">Ambari Logs</h3>
+<p>Cloudbreak uses Ambari to orchestrate the installation of the different HDP components. Each instance in the cluster runs an Ambari agent which connects to the Ambari server. Ambari server is declared by the user during the cluster installation wizard. </p>
+<h4 id="ambari-server-logs">Ambari Server Logs</h4>
+<p>Ambari server logs can be found on the nodes where Ambari server is installed in the following locations:</p>
+<p><code>/var/log/ambari-server/ambari-server.log</code></p>
+<p><code>/var/log/ambari-server/ambari-server.out</code></p>
+<p>Both files contain important information about the root cause of a certain issue so it is advised to check both.</p>
+<h4 id="ambari-agent-logs">Ambari Agent Logs</h4>
+<p>Ambari agent logs can be found on the nodes where Ambari agent is installed in the following locations:</p>
+<p><code>/var/log/ambari-agent/ambari-agent.log</code></p>
+<h3 id="recipe-logs">Recipe Logs</h3>
+<p>Cloudbreak supports "recipes" - user-provided customization scripts that can be run prior to or after cluster installation. It is the user’s responsibility to provide an idempotent well tested script. If the execution fails, the recipe logs can be found at <code>/var/log/recipes</code> on the nodes on which the recipes were executed.</p>
+<p>It is advised, but not required to have an advanced logging mechanism in the script, as Cloudbreak always logs every script that are run. Recipes are often the sources of installation failures as users might try to remove necessary packages or reconfigure services.</p>
 <p><strong>Related Links</strong><br />
-<a href="https://github.com/hortonworks/cloudbreak/tree/master/core/src/main/resources/defaults/blueprints">Blueprint Examples</a> (External)   <br />
-<a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> (External)  </p>
-<h4 id="upload-a-blueprint">Upload a Blueprint</h4>
-<p>Once you have your blueprint ready, perform these steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>In the Cloudbreak UI, select <strong>Blueprints</strong> from the navigation pane. </li>
-<li>
-<p>To add your own blueprint, click <strong>Create Blueprint</strong> and enter the following parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Name</td>
-<td>Enter a name for your blueprint.</td>
-</tr>
-<tr>
-<td>Description</td>
-<td>(Optional) Enter a description for your blueprint.</td>
-</tr>
-<tr>
-<td>Blueprint Source</td>
-<td><p>Select one of: <ul><li><strong>Text</strong>: Paste blueprint in JSON format.</li><li> <strong>File</strong>: Upload a file that contains the blueprint.</li><li> <strong>URL</strong>: Specify the URL for your blueprint.</li></ul></td>
-</tr>
-</tbody>
-</table>
-<p><a href="../images/cb-blueprint-add.png" target="_blank" title="click to enlarge"><img src="../images/cb-blueprint-add.png" width="650" title="Cloudbreak web UI"></a> </p>
-</li>
-<li>
-<p>To use the uploaded blueprints, select it when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Platform Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. </p>
-<p><a href="../images/cb-blueprint-select.png" target="_blank" title="click to enlarge"><img src="../images/cb-blueprint-select.png" width="650" title="Cloudbreak web UI"></a> </p>
-</li>
-</ol>
-<h3 id="view-blueprint-details">View Blueprint Details</h3>
-<p>Once a blueprint has been registered in Cloudbreak, you can access its details in the Cloudbreak UI.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>In the Cloudbreak UI, select <strong>Blueprints</strong> from the navigation pane. </p>
-</li>
-<li>
-<p>Click on an entry to navigate to details. </p>
-<p>You can view blueprint details using the <strong>List View</strong> and <strong>Raw View</strong>:</p>
-<p><a href="../images/cb-blueprint-details.png" target="_blank" title="click to enlarge"><img src="../images/cb-blueprint-details.png" width="650" title="Cloudbreak web UI"></a> </p>
-</li>
-</ol>
-<h3 id="delete-blueprint">Delete Blueprint</h3>
-<p>To delete a default or custom blueprint, perform these steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>In the Cloudbreak UI, select <strong>Blueprints</strong> from the navigation pane. </p>
-</li>
-<li>
-<p>Click on an entry to navigate to details. </p>
-</li>
-<li>
-<p>Click <strong>Delete</strong>. </p>
-</li>
-<li>
-<p>Confirm delete. </p>
-</li>
-</ol></div>
+<a href="../trouble-cb/index.html">Troubleshooting Cloudbreak</a>    </p></div>
         
     </div>
 
