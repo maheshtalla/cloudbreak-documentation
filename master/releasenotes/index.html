@@ -617,6 +617,10 @@
 <td>BUG-91892</td>
 <td>"Recipe name is already taken" error when using a recipe description longer than 255 characters.</td>
 </tr>
+<tr>
+<td>BUG-91077</td>
+<td>When usign EDW-ETL: Apache Hive 1.2.1, Apache Spark 1.6 blueprint, nodes are unhealthy after sync due to Druid service.</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -648,14 +652,6 @@
 <h5 id="bug-91810-network-and-subnet-are-listed-as-na">(BUG-91810) Network and Subnet Are Listed as N/A</h5>
 <p>When creating a new network and subnet for your cluster, the network and subnet information is unavailable on the cluster details page, showing "N/A".</p>
 <p><em>Workaround</em>: If you want to check which network and subnet are used for your cluster, navigate to the cloud provider account and find the cluster instances that were created for your cluster. Next, check which virtual network and subnet they are associated with. The steps vary depending on the provider.  </p>
-<hr />
-<h5 id="bug-91077-node-status-is-not-consistent-with-ambari">(BUG-91077) Node Status Is Not Consistent with Ambari</h5>
-<p>If your blueprint contains Druid, cluster node status may be "healthy" after a cluster is created, even though the Druid component has not started.   <br />
-<em>Workaround</em>: Manually start Druid by using Ambari web UI.  </p>
-<hr />
-<h5 id="bug-91077-nodes-are-unhealthy-after-sync">(BUG-91077) Nodes Are Unhealthy After Sync</h5>
-<p>If your blueprint contains Druid, cluster node status may change to "unhealthy" after synchronizing with the cloud provider using the "Sync" option.  <br />
-<em>Workaround</em>: Manually start Druid by using Ambari web UI and then "Sync" again.  </p>
 <hr />
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
