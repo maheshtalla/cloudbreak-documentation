@@ -629,9 +629,13 @@
 <h5 id="rmp-10114-auto-scaling-is-not-available">(RMP-10114) Auto-scaling Is Not Available</h5>
 <p>Auto-scaling functionality is not available in Cloudbreak 2.2.0 TP. </p>
 <hr />
-<h5 id="bug-91835-default-ambari-node-security-group-has-port-9443-inbound-cidr-set-to-00000">(BUG-91835) Default Ambari Node Security Group Has Port 9443 Inbound CIDR Set to 0.0.0.0/0</h5>
-<p>By default, port 9443 is set to 0.0.0.0/0 CIDR for inbound access on the default-ambari-security-group.  </p>
-<p><em>Workaround</em>: If you choose to use the default-ambari-security-group for your Ambari host group security group, it is strongly recommended that you limit this CIDR in the security group to only allow traffic from your Cloudbreak VM instance IP.  </p>
+<h5 id="bug-91835-default-ambari-node-security-group-has-port-22-443-and-9443-inbound-cidr-set-to-00000">(BUG-91835) Default Ambari Node Security Group Has Port 22, 443, and 9443 Inbound CIDR Set to 0.0.0.0/0</h5>
+<p>By default, ports 22, 443, and 9443 are set to 0.0.0.0/0 CIDR for inbound access on the Ambari node security group.  </p>
+<p><em>Workaround</em>: We strongly recommend that you limit this CIDR in the security group:</p>
+<ul>
+<li>For port 9443 to only allow traffic from your Cloudbreak VM instance public IP.   </li>
+<li>For ports 22 and 443 to only allow traffic from your public IP.   </li>
+</ul>
 <hr />
 <h5 id="bug-91543-networks-with-no-subnets-are-not-supported">(BUG-91543) Networks With No Subnets Are Not Supported</h5>
 <p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   </p>
