@@ -550,7 +550,7 @@
 <p>Cloudbreak supports using Kerberos security for its clusters. It supports three ways of provisioning Kerberos-enabled clusters:</p>
 <ul>
 <li>Create new MIT Kerberos at cluster provisioning time  </li>
-<li>Use your existing MIT Kerberos server with a Cloudbreak provisioned cluster  </li>
+<li>(Default) Use your existing MIT Kerberos server with a Cloudbreak provisioned cluster  </li>
 <li>Use your existing Active Directory with a Cloudbreak provisioned cluster  </li>
 </ul>
 <h3 id="create-new-mit-kerberos-at-cluster-provisioning">Create New MIT Kerberos at Cluster Provisioning</h3>
@@ -574,15 +574,15 @@
 </thead>
 <tbody>
 <tr>
-<td>Kerberos master key</td>
+<td>Kerberos Master key</td>
 <td>The master key to use for the KDC.</td>
 </tr>
 <tr>
-<td>Kerberos admin</td>
+<td>Kerberos Admin</td>
 <td>The KDC admin username to use for the KDC.</td>
 </tr>
 <tr>
-<td>Kerberos password</td>
+<td>Kerberos Password</td>
 <td>The KDC admin password to use for the KDC.</td>
 </tr>
 </tbody>
@@ -632,12 +632,12 @@ hadoop jar $JAR_JOBCLIENT mrbench -baseDir /user/ambari-qa/smallJobsBenchmark -n
 <td>The location of your existing MIT KDC.</td>
 </tr>
 <tr>
-<td>Use Tcp Connection</td>
-<td>The connection type for your existing MIT KDC (default is <strong>UDP</strong>).</td>
-</tr>
-<tr>
 <td>Existing Kerberos Realm</td>
 <td>The realm in your existing MIT KDC.</td>
+</tr>
+<tr>
+<td>Use Tcp Connection</td>
+<td>Check to use TPC connection. <strong>UDP</strong> is used by default.</td>
 </tr>
 </tbody>
 </table>
@@ -670,20 +670,20 @@ hadoop jar $JAR_JOBCLIENT mrbench -baseDir /user/ambari-qa/smallJobsBenchmark -n
 <td>The location of your existing MIT KDC.</td>
 </tr>
 <tr>
-<td>Use Tcp Connection</td>
-<td>The connection type for your existing MIT KDC (default is <strong>UDP</strong>).</td>
-</tr>
-<tr>
 <td>Existing Kerberos Realm</td>
 <td>The realm in your existing MIT KDC.</td>
 </tr>
 <tr>
-<td>Existing Kerberos Ldap AD Url</td>
+<td>Existing Kerberos AD Ldap Url</td>
 <td>The url of the existing secure ldap (eg. ldaps://10.1.1.5).</td>
 </tr>
 <tr>
 <td>Existing Kerberos AD Container DN</td>
 <td>Active Directory User container for principals. For example "OU=Hadoop,OU=People,dc=apache,dc=org".</td>
+</tr>
+<tr>
+<td>Use Tcp Connection</td>
+<td>Check to use TPC connection. <strong>UDP</strong> is used by default.</td>
 </tr>
 </tbody>
 </table>
