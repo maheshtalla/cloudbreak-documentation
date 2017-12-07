@@ -1376,87 +1376,87 @@
             "title": "Next Steps"
         }, 
         {
-            "location": "/delete/index.html", 
+            "location": "/cb-delete/index.html", 
             "text": "Deleting Resources\n\n\nYou must terminate all clusters associated with a Cloudbreak before you can terminate the Cloudbreak instance. In general, you should delete clusters from the Cloudbreak UI. If needed, you can also delete the cluster resources manually via the cloud provider tools. \n\n\nDelete Clusters\n\n\nThe proper way to delete clusters is to use the the \nTerminate\n option available in the Cloudbreak UI. If the terminate process fails, try the \nTerminate\n \n \nForce terminate\n option.\n\n\nIf the force termination does not delete all cluster resources, delete the resources manually:\n\n\n\n\nTo find the VMs, click on the links available in the cluster details. \n\n\nTo find the network and subnet, see the \nCluster Information\n in the cluster details. \n\n\nOn Azure, you can delete the cluster manually by deleting the whole resource group created when the cluster was deployed. The name of the resource group, under which the cluster-related resources are organized always includes the name of the cluster, so you should be able to find the group by searching for that name in the \nResource groups\n.\n\n\n\n\nDelete Cloudbreak on AWS\n\n\nIf you want to delete the Cloudbreak instance, you can do so by deleting the EC2 instance on which it is running.\n\n\nSteps\n\n\n\n\n\n\nLog in to the AWS Management Console.\n\n\n\n\n\n\nBrowse to the EC2 Management Console.\n\n\n\n\n\n\nnavigate to \nInstances\n.\n\n\n\n\n\n\nSelect the instance that you want to delete and then select \nActions\n \n \nInstance State\n \n \nTerminate\n.\n\n\n\n\n\n\nClick \nYes, Terminate\n to confirm.\n\n\n  \n\n\n\n\n\n\nDelete Cloudbreak on Azure\n\n\nYou can delete Cloudbreak instance from your Azure account by deleting related resoucres. To delete a Cloudbreak instance:\n\n\n\n\n\n\nIf you deployed Cloudbreak in a new resource group: to delete Cloudbreak, delete the whole related resource group.\n\n\n\n\n\n\nIf you deployed Cloudbreak in an existing resource group: navigate to the group and delete only Cloubdreak-related resources such as the VM.\n\n\n\n\n\n\nSteps\n\n\n\n\n\n\nFrom the Microsoft Azure Portal dashboard, select \nResource groups\n.\n\n\n\n\n\n\nFind the resource group that you want to delete.\n\n\n\n\n\n\nIf you deployed Cloudbreak in a new resource group, you can delete the whole resource group. Click on \n...\n and select \nDelete\n:\n\n\n  \n\n\nNext, type the name of the resource group to delete and click \nDelete\n.\n\n\n\n\n\n\nIf you deployed Cloudbreak in an existing resource group, navigate to the details of the resource group and delete only Cloudbreak-related resources such as the VM.    \n\n\n\n\n\n\nDelete Cloudbreak on GCP\n\n\nYou can delete Cloudbreak instance from your Google Cloud account. \n\n\nSteps\n\n\n\n\n\n\nNavigate to your Google Cloud account.\n\n\n\n\n\n\nNavigate to \nCompute Engine\n \n \nVM instances\n.\n\n\n\n\n\n\nSelect the instance that you want to delete:\n\n\n     \n\n\n\n\n\n\nClick on the delete icon and then confirm delete. \n\n\n\n\n\n\nDelete Cloudbreak on OpenStack\n\n\nYou can delete Cloudbreak instance from your OpeenStack console. \n\n\nSteps\n\n\n\n\n\n\nNavigate to your OpenStack account.\n\n\n\n\n\n\nNavigate to \nInstances\n.\n\n\n\n\n\n\nSelect the instance to delete, click \nTerminate Instances\n, and confirm.", 
             "title": "Delete Cloudbreak"
         }, 
         {
-            "location": "/delete/index.html#deleting-resources", 
+            "location": "/cb-delete/index.html#deleting-resources", 
             "text": "You must terminate all clusters associated with a Cloudbreak before you can terminate the Cloudbreak instance. In general, you should delete clusters from the Cloudbreak UI. If needed, you can also delete the cluster resources manually via the cloud provider tools.", 
             "title": "Deleting Resources"
         }, 
         {
-            "location": "/delete/index.html#delete-clusters", 
+            "location": "/cb-delete/index.html#delete-clusters", 
             "text": "The proper way to delete clusters is to use the the  Terminate  option available in the Cloudbreak UI. If the terminate process fails, try the  Terminate     Force terminate  option.  If the force termination does not delete all cluster resources, delete the resources manually:   To find the VMs, click on the links available in the cluster details.   To find the network and subnet, see the  Cluster Information  in the cluster details.   On Azure, you can delete the cluster manually by deleting the whole resource group created when the cluster was deployed. The name of the resource group, under which the cluster-related resources are organized always includes the name of the cluster, so you should be able to find the group by searching for that name in the  Resource groups .", 
             "title": "Delete Clusters"
         }, 
         {
-            "location": "/delete/index.html#delete-cloudbreak-on-aws", 
+            "location": "/cb-delete/index.html#delete-cloudbreak-on-aws", 
             "text": "If you want to delete the Cloudbreak instance, you can do so by deleting the EC2 instance on which it is running.  Steps    Log in to the AWS Management Console.    Browse to the EC2 Management Console.    navigate to  Instances .    Select the instance that you want to delete and then select  Actions     Instance State     Terminate .    Click  Yes, Terminate  to confirm.", 
             "title": "Delete Cloudbreak on AWS"
         }, 
         {
-            "location": "/delete/index.html#delete-cloudbreak-on-azure", 
+            "location": "/cb-delete/index.html#delete-cloudbreak-on-azure", 
             "text": "You can delete Cloudbreak instance from your Azure account by deleting related resoucres. To delete a Cloudbreak instance:    If you deployed Cloudbreak in a new resource group: to delete Cloudbreak, delete the whole related resource group.    If you deployed Cloudbreak in an existing resource group: navigate to the group and delete only Cloubdreak-related resources such as the VM.    Steps    From the Microsoft Azure Portal dashboard, select  Resource groups .    Find the resource group that you want to delete.    If you deployed Cloudbreak in a new resource group, you can delete the whole resource group. Click on  ...  and select  Delete :      Next, type the name of the resource group to delete and click  Delete .    If you deployed Cloudbreak in an existing resource group, navigate to the details of the resource group and delete only Cloudbreak-related resources such as the VM.", 
             "title": "Delete Cloudbreak on Azure"
         }, 
         {
-            "location": "/delete/index.html#delete-cloudbreak-on-gcp", 
+            "location": "/cb-delete/index.html#delete-cloudbreak-on-gcp", 
             "text": "You can delete Cloudbreak instance from your Google Cloud account.   Steps    Navigate to your Google Cloud account.    Navigate to  Compute Engine     VM instances .    Select the instance that you want to delete:           Click on the delete icon and then confirm delete.", 
             "title": "Delete Cloudbreak on GCP"
         }, 
         {
-            "location": "/delete/index.html#delete-cloudbreak-on-openstack", 
+            "location": "/cb-delete/index.html#delete-cloudbreak-on-openstack", 
             "text": "You can delete Cloudbreak instance from your OpeenStack console.   Steps    Navigate to your OpenStack account.    Navigate to  Instances .    Select the instance to delete, click  Terminate Instances , and confirm.", 
             "title": "Delete Cloudbreak on OpenStack"
         }, 
         {
-            "location": "/credentials/index.html", 
+            "location": "/cb-credentials/index.html", 
             "text": "Managing Cloudbreak Credentials\n\n\nYou can view and manage Cloudbreak credentials in the \nCredentials\n tab by clicking \nCreate credential\n and providing required parameters. You must create at least one credential in order to be able to create a cluster. \n\n\n \n\n\nCreate Cloudbreak Credental\n\n\nFor steps, refer to:\n\n\n\n\nCreate Credential on AWS\n  \n\n\nCreate Credential on Azure\n  \n\n\nCreate Credential on GCP\n \n\n\nCreate Credential on OpenStack\n\n\n\n\nView Credential Details\n\n\nTo view credential details, follow these steps.\n\n\nSteps\n\n\n\n\nIn the Cloudbreak UI, select \nCredentials\n from the navigation pane.  \n\n\nClick on the name of a credential. \n\n\n\n\nDetails for AWS Credentials\n\n\nThe following information is available for previously created AWS credentials:\n\n\n\n\nCredential Name  \n\n\nDescription   \n\n\nSelector: One of \nkey-based\n or \nrole-based\n, depending on credential type   \n\n\n\n\nSensitive information such as AWS access key and secret key (in case of a key-based credential) or role ARN (in case of a role-based credential) are not displayed.\n\n\nDetails for Azure Credentials\n\n\nThe following information is available for previously created Azure credentials:\n\n\n\n\nCredential Name   \n\n\nDescription  \n\n\nTenant Id: The \nDirectory ID\n from your Azure Active Directory   \n\n\nSubscription Id: Your Azure \nSubscription ID\n  \n\n\n\n\nIn case of the interactive credential, the following are also displayed:\n\n\n\n\nSp Display Name: Service principal name     \n\n\nRole Type: role selected during credential creation \n\n\n\n\nIn case of the app-based credential, the Application ID and key that you provided when creating the credential are not displayed.\n\n\nDetails for GCP Credentials\n\n\nThe following information is available for previously created GCP credentials:\n\n\n\n\nCredential Name   \n\n\nDescription  \n\n\nService Account Id\n\n\nProject Id \n\n\n\n\nThe P12 key that you attached when creating the credential is not displayed.\n\n\nDetails for OpenStack Credentials\n\n\nThe following information is available for previously created OpenStack credentials:\n\n\n\n\nCredential Name   \n\n\nDescription  \n\n\nFacing: \"internal\" or \"public\", as specified under \"Api Facing\"     \n\n\nEndpoint  \n\n\nSelector: \"cb-keystone-v2\" or \"cb-keystone-v3\"  \n\n\nKeystone Version: \"cb-keystone-v2\" or \"cb-keystone-v3\"   \n\n\nUser Name    \n\n\nTenant Name   \n\n\n\n\nThe password parameter is not displayed. \n\n\nSet a Default Credential\n\n\nIf using multiple Cloudbreak credentials, you can select one credential and use it as default for creating clusters. This default credential will be pre-selected in the create cluster wizard.\n\n\nSteps\n\n\n\n\nIn the Cloudbreak UI, select \nCredentials\n from the navigation pane.  \n\n\nClick \nSet as default\n next to the credential that you would like to set as default.  \n\n\nClick \nYes\n to confirm. \n\n\n\n\nDelete a Credential\n\n\nTo delete a credential, follow these steps.\n\n\nSteps\n\n\n\n\nIn the Cloudbreak UI, select \nCredentials\n from the navigation pane.  \n\n\nSelect one or more credentials by checking their corresponding checkboxes.\n\n\nClick \nDelete\n. \n\n\nClick \nYes\n to confirm.", 
             "title": "Manage Cloudbreak Credentials"
         }, 
         {
-            "location": "/credentials/index.html#managing-cloudbreak-credentials", 
+            "location": "/cb-credentials/index.html#managing-cloudbreak-credentials", 
             "text": "You can view and manage Cloudbreak credentials in the  Credentials  tab by clicking  Create credential  and providing required parameters. You must create at least one credential in order to be able to create a cluster.", 
             "title": "Managing Cloudbreak Credentials"
         }, 
         {
-            "location": "/credentials/index.html#create-cloudbreak-credental", 
+            "location": "/cb-credentials/index.html#create-cloudbreak-credental", 
             "text": "For steps, refer to:   Create Credential on AWS     Create Credential on Azure     Create Credential on GCP    Create Credential on OpenStack", 
             "title": "Create Cloudbreak Credental"
         }, 
         {
-            "location": "/credentials/index.html#view-credential-details", 
+            "location": "/cb-credentials/index.html#view-credential-details", 
             "text": "To view credential details, follow these steps.  Steps   In the Cloudbreak UI, select  Credentials  from the navigation pane.    Click on the name of a credential.", 
             "title": "View Credential Details"
         }, 
         {
-            "location": "/credentials/index.html#details-for-aws-credentials", 
+            "location": "/cb-credentials/index.html#details-for-aws-credentials", 
             "text": "The following information is available for previously created AWS credentials:   Credential Name    Description     Selector: One of  key-based  or  role-based , depending on credential type      Sensitive information such as AWS access key and secret key (in case of a key-based credential) or role ARN (in case of a role-based credential) are not displayed.", 
             "title": "Details for AWS Credentials"
         }, 
         {
-            "location": "/credentials/index.html#details-for-azure-credentials", 
+            "location": "/cb-credentials/index.html#details-for-azure-credentials", 
             "text": "The following information is available for previously created Azure credentials:   Credential Name     Description    Tenant Id: The  Directory ID  from your Azure Active Directory     Subscription Id: Your Azure  Subscription ID      In case of the interactive credential, the following are also displayed:   Sp Display Name: Service principal name       Role Type: role selected during credential creation    In case of the app-based credential, the Application ID and key that you provided when creating the credential are not displayed.", 
             "title": "Details for Azure Credentials"
         }, 
         {
-            "location": "/credentials/index.html#details-for-gcp-credentials", 
+            "location": "/cb-credentials/index.html#details-for-gcp-credentials", 
             "text": "The following information is available for previously created GCP credentials:   Credential Name     Description    Service Account Id  Project Id    The P12 key that you attached when creating the credential is not displayed.", 
             "title": "Details for GCP Credentials"
         }, 
         {
-            "location": "/credentials/index.html#details-for-openstack-credentials", 
+            "location": "/cb-credentials/index.html#details-for-openstack-credentials", 
             "text": "The following information is available for previously created OpenStack credentials:   Credential Name     Description    Facing: \"internal\" or \"public\", as specified under \"Api Facing\"       Endpoint    Selector: \"cb-keystone-v2\" or \"cb-keystone-v3\"    Keystone Version: \"cb-keystone-v2\" or \"cb-keystone-v3\"     User Name      Tenant Name      The password parameter is not displayed.", 
             "title": "Details for OpenStack Credentials"
         }, 
         {
-            "location": "/credentials/index.html#set-a-default-credential", 
+            "location": "/cb-credentials/index.html#set-a-default-credential", 
             "text": "If using multiple Cloudbreak credentials, you can select one credential and use it as default for creating clusters. This default credential will be pre-selected in the create cluster wizard.  Steps   In the Cloudbreak UI, select  Credentials  from the navigation pane.    Click  Set as default  next to the credential that you would like to set as default.    Click  Yes  to confirm.", 
             "title": "Set a Default Credential"
         }, 
         {
-            "location": "/credentials/index.html#delete-a-credential", 
+            "location": "/cb-credentials/index.html#delete-a-credential", 
             "text": "To delete a credential, follow these steps.  Steps   In the Cloudbreak UI, select  Credentials  from the navigation pane.    Select one or more credentials by checking their corresponding checkboxes.  Click  Delete .   Click  Yes  to confirm.", 
             "title": "Delete a Credential"
         }, 
