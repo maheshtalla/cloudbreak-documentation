@@ -722,9 +722,7 @@
 <h4 id="availability-zone">Availability Zone</h4>
 <p>Choose one of the availability zones within the selected region. </p>
 <h4 id="choose-image-catalog">Choose Image Catalog</h4>
-<p>By default, <strong>Choose Image Catalog</strong> is set to the default image that is provided with Cloudbreak. If you would like to use a different image catalog, you must first create and register it, as described in the <a href="../images/index.html">Custom Images</a> documentation.</p>
-<p><strong>Related Links</strong> <br />
-<a href="../images/index.html">Custom Images</a></p>
+<p>By default, <strong>Choose Image Catalog</strong> is set to the default image catalog that is provided with Cloudbreak. If you would like to use a different image catalog, you must first create and register it. For more information, refer to <a href="../images/index.html">Custom Images</a>.</p>
 <h4 id="base-images">Base Images</h4>
 <p>The <strong>Base Image</strong> option allows you to customize Ambari and/or HDP version used. </p>
 <div class="note">
@@ -734,6 +732,8 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 </p>
 </div>
 
+<p><em>Choose Image</em></p>
+<p>If under <a href="#choose-image-catalog">Choose Image Catalog</a>, you selected a custom image catalog, under <strong>Choose Image</strong> you can select a image from that catalog. Otherwise the default image from the default image catalog is used. For more information, refer to <a href="../images/index.html">Custom Images</a>.</p>
 <p><em>Ambari</em></p>
 <table>
 <thead>
@@ -808,17 +808,12 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 </tr>
 </tbody>
 </table>
-<p><strong>Related Links</strong><br />
-<a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.5.2.0/bk_ambari-installation/content/ambari_repositories.html">Ambari Repositories</a> (Hortonworks) <br />
-<a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.5.2.0/bk_ambari-installation/content/hdp_stack_repositories.html">HDP Repositories</a> (Hortonworks)   </p>
 <h4 id="prewarmed-images">Prewarmed Images</h4>
 <p>No prewarmed images are provided and this selection is disabled. </p>
 <h4 id="enable-lifetime-management">Enable Lifetime Management</h4>
 <p>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minutes). </p>
 <h4 id="tags">Tags</h4>
 <p>You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account. refer to <a href="../tags/index.html">Resource Tagging</a>.</p>
-<p><strong>Related Links</strong>  <br />
-<a href="../tags/index.html">Resource Tagging</a>  </p>
 <h4 id="storage">Storage</h4>
 <p>You can optionally specify the following storage options for your cluster:</p>
 <table>
@@ -843,8 +838,6 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 </tr>
 </tbody>
 </table>
-<p><strong>Related Links</strong><br />
-<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 Instance Store</a> (External)  </p>
 <h4 id="use-spot-instances">Use Spot Instances</h4>
 <p>Check this option to use EC2 spot instances as your cluster nodes. Next, enter your bid price. The price that is pre-loaded in the form is the current on-demand price for your chosen EC2 instance type.   </p>
 <p>Note that: </p>
@@ -856,16 +849,19 @@ Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.
 <li>If spot instances are not available right away, creating a cluster will take longer than usual. </li>
 </ul>
 <p>After creating a cluster, you can view your spot instance requests, including bid price, on the EC2 dashboard under <strong>INSTANCES</strong> &gt; <strong>Spot Requests</strong>. For more information about spot instances, refer to <a href="https://aws.amazon.com/ec2/spot/">AWS documentation</a>.  </p>
-<p><strong>Related Links</strong> <br />
-<a href="https://aws.amazon.com/ec2/spot/">Amazon EC2 Spot Instances</a>  </p>
 <h4 id="recipes">Recipes</h4>
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>. </p>
-<p><strong>Related Links</strong> <br />
-<a href="../recipes/index.html">Recipes</a> </p>
 <h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
 <p>Select this option to enable Kerberos for your cluster. You will have an option to create a new kerberos or use an existing one. For more information refer to <a href="../security-kerberos/index.html">Kerberos</a> documentation. </p>
-<p><strong>Related Links</strong> <br />
-<a href="../security-kerberos/index.html">Kerberos</a></p>
+<p><strong>Related Links</strong>   <br />
+<a href="../images/index.html">Custom Images</a><br />
+<a href="../security-kerberos/index.html">Kerberos</a><br />
+<a href="../recipes/index.html">Recipes</a> 
+<a href="../tags/index.html">Resource Tagging</a> 
+<a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.5.2.0/bk_ambari-installation/content/ambari_repositories.html">Ambari Repositories</a> (Hortonworks) <br />
+<a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.5.2.0/bk_ambari-installation/content/hdp_stack_repositories.html">HDP Repositories</a> (Hortonworks)<br />
+<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 Instance Store</a> (External)<br />
+<a href="https://aws.amazon.com/ec2/spot/">Amazon EC2 Spot Instances</a> (External)   </p>
 <div class="next">
 <a href="../aws-clusters-access/index.html">Next: Access Cluster</a>
 </div></div>

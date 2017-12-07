@@ -527,7 +527,7 @@
     
         <li class="first-level active"><a href="#custom-images">Custom Images</a></li>
         
-            <li class="second-level"><a href="#building-custom-images">Building Custom Images</a></li>
+            <li class="second-level"><a href="#build-custom-images">Build Custom Images</a></li>
             
         
             <li class="second-level"><a href="#prepare-the-image-catalog">Prepare the Image Catalog</a></li>
@@ -537,13 +537,14 @@
                 <li class="third-level"><a href="#example-image-catalog-json-file">Example Image Catalog JSON File</a></li>
             
         
-            <li class="second-level"><a href="#register-custom-images">Register Custom Images</a></li>
+            <li class="second-level"><a href="#register-image-catalog">Register Image Catalog</a></li>
             
         
             <li class="second-level"><a href="#select-a-custom-image-when-creating-a-cluster">Select a Custom Image When Creating a Cluster</a></li>
             
-        
-            <li class="second-level"><a href="#reverting-to-default-images">Reverting to Default Images</a></li>
+                <li class="third-level"><a href="#select-a-custom-image-in-cloudbreak-ui">Select a Custom Image in Cloudbreak UI</a></li>
+            
+                <li class="third-level"><a href="#select-a-custom-image-in-cli">Select a Custom Image in CLI</a></li>
             
         
     
@@ -584,8 +585,8 @@
 <p>In order to use your own custom base images you must:</p>
 <ol>
 <li>Build your custom images  </li>
-<li>Prepare the image catalog JSON file and save it in a location accessible to the Cloudbreak VM  </li>
-<li>Register your custom images with Cloudbreak    </li>
+<li>Prepare the custom image catalog JSON file and save it in a location accessible to the Cloudbreak VM  </li>
+<li>Register your custom image catalog with Cloudbreak    </li>
 <li>Select a custom image when creating a cluster  </li>
 </ol>
 <div class="danger">
@@ -595,7 +596,7 @@ Only base images can be created and registered as custom images. Do not create o
 </p>
 </div>
 
-<h3 id="building-custom-images">Building Custom Images</h3>
+<h3 id="build-custom-images">Build Custom Images</h3>
 <p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a> for information on how to build custom images. </p>
 <p>This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to create an image catalog and register it with Cloudbreak.</p>
 <h3 id="prepare-the-image-catalog">Prepare the Image Catalog</h3>
@@ -767,32 +768,37 @@ Only base images can be created and registered as custom images. Do not create o
 }
 </small></pre>
 
-<h3 id="register-custom-images">Register Custom Images</h3>
+<h3 id="register-image-catalog">Register Image Catalog</h3>
 <p>Now that you have created your image catalog JSON file, register it with your Cloudbreak instance. </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>In the Cloudbreak UI, select <strong>Image Catalogs</strong> from the navigation menu.  </li>
-<li>Click <strong>Create Image Catalog</strong>.  </li>
-<li>Enter name for your image catalog and the URL to the location where it is stored. </li>
+<li>
+<p>Click <strong>Create Image Catalog</strong>.
+    <a href="../images/cb-images-register.png" target="_blank" title="click to enlarge"><img src="../images/cb-images-register.png" width="650" title="Cloudbreak UI"></a></p>
+</li>
+<li>
+<p>Enter name for your image catalog and the URL to the location where it is stored. </p>
+</li>
 <li>Click <strong>Create</strong>. </li>
 </ol>
-<p>After performing these steps, the image catalog will be available in the create cluster wizard &gt; <strong>General Configuration</strong> section &gt; <strong>Choose Image Catalog</strong> parameter.  </p>
+<p>After performing these steps, the image catalog will be available in the create cluster wizard.  </p>
 <h3 id="select-a-custom-image-when-creating-a-cluster">Select a Custom Image When Creating a Cluster</h3>
 <p>Once you have registered your image catalog, you can use your custom image(s) when creating a cluster. </p>
-<p><strong>Select a Custom Image in Cloudbreak UI</strong></p>
-<p>In the web UI, in the advanced <strong>General Configuration</strong> section of the create wizard wizard: </p>
+<h4 id="select-a-custom-image-in-cloudbreak-ui">Select a Custom Image in Cloudbreak UI</h4>
+<p>Perform these steps in the advanced <strong>General Configuration</strong> section of the create wizard wizard: </p>
 <ol>
 <li>Under <strong>Choose Image Catalog</strong>, select your custom image catalog.  </li>
 <li>Under <strong>Base Images</strong> &gt; <strong>Choose Image</strong>, select the provider-specific image that you would like to use. <br />
     The "os" that you specified in the image catalog will be displayed in the selection and the content of the "description" will be displayed in green.    </li>
-<li>You can leave the default entries for the Ambari and HDP repositories, or you can customize to point to specific versions of Ambari and HDP that you want to use for the cluster.  </li>
-</ol>
+<li>
+<p>You can leave the default entries for the Ambari and HDP repositories, or you can customize to point to specific versions of Ambari and HDP that you want to use for the cluster.  </p>
 <p><a href="../images/cb-images.png" target="_blank" title="click to enlarge"><img src="../images/cb-images.png" width="650" title="Cloudbreak UI"></a></p>
-<p><strong>Select a Custom Image in CLI</strong></p>
+</li>
+</ol>
+<h4 id="select-a-custom-image-in-cli">Select a Custom Image in CLI</h4>
 <p>In the CLI, to use the custom image when creating a cluster, add the "ImageId" parameter and set it to the uuid of the image(s) registered. For example: </p>
-<p><a href="../images/images-cli.png" target="_blank" title="click to enlarge"><img src="../images/images-cli.png" width="650" title="CLI JSON file showing images entry"></a> </p>
-<h3 id="reverting-to-default-images">Reverting to Default Images</h3>
-<p>To revert to the default images, remove the <code>export CB_IMAGE_CATALOG_URL=custom-image-catalog.json</code> entry that you added when <a href="#register-custom-images">registering custom images</a> and then restart Cloudbreak.  </p></div>
+<p><a href="../images/images-cli.png" target="_blank" title="click to enlarge"><img src="../images/images-cli.png" width="650" title="CLI JSON file showing images entry"></a> </p></div>
         
     </div>
 
