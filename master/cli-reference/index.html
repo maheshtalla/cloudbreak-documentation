@@ -585,6 +585,16 @@
             
                 <li class="third-level"><a href="#credential-list">credential list</a></li>
             
+                <li class="third-level"><a href="#imagecatalog-create">imagecatalog create</a></li>
+            
+                <li class="third-level"><a href="#imagecatalog-delete">imagecatalog delete</a></li>
+            
+                <li class="third-level"><a href="#imagecatalog-images">imagecatalog images</a></li>
+            
+                <li class="third-level"><a href="#imagecatalog-list">imagecatalog list</a></li>
+            
+                <li class="third-level"><a href="#imagecatalog-set-default">imagecatalog set-default</a></li>
+            
                 <li class="third-level"><a href="#recipe-create">recipe create</a></li>
             
                 <li class="third-level"><a href="#recipe-delete">recipe delete</a></li>
@@ -664,7 +674,15 @@
 <li><a href="#cluster scale">cluster scale</a>      </li>
 <li><a href="#cluster-start">cluster start</a>        </li>
 <li><a href="#cluster-stop">cluster stop</a>              </li>
-<li><a href="#cluster-sync">cluster sync</a>             </li>
+<li><a href="#cluster-sync">cluster sync</a> </li>
+</ul>
+<p>Image Catalog</p>
+<ul>
+<li><a href="#imagecatalog-create">imagecatalog create</a>     </li>
+<li><a href="#imagecatalog-delete">imagecatalog delete</a> </li>
+<li><a href="#imagecatalog-images">imagecatalog images</a>                      </li>
+<li><a href="#imagecatalog-list">imagecatalog list</a>  </li>
+<li><a href="#imagecatalog-set-default">imagecatalog set-default</a>            </li>
 </ul>
 <p>Recipe:  </p>
 <ul>
@@ -1316,6 +1334,106 @@
 <p><strong>Related Commands</strong></p>
 <p><a href="#credential-describe">credential describe</a></p>
 <hr />
+<h4 id="imagecatalog-create">imagecatalog create</h4>
+<p>Registers a new custom image catalog based on URL provided.  </p>
+<p><strong>Required Options</strong>  </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the image catalog<br />
+<strong><code>--url &lt;value&gt;</code></strong>   URL location of the image catalog JSON file  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description for the recipe <br />
+<strong><code>--public</code></strong>   Public in account<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]  </p>
+<p><strong>Examples</strong></p>
+<p>Registers an image catalog called "mycustomcatalog" which is available at https://example.com/myimagecatalog.json: </p>
+<pre>cb imagecatalog create --name mycustomcatalog --url https://example.com/myimagecatalog.json</pre>
+
+<hr />
+<h4 id="imagecatalog-delete">imagecatalog delete</h4>
+<p>Deletes a previously registered custom image catalog. </p>
+<p><strong>Required Options</strong>  </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the image catalog   </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE] </p>
+<p><strong>Examples</strong></p>
+<p>Deletes an image catalog called "mycustomcatalog":</p>
+<pre>cb imagecatalog delete --name mycustomcatalog</pre>
+
+<hr />
+<h4 id="imagecatalog-images">imagecatalog images</h4>
+<p>Lists available images from a specified image catalog.   </p>
+<p><strong>Sub-commands</strong>  </p>
+<p><strong><code>aws</code></strong>         Lists available aws images   <br />
+<strong><code>azure</code></strong>       Lists available azure images   <br />
+<strong><code>gcp</code></strong>         Lists available gcp images  <br />
+<strong><code>openstack</code></strong>   Lists available openstack images    </p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--imagecatalog &lt;value&gt;</code></strong>  Name of the imagecatalog <br />
+<strong><code>--region &lt;value&gt;</code></strong>         Name of the region    </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  <br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong> Password [$CB_PASSWORD] <br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]   </p>
+<p><strong>Examples</strong>  </p>
+<p>Lists available AWS images from an image catalog called "myimagecatalog":</p>
+<pre>cb imagecatalog images aws --region us-west-2 --imagecatalog myimagecatalog</pre>
+
+<hr />
+<h4 id="imagecatalog-list">imagecatalog list</h4>
+<p>Lists default and custom image catalogs registered with Cloudbreak instance.   </p>
+<p><strong>Required Options</strong>  </p>
+<p>None  </p>
+<p><strong>Options</strong>  </p>
+<p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]   </p>
+<p><strong>Examples</strong></p>
+<p>Lists existing image catalogs:  </p>
+<pre>cb  imagecatalog list 
+[
+  {
+    "Name": "test-catalog2",
+    "Default": false,
+    "URL": "htpps://testtest.com/test.json"
+  },
+  {
+    "Name": "mycustomcatalog",
+    "Default": false,
+    "URL": "https://example.com/imagecatalog.json"
+  },
+  {
+    "Name": "cloudbreak-default",
+    "Default": true,
+    "URL": "https://s3-eu-west-1.amazonaws.com/cloudbreak-info/v2-dev-cb-image-catalog.json"
+  }
+]</pre>
+
+<hr />
+<h4 id="imagecatalog-set-default">imagecatalog set-default</h4>
+<p>Sets the specified image catalog as default.  </p>
+<p><strong>Required Options</strong>   </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the image catalog    </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE] </p>
+<p><strong>Examples</strong></p>
+<p>Sets "mycustomcatalog" as default:  </p>
+<pre>imagecatalog set-default --name mycustomcatalog</pre>
+
+<hr />
 <h4 id="recipe-create">recipe create</h4>
 <p>Adds a new recipe from a file or from a URL.</p>
 <p><strong>Sub-commands</strong></p>
@@ -1402,7 +1520,7 @@
 <strong><code>--username &lt;value&gt;</code></strong>  User name (e-mail address) [$CB_USER_NAME]<br />
 <strong><code>--password &lt;value&gt;</code></strong>  Password [$CB_PASSWORD]<br />
 <strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]</p>
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  </p>
 <p><strong>Examples</strong></p>
 <p>Lists existing recipes:</p>
 <pre>cb recipe list
