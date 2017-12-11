@@ -539,6 +539,10 @@
         
             <li class="second-level"><a href="#register-image-catalog">Register Image Catalog</a></li>
             
+                <li class="third-level"><a href="#register-image-catalog-in-the-ui">Register Image Catalog in the UI</a></li>
+            
+                <li class="third-level"><a href="#register-image-catalog-in-the-cli">Register Image Catalog in the CLI</a></li>
+            
         
             <li class="second-level"><a href="#select-a-custom-image-when-creating-a-cluster">Select a Custom Image When Creating a Cluster</a></li>
             
@@ -770,6 +774,8 @@ Only base images can be created and registered as custom images. Do not create o
 
 <h3 id="register-image-catalog">Register Image Catalog</h3>
 <p>Now that you have created your image catalog JSON file, register it with your Cloudbreak instance. </p>
+<h4 id="register-image-catalog-in-the-ui">Register Image Catalog in the UI</h4>
+<p>Use these steps to register your custom image catalog in the Cloudbreak UI. </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>In the Cloudbreak UI, select <strong>Image Catalogs</strong> from the navigation menu.  </li>
@@ -783,6 +789,8 @@ Only base images can be created and registered as custom images. Do not create o
 <li>Click <strong>Create</strong>. </li>
 </ol>
 <p>After performing these steps, the image catalog will be available in the create cluster wizard.  </p>
+<h4 id="register-image-catalog-in-the-cli">Register Image Catalog in the CLI</h4>
+<p>To register your custom image catalog using the CLI, use the <code>cb imagecatalog create</code> command. Refer to <a href="../cli-reference/index.html#imagecatalog-create">CLI documentation</a>. </p>
 <h3 id="select-a-custom-image-when-creating-a-cluster">Select a Custom Image When Creating a Cluster</h3>
 <p>Once you have registered your image catalog, you can use your custom image(s) when creating a cluster. </p>
 <h4 id="select-a-custom-image-in-cloudbreak-ui">Select a Custom Image in Cloudbreak UI</h4>
