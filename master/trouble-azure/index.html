@@ -535,6 +535,8 @@
             
                 <li class="third-level"><a href="#role-does-not-have-enough-privileges">Role does not have enough privileges</a></li>
             
+                <li class="third-level"><a href="#client-does-not-have-authorization">Client does not have authorization</a></li>
+            
                 <li class="third-level"><a href="#cloud-not-validate-publickey-certificate">Cloud not validate publickey certificate</a></li>
             
         
@@ -563,6 +565,10 @@
         "Microsoft.Network/*",
         "Microsoft.Storage/*",
         "Microsoft.Resources/*"</code></p>
+<h4 id="client-does-not-have-authorization">Client does not have authorization</h4>
+<p>Example error message: <em><span class="cfn-output3">Failed to verify credential: Status code 403, {"error":{"code":"AuthorizationFailed","message":"The client 'X' with object id 'z' does not have authorization to perform action 'Microsoft.Storage/storageAccounts/read' over scope 'subscriptions/...'"}</span></em></p>
+<p><strong>Symptom</strong>: Your account does not have sufficient permissions to create a Coudbreak credential. </p>
+<p><strong>Solution</strong>: If you get this error during interactive credential creation, you can try the app-based approach which may require lesser permissions. Otherwise contact your Azure administrator.  </p>
 <h4 id="cloud-not-validate-publickey-certificate">Cloud not validate publickey certificate</h4>
 <p>Example error message: <em><span class="cfn-output3">Could not validate publickey certificate [certificate: 'fdfdsf'], detailed message: Corrupt or unknown public key file format</span></em></p>
 <p><strong>Symptom</strong>: The syntax of your SSH public key is incorrect.</p>
