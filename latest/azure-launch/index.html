@@ -815,14 +815,14 @@
 <tbody>
 <tr>
 <td><strong>Interactive</strong></td>
-<td>The advantage of using this method is that the app and service principal creation and role assignment are fully automated, so the only input that you need to provide is the Subscription ID and Directory ID. During the interactive credential creation, you must log in to your Azure account.</td>
-<td>Your account must have the "Owner" role (or its equivalent) in the subscription.</td>
+<td>The advantage of using this method is that the app and service principal creation and role assignment are fully automated, so the only input that you need to provide is the Subscription ID and Directory ID. During the interactive credential creation, you are required to log in to your Azure account.</td>
+<td>(1) Your account must have the "Owner" role (or its equivalent) in the subscription. (2) You must be able log in to your Azure account.</td>
 <td>To configure an interactive credential, refer to <a href="#create-an-interactive-credential">Create an Interactive Credential</a>.</td>
 </tr>
 <tr>
 <td><strong>App-based</strong></td>
 <td>The advantage of the app-based credential creation is that it allows you to create a credential without logging in to the Azure account, as long as you have been given all the information. In addition to providing your Subscription ID and  Directory ID, you must provide information for your previously created Azure AD application (its ID and key which allows access to it).</td>
-<td>Your account must have the "Contributor" role (or equivalent) in the subscription. The role must be assigned to the app that you register in Cloudbreak.</td>
+<td>(1) Your account must have the "Contributor" role (or equivalent) in the subscription. (2) The "Contributor" role must be assigned to the app that you registered in Cloudbreak (this step must be preformed by someone with an Owner role).</td>
 <td>To configure an app based credential, refer to <a href="#create-an-app-based-credential">Create an App Based Credential</a>.</td>
 </tr>
 </tbody>
@@ -906,7 +906,10 @@
 </ol>
 <h4 id="create-an-app-based-credential">Create an App Based Credential</h4>
 <p>Follow these steps to create an app based Cloudbreak credential.</p>
-<p><strong>Steps</strong></p>
+<blockquote>
+<p>The role assignment step in prerequisites must be preformed by a user with an "Owner" role.</p>
+</blockquote>
+<p><strong>Prerequisites</strong></p>
 <ol>
 <li>
 <p>On Azure Portal, navigate to the <strong>Active Directory</strong> &gt; <strong>App Registrations</strong> and register a new application. For more information, refer to <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Create an Azure AD Application</a>.</p>
@@ -919,6 +922,9 @@
 <p>Navigate to the <strong>Subscriptions</strong>, choose <strong>Access control (IAM)</strong>. Click <strong>Add</strong> and then assign the "Contributor" role to your newly created application by selecting "Contributor" under <strong>Role</strong> and your app name under <strong>Select</strong>:</p>
 <p><a href="../images/azure-appbased03.png" target="_blank" title="click to enlarge"><img src="../images/azure-appbased03.png" width="650" title="Azure Portal"></a>   </p>
 </li>
+</ol>
+<p><strong>Steps</strong></p>
+<ol>
 <li>
 <p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the navigation pane. </p>
 </li>
