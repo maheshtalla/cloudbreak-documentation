@@ -647,10 +647,10 @@
     <p class="first admonition-title">Important</p>
     <p class="last">
 By default, ports 22, 443, and 9443 are set to 0.0.0.0/0 CIDR for inbound access. We strongly recommend that you limit this CIDR in the security group:
-<ul><li>For ports 22 to only allow traffic from your public IP and from your Cloudbreak VM instance public IP.</li>
+<ul><li>For port 22 to only allow traffic from your public IP and from your Cloudbreak VM instance public IP.</li>
 <li>For port 9443 to only allow traffic from your Cloudbreak VM instance public IP.</li> 
-<li>For port 443 to only allow traffic from your public IP and from your Cloudbreak VM instance public IP.</li>
-<li>You can set cb.default.gateway.cidr=<Cloudbreak IP> in your Cloudbreak's Profile file in order to automatically open ports 9443 and 22 to your Cloudbrak IP.</li></ul>  
+<li>For port 443 to only allow traffic from your public IP and from your Cloudbreak VM instance public IP.</li></ul>
+You can set cb.default.gateway.cidr=Cloudbreak_IP in your Cloudbreak's Profile file in order to automatically open ports 9443 and 22 to your Cloudbrak IP.  
 </p>
 </div>
 
