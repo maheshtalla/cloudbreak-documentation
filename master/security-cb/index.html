@@ -527,7 +527,10 @@
     
         <li class="first-level active"><a href="#securing-cloudbreak-after-launch">Securing Cloudbreak After Launch</a></li>
         
-            <li class="second-level"><a href="#restricting-inbound-access">Restricting Inbound Access</a></li>
+            <li class="second-level"><a href="#restricting-inbound-access-to-cloudbreak">Restricting Inbound Access to Cloudbreak</a></li>
+            
+        
+            <li class="second-level"><a href="#restricting-inbound-access-to-clusters">Restricting Inbound Access to Clusters</a></li>
             
         
             <li class="second-level"><a href="#secure-the-profile">Secure the Profile</a></li>
@@ -546,8 +549,25 @@
 
 <h2 id="securing-cloudbreak-after-launch">Securing Cloudbreak After Launch</h2>
 <p>Cloudbreak comes with default settings designed for easy first experience rather than strict security. To secure Cloudbreak, follow these recommendations. </p>
-<h3 id="restricting-inbound-access">Restricting Inbound Access</h3>
-<p>We recommend that you block all communication ports except 22, 80, and 443 on the firewall or security group. If you have to log in to the Cloudbreak host remotely, use the SSH port (usually 22).</p>
+<h3 id="restricting-inbound-access-to-cloudbreak">Restricting Inbound Access to Cloudbreak</h3>
+<p>We recommend that you block all communication ports except 22, 80, and 443 on the Cloudbreak's security group. If you have to log in to the Cloudbreak host remotely, use the SSH port (usually 22).</p>
+<h3 id="restricting-inbound-access-to-clusters">Restricting Inbound Access to Clusters</h3>
+<p>We recommend that after launching Cloudbreak you set  CB_DEFAULT_GATEWAY_CIDR in your Cloudbreak's Profile file in order to automatically open ports 9443 and 22 to your Cloudbrak IP on your Ambari node security group.</p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>
+<p>Set CB_DEFAULT_GATEWAY_CIDR to the CIDR address range which is used by Cloudbreak to communicate with the cluster:</p>
+<p><pre>export CB_DEFAULT_GATEWAY_CIDR=14.15.16.17/32</pre></p>
+<p>Or, if your Cloudbreak communicates with the cluster through multiple addresses, set multiple addresses separated with a comma:</p>
+<p><pre>export CB_DEFAULT_GATEWAY_CIDR=14.15.16.17/32,18.17.16.15/32</pre></p>
+</li>
+<li>
+<p>If Cloudbreak has already been started, restart it using <code>cbd restart</code>.     </p>
+</li>
+<li>
+<p>When CB_DEFAULT_GATEWAY_CIDR is set, two additional rules are added to your Ambari node security group: (1) port 9443 open to your Cloudbrak IP, and (2) port 22 open to your Cloudbrak IP. You will be able to see and edit these rules in the create cluster wizard. </p>
+</li>
+</ol>
 <h3 id="secure-the-profile">Secure the Profile</h3>
 <p>Before starting Cloudbreak for the first time, configure the Profile file as directed below. Changes are applied during startup so a restart (<code>cbd restart</code>) is required after each change.</p>
 <ol>
