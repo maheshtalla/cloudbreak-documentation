@@ -1259,7 +1259,7 @@
 <p>Creates a role-based credential on OpenStack with Keystone-v2:</p>
 <pre>cb credential create openstack keystone-v2 --name my-credential5 --tenant-user test --tenant-password MySecurePass123 --tenant-name test --endpoint http://openstack.test.organization.com:5000/v2.0</pre>
 
-<p><strong>Related Links</strong></p>
+<p><strong>Related Links</strong>  </p>
 <p><a href="../aws-launch/index.html#create-credential">Create Credential on AWS</a><br />
 <a href="../azure-launch/index.html#create-credential">Create Credential on Azure</a><br />
 <a href="../gcp-launch/index.html#create-credential">Create Credential on GCP</a><br />
@@ -1350,6 +1350,8 @@
 <p>Registers an image catalog called "mycustomcatalog" which is available at https://example.com/myimagecatalog.json: </p>
 <pre>cb imagecatalog create --name mycustomcatalog --url https://example.com/myimagecatalog.json</pre>
 
+<p><strong>Related Links</strong>  </p>
+<p><a href="../images/index.html">Custom Images</a>   </p>
 <hr />
 <h4 id="imagecatalog-delete">imagecatalog delete</h4>
 <p>Deletes a previously registered custom image catalog. </p>
@@ -1365,6 +1367,8 @@
 <p>Deletes an image catalog called "mycustomcatalog":</p>
 <pre>cb imagecatalog delete --name mycustomcatalog</pre>
 
+<p><strong>Related Links</strong>  </p>
+<p><a href="../images/index.html">Custom Images</a>  </p>
 <hr />
 <h4 id="imagecatalog-images">imagecatalog images</h4>
 <p>Lists images from the specified image catalog available for the specified cloud provider.   </p>
@@ -1399,6 +1403,8 @@
   }
 ]</pre>
 
+<p><strong>Related Links</strong>  </p>
+<p><a href="../images/index.html">Custom Images</a>  </p>
 <hr />
 <h4 id="imagecatalog-list">imagecatalog list</h4>
 <p>Lists default and custom image catalogs registered with Cloudbreak instance.   </p>
@@ -1415,11 +1421,6 @@
 <pre>cb  imagecatalog list 
 [
   {
-    "Name": "test-catalog2",
-    "Default": false,
-    "URL": "htpps://testtest.com/test.json"
-  },
-  {
     "Name": "mycustomcatalog",
     "Default": false,
     "URL": "https://example.com/imagecatalog.json"
@@ -1431,6 +1432,8 @@
   }
 ]</pre>
 
+<p><strong>Related Links</strong>  </p>
+<p><a href="../images/index.html">Custom Images</a>  </p>
 <hr />
 <h4 id="imagecatalog-set-default">imagecatalog set-default</h4>
 <p>Sets the specified image catalog as default.  </p>
@@ -1446,6 +1449,8 @@
 <p>Sets "mycustomcatalog" as default:  </p>
 <pre>imagecatalog set-default --name mycustomcatalog</pre>
 
+<p><strong>Related Links</strong>  </p>
+<p><a href="../images/index.html">Custom Images</a>  </p>
 <hr />
 <h4 id="recipe-create">recipe create</h4>
 <p>Adds a new recipe from a file or from a URL.</p>

@@ -620,6 +620,14 @@
 <td>BUG-91077</td>
 <td>When usign EDW-ETL: Apache Hive 1.2.1, Apache Spark 1.6 blueprint, nodes are unhealthy after sync due to Druid service.</td>
 </tr>
+<tr>
+<td>BUG-91835</td>
+<td>Default Ambari node security group Has Port 22, 443, and 9443 inbound CIDR set to 0.0.0.0/0.</td>
+</tr>
+<tr>
+<td>BUG-91071</td>
+<td>Syntax error during cluster downscale "SyntaxError: Unexpected end of JSON input"</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -627,15 +635,6 @@
 <hr />
 <h5 id="rmp-10114-auto-scaling-is-not-available">(RMP-10114) Auto-scaling Is Not Available</h5>
 <p>Auto-scaling functionality is not available in Cloudbreak 2.2.0 TP. </p>
-<hr />
-<h5 id="bug-91835-default-ambari-node-security-group-has-port-22-443-and-9443-inbound-cidr-set-to-00000">(BUG-91835) Default Ambari Node Security Group Has Port 22, 443, and 9443 Inbound CIDR Set to 0.0.0.0/0</h5>
-<p>By default, ports 22, 443, and 9443 are set to 0.0.0.0/0 CIDR for inbound access on the Ambari node security group.  </p>
-<p><em>Workaround</em>: </p>
-<p>We strongly recommend that you limit this CIDR in the security group:</p>
-<ul>
-<li>For port 9443 to only allow traffic from your Cloudbreak VM instance public IP.   </li>
-<li>For ports 22 and 443 to only allow traffic from your public IP.   </li>
-</ul>
 <hr />
 <h5 id="bug-91543-networks-with-no-subnets-are-not-supported">(BUG-91543) Networks With No Subnets Are Not Supported</h5>
 <p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   </p>
@@ -663,15 +662,6 @@
 <hr />
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
-<hr />
-<h5 id="bug-91071-syntax-error-during-cluster-downscale">(BUG-91071) Syntax Error During Cluster Downscale</h5>
-<p>When trying to downscale your cluster below the minimum required number of nodes, you may get the following error: <em>SyntaxError: Unexpected end of JSON input</em>.</p>
-<p><em>Workaround</em>: </p>
-<p>Check the <em>Event History</em> for more information:  </p>
-<ul>
-<li>If you tried to scale the cluster below the minimum required number of nodes, you will see: <em>New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation.</em> It may take a few minutes for this message to appear in the the <em>Event History</em>.   </li>
-<li>In other cases, you should see a message informing you that downscale was successful. It may take a few minutes for this message to appear in the the <em>Event History</em>.  </li>
-</ul>
 <hr /></div>
         
     </div>
