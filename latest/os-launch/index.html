@@ -579,7 +579,7 @@
         <div class="col-md-9" role="main">
 
 <h2 id="launching-cloudbreak-on-openstack">Launching Cloudbreak on OpenStack</h2>
-<p>Before launching Cloudbreak on OpenStack, review and meet the prerequisites. Next, import Cloudbreak image, launch a VM, SSH to the VM, and start Cloudbreak. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential. </p>
+<p>Before launching Cloudbreak on OpenStack, review and meet the prerequisites. Next, import Cloudbreak image, launch a VM, SSH to the VM, and start Cloudbreak. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential.</p>
 <h3 id="meet-minimum-system-requirements">Meet Minimum System Requirements</h3>
 <p>Before launching Cloudbreak on your OpenStack, make sure that your OpenStack deployment fulfills the following requirements.</p>
 <h4 id="supported-linux-distributions">Supported Linux Distributions</h4>
@@ -593,24 +593,24 @@
 <h4 id="standard-modules">Standard Modules</h4>
 <p>Cloudbreak requires that the following standard modules are installed and configured on OpenStack:</p>
 <ul>
-<li>Keystone V2 or Keystone V3  </li>
-<li>Neutron (Self-service and provider networking)  </li>
-<li>Nova (KVM or Xen hypervisor)  </li>
-<li>Glance  </li>
-<li>Cinder (Optional)  </li>
-<li>Heat (Optional but highly recommended, since provisioning through native API calls will be deprecated in the future)  </li>
+<li>Keystone V2 or Keystone V3</li>
+<li>Neutron (Self-service and provider networking)</li>
+<li>Nova (KVM or Xen hypervisor)</li>
+<li>Glance</li>
+<li>Cinder (Optional)</li>
+<li>Heat (Optional but highly recommended, since provisioning through native API calls will be deprecated in the future)</li>
 </ul>
-<p><strong>Related Links</strong><br />
-<a href="https://www.rdoproject.org/">Red Hat Distribution of OpenStack</a> (External)   </p>
+<p><strong>Related Links</strong>
+<a href="https://www.rdoproject.org/">Red Hat Distribution of OpenStack</a> (External)</p>
 <h3 id="meet-the-prerequisites">Meet the Prerequisites</h3>
 <p>Before launching Cloudbreak on OpenStack, you must meet the following prerequisites.</p>
 <h4 id="ssh-key-pair">SSH Key Pair</h4>
-<p><a href="../faq/index.html#generate-ssh-key-pair">Generate a new SSH key pair</a> or use an existing SSH key pair to your OpenStack account. You will be required to select it when launching the VM.  </p>
+<p><a href="../faq/index.html#generate-ssh-key-pair">Generate a new SSH key pair</a> or use an existing SSH key pair to your OpenStack account. You will be required to select it when launching the VM.</p>
 <h4 id="security-group">Security Group</h4>
-<p>In order to launch Cloudbreak, you must have an existing security group with the following ports open: 22 (for access via SSH), 80 (for access via HTTP), and 443 (for access via HTTPS). </p>
+<p>In order to launch Cloudbreak, you must have an existing security group with the following ports open: 22 (for access via SSH), 80 (for access via HTTP), and 443 (for access via HTTPS).</p>
 <p>For information about OpenStack security groups, refer to the <a href="https://docs.openstack.org/ops-guide/index.html">OpenStack Administrator Guide</a>.</p>
-<p><strong>Related Links</strong> <br />
-<a href="https://docs.openstack.org/ops-guide/index.html">OpenStack Administrator Guide</a> (External)    </p>
+<p><strong>Related Links</strong>
+<a href="https://docs.openstack.org/ops-guide/index.html">OpenStack Administrator Guide</a> (External)</p>
 <h3 id="import-images-to-openstack">Import Images to OpenStack</h3>
 <p>An OpenStack administrator must perform these steps to add the Cloudbreak deployer and HDP images to your OpenStack deployment.</p>
 <h4 id="import-cloudbreak-deployer-image">Import Cloudbreak Deployer Image</h4>
@@ -618,11 +618,11 @@
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>Download the latest Cloudbreak deployer image to your local machine: </p>
+<p>Download the latest Cloudbreak deployer image to your local machine:</p>
 <p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer-1165-2017-11-17.img</small></pre></p>
 </li>
 <li>
-<p>Set the following environment variables for the OpenStack image import: </p>
+<p>Set the following environment variables for the OpenStack image import:</p>
 <p><pre><small>export CBD_LATEST_IMAGE=cloudbreak-deployer-1165-2017-11-17.img
 export OS_IMAGE_NAME=cloudbreak-deployer-1165-2017-11-17.img
 export OS_USERNAME=your_os_user_name
@@ -631,22 +631,22 @@ export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
 </li>
 <li>
 <p>Import the new image into your OpenStack:</p>
-<p><pre><small>glance image-create --name "$OS_IMAGE_NAME" --file "$CBD_LATEST_IMAGE" --disk-format qcow2 --container-format bare --progress</small></pre> </p>
+<p><pre><small>glance image-create --name "$OS_IMAGE_NAME" --file "$CBD_LATEST_IMAGE" --disk-format qcow2 --container-format bare --progress</small></pre></p>
 </li>
 </ol>
-<p>After performing the import, you should be able to see the Cloudbreak deployer image among your other OpenStack images. </p>
+<p>After performing the import, you should be able to see the Cloudbreak deployer image among your other OpenStack images.</p>
 <h4 id="import-hdp-image">Import HDP Image</h4>
 <p>Import HDP image using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>Download the latest HDP image to your local machine: </p>
-<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/hdc-hdp--1706141444.img</small></pre></p>
+<p>Download the latest HDP image to your local machine:</p>
+<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/hdc-hdp--1710161226.img</small></pre></p>
 </li>
 <li>
-<p>Set the following environment variables for the OpenStack image import: </p>
-<p><pre><small>export CB_LATEST_IMAGE=hdc-hdp--1706141444.img 
-export CB_LATEST_IMAGE_NAME=hdc-hdp--1705081316.img
+<p>Set the following environment variables for the OpenStack image import:</p>
+<p><pre><small>export CB_LATEST_IMAGE=hdc-hdp--1710161226.img
+export CB_LATEST_IMAGE_NAME=hdc-hdp--1710161226.img
 export OS_USERNAME=your_os_user_name
 export OS_AUTH_URL=your_authentication_url
 export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
@@ -656,18 +656,18 @@ export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
 <p><pre><small>glance image-create --name "$CB_LATEST_IMAGE_NAME" --file "$CB_LATEST_IMAGE" --disk-format qcow2 --container-format bare --progress</small></pre></p>
 </li>
 </ol>
-<p>After performing the import, you should be able to see the Cloudbreak image among your OpenStack images. </p>
+<p>After performing the import, you should be able to see the Cloudbreak image among your OpenStack images.</p>
 <h3 id="launch-the-vm">Launch the VM</h3>
 <p>In your OpenStack, launch and instance providing the following parameters:</p>
 <ul>
-<li>Select a VM flavor which meets the following minimum requirements: 4GB RAM, 10GB disk, 2 cores.  </li>
-<li>Select the Cloudbreak deployer image that you imported earlier and launch an instance using that image. </li>
-<li>Select your SSH key pair.  </li>
-<li>Select the security group which has the following ports open: 22 (SSH) and 443 (HTTPS). </li>
-<li>Select your preconfigured network.  </li>
+<li>Select a VM flavor which meets the following minimum requirements: 4GB RAM, 10GB disk, 2 cores.</li>
+<li>Select the Cloudbreak deployer image that you imported earlier and launch an instance using that image.</li>
+<li>Select your SSH key pair.</li>
+<li>Select the security group which has the following ports open: 22 (SSH) and 443 (HTTPS).</li>
+<li>Select your preconfigured network.</li>
 </ul>
 <h3 id="ssh-to-the-vm">SSH to the VM</h3>
-<p>Now that your VM is ready, access it via SSH: </p>
+<p>Now that your VM is ready, access it via SSH:</p>
 <ul>
 <li>Use a private key matching the public key that you added to your OpenStack project.</li>
 <li>The SSH user is called "cloudbreak".</li>
@@ -677,7 +677,7 @@ export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
 <p>On Windows, you can use <a href="http://www.putty.org/">PuTTy</a>.</p>
 <h3 id="initialize-your-profile">Initialize Your Profile</h3>
 <p>After accessing the VM via SSH, you must initialize your Profile.</p>
-<p><strong>Steps</strong> </p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Navigate to the cloudbreak-deployment directory:</p>
@@ -689,33 +689,33 @@ export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
 <p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
 export UAA_DEFAULT_USER_PW=MY-PASSWORD
 export UAA_DEFAULT_USER_EMAIL=MY-EMAIL
-export PUBLIC_IP=VM-PUBLIC-IP</pre>  </p>
-<p>For example: </p>
+export PUBLIC_IP=VM-PUBLIC-IP</pre></p>
+<p>For example:</p>
 <p><pre>export UAA_DEFAULT_SECRET=MySecret123
 export UAA_DEFAULT_USER_PW=MySecurePassword123
 export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com
-export PUBLIC_IP=34.212.141.253</pre> </p>
+export PUBLIC_IP=34.212.141.253</pre></p>
 <blockquote>
-<p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.  </p>
+<p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.</p>
 </blockquote>
 </li>
 </ol>
 <h3 id="perform-optional-configurations">Perform Optional Configurations</h3>
 <blockquote>
-<p>These configurations are optional. </p>
+<p>These configurations are optional.</p>
 </blockquote>
 <h4 id="configuring-a-self-signed-certificate">Configuring a Self-Signed Certificate</h4>
-<p>If your OpenStack is secured with a self-signed certificate, you need to import that certificate into Cloudbreak, or else Cloudbreak won't be able to communicate with your OpenStack. </p>
+<p>If your OpenStack is secured with a self-signed certificate, you need to import that certificate into Cloudbreak, or else Cloudbreak won't be able to communicate with your OpenStack.</p>
 <p>To import the certificate, place the certificate file in the <code>/certs/trusted/</code> directory, follow these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>Navigate to the <code>certs</code> directory (automatically generated).</li>
 <li>Create the <code>trusted</code> directory.</li>
-<li>Copy the certificate to the <code>trusted</code> directory. </li>
+<li>Copy the certificate to the <code>trusted</code> directory.</li>
 </ol>
 <p>Cloudbreak will automatically pick up the certificate and import it into its truststore upon start.</p>
 <h4 id="configuring-availability-zone-and-region">Configuring Availability Zone and Region</h4>
-<p>By default, Cloudbreak uses <code>RegionOne</code> region with <code>nova</code> availability zone, but you can customize Cloudbreak deployment and enable multiple regions and availability zones by creating an <code>openstack-zone.json</code> file in the <code>etc</code> directory of Cloudbreak deployment (that is<code>/var/lib/cloudbreak-deployment/etc/openstack-zone.json</code>). If the etc directory does not exist in the Cloudbreak deployment directory, then create it. </p>
+<p>By default, Cloudbreak uses <code>RegionOne</code> region with <code>nova</code> availability zone, but you can customize Cloudbreak deployment and enable multiple regions and availability zones by creating an <code>openstack-zone.json</code> file in the <code>etc</code> directory of Cloudbreak deployment (that is<code>/var/lib/cloudbreak-deployment/etc/openstack-zone.json</code>). If the etc directory does not exist in the Cloudbreak deployment directory, then create it.</p>
 <p>The following is an example of <code>openstack-zone.json</code> containing two regions and four availability zones:</p>
 <pre>{
   "items": [
@@ -732,7 +732,7 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 </pre>
 
 <blockquote>
-<p>If you are performing this after you have started cbd, perform <code>cbd restart</code>.  </p>
+<p>If you are performing this after you have started cbd, perform <code>cbd restart</code>.</p>
 </blockquote>
 <h3 id="launch-cloudbreak-deployer">Launch Cloudbreak Deployer</h3>
 <p>Launch Cloudbreak deployer using the following steps.</p>
@@ -746,11 +746,11 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 <p>Once the <code>cbd start</code> has finished, it returns the "Uluwatu (Cloudbreak UI) url" which you can later paste in your browser and log in to Cloudbreak web UI.</p>
 </li>
 <li>
-<p>Check Cloudbreak deployer version and health: </p>
+<p>Check Cloudbreak deployer version and health:</p>
 <p><pre>cbd doctor</pre></p>
 </li>
 <li>
-<p>Next, check Cloudbreak Application logs: </p>
+<p>Next, check Cloudbreak Application logs:</p>
 <p><pre>cbd logs cloudbreak</pre></p>
 <p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak takes less than a minute to start. If you try to access the Cloudbreak UI before Cloudbreak started, you will get a "Bad Gateway" error or "Cannot connect to Cloubdreak" error.</p>
 </li>
@@ -768,18 +768,18 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 </li>
 <li>
 <p>The login page is displayed:</p>
-<p><a href="../images/cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
+<p><a href="../images/cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui.png" width="650" title="Cloudbreak web UI"></a></p>
 </li>
 <li>
 <p>Log in to the Cloudbreak web UI using the credential that you configured in your <code>Profile</code> file when <a href="#launch-cloudbreak-deployer">launching Cloudbreak deployer</a>:</p>
 <ul>
-<li>The username is the <code>UAA_DEFAULT_USER_EMAIL</code>     </li>
-<li>The password is the <code>UAA_DEFAULT_USER_PW</code> </li>
+<li>The username is the <code>UAA_DEFAULT_USER_EMAIL</code></li>
+<li>The password is the <code>UAA_DEFAULT_USER_PW</code></li>
 </ul>
 </li>
 <li>
 <p>Upon a successful login, you are redirected to the dashboard:</p>
-<p><a href="../images/cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
+<p><a href="../images/cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui1.png" width="650" title="Cloudbreak web UI"></a></p>
 </li>
 </ol>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak Credential</h3>
@@ -787,14 +787,14 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the navigation pane. </p>
+<p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the navigation pane.</p>
 </li>
 <li>
-<p>Click <strong>Create Credential</strong>. </p>
+<p>Click <strong>Create Credential</strong>.</p>
 </li>
 <li>
 <p>Under <strong>Cloud provider</strong>, select "Google Cloud Platform".</p>
-<p><a href="../images/cb-os-cred.png" target="_blank" title="click to enlarge"><img src="../images/cb-os-cred.png" width="650" title="Cloudbreak web UI"></a> </p>
+<p><a href="../images/cb-os-cred.png" target="_blank" title="click to enlarge"><img src="../images/cb-os-cred.png" width="650" title="Cloudbreak web UI"></a></p>
 </li>
 <li>
 <p>Select the keystone version.</p>
@@ -889,7 +889,7 @@ export PUBLIC_IP=34.212.141.253</pre> </p>
 </li>
 <li>
 <p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
-<p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to <a href="../os-create/index.html">create clusters</a>. </p>
+<p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to <a href="../os-create/index.html">create clusters</a>.</p>
 </li>
 </ol>
 <div class="next">
