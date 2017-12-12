@@ -1335,7 +1335,7 @@
 <p><a href="#credential-describe">credential describe</a></p>
 <hr />
 <h4 id="imagecatalog-create">imagecatalog create</h4>
-<p>Registers a new custom image catalog based on URL provided.  </p>
+<p>Registers a new custom image catalog based on the URL provided.  </p>
 <p><strong>Required Options</strong>  </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the image catalog<br />
 <strong><code>--url &lt;value&gt;</code></strong>   URL location of the image catalog JSON file  </p>
@@ -1367,15 +1367,14 @@
 
 <hr />
 <h4 id="imagecatalog-images">imagecatalog images</h4>
-<p>Lists available images from a specified image catalog.   </p>
+<p>Lists images from the specified image catalog available for the specified cloud provider.   </p>
 <p><strong>Sub-commands</strong>  </p>
 <p><strong><code>aws</code></strong>         Lists available aws images   <br />
 <strong><code>azure</code></strong>       Lists available azure images   <br />
 <strong><code>gcp</code></strong>         Lists available gcp images  <br />
 <strong><code>openstack</code></strong>   Lists available openstack images    </p>
 <p><strong>Required Options</strong></p>
-<p><strong><code>--imagecatalog &lt;value&gt;</code></strong>  Name of the imagecatalog <br />
-<strong><code>--region &lt;value&gt;</code></strong>         Name of the region    </p>
+<p><strong><code>--imagecatalog &lt;value&gt;</code></strong>  Name of the imagecatalog     </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  <br />
 <strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
@@ -1384,7 +1383,21 @@
 <strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]   </p>
 <p><strong>Examples</strong>  </p>
 <p>Lists available AWS images from an image catalog called "myimagecatalog":</p>
-<pre>cb imagecatalog images aws --region us-west-2 --imagecatalog myimagecatalog</pre>
+<pre>./cb imagecatalog images aws --imagecatalog cloudbreak-default
+[
+  {
+    "Date": "2017-10-13",
+    "Description": "Cloudbreak official base image",
+    "Version": "2.6.0.0",
+    "ImageID": "44b140a4-bd0b-457d-b174-e988bee3ca47"
+  },
+  {
+    "Date": "2017-11-16",
+    "Description": "Official Cloudbreak image",
+    "Version": "2.6.0.0",
+    "ImageID": "3c7598a4-ebd6-4a02-5638-882f5c7f7add"
+  }
+]</pre>
 
 <hr />
 <h4 id="imagecatalog-list">imagecatalog list</h4>
