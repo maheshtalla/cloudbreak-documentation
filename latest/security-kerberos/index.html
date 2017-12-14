@@ -614,8 +614,10 @@
 </table>
 <h4 id="use-existing-kdc">Use Existing KDC</h4>
 <p>To use an existing KDC, in the advanced <strong>Security</strong> section of the create cluster wizard select <strong>Enable Kerberos Security</strong>. By default, <strong>Use Existing KDC</strong> option is selected.  </p>
-<p>Before proceeding with the configuration, you must confirm that you met the requirements by checking the boxes next to all requirements listed. The configuration options are displayed only after you have confirmed all the requirements by checking every box.</p>
-<p>You must provide the following information about your MIT KDC or Active Directory:  </p>
+<p>You must provide the following information about your MIT KDC or Active Directory. Based on these parameters, kerberos-env and krb5-conf JSON descriptors for Ambari are generated and injected into your Blueprint:</p>
+<blockquote>
+<p>Before proceeding with the configuration, you must confirm that you met the requirements by checking the boxes next to all requirements listed. The configuration options are displayed only after you have confirmed all the requirements by checking every box.    </p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -671,7 +673,7 @@
 </tbody>
 </table>
 <p><strong>Use Custom Configuration</strong> </p>
-<p>If you check the <strong>Use Custom Configuration</strong> option, you must provide the actual Ambari Kerberos descriptors to be injected into your blueprint (instead of Cloudbreak generating the descriptors on your behalf). This is the most powerful option which gives you full control of the Ambari Kerberos options that are available. You must provide: </p>
+<p>Checking the <strong>Use Custom Configuration</strong> option allows you to provide the actual Ambari Kerberos descriptors to be injected into your blueprint (instead of Cloudbreak generating the descriptors on your behalf). This is the most powerful option which gives you full control of the Ambari Kerberos options that are available. You must provide: </p>
 <ul>
 <li>Kerberos-env JSON Descriptor (required)</li>
 <li>krb5-conf JSON Descriptor (optional)</li>
