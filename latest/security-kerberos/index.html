@@ -532,8 +532,6 @@
         
             <li class="second-level"><a href="#enabling-kerberos">Enabling Kerberos</a></li>
             
-                <li class="third-level"><a href="#options-for-enabling-kerberos">Options for Enabling Kerberos</a></li>
-            
                 <li class="third-level"><a href="#use-existing-kdc">Use Existing KDC</a></li>
             
                 <li class="third-level"><a href="#use-test-kdc">Use Test KDC</a></li>
@@ -592,7 +590,6 @@
 </table>
 <h3 id="enabling-kerberos">Enabling Kerberos</h3>
 <p>The option to enable Kerberos is available in the advanced <strong>Security</strong> section of the create cluster wizard.  </p>
-<h4 id="options-for-enabling-kerberos">Options for Enabling Kerberos</h4>
 <p>You have the following options for enabling Kerberos in a Cloudbreak  managed cluster:</p>
 <table>
 <thead>
@@ -611,14 +608,14 @@
 <tr>
 <td><a href="#use-test-kdc">Use Test KDC</a></td>
 <td><p>Installs a new MIT KDC on the master node and configures the cluster to leverage that KDC.</p></td>
-<td>Suitable for evaluation and testing, not suitable for production</td>
+<td>Suitable for evaluation and testing only, not suitable for production</td>
 </tr>
 </tbody>
 </table>
 <h4 id="use-existing-kdc">Use Existing KDC</h4>
 <p>To use an existing KDC, in the advanced <strong>Security</strong> section of the create cluster wizard select <strong>Enable Kerberos Security</strong>. By default, <strong>Use Existing KDC</strong> option is selected.  </p>
-<p>Before proceeding with the configuration, you must review the list of requirements. Check the box next to each requirement to confirmed that you have met the requirement. The configuration options are displayed only after you have confirmed all the requirements by checking every box.</p>
-<p>You must provide the following information about your MIT KDC or Active Directory:  </p>
+<p>Before proceeding with the configuration, you must confirm that you met the requirements by checking the boxes next to all requirements listed. The configuration options are displayed only after you have confirmed all the requirements by checking every box.</p>
+<p>You must provide the following information about your MIT KDC or Active Directory. Based on these parameters, kerberos-env and krb5-conf JSON descriptors for Ambari are generated and injected into your Blueprint.  </p>
 <table>
 <thead>
 <tr>
@@ -667,14 +664,14 @@
 </tr>
 <tr>
 <td>Use TCP Connection</td>
-<td>--</td>
-<td>By default, Kerberos uses UDP. Select this to use TCP instead.</td>
+<td>Optional</td>
+<td>By default, Kerberos uses UDP. Checkmark this box to use TCP instead.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Use Custom Configuration</strong> </p>
-<p>If you check the <strong>Use Custom Configuration</strong> option, instead of providing some of the parameters, you must provide the actual Ambari Kerberos descriptors to be injected into your blueprint (instead of Cloudbreak generating the descriptors on your behalf). This is the most powerful option, and gives you full control of the Ambari Kerberos options that are available. You must provide: </p>
+<p>If you check the <strong>Use Custom Configuration</strong> option, you must provide the actual Ambari Kerberos descriptors to be injected into your blueprint (instead of Cloudbreak generating the descriptors on your behalf). This is the most powerful option which gives you full control of the Ambari Kerberos options that are available. You must provide: </p>
 <ul>
 <li>Kerberos-env JSON Descriptor (required)</li>
 <li>krb5-conf JSON Descriptor (optional)</li>
@@ -744,7 +741,10 @@ Using the Test KDC is for evaluation and testing purposes only, and cannot be us
           "manage_krb5_conf" : "true"
         }
       }
-    }</pre></div>
+    }</pre>
+
+<p><strong>Related Links</strong> <br />
+<a href="https://cwiki.apache.org/confluence/display/AMBARI/Automated+Kerberizaton#AutomatedKerberizaton-Configurations">Apache cwiki</a> </p></div>
         
     </div>
 
