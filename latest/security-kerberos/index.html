@@ -593,7 +593,7 @@
 <h3 id="enabling-kerberos">Enabling Kerberos</h3>
 <p>The option to enable Kerberos is available in the advanced <strong>Security</strong> section of the create cluster wizard.  </p>
 <h4 id="options-for-enabling-kerberos">Options for Enabling Kerberos</h4>
-<p>You have the following options for enabling Kerberos with Cloudbreak  managed clusters:</p>
+<p>You have the following options for enabling Kerberos in a Cloudbreak  managed cluster:</p>
 <table>
 <thead>
 <tr>
@@ -698,10 +698,8 @@
 </li>
 </ul>
 </li>
-<li>
-<p>After you have provided these parameters, click <strong>CREATE CLUSETR</strong> to create a cluster with Kerberos enabled.  </p>
-</li>
 </ol>
+<p>After you have provided these parameters, click <strong>CREATE CLUSETR</strong> to create a cluster with Kerberos enabled.  </p>
 <h4 id="use-test-kdc">Use Test KDC</h4>
 <p>To use a test KDC, follow these steps when creating a cluster. </p>
 <div class="danger">
@@ -743,17 +741,15 @@ Using the Test KDC is for evaluation and testing purposes only, and cannot be us
 </tbody>
 </table>
 </li>
-<li>
-<p>After you have provided these parameters, click <strong>CREATE CLUSTER</strong> to create a cluster with Kerberos enabled.  </p>
-</li>
 </ol>
-<p>With this option:</p>
+<p>After you have provided these parameters, click <strong>CREATE CLUSTER</strong> to create a cluster with Kerberos enabled.  </p>
+<p>When using the test KDC option:</p>
 <ul>
-<li>Cloudbreak installs an MIT KDC instance on the master node.  </li>
+<li>Cloudbreak installs an MIT KDC instance on the Ambari server node.  </li>
 <li>Kerberos clients are installed on all cluster nodes, and the krb5.conf is configured to use the MIT KDC.  </li>
 <li>The cluster is configured for Kerberos to use the MIT KDC. Very basic Ambari KSON Kerberos descriptors are generated and used accordingly.</li>
 </ul>
-<p>Example kerberos-env JSON file:</p>
+<p>Example kerberos-env JSON descriptor file:</p>
 <pre>{
       "kerberos-env" : {
         "properties" : {
@@ -768,7 +764,7 @@ Using the Test KDC is for evaluation and testing purposes only, and cannot be us
       }
     }</pre>
 
-<p>Example krb5-conf JSON file: </p>
+<p>Example krb5-conf JSON  descriptor file: </p>
 <pre> {
       "krb5-conf" : {
         "properties" : {
