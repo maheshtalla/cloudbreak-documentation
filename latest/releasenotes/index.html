@@ -651,9 +651,22 @@
 <p><em>Workaround</em>: </p>
 <p>When creating a cluster on OpenStack, you must select an existing network and subnet. </p>
 <hr />
+<h5 id="bug-93339-hiveserver2-process-could-not-establish-connection-to-jdbchive2">(BUG-93339) HiveServer2 Process Could Not Establish Connection to jdbc:hive2</h5>
+<p>When using EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0 blueprint with a two-node cluster, Ambari shows the following Alert on Hive: <em>HiveServer2 Process CRIT Connection failed on host...</em> </p>
+<p><em>Workaround:</em> </p>
+<ul>
+<li>Although it is possible to create a cluster with less than 3 nodes, in order to use the EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0 blueprint, you must have at least 3 nodes: 1 Ambari node and 2 non-Ambari nodes. Try adding additional nodes, or terminate the cluster and create a new one with at least 3 nodes.   </li>
+<li>Alternatively, it is possible to resolve this issue by adding an additional NodeManager for the Ambari host group.  </li>
+</ul>
+<hr />
+<h5 id="bug-92581-unable-to-open-ambari-in-firefox-570-64-bit">(BUG-92581) Unable to Open Ambari in Firefox 57.0 (64-bit)</h5>
+<p>When trying to access Ambari in the Firefox 57.0 (64-bit) browser, you may get "Secure Connection Failed" with an error code "SEC_ERROR_INADEQUATE_KEY_USAGE". </p>
+<p><em>Workaround:</em> </p>
+<p>Try using a different browser. </p>
+<hr />
 <h5 id="bug-91810-network-and-subnet-are-listed-as-na">(BUG-91810) Network and Subnet Are Listed as N/A</h5>
 <p>When creating a new network and subnet for your cluster, the network and subnet information is unavailable on the cluster details page, showing "N/A".</p>
-<p><em>Workaround</em>: </p>
+<p><em>Workaround:</em> </p>
 <p>If you want to check which network and subnet are used for your cluster, navigate to the cloud provider account and find the cluster instances that were created for your cluster. Next, check which virtual network and subnet they are associated with. The steps vary depending on the provider.  </p>
 <hr />
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
@@ -667,6 +680,35 @@
 <li>If you tried to scale the cluster below the minimum required number of nodes, you will see: New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation. It may take a few minutes for this message to appear in the the Event History.  </li>
 <li>In other cases, you should see a message informing you that downscale was successful. It may take a few minutes for this message to appear in the the Event History.  </li>
 </ul>
+<hr />
+<h5 id="bug-93241-error-when-scaling-multiple-host-groups">(BUG-93241) Error When Scaling Multiple Host Groups</h5>
+<p>Scaling of multiple host groups fails with the following error: 
+<em>Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1; nested exception is org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1</em></p>
+<p><em>Workaround:</em></p>
+<p>Scaling multiple host groups at once is not supported. If you would like to scale multiple host groups: scale the first host group and wait until scaling has completed, then scale the second host group, and so on.  </p>
+<hr />
+<h5 id="bug-93243-incorrect-recipe-type-is-listed">(BUG-93243) Incorrect Recipe Type Is Listed</h5>
+<p>After adding a post-ambari-start recipe, you may see it incorrectly listed as a post-ambari-install recipe. </p>
+<hr />
+<h5 id="bug-93257-clusters-are-missing-from-history">(BUG-93257) Clusters Are Missing From History</h5>
+<p>After changing the dates on the <em>History</em> page multiple times, the results displayed may sometimes be incorrect. </p>
+<p><em>Workaround:</em></p>
+<p>Refresh the page if you think that the history displayed may be incorrect.  </p>
+<hr />
+<h5 id="rmp-10340-unable-to-dekerberize-cloudbreak-provisioned-cluster">(RMP-10340) Unable to Dekerberize Cloudbreak Provisioned Cluster</h5>
+<p>Cluster with Cloudbreak provisioned Kerberos fails during dekerberizing. The Ambari shows the following error:</p>
+<p><em>ERROR [ambari-heartbeat-processor-0] ServiceComponentHostImpl:1025 - Can't handle ServiceComponentHostEvent event at current state, serviceComponentName=ZOOKEEPER_CLIENT, hostName=host-10-0-0-3.openstacklocal, currentState=INSTALLED, eventType=HOST_SVCCOMP_STOPPED, event=EventType: HOST_SVCCOMP_STOPPED<br />
+WARN [ambari-heartbeat-processor-0] HeartbeatProcessor:567 - State machine exception. Invalid event: HOST_SVCCOMP_STOPPED at INSTALLED<br />
+ERROR [Server Action Executor Worker 62] PrepareDisableKerberosServerAction:151 - The data directory has not been set.  Generated data can not be stored.<br />
+WARN [Server Action Executor Worker 62] ServerActionExecutor:458 - Task #62 failed to complete execution due to thrown exception: org.apache.ambari.server.AmbariException:The data directory has not been set.  Generated data can not be stored.
+org.apache.ambari.server.AmbariException: The data directory has not been set.  Generated data can not be stored.
+        at org.apache.ambari.server.serveraction.kerberos.PrepareDisableKerberosServerAction.execute(PrepareDisableKerberosServerAction.java:152)
+        at org.apache.ambari.server.serveraction.ServerActionExecutor$Worker.execute(ServerActionExecutor.java:516)
+        at org.apache.ambari.server.serveraction.ServerActionExecutor$Worker.run(ServerActionExecutor.java:453)
+        at java.lang.Thread.run(Thread.java:748)<br />
+ERROR [ambari-action-scheduler] ActionScheduler:447 - Operation completely failed, aborting request id: 30</em></p>
+<p><em>Workaround:</em></p>
+<p>Try terminating the cluster again. </p>
 <hr /></div>
         
     </div>
