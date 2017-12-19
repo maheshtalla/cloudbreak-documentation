@@ -637,16 +637,16 @@
 <p><em>Workaround</em>: </p>
 <p>Do not use this option. </p>
 <hr />
+<h5 id="bug-93548-aws-region-eu-west-3-is-not-supported">(BUG-93548) AWS Region eu-west-3 Is Not Supported</h5>
+<p>The AWS region eu-west-3 can be selected during cluster creation. However, it is not supported by Cloudbreak.</p>
+<p><em>Workaround</em>: </p>
+<p>Do not use the AWS region eu-west-3. Instead, use eu-west-1 or eu-west-2.</p>
+<hr />
 <h5 id="bug-91543-networks-with-no-subnets-are-not-supported">(BUG-91543) Networks With No Subnets Are Not Supported</h5>
 <p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   </p>
 <p><em>Infrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]</em></p>
 <p><em>Workaround</em>: </p>
 <p>Do not use this option. It will be removed in a future release.  </p>
-<hr />
-<h5 id="bug-93548-aws-region-eu-west-3-is-not-supported">(BUG-93548) AWS Region eu-west-3 Is Not Supported</h5>
-<p>The AWS region eu-west-3 can be selected during cluster creation. However, it is not supported by Cloudbreak.</p>
-<p><em>Workaround</em>: </p>
-<p>Do not use the AWS region eu-west-3. Instead, use eu-west-1 or eu-west-2.</p>
 <hr />
 <h5 id="bug-92605-cluster-creation-fails-with-resourceinerror">(BUG-92605) Cluster Creation Fails with ResourceInError</h5>
 <p>Cluster creation fails with the following error: </p>
