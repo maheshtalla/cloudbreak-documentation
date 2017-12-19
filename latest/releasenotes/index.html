@@ -527,7 +527,7 @@
     
         <li class="first-level active"><a href="#release-notes">Release Notes</a></li>
         
-            <li class="second-level"><a href="#220-tp">2.2.0 TP</a></li>
+            <li class="second-level"><a href="#230">2.3.0</a></li>
             
                 <li class="third-level"><a href="#new-features">New Features</a></li>
             
@@ -544,46 +544,16 @@
         <div class="col-md-9" role="main">
 
 <h2 id="release-notes">Release Notes</h2>
-<h3 id="220-tp">2.2.0 TP</h3>
-<p>The Cloudbreak 2.2.0 TP release is technical preview: it is not suitable for production environments.</p>
+<h3 id="230">2.3.0</h3>
+<p>Cloudbreak 2.3.0 is a general availability release, which is suitable for production deployments. </p>
 <hr />
 <h4 id="new-features">New Features</h4>
 <hr />
-<h5 id="support-for-kerberos"><strong>Support for Kerberos</strong></h5>
-<p>Creating Kerberos-enabled clusters is supported. Refer to <a href="../security-kerberos">Enabling Kerberos Security</a>. </p>
-<h5 id="configuring-an-external-rdbms-for-cloudbreak"><strong>Configuring an external RDBMS for Cloudbreak</strong></h5>
-<p>Using an external RDBMS for Cloubdreak is supported. For configuration instructions, refer to <a href="../cb-db/index.html">Configuring External Cloudbreak Database</a>.</p>
-<h5 id="migrating-cloudbreak-instance"><strong>Migrating Cloudbreak Instance</strong></h5>
-<p>Migrating Cloudbreak from one machine to another is supported. For migration instructions, refer to <a href="../cb-migrate/index.html">Moving a Cloudbreak Instance</a>. </p>
-<h5 id="providing-your-own-jdk"><strong>Providing Your Own JDK</strong></h5>
-<p>Providing your own JDK on a custom base image is supported. For instructions, refer to "Advanced topics" in the <a href="https://github.com/hortonworks/cloudbreak-images">https://github.com/hortonworks/cloudbreak-images</a> repo.  </p>
-<h5 id="spot-instances-on-aws"><strong>Spot Instances on AWS</strong></h5>
-<p>Using spot instances is supported for clusters created on AWS. The option is available in the advanced <em>Hardware and Storage</em> section of the create cluster wizard. Refer to <a href="../aws-create/index.html#use-spot-instances">Use Spot Instances</a>.</p>
-<h5 id="preemptible-instances-on-google-cloud"><strong>Preemptible Instances on Google Cloud</strong></h5>
-<p>Using preemptible instances is supported for clusters created on Google Cloud. The option is available in the advanced <em>Hardware and Storage</em> section of the create cluster wizard. Refer to <a href="../aws-create/index.html#use-preemptible-instances">Use Preemptible Instances</a>.</p>
-<h5 id="new-types-of-recipes"><strong>New Types of Recipes</strong></h5>
-<p>New types of recipes are introduced: </p>
-<ul>
-<li>PRE-AMBARI-START (new, useful for configuring Ambari prior to start)  </li>
-<li>POST-AMBARI-START (formerly known as PRE) </li>
-<li>POST-CLUSTER-INSTALL (formerly known as POST)  </li>
-</ul>
-<p>Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</p>
-<h5 id="disabling-cloud-providers"><strong>Disabling Cloud Providers</strong></h5>
-<p>You can hide cloud providers available in Cloudbreak by adding the CB_ENABLEDPLATFORMS environment variable in Profile and setting it to the provider(s) that you would like to have available. For more information, refer to <a href="../cb-disable-provider/index.html">Disable Providers</a>.</p>
-<h5 id="new-cloud-cli-commands"><strong>New 'cloud' CLI Commands</strong></h5>
-<p>New <code>cloud</code> commands are available in the CLI, allowing you to get cloud provider details required for a cluster template. Refer to <a href="../cli-reference/index.html">CLI Reference</a>.</p>
+<p>TBD</p>
 <hr />
 <h4 id="behavioral-changes">Behavioral Changes</h4>
 <hr />
-<h5 id="image-catalog-registration"><strong>Image Catalog Registration</strong></h5>
-<p>Image catalog registration is now possible via Cloudbreak web UI. Refer to updated <a href="../images/index.html#register-custom-images">Register Custom Images</a> documentation.</p>
-<h5 id="create-cluster-user-interface-changes"><strong>Create Cluster User Interface Changes</strong></h5>
-<p>Some sections in the create cluster wizard were changed to ensure better user experience. For example, the security group section was improved to help you provide desired security groups settings. </p>
-<h5 id="cluster-details-user-interface-changes"><strong>Cluster Details User Interface Changes</strong></h5>
-<p>The cluster details page was changed to ensure better user experience. New tabs were created to help you find information related to your cluster. </p>
-<h5 id="cli-syntax"><strong>CLI Syntax</strong></h5>
-<p>The syntax of all CLI commands has changed. All commands start with a singular object followed by an action, for example, <code>blueprint create</code> instead of <code>create blueprint</code>, and <code>blueprint list</code> instead of <code>list blueprints</code>. Refer to updated <a href="../cli-reference/index.html">CLI Reference</a>.</p>
+<p>TBD</p>
 <hr />
 <h4 id="fixed-issues">Fixed Issues</h4>
 <hr />
@@ -597,32 +567,8 @@
 </thead>
 <tbody>
 <tr>
-<td>BUG-91768</td>
-<td>The <em>Add</em> button used for adding tags does not work.</td>
-</tr>
-<tr>
-<td>BUG-90848</td>
-<td>"Do Not Use Security Group" option does not work for a new network.</td>
-</tr>
-<tr>
-<td>BUG-91827</td>
-<td>After cluster has been stopped, Event History shows "Infrastructure Has Been Terminated".</td>
-</tr>
-<tr>
-<td>BUG-91701</td>
-<td>Cluster resize is unclear: the cluster name and cluster information in the text above the scaling controls are incorrect.</td>
-</tr>
-<tr>
-<td>BUG-91892</td>
-<td>"Recipe name is already taken" error when using a recipe description longer than 255 characters.</td>
-</tr>
-<tr>
-<td>BUG-91077</td>
-<td>When usign EDW-ETL: Apache Hive 1.2.1, Apache Spark 1.6 blueprint, nodes are unhealthy after sync due to Druid service.</td>
-</tr>
-<tr>
-<td>BUG-91835</td>
-<td>Default Ambari node security group Has Port 22, 443, and 9443 inbound CIDR set to 0.0.0.0/0.</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
