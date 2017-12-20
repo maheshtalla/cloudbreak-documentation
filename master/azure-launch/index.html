@@ -609,6 +609,9 @@
 </li>
 <li>
 <p>The template for installing Cloudbreak will appear. On the <strong>Basics</strong> page, provide the following basic parameters:   </p>
+<blockquote>
+<p>All parameters except "SmartSense Id" are required. </p>
+</blockquote>
 <p><strong>BASICS</strong></p>
 <table>
 <thead>
@@ -620,15 +623,15 @@
 <tbody>
 <tr>
 <td>Subscription</td>
-<td>(Required) Select which existing subscription you want to use.</td>
+<td>Select which existing subscription you want to use.</td>
 </tr>
 <tr>
 <td>Resource group</td>
-<td>(Required) Select an existing resource group or create a new one by selecting <strong>Create new</strong> and entering a name for your new resource group. Cloudbreak resources will later be accessible in that chosen resource group.</td>
+<td>Select an existing resource group or create a new one by selecting <strong>Create new</strong> and entering a name for your new resource group. Cloudbreak resources will later be accessible in that chosen resource group.</td>
 </tr>
 <tr>
 <td>Location</td>
-<td>(Required) Select an Azure region in which you want to deploy Cloudbreak.</td>
+<td>Select an Azure region in which you want to deploy Cloudbreak.</td>
 </tr>
 </tbody>
 </table>
@@ -655,11 +658,11 @@
 </tr>
 <tr>
 <td>Admin Username</td>
-<td>Create an admin login that you will use to log in to the Cloudbreak UI. Must be a valid email address.</td>
+<td>Create an admin login that you will use to log in to the Cloudbreak UI. Must be a valid email address. By default, admin@example.com is used but you should change it to your email address.</td>
 </tr>
 <tr>
 <td>Admin User Password</td>
-<td>(Required) Password for the admin login. Must be at least 8 characters containing letters, numbers, and symbols.</td>
+<td>Password for the admin login. Must be at least 8 characters containing letters, numbers, and symbols.</td>
 </tr>
 <tr>
 <td>Username</td>
@@ -667,11 +670,11 @@
 </tr>
 <tr>
 <td>SmartSense</td>
-<td>Select whether you want to use SmartSense telemetry. Default is "false" (not using SmartSense telemetry).</td>
+<td>Select whether you want to use <a href="../smartsense/index.html">SmartSense telemetry</a>. Default is "false" (not using SmartSense telemetry).</td>
 </tr>
 <tr>
 <td>SmartSense Id</td>
-<td>Your SmartSense ID.</td>
+<td>(Optional) Your SmartSense ID.</td>
 </tr>
 <tr>
 <td>Remote Location</td>
@@ -679,7 +682,7 @@
 </tr>
 <tr>
 <td>Ssh Key</td>
-<td><p>(Required) Paste your SSH public key.</p><p>You can use <code>pbcopy</code> to quickly copy it. For example: <code>pbcopy &lt; /Users/homedir/.ssh/id_rsa.pub</code></p></td>
+<td><p>Paste your SSH public key.</p><p>You can use <code>pbcopy</code> to quickly copy it. For example: <code>pbcopy &lt; /Users/homedir/.ssh/id_rsa.pub</code></p></td>
 </tr>
 <tr>
 <td>Vnet New Or Existing</td>
@@ -703,7 +706,7 @@
 </tr>
 <tr>
 <td>Vnet RG Name</td>
-<td>(Required) The name of the resource group in which the Vnet is located. If creating a new Vnet, enter the same resource group name as provided in the <code>Resource group</code> field in the <strong>BASICS</strong> section.</td>
+<td>The name of the resource group in which the Vnet is located. If creating a new Vnet, enter the same resource group name as provided in the <code>Resource group</code> field in the <strong>BASICS</strong> section.</td>
 </tr>
 </tbody>
 </table>
