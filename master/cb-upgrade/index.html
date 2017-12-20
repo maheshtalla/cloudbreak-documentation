@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-migrate/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-upgrade/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Move Cloudbreak Instance - Cloudbreak</title>
+    <title>Upgrade Cloudbreak - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -299,8 +299,8 @@
 
         
             
-<li >
-    <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
+<li class="active">
+    <a href="index.html">Upgrade Cloudbreak</a>
 </li>
 
         
@@ -323,8 +323,8 @@
 
         
             
-<li class="active">
-    <a href="index.html">Move Cloudbreak Instance</a>
+<li >
+    <a href="../cb-migrate/index.html">Move Cloudbreak Instance</a>
 </li>
 
         
@@ -501,12 +501,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../cb-db/index.html">
+                        <a rel="next" href="../vm-launch/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../cb-profile/index.html">
+                        <a rel="prev" href="../cb-credentials/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -531,15 +531,12 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#moving-a-cloudbreak-instance">Moving a Cloudbreak Instance</a></li>
+        <li class="first-level active"><a href="#upgrade-cloudbreak">Upgrade Cloudbreak</a></li>
         
-            <li class="second-level"><a href="#back-up-cloudbreak-database">Back up Cloudbreak Database</a></li>
+            <li class="second-level"><a href="#update-cloudbreak-deployer">Update Cloudbreak Deployer</a></li>
             
         
-            <li class="second-level"><a href="#populate-database-with-dump-from-original-cloudbreak-instance">Populate Database with Dump from Original Cloudbreak instance</a></li>
-            
-        
-            <li class="second-level"><a href="#modify-cloudbreak-profile">Modify Cloudbreak Profile</a></li>
+            <li class="second-level"><a href="#update-existing-clusters">Update Existing Clusters</a></li>
             
         
     
@@ -547,100 +544,58 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="moving-a-cloudbreak-instance">Moving a Cloudbreak Instance</h2>
-<p>To transfer a Cloudbreak instance from one host to another, perform these tasks:</p>
+<h2 id="upgrade-cloudbreak">Upgrade Cloudbreak</h2>
+<h3 id="update-cloudbreak-deployer">Update Cloudbreak Deployer</h3>
+<p>To upgrade Cloudbreak to the newest version, perform the following steps.</p>
+<p>We recommend that you back up the Cloudbreak databases before upgrading. Refer to <a href="../cb-migrate/index.html#back-up-cloudbreak-database">Back up Cloudbreak Databases</a>.</p>
+<p><strong>Steps</strong></p>
 <ol>
-<li>If you are using the embedded PostgreSQL database, <a href="#back-up-cloudbreak-database">back up current Cloudbreak database</a> data  </li>
-<li>Launch a new Cloudbreak instance and start Cloudbreak. Refer to <a href="../index.html#launch-cloudbreak">Launch Cloudbreak</a>   </li>
-<li>If you are using the embedded PostgreSQL database, <a href="#populate-database-with-dump-from-original-cloudbreak-instance">populate the new Cloudbreak instance database with the dump from the original Cloudbreak instance</a> on the new host.  </li>
-<li><a href="#modify-cloudbreak-profile">Modify Cloudbreak Profile</a>  </li>
+<li>
+<p>On the VM where Cloudbreak is running, navigate to the directory where your Profile file is located:</p>
+<p><pre>cd /var/lib/cloudbreak-deployment/</pre></p>
+</li>
+<li>
+<p>Stop all of the running Cloudbreak components:</p>
+<p><pre>cbd kill</pre></p>
+</li>
+<li>
+<p>Update Cloudbreak deployer:</p>
+<p><pre>cbd update</pre></p>
+</li>
+<li>
+<p>Update the <code>docker-compose.yml</code> file with new Docker containers needed for the cbd:</p>
+<p><pre>cbd regenerate</pre></p>
+</li>
+<li>
+<p>If there are no other Cloudbreak instances that still use old Cloudbreak versions, remove the obsolete containers:</p>
+<p><pre>cbd util cleanup</pre></p>
+</li>
+<li>
+<p>Check the health and version of the updated cbd:</p>
+<p><pre>cbd doctor</pre></p>
+</li>
+<li>
+<p>Start the new version of the cbd:</p>
+<p><pre>cbd start</pre></p>
+<p>Cloudbreak needs to download updated docker images for the new version, so this step may take a while.</p>
+</li>
 </ol>
-<h3 id="back-up-cloudbreak-database">Back up Cloudbreak Database</h3>
-<p>To create a backup of the embedded PostgreSQL database, perform these steps.</p>
-<p><strong>Steps</strong> </p>
+<p>In addition, if you have any clusters running, you must update them using the following steps. </p>
+<h3 id="update-existing-clusters">Update Existing Clusters</h3>
+<p>Upgrading from version 1.4.0 to the newest version does not require any manual modification from the users.</p>
+<p>Upgrading from version 1.3.0 to the newest version requires that you update existing clusters. To update existing clusters, run the following commands on the <code>cbgateway</code> node of the cluster.</p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>On your Cloudbreak host machine, execute the following  command to enter the container of the database:</p>
-<p><pre>docker exec -it cbreak_commondb_1 bash</pre> 
-If it is not running, start the database container by using the <code>docker start cbreak_commondb_1</code> command.</p>
+<p>Update the version of the Salt-Bootsrap tool on the nodes:
+    <pre>salt '*' cmd.run 'curl -Ls https://github.com/sequenceiq/salt-bootstrap/releases/download/v0.1.2/salt-bootstrap_0.1.2_Linux_x86_64.tgz | tar -zx -C /usr/sbin/ salt-bootstrap'</pre></p>
 </li>
 <li>
-<p>Create three database dumps (cbdb, uaadb, periscopedb):  </p>
-<p><pre><small>pg_dump -Fc -U postgres cbdb &gt; cbdb.dump
-pg_dump -Fc -U postgres uaadb &gt; uaadb.dump
-pg_dump -Fc -U postgres periscopedb &gt; periscopedb.dump</small></pre></p>
-</li>
-<li>
-<p>Quit from the container with shortcut <code>CTRL+d</code>.</p>
-</li>
-<li>
-<p>Save the previously created dumps to the host instance:               </p>
-<p><pre><small>docker cp cbreak_commondb_1:/cbdb.dump ./cbdb.dump
-docker cp cbreak_commondb_1:/uaadb.dump ./uaadb.dump
-docker cp cbreak_commondb_1:/periscopedb.dump ./periscopedb.dump</small></pre></p>
-</li>
-</ol>
-<h3 id="populate-database-with-dump-from-original-cloudbreak-instance">Populate Database with Dump from Original Cloudbreak instance</h3>
-<p>Perform these steps to populate databases with information from the Cloudbreak server.</p>
-<p><strong>Steps</strong> </p>
-<ol>
-<li>
-<p>Copy the saved database files from <a href="#backup-cloudbreak-database">Backup Cloudbreak Database</a> to the new Cloudbreak server host.</p>
-</li>
-<li>
-<p>Copy the dump files into the database container with the following commands. Modify the location as necessary (The example below assumes that the files are in <code>/tmp</code>):</p>
-<p><pre><small>docker cp /tmp/cbdb.dump cbreak_commondb_1:/cbdb.dump
-docker cp /tmp/uaadb.dump cbreak_commondb_1:/uaadb.dump
-docker cp /tmp/periscopedb.dump cbreak_commondb_1:/periscopedb.dump</small></pre></p>
-</li>
-<li>
-<p>Execute the following command to stop the container:</p>
-<p><pre>docker stop cbreak_identity_1</pre></p>
-</li>
-<li>
-<p>Execute the following command to enter the container of the database:</p>
-<p><pre>docker exec -it cbreak_commondb_1 bash</pre></p>
-</li>
-<li>
-<p>Execute the following commands:</p>
-<p><pre><small>psql -U postgres
-drop database uaadb;
-drop database cbdb;
-drop database periscopedb;
-create database uaadb;
-create database cbdb;
-create database periscopedb;</small></pre></p>
+<p>Trigger restart of the tool on the nodes:</p>
+<p><pre>salt '*' service.dead salt-bootstrap</pre></p>
 <blockquote>
-<p>If you get <code>ERROR:  database "uaadb" is being accessed by other users</code> error, ensure that    cbreak_identity_1 container is not running and then retry dropping uaadb.  </p>
+<p>To check the version of the Salt-Bootsrap on the nodes, use <code>salt '*' cmd.run 'salt-bootstrap --version'</code></p>
 </blockquote>
-</li>
-<li>
-<p>Exit the PostgreSQL interactive terminal.
-    <pre><small>\q</small></pre> </p>
-</li>
-<li>
-<p>Restore the databases from the original backups:</p>
-<p><pre><small>pg_restore -U postgres -d periscopedb periscopedb.dump
-pg_restore -U postgres -d cbdb cbdb.dump
-pg_restore -U postgres -d uaadb uaadb.dump</small></pre></p>
-</li>
-<li>
-<p>Quit from the container with the shortcut <code>CTRL+d</code>.     </p>
-</li>
-</ol>
-<h3 id="modify-cloudbreak-profile">Modify Cloudbreak Profile</h3>
-<p>Perform these steps to ensure that your new Profile file is correctly set up. </p>
-<p><strong>Steps</strong> </p>
-<ol>
-<li>
-<p>Ensure that the following parameter values match in the origin and target Profile files and modify Profile file of the target environment if necessary:</p>
-<p><pre><small>export UAA_DEFAULT_USER_EMAIL=admin@example.com
-export UAA_DEFAULT_SECRET=cbsecret
-export UAA_DEFAULT_USER_PW=cbuser</small></pre></p>
-</li>
-<li>
-<p>Restart Cloudbreak application by using the <code>cbd restart</code> command.  </p>
-<p>After performing these steps the migration is complete. To verify, log in to the UI of your new Cloudbreak instance and make sure that it contains the information from your old instance.  </p>
 </li>
 </ol></div>
         
