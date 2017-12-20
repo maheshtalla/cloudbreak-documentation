@@ -1,4 +1,11 @@
 
+body {
+  background-image: url("../images/draft-watermark.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 700px;
+}
+
 .note, .danger{
   margin-bottom: 24px;
   padding: 12px;
