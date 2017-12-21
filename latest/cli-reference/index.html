@@ -1466,11 +1466,11 @@
 <p><strong>Required Options</strong></p>
 <p><strong><code>from-url</code></strong>  </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe <br />
-<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre-ambari-start, post-ambari-start, post-cluster-install] <br />
+<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre-ambari-start, pre-termination, post-ambari-start, post-cluster-install]  <br />
 <strong><code>--url &lt;value&gt;</code></strong>  URL location of the Ambari blueprint JSON file  </p>
 <p><strong><code>from-file</code></strong> </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe<br />
-<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre-ambari-start, post-ambari-start, post-cluster-install]<br />
+<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre-ambari-start, pre-termination, post-ambari-start, post-cluster-install] <br />
 <strong><code>--file &lt;value&gt;</code></strong>  Location of the Ambari blueprint JSON file  </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--description &lt;value&gt;</code></strong>  Description for the recipe <br />
@@ -1481,10 +1481,10 @@
 <strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]  </p>
 <p><strong>Examples</strong></p>
 <p>Adds a new recipe called "test1" from a URL:</p>
-<pre>cb recipe create from-url --name "test1" --execution post --url http://some-site.com/test.sh</pre>
+<pre>cb recipe create from-url --name "test1" --execution-type post-ambari-start --url http://some-site.com/test.sh</pre>
 
 <p>Adds a new recipe called "test2" from a file:</p>
-<pre>cb recipe create from-url --name "test2" --execution post --file /Users/test/Documents/test.sh</pre>
+<pre>cb recipe create from-url --name "test2" --execution-type post-ambari-start --file /Users/test/Documents/test.sh</pre>
 
 <p><strong>Related Links</strong></p>
 <p><a href="../recipes/index.html">Recipes</a></p>
@@ -1558,11 +1558,11 @@
 
 <p>Lists existing recipes, with output presented in a table format:</p>
 <pre>cb recipe list --output table
-+------+-------------+----------------+
-| NAME | DESCRIPTION | EXECUTION TYPE |
-+------+-------------+----------------+
-| test |             | POST           |
-+------+-------------+----------------+
++------+-------------+-------------------+
+| NAME | DESCRIPTION | EXECUTION TYPE    |
++------+-------------+-------------------+
+| test |             | POST-AMBARI-START |
++------+-------------+-------------------+
 </pre>
 
 <p><strong>Related Commands</strong></p>

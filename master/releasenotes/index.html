@@ -574,10 +574,21 @@
 <tbody>
 <tr>
 <td>BUG-93602</td>
-<td>"Do not create Public IPs" Azure cluster option was fixed and it can now be used.</td>
+<td>"Do not create Public IPs" Azure cluster option was fixed and can now be used.</td>
+</tr>
+<tr>
+<td>BUG-91071</td>
+<td>Removed "SyntaxError: Unexpected end of JSON input" error when trying to downscale a cluster below the minimum required number of nodes.</td>
 </tr>
 </tbody>
 </table>
+<p><em>Workaround:</em></p>
+<p>Check the Event History for more information:</p>
+<ul>
+<li>If you tried to scale the cluster below the minimum required number of nodes, you will see: New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation. It may take a few minutes for this message to appear in the the Event History.  </li>
+<li>In other cases, you should see a message informing you that downscale was successful. It may take a few minutes for this message to appear in the the Event History.  </li>
+</ul>
+<hr />
 <hr />
 <h4 id="known-issues">Known Issues</h4>
 <hr />
@@ -636,15 +647,6 @@
 <hr />
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
-<hr />
-<h5 id="bug-91071-syntax-error-during-cluster-downscale">(BUG-91071) Syntax Error During Cluster Downscale</h5>
-<p>When trying to downscale your cluster below the minimum required number of nodes, you may get the following error: SyntaxError: Unexpected end of JSON input.</p>
-<p><em>Workaround:</em></p>
-<p>Check the Event History for more information:</p>
-<ul>
-<li>If you tried to scale the cluster below the minimum required number of nodes, you will see: New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation. It may take a few minutes for this message to appear in the the Event History.  </li>
-<li>In other cases, you should see a message informing you that downscale was successful. It may take a few minutes for this message to appear in the the Event History.  </li>
-</ul>
 <hr />
 <h5 id="bug-93241-error-when-scaling-multiple-host-groups">(BUG-93241) Error When Scaling Multiple Host Groups</h5>
 <p>Scaling of multiple host groups fails with the following error: 
