@@ -547,6 +547,8 @@
             
                 <li class="third-level"><a href="#storage">Storage</a></li>
             
+                <li class="third-level"><a href="#availability-sets">Availability Sets</a></li>
+            
                 <li class="third-level"><a href="#recipes">Recipes</a></li>
             
                 <li class="third-level"><a href="#dont-create-public-ip">Don't Create Public IP</a></li>
@@ -852,6 +854,23 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 </tr>
 </tbody>
 </table>
+<h4 id="availability-sets">Availability Sets</h4>
+<p>To support fault tolerance for VMs, Azure uses the concept of <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/manage-availability">availability sets</a>. This allows two or more VMs to be mapped to multiple fault domains, each of which defines a group of virtual machines that share a common power source and a network switch. When adding VMs to an availability set, Azure automatically assigns each VM a fault domain. The SLA includes guarantees that during OS Patching in Azure or during maintenance operations, at least one VM belonging to a given fault domain will be available.</p>
+<p>In Cloudbreak UI, availability sets can be configured during cluster creation for each host group:</p>
+<ol>
+<li>
+<p>For a given host group, enable availability sets by checking the box.  </p>
+<blockquote>
+<p>The availability set option should only be used when there is a group of two or more application-tier VMs. Single instances placed in an availability set are not subject to Azure’s SLA, and you will not receive warnings of planned maintenance events.</p>
+</blockquote>
+</li>
+<li>
+<p>Add the desired availability set by providing a name and the desired fault domain count (2 or 3). One availability set can be assigned to only one host group. The assignment of fault domains is automated by Azure, so there is no option for this in Cloudbreak UI.</p>
+</li>
+<li>
+<p>After the deployment is finished, you can check the layout of the VMs inside an availability set on Azure Portal. You will find the "Availability set" resources corresponding to the host groups inside the deployment's resource group.</p>
+</li>
+</ol>
 <h4 id="recipes">Recipes</h4>
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>.  </p>
 <h4 id="dont-create-public-ip">Don't Create Public IP</h4>
