@@ -555,11 +555,46 @@
 <hr />
 <h4 id="new-features">New Features</h4>
 <hr />
-<h5 id="pre-termination-recipes">Pre-termination Recipes</h5>
-<p>A new "pre-termination" recipe type is introduced to allow you to run custom scripts before cluster termination. Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.  </p>
+<h5 id="new-uiux">New UI/UX</h5>
+<p>Cloudbreak 2 introduces a new user interface, designed to make user interaction with Cloudbreak easier.</p>
+<h5 id="new-cli">New CLI</h5>
+<p>Cloudbreak 2.1.0 TP introduces a new CLI tool. All commands start with a singular object followed by an action, for example, blueprint create instead of create blueprint, and blueprint list instead of list blueprints. Refer to <a href="../cli-install/index.html">Install CLI</a> and <a href="../cli-reference/index.html">CLI Reference</a>.</p>
+<h5 id="support-for-kerberos">Support for Kerberos</h5>
+<p>Creating Kerberos-enabled clusters is supported. Refer to <a href="../security-kerberos/index.html">Enabling Kerberos Security</a>.</p>
+<h5 id="support-for-configuring-an-external-rdbms-for-cloudbreak">Support for Configuring an External RDBMS for Cloudbreak</h5>
+<p>Using an external RDBMS for Cloubdreak is supported. For configuration instructions, refer to <a href="../cb-db/index.html">Configuring External Cloudbreak Database</a>.</p>
+<h5 id="support-for-migrating-cloudbreak-instance">Support for Migrating Cloudbreak Instance</h5>
+<p>Migrating Cloudbreak from one machine to another is supported. For migration instructions, refer to <a href="../cb-migrate/index.html">Moving a Cloudbreak Instance</a>.</p>
+<h5 id="providing-your-own-jdk">Providing Your Own JDK</h5>
+<p>Providing your own JDK on a custom base image is supported. For instructions, refer to "Advanced topics" in the <a href="https://github.com/hortonworks/cloudbreak-images">https://github.com/hortonworks/cloudbreak-images</a> repository.</p>
+<h5 id="spot-instances-on-aws">Spot Instances on AWS</h5>
+<p>Using spot instances is supported for clusters created on AWS. The option is available in the advanced <em>Hardware and Storage</em> section of the create cluster wizard. Refer to <a href="../aws-create/index.html#use-spot-instances">Use Spot Instances</a>.</p>
+<h5 id="preemptible-instances-on-google-cloud">Preemptible Instances on Google Cloud</h5>
+<p>Using preemptible instances is supported for clusters created on Google Cloud. The option is available in the advanced <em>Hardware and Storage</em> section of the create cluster wizard. Refer to <a href="../gcp-create/index.html#use-preemptible-instances">Use Preemptible Instances</a>.</p>
+<h5 id="new-recipe-types">New Recipe Types</h5>
+<p>New types of recipes are introduced:</p>
+<ul>
+<li>PRE-AMBARI-START (new, useful for configuring Ambari prior to start)  </li>
+<li>POST-AMBARI-START (formerly known as PRE)  </li>
+<li>POST-CLUSTER-INSTALL (formerly known as POST)  </li>
+<li>PRE-TERMINATION (new, useful for cleanup pre-termination tasks)<br />
+Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
+</ul>
+<h5 id="disabling-cloud-providers">Disabling Cloud Providers</h5>
+<p>You can hide cloud providers available in Cloudbreak by adding the <code>CB_ENABLEDPLATFORMS</code> environment variable in Profile and setting it to the provider(s) that you would like to have available. For more information, refer to <a href="../cb-disable-provider/index.html">Disable Providers</a>.</p>
 <hr />
 <h4 id="behavioral-changes">Behavioral Changes</h4>
 <hr />
+<h5 id="custom-images">Custom Images</h5>
+<p>The functionality which enables you to create custom images was changed and improved. Refer to <a href="../images/index.html">Custom Images</a>.</p>
+<h5 id="removal-of-cloudbreak-shell">Removal of Cloudbreak Shell</h5>
+<p>Cloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the <a href="../cli-install/index.html">Cloudbreak CLI</a>.</p>
+<h5 id="removal-of-platforms">Removal of Platforms</h5>
+<p>The <a href="http://hortonworks.github.io/cloudbreak-docs/release-1.16.5/topologies/">Platforms</a> feature was removed.</p>
+<h5 id="removal-of-mesos">Removal of Mesos</h5>
+<p>Cloudbreak 2 does not support Mesos cloud provider.</p>
+<h5 id="removal-of-templates">Removal of Templates</h5>
+<p>Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard.</p>
 <hr />
 <h4 id="fixed-issues">Fixed Issues</h4>
 <hr />
@@ -586,18 +621,8 @@
 </tr>
 </tbody>
 </table>
-<p><em>Workaround:</em></p>
-<p>Check the Event History for more information:</p>
-<ul>
-<li>If you tried to scale the cluster below the minimum required number of nodes, you will see: New node(s) could not be removed from the cluster. Reason There is not enough node to downscale. Check the replication factor and the ApplicationMaster occupation. It may take a few minutes for this message to appear in the the Event History.  </li>
-<li>In other cases, you should see a message informing you that downscale was successful. It may take a few minutes for this message to appear in the the Event History.  </li>
-</ul>
-<hr />
 <hr />
 <h4 id="known-issues">Known Issues</h4>
-<hr />
-<h5 id="rmp-10114-auto-scaling-is-not-available">(RMP-10114) Auto-scaling Is Not Available</h5>
-<p>Auto-scaling functionality is not available in Cloudbreak 2.4.0. </p>
 <hr />
 <h5 id="bug-93548-aws-region-eu-west-3-is-not-supported">(BUG-93548) AWS Region eu-west-3 Is Not Supported</h5>
 <p>The AWS region eu-west-3 can be selected during cluster creation. However, it is not supported by Cloudbreak.</p>
