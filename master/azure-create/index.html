@@ -862,40 +862,34 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 </table>
 <h4 id="availability-sets">Availability Sets</h4>
 <p>To support fault tolerance for VMs, Azure uses the concept of <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/manage-availability">availability sets</a>. This allows two or more VMs to be mapped to multiple fault domains, each of which defines a group of virtual machines that share a common power source and a network switch. When adding VMs to an availability set, Azure automatically assigns each VM a fault domain. The SLA includes guarantees that during OS Patching in Azure or during maintenance operations, at least one VM belonging to a given fault domain will be available.</p>
-<p>In Cloudbreak UI, availability sets can be configured during cluster creation for each host group:</p>
-<ol>
-<li>
-<p>For a given host group, enable availability sets by checking the box.  </p>
-<blockquote>
-<p>The availability set option is only available for non-Ambari host groups and is only available when "Instance Count" is set to 2 or a larger number. One availability set can be assigned to only one host group. The assignment of fault domains is automated by Azure, so there is no option for this in Cloudbreak UI. </p>
-</blockquote>
-</li>
-<li>
-<p>Add the desired availability set by providing the following information: </p>
+<p>In Cloudbreak, an availability set is automatically configured during cluster creation for each non-Ambari host group with "Instance Count" that is set to 2 or larger. The assignment of fault domains is automated by Azure, so there is no option for this in Cloudbreak UI. </p>
+<p>Cloudbreak allows you to configure the availability set on the advanced <strong>Hardware and Storage</strong> page of the create cluster wizard by providing the following options for each host group:  </p>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
 <th>Description</th>
+<th>Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Availability Set Name</td>
-<td>Choose a name for the availability set that will be created for the selected host group.</td>
+<td>Choose a name for the availability set that will be created for the selected host group</td>
+<td>The following convention is used: "clustername-hostgroupname-as"</td>
 </tr>
 <tr>
 <td>Fault Domain Count</td>
-<td>The number of fault domains. This defaults to 2 or 3, depending on the setting supported by Azure.</td>
+<td>The number of fault domains.</td>
+<td>2 or 3, depending on the setting supported by Azure</td>
 </tr>
 <tr>
 <td>Update Domain Count</td>
-<td>This number of update domains. This can be set to a number in range of 2-20. Default is 20.</td>
+<td>This number of update domains. This can be set to a number in range of 2-20.</td>
+<td>20</td>
 </tr>
 </tbody>
 </table>
-</li>
-</ol>
 <p>After the deployment is finished, you can check the layout of the VMs inside an availability set on Azure Portal. You will find the "Availability set" resources corresponding to the host groups inside the deployment's resource group.</p>
 <h4 id="recipes">Recipes</h4>
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>.  </p>
