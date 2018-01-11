@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/aws-data/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/autoscaling/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Access Data on S3 - Cloudbreak</title>
+    <title>Autoscaling - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -106,7 +106,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -135,8 +135,8 @@
 
                         
                             
-<li class="active">
-    <a href="index.html">Access Data on S3</a>
+<li >
+    <a href="../aws-data/index.html">Access Data on S3</a>
 </li>
 
                         
@@ -250,7 +250,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -284,8 +284,8 @@
 
         
             
-<li >
-    <a href="../autoscaling/index.html">Autoscaling</a>
+<li class="active">
+    <a href="index.html">Autoscaling</a>
 </li>
 
         
@@ -507,12 +507,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../aws-clusters-manage/index.html">
+                        <a rel="next" href="../images/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../azure-launch/index.html">
+                        <a rel="prev" href="../vm-launch/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -537,66 +537,14 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#access-data-on-s3">Access Data on S3</a></li>
-        
-            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
-            
-        
-            <li class="second-level"><a href="#configuring-access-to-s3">Configuring Access to S3</a></li>
-            
-        
-            <li class="second-level"><a href="#testing-access-to-s3">Testing Access to S3</a></li>
-            
-        
-            <li class="second-level"><a href="#learn-more">Learn More</a></li>
-            
+        <li class="first-level active"><a href="#autoscaling">Autoscaling</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="access-data-on-s3">Access Data on S3</h2>
-<h4 id="prerequisites">Prerequisites</h4>
-<p>To use S3 storage, you must have one or more S3 buckets on your AWS account. For instructions on how to create a bucket on S3, refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">AWS documentation</a>.</p>
-<p><strong>Related Links</strong><br />
-<a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Create a Bucket</a> (External)    </p>
-<h4 id="configuring-access-to-s3">Configuring Access to S3</h4>
-<p>Amazon S3 is not supported as a default file system, but access to data in Amazon S3 is possible via the s3a connector. </p>
-<p>Data in public S3 buckets can be accessed without any access configuration. </p>
-<p>During cluster creation, Cloudbreak creates a new IAM role "S3AccessRole" to grant the cluster instances access to S3 buckets within your AWS account. The  "S3AccessRole" IAM role policy is as follows: </p>
-<pre>{
-    "Statement": [
-        {
-            "Action": "s3:*",
-            "Resource": "*",
-            "Effect": "Allow"
-        }
-    ]
-}</pre>
-
-<h4 id="testing-access-to-s3">Testing Access to S3</h4>
-<p>To tests access to S3, SSH to a cluster node and run a few hadoop fs shell commands against your existing S3 bucket.</p>
-<p>Amazon S3 access path syntax is:</p>
-<pre>s3a://bucket/dir/file</pre>
-
-<p>For example, to access a file called "mytestfile" in a directory called "mytestdir", which is stored in a bucket called "mytestbucket", the URL is:</p>
-<pre>s3a://mytestbucket/mytestdir/mytestfile</pre>
-
-<p>The following FileSystem shell commands demonstrate access to a bucket named "mytestbucket": </p>
-<pre>hadoop fs -ls s3a://mytestbucket/
-
-hadoop fs -mkdir s3a://mytestbucket/testDir
-
-hadoop fs -put testFile s3a://mytestbucket/testFile
-
-hadoop fs -cat s3a://mytestbucket/testFile
-test file content</pre>
-
-<h3 id="learn-more">Learn More</h3>
-<p>For more information about configuring the S3 connector and working with data stored on S3, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
-<p><strong>Related Links</strong><br />
-<a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks)</p></div>
+<h2 id="autoscaling">Autoscaling</h2></div>
         
     </div>
 

@@ -283,6 +283,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../autoscaling/index.html">Autoscaling</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -547,6 +553,12 @@
             
                 <li class="third-level"><a href="#repository-details">Repository Details</a></li>
             
+                <li class="third-level"><a href="#image-details">Image Details</a></li>
+            
+                <li class="third-level"><a href="#network">Network</a></li>
+            
+                <li class="third-level"><a href="#autoscaling">Autoscaling</a></li>
+            
                 <li class="third-level"><a href="#event-history">Event History</a></li>
             
         
@@ -577,6 +589,9 @@
 <li><a href="#tags">Tags</a>   </li>
 <li><a href="#recipes">Recipes</a>  </li>
 <li><a href="#repository-details">Repository Details</a>  </li>
+<li><a href="#image-details">Image Details</a>    </li>
+<li><a href="#network">Network</a>  </li>
+<li><a href="#autoscaling">Autoscaling</a>    </li>
 <li><a href="#event-history">Event History</a>  </li>
 </ul>
 <div class="note">
@@ -644,14 +659,6 @@
 </thead>
 <tbody>
 <tr>
-<td>Network</td>
-<td>The name of the network in which the cluster is running.</td>
-</tr>
-<tr>
-<td>Subnet</td>
-<td>The name of the subnet in which the cluster is running.</td>
-</tr>
-<tr>
 <td>Cluster User</td>
 <td>The name of the cluster user that you created when creating the cluster.</td>
 </tr>
@@ -670,10 +677,6 @@
 <tr>
 <td>Availability Zone</td>
 <td>The availability zone within the region in which the cluster is running.</td>
-</tr>
-<tr>
-<td>Image</td>
-<td>The base image with the operating system that was used to launch the Cloudbreak instance.</td>
 </tr>
 <tr>
 <td>Blueprint</td>
@@ -700,7 +703,13 @@
 <h4 id="recipes">Recipes</h4>
 <p>This section includes recipe-related information. For each recipe, you can see the host group on which a recipe was executed, recipe name, and recipe type. </p>
 <h4 id="repository-details">Repository Details</h4>
-<p>This section includes Ambari and HDP repository information, as you provided it in the "Base Images" section when creating a cluster. </p>
+<p>This section includes Ambari and HDP repository information, as you provided it in the "Base Images" section when creating a cluster.</p>
+<h4 id="image-details">Image Details</h4>
+<p>This section includes information about the base image that was used for the Cloudbreak instance. </p>
+<h4 id="network">Network</h4>
+<p>This section includes information about the names of the network and subnet in which the cluster is running and the links to related cloud provider console.</p>
+<h4 id="autoscaling">Autoscaling</h4>
+<p>This section includes configuration options related to autoscaling. Refer to <a href="../autoscaling/index.html">Autoscaling</a>.  </p>
 <h4 id="event-history">Event History</h4>
 <p>The Event History section shows you events logged for the cluster, with the most recent event at the top. For example, after your cluster has been created, the following messages will be written to the log:</p>
 <pre>
