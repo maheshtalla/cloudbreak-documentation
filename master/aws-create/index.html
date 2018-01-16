@@ -557,6 +557,8 @@
             
                 <li class="third-level"><a href="#use-spot-instances">Use Spot Instances</a></li>
             
+                <li class="third-level"><a href="#file-system">File System</a></li>
+            
                 <li class="third-level"><a href="#recipes">Recipes</a></li>
             
                 <li class="third-level"><a href="#enable-kerberos-security">Enable Kerberos Security</a></li>
@@ -878,6 +880,14 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 <li>If spot instances are not available right away, creating a cluster will take longer than usual. </li>
 </ul>
 <p>After creating a cluster, you can view your spot instance requests, including bid price, on the EC2 dashboard under <strong>INSTANCES</strong> &gt; <strong>Spot Requests</strong>. For more information about spot instances, refer to <a href="https://aws.amazon.com/ec2/spot/">AWS documentation</a>.  </p>
+<h4 id="file-system">File System</h4>
+<p>By default, HDP uses HDFS as the default filesystem and it supports access to the Amazon S3 object store through the S3A connector. In on-premise deployments access to S3 can be configured in the core-site.xml file, but in cloud deployments on AWS access to S3 should be configured by using an instance profile. For basic information on instance profile, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">AWS documentation</a>.</p>
+<p>To configure access to S3 with an instance profile:</p>
+<ol>
+<li>You or your AWS admin must first create an IAM role with an S3 access policy which can be used by cluster instances to access one or more S3 buckets.     </li>
+<li>On the <strong>File System</strong> page in the advanced cluster wizard view, select <strong>Use existing instance profile</strong>. </li>
+<li>Select an existing IAM role created in step 1.    </li>
+</ol>
 <h4 id="recipes">Recipes</h4>
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>. </p>
 <h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
