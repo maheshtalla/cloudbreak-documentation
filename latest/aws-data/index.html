@@ -542,6 +542,9 @@
             <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
         
+            <li class="second-level"><a href="#creating-an-iam-role-for-s3-access">Creating an IAM Role for S3 Access</a></li>
+            
+        
             <li class="second-level"><a href="#configuring-access-to-s3">Configuring Access to S3</a></li>
             
         
@@ -557,24 +560,51 @@
         <div class="col-md-9" role="main">
 
 <h2 id="access-data-on-s3">Access Data on S3</h2>
+<p>Amazon S3 is not supported as a default file system, but access to data in Amazon S3 is possible via the s3a connector. </p>
 <h4 id="prerequisites">Prerequisites</h4>
 <p>To use S3 storage, you must have one or more S3 buckets on your AWS account. For instructions on how to create a bucket on S3, refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">AWS documentation</a>.</p>
 <p><strong>Related Links</strong><br />
 <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Create a Bucket</a> (External)    </p>
+<h4 id="creating-an-iam-role-for-s3-access">Creating an IAM Role for S3 Access</h4>
+<p>In order to configure access from your cluster to Amazon S3, you must have an existing IAM role which determines what actions can be performed on which S3 buckets. If you do not have an existing IAM role, use these steps to create one. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Navigate to the <strong>IAM console</strong> &gt; <strong>Roles</strong> and click <strong>Create Role</strong>.</p>
+<p><a href="../images/aws-s3-role_01.png" target="_blank" title="click to enlarge"><img src="../images/aws-s3-role_01.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>In the "Create Role" wizard, select <strong>AWS service</strong> role type and then select <strong>EC2</strong> service and <strong>EC2</strong> use case. </p>
+<p><a href="../images/aws-s3-role_02.png" target="_blank" title="click to enlarge"><img src="../images/aws-s3-role_02.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>When done, click <strong>Next: Permissions</strong> to navigate to the next page in the wizard.</p>
+</li>
+<li>
+<p>Select an existing S3 access policy or click <strong>Create policy</strong> to define a new policy. If you are just getting started, you can select a built-in policy called "AmazonS3FullAccess", which provides full access to S3 buckets that are part of your account:</p>
+<p><a href="../images/aws-s3-role_03.png" target="_blank" title="click to enlarge"><img src="../images/aws-s3-role_03.png" width="650" title="IAM Console"></a></p>
+</li>
+<li>
+<p>When done attaching the policy, click <strong>Next: Review</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Roles name</strong> field, enter a name for the role that you are creating:  </p>
+<p><a href="../images/aws-s3-role_04.png" target="_blank" title="click to enlarge"><img src="../images/aws-s3-role_04.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>Click <strong>Create role</strong> to finish the role creation process.</p>
+</li>
+</ol>
 <h4 id="configuring-access-to-s3">Configuring Access to S3</h4>
-<p>Amazon S3 is not supported as a default file system, but access to data in Amazon S3 is possible via the s3a connector. </p>
-<p>Data in public S3 buckets can be accessed without any access configuration. </p>
-<p>During cluster creation, Cloudbreak creates a new IAM role "S3AccessRole" to grant the cluster instances access to S3 buckets within your AWS account. The  "S3AccessRole" IAM role policy is as follows: </p>
-<pre>{
-    "Statement": [
-        {
-            "Action": "s3:*",
-            "Resource": "*",
-            "Effect": "Allow"
-        }
-    ]
-}</pre>
-
+<p>Amazon S3 is not supported as a default file system, but access to data in S3 from your cluster VMs can be automatically configured by attaching an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">instance profile</a> allowing access to S3. You can optionally create or attach an existing instance profile during cluster creation on the <strong>File System</strong> page.</p>
+<p>To configure access to S3 with an instance profile, follow these steps. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>You or your AWS admin must create an IAM role with an S3 access policy which can be used by cluster instances to access one or more S3 buckets. Refer to <a href="../creating-an-iam-role-for-s3-access">Creating an IAM Role for S3 Access</a>.  </li>
+<li>On the <strong>File System</strong> page in the advanced cluster wizard view, select <strong>Use existing instance profile</strong>. </li>
+<li>Select an existing IAM role created in step 1. </li>
+</ol>
+<p>During the cluster creation process, Cloudbreak assigns the IAM role and its associated permissions to the EC2 instances that are part of the cluster so that applications running on these instances can use the role to access S3.   </p>
 <h4 id="testing-access-to-s3">Testing Access to S3</h4>
 <p>To tests access to S3, SSH to a cluster node and run a few hadoop fs shell commands against your existing S3 bucket.</p>
 <p>Amazon S3 access path syntax is:</p>
