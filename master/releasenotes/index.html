@@ -648,7 +648,7 @@ Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 <em>Infrastructure creation failed. Reason: At least one of the following properties must be specified: network, network_id.</em> <br />
 <em>Infrastructure creation failed. Reason: The Parameter (router_id) was not provided.</em></p>
 <p><em>Workaround</em>: </p>
-<p>When creating a cluster on OpenStack, you must select an existing network and subnet. </p>
+<p>This error occurrs if your OpenStack does not allow creating new networks and/or subnets. In such a case, you must select an existing network and subnet when creating a cluster on OpenStack. </p>
 <hr />
 <h5 id="bug-93339-hiveserver2-process-could-not-establish-connection-to-jdbchive2">(BUG-93339) HiveServer2 Process Could Not Establish Connection to jdbc:hive2</h5>
 <p>When using EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0 blueprint with a two-node cluster, Ambari shows the following Alert on Hive: <em>HiveServer2 Process CRIT Connection failed on host...</em> </p>
@@ -662,11 +662,6 @@ Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 <p>When trying to access Ambari in the Firefox 57.0 (64-bit) browser, you may get "Secure Connection Failed" with an error code "SEC_ERROR_INADEQUATE_KEY_USAGE". </p>
 <p><em>Workaround:</em> </p>
 <p>Try using a different browser. </p>
-<hr />
-<h5 id="bug-91810-network-and-subnet-are-listed-as-new">(BUG-91810) Network and Subnet Are Listed as "New"</h5>
-<p>When creating a new network and subnet for your cluster, the network and subnet information is unavailable on the cluster details page, showing "New".</p>
-<p><em>Workaround:</em> </p>
-<p>If you want to check which network and subnet are used for your cluster, navigate to the cloud provider account and find the cluster instances that were created for your cluster. Next, check which virtual network and subnet they are associated with. The steps vary depending on the provider.  </p>
 <hr />
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
