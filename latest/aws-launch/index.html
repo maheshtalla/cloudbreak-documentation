@@ -690,9 +690,8 @@
 </tbody>
 </table>
 <blockquote>
-<p>The following alternative steps are available for the <strong>CloudbreakRole</strong>:</p>
-<p>Alternatively, you can generate the "CredentialRole" role later once your Cloudbreak VM is running and once you have <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">configured AWS CLI</a> on your VM, by running the <code>cbd aws generate-role</code> command. This command creates a role with the name "cbreak-deployer" (equivalent to the "CredentialRole"). To customize the name of the role, add <code>export AWS_ROLE_NAME=my-cloudbreak-role-name</code> (where "my-cloudbreak-role-name" is your custom role name) as a new line to your Profile.</p>
-<p>Alternatively, instead of attaching the "CloudbreakRole" role during the VM launch, you can assign the "CloudbreakRole" to an IAM user and then add the access and security key of that user to your 'Profile'.</p>
+<p>Alternatively, instead of attaching the "CloudbreakRole" role during the VM launch, you can assign the "CloudbreakRole" to an IAM user and then add the access and secret key of that user to your 'Profile'.</p>
+<p>Alternatively you can generate the "CredentialRole" role later once your Cloudbreak VM is running by SSHing to the Cloudbreak VM and running the <code>cbd aws generate-role</code> command. This command creates a role with the name "cbreak-deployer" (equivalent to the "CredentialRole"). To customize the name of the role, add <code>export AWS_ROLE_NAME=my-cloudbreak-role-name</code> (where "my-cloudbreak-role-name" is your custom role name) as a new line to your Profile. If you choose this option, you must make sure that the "CloudbreakRole" or the IAM user have a permission not only to assume a role but also to create a role.  </p>
 </blockquote>
 <p>You can create these roles in the <strong>IAM console</strong>, on the <strong>Roles</strong> page via the <strong>Create Role</strong> option. Detailed steps are provided below. </p>
 <p><strong>Create CloudbreakRole</strong></p>
