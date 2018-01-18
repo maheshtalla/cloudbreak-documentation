@@ -539,15 +539,88 @@
     
         <li class="first-level active"><a href="#autoscaling">Autoscaling</a></li>
         
+            <li class="second-level"><a href="#enabling-auto-scaling">Enabling Auto Scaling</a></li>
+            
+        
+            <li class="second-level"><a href="#defining-an-alert">Defining an Alert</a></li>
+            
+                <li class="third-level"><a href="#defining-a-metric-based-alert">Defining a Metric-based Alert</a></li>
+            
+                <li class="third-level"><a href="#defining-a-time-based-alert">Defining a Time-based Alert</a></li>
+            
+        
+            <li class="second-level"><a href="#creating-a-scaling-policy">Creating a Scaling Policy</a></li>
+            
+        
+            <li class="second-level"><a href="#configuring-autoscaling-settings">Configuring Autoscaling Settings</a></li>
+            
+        
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h2 id="autoscaling">Autoscaling</h2>
+<p>Autoscaling allows you to define policies to automatically increase or decrease the capacity of the cluster when certain pre-defined conditions are met. </p>
+<p>When creating an autoscaling policy, you define:</p>
+<ul>
+<li>An <strong>alert</strong> that triggers a scaling policy. Alerts can be <strong>Ambari metric-based</strong> or <strong>time-based</strong> (cron expression).  </li>
+<li>A <strong>scaling policy</strong> that adds or removes a set number of worker or compute nodes based on the conditions defined in the attached alert. </li>
+</ul>
+<p>For example:</p>
+<table>
+<thead>
+<tr>
+<th>Alert Type</th>
+<th>Alert Definition</th>
+<th>Policy Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metric based</td>
+<td><em>NodeManager Health</em> alert with <em>CRITICAL</em> state for 5 minutes</td>
+<td>Add 3 worker nodes</td>
+</tr>
+<tr>
+<td>Metric based</td>
+<td><em>Ambari Server Alerts</em> alert with <em>CRITICAL</em> state for 30 minutes</td>
+<td>Set 0 compute nodes</td>
+</tr>
+<tr>
+<td>Time based</td>
+<td>Every day at 08:00 AM (GMT-8)</td>
+<td>Remove 5 worker nodes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="enabling-auto-scaling">Enabling Auto Scaling</h3>
+<p>For each newly created cluster, autoscaling is disabled by default but it can be enabled once the cluster is in a running state. </p>
 <blockquote>
-<p>This functionality is only available in the UI. It is not available in the CLI. </p>
-</blockquote></div>
+<p>Autoscaling functionality is only available in the UI. It is not available in the CLI. </p>
+</blockquote>
+<p><strong>Steps</strong></p>
+<ol>
+<li>On the cluster details page, click the <strong>Autoscaling</strong> tab.   </li>
+<li>Click the toggle button to enable autoscaling.  </li>
+<li>The toggle button turns green and you can see that "Autoscaling is enabled".</li>
+</ol>
+<h3 id="defining-an-alert">Defining an Alert</h3>
+<p>After you have enabled autoscaling, define an alert.</p>
+<h4 id="defining-a-metric-based-alert">Defining a Metric-based Alert</h4>
+<p>If you would like to change default thresholds for an Ambari Metric, refer to <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.0/bk_ambari-operations/content/modifying_alerts.html">Modifying Alerts</a> in Ambari documentation.  </p>
+<p><strong>Steps</strong></p>
+<p>TBD </p>
+<h4 id="defining-a-time-based-alert">Defining a Time-based Alert</h4>
+<p><strong>Steps</strong></p>
+<p>TBD</p>
+<p><a href="http://www.cronmaker.com/">Cron Expression Generator</a></p>
+<h3 id="creating-a-scaling-policy">Creating a Scaling Policy</h3>
+<p><strong>Steps</strong></p>
+<p>TBD</p>
+<h3 id="configuring-autoscaling-settings">Configuring Autoscaling Settings</h3>
+<p><strong>Steps</strong></p>
+<p>TBD</p></div>
         
     </div>
 

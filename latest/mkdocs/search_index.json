@@ -1412,13 +1412,43 @@
         }, 
         {
             "location": "/autoscaling/index.html", 
-            "text": "Autoscaling\n\n\n\n\nThis functionality is only available in the UI. It is not available in the CLI.", 
+            "text": "Autoscaling\n\n\nAutoscaling allows you to define policies to automatically increase or decrease the capacity of the cluster when certain pre-defined conditions are met. \n\n\nWhen creating an autoscaling policy, you define:\n\n\n\n\nAn \nalert\n that triggers a scaling policy. Alerts can be \nAmbari metric-based\n or \ntime-based\n (cron expression).  \n\n\nA \nscaling policy\n that adds or removes a set number of worker or compute nodes based on the conditions defined in the attached alert. \n\n\n\n\nFor example:\n\n\n\n\n\n\n\n\nAlert Type\n\n\nAlert Definition\n\n\nPolicy Definition\n\n\n\n\n\n\n\n\n\n\nMetric based\n\n\nNodeManager Health\n alert with \nCRITICAL\n state for 5 minutes\n\n\nAdd 3 worker nodes\n\n\n\n\n\n\nMetric based\n\n\nAmbari Server Alerts\n alert with \nCRITICAL\n state for 30 minutes\n\n\nSet 0 compute nodes\n\n\n\n\n\n\nTime based\n\n\nEvery day at 08:00 AM (GMT-8)\n\n\nRemove 5 worker nodes\n\n\n\n\n\n\n\n\nEnabling Auto Scaling\n\n\nFor each newly created cluster, autoscaling is disabled by default but it can be enabled once the cluster is in a running state. \n\n\n\n\nAutoscaling functionality is only available in the UI. It is not available in the CLI. \n\n\n\n\nSteps\n\n\n\n\nOn the cluster details page, click the \nAutoscaling\n tab.   \n\n\nClick the toggle button to enable autoscaling.  \n\n\nThe toggle button turns green and you can see that \"Autoscaling is enabled\".\n\n\n\n\nDefining an Alert\n\n\nAfter you have enabled autoscaling, define an alert.\n\n\nDefining a Metric-based Alert\n\n\nIf you would like to change default thresholds for an Ambari Metric, refer to \nModifying Alerts\n in Ambari documentation.  \n\n\nSteps\n\n\nTBD \n\n\nDefining a Time-based Alert\n\n\nSteps\n\n\nTBD\n\n\nCron Expression Generator\n\n\nCreating a Scaling Policy\n\n\nSteps\n\n\nTBD\n\n\nConfiguring Autoscaling Settings\n\n\nSteps\n\n\nTBD", 
             "title": "Autoscaling"
         }, 
         {
             "location": "/autoscaling/index.html#autoscaling", 
-            "text": "This functionality is only available in the UI. It is not available in the CLI.", 
+            "text": "Autoscaling allows you to define policies to automatically increase or decrease the capacity of the cluster when certain pre-defined conditions are met.   When creating an autoscaling policy, you define:   An  alert  that triggers a scaling policy. Alerts can be  Ambari metric-based  or  time-based  (cron expression).    A  scaling policy  that adds or removes a set number of worker or compute nodes based on the conditions defined in the attached alert.    For example:     Alert Type  Alert Definition  Policy Definition      Metric based  NodeManager Health  alert with  CRITICAL  state for 5 minutes  Add 3 worker nodes    Metric based  Ambari Server Alerts  alert with  CRITICAL  state for 30 minutes  Set 0 compute nodes    Time based  Every day at 08:00 AM (GMT-8)  Remove 5 worker nodes", 
             "title": "Autoscaling"
+        }, 
+        {
+            "location": "/autoscaling/index.html#enabling-auto-scaling", 
+            "text": "For each newly created cluster, autoscaling is disabled by default but it can be enabled once the cluster is in a running state.    Autoscaling functionality is only available in the UI. It is not available in the CLI.    Steps   On the cluster details page, click the  Autoscaling  tab.     Click the toggle button to enable autoscaling.    The toggle button turns green and you can see that \"Autoscaling is enabled\".", 
+            "title": "Enabling Auto Scaling"
+        }, 
+        {
+            "location": "/autoscaling/index.html#defining-an-alert", 
+            "text": "After you have enabled autoscaling, define an alert.", 
+            "title": "Defining an Alert"
+        }, 
+        {
+            "location": "/autoscaling/index.html#defining-a-metric-based-alert", 
+            "text": "If you would like to change default thresholds for an Ambari Metric, refer to  Modifying Alerts  in Ambari documentation.    Steps  TBD", 
+            "title": "Defining a Metric-based Alert"
+        }, 
+        {
+            "location": "/autoscaling/index.html#defining-a-time-based-alert", 
+            "text": "Steps  TBD  Cron Expression Generator", 
+            "title": "Defining a Time-based Alert"
+        }, 
+        {
+            "location": "/autoscaling/index.html#creating-a-scaling-policy", 
+            "text": "Steps  TBD", 
+            "title": "Creating a Scaling Policy"
+        }, 
+        {
+            "location": "/autoscaling/index.html#configuring-autoscaling-settings", 
+            "text": "Steps  TBD", 
+            "title": "Configuring Autoscaling Settings"
         }, 
         {
             "location": "/vm-launch/index.html", 
