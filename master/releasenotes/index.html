@@ -600,29 +600,6 @@ Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 <hr />
 <h4 id="fixed-issues">Fixed Issues</h4>
 <hr />
-<p>The following issues have been fixed in this release: </p>
-<table>
-<thead>
-<tr>
-<th>Jira</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BUG-93602</td>
-<td>"Do not create Public IPs" Azure cluster option was fixed and can now be used.</td>
-</tr>
-<tr>
-<td>BUG-91071</td>
-<td>Removed "SyntaxError: Unexpected end of JSON input" error when trying to downscale a cluster below the minimum required number of nodes.</td>
-</tr>
-<tr>
-<td>BUG-93556</td>
-<td>When creating a Cloudbreak credential, the UI shows a "Hadoop YARN" cloud provider as an option.</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h4 id="known-issues">Known Issues</h4>
 <hr />
@@ -657,11 +634,6 @@ Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 <li>Although it is possible to create a cluster with less than 3 nodes, in order to use the EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0 blueprint, you must have at least 3 nodes: 1 Ambari node and 2 non-Ambari nodes. Terminate the cluster and create a new one with at least 3 nodes.   </li>
 <li>Alternatively, it is possible to resolve this issue by adding an additional NodeManager for the Ambari host group.  </li>
 </ul>
-<hr />
-<h5 id="bug-92581-unable-to-open-ambari-in-firefox-570-64-bit">(BUG-92581) Unable to Open Ambari in Firefox 57.0 (64-bit)</h5>
-<p>When trying to access Ambari in the Firefox 57.0 (64-bit) browser, you may get "Secure Connection Failed" with an error code "SEC_ERROR_INADEQUATE_KEY_USAGE". </p>
-<p><em>Workaround:</em> </p>
-<p>Try using a different browser. </p>
 <hr />
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
