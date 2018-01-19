@@ -561,12 +561,12 @@
         <div class="col-md-9" role="main">
 
 <h2 id="autoscaling">Autoscaling</h2>
-<p>Autoscaling allows you to define policies to automatically increase or decrease the capacity of the cluster when certain pre-defined conditions are met. </p>
+<p>Autoscaling allows you to define policies to automatically increase or decrease the capacity of a cluster when certain pre-defined conditions are met. </p>
 <p>When creating an autoscaling policy, you define:</p>
 <ul>
 <li>An <strong>alert</strong> that triggers a scaling policy. Alerts can be <strong>Ambari metric-based</strong> or <strong>time-based</strong>:<ul>
-<li><strong>Ambari metric-based</strong> alerts: Based on the blueprint used and the services running, Cloudbreak accesses all available metrics from the subsystem and allows you to define alerts based on these metrics.  </li>
-<li><strong>Time-based</strong> alerts: These alerts must be defined in a cron expression format.  </li>
+<li><strong>Ambari metric-based</strong> alerts: Based on the blueprint used and the services running, Cloudbreak accesses all available metrics and allows you to define alerts based on these metrics.  </li>
+<li><strong>Time-based</strong> alerts: These alerts can be defined in a cron expression format.  </li>
 </ul>
 </li>
 <li>A <strong>scaling policy</strong> that adds or removes a set number of worker or compute nodes when the conditions defined in the attached alert are met. </li>
@@ -594,7 +594,7 @@
 <tr>
 <td>Time based</td>
 <td>Every day at 08:00 AM (GMT-8)</td>
-<td>Remove 5 worker nodes</td>
+<td>Add 10 percent to the worker nodes</td>
 </tr>
 </tbody>
 </table>
