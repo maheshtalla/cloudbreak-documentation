@@ -389,6 +389,12 @@
 
         
             
+<li >
+    <a href="../cli-get-started/index.html">H\Get Started with CLI</a>
+</li>
+
+        
+            
 <li class="active">
     <a href="index.html">CLI Reference</a>
 </li>
@@ -507,7 +513,7 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../cli-install/index.html">
+                        <a rel="next" href="../cli-get-started/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -745,8 +751,6 @@
 <p><strong>Examples</strong></p>
 <pre>cb blueprint delete --name "testbp"</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#blueprint-list">blueprint list</a></p>
 <hr />
 <h4 id="blueprint-describe">blueprint describe</h4>
 <p>Describes an existing blueprint.</p>
@@ -768,8 +772,6 @@
   "Tags": "DEFAULT"
 }</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#blueprint-list">blueprint list</a></p>
 <hr />
 <h4 id="blueprint-list">blueprint list</h4>
 <p>Lists available blueprints.</p>
@@ -835,8 +837,6 @@
   }
 ]</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#blueprint-describe">blueprint describe</a></p>
 <hr />
 <h4 id="cloud-availability-zones">cloud availability-zones</h4>
 <p>Lists the available availability zones in a region. </p>
@@ -979,10 +979,10 @@
 <h4 id="cluster-create">cluster create</h4>
 <p>Creates a new cluster based on a JSON template.</p>
 <p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the cluster<br />
-<strong><code>--cli-input-json &lt;value&gt;</code></strong>  User provided file in JSON format  </p>
+<p><strong><code>--cli-input-json &lt;value&gt;</code></strong>  User provided file in JSON format  </p>
 <p><strong>Options</strong></p>
-<p><strong><code>--description &lt;value&gt;</code></strong>  Description of resource <br />
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the cluster<br />
+<strong><code>--description &lt;value&gt;</code></strong>  Description of resource <br />
 <strong><code>--public</code></strong>  Public in account <br />
 <strong><code>--input-json-param-password &lt;value&gt;</code></strong>  Password for the cluster and Ambari <br />
 <strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required <br />
@@ -994,8 +994,8 @@
 <p>Creates a cluster called "testcluster" based on a local JSON file called "mytemplate.json" located in the /Users/test/Documents directory:   </p>
 <pre>cb cluster create --name testcluster --cli-input-json /Users/test/Documents/mytemplate.json</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#cluster-generate-template">cluster generate-template</a> </p>
+<p><strong>Related Links</strong><br />
+<a href="../cli-get-started/index.html#obtain-json-template-from-the-ui">Obtain Cluster JSON Template from the UI</a>   </p>
 <hr />
 <h4 id="cluster-delete">cluster delete</h4>
 <p>Deletes an existing cluster. </p>
@@ -1011,8 +1011,6 @@
 <p><strong>Examples</strong></p>
 <pre>cb cluster delete --name test1234</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#cluster-list">cluster list</a></p>
 <hr />
 <h4 id="cluster-describe">cluster describe</h4>
 <p>Describes an existing cluster.</p>
@@ -1029,8 +1027,6 @@
 <pre>./cb cluster describe --name test1234</pre>
 
 <p>The command returns JSON output which due to space limitation was not captured in the example.</p>
-<p><strong>Related Commands</strong></p>
-<p><a href="#cluster-list">cluster list</a></p>
 <hr />
 <h4 id="cluster-generate-template">cluster generate-template</h4>
 <p>Generates a provider-specific cluster template in JSON format.</p>
@@ -1051,7 +1047,8 @@
 <pre>cb cluster generate-template aws new-network</pre>
 
 <p><strong>Related Commands</strong></p>
-<p><a href="#cluster-create">cluster create</a> </p>
+<p><strong>Related Links</strong><br />
+<a href="../cli-get-started/index.html#obtain-json-template-from-the-ui">Obtain Cluster JSON Template from the UI</a>   </p>
 <hr />
 <h4 id="cluster-generate-reinstall-template">cluster generate-reinstall-template</h4>
 <p>Generates a cluster template that you can use to reinstall the cluster if installation went fail. </p>
@@ -1098,8 +1095,6 @@
 | test1234 |             | AZURE         | UPDATE_IN_PROGRESS | REQUESTED     |
 +----------+-------------+---------------+--------------------+---------------+</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#cluster-list">cluster list</a></p>
 <hr />
 <h4 id="cluster-repair">cluster repair</h4>
 <p>Repairs a cluster if cluster installation failed.</p>
@@ -1115,8 +1110,6 @@
 <p><strong>Examples</strong></p>
 <pre>cb cluster repair --name test1234</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#cluster-list">cluster list</a></p>
 <hr />
 <h4 id="cluster-scale">cluster scale</h4>
 <p>Scales a cluster by adding or removing nodes.</p>
@@ -1134,8 +1127,6 @@
 <p><strong>Examples</strong></p>
 <pre>cb cluster scale --name test1234 --group-name worker --desired node-count 3</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#cluster-list">cluster list</a></p>
 <hr />
 <h4 id="cluster-start">cluster start</h4>
 <p>Starts a cluster which has previously been stopped.</p>
@@ -1151,8 +1142,6 @@
 <p><strong>Examples</strong></p>
 <pre>cb cluster start --name test1234</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#cluster-list">cluster list</a></p>
 <hr />
 <h4 id="cluster-stop">cluster stop</h4>
 <p>Stops a cluster.</p>
@@ -1168,8 +1157,6 @@
 <p><strong>Examples</strong></p>
 <pre>cb cluster stop --name test1234</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#cluster-list">cluster list</a></p>
 <hr />
 <h4 id="cluster-sync">cluster sync</h4>
 <p>Synchronizes a cluster with the cloud provider.</p>
@@ -1289,8 +1276,6 @@
 <p><strong>Examples</strong></p>
 <pre>cb credential delete --name test-cred</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#credential-list">credential list</a></p>
 <hr />
 <h4 id="credential-describe">credential describe</h4>
 <p>Describes an existing credential.</p>
@@ -1310,8 +1295,6 @@
   "CloudPlatform": "AZURE"
 }</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#credential-list">credential list</a></p>
 <hr />
 <h4 id="credential-list">credential list</h4>
 <p>Lists existing Cloudbreak credentials.</p>
@@ -1343,8 +1326,6 @@
 | armcred |             | AZURE         |
 +---------+-------------+---------------+</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#credential-describe">credential describe</a></p>
 <hr />
 <h4 id="imagecatalog-create">imagecatalog create</h4>
 <p>Registers a new custom image catalog based on the URL provided.  </p>
@@ -1508,8 +1489,6 @@
 <p><strong>Examples</strong></p>
 <pre>cb recipe delete --name test</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#recipe-list">recipe list</a></p>
 <hr />
 <h4 id="recipe-describe">recipe describe</h4>
 <p>Describes an existing recipe.</p>
@@ -1538,8 +1517,6 @@
 | test |             | POST           |
 +------+-------------+----------------+</pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#recipe-list">recipe list</a></p>
 <hr />
 <h4 id="recipe-list">recipe list</h4>
 <p>Lists all available recipes.</p>
@@ -1571,8 +1548,6 @@
 +------+-------------+-------------------+
 </pre>
 
-<p><strong>Related Commands</strong></p>
-<p><a href="#recipe-describe">recipe describe</a></p>
 <hr />
 <h3 id="debugging">Debugging</h3>
 <p>To use debugging mode, pass the <code>--debug</code> option. </p>

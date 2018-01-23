@@ -390,6 +390,12 @@
         
             
 <li >
+    <a href="../cli-get-started/index.html">H\Get Started with CLI</a>
+</li>
+
+        
+            
+<li >
     <a href="../cli-reference/index.html">CLI Reference</a>
 </li>
 
@@ -512,7 +518,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../cli-reference/index.html">
+                        <a rel="prev" href="../cli-get-started/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -547,12 +553,6 @@
                 <li class="third-level"><a href="#add-multiple-configurations">Add Multiple Configurations</a></li>
             
                 <li class="third-level"><a href="#configure-default-output">Configure Default Output</a></li>
-            
-        
-            <li class="second-level"><a href="#get-started-with-the-cli">Get Started with the CLI</a></li>
-            
-        
-            <li class="second-level"><a href="#get-help">Get Help</a></li>
             
         
     
@@ -645,48 +645,8 @@ staging:
   server: https://192.167.65.4
   output: table</small></pre>
 
-<h3 id="get-started-with-the-cli">Get Started with the CLI</h3>
-<p>After <a href="#install-the-cli">installing</a> and <a href="#configure-the-cli">configuring</a> the CLI, you can use it to perform the same tasks as are available in the Cloudbreak UI: create and manage clusters, credentials, blueprints, and recipes.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>The first step is to create at least one Cloudbreak credential using the <a href="../cli-reference/index.html#credential-create">credential create</a> command.   </p>
-</li>
-<li>
-<p>If you are just getting started, you may want to try one of the default blueprints. You can use <a href="../cli-reference/index.html#blueprint-list">blueprint list</a> and <a href="../cli-reference/index.html#blueprint-describe">blueprint describe</a> to learn about those default blueprints.  </p>
-<p>In case you would like to use your own blueprint, you can add it using <a href="../cli-reference/index.html#blueprint-crate">blueprint create</a> command.</p>
-</li>
-<li>
-<p>You can optionally create <a href="../recipes/index.html">recipes</a> (custom scrpts) and add them using the <a href="../cli-reference/index.html#recipe-create">recipe create</a> command.  </p>
-</li>
-<li>
-<p>To create a cluster, first generate a JSON skeleton using the <a href="../cli-reference/index.html#cluster-generate-template">cluster generate-template</a> command. You can copy it to a text editor and save it in JSON format.</p>
-</li>
-<li>
-<p>Edit the JSON file by providing your parameters. </p>
-</li>
-<li>
-<p>Once your JSON file is ready, you can use it to create a cluster via the <a href="../cli-reference/index.html#cluster-create">cluster create</a> command.</p>
-</li>
-<li>
-<p>Once your cluster is running, use can use the CLI to manage and monitor your cluster. For a full list of commands, refer to <a href="../cli-reference/index.html">CLI Reference</a>.    </p>
-</li>
-</ol>
-<h3 id="get-help">Get Help</h3>
-<p>To get CLI help, you can add help to the end of a command. The following will list help for the CLI at the top-level:</p>
-<pre><small>cb --help</small></pre>
-
-<p>or </p>
-<pre><small>cb --h</small></pre>
-
-<p>The following will list help for the create-cluster command, including its command options and global options:</p>
-<pre><small>cb cluster --help</small></pre>
-
-<p>or</p>
-<pre><small>cb cluster --h</small></pre>
-
 <div class="next">
-<a href="../cli-reference/index.html">Next: CLI Reference</a>
+<a href="../cli-get-started/index.html">Next: Get Started with CLI</a>
 </div></div>
         
     </div>
