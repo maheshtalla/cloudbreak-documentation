@@ -567,11 +567,11 @@
 
 <h2 id="access-data-on-s3">Access Data on S3</h2>
 <p>Amazon S3 is not supported as a default file system, but access to data in Amazon S3 is possible via the s3a connector. </p>
-<h4 id="prerequisites">Prerequisites</h4>
+<h3 id="prerequisites">Prerequisites</h3>
 <p>To use S3 storage, you must have one or more S3 buckets on your AWS account. For instructions on how to create a bucket on S3, refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">AWS documentation</a>.</p>
 <p><strong>Related Links</strong><br />
 <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Create a Bucket</a> (External)    </p>
-<h4 id="creating-an-iam-role-for-s3-access">Creating an IAM Role for S3 Access</h4>
+<h3 id="creating-an-iam-role-for-s3-access">Creating an IAM Role for S3 Access</h3>
 <p>In order to configure access from your cluster to Amazon S3, you must have an existing IAM role which determines what actions can be performed on which S3 buckets. If you do not have an existing IAM role, use these steps to create one. </p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -601,7 +601,7 @@
 <p>Click <strong>Create role</strong> to finish the role creation process.</p>
 </li>
 </ol>
-<h4 id="configuring-access-to-s3">Configuring Access to S3</h4>
+<h3 id="configuring-access-to-s3">Configuring Access to S3</h3>
 <p>Amazon S3 is not supported as a default file system, but access to data in S3 from your cluster VMs can be automatically configured by attaching an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">instance profile</a> allowing access to S3. You can optionally create or attach an existing instance profile during cluster creation on the <strong>File System</strong> page.</p>
 <p>To configure access to S3 with an instance profile, follow these steps. </p>
 <p><strong>Steps</strong></p>
@@ -614,7 +614,7 @@
 </li>
 </ol>
 <p>During the cluster creation process, Cloudbreak assigns the IAM role and its associated permissions to the EC2 instances that are part of the cluster so that applications running on these instances can use the role to access S3.   </p>
-<h4 id="testing-access-to-s3">Testing Access to S3</h4>
+<h3 id="testing-access-to-s3">Testing Access to S3</h3>
 <p>To tests access to S3, SSH to a cluster node and run a few hadoop fs shell commands against your existing S3 bucket.</p>
 <p>Amazon S3 access path syntax is:</p>
 <pre>s3a://bucket/dir/file</pre>

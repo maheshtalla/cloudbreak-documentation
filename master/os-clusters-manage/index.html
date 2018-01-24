@@ -545,21 +545,22 @@
     
         <li class="first-level active"><a href="#managing-and-monitoring-clusters">Managing and Monitoring Clusters</a></li>
         
-            <li class="second-level"><a href="#resize-cluster">Resize Cluster</a></li>
+            <li class="second-level"><a href="#resize-a-cluster">Resize a Cluster</a></li>
             
         
-            <li class="second-level"><a href="#synchronize-the-cluster">Synchronize the Cluster</a></li>
+            <li class="second-level"><a href="#synchronize-a-cluster">Synchronize a Cluster</a></li>
             
         
-            <li class="second-level"><a href="#stop-cluster">Stop Cluster</a></li>
+            <li class="second-level"><a href="#stop-a-cluster">Stop a Cluster</a></li>
             
         
-            <li class="second-level"><a href="#restart-cluster">Restart Cluster</a></li>
+            <li class="second-level"><a href="#restart-a-cluster">Restart a Cluster</a></li>
             
         
-            <li class="second-level"><a href="#terminate-cluster">Terminate Cluster</a></li>
+            <li class="second-level"><a href="#terminate-a-cluster">Terminate a Cluster</a></li>
             
-                <li class="third-level"><a href="#force-terminate">Force Terminate</a></li>
+        
+            <li class="second-level"><a href="#force-terminate-a-cluster">Force Terminate a Cluster</a></li>
             
         
             <li class="second-level"><a href="#view-cluster-history">View Cluster History</a></li>
@@ -586,7 +587,7 @@
 </p>
 </div>
 
-<h3 id="resize-cluster">Resize Cluster</h3>
+<h3 id="resize-a-cluster">Resize a Cluster</h3>
 <p>To resize a cluster, follow these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -608,7 +609,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>While nodes are being added or removed, cluster status changes to "Update In Progress". Once the operation has completed, cluster status changes back to "Running". </p>
 </li>
 </ol>
-<h3 id="synchronize-the-cluster">Synchronize the Cluster</h3>
+<h3 id="synchronize-a-cluster">Synchronize a Cluster</h3>
 <p>Use the <strong>sync</strong> option if you:  </p>
 <ul>
 <li>Made changes on your cloud provider side (for example, deleted cluster VMs) and you would like to synchronize Cloudbreak with the cloud provider.  </li>
@@ -628,7 +629,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>Your cluster infrastructure is synchronized based on changes on the cloud provider. The updates are written to the "Event History". </p>
 </li>
 </ol>
-<h3 id="stop-cluster">Stop Cluster</h3>
+<h3 id="stop-a-cluster">Stop a Cluster</h3>
 <p>Cloudbreak supports stopping and restarting clusters. To stop and restart a cluster managed by Cloudbreak, use the options available from the Coudbreak UI. </p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -646,7 +647,7 @@ It is not possible to resize the Ambari server host group.     </p>
 </li>
 </ol>
 <p>When a cluster is in the "stopped" state, you are not charged for the VMs, but you are charged for external storage.  </p>
-<h3 id="restart-cluster">Restart Cluster</h3>
+<h3 id="restart-a-cluster">Restart a Cluster</h3>
 <p>If your cluster is in the "Stopped" state, you can restart the cluster by follow these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -658,7 +659,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>Your cluster status changes to "Start in progress" and then to "Running". </p>
 </li>
 </ol>
-<h3 id="terminate-cluster">Terminate Cluster</h3>
+<h3 id="terminate-a-cluster">Terminate a Cluster</h3>
 <p>To terminate a cluster managed by Cloudbreak, use the option available from the Coudbreak UI. </p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -673,7 +674,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>All cluster-related resources will be deleted, unless the resources (such as networks and subnets) existed prior to cluster creation or are used by other VMs in which case they will be preserved. </p>
 </li>
 </ol>
-<h4 id="force-terminate">Force Terminate</h4>
+<h3 id="force-terminate-a-cluster">Force Terminate a Cluster</h3>
 <p>Cluster deletion may fail if Cloudbreak is unable to delete one or more of the cloud resources that were part of your cluster infrastructure. In such as case, you can use the <strong>Terminate</strong> &gt; <strong>Force terminate</strong> option to remove the cluster entry from the Cloudbreak web UI, but you must also check your cloud provider account to see if there are any resources that must be deleted manually.</p>
 <p><strong>Steps</strong></p>
 <ol>

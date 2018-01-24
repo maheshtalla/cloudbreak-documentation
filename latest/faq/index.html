@@ -576,7 +576,7 @@
 
 <h2 id="faqs">FAQs</h2>
 <p>How to...</p>
-<h4 id="generate-ssh-key-pair">Generate SSH Key Pair</h4>
+<h3 id="generate-ssh-key-pair">Generate SSH Key Pair</h3>
 <p>All the instances created by Cloudbreak are configured to allow key-based SSH, so you'll need to provide an SSH public key that can be used later to SSH onto the instances in the clusters you'll create with Cloudbreak. You can use one of your existing keys or you can generate a new one.</p>
 <p>To generate a new SSH key pair, execute:</p>
 <pre>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -595,11 +595,11 @@
 # 01:0f:f4:3b:ca:85:sd:17:sd:7d:sd:68:9d:sd:a2:sd your_email@example.com</pre>
 
 <p>Later you'll need to pass the content of the <code>.pub</code> file to Cloudbreak and use the private key file to SSH to the instances. </p>
-<h4 id="recover-public-ssh-key">Recover Public SSH Key</h4>
+<h3 id="recover-public-ssh-key">Recover Public SSH Key</h3>
 <p>The <code>-y</code> option of <code>ssh-keygen</code> outputs the public key. For example:</p>
 <pre>ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub</pre>
 
-<h4 id="ssh-to-the-hosts">SSH to the Hosts</h4>
+<h3 id="ssh-to-the-hosts">SSH to the Hosts</h3>
 <p>To connect to a running VM through SSH, you need to know its public IP address and have your private key available. </p>
 <p>The private key that you must use to access the VM is the counterpart of the public key that you specified when creating a Cloudbreak credential.</p>
 <p>You can find the IP addresses of all the running VMs in the Cloudbreak UI, on the cluster details page. Only key-based authentication is supported. </p>
@@ -608,24 +608,24 @@
 <pre><code>ssh -i ~/.ssh/your-private-key.pem cloudbreak@&lt;public-ip&gt;
 </code></pre>
 
-<h4 id="check-cloudbreak-version">Check Cloudbreak Version</h4>
+<h3 id="check-cloudbreak-version">Check Cloudbreak Version</h3>
 <p>To check Cloudbreak version, navigate to the Cloudbreak home directory and execute the following command:</p>
 <pre><code>cbd doctor
 </code></pre>
 
-<h4 id="check-available-environment-variables">Check Available Environment Variables</h4>
+<h3 id="check-available-environment-variables">Check Available Environment Variables</h3>
 <p>To see all available environment variables with their default values, use:</p>
 <pre><code>cbd env show
 </code></pre>
 
-<h4 id="access-cloudbreak-logs">Access Cloudbreak Logs</h4>
+<h3 id="access-cloudbreak-logs">Access Cloudbreak Logs</h3>
 <p>Refer to <a href="../trouble-cb/index.html#checking-the-logs">Troubleshooting</a>.</p>
-<h4 id="debug-in-cloudbreak-shell">Debug in Cloudbreak Shell</h4>
+<h3 id="debug-in-cloudbreak-shell">Debug in Cloudbreak Shell</h3>
 <p>To get more detailed command prompt output, set the DEBUG environment variable to non-zero:</p>
 <pre><code>DEBUG=1 cbd &lt;some_command&gt;
 </code></pre>
 
-<h4 id="configure-and-test-proxy-settings">Configure and Test Proxy Settings</h4>
+<h3 id="configure-and-test-proxy-settings">Configure and Test Proxy Settings</h3>
 <p><strong>For cbd</strong></p>
 <p>To configure proxy settings for Cloudbreak Deployer, add the following configs to your Profile:</p>
 <pre><code>export http_proxy=&quot;http://YOUR_PROXY_ADDRESS:YOUR_PROXY_PORT/&quot;
