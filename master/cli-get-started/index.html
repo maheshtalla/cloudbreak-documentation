@@ -551,6 +551,9 @@
             <li class="second-level"><a href="#obtain-cluster-json-template-from-the-ui">Obtain Cluster JSON Template from the UI</a></li>
             
         
+            <li class="second-level"><a href="#obtain-cli-command-from-the-ui">Obtain CLI Command from the UI</a></li>
+            
+        
             <li class="second-level"><a href="#get-help">Get Help</a></li>
             
         
@@ -594,6 +597,12 @@
 <p><a href="../images/cli-json-details1.png" target="_blank" title="click to enlarge"><img src="../images/cli-json-details1.png" width="650" title="Cloudbreak web UI"></a>   </p>
 <p>Click <strong>Copy the JSON</strong> to copy the content and then use a text editor to edit and save it. </p>
 <p><a href="../images/cli-json-details2.png" target="_blank" title="click to enlarge"><img src="../images/cli-json-details2.png" width="650" title="Cloudbreak web UI"></a> </p>
+<h3 id="obtain-cli-command-from-the-ui">Obtain CLI Command from the UI</h3>
+<p>Cloudbreak web UI includes as option in the UI which allows you to generate the  <code>create</code> command for resources such as credentials, blueprints, clusters, and recipes. This option is available when creating a resource and for existing resources, from the resource details page.   </p>
+<p><strong>From Create Resource</strong></p>
+<p>When creating a resource (credential, blueprint, cluster, or recipe), provide all information and then click <strong>Show CLI Command</strong>. The UI will display the <code>create</code> CLI command for the resource.</p>
+<p><strong>From Resource Details</strong></p>
+<p>Navigate to credential, blueprint, cluster, or recipe details and  click <strong>Show CLI Command</strong>. The UI will display the <code>create</code> CLI command for the resource.</p>
 <h3 id="get-help">Get Help</h3>
 <p>To get CLI help, you can add help to the end of a command. The following will list help for the CLI at the top-level:</p>
 <pre><small>cb --help</small></pre>
