@@ -570,7 +570,7 @@
 <p>Autoscaling allows you to set up automatic cluster scaling based on Ambari metrics or based on time. When creating an autoscaling policy, you define:</p>
 <ul>
 <li>An <strong>alert</strong> that triggers a scaling policy.   </li>
-<li>A <strong>scaling policy</strong> that adds or removes a set number of worker or compute nodes when the conditions defined in the attached alert are met.   </li>
+<li>A <strong>scaling policy</strong> that adds or removes a set number of nodes to a selected host group when the conditions defined in the attached alert are met.   </li>
 </ul>
 <p><strong>Metric-based Autoscaling</strong></p>
 <p>Cloudbreak accesses all available Ambari metrics and allows you to define alerts based on these metrics. For example:</p>
@@ -588,7 +588,11 @@
 </tr>
 <tr>
 <td><em>????</em> alert with <em>CRITICAL</em> state for 10 minutes</td>
-<td>Set the number of worker nodes to 10</td>
+<td>Set the number of worker nodes to 30</td>
+</tr>
+<tr>
+<td><em>????</em> alert with <em>CRITICAL</em> state for 15 minutes</td>
+<td>Increase the number of worker nodes by 80%</td>
 </tr>
 </tbody>
 </table>
@@ -615,13 +619,18 @@
 <h3 id="enable-auto-scaling">Enable Auto Scaling</h3>
 <p>For each newly created cluster, autoscaling is disabled by default but it can be enabled once the cluster is in a running state. </p>
 <blockquote>
-<p>Currently. autoscaling configuration is only available in the UI. It is not available in the CLI. </p>
+<p>Autoscaling configuration is only available in the UI. It is currently not available in the CLI. </p>
 </blockquote>
 <p><strong>Steps</strong></p>
 <ol>
 <li>On the cluster details page, navigate to the <strong>Autoscaling</strong> tab.   </li>
-<li>Click the toggle button to enable autoscaling.  </li>
-<li>The toggle button turns green and you can see that "Autoscaling is enabled".</li>
+<li>
+<p>Click the toggle button to enable autoscaling:</p>
+<p><a href="../images/cb-autoscaling1.png" target="_blank" title="click to enlarge"><img src="../images/cb-autoscaling1.png" width="650" title="Autoscaling in Cloudbreak UI"></a>  </p>
+</li>
+<li>
+<p>The toggle button turns green and you can see that "Autoscaling is enabled".</p>
+</li>
 <li><a href="#defining-an-alert">Define alerts</a> and <a href="#create-a-scaling-policy">scaling policies</a>. </li>
 </ol>
 <h3 id="defining-an-alert">Defining an Alert</h3>
@@ -634,7 +643,8 @@
 <p><strong>Steps</strong></p>
 <ol>
 <li><a href="#enable-autoscaling">Enable autoscaling</a>.  </li>
-<li>In the <strong>Alert Configuration</strong> section, select the <strong>Metric Based</strong> alert type.  </li>
+<li>In the <strong>Alert Configuration</strong> section, <strong>Metric Based</strong> alert type should be preselected:
+    <a href="../images/cb-autoscaling2.png" target="_blank" title="click to enlarge"><img src="../images/cb-autoscaling2.png" width="650" title="Autoscaling in Cloudbreak UI"></a>    </li>
 <li>Enter alert name.</li>
 <li>Choose metric type, alert status, and alert duration that should trigger a scaling action.   </li>
 <li>Click <strong>+</strong> to save the alert.  </li>
@@ -645,8 +655,10 @@
 <p><strong>Steps</strong></p>
 <ol>
 <li><a href="#enable-autoscaling">Enable autoscaling</a>.  </li>
-<li>In the <strong>Alert Configuration</strong> section, select the <strong>Time Based</strong> alert type.  </li>
-<li>Enter alert name.</li>
+<li>In the <strong>Alert Configuration</strong> section, select the <strong>Time Based</strong> alert type:<br />
+    <a href="../images/cb-autoscaling3.png" target="_blank" title="click to enlarge"><img src="../images/cb-autoscaling3.png" width="650" title="Autoscaling in Cloudbreak UI"></a>  </li>
+<li>Enter alert name.  </li>
+<li>Select your timezone.   </li>
 <li>Enter a cron expression to define the frequency of the alert. Refer to <a href="http://www.cronmaker.com/">Cron Expression Generator</a>.  </li>
 <li>Click <strong>+</strong> to save the alert.   </li>
 </ol>
@@ -656,7 +668,8 @@
 <p><strong>Steps</strong></p>
 <ol>
 <li><a href="#enable-autoscaling">Enable autoscaling</a> and <a href="#defining-an-alert">create at least one alert</a>.  </li>
-<li>In the <strong>Policy Configuration</strong> section, select the <strong>Metric Based</strong> alert type.  </li>
+<li>In the <strong>Policy Configuration</strong> section, provide the information required:
+    <a href="../images/cb-autoscaling4.png" target="_blank" title="click to enlarge"><img src="../images/cb-autoscaling4.png" width="650" title="Autoscaling in Cloudbreak UI"></a>   </li>
 <li>Enter a unique name for your policy.   </li>
 <li>Select one of the following actions: Add, Remove, or Set.  </li>
 <li>Enter a number defining how many or what percentage of nodes to add or remove. If the action selected is "set", this defines the number of nodes that the host group will be set to during scaling.  </li>
@@ -666,12 +679,13 @@
 <li>Click <strong>+</strong> to save the alert.   </li>
 </ol>
 <h3 id="configure-autoscaling-settings">Configure Autoscaling Settings</h3>
-<p>To configure the auto scaling settings for your cluster, perform these steps.  </p>
+<p>To configure the auto scaling settings for your cluster, perform these steps. </p>
 <p><strong>Steps</strong></p>
 <ol>
-<li>On the cluster details page, click the <strong>Autoscaling</strong> tab.  </li>
+<li><a href="#enable-autoscaling">Enable autoscaling</a>.</li>
 <li>
-<p>In the <strong>Cluster Scaling Configuration</strong>, provide the following information:</p>
+<p>In the <strong>Cluster Scaling Configuration</strong>, provide the following information:
+    <a href="../images/cb-autoscaling5.png" target="_blank" title="click to enlarge"><img src="../images/cb-autoscaling5.png" width="650" title="Autoscaling in Cloudbreak UI"></a>   </p>
 <table>
 <thead>
 <tr>
@@ -687,9 +701,14 @@
 <td>30 minutes</td>
 </tr>
 <tr>
-<td>Cluster size limit</td>
-<td>The minimum and maximum size allowed for the cluster. Auto scaling policies cannot scale the cluster below or above this size.</td>
-<td>Min 3 nodes, max 100 nodes</td>
+<td>Minimum Cluster Size</td>
+<td>The minimum size allowed for the cluster. Auto scaling policies cannot scale the cluster below or above this size.</td>
+<td>3 nodes</td>
+</tr>
+<tr>
+<td>Maximum Cluster Size</td>
+<td>The maximum size allowed for the cluster. Auto scaling policies cannot scale the cluster below or above this size.</td>
+<td>100 nodes</td>
 </tr>
 </tbody>
 </table>
