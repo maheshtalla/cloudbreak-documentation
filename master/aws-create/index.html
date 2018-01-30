@@ -567,6 +567,8 @@
             
                 <li class="third-level"><a href="#recipes">Recipes</a></li>
             
+                <li class="third-level"><a href="#ambari-server-master-key">Ambari Server Master Key</a></li>
+            
                 <li class="third-level"><a href="#enable-kerberos-security">Enable Kerberos Security</a></li>
             
         
@@ -891,6 +893,8 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 <p>If you would like to access S3 through the S3A connector, you must configure access to S3 trough an instance profile. For instructions, refer to <a href="../aws-data/index.html#configuring-access-to-s3">Configuring Access to S3</a>. </p>
 <h4 id="recipes">Recipes</h4>
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>. </p>
+<h4 id="ambari-server-master-key">Ambari Server Master Key</h4>
+<p>If you plan to configure Ambari to retain the Kerberos KDC admin account credentials when configuring Kerberos, or you wish to encrypt the Ambari database and LDAP server passwords, you need to setup encryption for the passwords stored in the Ambari database. If you plan to do that, enter the Ambari server master key to set up Ambari server with password encryption. </p>
 <h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
 <p>Select this option to enable Kerberos for your cluster. For information about available Kerberos options, refer to <a href="../security-kerberos/index.html">Enabling Kerberos Security</a>. </p>
 <p><strong>Related Links</strong>   <br />

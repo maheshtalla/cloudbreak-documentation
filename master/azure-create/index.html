@@ -567,6 +567,8 @@
             
                 <li class="third-level"><a href="#dont-create-new-firewall-rules">Don't Create New Firewall Rules</a></li>
             
+                <li class="third-level"><a href="#ambari-server-master-key">Ambari Server Master Key</a></li>
+            
                 <li class="third-level"><a href="#enable-azure-disk-encryption">Enable Azure Disk Encryption</a></li>
             
                 <li class="third-level"><a href="#enable-kerberos-security">Enable Kerberos Security</a></li>
@@ -904,11 +906,13 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 </table>
 <p>After the deployment is finished, you can check the layout of the VMs inside an availability set on Azure Portal. You will find the "Availability set" resources corresponding to the host groups inside the deployment's resource group.</p>
 <h4 id="recipes">Recipes</h4>
-<p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>.  </p>
+<p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>. </p>
 <h4 id="dont-create-public-ip">Don't Create Public IP</h4>
 <p>This option is available if you are creating a cluster in an existing network and subnet. Select this option if you don't want to use public IPs for the network. </p>
 <h4 id="dont-create-new-firewall-rules">Don't Create New Firewall Rules</h4>
 <p>This option is available if you are creating a cluster in an existing network and subnet. Select this option if you don't want to create new firewall rules for the network. </p>
+<h4 id="ambari-server-master-key">Ambari Server Master Key</h4>
+<p>If you plan to configure Ambari to retain the Kerberos KDC admin account credentials when configuring Kerberos, or you wish to encrypt the Ambari database and LDAP server passwords, you need to setup encryption for the passwords stored in the Ambari database. If you plan to do that, enter the Ambari server master key to set up Ambari server with password encryption. </p>
 <h4 id="enable-azure-disk-encryption">Enable Azure Disk Encryption</h4>
 <p>Check this option if you would like to have your virtual machine disks encrypted using the Azure Disk Encryption capability provided by Azure. For more information, refer to <a href="https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption">Azure documentation</a>.  </p>
 <h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
