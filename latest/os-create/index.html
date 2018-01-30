@@ -871,7 +871,7 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 <h4 id="recipes">Recipes</h4>
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>. </p>
 <h4 id="ambari-server-master-key">Ambari Server Master Key</h4>
-<p>If you plan to configure Ambari to retain the Kerberos KDC admin account credentials when configuring Kerberos, or you wish to encrypt the Ambari database and LDAP server passwords, you need to setup encryption for the passwords stored in the Ambari database. If you plan to do that, enter the Ambari server master key to set up Ambari server with password encryption. </p>
+<p>The Ambari Server Master Key is used to configure Ambari to encrypt database and Kerberos credentials that are retained by Ambari as part of the Ambari setup.  </p>
 <h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
 <p>Select this option to enable Kerberos for your cluster. For information about available Kerberos options, refer to <a href="../security-kerberos/index.html">Enabling Kerberos Security</a>. </p>
 <p><strong>Related Links</strong>   <br />
