@@ -640,57 +640,67 @@
 <thead>
 <tr>
 <th>Parameter</th>
-<th>Required if using...</th>
 <th>Description</th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Kerberos Admin Principal</td>
-<td>MIT, AD</td>
 <td>The admin principal in your existing MIT KDC or AD.</td>
-<td></td>
 </tr>
 <tr>
 <td>Kerberos Admin Password</td>
-<td>MIT, AD</td>
 <td>The admin principal password in your existing MIT KDC or AD.</td>
-<td></td>
 </tr>
+<tr>
+<td>MIT KDC or Active Directory</td>
+<td>Select MIT KDC or Active Directory.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use Basic Configuration</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required if using...</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>Kerberos Url</td>
 <td>MIT, AD</td>
 <td>IP address or FQDN for the KDC host. Optionally a port number may be included. Example: "kdc.example.com:88" or "kdc.example.com"</td>
-<td></td>
+</tr>
+<tr>
+<td>Kerberos Admin URL</td>
+<td>MIT, AD</td>
+<td>(Optional) Description TBD. Example: TBD</td>
 </tr>
 <tr>
 <td>Kerberos Realm</td>
 <td>MIT, AD</td>
 <td>The default realm to use when creating service principals. Example: "EXAMPLE.COM"</td>
-<td></td>
 </tr>
 <tr>
 <td>Kerberos AD Ldap Url</td>
 <td>AD</td>
 <td>The URL to the Active Directory LDAP Interface. This value must indicate a secure channel using LDAPS since it is required for creating and updating passwords for Active Directory accounts. Example: "ldaps://ad.example.com:636"</td>
-<td></td>
 </tr>
 <tr>
 <td>Kerberos AD Container DN</td>
 <td>AD</td>
 <td>The distinguished name (DN) of the container used store service principals. Example:  "OU=hadoop,DC=example,DC=com"</td>
-<td></td>
 </tr>
 <tr>
 <td>Use TCP Connection</td>
 <td>Optional</td>
 <td>By default, Kerberos uses UDP. Checkmark this box to use TCP instead.</td>
-<td></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Use Custom Configuration</strong> </p>
+<p><strong>Use Advanced Configuration</strong> </p>
 <p>Checking the <strong>Use Custom Configuration</strong> option allows you to provide the actual Ambari Kerberos descriptors to be injected into your blueprint (instead of Cloudbreak generating the descriptors on your behalf). This is the most powerful option which gives you full control of the Ambari Kerberos options that are available. You must provide: </p>
 <ul>
 <li>Kerberos-env JSON Descriptor (required)</li>
