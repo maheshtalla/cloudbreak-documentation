@@ -580,7 +580,7 @@
 <h5 id="providing-your-own-jdk">Providing Your Own JDK</h5>
 <p>Providing your own JDK on a custom base image is supported. For instructions, refer to "Advanced topics" in the <a href="https://github.com/hortonworks/cloudbreak-images">https://github.com/hortonworks/cloudbreak-images</a> repository.</p>
 <h5 id="prewarmed-images">Prewarmed Images</h5>
-<p>To accelerate cluster creation, CLoudbreak 2.4 introduces prewarmed images, which include the operating system, as well as the default version of Ambari and HDP. By default, Cloudbreak 2.4 launches clusters from these prewarmed images, instead of using base images (which were used by default in earlier versions of Cloubdreak). Default base images are still available in case you would like to use different Ambari and HDP versions than those provided with prewarmed images. For more information, refer to <a href="../aws-create/index.html#prewarmed-and-base-images">Prewardmed and Base Images</a>. </p>
+<p>To accelerate cluster creation, CLoudbreak 2.4 introduces prewarmed images, which include the operating system, as well as the default version of Ambari and HDP. By default, Cloudbreak 2.4 launches clusters from these prewarmed images, instead of using base images (which were used by default in earlier versions of Cloudbreak). Default base images are still available in case you would like to use different Ambari and HDP versions than those provided with prewarmed images. For more information, refer to <a href="../aws-create/index.html#prewarmed-and-base-images">Prewardmed and Base Images</a>. </p>
 <h5 id="cli-templates">CLI Templates</h5>
 <p>After specifying the parameters for your cluster in the Cloudbreak web UI, you can copy the content of the CLI JSON file that can be used to create a cluster via Cloudbreeak CLI. For more information, refer to <a href="../cli-get-started/index.html#obtain-cluster-json-template-from-the-ui">Obtain Cluster JSON Template from the UI</a>.    </p>
 <p>Furthermore, Cloudbreak web UI includes an option in the UI which allows you to generate the  <code>create</code> command for resources such as credentials, blueprints, clusters, and recipes. For more information, refer to <a href="../cli-get-started/index.html#obtain-cli-command-from-the-ui">Obtain CLI Command from the UI</a>.  </p>
@@ -603,6 +603,8 @@ Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 <hr />
 <h5 id="custom-images">Custom Images</h5>
 <p>The functionality which enables you to create custom images was changed and improved. Refer to <a href="../images/index.html">Custom Images</a>.</p>
+<h5 id="prewarmed-images-are-used-by-default">Prewarmed Images Are Used By Default</h5>
+<p>By default, Cloudbreak 2.4 launches clusters from these prewarmed images, instead of base images (which were used by default in earlier versions of Cloudbreak). For more information, refer to <a href="../aws-create/index.html#prewarmed-and-base-images">Prewardmed and Base Images</a>. </p>
 <h5 id="removal-of-cloudbreak-shell">Removal of Cloudbreak Shell</h5>
 <p>Cloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the <a href="../cli-install/index.html">Cloudbreak CLI</a>.</p>
 <h5 id="removal-of-platforms">Removal of Platforms</h5>
