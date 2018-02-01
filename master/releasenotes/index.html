@@ -585,7 +585,7 @@
 <li>PRE-AMBARI-START (new, useful for configuring Ambari prior to start)  </li>
 <li>POST-AMBARI-START (formerly known as PRE)  </li>
 <li>POST-CLUSTER-INSTALL (formerly known as POST)  </li>
-<li>PRE-TERMINATION (new, useful for cleanup pre-termination tasks)<br />
+<li>PRE-TERMINATION (new, useful for cluster cleanup pre-termination tasks)<br />
 Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 </ul>
 <h5 id="disabling-cloud-providers">Disabling Cloud Providers</h5>
@@ -618,20 +618,13 @@ Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 <p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   </p>
 <p><em>Infrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]</em></p>
 <p><em>Workaround</em>: </p>
-<p>Do not use this option. It will be removed in a future release.  </p>
+<p>Do not use this option. It will be removed in a future release. </p>
 <hr />
 <h5 id="bug-92605-cluster-creation-fails-with-resourceinerror">(BUG-92605) Cluster Creation Fails with ResourceInError</h5>
 <p>Cluster creation fails with the following error: </p>
 <p><em>Infrastructure creation failed. Reason: Failed to create the stack for CloudContext{id=3689, name='test-exisitngnetwork', platform='StringType{value='OPENSTACK'}', owner='e0307f96-bd7d-4641-8c8f-b95f2667d9c6'} due to: Resource CREATE failed: ResourceInError: resources.ambari_volume_master_0_0: Went to status error due to "Unknown"</em></p>
 <p><em>Workaround</em>: </p>
 <p>This may mean that the volumes that you requested exceed volumes available on your cloud provider account. When creating a cluster, on the advanced <em>Hardware and Storage</em> page of the create cluster wizard, try reducing the amount of requested storage. If you need more storage, try using a different region or ask your cloud provider admin to increase the resource quota for volumes.  </p>
-<hr />
-<h5 id="bug-90985-openstack-cluster-creation-fails-at-network-configuration">(BUG-90985) OpenStack Cluster Creation Fails at Network Configuration</h5>
-<p>When creating a cluster on OpenStack, if you do not select an existing network and subnet, the cluster fails with an error similar to:<br />
-<em>Infrastructure creation failed. Reason: At least one of the following properties must be specified: network, network_id.</em> <br />
-<em>Infrastructure creation failed. Reason: The Parameter (router_id) was not provided.</em></p>
-<p><em>Workaround</em>: </p>
-<p>You must select an existing network and subnet when creating a cluster on OpenStack. </p>
 <hr />
 <h5 id="bug-93339-hiveserver2-process-could-not-establish-connection-to-jdbchive2">(BUG-93339) HiveServer2 Process Could Not Establish Connection to jdbc:hive2</h5>
 <p>When using EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0 blueprint with a two-node cluster, Ambari shows the following Alert on Hive: <em>HiveServer2 Process CRIT Connection failed on host...</em> </p>
@@ -650,28 +643,10 @@ Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 <p><em>Workaround:</em></p>
 <p>Scaling multiple host groups at once is not supported. If you would like to scale multiple host groups: scale the first host group and wait until scaling has completed, then scale the second host group, and so on.  </p>
 <hr />
-<h5 id="bug-93243-incorrect-recipe-type-is-listed">(BUG-93243) Incorrect Recipe Type Is Listed</h5>
-<p>After adding a post-ambari-start recipe, you may see it incorrectly listed as a post-ambari-install recipe. </p>
-<hr />
 <h5 id="bug-93257-clusters-are-missing-from-history">(BUG-93257) Clusters Are Missing From History</h5>
 <p>After changing the dates on the <em>History</em> page multiple times, the results displayed may sometimes be incorrect. </p>
 <p><em>Workaround:</em></p>
 <p>Refresh the page if you think that the history displayed may be incorrect.  </p>
-<hr />
-<h5 id="rmp-10340-unable-to-dekerberize-the-cluster-during-cluster-termination">(RMP-10340) Unable to Dekerberize the Cluster During Cluster Termination</h5>
-<p>Cluster with Cloudbreak provisioned Kerberos fails during dekerberizing. The Ambari shows the following error:</p>
-<p><em>ERROR [ambari-heartbeat-processor-0] ServiceComponentHostImpl:1025 - Can't handle ServiceComponentHostEvent event at current state, serviceComponentName=ZOOKEEPER_CLIENT, hostName=host-10-0-0-3.openstacklocal, currentState=INSTALLED, eventType=HOST_SVCCOMP_STOPPED, event=EventType: HOST_SVCCOMP_STOPPED<br />
-WARN [ambari-heartbeat-processor-0] HeartbeatProcessor:567 - State machine exception. Invalid event: HOST_SVCCOMP_STOPPED at INSTALLED<br />
-ERROR [Server Action Executor Worker 62] PrepareDisableKerberosServerAction:151 - The data directory has not been set.  Generated data can not be stored.<br />
-WARN [Server Action Executor Worker 62] ServerActionExecutor:458 - Task #62 failed to complete execution due to thrown exception: org.apache.ambari.server.AmbariException:The data directory has not been set.  Generated data can not be stored.
-org.apache.ambari.server.AmbariException: The data directory has not been set.  Generated data can not be stored.
-        at org.apache.ambari.server.serveraction.kerberos.PrepareDisableKerberosServerAction.execute(PrepareDisableKerberosServerAction.java:152)
-        at org.apache.ambari.server.serveraction.ServerActionExecutor$Worker.execute(ServerActionExecutor.java:516)
-        at org.apache.ambari.server.serveraction.ServerActionExecutor$Worker.run(ServerActionExecutor.java:453)
-        at java.lang.Thread.run(Thread.java:748)<br />
-ERROR [ambari-action-scheduler] ActionScheduler:447 - Operation completely failed, aborting request id: 30</em></p>
-<p><em>Workaround:</em></p>
-<p>Try terminating the cluster again. </p>
 <hr /></div>
         
     </div>
