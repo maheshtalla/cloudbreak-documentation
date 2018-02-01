@@ -775,25 +775,24 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 </thead>
 <tbody>
 <tr>
-<td>Base Images</td>
+<td><strong>Base Images</strong></td>
 <td>Base images include default configuration and default tooling. These images include the operating system but do not include Ambari or HDP software.</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Prewarmed Images</td>
+<td><strong>Prewarmed Images</strong></td>
 <td>By default, Cloudbreak launches clusters from prewarmed images. Prewarmed images include the operating system as well as Ambari and HDP. The HDP and Ambari version used by prewarmed images cannot be customized.</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 </tbody>
 </table>
-<p>By default, Cloudbreak uses the included default <strong>Prewarmed Images</strong>, which include the operating system, as well as
-Ambari and HDP packages installed. </p>
-<p>You can optionally select the <strong>Base Image</strong> option if you would like to:</p>
+<p>By default, Cloudbreak uses the included default <strong>prewarmed images</strong>, which include the operating system, as well as
+Ambari and HDP packages installed. You can optionally select the <strong>base image</strong> option if you would like to:</p>
 <ul>
-<li>Use an Ambari and HDP versions different than what the <strong>Prewarmed Image</strong> includes and/or  </li>
-<li>Choose a previously created custom <strong>Base Image</strong></li>
+<li>Use an Ambari and HDP versions different than what the prewarmed image includes and/or  </li>
+<li>Choose a previously created custom base image</li>
 </ul>
 <p><strong>Choose Image</strong>  </p>
 <p>If under <a href="#choose-image-catalog">Choose Image Catalog</a>, you selected a custom image catalog, under <strong>Choose Image</strong> you can select an image from that catalog. For complete instructions, refer to <a href="../images/index.html">Custom Images</a>. </p>
@@ -812,12 +811,12 @@ Ambari and HDP packages installed. </p>
 <tr>
 <td>Version</td>
 <td>Ambari version.</td>
-<td>2.6.1.0!!!</td>
+<td>2.6.1.0</td>
 </tr>
 <tr>
 <td>Repo Url</td>
 <td>URL to the Ambari version repo.</td>
-<td>http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.6.1.0!!!</td>
+<td>http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.6.1.0</td>
 </tr>
 <tr>
 <td>Repo Gpg Key Url</td>
@@ -845,7 +844,7 @@ Ambari and HDP packages installed. </p>
 <tr>
 <td>Version</td>
 <td>Stack version.</td>
-<td>2.6!!!</td>
+<td>2.6</td>
 </tr>
 <tr>
 <td>OS</td>
@@ -860,7 +859,7 @@ Ambari and HDP packages installed. </p>
 <tr>
 <td>Base Url</td>
 <td>URL to the repo storing the desired stack version.</td>
-<td>http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.1.0!!!</td>
+<td>http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.1.0</td>
 </tr>
 <tr>
 <td>Utils Repo Id</td>
@@ -874,7 +873,6 @@ Ambari and HDP packages installed. </p>
 </tr>
 </tbody>
 </table>
-<p>!!! THE LZO AND GPL REPO STUFF WILL END UP HERE https://hortonworks.jira.com/browse/RMP-10635 and https://hortonworks.jira.com/browse/BUG-95132 !!!</p>
 <p><strong>Related Links</strong>    <br />
 <a href="../images/index.html">Custom Images</a>      </p>
 <h4 id="enable-lifetime-management">Enable Lifetime Management</h4>
