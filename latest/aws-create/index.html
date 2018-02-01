@@ -775,32 +775,26 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 </thead>
 <tbody>
 <tr>
-<td>Prewarmed Images</td>
-<td>By default, Cloudbreak launches clusters from prewarmed images. Prewarmed images include the operating system as well as Ambari and HDP. The HDP and Ambari version used by prewarmed images cannot be customized.</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr>
 <td>Base Images</td>
 <td>Base images include default configuration and default tooling. These images include the operating system but do not include Ambari or HDP software.</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
+<tr>
+<td>Prewarmed Images</td>
+<td>By default, Cloudbreak launches clusters from prewarmed images. Prewarmed images include the operating system as well as Ambari and HDP. The HDP and Ambari version used by prewarmed images cannot be customized.</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
 </tbody>
 </table>
-<p>By default, Cloudbreak uses <strong>Prewarmed Images</strong>, which include the operating system, as well as Ambari [version] and HDP [version]. </p>
+<p>By default, Cloudbreak uses the included default <strong>Prewarmed Images</strong>, which include the operating system, as well as
+Ambari and HDP packages installed. </p>
 <p>You can optionally select the <strong>Base Image</strong> option if you would like to:</p>
 <ul>
-<li>Use custom Ambari and HDP versions and/or  </li>
-<li>Choose a previously created custom base image   </li>
+<li>Use an Ambari and HDP versions different than what the <strong>Prewarmed Image</strong> includes and/or  </li>
+<li>Choose a previously created custom <strong>Base Image</strong></li>
 </ul>
-<div class="note">
-    <p class="first admonition-title">Supported Ambari and HDP Versions</p>
-    <p class="last">
-Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</b> and HDP <b>2.6.x</b></li><li>Ambari <b>2.5.x</b>.</li></ul>Ambari 2.6.x is not supported.  
-</p>
-</div>
-
 <p><strong>Choose Image</strong>  </p>
 <p>If under <a href="#choose-image-catalog">Choose Image Catalog</a>, you selected a custom image catalog, under <strong>Choose Image</strong> you can select an image from that catalog. For complete instructions, refer to <a href="../images/index.html">Custom Images</a>. </p>
 <p>If you are trying to customize Ambari and HDP versions, you can ignore the <strong>Choose Image</strong> option; in this case default base image is used.</p>
@@ -818,12 +812,12 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 <tr>
 <td>Version</td>
 <td>Ambari version.</td>
-<td>2.5.1.0</td>
+<td>2.6.1.0!!!</td>
 </tr>
 <tr>
 <td>Repo Url</td>
 <td>URL to the Ambari version repo.</td>
-<td>http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.1.0</td>
+<td>http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.6.1.0!!!</td>
 </tr>
 <tr>
 <td>Repo Gpg Key Url</td>
@@ -851,7 +845,7 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 <tr>
 <td>Version</td>
 <td>Stack version.</td>
-<td>2.6</td>
+<td>2.6!!!</td>
 </tr>
 <tr>
 <td>OS</td>
@@ -866,7 +860,7 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 <tr>
 <td>Base Url</td>
 <td>URL to the repo storing the desired stack version.</td>
-<td>http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.1.0</td>
+<td>http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.1.0!!!</td>
 </tr>
 <tr>
 <td>Utils Repo Id</td>
@@ -880,6 +874,7 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
 </tr>
 </tbody>
 </table>
+<p>!!! THE LZO AND GPL REPO STUFF WILL END UP HERE https://hortonworks.jira.com/browse/RMP-10635 and https://hortonworks.jira.com/browse/BUG-95132 !!!</p>
 <p><strong>Related Links</strong>    <br />
 <a href="../images/index.html">Custom Images</a>      </p>
 <h4 id="enable-lifetime-management">Enable Lifetime Management</h4>
@@ -947,7 +942,7 @@ Cloudbreak supports the following HDP and Ambari versions:<ul><li>HDP <b>2.5.x</
     <footer class="col-md-12 text-center">
         <hr>
         <p>
-        <small>© 2011-2017 <a href="http://www.hortonworks.com" target="_blank">Hortonworks Inc</a>. All Rights Reserved. | <a href="http://hortonworks.com/privacy-policy/" target="_blank">Privacy Policy</a><br></small>
+        <small>© 2011-2018 <a href="http://www.hortonworks.com" target="_blank">Hortonworks Inc</a>. All Rights Reserved. | <a href="http://hortonworks.com/privacy-policy/" target="_blank">Privacy Policy</a><br></small>
         
         <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
     </footer>
