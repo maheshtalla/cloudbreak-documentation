@@ -551,9 +551,7 @@
             
                 <li class="third-level"><a href="#choose-image-catalog">Choose Image Catalog</a></li>
             
-                <li class="third-level"><a href="#prewarmed-images">Prewarmed Images</a></li>
-            
-                <li class="third-level"><a href="#base-images">Base Images</a></li>
+                <li class="third-level"><a href="#prewarmed-and-base-images">Prewarmed and Base Images</a></li>
             
                 <li class="third-level"><a href="#enable-lifetime-management">Enable Lifetime Management</a></li>
             
@@ -755,10 +753,34 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 <p>By default, <strong>Choose Image Catalog</strong> is set to the default image catalog that is provided with Cloudbreak. If you would like to use a different image catalog, you must first create and register it. For complete instructions, refer to <a href="../images/index.html">Custom Images</a>.</p>
 <p><strong>Related Links</strong>   <br />
 <a href="../images/index.html">Custom Images</a>  </p>
-<h4 id="prewarmed-images">Prewarmed Images</h4>
-<p>By default, Cloudbreak uses prewarmed images, which include the operating system, as well as Ambari [version] and HDP [version]. If you would like to use different Ambari and HDP versions, use the base image instead of a prewarmed image. Refer to <a href="#base-images">Base Images</a>. </p>
-<h4 id="base-images">Base Images</h4>
-<p>Select the <strong>Base Image</strong> option if you would like to:</p>
+<h4 id="prewarmed-and-base-images">Prewarmed and Base Images</h4>
+<p>Cloudbreak supports the following types of images for launching clusters:</p>
+<table>
+<thead>
+<tr>
+<th>Image Type</th>
+<th>Description</th>
+<th>Default Images Provided</th>
+<th>Support for Custom Images</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prewarmed Images</td>
+<td>By default, Cloudbreak launches clusters from prewarmed images. Prewarmed images include the operating system as well as Ambari and HDP. The HDP and Ambari version used by prewarmed images cannot be customized.</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Base Images</td>
+<td>Base images include default configuration and default tooling. These images include the operating system but do not include Ambari or HDP software.</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>By default, Cloudbreak uses <strong>Prewarmed Images</strong>, which include the operating system, as well as Ambari [version] and HDP [version]. </p>
+<p>You can optionally select the <strong>Base Image</strong> option if you would like to:</p>
 <ul>
 <li>Use custom Ambari and HDP versions and/or  </li>
 <li>Choose a previously created custom base image   </li>
