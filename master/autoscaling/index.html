@@ -567,9 +567,9 @@
         <div class="col-md-9" role="main">
 
 <h2 id="autoscaling">Autoscaling</h2>
-<p>Autoscaling allows you to set up automatic cluster scaling based on Ambari metrics or based on time. When creating an autoscaling policy, you define:</p>
+<p>Autoscaling allows you to adjust cluster capacity based on Ambari metrics and alerts, as well as schedule time-based capacity adjustment. When creating an autoscaling policy, you define:</p>
 <ul>
-<li>An <strong>alert</strong> that triggers a scaling policy.   </li>
+<li>An <strong>alert</strong> that triggers a scaling policy. An alert can be based on an Ambari metric or can be time-based.     </li>
 <li>A <strong>scaling policy</strong> that adds or removes a set number of nodes to a selected host group when the conditions defined in the attached alert are met.   </li>
 </ul>
 <p><strong>Metric-based Autoscaling</strong></p>
@@ -583,16 +583,16 @@
 </thead>
 <tbody>
 <tr>
-<td><em>????</em> alert with <em>CRITICAL</em> state for 5 minutes</td>
+<td><em>ResourceManager CPU</em> alert with <em>CRITICAL</em> state for 5 minutes</td>
 <td>Add 10 worker nodes</td>
 </tr>
 <tr>
-<td><em>????</em> alert with <em>CRITICAL</em> state for 10 minutes</td>
-<td>Set the number of worker nodes to 30</td>
+<td><em>HDFS Capacity Utilization</em> alert with <em>WARN</em> state for 20 minutes</td>
+<td>Set the number of worker nodes to 50</td>
 </tr>
 <tr>
-<td><em>????</em> alert with <em>CRITICAL</em> state for 15 minutes</td>
-<td>Increase the number of worker nodes by 80%</td>
+<td><em>Ambari Server Alerts</em> alert with <em>CRITICAL</em> state for 15 minutes</td>
+<td>Decrease the number of worker nodes by 80%</td>
 </tr>
 </tbody>
 </table>
@@ -631,24 +631,54 @@
 <li>
 <p>The toggle button turns green and you can see that "Autoscaling is enabled".</p>
 </li>
-<li><a href="#defining-an-alert">Define alerts</a> and <a href="#create-a-scaling-policy">scaling policies</a>. </li>
+<li><a href="#defining-an-alert">Define alerts</a> and <a href="#create-a-scaling-policy">define scaling policies</a>. </li>
 </ol>
+<p>If you decide to disable autoscaling, your previously defined alerts and policies will be preserved. </p>
 <h3 id="defining-an-alert">Defining an Alert</h3>
 <p>After you have enabled autoscaling, define a metric-based or time-based alert.  </p>
 <h4 id="define-a-metric-based-alert">Define a Metric-based Alert</h4>
 <p>To create a metric-based alert, perform the following steps.  </p>
 <blockquote>
-<p>If you would like to change default thresholds for an Ambari metric, refer to <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.0/bk_ambari-operations/content/modifying_alerts.html">Modifying Alerts</a> in Ambari documentation. 
-If you would like to create a custom Ambari alert, refer to <a href="https://community.hortonworks.com/articles/143762/how-to-create-a-custom-ambari-alert-and-use-it-for.html">How to Create a Custom Ambari Alert and Use it for Cloudbreak Autoscaling Policies</a>.</p>
+<p>If you would like to change default thresholds for an Ambari metric, refer to <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.0/bk_ambari-operations/content/modifying_alerts.html">Modifying Alerts</a> in Ambari documentation. </p>
+<p>If you would like to create a custom Ambari alert, refer to <a href="https://community.hortonworks.com/articles/143762/how-to-create-a-custom-ambari-alert-and-use-it-for.html">How to Create a Custom Ambari Alert and Use it for Cloudbreak Autoscaling Policies</a>.</p>
 </blockquote>
 <p><strong>Steps</strong></p>
 <ol>
 <li><a href="#enable-autoscaling">Enable autoscaling</a>.  </li>
 <li>In the <strong>Alert Configuration</strong> section, <strong>Metric Based</strong> alert type should be preselected:
     <a href="../images/cb-autoscaling2.png" target="_blank" title="click to enlarge"><img src="../images/cb-autoscaling2.png" width="650" title="Autoscaling in Cloudbreak UI"></a>    </li>
-<li>Enter alert name.</li>
-<li>Choose metric type, alert status, and alert duration that should trigger a scaling action.   </li>
-<li>Click <strong>+</strong> to save the alert.  </li>
+<li>
+<p>Provide the following information:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enter alert name</td>
+<td>Enter a unique name for the alert.</td>
+</tr>
+<tr>
+<td>Choose metric type</td>
+<td>Select an Ambari metric should trigger the alert.</td>
+</tr>
+<tr>
+<td>Alert status</td>
+<td>Select an alert type that should trigger an alert for the selected metric. One of: OK, CRITICAL, WARNING.</td>
+</tr>
+<tr>
+<td>Alert duration</td>
+<td>Select an alert duration that should trigger an alert.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click <strong>+</strong> to save the alert.  </p>
+</li>
 </ol>
 <p>Once you have defined an alert, <a href="#create-a-scaling-policy">create a scaling policy</a> that this metric should trigger.</p>
 <p><strong>Related Links:</strong><br />
@@ -661,10 +691,34 @@ If you would like to create a custom Ambari alert, refer to <a href="https://com
 <li><a href="#enable-autoscaling">Enable autoscaling</a>.  </li>
 <li>In the <strong>Alert Configuration</strong> section, select the <strong>Time Based</strong> alert type:<br />
     <a href="../images/cb-autoscaling3.png" target="_blank" title="click to enlarge"><img src="../images/cb-autoscaling3.png" width="650" title="Autoscaling in Cloudbreak UI"></a>  </li>
-<li>Enter alert name.  </li>
-<li>Select your timezone.   </li>
-<li>Enter a cron expression to define the frequency of the alert. Refer to <a href="http://www.cronmaker.com/">Cron Expression Generator</a>.  </li>
-<li>Click <strong>+</strong> to save the alert.   </li>
+<li>
+<p>Provide the following information: </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enter alert name.</td>
+<td>Enter a unique name for the alert.</td>
+</tr>
+<tr>
+<td>Select timezone.</td>
+<td>Select your timezone.</td>
+</tr>
+<tr>
+<td>Enter cron expression</td>
+<td>Enter a cron expression to define the frequency of the alert. Refer to <a href="http://www.cronmaker.com/">Cron Expression Generator</a>.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click <strong>+</strong> to save the alert.   </p>
+</li>
 </ol>
 <p>Once you have defined an alert, <a href="#create-a-scaling-policy">create a scaling policy</a> that this metric should trigger.</p>
 <h3 id="create-a-scaling-policy">Create a Scaling Policy</h3>
@@ -673,14 +727,48 @@ If you would like to create a custom Ambari alert, refer to <a href="https://com
 <ol>
 <li><a href="#enable-autoscaling">Enable autoscaling</a> and <a href="#defining-an-alert">create at least one alert</a>.  </li>
 <li>In the <strong>Policy Configuration</strong> section, provide the information required:
-    <a href="../images/cb-autoscaling4.png" target="_blank" title="click to enlarge"><img src="../images/cb-autoscaling4.png" width="650" title="Autoscaling in Cloudbreak UI"></a>   </li>
-<li>Enter a unique name for your policy.   </li>
-<li>Select one of the following actions: Add, Remove, or Set.  </li>
-<li>Enter a number defining how many or what percentage of nodes to add or remove. If the action selected is "set", this defines the number of nodes that the host group will be set to during scaling.  </li>
-<li>Select "nodes" or "percent", depending on whether you want to scale to a specific number, or percent of current number of nodes.  </li>
-<li>Select the host group to which to apply the scaling.  </li>
-<li>Select the alert based on which the scaling should be applied.   </li>
-<li>Click <strong>+</strong> to save the alert.   </li>
+    <a href="../images/cb-autoscaling4.png" target="_blank" title="click to enlarge"><img src="../images/cb-autoscaling4.png" width="650" title="Autoscaling in Cloudbreak UI"></a>  </li>
+<li>
+<p>Provide the following information: </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enter policy name</td>
+<td>Enter a unique name for the policy.</td>
+</tr>
+<tr>
+<td>Select action</td>
+<td>Select one of the following actions: Add (to add nodes to a host group) Remove (to delete nodes from a host group), or Set (to set the number of nodes in a host group to the chosen number).</td>
+</tr>
+<tr>
+<td>Enter number or percentage</td>
+<td>Enter a number defining how many or what percentage of nodes to add or remove. If the action selected is "set", this defines the number of nodes that a host group will be set to after scaling.</td>
+</tr>
+<tr>
+<td>Select nodes of percent</td>
+<td>Select "nodes" or "percent", depending on whether you want to scale to a specific number, or percent of current number of nodes.</td>
+</tr>
+<tr>
+<td>Select host group</td>
+<td>Select the host group to which to apply the scaling.</td>
+</tr>
+<tr>
+<td>Choose an alert</td>
+<td>Select the alert based on which the scaling should be applied.</td>
+</tr>
+<tr>
+<td>9. Click <strong>+</strong> to save the alert.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
 </ol>
 <h3 id="configure-autoscaling-settings">Configure Autoscaling Settings</h3>
 <p>To configure the auto scaling settings for your cluster, perform these steps. </p>
@@ -707,7 +795,7 @@ If you would like to create a custom Ambari alert, refer to <a href="https://com
 <tr>
 <td>Minimum Cluster Size</td>
 <td>The minimum size allowed for the cluster. Auto scaling policies cannot scale the cluster below or above this size.</td>
-<td>3 nodes</td>
+<td>2 nodes</td>
 </tr>
 <tr>
 <td>Maximum Cluster Size</td>
