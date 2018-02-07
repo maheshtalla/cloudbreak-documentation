@@ -555,8 +555,6 @@
             
                 <li class="third-level"><a href="#sample-recipe-for-yum-proxy-setting">Sample Recipe for Yum Proxy Setting</a></li>
             
-                <li class="third-level"><a href="#recipe-to-install-ext-js-for-oozie">Recipe to Install Ext JS for Oozie</a></li>
-            
         
             <li class="second-level"><a href="#add-recipes">Add Recipes</a></li>
             
@@ -596,25 +594,6 @@ proxy=http://10.0.0.133:3128
 ENDOF
 </code></pre>
 
-<h4 id="recipe-to-install-ext-js-for-oozie">Recipe to Install Ext JS for Oozie</h4>
-<p>Ext JS is GPL licensed software and is no longer included in builds of HDP 2.6. Because of this, the Oozie WAR file is not built to include the Ext JS-based user interface unless Ext JS is manually installed on the Oozie server. If you add Oozie using Ambari 2.6.1.0 to an HDP 2.6.4 or greater stack, no Oozie UI will be available by default. Therefore, if you plan to use Oozie web UI with Ambari 2.6.1.0 and HDP 2.6.4 or greater, you you must manually install Ext JS on the Oozie server host.</p>
-<p>You can install Ext JS by adding the following PRE-AMBARI-START recipe:</p>
-<pre>export EXT_JS_VERSION=2.2-1
-     export OS_NAME=centos6
-     wget http://public-repo-1.hortonworks.com/HDP-UTILS-GPL-1.1.0.22/repos/$OS_NAME/extjs/extjs-$EXT_JS_VERSION.noarch.rpm
-     rpm -ivh extjs-$EXT_JS_VERSION.noarch.rpm</pre>
-
-<p>Make the following changes to the script:</p>
-<ul>
-<li>Change the EXT_JS_VERSION to the specific ExtJS version that you want to use.  </li>
-<li>Change the OS_NAME to the name of the operating system. Supported values are: centos6, centos7, centos7-ppc.</li>
-</ul>
-<p>The general steps are:</p>
-<ol>
-<li>Be sure to review and agree to the Ext JS license prior to using this recipe.  </li>
-<li>Create a PRE-AMBARI-START recipe. For instructions on how to create a recipe, refer to <a href="#add-recipes">Add Recipes</a>.   </li>
-<li>When creating a cluster, choose this recipe to be executed on all host groups of the cluster.</li>
-</ol>
 <h3 id="add-recipes">Add Recipes</h3>
 <p>To add a recipe, perform these steps.</p>
 <p><strong>Steps</strong></p>
