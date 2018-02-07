@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/releasenotes/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/trouble-cluster/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Release Notes - Cloudbreak</title>
+    <title>Troubleshooting Cluster Creation - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -250,7 +250,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -422,8 +422,8 @@
 
         
             
-<li >
-    <a href="../trouble-cluster/index.html">Troubleshooting Cluster Creation</a>
+<li class="active">
+    <a href="index.html">Troubleshooting Cluster Creation</a>
 </li>
 
         
@@ -466,13 +466,13 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="index.html">Release Notes</a>
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
 </li>
 
                         
@@ -519,12 +519,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../dev/index.html">
+                        <a rel="next" href="../trouble-cb/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../faq/index.html">
+                        <a rel="prev" href="../trouble-aws/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -549,17 +549,9 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#release-notes">Release Notes</a></li>
+        <li class="first-level active"><a href="#troubleshooting-cluster-creation">Troubleshooting Cluster Creation</a></li>
         
-            <li class="second-level"><a href="#240">2.4.0</a></li>
-            
-                <li class="third-level"><a href="#new-features">New Features</a></li>
-            
-                <li class="third-level"><a href="#behavioral-changes">Behavioral Changes</a></li>
-            
-                <li class="third-level"><a href="#fixed-issues">Fixed Issues</a></li>
-            
-                <li class="third-level"><a href="#known-issues">Known Issues</a></li>
+            <li class="second-level"><a href="#cannot-access-oozie-web-ui">Cannot Access Oozie Web UI</a></li>
             
         
     
@@ -567,117 +559,26 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="release-notes">Release Notes</h2>
-<h3 id="240">2.4.0</h3>
-<p>Cloudbreak 2.4.0 is a general availability release, which is suitable for production deployments. </p>
-<hr />
-<h4 id="new-features">New Features</h4>
-<hr />
-<h5 id="new-uiux">New UI/UX</h5>
-<p>Cloudbreak 2 introduces a new user interface, designed to make user interaction with Cloudbreak easier.</p>
-<h5 id="new-cli">New CLI</h5>
-<p>Cloudbreak 2.1.0 TP introduces a new CLI tool. All commands start with a singular object followed by an action, for example, blueprint create instead of create blueprint, and blueprint list instead of list blueprints. Refer to <a href="../cli-install/index.html">Install CLI</a> and <a href="../cli-reference/index.html">CLI Reference</a>.</p>
-<h5 id="support-for-kerberos">Support for Kerberos</h5>
-<p>Creating Kerberos-enabled clusters is supported. Refer to <a href="../security-kerberos/index.html">Enabling Kerberos Security</a>.</p>
-<h5 id="support-for-configuring-an-external-rdbms-for-cloudbreak">Support for Configuring an External RDBMS for Cloudbreak</h5>
-<p>Using an external RDBMS for Cloubdreak is supported. For configuration instructions, refer to <a href="../cb-db/index.html">Configuring External Cloudbreak Database</a>.</p>
-<h5 id="support-for-migrating-cloudbreak-instance">Support for Migrating Cloudbreak Instance</h5>
-<p>Migrating Cloudbreak from one machine to another is supported. For migration instructions, refer to <a href="../cb-migrate/index.html">Moving a Cloudbreak Instance</a>.</p>
-<h5 id="providing-your-own-jdk">Providing Your Own JDK</h5>
-<p>Providing your own JDK on a custom base image is supported. For instructions, refer to "Advanced topics" in the <a href="https://github.com/hortonworks/cloudbreak-images">https://github.com/hortonworks/cloudbreak-images</a> repository.</p>
-<h5 id="prewarmed-images">Prewarmed Images</h5>
-<p>To accelerate cluster creation, CLoudbreak 2.4 introduces prewarmed images, which include the operating system, as well as the default version of Ambari and HDP. By default, Cloudbreak 2.4 launches clusters from these prewarmed images, instead of using base images (which were used by default in earlier versions of Cloudbreak). Default base images are still available in case you would like to use different Ambari and HDP versions than those provided with prewarmed images. For more information, refer to <a href="../aws-create/index.html#prewarmed-and-base-images">Prewardmed and Base Images</a>. </p>
-<h5 id="cli-templates">CLI Templates</h5>
-<p>After specifying the parameters for your cluster in the Cloudbreak web UI, you can copy the content of the CLI JSON file that can be used to create a cluster via Cloudbreeak CLI. For more information, refer to <a href="../cli-get-started/index.html#obtain-cluster-json-template-from-the-ui">Obtain Cluster JSON Template from the UI</a>.    </p>
-<p>Furthermore, Cloudbreak web UI includes an option in the UI which allows you to generate the  <code>create</code> command for resources such as credentials, blueprints, clusters, and recipes. For more information, refer to <a href="../cli-get-started/index.html#obtain-cli-command-from-the-ui">Obtain CLI Command from the UI</a>.  </p>
-<h5 id="new-recipe-types">New Recipe Types</h5>
-<p>New types of recipes are introduced:</p>
+<h2 id="troubleshooting-cluster-creation">Troubleshooting Cluster Creation</h2>
+<h3 id="cannot-access-oozie-web-ui">Cannot Access Oozie Web UI</h3>
+<p>Ext JS is GPL licensed software and is no longer included in builds of HDP 2.6. Because of this, the Oozie WAR file is not built to include the Ext JS-based user interface unless Ext JS is manually installed on the Oozie server. If you add Oozie using Ambari 2.6.1.0 to an HDP 2.6.4 or greater stack, no Oozie UI will be available by default. Therefore, if you plan to use Oozie web UI with Ambari 2.6.1.0 and HDP 2.6.4 or greater, you you must manually install Ext JS on the Oozie server host.</p>
+<p>You can install Ext JS by adding the following PRE-AMBARI-START recipe:</p>
+<pre>export EXT_JS_VERSION=2.2-1
+     export OS_NAME=centos6
+     wget http://public-repo-1.hortonworks.com/HDP-UTILS-GPL-1.1.0.22/repos/$OS_NAME/extjs/extjs-$EXT_JS_VERSION.noarch.rpm
+     rpm -ivh extjs-$EXT_JS_VERSION.noarch.rpm</pre>
+
+<p>Make the following changes to the script:</p>
 <ul>
-<li>PRE-AMBARI-START (new, useful for configuring Ambari prior to start)  </li>
-<li>POST-AMBARI-START (formerly known as PRE)  </li>
-<li>POST-CLUSTER-INSTALL (formerly known as POST)  </li>
-<li>PRE-TERMINATION (new, useful for cluster cleanup pre-termination tasks)<br />
-Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
+<li>Change the EXT_JS_VERSION to the specific ExtJS version that you want to use.  </li>
+<li>Change the OS_NAME to the name of the operating system. Supported values are: centos6, centos7, centos7-ppc.</li>
 </ul>
-<h5 id="disabling-cloud-providers">Disabling Cloud Providers</h5>
-<p>You can hide cloud providers available in Cloudbreak by adding the <code>CB_ENABLEDPLATFORMS</code> environment variable in Profile and setting it to the provider(s) that you would like to have available. For more information, refer to <a href="../cb-disable-provider/index.html">Disable Providers</a>.</p>
-<h5 id="support-for-ambari-26">Support for Ambari 2.6</h5>
-<p>TBD</p>
-<h5 id="ambari-master-key">Ambari Master Key</h5>
-<hr />
-<h4 id="behavioral-changes">Behavioral Changes</h4>
-<hr />
-<h5 id="custom-images">Custom Images</h5>
-<p>The functionality which enables you to create custom images was changed and improved. Refer to <a href="../images/index.html">Custom Images</a>.</p>
-<h5 id="prewarmed-images-are-used-by-default">Prewarmed Images Are Used By Default</h5>
-<p>By default, Cloudbreak 2.4 launches clusters from these prewarmed images, instead of base images (which were used by default in earlier versions of Cloudbreak). For more information, refer to <a href="../aws-create/index.html#prewarmed-and-base-images">Prewardmed and Base Images</a>. </p>
-<h5 id="removal-of-cloudbreak-shell">Removal of Cloudbreak Shell</h5>
-<p>Cloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the <a href="../cli-install/index.html">Cloudbreak CLI</a>.</p>
-<h5 id="removal-of-platforms">Removal of Platforms</h5>
-<p>The <a href="http://hortonworks.github.io/cloudbreak-docs/release-1.16.5/topologies/">Platforms</a> feature was removed.</p>
-<h5 id="removal-of-mesos">Removal of Mesos</h5>
-<p>Cloudbreak 2 does not support Mesos cloud provider.</p>
-<h5 id="removal-of-templates">Removal of Templates</h5>
-<p>Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard.</p>
-<hr />
-<h4 id="fixed-issues">Fixed Issues</h4>
-<hr />
-<hr />
-<h4 id="known-issues">Known Issues</h4>
-<hr />
-<h5 id="bug-93548-aws-region-eu-west-3-is-not-supported">(BUG-93548) AWS Region eu-west-3 Is Not Supported</h5>
-<p>The AWS region eu-west-3 can be selected during cluster creation. However, it is not supported by Cloudbreak.</p>
-<p><em>Workaround</em>: </p>
-<p>Do not use the AWS region eu-west-3. Instead, use eu-west-1 or eu-west-2.</p>
-<hr />
-<h5 id="bug-91543-networks-with-no-subnets-are-not-supported">(BUG-91543) Networks With No Subnets Are Not Supported</h5>
-<p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   </p>
-<p><em>Infrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]</em></p>
-<p><em>Workaround</em>: </p>
-<p>Do not use this option. It will be removed in a future release. </p>
-<hr />
-<h5 id="bug-92605-cluster-creation-fails-with-resourceinerror">(BUG-92605) Cluster Creation Fails with ResourceInError</h5>
-<p>Cluster creation fails with the following error: </p>
-<p><em>Infrastructure creation failed. Reason: Failed to create the stack for CloudContext{id=3689, name='test-exisitngnetwork', platform='StringType{value='OPENSTACK'}', owner='e0307f96-bd7d-4641-8c8f-b95f2667d9c6'} due to: Resource CREATE failed: ResourceInError: resources.ambari_volume_master_0_0: Went to status error due to "Unknown"</em></p>
-<p><em>Workaround</em>: </p>
-<p>This may mean that the volumes that you requested exceed volumes available on your cloud provider account. When creating a cluster, on the advanced <em>Hardware and Storage</em> page of the create cluster wizard, try reducing the amount of requested storage. If you need more storage, try using a different region or ask your cloud provider admin to increase the resource quota for volumes.  </p>
-<hr />
-<h5 id="bug-93339-hiveserver2-process-could-not-establish-connection-to-jdbchive2">(BUG-93339) HiveServer2 Process Could Not Establish Connection to jdbc:hive2</h5>
-<p>When using EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0 blueprint with a two-node cluster, Ambari shows the following Alert on Hive: <em>HiveServer2 Process CRIT Connection failed on host...</em> </p>
-<p><em>Workaround:</em> </p>
-<ul>
-<li>Although it is possible to create a cluster with less than 3 nodes, in order to use the EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0 blueprint, you must have at least 3 nodes: 1 Ambari node and 2 non-Ambari nodes. Terminate the cluster and create a new one with at least 3 nodes.   </li>
-<li>Alternatively, it is possible to resolve this issue by adding an additional NodeManager for the Ambari host group.  </li>
-</ul>
-<hr />
-<h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
-<p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
-<hr />
-<h5 id="bug-93241-error-when-scaling-multiple-host-groups">(BUG-93241) Error When Scaling Multiple Host Groups</h5>
-<p>Scaling of multiple host groups fails with the following error: 
-<em>Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1; nested exception is org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1</em></p>
-<p><em>Workaround:</em></p>
-<p>Scaling multiple host groups at once is not supported. If you would like to scale multiple host groups: scale the first host group and wait until scaling has completed, then scale the second host group, and so on.  </p>
-<hr />
-<h5 id="bug-95607-special-characters-in-blueprint-name-cause-an-error-in-cli">(BUG-95607) Special Characters in Blueprint Name Cause an Error in CLI</h5>
-<p>When registering a blueprint via <code>blueprint create</code> CLI command, if the name of the blueprint includes one or more of the following special characters <code>@#$%|:&amp;*;</code> you will get an error similar to:  </p>
-<p><em>cb blueprint create from-url --name test@# --url https://myurl.com/myblueprint.bp<br />
-[1] 7547
--bash: application.yml: command not found
--bash: --url: command not found
- ~  integration-test  1  time="2018-02-01T12:56:44+01:00" level="error" msg="the following parameters are missing: url\n"</em> </p>
-<p><em>Workaround:</em><br />
- You have two options:</p>
-<ul>
-<li>Do not include any of the following special characters <code>@#$%|:&amp;*;</code> in the blueprint name.  </li>
-<li>If you want to use special characters in the name, perform the task via the UI.  </li>
-</ul>
-<hr />
-<h5 id="bug-93257-clusters-are-missing-from-history">(BUG-93257) Clusters Are Missing From History</h5>
-<p>After changing the dates on the <em>History</em> page multiple times, the results displayed may sometimes be incorrect. </p>
-<p><em>Workaround:</em></p>
-<p>Refresh the page if you think that the history displayed may be incorrect.  </p>
-<hr /></div>
+<p>The general steps are:</p>
+<ol>
+<li>Be sure to review and agree to the Ext JS license prior to using this recipe.  </li>
+<li>Create a PRE-AMBARI-START recipe. For instructions on how to create a recipe, refer to <a href="#add-recipes">Add Recipes</a>.   </li>
+<li>When creating a cluster, choose this recipe to be executed on all host groups of the cluster. </li>
+</ol></div>
         
     </div>
 
