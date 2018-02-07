@@ -549,7 +549,7 @@
             
                 <li class="third-level"><a href="#sample-recipe-for-yum-proxy-setting">Sample Recipe for Yum Proxy Setting</a></li>
             
-                <li class="third-level"><a href="#recipe-to-install-extjs-for-oozie">Recipe to Install ExtJS for Oozie</a></li>
+                <li class="third-level"><a href="#recipe-to-install-ext-js-for-oozie">Recipe to Install Ext JS for Oozie</a></li>
             
         
             <li class="second-level"><a href="#add-recipes">Add Recipes</a></li>
@@ -590,9 +590,10 @@ proxy=http://10.0.0.133:3128
 ENDOF
 </code></pre>
 
-<h4 id="recipe-to-install-extjs-for-oozie">Recipe to Install ExtJS for Oozie</h4>
-<p>Oozie requires the ExtJS library to be on the host in order to build and use the Oozie Web UI. Ambari is not allowed to install this library, so if you plan to use Oozie, you must ensure that ExtJS is installed prior to installing Oozie (that is, prior to cluster install). </p>
-<p>You can add the following PRE-AMBARI-START recipe to install ExtJS:</p>
+<h4 id="recipe-to-install-ext-js-for-oozie">Recipe to Install Ext JS for Oozie</h4>
+<p>If you would like to use <strong>Oozie</strong> with <strong>Ambari 2.6.1 or newer</strong>, you must install the Ext JS library.</p>
+<p>Oozie requires the Ext JS library to be on the host in order to build and use the Oozie Web UI. Ambari is not allowed to install this library, so if you plan to use Oozie, you must ensure that ExtJS is installed prior to installing Oozie (that is, prior to cluster install). </p>
+<p>You can add the following PRE-AMBARI-START recipe to install Ext JS:</p>
 <pre>export EXT_JS_VERSION=2.2-1
      export OS_NAME=centos6
      wget http://public-repo-1.hortonworks.com/HDP-UTILS-GPL-1.1.0.22/repos/$OS_NAME/extjs/extjs-$EXT_JS_VERSION.noarch.rpm
@@ -605,7 +606,7 @@ ENDOF
 </ul>
 <p>The general steps are:</p>
 <ol>
-<li>Be sure to review and agree to the ExtJS license prior to using this recipe.  </li>
+<li>Be sure to review and agree to the Ext JS license prior to using this recipe.  </li>
 <li>Create a PRE-AMBARI-START recipe. For instructions on how to create a recipe, refer to <a href="#add-recipes">Add Recipes</a>.   </li>
 <li>When creating a cluster, choose this recipe to be executed on all host groups of the cluster.  </li>
 </ol>
