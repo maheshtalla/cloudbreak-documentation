@@ -549,6 +549,8 @@
             
                 <li class="third-level"><a href="#sample-recipe-for-yum-proxy-setting">Sample Recipe for Yum Proxy Setting</a></li>
             
+                <li class="third-level"><a href="#recipe-to-install-extjs-for-oozie">Recipe to Install ExtJS for Oozie</a></li>
+            
         
             <li class="second-level"><a href="#add-recipes">Add Recipes</a></li>
             
@@ -588,6 +590,24 @@ proxy=http://10.0.0.133:3128
 ENDOF
 </code></pre>
 
+<h4 id="recipe-to-install-extjs-for-oozie">Recipe to Install ExtJS for Oozie</h4>
+<p>Oozie requires the ExtJS library to be on the host in order to build and use the Oozie Web UI. Ambari is not allowed to install this library, so if you plan to use Oozie, you must ensure that ExtJS is installed prior to installing Oozie (that is, prior to cluster install). </p>
+<p>You can add the following PRE-AMBARI-START recipe to install ExtJS:</p>
+<pre>export EXT_JS_VERSION=2.2-1
+     export OS_NAME=centos6
+     wget http://public-repo-1.hortonworks.com/HDP-UTILS-GPL-1.1.0.22/repos/$OS_NAME/extjs/extjs-$EXT_JS_VERSION.noarch.rpm
+     rpm -ivh extjs-$EXT_JS_VERSION.noarch.rpm</pre>
+
+<p>Make the following changes to the script:</p>
+<ul>
+<li>Change the EXT_JS_VERSION to the specific ExtJS version that you want to use.  </li>
+<li>Change the OS_NAME to the name of the operating system. Supported values are: centos6, centos7, centos7-ppc.</li>
+</ul>
+<p>The general steps are:</p>
+<ol>
+<li>Be sure to review and agree to the ExtJS license prior to using this recipe.  </li>
+<li>Create a PRE-AMBARI-START recipe. For instructions on how to create a recipe, refer to <a href="#add-recipes">Add Recipes</a>.   </li>
+</ol>
 <h3 id="add-recipes">Add Recipes</h3>
 <p>To add a recipe, perform these steps.</p>
 <p><strong>Steps</strong></p>
