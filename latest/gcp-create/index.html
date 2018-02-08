@@ -816,23 +816,23 @@ Ambari and HDP packages installed. You can optionally select the <strong>base im
 <tr>
 <th>Parameter</th>
 <th>Description</th>
-<th>Example</th>
+<th>Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Version</td>
-<td>Ambari version.</td>
-<td>2.6.1.0</td>
+<td>Enter Ambari version.</td>
+<td>2.6.1.2</td>
 </tr>
 <tr>
 <td>Repo Url</td>
-<td>URL to the Ambari version repo.</td>
-<td>http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.6.1.0</td>
+<td>Provide a URL to the Ambari version repo that you would like to use.</td>
+<td>http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.6.1.2</td>
 </tr>
 <tr>
 <td>Repo Gpg Key Url</td>
-<td>URL to the repo GPG key. Each stable RPM package that is published by CentOS Project is signed with a GPG signature. By default, yum and the graphical update tools will verify these signatures and refuse to install any packages that are not signed, or have an incorrect signature.</td>
+<td>Provide a URL to the repo GPG key. Each stable RPM package that is published by CentOS Project is signed with a GPG signature. By default, yum and the graphical update tools will verify these signatures and refuse to install any packages that are not signed, or have an incorrect signature.</td>
 <td>http://public-repo-1.hortonworks.com/ambari/centos6/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins</td>
 </tr>
 </tbody>
@@ -844,7 +844,7 @@ Ambari and HDP packages installed. You can optionally select the <strong>base im
 <tr>
 <th>Parameter</th>
 <th>Description</th>
-<th>Example</th>
+<th>Default</th>
 </tr>
 </thead>
 <tbody>
@@ -861,27 +861,17 @@ Ambari and HDP packages installed. You can optionally select the <strong>base im
 <tr>
 <td>OS</td>
 <td>Operating system.</td>
-<td>centos7</td>
+<td>centos7 (Azure, GCP, OpenStack) or amazonlinux (AWS)</td>
 </tr>
 <tr>
-<td>Stack Repo Id</td>
-<td>Identifier for the repo linked in "Base Url".</td>
-<td>HDP-2.6</td>
+<td>Repository Version</td>
+<td>Enter repository version.</td>
+<td>2.6.4.0-91</td>
 </tr>
 <tr>
-<td>Base Url</td>
-<td>URL to the repo storing the desired stack version.</td>
-<td>http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.1.0</td>
-</tr>
-<tr>
-<td>Utils Repo Id</td>
-<td>Identifier for the repo linked in "Utils Base Url".</td>
-<td>HDP-UTILS-1.1.0.21</td>
-</tr>
-<tr>
-<td>Utils Base Url</td>
-<td>URL to the repo storing utilities for the desired stack version.</td>
-<td>http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos7</td>
+<td>Version Definition File</td>
+<td>Enter the URL of the VDF file.</td>
+<td>http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.4.0/HDP-2.6.4.0-91.xml</td>
 </tr>
 <tr>
 <td>Enable Ambari Server to download and install GPL Licensed LZO packages?</td>
