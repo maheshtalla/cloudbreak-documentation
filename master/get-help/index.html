@@ -601,7 +601,7 @@
 <p>The general steps are:</p>
 <ol>
 <li>Configure Smart Sense in your <code>Profile</code> file.   </li>
-<li>Register your Flex subscription in the Cloudbreak web UI or via CLI. You can register and manage multiple Flex subscriptions. For example, you can choose to use your Flex subscription to cover the Cloudbreak node.   </li>
+<li>Register your Flex subscription in the Cloudbreak web UI. You can register and manage multiple Flex subscriptions. For example, you can choose to use your Flex subscription to cover the Cloudbreak node.   </li>
 <li>When creating a cluster, you can select the Flex subscription that you want to use for the cluster.  </li>
 </ol>
 <h4 id="configuring-smartsense">Configuring SmartSense</h4>
@@ -616,19 +616,16 @@ export CB_SMARTSENSE_ID=A-00000000-C-00000000</pre>
 <p>You can do this in one of the two ways:</p>
 <ul>
 <li>When initiating Cloudbreak deployer  </li>
-<li>After you've already initiated Cloudbreak Deployer. If you choose this option, you must restart Cloudbreak using <code>cbd restart</code>.</li>
+<li>After you've already initiated Cloudbreak deployer. If you choose this option, you must restart Cloudbreak using <code>cbd restart</code>.</li>
 </ul>
-<blockquote>
-<p>SmartSense ID defined in the <code>Profile</code> file always overrides the ID registered via Cloudbreak CLI.</p>
-</blockquote>
 <h4 id="register-and-manage-flex-subscriptions">Register and Manage Flex Subscriptions</h4>
-<p>Once you log in to the Cloudbreak web UI, you can manage your Flex subscriptions from the <strong>Flex Subscriptions</strong> page available in the navigation menu. You can:</p>
+<p>Once you log in to the Cloudbreak web UI, you can manage your Flex subscriptions from the <strong>Settings</strong> page &gt; <strong>Flex Subscriptions</strong>. You can:</p>
 <ul>
 <li>Register a new Flex subscription.  </li>
+<li>Activate a Flex subscription.  </li>
 <li>Set a default Flex subscription.  </li>
 <li>Select a Flex subscription to be used for the Cloudbreak node.  </li>
 <li>Delete a Flex subscription.  </li>
-<li>Check which clusters are connected to a specific subscription.  </li>
 </ul>
 <h4 id="use-flex-subscription-for-a-cluster">Use Flex Subscription for a Cluster</h4>
 <p>When creating a cluster, you can select the Flex subscription that you want to use for the cluster.</p>
