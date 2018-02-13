@@ -640,6 +640,18 @@ Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 <p><em>Workaround:</em></p>
 <p>Scaling multiple host groups at once is not supported. If you would like to scale multiple host groups: scale the first host group and wait until scaling has completed, then scale the second host group, and so on.  </p>
 <hr />
+<h5 id="ambari-14149-ambari-cluster-could-not-be-started-after-stop">(AMBARI-14149) Ambari Cluster Could Not Be Started After Stop</h5>
+<p>When using Ambari version 2.5.0.3, after stopping and starting a cluster, Event History shows the following error:</p>
+<p><em>Ambari cluster could not be started. Reason: Failed to start Hadoop services.
+2/7/2018, 12:47:05 PM
+Starting Ambari services.
+2/7/2018, 12:47:04 PM
+Manual recovery is needed for the following failed nodes: <br />
+[host-10-0-0-4.openstacklocal, host-10-0-0-3.openstacklocal, host-10-0-0-5.openstacklocal</em></p>
+<p>Ambari dashboard shows that nodes are not sending heartbeats. </p>
+<p><em>Workaround:</em>  </p>
+<p>This issue is fixed in 2.5.1.0 and newer.  </p>
+<hr />
 <h5 id="bug-95607-special-characters-in-blueprint-name-cause-an-error-in-cli">(BUG-95607) Special Characters in Blueprint Name Cause an Error in CLI</h5>
 <p>When registering a blueprint via <code>blueprint create</code> CLI command, if the name of the blueprint includes one or more of the following special characters <code>@#$%|:&amp;*;</code> you will get an error similar to:  </p>
 <p><em>cb blueprint create from-url --name test@# --url https://myurl.com/myblueprint.bp<br />
