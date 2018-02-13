@@ -562,6 +562,8 @@
             
                 <li class="third-level"><a href="#use-flex-subscription-for-a-cluster">Use Flex Subscription for a Cluster</a></li>
             
+                <li class="third-level"><a href="#use-flex-subscription-for-cloudbreak-node">Use Flex Subscription for Cloudbreak Node</a></li>
+            
         
             <li class="second-level"><a href="#more-cloudbreak-resources">More Cloudbreak Resources</a></li>
             
@@ -619,17 +621,20 @@ export CB_SMARTSENSE_ID=A-00000000-C-00000000</pre>
 <li>After you've already initiated Cloudbreak deployer. If you choose this option, you must restart Cloudbreak using <code>cbd restart</code>.</li>
 </ul>
 <h4 id="register-and-manage-flex-subscriptions">Register and Manage Flex Subscriptions</h4>
-<p>Once you log in to the Cloudbreak web UI, you can manage your Flex subscriptions from the <strong>Settings</strong> page &gt; <strong>Flex Subscriptions</strong>. You can:</p>
+<p>Once you log in to the Cloudbreak web UI, you can manage your Flex subscriptions from the <strong>Settings</strong> page &gt; <strong>Flex Subscriptions</strong>:</p>
+<p><a href="../images/cb-flex-settings.png" target="_blank" title="click to enlarge"><img src="../images/cb-flex-settings.png" width="650" title="Autoscaling in Cloudbreak UI"></a>  </p>
+<p>You can:</p>
 <ul>
 <li>Register a new Flex subscription    </li>
 <li>Set a default Flex subscription ("Default")  </li>
 <li>Select a Flex subscription to be used for the Cloudbreak node ("Use for controller")  </li>
 <li>Delete a Flex subscription    </li>
 </ul>
-<p><a href="../images/cb-flex-settings.png" target="_blank" title="click to enlarge"><img src="../images/cb-flex-settings.png" width="650" title="Autoscaling in Cloudbreak UI"></a>  </p>
 <h4 id="use-flex-subscription-for-a-cluster">Use Flex Subscription for a Cluster</h4>
 <p>When creating a cluster, on the <strong>General Configuration</strong> page you can select the Flex subscription that you want to use for the cluster:</p>
 <p><a href="../images/cb-flex-cluster.png" target="_blank" title="click to enlarge"><img src="../images/cb-flex-cluster.png" width="650" title="Autoscaling in Cloudbreak UI"></a>  </p>
+<h4 id="use-flex-subscription-for-cloudbreak-node">Use Flex Subscription for Cloudbreak Node</h4>
+<p>To use a Flex subscription for Cloudbreak node, on the <strong>Settings</strong> page, in the <strong>Flex Subscriptions</strong> section, check the "Use for controller option" for the selected Flex ID.  </p>
 <h3 id="more-cloudbreak-resources">More Cloudbreak Resources</h3>
 <p>Check out the following documentation to learn more:</p>
 <table>
