@@ -602,7 +602,7 @@
 <ol>
 <li>Configure Smart Sense in your <code>Profile</code> file.   </li>
 <li>Register your Flex subscription in the Cloudbreak web UI. You can register and manage multiple Flex subscriptions. For example, you can choose to use your Flex subscription to cover the Cloudbreak node.   </li>
-<li>When creating a cluster, you can select the Flex subscription that you want to use for the cluster.  </li>
+<li>When creating a cluster, in the <strong>General Configuration</strong> &gt; <strong>Flex Subscription</strong>, you can select the Flex subscription that you want to use for the cluster.  </li>
 </ol>
 <h4 id="configuring-smartsense">Configuring SmartSense</h4>
 <p>To configure SmartSense in Cloudbreak, enable SmartSense and add your SmartSense ID to the <code>Profile</code> by adding the following variables:</p>
@@ -621,14 +621,15 @@ export CB_SMARTSENSE_ID=A-00000000-C-00000000</pre>
 <h4 id="register-and-manage-flex-subscriptions">Register and Manage Flex Subscriptions</h4>
 <p>Once you log in to the Cloudbreak web UI, you can manage your Flex subscriptions from the <strong>Settings</strong> page &gt; <strong>Flex Subscriptions</strong>. You can:</p>
 <ul>
-<li>Register a new Flex subscription.  </li>
-<li>Activate a Flex subscription.  </li>
-<li>Set a default Flex subscription.  </li>
-<li>Select a Flex subscription to be used for the Cloudbreak node.  </li>
-<li>Delete a Flex subscription.  </li>
+<li>Register a new Flex subscription    </li>
+<li>Set a default Flex subscription ("Default")  </li>
+<li>Select a Flex subscription to be used for the Cloudbreak node ("Use for controller")  </li>
+<li>Delete a Flex subscription    </li>
 </ul>
+<p><a href="../images/cb-flex-settings.png" target="_blank" title="click to enlarge"><img src="../images/cb-flex-settings.png" width="650" title="Autoscaling in Cloudbreak UI"></a>  </p>
 <h4 id="use-flex-subscription-for-a-cluster">Use Flex Subscription for a Cluster</h4>
-<p>When creating a cluster, you can select the Flex subscription that you want to use for the cluster.</p>
+<p>When creating a cluster, on the <strong>General Configuration</strong> page you can select the Flex subscription that you want to use for the cluster:</p>
+<p><a href="../images/cb-flex-cluster.png" target="_blank" title="click to enlarge"><img src="../images/cb-flex-cluster.png" width="650" title="Autoscaling in Cloudbreak UI"></a>  </p>
 <h3 id="more-cloudbreak-resources">More Cloudbreak Resources</h3>
 <p>Check out the following documentation to learn more:</p>
 <table>
