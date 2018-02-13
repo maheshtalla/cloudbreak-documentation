@@ -625,25 +625,11 @@ Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</li>
 <hr />
 <h4 id="known-issues">Known Issues</h4>
 <hr />
-<h5 id="bug-91543-networks-with-no-subnets-are-not-supported">(BUG-91543) Networks With No Subnets Are Not Supported</h5>
-<p>You cannot create a cluster using an existing network that does not have any subnets. You must use a network that includes at least one subnet. If you try to use a network with no subnets, the cluster fails with the following error:   </p>
-<p><em>Infrastructure creation failed. Reason: Invalid value for field 'resource.network': 'https://www.googleapis.com/compute/v1/projects/siq-haas/global/networks/cbd-test'. A subnet mode Network must be specified for Subnetwork creation.: [ resourceType: GCP_SUBNET, resourceName: testgc-20171110211021 ]</em></p>
-<p><em>Workaround</em>: </p>
-<p>Do not use this option. It will be removed in a future release. </p>
-<hr />
 <h5 id="bug-92605-cluster-creation-fails-with-resourceinerror">(BUG-92605) Cluster Creation Fails with ResourceInError</h5>
 <p>Cluster creation fails with the following error: </p>
 <p><em>Infrastructure creation failed. Reason: Failed to create the stack for CloudContext{id=3689, name='test-exisitngnetwork', platform='StringType{value='OPENSTACK'}', owner='e0307f96-bd7d-4641-8c8f-b95f2667d9c6'} due to: Resource CREATE failed: ResourceInError: resources.ambari_volume_master_0_0: Went to status error due to "Unknown"</em></p>
 <p><em>Workaround</em>: </p>
 <p>This may mean that the volumes that you requested exceed volumes available on your cloud provider account. When creating a cluster, on the advanced <em>Hardware and Storage</em> page of the create cluster wizard, try reducing the amount of requested storage. If you need more storage, try using a different region or ask your cloud provider admin to increase the resource quota for volumes.  </p>
-<hr />
-<h5 id="bug-93339-hiveserver2-process-could-not-establish-connection-to-jdbchive2">(BUG-93339) HiveServer2 Process Could Not Establish Connection to jdbc:hive2</h5>
-<p>When using EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0 blueprint with a two-node cluster, Ambari shows the following Alert on Hive: <em>HiveServer2 Process CRIT Connection failed on host...</em> </p>
-<p><em>Workaround:</em> </p>
-<ul>
-<li>Although it is possible to create a cluster with less than 3 nodes, in order to use the EDW-Analytics: Apache Hive 2 LLAP, Apache Zeppelin 0.7.0 blueprint, you must have at least 3 nodes: 1 Ambari node and 2 non-Ambari nodes. Terminate the cluster and create a new one with at least 3 nodes.   </li>
-<li>Alternatively, it is possible to resolve this issue by adding an additional NodeManager for the Ambari host group.  </li>
-</ul>
 <hr />
 <h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) Incorrect Node Status After Cluster Restart</h5>
 <p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
