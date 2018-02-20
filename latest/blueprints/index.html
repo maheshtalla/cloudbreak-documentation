@@ -625,21 +625,8 @@
 </ul></p>
 <h3 id="using-custom-blueprints">Using Custom Blueprints</h3>
 <p>This option allows you to create and save your custom blueprints. </p>
-<div class="note">
-    <p class="first admonition-title">Creating Blueprints for Ambari 2.6.1+</p>
-    <p class="last">
-Ambari 2.6.1 or newer does not install the mysqlconnector; therefore, when creating a blueprint for Ambari 2.6.1 or newer <b>do not include the MYSQL_SERVER component</b> for Hive Metastore in your blueprint. Instead, you have two options:
-<ul>
-<li>Configure an external RDBMS instance for Hive Metastore and include the JDBC connection information in your blueprint. If you choose to use an external database that is not PostgreSQL (such as Oracle, mysql) you must also set up Ambari with the appropriate connector; to do that, create a pre-ambari-start recipe and pass it when creating a cluster.</li>
-<li>If a remote Hive RDBMS is not provided, Cloudbrak will install a Postgres instance and configure it for Hive Metastore during the cluster launch.</li>
-</ul>
-For information on how to configure an external database and pass your external database connection parameters, refer to <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari blueprint</a> documentation.
-</p>
-</div>
-
 <h4 id="creating-a-blueprint">Creating a Blueprint</h4>
-<p>Ambari blueprints are specified in the JSON format. </p>
-<p>A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, it includes  some hardcoded configurations such as domain names, memory configurations, and so on, that are not applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually. </p>
+<p>Ambari blueprints are specified in the JSON format. A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, it includes  some hardcoded configurations such as domain names, memory configurations, and so on, that are not applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually. </p>
 <p>In general, the blueprint should include the following elements:</p>
 <pre>"Blueprints": {
     "blueprint_name": "hdp-small-default",
@@ -668,7 +655,19 @@ For information on how to configure an external database and pass your external 
   }</pre>
 
 <p>For correct blueprint layout and other information about Ambari blueprints, refer to the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> page. </p>
-<p>Cloudbreak requires you to define an additional element in the blueprint called "blueprint_name". This should be a unique name within Cloudbreak list of blueprints. That is not included in the Ambari export. For example:</p>
+<div class="note">
+    <p class="first admonition-title">Creating Blueprints for Ambari 2.6.1+</p>
+    <p class="last">
+Ambari 2.6.1 or newer does not install the mysqlconnector; therefore, when creating a blueprint for Ambari 2.6.1 or newer <b>do not include the MYSQL_SERVER component</b> for Hive Metastore in your blueprint. Instead, you have two options:
+<ul>
+<li>Configure an external RDBMS instance for Hive Metastore and include the JDBC connection information in your blueprint. If you choose to use an external database that is not PostgreSQL (such as Oracle, mysql) you must also set up Ambari with the appropriate connector; to do this, create a pre-ambari-start recipe and pass it when creating a cluster.</li>
+<li>If a remote Hive RDBMS is not provided, Cloudbrak will install a Postgres instance and configure it for Hive Metastore during the cluster launch.</li>
+</ul>
+For information on how to configure an external database and pass your external database connection parameters, refer to <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari blueprint</a> documentation.
+</p>
+</div>
+
+<p>Cloudbreak requires you to define an additional element in the blueprint called "blueprint_name". This should be a unique name within Cloudbreak list of blueprints. For example:</p>
 <pre>"Blueprints": {
     "blueprint_name": "hdp-small-default",
     "stack_name": "HDP",
@@ -680,6 +679,7 @@ For information on how to configure an external database and pass your external 
   ...
 </pre>
 
+<p>The "blueprint_name" is not included in the Ambari export. </p>
 <p>After you provide the blueprint to Cloudbreak, the host groups in the JSON will be mapped to a set of instances when starting the cluster, and the specified services and components will be installed on the corresponding nodes. It is not necessary to define a complete configuration in the blueprint. If a configuration is missing, Ambari will use a default value. </p>
 <p>Here are a few <a href="https://github.com/hortonworks/cloudbreak/tree/master/core/src/main/resources/defaults/blueprints">blueprint examples</a>. You can also refer to the default blueprints provided in the Cloudbreak UI.</p>
 <p><strong>Related Links</strong><br />
