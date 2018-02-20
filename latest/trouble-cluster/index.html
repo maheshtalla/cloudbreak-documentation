@@ -551,6 +551,9 @@
     
         <li class="first-level active"><a href="#troubleshooting-cluster-creation">Troubleshooting Cluster Creation</a></li>
         
+            <li class="second-level"><a href="#configure-communication-via-private-ips-aws">Configure Communication via Private IPs (AWS)</a></li>
+            
+        
             <li class="second-level"><a href="#cannot-access-oozie-web-ui">Cannot Access Oozie Web UI</a></li>
             
         
@@ -580,6 +583,27 @@
         <div class="col-md-9" role="main">
 
 <h2 id="troubleshooting-cluster-creation">Troubleshooting Cluster Creation</h2>
+<h3 id="configure-communication-via-private-ips-aws">Configure Communication via Private IPs (AWS)</h3>
+<p>Cloudbreak uses public IP addresses when communicating with cluster nodes. On AWS, you can configure it to use private IPs instead of public IPs by setting the CB_AWS_VPC variable in the Profile. </p>
+<blockquote>
+<p>This configuration is available for AWS only. Do not use it for other cloud providers. </p>
+</blockquote>
+<ol>
+<li>
+<p>Navigate to the Cloudbreak deployment directory and edit Profile. For example:</p>
+<p><pre>cd /var/lib/cloudbreak-deployment/
+vi Profile</pre></p>
+</li>
+<li>
+<p>Add the following entry, setting it to the AWS VPC identifier where you have deployed Cloudbreak:</p>
+<p><pre>export CB_AWS_VPC=your-VPC-ID</pre></p>
+<p>For example:</p>
+<p><pre>export CB_AWS_VPC=vpc-e261a185</pre></p>
+</li>
+<li>
+<p>Restart Cloudbreak by using <code>cbd restart</code>.      </p>
+</li>
+</ol>
 <h3 id="cannot-access-oozie-web-ui">Cannot Access Oozie Web UI</h3>
 <p>Ext JS is GPL licensed software and is no longer included in builds of HDP 2.6. Because of this, the Oozie WAR file is not built to include the Ext JS-based user interface unless Ext JS is manually installed on the Oozie server. If you add Oozie using Ambari 2.6.1.0 to an HDP 2.6.4 or greater stack, no Oozie UI will be available by default. Therefore, if you plan to use Oozie web UI with Ambari 2.6.1.0 and HDP 2.6.4 or greater, you you must manually install Ext JS on the Oozie server host.</p>
 <p>You can install Ext JS by adding the following PRE-AMBARI-START recipe:</p>
