@@ -626,9 +626,14 @@
 <h3 id="using-custom-blueprints">Using Custom Blueprints</h3>
 <p>This option allows you to create and save your custom blueprints. </p>
 <div class="note">
-    <p class="first admonition-title">Supported Ambari and HDP Versions</p>
+    <p class="first admonition-title">Creating Blueprints for Ambari 2.6.1+</p>
     <p class="last">
-Cloudbreak supports the following Ambari and HDP versions:<ul><li>Ambari <b>2.5.x</b></li><li>HDP <b>2.6.x</b> and HDP <b>2.5.x</b></li></ul>Ambari 2.6.x is not supported.
+Ambari 2.6.1 or newer does not install the mysqlconnector; therefore, when creating a blueprint for Ambari 2.6.1 or newer <b>do not include the MYSQL_SERVER component</b> for Hive Metastore in your blueprint. Instead, you have two options:
+<ul>
+<li>Configure an external RDBMS instance for Hive Metastore and include the JDBC connection information in your blueprint. If you choose to use an external database that is not PostgreSQL (such as Oracle, mysql) you must also set up Ambari with the appropriate connector; to do that, create a pre-ambari-start recipe and pass it when creating a cluster.</li>
+<li>If a remote Hive RDBMS is not provided, Cloudbrak will install a Postgres instance and configure it for Hive Metastore during the cluster launch.</li>
+</ul>
+Refer to Ambari blueprint documentation for information on how to configure and pass your external database connection parameters".
 </p>
 </div>
 
