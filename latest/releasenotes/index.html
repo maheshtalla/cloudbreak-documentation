@@ -614,7 +614,7 @@
 <ul>
 <li>Ambari 2.6.1 or newer does not install the mysqlconnector; therefore, when creating a blueprint for Ambari 2.6.1 or newer do not include the MYSQL_SERVER component for Hive Metastore in your blueprint. Instead, you have two options described in <a href="../blueprints/index.html#creating-a-blueprint">Creating a Blueprint</a>.  </li>
 <li>If you would like to use Oozie, you must manually install Ext JS. The steps are described in <a href="../trouble-cluster/index.html#cannot-access-oozie-web-ui">Cannot Access Oozie Web UI</a>.   </li>
-<li>To enable LZO compression in your HDP cluster, you must check the "Enable Ambari Server to download and install GPL Licensed LZO packages?" during cluster creation. The option is available in the <strong>Security</strong> &gt; <strong>Prewarmed and Base Images</strong>.   </li>
+<li>To enable LZO compression in your HDP cluster, you must check the "Enable Ambari Server to download and install GPL Licensed LZO packages?" during cluster creation. The option is available in the <strong>Security</strong> &gt; <strong>Prewarmed and Base Images</strong>.  </li>
 </ul>
 <h5 id="ambari-master-key">Ambari Master Key</h5>
 <p>Cloudbreak 2.4.0 allows you to specify the Ambari Master Key. The Ambari Server Master Key is used to configure Ambari to encrypt database and Kerberos credentials that are retained by Ambari as part of the Ambari setup. The option is available on the <strong>Security</strong> page of the create cluster wizard.</p>
@@ -624,13 +624,13 @@
 <h5 id="custom-images">Custom Images</h5>
 <p>The functionality which enables you to create custom images was changed and improved. Refer to <a href="../images/index.html">Custom Images</a>.</p>
 <h5 id="prewarmed-images-are-used-by-default">Prewarmed Images Are Used By Default</h5>
-<p>By default, Cloudbreak 2.4 launches clusters from these prewarmed images, instead of base images (which were used by default in earlier versions of Cloudbreak). For more information, refer to <a href="../aws-create/index.html#prewarmed-and-base-images">Prewardmed and Base Images</a>. </p>
+<p>By default, Cloudbreak 2.4.0 launches clusters from prewarmed images, instead of base images (which were used by default in earlier versions of Cloudbreak). For more information, refer to <a href="../aws-create/index.html#prewarmed-and-base-images">Prewardmed and Base Images</a>. </p>
 <h5 id="removal-of-cloudbreak-shell">Removal of Cloudbreak Shell</h5>
-<p>Cloudbreak Shell is no longer available in Cloudbreak 2.1.0 TP and later. It was replaced by the <a href="../cli-install/index.html">Cloudbreak CLI</a>.</p>
+<p>Cloudbreak Shell is not available in Cloudbreak 2.x. It was replaced by the <a href="../cli-install/index.html">Cloudbreak CLI</a>.</p>
 <h5 id="removal-of-platforms">Removal of Platforms</h5>
-<p>The <a href="http://hortonworks.github.io/cloudbreak-docs/release-1.16.5/topologies/">Platforms</a> feature was removed.</p>
+<p>The <a href="http://hortonworks.github.io/cloudbreak-docs/release-1.16.5/topologies/">Platforms</a> feature was removed and is not available in Cloudbreak 2.x.</p>
 <h5 id="removal-of-mesos">Removal of Mesos</h5>
-<p>Cloudbreak 2 does not support Mesos cloud provider.</p>
+<p>Mesos cloud provider is not supported and the corresponding options were removed in Cloudbreak 2.x.</p>
 <h5 id="removal-of-templates">Removal of Templates</h5>
 <p>Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard.</p>
 <hr />
