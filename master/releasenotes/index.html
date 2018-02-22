@@ -577,8 +577,10 @@
 <p>Cloudbreak 2.4.0 introduces a new user interface:</p>
 <p><a href="../images/cb-ui3.png" target="_blank" title="click to enlarge"><img src="../images/cb-ui3.png" width="650" title="Cloudbreak web UI"></a>  </p>
 <p>All major options are now easily accessible from the collapsable navigation menu on the left side. All UI options and wizards have been redesigned in order to make cluster creation and management more intuitive. </p>
+<hr />
 <h5 id="new-cli">New CLI</h5>
 <p>Cloudbreak 2.4.0 introduces a new CLI tool. All commands start with a singular object followed by an action, for example, <code>blueprint create</code> instead of <code>create blueprint</code>, and <code>blueprint list</code> instead of <code>list blueprints</code>. Refer to <a href="../cli-install/index.html">Install CLI</a> and <a href="../cli-reference/index.html">CLI Reference</a>.</p>
+<hr />
 <h5 id="support-for-kerberos">Support for Kerberos</h5>
 <p>Creating Kerberos-enabled clusters is supported:  </p>
 <ul>
@@ -586,17 +588,23 @@
 <li>Set up a test KDC for evaluation purposes.  </li>
 </ul>
 <p>Refer to <a href="../security-kerberos/index.html">Enabling Kerberos Security</a>.</p>
+<hr />
 <h5 id="support-for-configuring-an-external-rdbms-for-cloudbreak">Support for Configuring an External RDBMS for Cloudbreak</h5>
 <p>Using an external RDBMS for Cloubdreak is supported and recommended for production environments. For configuration instructions, refer to <a href="../cb-db/index.html">Configuring External Cloudbreak Database</a>.</p>
+<hr />
 <h5 id="support-for-migrating-cloudbreak-instance">Support for Migrating Cloudbreak Instance</h5>
 <p>Migrating Cloudbreak from one machine to another is supported. For migration instructions, refer to <a href="../cb-migrate/index.html">Moving a Cloudbreak Instance</a>.</p>
+<hr />
 <h5 id="prewarmed-images">Prewarmed Images</h5>
 <p>To accelerate cluster creation, CLoudbreak 2.4.0 introduces prewarmed images, which include the operating system, as well as the default version of Ambari and HDP. By default, Cloudbreak 2.4 launches clusters from these prewarmed images, instead of using base images (which were used by default in earlier versions of Cloudbreak). Default base images are still available in case you would like to use different Ambari and HDP versions than those provided with prewarmed images. For more information, refer to <a href="../aws-create/index.html#prewarmed-and-base-images">Prewardmed and Base Images</a>. </p>
+<hr />
 <h5 id="providing-your-own-jdk">Providing Your Own JDK</h5>
 <p>Providing your own JDK on a custom base image is supported. For instructions, refer to "Advanced topics" in the <a href="https://github.com/hortonworks/cloudbreak-images">https://github.com/hortonworks/cloudbreak-images</a> repository.</p>
+<hr />
 <h5 id="cli-templates">CLI Templates</h5>
 <p>After specifying the parameters for your cluster in the Cloudbreak web UI, you can copy the content of the CLI JSON file that can be used to create a cluster via Cloudbreeak CLI. For more information, refer to <a href="../cli-get-started/index.html#obtain-cluster-json-template-from-the-ui">Obtain Cluster JSON Template from the UI</a>.    </p>
 <p>Furthermore, Cloudbreak web UI includes an option in the UI which allows you to generate the  <code>create</code> command for resources such as credentials, blueprints, clusters, and recipes. For more information, refer to <a href="../cli-get-started/index.html#obtain-cli-command-from-the-ui">Obtain CLI Command from the UI</a>.  </p>
+<hr />
 <h5 id="new-recipe-types">New Recipe Types</h5>
 <p>New types of recipes are introduced:</p>
 <ul>
@@ -606,8 +614,10 @@
 <li>PRE-TERMINATION (new, useful for cluster cleanup pre-termination tasks)  </li>
 </ul>
 <p>Refer to updated <a href="../recipes/index.html">Recipes</a> documentation.</p>
+<hr />
 <h5 id="disabling-cloud-providers">Disabling Cloud Providers</h5>
 <p>You can hide cloud providers available in Cloudbreak by adding the <code>CB_ENABLEDPLATFORMS</code> environment variable in Profile and setting it to the provider(s) that you would like to have available. For more information, refer to <a href="../cb-disable-provider/index.html">Disable Providers</a>.</p>
+<hr />
 <h5 id="support-for-ambari-26-2613">Support for Ambari 2.6 (2.6.1.3+)</h5>
 <p>Cloudbreak 2.4.0 introduces support for Ambari 2.6 and uses Ambari 2.6.1.3 by default. If you would like to use Ambari 2.6, you must use Ambari version 2.6.1.3 or newer. </p>
 <p>If you decide to use Ambari 2.6.1, you should be aware of the following:</p>
@@ -616,6 +626,7 @@
 <li>If you would like to use Oozie, you must manually install Ext JS. The steps are described in <a href="../trouble-cluster/index.html#cannot-access-oozie-web-ui">Cannot Access Oozie Web UI</a>.   </li>
 <li>To enable LZO compression in your HDP cluster, you must check the "Enable Ambari Server to download and install GPL Licensed LZO packages?" during cluster creation. The option is available in the <strong>Security</strong> &gt; <strong>Prewarmed and Base Images</strong>.  </li>
 </ul>
+<hr />
 <h5 id="ambari-master-key">Ambari Master Key</h5>
 <p>Cloudbreak 2.4.0 allows you to specify the Ambari Master Key. The Ambari Server Master Key is used to configure Ambari to encrypt database and Kerberos credentials that are retained by Ambari as part of the Ambari setup. The option is available on the <strong>Security</strong> page of the create cluster wizard.</p>
 <hr />
@@ -623,14 +634,19 @@
 <hr />
 <h5 id="custom-images">Custom Images</h5>
 <p>The functionality which enables you to create custom images was changed and improved. Refer to <a href="../images/index.html">Custom Images</a>.</p>
+<hr />
 <h5 id="prewarmed-images-are-used-by-default">Prewarmed Images Are Used By Default</h5>
 <p>By default, Cloudbreak 2.4.0 launches clusters from prewarmed images, instead of base images (which were used by default in earlier versions of Cloudbreak). For more information, refer to <a href="../aws-create/index.html#prewarmed-and-base-images">Prewardmed and Base Images</a>. </p>
+<hr />
 <h5 id="removal-of-cloudbreak-shell">Removal of Cloudbreak Shell</h5>
 <p>Cloudbreak Shell is not available in Cloudbreak 2.x. It was replaced by the <a href="../cli-install/index.html">Cloudbreak CLI</a>.</p>
+<hr />
 <h5 id="removal-of-platforms">Removal of Platforms</h5>
 <p>The <a href="http://hortonworks.github.io/cloudbreak-docs/release-1.16.5/topologies/">Platforms</a> feature was removed and is not available in Cloudbreak 2.x.</p>
+<hr />
 <h5 id="removal-of-mesos">Removal of Mesos</h5>
 <p>Mesos cloud provider is not supported and the corresponding options were removed in Cloudbreak 2.x.</p>
+<hr />
 <h5 id="removal-of-templates">Removal of Templates</h5>
 <p>Earlier versions of Cloudbreak allowed you to save infrastructure, network, and security group templates. This feature was removed. Instead, you can define VMs, storage, networks, and security groups as part of the create cluster wizard.</p>
 <hr />
