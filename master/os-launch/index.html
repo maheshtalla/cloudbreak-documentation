@@ -580,8 +580,6 @@
             
                 <li class="third-level"><a href="#configuring-a-self-signed-certificate">Configuring a Self-Signed Certificate</a></li>
             
-                <li class="third-level"><a href="#configuring-availability-zone-and-region">Configuring Availability Zone and Region</a></li>
-            
         
             <li class="second-level"><a href="#launch-cloudbreak-deployer">Launch Cloudbreak Deployer</a></li>
             
@@ -755,26 +753,6 @@ export PUBLIC_IP=34.212.141.253</pre></p>
 <li>Copy the certificate to the <code>trusted</code> directory.</li>
 </ol>
 <p>Cloudbreak will automatically pick up the certificate and import it into its truststore upon start.</p>
-<h4 id="configuring-availability-zone-and-region">Configuring Availability Zone and Region</h4>
-<p>By default, Cloudbreak uses <code>RegionOne</code> region with <code>nova</code> availability zone, but you can customize Cloudbreak deployment and enable multiple regions and availability zones by creating an <code>openstack-zone.json</code> file in the <code>etc</code> directory of Cloudbreak deployment (that is<code>/var/lib/cloudbreak-deployment/etc/openstack-zone.json</code>). If the etc directory does not exist in the Cloudbreak deployment directory, then create it.</p>
-<p>The following is an example of <code>openstack-zone.json</code> containing two regions and four availability zones:</p>
-<pre>{
-  "items": [
-    {
-      "name": "MyRegionOne",
-      "zones": [ "az1", "az2", "az3"]
-    },
-    {
-      "name": "MyRegionTwo",
-      "zones": [ "myaz"]
-    }
-  ]
-}
-</pre>
-
-<blockquote>
-<p>If you are performing this after you have started cbd, perform <code>cbd restart</code>.</p>
-</blockquote>
 <h3 id="launch-cloudbreak-deployer">Launch Cloudbreak Deployer</h3>
 <p>Launch Cloudbreak deployer using the following steps.</p>
 <p><strong>Steps</strong></p>
