@@ -642,7 +642,7 @@ dependencies {
 }
 </code></pre>
 
-<p>The entry point for the provider is the  <a href="https://github.com/hortonworks/cloudbreak/blob/master/cloud-api/src/main/java/com/hortonworks/cloudbreak/cloud/CloudConnector.java">CloudConnector</a> interface and every interface that needs to be implemented is reachable trough this interface.</p>
+<p>The entry point for the provider is the  <a href="https://github.com/hortonworks/cloudbreak/blob/master/cloud-api/src/main/java/com/sequenceiq/cloudbreak/cloud/CloudConnector.java">CloudConnector</a> interface and every interface that needs to be implemented is reachable trough this interface.</p>
 <h5 id="individual-resource-based-deployments">Individual Resource Based Deployments</h5>
 <p>There are providers such as GCP that do not support a templating mechanism, and customizable providers such as OpenStack where the Heat Orchestration (templating) component is optional and individual resources need to be handled separately. </p>
 <p>When working with such providers, resources such as networks, discs, and compute instances need to be created and managed with an ordered sequence of API calls, and Cloudbreak needs to provide a solution to manage the collection of related cloud resources as a whole.</p>
