@@ -1500,7 +1500,7 @@ export CLOUDBREAK_SMTP_TYPE=smtp
 
 <h3 id="configure-consul">Configure Consul</h3>
 <p>Cloudbreak uses <a href="https://www.consul.io/">Consul</a> for DNS resolution. All Cloudbreak related services are registered as someservice.service.consul.</p>
-<p>Consul’s built-in DNS server is able to fallback on another DNS server. This option is called <code>-recursor</code>. Clodbreak Deployer first tries to discover the DNS settings of the host by looking for nameserver entry in the <code>/etc/resolv.conf</code> file. If it finds one, consul will use it as a recursor. Otherwise, it will use <code>8.8.8.8</code>.</p>
+<p>Consul’s built-in DNS server is able to fallback on another DNS server. This option is called <code>-recursor</code>. Cloudbreak Deployer first tries to discover the DNS settings of the host by looking for nameserver entry in the <code>/etc/resolv.conf</code> file. If it finds one, consul will use it as a recursor. Otherwise, it will use <code>8.8.8.8</code>.</p>
 <p>For a full list of available consul config options, refer to <a href="https://www.consul.io/docs/agent/options.html">Consul documentation</a>.</p>
 <p>To pass any additional Consul configuration, define the <code>DOCKER_CONSUL_OPTIONS</code> variable in the Profile file.</p>
 <h3 id="add-tags-in-profile-aws">Add Tags in Profile (AWS)</h3>
