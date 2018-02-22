@@ -631,7 +631,7 @@
 <p><strong>Related Links</strong>
 <a href="https://docs.openstack.org/ops-guide/index.html">OpenStack Administrator Guide</a> (External)</p>
 <h4 id="import-images-to-openstack">Import Images to OpenStack</h4>
-<p>An OpenStack administrator must perform these steps to add the Cloudbreak deployer and HDP images to your OpenStack deployment.</p>
+<p>An OpenStack administrator must perform these steps to add the Cloudbreak deployer and HDP base and prewarmed images to your OpenStack deployment.</p>
 <h5 id="import-cloudbreak-deployer-image">Import Cloudbreak Deployer Image</h5>
 <p>Import Cloudbreak deployer image using the following steps.</p>
 <p><strong>Steps</strong></p>
@@ -654,8 +654,8 @@ export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
 </li>
 </ol>
 <p>After performing the import, you should be able to see the Cloudbreak deployer image among your other OpenStack images.</p>
-<h5 id="import-hdp-image">Import HDP Image</h5>
-<p>Import HDP image using the following steps.</p>
+<h5 id="import-hdp-base-image">Import HDP Base Image</h5>
+<p>Import HDP base image using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -666,6 +666,28 @@ export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
 <p>Set the following environment variables for the OpenStack image import:</p>
 <p><pre><small>export CB_LATEST_IMAGE=cb-hdp--1801261636.img
 export CB_LATEST_IMAGE_NAME=cb-hdp--1801261636.img
+export OS_USERNAME=your_os_user_name
+export OS_AUTH_URL=your_authentication_url
+export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
+</li>
+<li>
+<p>Import the new image into your OpenStack:</p>
+<p><pre><small>glance image-create --name "$CB_LATEST_IMAGE_NAME" --file "$CB_LATEST_IMAGE" --disk-format qcow2 --container-format bare --progress</small></pre></p>
+</li>
+</ol>
+<p>After performing the import, you should be able to see the Cloudbreak image among your OpenStack images.</p>
+<h5 id="import-hdp-prewarmed-image">Import HDP Prewarmed Image</h5>
+<p>Import HDP prewarmed image using the following steps.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Download the latest HDP image to your local machine:</p>
+<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp-26-1802090220.img</small></pre></p>
+</li>
+<li>
+<p>Set the following environment variables for the OpenStack image import:</p>
+<p><pre><small>export CB_LATEST_IMAGE=cb-hdp-26-1802090220.img
+export CB_LATEST_IMAGE_NAME=cb-hdp-26-1802090220.img
 export OS_USERNAME=your_os_user_name
 export OS_AUTH_URL=your_authentication_url
 export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
