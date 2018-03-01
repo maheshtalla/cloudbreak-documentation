@@ -581,7 +581,7 @@
         <div class="col-md-9" role="main">
 
 <h2 id="custom-images">Custom Images</h2>
-<p>Default images are available for each supported cloud provider and region. The following table lists the default base images available: </p>
+<p>Default images are available for each supported cloud provider and region. The following table lists the default base images available:</p>
 <table>
 <thead>
 <tr>
@@ -619,20 +619,20 @@
 <div class="danger">
     <p class="first admonition-title">Important</p>
     <p class="last">
-Only <strong>base images</strong> can be created and registered as custom images. Do not create or register <strong>prewarmed images</strong> as custom images. 
+Only <strong>base images</strong> can be created and registered as custom images. Do not create or register <strong>prewarmed images</strong> as custom images.
 </p>
 </div>
 
 <h3 id="build-custom-images">Build Custom Images</h3>
-<p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a> for information on how to build custom images. </p>
+<p>Refer to <a href="https://github.com/hortonworks/cloudbreak-images">Custom Images for Cloudbreak</a> for information on how to build custom images.</p>
 <p>This repository includes instructions and scripts to help you build custom images. Once you have the images, refer to the documentation below for information on how to create an image catalog and register it with Cloudbreak.</p>
 <h3 id="prepare-the-image-catalog">Prepare the Image Catalog</h3>
-<p>Once you've built the custom images, prepare your custom image catalog JSON file. Once your image catalog JSON file is ready, save it in a location accessible via HTTP/HTTPS. </p>
+<p>Once you've built the custom images, prepare your custom image catalog JSON file. Once your image catalog JSON file is ready, save it in a location accessible via HTTP/HTTPS.</p>
 <h4 id="structure-of-the-image-catalog-json-file">Structure of the Image Catalog JSON File</h4>
-<p>The image catalog JSON file includes the following two high-level sections: </p>
+<p>The image catalog JSON file includes the following two high-level sections:</p>
 <ul>
 <li><code>images</code>: Contains information about the created images. The burned images are stored in the <code>base-images</code> section.  </li>
-<li><code>versions</code>: Contains the <code>cloudbreak</code> entry, which includes mapping between Cloudbreak versions and the image identifiers of burned images available for these Cloudbreak versions. </li>
+<li><code>versions</code>: Contains the <code>cloudbreak</code> entry, which includes mapping between Cloudbreak versions and the image identifiers of burned images available for these Cloudbreak versions.</li>
 </ul>
 <p><strong>Images Section</strong>  </p>
 <p>The burned images are stored in the <code>base-images</code> sub-section of <code>images</code>. The <code>base-images</code> section stores one or more image "records". Every image "record" must contain the date, description, images, os, os_type, and uuid fields.</p>
@@ -691,17 +691,17 @@ Only <strong>base images</strong> can be created and registered as custom images
 </tbody>
 </table>
 <h4 id="example-image-catalog-json-file">Example Image Catalog JSON File</h4>
-<p>Here is an example image catalog JSON file that includes two sets of custom base images: </p>
+<p>Here is an example image catalog JSON file that includes two sets of custom base images:</p>
 <ul>
 <li>A custom base image for AWS:<ul>
-<li>That is using Amazon Linux operating system </li>
+<li>That is using Amazon Linux operating system</li>
 <li>That will use the Redhat 6 repos as default Ambari and HDP repositories during cluster create     </li>
 <li>Has a unique ID of "44b140a4-bd0b-457d-b174-e988bee3ca47"</li>
 <li>Is available for Cloudbreak 2.4.0    </li>
 </ul>
 </li>
-<li>A custom base image for Azure, Google, and OpenStack: <ul>
-<li>That is using CentOS 7 operating system </li>
+<li>A custom base image for Azure, Google, and OpenStack:<ul>
+<li>That is using CentOS 7 operating system</li>
 <li>That will use the Redhat 7 repos as default Ambari and HDP repositories during cluster create   </li>
 <li>Has a unique ID of "f6e778fc-7f17-4535-9021-515351df3692"</li>
 <li>Is available to Cloudbreak 2.4.0      </li>
@@ -796,9 +796,16 @@ Only <strong>base images</strong> can be created and registered as custom images
 </small></pre>
 
 <h3 id="register-image-catalog">Register Image Catalog</h3>
-<p>Now that you have created your image catalog JSON file, register it with your Cloudbreak instance. </p>
+<p>Now that you have created your image catalog JSON file, register it with your Cloudbreak instance.</p>
+<div class="note">
+  <p class="first admonition-title">Important</p>
+  <p class="last">
+  Please note that the content type of your image catalog should be <i>"application/json"</i> otherwise Cloudbreak might not be able to process it.
+</p>
+</div>
+
 <h4 id="register-image-catalog-in-the-ui">Register Image Catalog in the UI</h4>
-<p>Use these steps to register your custom image catalog in the Cloudbreak UI. </p>
+<p>Use these steps to register your custom image catalog in the Cloudbreak UI.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>In the Cloudbreak UI, select <strong>Settings</strong> &gt; <strong>Image Catalogs</strong> from the navigation menu.  </li>
@@ -807,15 +814,15 @@ Only <strong>base images</strong> can be created and registered as custom images
     <a href="../images/cb-images-register.png" target="_blank" title="click to enlarge"><img src="../images/cb-images-register.png" width="650" title="Cloudbreak UI"></a></p>
 </li>
 <li>
-<p>Enter name for your image catalog and the URL to the location where it is stored. </p>
+<p>Enter name for your image catalog and the URL to the location where it is stored.</p>
 </li>
-<li>Click <strong>Create</strong>. </li>
+<li>Click <strong>Create</strong>.</li>
 </ol>
 <p>After performing these steps, the image catalog will be available and automatically selected as the default entry in the image catalog drop-down list in the create cluster wizard.</p>
 <h4 id="register-image-catalog-in-the-cli">Register Image Catalog in the CLI</h4>
-<p>To register your custom image catalog using the CLI, use the <code>cb imagecatalog create</code> command. Refer to <a href="../cli-reference/index.html#imagecatalog-create">CLI documentation</a>. </p>
+<p>To register your custom image catalog using the CLI, use the <code>cb imagecatalog create</code> command. Refer to <a href="../cli-reference/index.html#imagecatalog-create">CLI documentation</a>.</p>
 <h3 id="select-a-custom-image-when-creating-a-cluster">Select a Custom Image When Creating a Cluster</h3>
-<p>Once you have registered your image catalog, you can use your custom image(s) when creating a cluster. </p>
+<p>Once you have registered your image catalog, you can use your custom image(s) when creating a cluster.</p>
 <h4 id="select-a-custom-image-in-cloudbreak-ui">Select a Custom Image in Cloudbreak UI</h4>
 <p>Perform these steps in the advanced <strong>General Configuration</strong> section of the create wizard wizard.</p>
 <p><strong>Steps</strong>  </p>
@@ -833,7 +840,7 @@ Only <strong>base images</strong> can be created and registered as custom images
 <p><strong>Steps</strong>  </p>
 <ol>
 <li>
-<p>Obtain the image ID. For example: </p>
+<p>Obtain the image ID. For example:</p>
 <p><pre>cb imagecatalog images aws --imagecatalog custom-catalog
 [
   {
@@ -851,7 +858,7 @@ Only <strong>base images</strong> can be created and registered as custom images
 ]</pre></p>
 </li>
 <li>
-<p>When preparing a CLI JSON template for your cluster, set the "ImageCatalog" parameter to the image catalog that you would like to use, and set the "ImageId" parameter to the uuid of the image from that catalog that you would like to use. For example: </p>
+<p>When preparing a CLI JSON template for your cluster, set the "ImageCatalog" parameter to the image catalog that you would like to use, and set the "ImageId" parameter to the uuid of the image from that catalog that you would like to use. For example:</p>
 <p><pre>...
   "name": "aszegedi-cli-ci",
   "network": {
