@@ -555,9 +555,9 @@
             
                 <li class="third-level"><a href="#azure-account">Azure Account</a></li>
             
-                <li class="third-level"><a href="#azure-roles">Azure Roles</a></li>
-            
                 <li class="third-level"><a href="#azure-region">Azure Region</a></li>
+            
+                <li class="third-level"><a href="#azure-roles">Azure Roles</a></li>
             
                 <li class="third-level"><a href="#ssh-key-pair">SSH Key Pair</a></li>
             
@@ -589,6 +589,11 @@
 <p>Before launching Cloudbreak on Azure, you must meet the following prerequisites.</p>
 <h4 id="azure-account">Azure Account</h4>
 <p>In order to launch Cloudbreak on the Azure, log in to your existing Microsoft Azure account. If you don't have an account, you can set it up at <a href="https://azure.microsoft.com">https://azure.microsoft.com</a>.</p>
+<h4 id="azure-region">Azure Region</h4>
+<p>Decide in which Azure region you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://azure.microsoft.com/en-us/regions/">supported by Microsoft Azure</a>. </p>
+<p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it.</p>
+<p><strong>Related Links</strong><br />
+<a href="https://azure.microsoft.com/en-us/regions/">Azure Regions</a> (External) </p>
 <h4 id="azure-roles">Azure Roles</h4>
 <p>In order to provision clusters on Azure, Cloudbreak must be able to assume a sufficient Azure role ("Owner" or "Contributor") via Cloudbreak credential: </p>
 <ul>
@@ -603,11 +608,6 @@
 <p><strong>Related Links</strong><br />
 <a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Built-in Roles: Owner</a> (External)<br />
 <a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Built-in Roles: Contributor</a> (External)</p>
-<h4 id="azure-region">Azure Region</h4>
-<p>Decide in which Azure region you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://azure.microsoft.com/en-us/regions/">supported by Microsoft Azure</a>. </p>
-<p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it.</p>
-<p><strong>Related Links</strong><br />
-<a href="https://azure.microsoft.com/en-us/regions/">Azure Regions</a> (External) </p>
 <h4 id="ssh-key-pair">SSH Key Pair</h4>
 <p>When launching Cloudbreak, you will be required to provide your public SSH key. If needed, you can generate a new SSH key pair:</p>
 <ul>
