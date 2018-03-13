@@ -551,9 +551,7 @@
     
         <li class="first-level active"><a href="#blueprints">Blueprints</a></li>
         
-            <li class="second-level"><a href="#using-default-blueprints">Using Default Blueprints</a></li>
-            
-                <li class="third-level"><a href="#default-blueprints">Default Blueprints</a></li>
+            <li class="second-level"><a href="#default-blueprints">Default Blueprints</a></li>
             
         
             <li class="second-level"><a href="#using-custom-blueprints">Using Custom Blueprints</a></li>
@@ -582,9 +580,7 @@
 <li>Add your custom blueprint by uploading a JSON file or pasting the JSON text. </li>
 </ul>
 <p>We recommend that you review the default blueprints to check if they meet your requirements. You can do this by selecting <strong>Blueprints</strong> from the navigation pane in the Cloudbreak web UI or by reading the documentation below.</p>
-<h3 id="using-default-blueprints">Using Default Blueprints</h3>
-<p>To use one of the default blueprints, simply select them when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Stack Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. </p>
-<h4 id="default-blueprints">Default Blueprints</h4>
+<h3 id="default-blueprints">Default Blueprints</h3>
 <p>Cloudbreak includes the following default HDP cluster blueprints:</p>
 <p>Platform Version: <strong>HDP 2.6</strong></p>
 <table>
@@ -617,12 +613,32 @@
 </tr>
 </tbody>
 </table>
+<p>Platform Version: <strong>HDF 3.1.1</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cluster Type</th>
+<th>Main Services</th>
+<th>Description</th>
+<th>List of All Services Included</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flow Management</td>
+<td><i class="fa fa-warning" style="color: red"></i> NiFi</td>
+<td>Useful for flow management with NiFi.</td>
+<td>NiFi, ZooKeeper, Ambari Metrics</td>
+</tr>
+</tbody>
+</table>
 <p>The following configuration classification applies:
 <ul>
 <li><i class="fa fa-check" style="color: green"></i> Stable configurations are the best choice if you want to avoid issues and other problems with launching and using clusters.</li>
 <li><i class="fa fa-warning" style="color: orange"></i> If you want to use a Technical Preview version of a component in a release of HDP, use these configurations.</li>
 <li><i class="fa fa-warning" style="color: red"></i> These are the most cutting edge of the configurations, including Technical Preview components in a Technical Preview HDP release.</li>
 </ul></p>
+<p>To use one of the default blueprints, simply select them when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Stack Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. </p>
 <h3 id="using-custom-blueprints">Using Custom Blueprints</h3>
 <p>This option allows you to create and save your custom blueprints. </p>
 <h4 id="creating-a-blueprint">Creating a Blueprint</h4>
