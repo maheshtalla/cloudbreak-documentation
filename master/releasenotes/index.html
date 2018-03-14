@@ -575,20 +575,39 @@
 <hr />
 <h4 id="new-features">New Features</h4>
 <hr />
-<h5 id="launching-cloudbreak-in-environments-with-limited-or-no-internet-access">Launching Cloudbreak in Environments with Limited or No Internet Access</h5>
-<h5 id="launching-cloudbreak-in-restricted-enterprise-environments">Launching Cloudbreak in Restricted Enterprise Environments</h5>
 <h5 id="creating-hdf-clusters">Creating HDF Clusters</h5>
-<h5 id="configuring-ldapauthn-for-cloudbreak">Configuring LDAP/AuthN for Cloudbreak</h5>
-<h5 id="creating-a-external-rds">Creating a External RDS</h5>
-<h5 id="creating-ldap-for-clusters">Creating LDAP for Clusters</h5>
-<h5 id="auto-import-of-openstack-images">Auto-import of OpenStack Images</h5>
+<p>You can use Cloudbreak to create HDF clusters on AWS, Azure, Google Cloud and OpenStack. In the Cloudbreak web UI, you can do this by selecting "HDF 3.1" under Platform Version and then selecting an HDF blueprint.</p>
+<p>Cloudbreak includes one default HDF blueprint "Flow Management: Apache Nifi" and supports uploading your own custom blueprints. This feature supports HDF 3.1.1 blueprints. HDF clusters are currently launched from base images; prewarmed images are not available.  </p>
+<p>For updated create cluster instructions, refer to <a href="../aws-launch/index.html">Creating a Cluster</a> instructions for your chosen cloud provider.
+For updated blueprint information, refer to <a href="../blueprints/index.html#default-blueprints">Default Blueprints</a>. </p>
+<h5 id="using-external-rds-for-cluster-services">Using External RDS for Cluster Services</h5>
+<p>You can register an existing external RDS in the Cloudbreak UI or CLI so that the external RDS can be used for those cluster components which support using an external RDS. After the RDS has been registered in the Cloudbreak UI, it is available during the cluster create and can be reused with one or more clusters.  </p>
+<p>Only Postgre is supported at this time. Refer to component-specific documentation for information on which version of Postgres (if any) is supported.</p>
+<p>Cloudbreak does not configure the external RDS for you, the RDS must exist prior to registering it with Cloudbreak. </p>
+<h5 id="configuring-ldapad-for-clusters">Configuring LDAP/AD for Clusters</h5>
+<p>You can configure Cloudbreak to create an LDAP/AD that can later be associated with Cloudbreak-managed clusters.</p>
 <h5 id="editing-existing-cloudbreak-credentials">Editing Existing Cloudbreak Credentials</h5>
+<p>Cloudbreak allows you to edit existing credentials by using the edit option available in Cloudbreak UI or CLI. </p>
+<h5 id="launching-cloudbreak-in-environments-with-limited-or-no-internet-access">Launching Cloudbreak in Environments with Limited or No Internet Access</h5>
+<p>You can launch Cloudbreak in environments with limited internet access or no internet access. </p>
+<h5 id="configuring-existing-ldap-for-cloudbreak">Configuring Existing LDAP for Cloudbreak</h5>
+<p>You can configure Cloudbreak to use your existing LDAP/AD so that you can authenticate Cloudbreak users against an existing LDAP/AD server. </p>
+<h5 id="auto-import-of-hdphdf-images-on-openstack">Auto-import of HDP/HDF Images on OpenStack</h5>
+<p>When using Cloudbreak on OpenStack, you no longer need to import HDP and HDF images manually, because during your first attempt to create a cluster, Cloudbreak automatically imports HDP and HDF images to your OpenStack. Only Cloudbreak image must be imported manually. </p>
 <hr />
 <h4 id="behavioral-changes">Behavioral Changes</h4>
 <hr />
 <hr />
 <h4 id="image-catalog-updates">Image Catalog Updates</h4>
 <hr />
+<h5 id="march-16-2018">March 16, 2018</h5>
+<p>Update 1:</p>
+<p>Default Ambari version 2.6.1.3<br />
+Default HDP version 2.6.4.5-2<br />
+Default HDF version 3.1.1.0-35   </p>
+<h5 id="february-23-2018">February 23, 2018</h5>
+<p>Default Ambari version 2.6.1.3 <br />
+Default HDP version  2.6.4.0-91    </p>
 <hr />
 <h4 id="fixed-issues">Fixed Issues</h4>
 <hr />
