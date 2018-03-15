@@ -173,12 +173,6 @@
 </li>
 
                         
-                            
-<li >
-    <a href="../azure-data/index.html">Access Data on Azure</a>
-</li>
-
-                        
                         </ul>
                     </li>
                 
@@ -605,7 +599,7 @@
 </tbody>
 </table>
 <h3 id="cloudbreak-application-architecture">Cloudbreak Application Architecture</h3>
-<p>The Cloudbreak application is a web application which simplifies HDP cluster provisioning in the cloud. Based on your input, Cloudbreak provisions all required cloud infrastructure and then provisions an HDP cluster on your behalf within your cloud provider account.   </p>
+<p>The Cloudbreak application is a web application which simplifies cluster provisioning in the cloud. Based on your input, Cloudbreak provisions all required cloud infrastructure and then provisions a cluster on your behalf within your cloud provider account.   </p>
 <p><a href="../images/arch.png" target="_blank" title="click to enlarge"><img src="../images/arch.png" width="550" title="Cloudbreak architecture"></a> </p>
 <p>Cloudbreak application is built on the foundation of cloud provider APIs and Apache Ambari:</p>
 <ul>
@@ -613,10 +607,10 @@
 <p>Cloudbreak uses <strong>cloud provider APIs</strong> to communicate with the cloud providers. </p>
 </li>
 <li>
-<p>Cloudbreak uses the <strong>Cloudbreak credential</strong> to authenticate with your cloud provider account and provision cloud resources required for the HDP clusters. </p>
+<p>Cloudbreak uses the <strong>Cloudbreak credential</strong> to authenticate with your cloud provider account and provision cloud resources required for the clusters. </p>
 </li>
 <li>
-<p>Cloudbreak uses Apache Ambari and <strong>Ambari blueprints</strong> to provision, manage, and monitor HDP clusters. Ambari blueprints are a declarative definition of a cluster. With a blueprint, you can specify stack, component layout, and configurations to materialize an HDP cluster instance via Ambari REST API, without having to use the Ambari cluster install wizard.     </p>
+<p>Cloudbreak uses Apache Ambari and <strong>Ambari blueprints</strong> to provision, manage, and monitor clusters. Ambari blueprints are a declarative definition of a cluster. With a blueprint, you can specify stack, component layout, and configurations to materialize a cluster instance via Ambari REST API, without having to use the Ambari cluster install wizard.     </p>
 </li>
 </ul>
 <h4 id="cloudbreak-credential">Cloudbreak Credential</h4>
@@ -626,7 +620,7 @@
 <p><strong>Related Links</strong><br />
 <a href="../security/index.html#identity-management">Identity Management</a>  </p>
 <h4 id="ambari-blueprints">Ambari Blueprints</h4>
-<p>Ambari blueprints are a declarative definition of a cluster. A blueprint allows you to specify stack, component layout, and configurations to materialize an HDP cluster instance via Ambari REST API, without having to use the Ambari cluster install wizard.  </p>
+<p>Ambari blueprints are a declarative definition of a cluster. A blueprint allows you to specify stack, component layout, and configurations to materialize a cluster instance via Ambari REST API, without having to use the Ambari cluster install wizard.  </p>
 <p>Ambari blueprints are specified in JSON format. After you provide the blueprint to Cloudbreak, the host groups in the JSON are mapped to a set of instances when starting the cluster, and the specified services and components are installed on the corresponding nodes.</p>
 <p>Cloudbreak includes a few default blueprints and allows you to upload your own blueprints.</p>
 <p><a href="../images/arch-blue.png" target="_blank" title="click to enlarge"><img src="../images/arch-blue.png" width="500" title="How Cb uses Ambari blueprints"></a> </p>

@@ -173,12 +173,6 @@
 </li>
 
                         
-                            
-<li >
-    <a href="../azure-data/index.html">Access Data on Azure</a>
-</li>
-
-                        
                         </ul>
                     </li>
                 
@@ -619,7 +613,7 @@
 </tr>
 <tr>
 <td>Platform Version</td>
-<td>Choose the HDP version to use for this cluster.</td>
+<td>Choose the HDP or HDF version to use for this cluster.</td>
 </tr>
 <tr>
 <td>Cluster Type</td>
@@ -791,27 +785,27 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 <tbody>
 <tr>
 <td><strong>Base Images</strong></td>
-<td>Base images include default configuration and default tooling. These images include the operating system but do not include Ambari or HDP software.</td>
+<td>Base images include default configuration and default tooling. These images include the operating system but do not include Ambari or HDP/HDF software.</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td><strong>Prewarmed Images</strong></td>
-<td>By default, Cloudbreak launches clusters from prewarmed images. Prewarmed images include the operating system as well as Ambari and HDP. The HDP and Ambari version used by prewarmed images cannot be customized.</td>
-<td>Yes</td>
+<td>By default, Cloudbreak launches clusters from prewarmed images. Prewarmed images include the operating system as well as Ambari and HDP. The Ambari and HDP version used by prewarmed images cannot be customized. No prewarmed HDF images are currently provided.</td>
+<td>Yes (HDP only)</td>
 <td>No</td>
 </tr>
 </tbody>
 </table>
 <p>By default, Cloudbreak uses the included default <strong>prewarmed images</strong>, which include the operating system, as well as
-Ambari and HDP packages installed. You can optionally select the <strong>base image</strong> option if you would like to:</p>
+Ambari and HDP/HDF packages installed. You can optionally select the <strong>base image</strong> option if you would like to:</p>
 <ul>
-<li>Use an Ambari and HDP versions different than what the prewarmed image includes and/or  </li>
+<li>Use an Ambari and HDP/HDF versions different than what the prewarmed image includes and/or  </li>
 <li>Choose a previously created custom base image</li>
 </ul>
 <p><strong>Choose Image</strong>  </p>
 <p>If under <a href="#choose-image-catalog">Choose Image Catalog</a>, you selected a custom image catalog, under <strong>Choose Image</strong> you can select an image from that catalog. For complete instructions, refer to <a href="../images/index.html">Custom Images</a>. </p>
-<p>If you are trying to customize Ambari and HDP versions, you can ignore the <strong>Choose Image</strong> option; in this case default base image is used.</p>
+<p>If you are trying to customize Ambari and HDP/HDF versions, you can ignore the <strong>Choose Image</strong> option; in this case default base image is used.</p>
 <p><strong>Ambari Repository Specification</strong></p>
 <p>If you would like to use a custom Ambari version, provide the following information: </p>
 <div class="note">
@@ -844,8 +838,8 @@ Ambari and HDP packages installed. You can optionally select the <strong>base im
 </tr>
 </tbody>
 </table>
-<p><strong>HDP Repository Specification</strong></p>
-<p>If you would like to use a custom HDP version, provide the following information: </p>
+<p><strong>HDP or HDF Repository Specification</strong></p>
+<p>If you would like to use a custom HDP or HDF version, provide the following information: </p>
 <table>
 <thead>
 <tr>
@@ -881,14 +875,19 @@ Ambari and HDP packages installed. You can optionally select the <strong>base im
 <td>http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.4.0/HDP-2.6.4.0-91.xml</td>
 </tr>
 <tr>
+<td>(HDF only) MPack Url</td>
+<td>(HDF only) Provide MPack URL.</td>
+<td>http://public-repo-1.hortonworks.com/HDF/centos7/3.x/updates/3.1.1.0/tars/hdf_ambari_mp/hdf-ambari-mpack-3.1.1.0-35.tar.gz</td>
+</tr>
+<tr>
 <td>Enable Ambari Server to download and install GPL Licensed LZO packages?</td>
-<td>(Optional, only available if using Ambari 2.6.1.0 or newer) Use this option to enable LZO compression in your HDP cluster. LZO is a lossless data compression library that favors speed over compression ratio. Ambari does not install nor enable LZO compression libraries by default, and must be explicitly configured to do so. For more information, refer to <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.0/bk_ambari-administration/content/enabling_lzo.html">Enabling LZO</a>.</td>
+<td>(Optional, only available if using Ambari 2.6.1.0 or newer) Use this option to enable LZO compression in your HDP/HDF cluster. LZO is a lossless data compression library that favors speed over compression ratio. Ambari does not install nor enable LZO compression libraries by default, and must be explicitly configured to do so. For more information, refer to <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.0/bk_ambari-administration/content/enabling_lzo.html">Enabling LZO</a>.</td>
 <td><img src="../images/toggle.png" alt="On" /></td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>If you choose to use a base image with custom Ambari and/or HDP version, Cloudbreak validates the information entered. When Cloudbreak detects that the information entered is incorrect, it displays a warning marked with the <img src="../images/warning.png" width="25" title="Icon"> sign. You should review all the warnings before proceeding and make sure that the information that you entered is correct. If you choose to proceed in spite of the warnings, check "Ignore repository warnings".  </p>
+<p>If you choose to use a base image with custom Ambari and/or HDP/HDF version, Cloudbreak validates the information entered. When Cloudbreak detects that the information entered is incorrect, it displays a warning marked with the <img src="../images/warning.png" width="25" title="Icon"> sign. You should review all the warnings before proceeding and make sure that the information that you entered is correct. If you choose to proceed in spite of the warnings, check "Ignore repository warnings".  </p>
 </blockquote>
 <p><strong>Related Links</strong>    <br />
 <a href="../images/index.html">Custom Images</a>      </p>

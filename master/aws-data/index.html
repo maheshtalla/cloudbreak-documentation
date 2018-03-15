@@ -173,12 +173,6 @@
 </li>
 
                         
-                            
-<li >
-    <a href="../azure-data/index.html">Access Data on Azure</a>
-</li>
-
-                        
                         </ul>
                     </li>
                 
@@ -560,10 +554,7 @@
             <li class="second-level"><a href="#configuring-access-to-s3">Configuring Access to S3</a></li>
             
         
-            <li class="second-level"><a href="#testing-access-to-s3">Testing Access to S3</a></li>
-            
-        
-            <li class="second-level"><a href="#working-with-s3">Working with S3</a></li>
+            <li class="second-level"><a href="#testing-access-from-hdp-to-s3">Testing Access from HDP to S3</a></li>
             
         
     
@@ -572,13 +563,13 @@
         <div class="col-md-9" role="main">
 
 <h2 id="access-data-on-s3">Access Data on S3</h2>
-<p>Amazon S3 is not supported as a default file system, but access to data in Amazon S3 is possible via the s3a connector. </p>
+<p>Use these steps to configure access from your cluster to Amazon S3. </p>
 <h3 id="prerequisites">Prerequisites</h3>
 <p>To use S3 storage, you must have one or more S3 buckets on your AWS account. For instructions on how to create a bucket on S3, refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">AWS documentation</a>.</p>
 <p><strong>Related Links</strong><br />
 <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Create a Bucket</a> (External)    </p>
 <h3 id="creating-an-iam-role-for-s3-access">Creating an IAM Role for S3 Access</h3>
-<p>In order to configure access from your cluster to Amazon S3, you must have an existing IAM role which determines what actions can be performed on which S3 buckets. If you do not have an existing IAM role, use these steps to create one. </p>
+<p>In order to configure access from your cluster to Amazon S3, you must have an existing IAM role which determines what actions can be performed on which S3 buckets. If you already have an IAM role, skip to the next step. If you do not have an existing IAM role, use the following instructions to create one. </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -620,8 +611,9 @@
 </li>
 </ol>
 <p>During the cluster creation process, Cloudbreak assigns the IAM role and its associated permissions to the EC2 instances that are part of the cluster so that applications running on these instances can use the role to access S3.   </p>
-<h3 id="testing-access-to-s3">Testing Access to S3</h3>
-<p>To tests access to S3, SSH to a cluster node and run a few hadoop fs shell commands against your existing S3 bucket.</p>
+<h3 id="testing-access-from-hdp-to-s3">Testing Access from HDP to S3</h3>
+<p>Amazon S3 is not supported in HDP as a default file system, but access to data in Amazon S3 is possible via the s3a connector. </p>
+<p>To tests access to S3 from HDP, SSH to a cluster node and run a few hadoop fs shell commands against your existing S3 bucket.</p>
 <p>Amazon S3 access path syntax is:</p>
 <pre>s3a://bucket/dir/file</pre>
 
@@ -638,8 +630,7 @@ hadoop fs -put testFile s3a://mytestbucket/testFile
 hadoop fs -cat s3a://mytestbucket/testFile
 test file content</pre>
 
-<h3 id="working-with-s3">Working with S3</h3>
-<p>For more information about configuring the S3 connector and working with data stored on S3, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
+<p>For more information about configuring the S3 connector for HDP and working with data stored on S3, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
 <p><strong>Related Links</strong><br />
 <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks)</p></div>
         
