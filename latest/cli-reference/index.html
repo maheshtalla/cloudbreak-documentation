@@ -289,6 +289,33 @@
                         
                             
   <li class="dropdown-submenu">
+    <a tabindex="-1" href="">External Resources</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../external-rds/index.html">Configure External RDS</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-ldap/index.html">Configure LDAP</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-proxy/index.html">Configure Proxy</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
     <a tabindex="-1" href="">Managing Cloudbreak</a>
     <ul class="dropdown-menu">
         
@@ -1497,7 +1524,7 @@
 <p><a href="../images/index.html">Custom Images</a>  </p>
 <hr />
 <h4 id="ldap-create">ldap create</h4>
-<p>Creates a new LDAP, which can later be used for Cloudbreak-managed clusters.</p>
+<p>Registers an existing LDAP with Cloudbreak.</p>
 <p><strong>Required Options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the LDAP     <br />
 <strong><code>--ldap-server &lt;value&gt;</code></strong>  Address of the LDAP server (e.g. ldap://10.0.0.1:384)<br />
@@ -1523,7 +1550,7 @@
 <strong><code>--public</code></strong>   Public in account  </p>
 <hr />
 <h4 id="ldap-delete">ldap delete</h4>
-<p>Deletes selected LDAP. </p>
+<p>Deletes selected LDAP registration from Cloudbreak. It does not delete the LDAP. </p>
 <p><strong>Required Options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the proxy     </p>
 <p><strong>Options</strong></p>
