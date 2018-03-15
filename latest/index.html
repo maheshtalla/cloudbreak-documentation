@@ -554,6 +554,9 @@
             <li class="second-level"><a href="#primary-use-cases">Primary Use Cases</a></li>
             
         
+            <li class="second-level"><a href="#default-cluster-configurations">Default Cluster Configurations</a></li>
+            
+        
             <li class="second-level"><a href="#architecture">Architecture</a></li>
             
         
@@ -573,16 +576,75 @@
 
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to the <strong>Cloudbreak 2.5 Technical Preview</strong> documentation!</p>
-<p>Cloudbreak simplifies the provisioning, management, and monitoring of on-demand HDP clusters in virtual and cloud environments. It leverages cloud infrastructure to create host instances, and uses Apache Ambari via Ambari blueprints to provision and manage HDP clusters. </p>
+<p>Cloudbreak simplifies the provisioning, management, and monitoring of on-demand HDP and HDF clusters in virtual and cloud environments. It leverages cloud infrastructure to create host instances, and uses Apache Ambari via Ambari blueprints to provision and manage HDP clusters. </p>
 <p>Cloudbreak allows you to create clusters using the Cloudbreak web UI, Cloudbreak CLI, and Cloudbreak REST API. Clusters can be launched on public cloud infrastructure platforms <strong>Microsoft Azure</strong>, <strong>Amazon Web Services (AWS)</strong>, and <strong>Google Cloud Platform (GCP)</strong>, and on the private cloud infrastructure platform <strong>OpenStack</strong>.</p>
 <p><a href="./images/cb-ui3.png" target="_blank" title="click to enlarge"><img src="./images/cb-ui3.png" width="650" title="Cloudbreak web UI"></a>   </p>
 <h3 id="primary-use-cases">Primary Use Cases</h3>
-<p>Cloudbreak allows you to create, manage, and monitor your clusters on your chosen cloud platform:</p>
+<p>Cloudbreak allows you to create, manage, and monitor your HDP and HDF clusters on your chosen cloud platform:</p>
 <ul>
 <li>Dynamically deploy, configure, and manage clusters on public and private clouds (AWS, Azure, Google Cloud, OpenmStack).   </li>
 <li>Use automated scaling to seamlessly manage elasticity requirements as cluster workloads change.  </li>
 <li>Secure your cluster by enabling Kerberos.   </li>
 </ul>
+<h3 id="default-cluster-configurations">Default Cluster Configurations</h3>
+<p>Cloudbreak includes default cluster configurations (in the form of bleuprints) and supports using your own custom cluster configurations (in the form of custom blueprints).</p>
+<p>The following default cluster configurations are available:</p>
+<p>Platform Version: <strong>HDP 2.6</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cluster Type</th>
+<th>Main Services</th>
+<th>Description</th>
+<th>List of All Services Included</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Science</td>
+<td><i class="fa fa-check" style="color: green"></i> Spark 2,<br>Zeppelin</td>
+<td>Useful for data science with Spark 2 and Zeppelin.</td>
+<td>HDFS, YARN, MapReduce2, Tez, Hive, Pig, Sqoop, ZooKeeper, Ambari Metrics, Spark 2, Zeppelin</td>
+</tr>
+<tr>
+<td>EDW - Analytics</td>
+<td><span><i class="fa fa-check" style="color: green"></i> Hive 2 LLAP</span>,<br>Zeppelin</td>
+<td>Useful for EDW analytics using Hive LLAP.</td>
+<td>HDFS, YARN, MapReduce2, Tez, Hive 2 LLAP, Druid, Pig, ZooKeeper, Ambari Metrics, Spark 2</td>
+</tr>
+<tr>
+<td>EDW - ETL</td>
+<td><i class="fa fa-check" style="color: green"></i> Hive,<br> Spark 2</td>
+<td>Useful for ETL data processing with Hive and Spark 2.</td>
+<td>HDFS, YARN, MapReduce2, Tez, Hive, Pig, ZooKeeper, Ambari Metrics, Spark 2</td>
+</tr>
+</tbody>
+</table>
+<p>Platform Version: <strong>HDF 3.1</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cluster Type</th>
+<th>Main Services</th>
+<th>Description</th>
+<th>List of All Services Included</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flow Management</td>
+<td><i class="fa fa-warning" style="color: orange"></i> NiFi</td>
+<td>Useful for flow management with NiFi.</td>
+<td>NiFi, ZooKeeper, Ambari Metrics</td>
+</tr>
+</tbody>
+</table>
+<p>The following configuration classification applies:
+<ul>
+<li><i class="fa fa-check" style="color: green"></i> Stable configurations are the best choice if you want to avoid issues and other problems with launching and using clusters.</li>
+<li><i class="fa fa-warning" style="color: orange"></i> If you want to use a Technical Preview version of a component in a release of HDP, use these configurations.</li>
+<li><i class="fa fa-warning" style="color: red"></i> These are the most cutting edge of the configurations, including Technical Preview components in a Technical Preview HDP release.</li>
+</ul></p>
 <h3 id="architecture">Architecture</h3>
 <p>Refer to <a href="architecture/index.html">Architecture</a>.</p>
 <h3 id="get-started">Get Started</h3>
@@ -688,5 +750,5 @@
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2018-03-15 19:43:07.640311
+Build Date UTC : 2018-03-15 19:57:59.423469
 -->
