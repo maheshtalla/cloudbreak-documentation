@@ -625,6 +625,32 @@
             
                 <li class="third-level"><a href="#ldap-list">ldap list</a></li>
             
+                <li class="third-level"><a href="#proxy-create">proxy create</a></li>
+            
+                <li class="third-level"><a href="#proxy-delete">proxy delete</a></li>
+            
+                <li class="third-level"><a href="#proxy-list">proxy list</a></li>
+            
+                <li class="third-level"><a href="#rds-create">rds create</a></li>
+            
+                <li class="third-level"><a href="#rds-delete">rds delete</a></li>
+            
+                <li class="third-level"><a href="#rds-list">rds list</a></li>
+            
+                <li class="third-level"><a href="#recipe-create">recipe create</a></li>
+            
+                <li class="third-level"><a href="#recipe-delete">recipe delete</a></li>
+            
+                <li class="third-level"><a href="#recipe-describe">recipe describe</a></li>
+            
+                <li class="third-level"><a href="#recipe-list">recipe list</a></li>
+            
+        
+            <li class="second-level"><a href="#debugging">Debugging</a></li>
+            
+        
+            <li class="second-level"><a href="#checking-cli-version">Checking CLI Version</a></li>
+            
         
     
     </ul>
@@ -845,7 +871,7 @@
 
 <hr />
 <h4 id="cloud-availability-zones">cloud availability-zones</h4>
-<p>Lists the available availability zones in a region. </p>
+<p>Lists all availability zones available in the specified cloud provider region. </p>
 <p><strong>Required Options</strong></p>
 <p><strong><code>--credential &lt;value&gt;</code></strong>  Name of the credential<br />
 <strong><code>--region &lt;value&gt;</code></strong>   Name of the region  </p>
@@ -873,7 +899,7 @@
 
 <hr />
 <h4 id="cloud-regions">cloud regions</h4>
-<p>Lists available regions. </p>
+<p>Lists the available cloud provider regions. </p>
 <p><strong>Required Options</strong></p>
 <p><strong><code>--credential &lt;value&gt;</code></strong>  Name of the credential  </p>
 <p><strong>Options</strong></p>
@@ -899,7 +925,7 @@
 
 <hr />
 <h4 id="cloud-volumes">cloud volumes</h4>
-<p>Lists the available volume types. </p>
+<p>Lists the available cloud provider volume types. </p>
 <p><strong>Sub-commands</strong></p>
 <p><strong><code>aws</code></strong>     Lists the available aws volume types<br />
 <strong><code>azure</code></strong>   Lists the available azure volume types<br />
@@ -937,7 +963,7 @@
 
 <hr />
 <h4 id="cloud-instances">cloud instances</h4>
-<p>Lists the available instance types.</p>
+<p>Lists the available cloud provider instance types.</p>
 <p><strong>Required Options</strong></p>
 <p><strong><code>--credential &lt;value&gt;</code></strong>  Name of the credential<br />
 <strong><code>--region &lt;value&gt;</code></strong>   Name of the region  </p>
@@ -988,7 +1014,7 @@
 
 <hr />
 <h4 id="cluster-create">cluster create</h4>
-<p>Creates a new cluster based on a JSON template.</p>
+<p>Creates a new cluster based on a JSON template. </p>
 <p><strong>Required Options</strong></p>
 <p><strong><code>--cli-input-json &lt;value&gt;</code></strong>  User provided file in JSON format  </p>
 <p><strong>Options</strong></p>
@@ -1131,11 +1157,11 @@
 <h4 id="cluster-scale">cluster scale</h4>
 <p>Scales a cluster by adding or removing nodes.</p>
 <p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name of the cluster
-<strong><code>--group-name &lt;value&gt;</code></strong>  Name of the group to scale
-<strong><code>--desired-node-count &lt;value&gt;</code></strong>  Desired number of nodes</p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name of the cluster<br />
+<strong><code>--group-name &lt;value&gt;</code></strong>  Name of the group to scale<br />
+<strong><code>--desired-node-count &lt;value&gt;</code></strong>  Desired number of nodes  </p>
 <p><strong>Options</strong></p>
-<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required <br />
 <strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
 <strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
 <strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
@@ -1374,7 +1400,7 @@
 <p><a href="../images/index.html">Custom Images</a>   </p>
 <hr />
 <h4 id="imagecatalog-delete">imagecatalog delete</h4>
-<p>Deletes a previously registered custom image catalog. </p>
+<p>Deletes a previously registered custom image catalog. It does not delete any cloud provider resources that you created as a prerequisite for creating the Cloudbreak credential.    </p>
 <p><strong>Required Options</strong>  </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the image catalog   </p>
 <p><strong>Options</strong></p>
@@ -1479,28 +1505,28 @@
 <h4 id="ldap-create">ldap create</h4>
 <p>Creates a new LDAP, which can later be used for Cloudbreak-managed clusters.</p>
 <p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;'**  Name for the LDAP       
-**</code>--ldap-server <value>'</strong>  Address of the LDAP server (e.g. ldap://10.0.0.1:384)<br />
-<strong><code>--ldap-domain &lt;value&gt;'**   LDAP domain (e.g. ad.cb.com)  
-**</code>--ldap-bind-dn <value>'</strong>  LDAP bind DN (e.g. CN=Administrator,CN=Users,DC=ad,DC=cb,DC=com)<br />
-<strong><code>--ldap-bind-password &lt;value&gt;'**  LDAP bind password  
-**</code>--ldap-directory-type <value>'</strong>   LDAP directory type (LDAP or ACTIVE_DIRECTORY) <br />
-<strong><code>--ldap-user-search-base &lt;value&gt;'**   LDAP user search base (e.g. CN=Users,DC=ad,DC=cb,DC=com)  
-**</code>--ldap-user-name-attribute <value>'</strong>   LDAP user name attribute<br />
-<strong><code>--ldap-user-object-class &lt;value&gt;'**   LDAP user object class  
-**</code>--ldap-group-member-attribute <value>'</strong> LDAP group member attribute<br />
-<strong><code>--ldap-group-name-attribute &lt;value&gt;'**  LDAP group name attribute  
-**</code>--ldap-group-object-class <value>'</strong>  LDAP group object class<br />
-<strong>`--ldap-group-search-base <value>'</strong>   LDAP group search base (e.g. OU=scopes,DC=ad,DC=cb,DC=com)  </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the LDAP     <br />
+<strong><code>--ldap-server &lt;value&gt;</code></strong>  Address of the LDAP server (e.g. ldap://10.0.0.1:384)<br />
+<strong><code>--ldap-domain &lt;value&gt;</code></strong>   LDAP domain (e.g. ad.cb.com)<br />
+<strong><code>--ldap-bind-dn &lt;value&gt;</code></strong>  LDAP bind DN (e.g. CN=Administrator,CN=Users,DC=ad,DC=cb,DC=com)<br />
+<strong><code>--ldap-bind-password &lt;value&gt;</code></strong>  LDAP bind password<br />
+<strong><code>--ldap-directory-type &lt;value&gt;</code></strong>   LDAP directory type (LDAP or ACTIVE_DIRECTORY) <br />
+<strong><code>--ldap-user-search-base &lt;value&gt;</code></strong>   LDAP user search base (e.g. CN=Users,DC=ad,DC=cb,DC=com)<br />
+<strong><code>--ldap-user-name-attribute &lt;value&gt;</code></strong>   LDAP user name attribute<br />
+<strong><code>--ldap-user-object-class &lt;value&gt;</code></strong>   LDAP user object class<br />
+<strong><code>--ldap-group-member-attribute &lt;value&gt;</code></strong> LDAP group member attribute<br />
+<strong><code>--ldap-group-name-attribute &lt;value&gt;</code></strong>  LDAP group name attribute<br />
+<strong><code>--ldap-group-object-class &lt;value&gt;</code></strong>  LDAP group object class<br />
+<strong><code>--ldap-group-search-base &lt;value&gt;</code></strong>   LDAP group search base (e.g. OU=scopes,DC=ad,DC=cb,DC=com)  </p>
 <p><strong>Options</strong></p>
-<p><strong><code>--ldap-admin-group &lt;value&gt;'**  LDAP group of administrators  
-**</code>--description <value><code>**  Description for the LDAP      
-**</code>--server <value><code>**  Cloudbreak server address [$CB_SERVER_ADDRESS]  
-**</code>--username <value><code>**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**</code>--password <value><code>**  Cloudbreak password [$CB_PASSWORD]   
-**</code>--profile <value><code>**  Selects a config profile to use [$CB_PROFILE] 
-**</code>--auth-type <value><code>**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  
-**</code>--public`</strong>   Public in account  </p>
+<p><strong><code>--ldap-admin-group &lt;value&gt;</code></strong>  LDAP group of administrators<br />
+<strong><code>--description &lt;value&gt;</code></strong>  Description for the LDAP    <br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD] <br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]<br />
+<strong><code>--public</code></strong>   Public in account  </p>
 <hr />
 <h4 id="ldap-delete">ldap delete</h4>
 <p>Deletes selected LDAP. </p>
@@ -1533,379 +1559,186 @@
 <pre>cb ldap list</pre>
 
 <p>Lists existing LDAPs, with output presented in a table format:</p>
-<pre>cb ldap list --output table
+<pre>cb ldap list --output table</pre>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-__________________________________
-
-#### proxy create
-
-Registers an existing proxy with Cloudbreak.
-
-
-**Required Options**
-
-**`--name <value>'**  Name for the proxy     
-**`--proxy-host <value>'**  Hostname or IP address of the proxy
-**`--proxy-port <value>'**  Port of the proxy 
-
-**Options**
-
-**`--proxy-protocol <value>`**  Protocol for the proxy (http or https) (default: "http")  
-**`--proxy-user <value>`**   User for the proxy if basic auth is required  
-**`--proxy-password <value>`**  Password for the proxy if basic auth is required  
-**`--description <value>`**  Description for the proxy      
-**`--server <value>`**  Cloudbreak server address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]   
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE] 
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  
-**`--public`**   Public in account  
-
-
-
-
-
-
-
-
-
-
-
-__________________________________
-
-#### proxy delete
-
-Unregisters a previously registered proxy with Cloudbreak. It does not delete the proxy. 
-
-**Required Options**
-
-**`--name <value>`**  Name for the proxy     
-
-**Options**
-
-**`--output <value>`**  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  
-**`--server <value>`**  Cloudbreak erver address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]  
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE]  
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]
-
-**Examples**
-
+<hr />
+<h4 id="proxy-create">proxy create</h4>
+<p>Registers an existing proxy with Cloudbreak.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the proxy   <br />
+<strong><code>--proxy-host &lt;value&gt;</code></strong>  Hostname or IP address of the proxy<br />
+<strong><code>--proxy-port &lt;value&gt;</code></strong>  Port of the proxy  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--proxy-protocol &lt;value&gt;</code></strong>  Protocol for the proxy (http or https) (default: "http")<br />
+<strong><code>--proxy-user &lt;value&gt;</code></strong>   User for the proxy if basic auth is required<br />
+<strong><code>--proxy-password &lt;value&gt;</code></strong>  Password for the proxy if basic auth is required<br />
+<strong><code>--description &lt;value&gt;</code></strong>  Description for the proxy    <br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD] <br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]<br />
+<strong><code>--public</code></strong>   Public in account  </p>
+<hr />
+<h4 id="proxy-delete">proxy delete</h4>
+<p>Unregisters a previously registered proxy with Cloudbreak. It does not delete the proxy. </p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the proxy     </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak erver address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]</p>
+<p><strong>Examples</strong></p>
 <pre>cb proxy delete --name testproxy</pre>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-__________________________________
-
-#### proxy list
-
-Lists all proxies that were previously registered with Cloudbreak.
-
-**Required Options**
-
-None
-
-**Options**
-
-**`--output <value>`**  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  
-**`--server <value>`**  Cloudbreak server address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]  
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE]  
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]
-
-**Examples**
-
-Lists existing proxy registrations:
-
+<hr />
+<h4 id="proxy-list">proxy list</h4>
+<p>Lists all proxies that were previously registered with Cloudbreak.</p>
+<p><strong>Required Options</strong></p>
+<p>None</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]</p>
+<p><strong>Examples</strong></p>
+<p>Lists existing proxy registrations:</p>
 <pre>cb proxy list</pre>
 
-Lists existing proxy registrations, with output presented in a table format:
+<p>Lists existing proxy registrations, with output presented in a table format:</p>
+<pre>cb proxy list --output table</pre>
 
-<pre>cb proxy list --output table
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-__________________________________
-
-#### rds create
-
-Registers an existing external RDS with Cloudbreak.
-
-
-**Required Options**
-
-**`--name <value>'**   Name for the RDS   
-**`--rds-username <value>'**  Username for the JDBC connection  
-**`--rds-password <value>'**  Password for the JDBC connection  
-**`--url <value>'**  JDBC connection URL in the form of jdbc:<db-type>://<address>:<port>/<db>  
-**`--driver <value>'**   Name of the JDBC connection driver (for example: 'org.postgresql.Driver')  
-**`--database-engine <value>'**   Name of the external database engine (MYSQL, POSTGRES...)  
-**`--type <value>'**   Name if the service that will use the RDS (HIVE, DRUID, SUPERSET, RANGER, etc.)    
-
-**Options**
-
-**`--description <value>`**  Description for the RDS     
-**`--not-validated`**  If set, then the RDS configuration will be not validated  
-**`--server <value>`**  Cloudbreak server address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]   
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE] 
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  
-**`--public`**   Public in account  
-
-**Examples**
-
-Registers an existing Postgres RDS called "test-rds" with Cloudbreak:
-
+<hr />
+<h4 id="rds-create">rds create</h4>
+<p>Registers an existing external RDS with Cloudbreak.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>   Name for the RDS <br />
+<strong><code>--rds-username &lt;value&gt;</code></strong>  Username for the JDBC connection<br />
+<strong><code>--rds-password &lt;value&gt;</code></strong>  Password for the JDBC connection<br />
+<strong><code>--url &lt;value&gt;</code></strong>  JDBC connection URL in the form of jdbc:db-type://address:port/db<br />
+<strong><code>--driver &lt;value&gt;</code></strong>   Name of the JDBC connection driver (for example: 'org.postgresql.Driver')<br />
+<strong><code>--database-engine &lt;value&gt;</code></strong>   Name of the external database engine (MYSQL, POSTGRES...)<br />
+<strong><code>--type &lt;value&gt;</code></strong>   Name if the service that will use the RDS (HIVE, DRUID, SUPERSET, RANGER, etc.)    </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description for the RDS   <br />
+<strong><code>--not-validated</code></strong>  If set, then the RDS configuration will be not validated<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD] <br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE] <br />
+<strong><code>--public</code></strong>   Public in account  </p>
+<p><strong>Examples</strong></p>
+<p>Registers an existing Postgres RDS called "test-rds" with Cloudbreak:</p>
 <pre>cb rds create --name testrds --rds-username testuser --rds-password MySecurePassword123 --url jdbc:postgresql://test-db.cic6nusrpqec.us-west-2.rds.amazonaws.com:5432/testdb --driver 'org.postgresql.Driver' --database-engine POSTGRES --type HIVE</pre>
 
-The connection URL includes three components <db-type>://<address>:<port>/<db>: 
-
-* Database type "jdbc:postgresql"  
-* Endpoint "test-db.cic6nusrpqec.us-west-2.rds.amazonaws.com:5432"  
-* Port "5432"  
-* Database name "testdb"  
-
-
-
-
-
-
-
-
-
-
-
-__________________________________
-
-#### rds delete
-
-Unregisters a previously registered RDS with Cloudbreak. It does not delete the RDS instance. 
-
-**Required Options**
-
-**`--name <value>`**  Name for the RDS   
-
-**Options**
-
-**`--output <value>`**  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  
-**`--server <value>`**  Cloudbreak erver address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]  
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE]  
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]
-
-**Examples**
-
+<p>The connection URL includes three components db-type://address:port/db: </p>
+<ul>
+<li>Database type "jdbc:postgresql"  </li>
+<li>Endpoint "test-db.cic6nusrpqec.us-west-2.rds.amazonaws.com:5432"  </li>
+<li>Port "5432"  </li>
+<li>Database name "testdb"  </li>
+</ul>
+<hr />
+<h4 id="rds-delete">rds delete</h4>
+<p>Unregisters a previously registered RDS with Cloudbreak. It does not delete the RDS instance. </p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the RDS   </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak erver address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]</p>
+<p><strong>Examples</strong></p>
 <pre>cb rds delete --name testrds</pre>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-__________________________________
-
-#### rds list
-
-Lists all available RDS registrations.
-
-**Required Options**
-
-None
-
-**Options**
-
-**`--output <value>`**  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  
-**`--server <value>`**  Cloudbreak server address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]  
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE]  
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]
-
-**Examples**
-
-Lists existing rds registrations:
-
+<hr />
+<h4 id="rds-list">rds list</h4>
+<p>Lists all available RDS registrations.</p>
+<p><strong>Required Options</strong></p>
+<p>None</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]</p>
+<p><strong>Examples</strong></p>
+<p>Lists existing rds registrations:</p>
 <pre>cb rds list</pre>
 
-Lists existing rds registrations, with output presented in a table format:
+<p>Lists existing rds registrations, with output presented in a table format:</p>
+<pre>cb rds list --output table</pre>
 
-<pre>cb rds list --output table
-
-
-
-
-
-
-
-
-
-
-
-__________________________________
-
-#### recipe create
-
-Adds a new recipe from a file or from a URL.
-
-**Sub-commands**
-
-**`from-url`**  Creates a recipe by downloading it from a URL location  
-**`from-file`**  Creates a recipe by reading it from a local file  
-
-**Required Options**
-
-**`from-url`**  
-
-**`--name <value>`**  Name for the recipe   
-**`--execution-type <value>`**  Type of execution [pre-ambari-start, pre-termination, post-ambari-start, post-cluster-install]    
-**`--url <value>`**  URL location of the Ambari blueprint JSON file  
-
-
-**`from-file`** 
-
-**`--name <value>`**  Name for the recipe  
-**`--execution-type <value>`**  Type of execution [pre-ambari-start, pre-termination, post-ambari-start, post-cluster-install]   
-**`--file <value>`**  Location of the Ambari blueprint JSON file  
-
-**Options**
-
-**`--description <value>`**  Description for the recipe   
-**`--server <value>`**  Cloudbreak server address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]  
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE]  
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  
-**`--public`**   Public in account  
-
-**Examples**
-
-
-Adds a new recipe called "test1" from a URL:
-
+<hr />
+<h4 id="recipe-create">recipe create</h4>
+<p>Adds a new recipe from a file or from a URL.</p>
+<p><strong>Sub-commands</strong></p>
+<p><strong><code>from-url</code></strong>  Creates a recipe by downloading it from a URL location<br />
+<strong><code>from-file</code></strong>  Creates a recipe by reading it from a local file  </p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>from-url</code></strong>  </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe <br />
+<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre-ambari-start, pre-termination, post-ambari-start, post-cluster-install]  <br />
+<strong><code>--url &lt;value&gt;</code></strong>  URL location of the Ambari blueprint JSON file  </p>
+<p><strong><code>from-file</code></strong> </p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe<br />
+<strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre-ambari-start, pre-termination, post-ambari-start, post-cluster-install] <br />
+<strong><code>--file &lt;value&gt;</code></strong>  Location of the Ambari blueprint JSON file  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description for the recipe <br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]<br />
+<strong><code>--public</code></strong>   Public in account  </p>
+<p><strong>Examples</strong></p>
+<p>Adds a new recipe called "test1" from a URL:</p>
 <pre>cb recipe create from-url --name "test1" --execution-type post-ambari-start --url http://some-site.com/test.sh</pre>
 
-Adds a new recipe called "test2" from a file:
-
+<p>Adds a new recipe called "test2" from a file:</p>
 <pre>cb recipe create from-url --name "test2" --execution-type post-ambari-start --file /Users/test/Documents/test.sh</pre>
 
-**Related Links**
-
-[Recipes](recipes.md)
-
-
-
-
-
-
-
-__________________________________
-
-#### recipe delete
-
-Deletes an existing recipe.
-
-**Required Options**
-
-**`--name <value>`**  Name for the recipe  
-
-**Options**
-
-**`--output <value>`**  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  
-**`--server <value>`**  Cloudbreak server address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]  
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE]   
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  
-
-**Examples**
-
+<p><strong>Related Links</strong></p>
+<p><a href="../recipes/index.html">Recipes</a></p>
+<hr />
+<h4 id="recipe-delete">recipe delete</h4>
+<p>Deletes an existing recipe.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe  </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE] <br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  </p>
+<p><strong>Examples</strong></p>
 <pre>cb recipe delete --name test</pre>
 
-
-
-
-
-
-
-
-
-
-__________________________________
-
-#### recipe describe
-
-Describes an existing recipe.
-
-**Required Options**
-
-**`--name <value>`**  Name for the recipe    
-
-**Options**
-
-**`--output <value>`**  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  
-**`--server <value>`**  Cloudbreak server address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]  
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE]  
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  
-
-
-**Examples**
-
-Describes a recipe called "test":
-
+<hr />
+<h4 id="recipe-describe">recipe describe</h4>
+<p>Describes an existing recipe.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe    </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  </p>
+<p><strong>Examples</strong></p>
+<p>Describes a recipe called "test":</p>
 <pre>cb recipe describe --name test
 {
   "Name": "test",
@@ -1913,8 +1746,7 @@ Describes a recipe called "test":
   "ExecutionType": "POST"
 }</pre>
 
-Describes a recipe called "test", with output presented in a table format:
-
+<p>Describes a recipe called "test", with output presented in a table format:</p>
 <pre>cb describe-recipe --name test --output table
 +------+-------------+----------------+
 | NAME | DESCRIPTION | EXECUTION TYPE |
@@ -1922,39 +1754,20 @@ Describes a recipe called "test", with output presented in a table format:
 | test |             | POST           |
 +------+-------------+----------------+</pre>
 
-
-
-
-
-
-
-
-
-
-
-__________________________________
-
-#### recipe list
-
-Lists all available recipes.
-
-**Required Options**
-
-None
-
-**Options**
-
-**`--output <value>`**  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  
-**`--server <value>`**  Cloudbreak server address [$CB_SERVER_ADDRESS]  
-**`--username <value>`**  Cloudbreak user name (e-mail address) [$CB_USER_NAME]  
-**`--password <value>`**  Cloudbreak password [$CB_PASSWORD]  
-**`--profile <value>`**  Selects a config profile to use [$CB_PROFILE]  
-**`--auth-type <value>`**  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  
-
-**Examples**
-
-Lists existing recipes:
-
+<hr />
+<h4 id="recipe-list">recipe list</h4>
+<p>Lists all available recipes.</p>
+<p><strong>Required Options</strong></p>
+<p>None</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]  </p>
+<p><strong>Examples</strong></p>
+<p>Lists existing recipes:</p>
 <pre>cb recipe list
 [
   {
@@ -1964,8 +1777,7 @@ Lists existing recipes:
   }
 ]</pre>
 
-Lists existing recipes, with output presented in a table format:
-
+<p>Lists existing recipes, with output presented in a table format:</p>
 <pre>cb recipe list --output table
 +------+-------------+-------------------+
 | NAME | DESCRIPTION | EXECUTION TYPE    |
@@ -1974,24 +1786,11 @@ Lists existing recipes, with output presented in a table format:
 +------+-------------+-------------------+
 </pre>
 
-
-
-
-
-
-
-
-
-__________________________________
-
-### Debugging
-
-To use debugging mode, pass the `--debug` option. 
-
-
-### Checking CLI Version
-
-To check CLI version, use `cb --version`.</div>
+<hr />
+<h3 id="debugging">Debugging</h3>
+<p>To use debugging mode, pass the <code>--debug</code> option. </p>
+<h3 id="checking-cli-version">Checking CLI Version</h3>
+<p>To check CLI version, use <code>cb --version</code>.</p></div>
         
     </div>
 
