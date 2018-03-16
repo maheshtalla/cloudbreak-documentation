@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-credentials/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/azure-data/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Manage Cloudbreak Credentials - Cloudbreak</title>
+    <title>Access Data on Azure - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -145,7 +145,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -174,8 +174,8 @@
 
                         
                             
-<li >
-    <a href="../azure-data/index.html">Access Data on Azure</a>
+<li class="active">
+    <a href="index.html">Access Data on Azure</a>
 </li>
 
                         
@@ -250,7 +250,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -338,8 +338,8 @@
 
         
             
-<li class="active">
-    <a href="index.html">Manage Cloudbreak Credentials</a>
+<li >
+    <a href="../cb-credentials/index.html">Manage Cloudbreak Credentials</a>
 </li>
 
         
@@ -546,12 +546,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../cb-upgrade/index.html">
+                        <a rel="next" href="../azure-clusters-manage/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../cb-disable-provider/index.html">
+                        <a rel="prev" href="../gcp-launch/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -576,26 +576,28 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#managing-cloudbreak-credentials">Managing Cloudbreak Credentials</a></li>
+        <li class="first-level active"><a href="#accessing-data-on-azure">Accessing Data on Azure</a></li>
         
-            <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak Credential</a></li>
+            <li class="second-level"><a href="#accessing-data-in-adls">Accessing Data in ADLS</a></li>
             
-        
-            <li class="second-level"><a href="#view-credential-details">View Credential Details</a></li>
+                <li class="third-level"><a href="#prerequisites">Prerequisites</a></li>
             
-                <li class="third-level"><a href="#details-for-aws-credentials">Details for AWS Credentials</a></li>
+                <li class="third-level"><a href="#configuring-access-to-adls">Configuring Access to ADLS</a></li>
             
-                <li class="third-level"><a href="#details-for-azure-credentials">Details for Azure Credentials</a></li>
+                <li class="third-level"><a href="#testing-access-to-adls">Testing Access to ADLS</a></li>
             
-                <li class="third-level"><a href="#details-for-gcp-credentials">Details for GCP Credentials</a></li>
-            
-                <li class="third-level"><a href="#details-for-openstack-credentials">Details for OpenStack Credentials</a></li>
+                <li class="third-level"><a href="#working-with-adls">Working with ADLS</a></li>
             
         
-            <li class="second-level"><a href="#set-a-default-credential">Set a Default Credential</a></li>
+            <li class="second-level"><a href="#accessing-data-in-wasb">Accessing Data in WASB</a></li>
             
-        
-            <li class="second-level"><a href="#delete-a-credential">Delete a Credential</a></li>
+                <li class="third-level"><a href="#prerequisites_1">Prerequisites</a></li>
+            
+                <li class="third-level"><a href="#configuring-access-to-wasb">Configuring Access to WASB</a></li>
+            
+                <li class="third-level"><a href="#testing-access-to-wasb">Testing Access to WASB</a></li>
+            
+                <li class="third-level"><a href="#working-with-wasb">Working with WASB</a></li>
             
         
     
@@ -603,85 +605,79 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="managing-cloudbreak-credentials">Managing Cloudbreak Credentials</h2>
-<p>You can view and manage Cloudbreak credentials in the <strong>Credentials</strong> tab by clicking <strong>Create credential</strong> and providing required parameters. You must create at least one credential in order to be able to create a cluster. </p>
-<p><a href="../images/cb-credentials.png" target="_blank" title="click to enlarge"><img src="../images/cb-credentials.png" width="650" title="Cloudbreak web UI"></a> </p>
-<h3 id="create-cloudbreak-credential">Create Cloudbreak Credential</h3>
-<p>For steps, refer to:</p>
-<ul>
-<li><a href="../aws-launch/index.html#create-cloudbreak-credential">Create Credential on AWS</a>  </li>
-<li><a href="../azure-launch/index.html#create-cloudbreak-credential">Create Credential on Azure</a>  </li>
-<li><a href="../gcp-launch/index.html#create-cloudbreak-credential">Create Credential on GCP</a> </li>
-<li><a href="../os-launch/index.html#create-cloudbreak-credential">Create Credential on OpenStack</a></li>
-</ul>
-<h3 id="view-credential-details">View Credential Details</h3>
-<p>To view credential details, follow these steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>In the Cloudbreak UI, select <strong>Credentials</strong> from the navigation pane.  </li>
-<li>Click on the name of a credential. </li>
-</ol>
-<h4 id="details-for-aws-credentials">Details for AWS Credentials</h4>
-<p>The following information is available for previously created AWS credentials:</p>
-<ul>
-<li>Credential Name  </li>
-<li>Description   </li>
-<li>Selector: One of <em>key-based</em> or <em>role-based</em>, depending on credential type   </li>
-</ul>
-<p>Sensitive information such as AWS access key and secret key (in case of a key-based credential) or role ARN (in case of a role-based credential) are not displayed.</p>
-<h4 id="details-for-azure-credentials">Details for Azure Credentials</h4>
-<p>The following information is available for previously created Azure credentials:</p>
-<ul>
-<li>Credential Name   </li>
-<li>Description  </li>
-<li>Tenant Id: The <code>Directory ID</code> from your Azure Active Directory   </li>
-<li>Subscription Id: Your Azure <code>Subscription ID</code>  </li>
-</ul>
-<p>In case of the interactive credential, the following are also displayed:</p>
-<ul>
-<li>Sp Display Name: Service principal name     </li>
-<li>Role Type: role selected during credential creation </li>
-</ul>
-<p>In case of the app-based credential, the Application ID and key that you provided when creating the credential are not displayed.</p>
-<h4 id="details-for-gcp-credentials">Details for GCP Credentials</h4>
-<p>The following information is available for previously created GCP credentials:</p>
-<ul>
-<li>Credential Name   </li>
-<li>Description  </li>
-<li>Service Account Id</li>
-<li>Project Id </li>
-</ul>
-<p>The P12 key that you attached when creating the credential is not displayed.</p>
-<h4 id="details-for-openstack-credentials">Details for OpenStack Credentials</h4>
-<p>The following information is available for previously created OpenStack credentials:</p>
-<ul>
-<li>Credential Name   </li>
-<li>Description  </li>
-<li>Facing: "internal" or "public", as specified under "Api Facing"     </li>
-<li>Endpoint  </li>
-<li>Selector: "cb-keystone-v2" or "cb-keystone-v3"  </li>
-<li>Keystone Version: "cb-keystone-v2" or "cb-keystone-v3"   </li>
-<li>User Name    </li>
-<li>Tenant Name   </li>
-</ul>
-<p>The password parameter is not displayed. </p>
-<h3 id="set-a-default-credential">Set a Default Credential</h3>
-<p>If using multiple Cloudbreak credentials, you can select one credential and use it as default for creating clusters. This default credential will be pre-selected in the create cluster wizard.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>In the Cloudbreak UI, select <strong>Credentials</strong> from the navigation pane.  </li>
-<li>Click <strong>Set as default</strong> next to the credential that you would like to set as default.  </li>
-<li>Click <strong>Yes</strong> to confirm. </li>
-</ol>
-<h3 id="delete-a-credential">Delete a Credential</h3>
-<p>To delete a credential, follow these steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>In the Cloudbreak UI, select <strong>Credentials</strong> from the navigation pane.  </li>
-<li>Select one or more credentials by checking their corresponding checkboxes.</li>
-<li>Click <strong>Delete</strong>. </li>
-<li>Click <strong>Yes</strong> to confirm. </li>
-</ol></div>
+<h2 id="accessing-data-on-azure">Accessing Data on Azure</h2>
+<p>Hortonworks Data Platform (HDP) supports reading and writing both block blobs and page blobs
+from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as reading and writing files stored in an
+<em>Azure Data Lake Storage (ADLS)</em> account. </p>
+<h3 id="accessing-data-in-adls">Accessing Data in ADLS</h3>
+<p><a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store (ADLS)</a> is an enterprise-wide hyper-scale repository for big data analytic workloads.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>If you want to use ADLS to store your data, you must enable Azure subscription for Data Lake Store, and then create an Azure Data Lake Store <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">storage account</a>.</p>
+<h4 id="configuring-access-to-adls">Configuring Access to ADLS</h4>
+<p>ADLS is not supported as a default file system, but access to data in ADLS via the adl connector. To configure access to ADLS from a cluster managed via Cloudbreak use the steps described in <a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to Configure Authentication with ADLS</a>.</p>
+<h4 id="testing-access-to-adls">Testing Access to ADLS</h4>
+<p>To tests access to ADLS, SSH to a cluster node and run a few hadoop fs shell commands against your existing ADLS account.</p>
+<p>ADLS access path syntax is:</p>
+<pre>adl://<b>account_name</b>.azuredatalakestore.net/<b>dir/file</b></pre>
+
+<p>For example, the following Hadoop FileSystem shell commands demonstrate access to a storage account named "myaccount":</p>
+<pre>hadoop fs -mkdir adl://myaccount.azuredatalakestore.net/testdir</pre>
+
+<pre>hadoop fs -put testfile adl://myaccount.azuredatalakestore.net/testdir/testfile</pre>
+
+<p>To use DistCp against ADLS, use the following syntax:
+<pre>hadoop distcp
+    [-D hadoop.security.credential.provider.path=localjceks://file/home/user/adls.jceks]
+    hdfs://<b>namenode_hostname</b>:9001/user/foo/007020615
+    adl://<b>myaccount</b>.azuredatalakestore.net/testDir/</pre></p>
+<h4 id="working-with-adls">Working with ADLS</h4>
+<p>For more information about configuring the ADLS connector and working with data stored in ADLS, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
+<p><strong>Related Links</strong> <br />
+<a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks) 
+<a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to Configure Authentication with ADLS</a> (Hortonworks)<br />
+<a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store</a> (External)   <br />
+<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a Storage Account</a> (External)   <br />
+<a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">Get started with Azure Data Lake Store</a> (External)  </p>
+<h3 id="accessing-data-in-wasb">Accessing Data in WASB</h3>
+<p>Windows Azure Storage Blob (WASB) is an object store service available on Azure.</p>
+<h4 id="prerequisites_1">Prerequisites</h4>
+<p>If you want to use Windows Azure Storage Blob to store your data, you must enable Azure subscription for Blob Storage, and then create a <a href="https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account">storage account</a>.  </p>
+<h4 id="configuring-access-to-wasb">Configuring Access to WASB</h4>
+<p>In order to access data stored in your Azure blob storage account, you must configure your storage account access key in <code>core-site.xml</code>. The configuration property that you must use is <code>fs.azure.account.key.&lt;account name&gt;.blob.core.windows.net</code> and the value is the access key. </p>
+<p>For example the following property should be used for a storage account called "testaccount": </p>
+<pre><code>&lt;property&gt;
+  &lt;name&gt;fs.azure.account.key.testaccount.blob.core.windows.net&lt;/name&gt;
+  &lt;value&gt;TESTACCOUNT-ACCESS-KEY&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+
+<p>You can obtain your access key from the Access keys in your storage account settings.</p>
+<h4 id="testing-access-to-wasb">Testing Access to WASB</h4>
+<p>To tests access to WASB, SSH to a cluster node and run a few hadoop fs shell commands against your existing WASB account.</p>
+<p>WASB access path syntax is:</p>
+<pre>wasb://<b>container_name</b>@<b>storage_account_name</b>.blob.core.windows.net/<b>dir/file</b></pre>
+
+<p>For example, to access a file called "testfile" located in a directory called "testdir", stored in the container called "testcontainer" on the account called "hortonworks", the URL is:</p>
+<pre>wasb://testcontainer@hortonworks.blob.core.windows.net/testdir/testfile</pre>
+
+<p>You can also use "wasbs" prefix to utilize SSL-encrypted HTTPS access:</p>
+<pre>wasbs://<container_name>@<storage_account_name>.blob.core.windows.net/dir/file</pre>
+
+<p>The following Hadoop FileSystem shell commands demonstrate access to a storage account named "myaccount" and a container named "mycontainer":</p>
+<pre>hadoop fs -ls wasb://mycontainer@myaccount.blob.core.windows.net/
+
+hadoop fs -mkdir wasb://mycontainer@myaccount.blob.core.windows.net/testDir
+
+hadoop fs -put testFile wasb://mycontainer@myaccount.blob.core.windows.net/testDir/testFile
+
+hadoop fs -cat wasb://mycontainer@myaccount.blob.core.windows.net/testDir/testFile
+test file content</pre>
+
+<h4 id="working-with-wasb">Working with WASB</h4>
+<p>For more information about configuring the WASB connector and working with data stored in WASB, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
+<p><strong>Related Links</strong> <br />
+<a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks) <br />
+<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a Storage Account</a> (External)   </p></div>
         
     </div>
 
