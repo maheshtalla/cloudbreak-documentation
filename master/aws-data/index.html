@@ -587,7 +587,11 @@
             <li class="second-level"><a href="#configuring-access-to-s3">Configuring Access to S3</a></li>
             
         
-            <li class="second-level"><a href="#testing-access-from-hdp-to-s3">Testing Access from HDP to S3</a></li>
+            <li class="second-level"><a href="#testing-access-to-s3">Testing Access to S3</a></li>
+            
+                <li class="third-level"><a href="#testing-access-from-hdp-to-s3">Testing Access from HDP to S3</a></li>
+            
+                <li class="third-level"><a href="#testing-access-from-nifi-to-s3">Testing Access from Nifi to S3</a></li>
             
         
     
@@ -644,7 +648,8 @@
 </li>
 </ol>
 <p>During the cluster creation process, Cloudbreak assigns the IAM role and its associated permissions to the EC2 instances that are part of the cluster so that applications running on these instances can use the role to access S3.   </p>
-<h3 id="testing-access-from-hdp-to-s3">Testing Access from HDP to S3</h3>
+<h3 id="testing-access-to-s3">Testing Access to S3</h3>
+<h4 id="testing-access-from-hdp-to-s3">Testing Access from HDP to S3</h4>
 <p>Amazon S3 is not supported in HDP as a default file system, but access to data in Amazon S3 is possible via the s3a connector. </p>
 <p>To tests access to S3 from HDP, SSH to a cluster node and run a few hadoop fs shell commands against your existing S3 bucket.</p>
 <p>Amazon S3 access path syntax is:</p>
@@ -665,7 +670,13 @@ test file content</pre>
 
 <p>For more information about configuring the S3 connector for HDP and working with data stored on S3, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
 <p><strong>Related Links</strong><br />
-<a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks)</p></div>
+<a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks)</p>
+<h4 id="testing-access-from-nifi-to-s3">Testing Access from Nifi to S3</h4>
+<p>Performing this configuration provides the EC2 instance that your Nifi is running on with access to S3 (as specified in the IAM policy). </p>
+<p>As a next step, configure your specific processor. An example configuration is described in <br />
+<a href="https://community.hortonworks.com/articles/49467/integrating-apache-nifi-with-aws-s3-and-sqs.html">Integrating Apache NiFi with AWS S3 and SQS</a>.   </p>
+<p><strong>Related Links</strong><br />
+<a href="https://community.hortonworks.com/articles/49467/integrating-apache-nifi-with-aws-s3-and-sqs.html">Integrating Apache NiFi with AWS S3 and SQS</a> (HCC)  </p></div>
         
     </div>
 
