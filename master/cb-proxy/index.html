@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-disable-provider/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-proxy/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Disable Providers - Cloudbreak</title>
+    <title>Configure Cloudbreak for Low/No Internet Environment - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -326,8 +326,8 @@
 
         
             
-<li >
-    <a href="../cb-proxy/index.html">Configure Cloudbreak for Low/No Internet Environment</a>
+<li class="active">
+    <a href="index.html">Configure Cloudbreak for Low/No Internet Environment</a>
 </li>
 
         
@@ -362,8 +362,8 @@
 
         
             
-<li class="active">
-    <a href="index.html">Disable Providers</a>
+<li >
+    <a href="../cb-disable-provider/index.html">Disable Providers</a>
 </li>
 
         
@@ -552,12 +552,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../cb-credentials/index.html">
+                        <a rel="next" href="../vm-launch/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../cb-profile/index.html">
+                        <a rel="prev" href="../cb-ldap/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -582,41 +582,15 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#disable-providers">Disable Providers</a></li>
+        <li class="first-level active"><a href="#configuring-cloudbreak-for-lowno-internet-environment">Configuring Cloudbreak for Low/No Internet Environment</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="disable-providers">Disable Providers</h2>
-<p>If you are planning to use Cloudbreak with a specific cloud provider or a specific set of cloud providers, you may want to disable the remaining providers. For example, if you are planning to use Cloudbreak with Azure only, you may want to disable AWS, Google Cloud, and OpenStack. </p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Navigate to the Cloudbreak deployment directory and edit Profile. For example:</p>
-<p><pre>cd /var/lib/cloudbreak-deployment/
-vi Profile</pre></p>
-</li>
-<li>
-<p>Add the following entry, setting it to the provider that you  would like to see. For example, if you would like to see Azure only, set this to "AZURE":</p>
-<p><pre>export CB_ENABLEDPLATFORMS=AZURE</pre></p>
-<p>Accepted values are:</p>
-<ul>
-<li>AZURE</li>
-<li>AWS</li>
-<li>GCP</li>
-<li>OPENSTACK</li>
-</ul>
-<p>Any combination of platforms can be used; for example if you would like to see AWS and OpenStack, then use:</p>
-<p><pre>export CB_ENABLEDPLATFORMS=AWS,OPENSTACK</pre></p>
-<p>If you want to reverse the change and see all providers, then either delete CB_ENABLEDPLATFORMS from the Profile or add the following: </p>
-<p><pre>export CB_ENABLEDPLATFORMS=AZURE,AWS,GCP,OPENSTACK</pre></p>
-</li>
-<li>
-<p>Restart Cloudbreak by using <code>cbd restart</code>.      </p>
-</li>
-</ol></div>
+<h2 id="configuring-cloudbreak-for-lowno-internet-environment">Configuring Cloudbreak for Low/No Internet Environment</h2>
+<p>Google doc</p></div>
         
     </div>
 

@@ -310,12 +310,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../external-proxy/index.html">Configure Proxy</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -333,19 +327,19 @@
         
             
 <li >
+    <a href="../cb-proxy/index.html">Configure Cloudbreak for Low/No Internet Environment</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-ldap/index.html">Configure LDAP/AD for Cloudbreak</a>
+</li>
+
+        
+            
+<li >
     <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
-</li>
-
-        
-            
-<li >
-    <a href="../cb-credentials/index.html">Manage Cloudbreak Credentials</a>
-</li>
-
-        
-            
-<li >
-    <a href="../cb-disable-provider/index.html">Disable Providers</a>
 </li>
 
         
@@ -358,6 +352,18 @@
             
 <li >
     <a href="../cb-migrate/index.html">Move Cloudbreak Instance</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-credentials/index.html">Manage Cloudbreak Credentials</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-disable-provider/index.html">Disable Providers</a>
 </li>
 
         
@@ -599,9 +605,6 @@
             <li class="second-level"><a href="#debug-in-cloudbreak-shell">Debug in Cloudbreak Shell</a></li>
             
         
-            <li class="second-level"><a href="#configure-and-test-proxy-settings">Configure and Test Proxy Settings</a></li>
-            
-        
     
     </ul>
 </div></div>
@@ -656,37 +659,6 @@
 <h3 id="debug-in-cloudbreak-shell">Debug in Cloudbreak Shell</h3>
 <p>To get more detailed command prompt output, set the DEBUG environment variable to non-zero:</p>
 <pre><code>DEBUG=1 cbd &lt;some_command&gt;
-</code></pre>
-
-<h3 id="configure-and-test-proxy-settings">Configure and Test Proxy Settings</h3>
-<p><strong>For cbd</strong></p>
-<p>To configure proxy settings for Cloudbreak Deployer, add the following configs to your Profile:</p>
-<pre><code>export http_proxy=&quot;http://YOUR_PROXY_ADDRESS:YOUR_PROXY_PORT/&quot;
-export https_proxy=&quot;http(s)://YOUR_PROXY_ADDRESS:YOUR_PROXY_PORT/&quot;
-export CB_HTTP_PROXY=&quot;http://YOUR_PROXY_ADDRESS:YOUR_PROXY_PORT/&quot;
-export CB_HTTPS_PROXY=&quot;http(s)://YOUR_PROXY_ADDRESS:YOUR_PROXY_PORT/&quot;
-export CB_JAVA_OPTS=&quot;-Dhttp.proxyHost=YOUR_PROXY_ADDRESS -Dhttp.proxyPort=YOUR_PROXY_PORT -Dhttps.proxyHost=YOUR_PROXY_ADDRESS -Dhttps.proxyPort=YOUR_PROXY_PORT -Dhttp.nonProxyHosts=172.17.0.1|*.service.consul|*.node.dc1.consul&quot;
-</code></pre>
-
-<p><strong>For Docker</strong></p>
-<p>To download newer Docker images from the official repository, you need to configure proxy settings for the Docker service. You can do this by configuring the 'HTTP_PROXY' variable in your environment. Next, restart the docker service. For more information, refer to <a href="https://docs.docker.com/engine/admin/systemd/">Docker documentation</a>.</p>
-<p><strong>For Provisioned Clusters</strong></p>
-<p>For a cluster to be provisioned to a (virtual) network that is behind a proxy, the yum on the provisioned machines needs to be configured to use that proxy. This is important because the Ambari install needs access to public repositories. You can configure yum proxy settings by using the recipe functionality of Cloudbreak. Use the following bash script to create a 'pre' recipe that will run on all of the nodes before the Ambari install:</p>
-<pre><code>#!/bin/bash
-cat &gt;&gt; /etc/yum.conf &lt;&lt;ENDOF
-
-proxy=http://YOUR_PROXY_ADDRESS:YOUR_PROXY_PORT
-
-ENDOF
-</code></pre>
-
-<p><strong>Test Your Proxy Settings</strong></p>
-<p>You can use the following CURL command to test your proxy settings:</p>
-<pre><code>https_proxy=&quot;YOUR_PROXY_ADDRESS:YOUR_PROXY_PORT&quot; curl -X GET -I --insecure https://cloudbreak-api.sequenceiq.com/info
-</code></pre>
-
-<p>Its output should start with:</p>
-<pre><code>HTTP/1.1 200 OK
 </code></pre></div>
         
     </div>
