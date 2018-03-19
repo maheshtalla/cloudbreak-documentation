@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/trouble-cb/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/external-proxy/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Troubleshooting Cloudbreak - Cloudbreak</title>
+    <title>Proxy Configurations - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -313,8 +313,8 @@
 
         
             
-<li >
-    <a href="../external-proxy/index.html">Proxy Configurations</a>
+<li class="active">
+    <a href="index.html">Proxy Configurations</a>
 </li>
 
         
@@ -467,8 +467,8 @@
 
         
             
-<li class="active">
-    <a href="index.html">Troubleshooting Cloudbreak</a>
+<li >
+    <a href="../trouble-cb/index.html">Troubleshooting Cloudbreak</a>
 </li>
 
         
@@ -570,12 +570,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../trouble-cb-logs/index.html">
+                        <a rel="next" href="../external-ldap/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../trouble-cluster/index.html">
+                        <a rel="prev" href="../security/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -600,48 +600,15 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#troubleshooting-cloudbreak">Troubleshooting Cloudbreak</a></li>
-        
-            <li class="second-level"><a href="#invalid-public_ip-in-cbd-profile">Invalid PUBLIC_IP in CBD Profile</a></li>
-            
-        
-            <li class="second-level"><a href="#cbd-cannot-get-vms-public-ip">Cbd Cannot Get VM's Public IP</a></li>
-            
-        
-            <li class="second-level"><a href="#permission-or-connection-problems">Permission or Connection Problems</a></li>
-            
+        <li class="first-level active"><a href="#configuring-cloudbreak-for-lowno-internet-environment">Configuring Cloudbreak for Low/No Internet Environment</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="troubleshooting-cloudbreak">Troubleshooting Cloudbreak</h2>
-<p>This section includes common errors and steps to resolve them. </p>
-<h3 id="invalid-public_ip-in-cbd-profile">Invalid PUBLIC_IP in CBD Profile</h3>
-<p>The <code>PUBLIC_IP</code> property must be set in the cbd Profile file or else you won’t be able to log in on the Cloudbreak UI. </p>
-<p>If you are migrating your instance, make sure that after the start the IP remains valid. If you need to edit the <code>PUBLIC_IP</code> property in Profile, make sure to restart Cloudbreak using <code>cbd restart</code>.</p>
-<h3 id="cbd-cannot-get-vms-public-ip">Cbd Cannot Get VM's Public IP</h3>
-<p>By default the <code>cbd</code> tool tries to get the VM's public IP to bind Cloudbreak UI to it. But if <code>cbd</code> cannot get the IP address during the initialization, you must set it manually. Check your <code>Profile</code> and if <code>PUBLIC_IP</code> is not set, add the <code>PUBLIC_IP</code> variable and set it to the public IP of the VM. For example: </p>
-<pre>export PUBLIC_IP=192.134.23.10</pre>
-
-<h3 id="permission-or-connection-problems">Permission or Connection Problems</h3>
-<p>If you face permission or connection issues, disable SELinux:</p>
-<ol>
-<li>Set <code>SELINUX=disabled</code> in <code>/etc/selinux/config</code>.  </li>
-<li>Reboot the machine.  </li>
-<li>
-<p>Ensure the SELinux is not turned on afterwards:</p>
-<p><presetenforce 0 && sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/ selinux/config</pre></p>
-</li>
-</ol>
-<p><strong>Related Links</strong><br />
-<a href="../trouble-cb-logs/index.html">Cloudbreak Logs</a><br />
-<a href="../trouble-cluster/index.html">Troubleshooting Cluster Creation</a><br />
-<a href="../trouble-aws/index.html">Troubleshooting AWS</a><br />
-<a href="../trouble-azure/index.html">Troubleshooting Azure</a><br />
-<a href="../trouble-gcp/index.html">Troubleshooting GCP</a><br />
-<a href="../trouble-os/index.html">Troubleshooting OpenStack</a>  </p></div>
+<h2 id="configuring-cloudbreak-for-lowno-internet-environment">Configuring Cloudbreak for Low/No Internet Environment</h2>
+<p>Google doc</p></div>
         
     </div>
 
