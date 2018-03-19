@@ -285,6 +285,12 @@
         
             
 <li >
+    <a href="../security-kerberos/index.html">Kerberos Security</a>
+</li>
+
+        
+            
+<li >
     <a href="../autoscaling/index.html">Autoscaling</a>
 </li>
 
@@ -306,7 +312,7 @@
         
             
 <li >
-    <a href="../external-ldap/index.html">Configure LDAP</a>
+    <a href="../external-ldap/index.html">Configure Existing LDAP</a>
 </li>
 
         
@@ -316,7 +322,7 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Managing Cloudbreak</a>
+    <a tabindex="-1" href="">Advanced Cloudbreak Options</a>
     <ul class="dropdown-menu">
         
             
@@ -333,13 +339,7 @@
         
             
 <li >
-    <a href="../cb-ldap/index.html">Configure LDAP/AD for Cloudbreak</a>
-</li>
-
-        
-            
-<li >
-    <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
+    <a href="../cb-ldap/index.html">Configure Existing LDAP/AD for Cloudbreak</a>
 </li>
 
         
@@ -356,8 +356,20 @@
 
         
             
-<li class="active">
-    <a href="index.html">Manage Cloudbreak Credentials</a>
+<li >
+    <a href="../security-cb-inbound/index.html">Restrict Inbound Access to Clusters</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-ssl/index.html">Add SSL Certificate for Cloudbreak UI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-customdom/index.html">Configure Access From Custom Domains</a>
 </li>
 
         
@@ -368,8 +380,14 @@
 
         
             
+<li class="active">
+    <a href="index.html">Manage Cloudbreak Credentials</a>
+</li>
+
+        
+            
 <li >
-    <a href="../cb-profile/index.html">Edit Cloudbreak Profile</a>
+    <a href="../cb-profile/index.html">Modify Settings in Cloudbreak Profile</a>
 </li>
 
         
@@ -391,18 +409,6 @@
             
 <li >
     <a href="../security/index.html">Security Overview</a>
-</li>
-
-        
-            
-<li >
-    <a href="../security-cb/index.html">Configure Basic Security</a>
-</li>
-
-        
-            
-<li >
-    <a href="../security-kerberos/index.html">Enable Kerberos Security</a>
 </li>
 
         
@@ -435,6 +441,12 @@
         
     </ul>
   </li>
+
+                        
+                            
+<li >
+    <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
+</li>
 
                         
                             
@@ -552,12 +564,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../cb-migrate/index.html">
+                        <a rel="next" href="../cb-disable-provider/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../cb-disable-provider/index.html">
+                        <a rel="prev" href="../cb-profile/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -589,13 +601,8 @@
         
             <li class="second-level"><a href="#view-credential-details">View Credential Details</a></li>
             
-                <li class="third-level"><a href="#details-for-aws-credentials">Details for AWS Credentials</a></li>
-            
-                <li class="third-level"><a href="#details-for-azure-credentials">Details for Azure Credentials</a></li>
-            
-                <li class="third-level"><a href="#details-for-gcp-credentials">Details for GCP Credentials</a></li>
-            
-                <li class="third-level"><a href="#details-for-openstack-credentials">Details for OpenStack Credentials</a></li>
+        
+            <li class="second-level"><a href="#modify-an-existing-credential">Modify an Existing Credential</a></li>
             
         
             <li class="second-level"><a href="#set-a-default-credential">Set a Default Credential</a></li>
@@ -627,50 +634,8 @@
 <li>In the Cloudbreak UI, select <strong>Credentials</strong> from the navigation pane.  </li>
 <li>Click on the name of a credential. </li>
 </ol>
-<h4 id="details-for-aws-credentials">Details for AWS Credentials</h4>
-<p>The following information is available for previously created AWS credentials:</p>
-<ul>
-<li>Credential Name  </li>
-<li>Description   </li>
-<li>Selector: One of <em>key-based</em> or <em>role-based</em>, depending on credential type   </li>
-</ul>
-<p>Sensitive information such as AWS access key and secret key (in case of a key-based credential) or role ARN (in case of a role-based credential) are not displayed.</p>
-<h4 id="details-for-azure-credentials">Details for Azure Credentials</h4>
-<p>The following information is available for previously created Azure credentials:</p>
-<ul>
-<li>Credential Name   </li>
-<li>Description  </li>
-<li>Tenant Id: The <code>Directory ID</code> from your Azure Active Directory   </li>
-<li>Subscription Id: Your Azure <code>Subscription ID</code>  </li>
-</ul>
-<p>In case of the interactive credential, the following are also displayed:</p>
-<ul>
-<li>Sp Display Name: Service principal name     </li>
-<li>Role Type: role selected during credential creation </li>
-</ul>
-<p>In case of the app-based credential, the Application ID and key that you provided when creating the credential are not displayed.</p>
-<h4 id="details-for-gcp-credentials">Details for GCP Credentials</h4>
-<p>The following information is available for previously created GCP credentials:</p>
-<ul>
-<li>Credential Name   </li>
-<li>Description  </li>
-<li>Service Account Id</li>
-<li>Project Id </li>
-</ul>
-<p>The P12 key that you attached when creating the credential is not displayed.</p>
-<h4 id="details-for-openstack-credentials">Details for OpenStack Credentials</h4>
-<p>The following information is available for previously created OpenStack credentials:</p>
-<ul>
-<li>Credential Name   </li>
-<li>Description  </li>
-<li>Facing: "internal" or "public", as specified under "Api Facing"     </li>
-<li>Endpoint  </li>
-<li>Selector: "cb-keystone-v2" or "cb-keystone-v3"  </li>
-<li>Keystone Version: "cb-keystone-v2" or "cb-keystone-v3"   </li>
-<li>User Name    </li>
-<li>Tenant Name   </li>
-</ul>
-<p>The password parameter is not displayed. </p>
+<h3 id="modify-an-existing-credential">Modify an Existing Credential</h3>
+<p>TBD</p>
 <h3 id="set-a-default-credential">Set a Default Credential</h3>
 <p>If using multiple Cloudbreak credentials, you can select one credential and use it as default for creating clusters. This default credential will be pre-selected in the create cluster wizard.</p>
 <p><strong>Steps</strong></p>
