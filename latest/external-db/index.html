@@ -600,7 +600,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#configuring-external-database">Configuring External Database</a></li>
+        <li class="first-level active"><a href="#registering-external-database">Registering External Database</a></li>
         
             <li class="second-level"><a href="#register-an-external-database">Register an External Database</a></li>
             
@@ -610,7 +610,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="configuring-external-database">Configuring External Database</h2>
+<h2 id="registering-external-database">Registering External Database</h2>
 <p>Cloudbreak allows you to register an existing RDBMS instance to be used for a database for the following services:   </p>
 <ul>
 <li>Hive  </li>
@@ -630,9 +630,13 @@
 </blockquote>
 <h3 id="register-an-external-database">Register an External Database</h3>
 <p>Follow these steps to register an external RDBMS instance with Cloudbreak. </p>
-<blockquote>
-<p>You must create the external RDBMS instance and database prior to registering it with Cloudbreak.</p>
-</blockquote>
+<div class="danger">
+    <p class="first admonition-title">Important</p>
+    <p class="last">
+Registering an external databse does not create the RDBMS instance. You must have an existing RDBMS instance and database prior to registering it.
+    </p>
+</div>
+
 <p><strong>Steps</strong> </p>
 <ol>
 <li>From the navigation pane, select <strong>External Sources</strong> &gt; <strong>Database Configurations</strong>.  </li>
