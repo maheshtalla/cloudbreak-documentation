@@ -1343,8 +1343,11 @@
 <strong><code>--public</code></strong>   Public in account  </p>
 <p>Additionally, the following option is available for OpenStack Keystone2 and Keystone3:</p>
 <p><strong><code>--facing &lt;value&gt;</code></strong> API facing. One of: public, admin, internal</p>
-<p>Additionally, the following option is available for OpenStack Keystone3:</p>
-<p><strong><code>--keystone-scope &lt;value&gt;</code></strong> OpenStack keystone scope. One of: default, domain, project </p>
+<p>Additionally, the following options are available for OpenStack Keystone3:</p>
+<p><strong><code>--project-domain-name &lt;value&gt;</code></strong>  OpenStack project domain name  <br />
+<strong><code>--project-name &lt;value&gt;</code></strong>  OpenStack project name         <br />
+<strong><code>--domain-name &lt;value&gt;</code></strong>  OpenStack domain name  <br />
+<strong><code>--keystone-scope &lt;value&gt;</code></strong> OpenStack keystone scope. One of: default, domain, project   </p>
 <p><strong>Examples</strong></p>
 <p>Creates a role-based credential on AWS:</p>
 <pre>cb credential create aws role-based --name my-credential1 --role-arn arn:aws:iam::517127065441:role/CredentialRole</pre>
@@ -1482,8 +1485,11 @@
 <strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]    </p>
 <p>Additionally, the following option is available for OpenStack Keystone2 and Keystone3:</p>
 <p><strong><code>--facing &lt;value&gt;</code></strong> API facing. One of: public, admin, internal</p>
-<p>Additionally, the following option is available for OpenStack Keystone3:</p>
-<p><strong><code>--keystone-scope &lt;value&gt;</code></strong> OpenStack keystone scope. One of: default, domain, project </p>
+<p>Additionally, the following options are available for OpenStack Keystone3:</p>
+<p><strong><code>--project-domain-name &lt;value&gt;</code></strong>  OpenStack project domain name  <br />
+<strong><code>--project-name &lt;value&gt;</code></strong>  OpenStack project name         <br />
+<strong><code>--domain-name &lt;value&gt;</code></strong>  OpenStack domain name  <br />
+<strong><code>--keystone-scope &lt;value&gt;</code></strong> OpenStack keystone scope. One of: default, domain, project  </p>
 <p><strong>Examples</strong></p>
 <p>Modifies a role-based AWS credential:</p>
 <pre>cb credential modify aws role-based --name my-credential1 --role-arn arn:aws:iam::517127065441:role/CredentialRole</pre>
