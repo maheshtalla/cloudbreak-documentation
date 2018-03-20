@@ -608,7 +608,7 @@
         <div class="col-md-9" role="main">
 
 <h2 id="registering-an-authentication-source">Registering an Authentication Source</h2>
-<p>You can register an existing LDAP with Cloudbreak and use it for one or more clusters.</p>
+<p>You can register an existing LDAP with Cloudbreak and use it for multiple clusters.</p>
 <div class="danger">
     <p class="first admonition-title">Important</p>
     <p class="last">
@@ -618,20 +618,10 @@ Registering an authentication source <strong>does not create the LDAP instance</
 
 <p><strong>Steps</strong></p>
 <ol>
-<li>
-<p>From the controller UI navigation menu, select <strong>SHARED SERVICES</strong>.</p>
-</li>
-<li>
-<p>The list of registered shared services is displayed.</p>
-</li>
-<li>
-<p>Click <strong>+NEW</strong> and select <strong>Authentication Source</strong>. The registration form is displayed.</p>
-</li>
+<li>From the navigation pane, select <strong>External Sources</strong> &gt; <strong>Authentication Configurations</strong>.  </li>
+<li>Select <strong>Register Authentication Source</strong>.     </li>
 <li>
 <p>Provide the following parameters related to your existing LDAP/AD: </p>
-<blockquote>
-<p>All parameters are required.</p>
-</blockquote>
 <p><strong>GENERAL CONFIGURATION</strong></p>
 <table>
 <thead>
@@ -644,8 +634,8 @@ Registering an authentication source <strong>does not create the LDAP instance</
 <tbody>
 <tr>
 <td>Name</td>
-<td>Enter a name for your data lake.</td>
-<td>hdc-ldap</td>
+<td>Enter a name for your LDAP.</td>
+<td>cb-ldap</td>
 </tr>
 <tr>
 <td>Directory Type</td>
@@ -654,8 +644,18 @@ Registering an authentication source <strong>does not create the LDAP instance</
 </tr>
 <tr>
 <td>LDAP Server Connection</td>
-<td>Select <strong>LDAP</strong> or <strong>LDAPS</strong>. Next, enter the hostname and port for the LDAP or AD server in the following format: <code>HOST_IP:PORT</code>.</td>
-<td><code>10.0.3.128:389</code></td>
+<td>Select <strong>LDAP</strong> or <strong>LDAPS</strong>.</td>
+<td></td>
+</tr>
+<tr>
+<td>Server Host</td>
+<td>Enter the hostname for the LDAP or AD server .</td>
+<td><code>10.0.3.128</code></td>
+</tr>
+<tr>
+<td>Server Port</td>
+<td></td>
+<td>Enter the port.</td>
 </tr>
 <tr>
 <td>LDAP Bind DN</td>
@@ -712,6 +712,11 @@ Registering an authentication source <strong>does not create the LDAP instance</
 <td><code>OU-scoDC=ad,DC=hdc,DC=com</code></td>
 </tr>
 <tr>
+<td>LDAP Admin Group</td>
+<td>(Optional) Enter your LDAP admin group, if needed.</td>
+<td></td>
+</tr>
+<tr>
 <td>LDAP Group Name Attribute</td>
 <td>Enter the attribute for which to conduct a search on groups.</td>
 <td><code>cn</code></td>
@@ -730,10 +735,10 @@ Registering an authentication source <strong>does not create the LDAP instance</
 </table>
 </li>
 <li>
-<p>Click <strong>Test connection</strong> to verify that the connection information that you entered is correct.</p>
+<p>Click <strong>Test Connection</strong> to verify that the connection information that you entered is correct.</p>
 </li>
 <li>
-<p>Click <strong>REGISTER LDAP</strong>. </p>
+<p>Click <strong>REGISTER</strong>. The LDAP will now show up in the list of available authentication sources when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Authentication</strong>.    </p>
 </li>
 </ol></div>
         
