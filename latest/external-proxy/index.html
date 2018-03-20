@@ -600,15 +600,73 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#configuring-a-proxy">Configuring a Proxy</a></li>
+        <li class="first-level active"><a href="#registering-a-proxy">Registering a Proxy</a></li>
+        
+            <li class="second-level"><a href="#register-a-proxy">Register a Proxy</a></li>
+            
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="configuring-a-proxy">Configuring a Proxy</h2>
-<p>Google doc</p></div>
+<h2 id="registering-a-proxy">Registering a Proxy</h2>
+<p>Cloudbreak allows you to save your existing proxy configuration information so that you can provide the proxy information to the clusters that you create with Cloudbreak. The steps are:       </p>
+<ol>
+<li>Register your proxy in Cloudbreak web UI or CLI.   </li>
+<li>Once the poxy has been registered with Cloudbreak, it will show up in the list of available proxies when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Proxy</strong>.  </li>
+</ol>
+<h3 id="register-a-proxy">Register a Proxy</h3>
+<p>Follow these steps to register your proxy with Cloudbreak and reuse the proxy configuration for clusters created with Cloudbreak. </p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>From the navigation pane, select <strong>External Sources</strong> &gt; <strong>Proxy Configurations</strong>.  </li>
+<li>Select <strong>Register Proxy Configuration</strong>.    </li>
+<li>
+<p>Provide the following information:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Name</td>
+<td align="left">Enter the name to use when registering this database to Cloudbreak. This is <strong>not</strong> the database name.</td>
+</tr>
+<tr>
+<td align="left">Description</td>
+<td align="left">Provide description.</td>
+</tr>
+<tr>
+<td align="left">Protocol</td>
+<td align="left">Select HTTP or HTTPS.</td>
+</tr>
+<tr>
+<td align="left">Server Host</td>
+<td align="left">Enter the URL of your proxy server host.</td>
+</tr>
+<tr>
+<td align="left">Server Port</td>
+<td align="left">Enter proxy server port.</td>
+</tr>
+<tr>
+<td align="left">Username</td>
+<td align="left">Enter the username for the proxy.</td>
+</tr>
+<tr>
+<td align="left">Password</td>
+<td align="left">Enter the password for the proxy.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click <strong>REGISTER</strong> to save the configuration. The proxy will now show up when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Proxy</strong>.</p>
+</li>
+</ol></div>
         
     </div>
 
