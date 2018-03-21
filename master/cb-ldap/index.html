@@ -602,13 +602,137 @@
     
         <li class="first-level active"><a href="#configuring-cloudbreak-for-ldapad-authentication">Configuring Cloudbreak for LDAP/AD Authentication</a></li>
         
+            <li class="second-level"><a href="#ldapad-information">LDAP/AD Information</a></li>
+            
+        
+            <li class="second-level"><a href="#configuring-cloudbreak-for-ldapad">Configuring Cloudbreak for LDAP/AD</a></li>
+            
+                <li class="third-level"><a href="#configure-user-authentication">Configure User Authentication</a></li>
+            
+                <li class="third-level"><a href="#configure-group-authorization">Configure Group Authorization</a></li>
+            
+        
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h2 id="configuring-cloudbreak-for-ldapad-authentication">Configuring Cloudbreak for LDAP/AD Authentication</h2>
-<p>Google doc  </p></div>
+<p>By default Cloudbreak uses an internal system as the user store for authentication (enabled by using <a href="https://github.com/cloudfoundry/uaa">CloudFoundry UAA</a>). If you would like to configure LDAP or Active Directory (AD) external authentication, you need to:  </p>
+<ol>
+<li>Collect the following information about your LDAP/AD setup    </li>
+<li>Configure Cloudbreak to work with that LDAP/AD setup.</li>
+</ol>
+<h3 id="ldapad-information">LDAP/AD Information</h3>
+<p>The following table details the properties and values you need to know about your LDAP/AD environment: </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>base</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>url</td>
+<td>The LDAP url with port</td>
+<td><code>ldap://10.0.3.128:389/</code></td>
+</tr>
+<tr>
+<td>userDn</td>
+<td>Enter the root Distinguished Name to search in the directory for users.</td>
+<td><code>cn=Administrator,ou=srv,dc=hortonworks,dc=local</code></td>
+</tr>
+<tr>
+<td>password</td>
+<td>Enter your root Distinguished Name password.</td>
+<td><code>MyPassword1234!</code></td>
+</tr>
+<tr>
+<td>searchBase</td>
+<td>Enter your LDAP user search base. This defines the location in the directory from which the LDAP search begins.</td>
+<td><code>ou=Users,dc=hortonworks,dc=local</code></td>
+</tr>
+<tr>
+<td>searchFilter</td>
+<td>Enter the attribute for which to conduct a search on the user base.</td>
+<td><code>mail={0}</code></td>
+</tr>
+<tr>
+<td><strong>groups</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>searchBase</td>
+<td>Enter your LDAP group search base. This defines the location in the directory from which the LDAP search begins.</td>
+<td><code>ou=Groups,dc=hortonworks,dc=local</code></td>
+</tr>
+<tr>
+<td>groupSearchFilter</td>
+<td>Enter the attribute for which to conduct a search on the group base.</td>
+<td><code>member={0}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="configuring-cloudbreak-for-ldapad">Configuring Cloudbreak for LDAP/AD</h3>
+<p>There are two parts to configuring Cloudbreak for LDAP/AD:</p>
+<ul>
+<li>Configuring LDAP/AD user authentication for Cloudbreak  </li>
+<li>Configuring LDAP/AD group authorization for Cloudbreak  </li>
+</ul>
+<h4 id="configure-user-authentication">Configure User Authentication</h4>
+<p>Configure LDAP/AD user authentication for Cloudbreak by using these steps. </p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>On the Cloudbreak host, browse to <code>/var/lib/cloudbreak-deployment</code>.  </li>
+<li>
+<p>Create a new file called <code>uaa-changes.yml</code>. </p>
+<blockquote>
+<p>The name of this file can be customized by setting the following in Profile: <code>export UAA_SETTINGS_FILE=myldap.yml</code></p>
+</blockquote>
+</li>
+<li>
+<p>In the yml file enter the following using your LDAP/AD information: </p>
+</li>
+</ol>
+<pre>
+spring_profiles: postgresql,ldap
+
+ldap:
+  profile:
+    file: ldap/ldap-search-and-bind.xml
+  base:
+    url: ldap://10.0.3.138:389
+    userDn: cn=Administrator,ou=srv,dc=hortonworks,dc=local
+    password: ’mypassword’
+    searchBase: ou=Users,dc=hortonworks,dc=local
+    searchFilter: mail={0}
+  groups:
+    file: ldap/ldap-groups-map-to-scopes.xml
+    searchBase: ou=Groups,dc=hortonworks,dc=local
+    searchSubtree: false
+    maxSearchDepth: 1
+    groupSearchFilter: member={0}
+    autoAdd: true
+</pre>
+
+<ol>
+<li>Save the file and restart Cloudbreak. </li>
+</ol>
+<h4 id="configure-group-authorization">Configure Group Authorization</h4>
+<p>Once user authentication is configured, you need to configure which group(s) can access Cloudbreak. Users (once authenticated) will be granted permission to access Cloudbreak and use the capabilities of Cloudbreak based on their group member. The following describes how to create (i.e. execute-and-map) a group authorization and how to remove (i.e. delete-mapping) an authorization</p>
+<p>To create a group authorization, execute the following (for example: to add “Analysts” group):</p>
+<pre>cbd util execute-ldap-mapping cn=Analysts,ou=Groups,dc=hortonworks,dc=local</pre>
+
+<p>To remove a group authorization, execute the following:</p>
+<pre>cbd util delete-ldap-mapping cn=Analysts,ou=Groups,dc=hortonworks,dc=local</pre></div>
         
     </div>
 
