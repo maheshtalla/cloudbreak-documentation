@@ -600,27 +600,20 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#registering-an-authentication-source">Registering an Authentication Source</a></li>
-        
-            <li class="second-level"><a href="#register-an-authentication-source">Register an Authentication Source</a></li>
-            
+        <li class="first-level active"><a href="#register-an-authentication-source">Register an Authentication Source</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="registering-an-authentication-source">Registering an Authentication Source</h2>
-<p>Cloudbreak allows you to register an existing LDAP/AD instance and use it for multiple clusters.   </p>
-<h3 id="register-an-authentication-source">Register an Authentication Source</h3>
-<p>Follow these steps to register an existing LDAP with Cloudbreak and use it for multiple clusters.</p>
-<div class="danger">
-    <p class="first admonition-title">Important</p>
-    <p class="last">
-Registering an authentication source <strong>does not create the LDAP instance</strong>. You must have an existing LDAP/AD instance prior to registering it.
-    </p>
-</div>
-
+<h2 id="register-an-authentication-source">Register an Authentication Source</h2>
+<p>Cloudbreak allows you to register an existing LDAP/AD instance and use it for multiple clusters.  </p>
+<p>You must create the LDAP/AD prior to registering it with Cloudbreak. Once you have it ready, you can:</p>
+<ol>
+<li>Register an existing LDAP in Cloudbreak web UI or CLI.  </li>
+<li>Use it as an authentication source for your clusters. Once registered, the LDAP will now show up in the list of available authentication sources when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Authentication</strong>.   </li>
+</ol>
 <p><strong>Steps</strong></p>
 <ol>
 <li>From the navigation pane, select <strong>External Sources</strong> &gt; <strong>Authentication Configurations</strong>.  </li>
@@ -743,7 +736,10 @@ Registering an authentication source <strong>does not create the LDAP instance</
 <p>Click <strong>Test Connection</strong> to verify that the connection information that you entered is correct.</p>
 </li>
 <li>
-<p>Click <strong>REGISTER</strong>. The LDAP will now show up in the list of available authentication sources when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Authentication</strong>.    </p>
+<p>Click <strong>REGISTER</strong>. </p>
+</li>
+<li>
+<p>The LDAP will now show up in the list of available authentication sources when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Authentication</strong>.    </p>
 </li>
 </ol></div>
         

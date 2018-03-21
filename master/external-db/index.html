@@ -600,17 +600,14 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#registering-external-database">Registering External Database</a></li>
-        
-            <li class="second-level"><a href="#register-an-external-database">Register an External Database</a></li>
-            
+        <li class="first-level active"><a href="#register-an-external-database">Register an External Database</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="registering-external-database">Registering External Database</h2>
+<h2 id="register-an-external-database">Register an External Database</h2>
 <p>Cloudbreak allows you to register an existing RDBMS instance to be used for a database for the following services:   </p>
 <ul>
 <li>Hive  </li>
@@ -628,15 +625,6 @@
 <blockquote>
 <p>Only <strong>PostgreSQL</strong> is supported at this time. </p>
 </blockquote>
-<h3 id="register-an-external-database">Register an External Database</h3>
-<p>Follow these steps to register an external RDBMS instance with Cloudbreak. </p>
-<div class="danger">
-    <p class="first admonition-title">Important</p>
-    <p class="last">
-Registering an external databse does not create the RDBMS instance. You must have an existing RDBMS instance and database prior to registering it.
-    </p>
-</div>
-
 <p><strong>Steps</strong> </p>
 <ol>
 <li>From the navigation pane, select <strong>External Sources</strong> &gt; <strong>Database Configurations</strong>.  </li>
@@ -677,7 +665,8 @@ Registering an external databse does not create the RDBMS instance. You must hav
 <li>
 <p>Click <strong>Test Connection</strong> to validate and test the RDS connection information.  </p>
 </li>
-<li>Once your settings are validated and working, click <strong>REGISTER</strong> to save the configuration. The database will now show up in the list of available databases when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Databases</strong>.  </li>
+<li>Once your settings are validated and working, click <strong>REGISTER</strong> to save the configuration.  </li>
+<li>The database will now show up on the list of available databases when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Databases</strong>. You can select it each time you would like to use it for a cluster.  </li>
 </ol></div>
         
     </div>
