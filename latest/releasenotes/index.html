@@ -627,22 +627,23 @@
 <h4 id="new-features">New Features</h4>
 <hr />
 <h5 id="creating-hdf-clusters"><strong>Creating HDF Clusters</strong></h5>
-<p>You can use Cloudbreak to create HDF clusters on AWS, Azure, Google Cloud and OpenStack. In the Cloudbreak web UI, you can do this by selecting "HDF 3.1" under Platform Version and then selecting an HDF blueprint.</p>
+<p>You can use Cloudbreak to create HDF clusters on AWS, Azure, Google Cloud and OpenStack. In the Cloudbreak web UI, you can do this by selecting "HDF 3.1" under <em>Platform Version and</em> then selecting an HDF blueprint.</p>
 <p>Cloudbreak includes one default HDF blueprint "Flow Management: Apache Nifi" and supports uploading your own custom blueprints. This feature supports HDF 3.1.1 blueprints. HDF clusters are currently launched from base images; prewarmed images are not available.  </p>
 <p>For updated create cluster instructions, refer to <a href="../aws-launch/index.html">Creating a Cluster</a> instructions for your chosen cloud provider.
 For updated blueprint information, refer to <a href="../blueprints/index.html#default-blueprints">Default Blueprints</a>. </p>
-<h5 id="using-external-rds-for-cluster-services"><strong>Using External RDS for Cluster Services</strong></h5>
-<p>You can register an existing external RDS in the Cloudbreak UI or CLI so that the external RDS can be used for those cluster components which support using an external RDS. After the RDS has been registered in the Cloudbreak UI, it is available during the cluster create and can be reused with one or more clusters.  </p>
-<p>Only Postgre is supported at this time. Refer to component-specific documentation for information on which version of Postgres (if any) is supported.</p>
-<p>Cloudbreak does not configure the external RDS for you, the RDS must exist prior to registering it with Cloudbreak. </p>
-<h5 id="configuring-ldapad-for-clusters"><strong>Configuring LDAP/AD for Clusters</strong></h5>
-<p>You can configure Cloudbreak to create a new LDAP/AD that can later be associated with one or more Cloudbreak-managed clusters. This configuration can be perfrmed by using Cloudbreak UI or CLI.</p>
+<h5 id="using-external-database-for-cluster-services"><strong>Using External Database for Cluster Services</strong></h5>
+<p>You can register an existing external RDBMS in the Cloudbreak UI or CLI so that it can be used for those cluster components which have support for it. After the RDBMS has been registered with Cloudbreak, it will be available during the cluster create and can be reused with multiple clusters.  </p>
+<p>Only Postgres is supported at this time. Refer to component-specific documentation for information on which version of Postgres (if any) is supported.  </p>
+<p>For more information, refer to <a href="../external-db/index.html">Register an External Database</a>.   </p>
+<h5 id="using-external-authentication-source-ldapad-for-clusters"><strong>Using External Authentication Source (LDAP/AD) for Clusters</strong></h5>
+<p>You can configure an existing LDAP/AD authentication source in the Cloudbreak UI or CLI so that it can later be associated with one or more Cloudbreak-managed clusters. After the authentication source has been registered with Cloudbreak, it will be available during the cluster create and can be reused with multiple clusters.</p>
+<p>For more information, refer to <a href="../external-ldap/index.html">Register an Authentication Source</a>.     </p>
 <h5 id="modifying-existing-cloudbreak-credentials"><strong>Modifying Existing Cloudbreak Credentials</strong></h5>
-<p>Cloudbreak allows you to modify existing credentials by using the edit option available in Cloudbreak UI or CLI. </p>
+<p>Cloudbreak allows you to modify existing credentials by using the edit option available in Cloudbreak UI or CLI. For more information, refer to <a href="../cb-credentials/index.html#modify-an-existing-credential">Modify an Existing Credential</a>. </p>
 <h5 id="configuring-existing-ldapad-for-cloudbreak"><strong>Configuring Existing LDAP/AD for Cloudbreak</strong></h5>
-<p>You can configure Cloudbreak to use your existing LDAP/AD so that you can authenticate Cloudbreak users against an existing LDAP/AD server. </p>
+<p>You can configure Cloudbreak to use your existing LDAP/AD so that you can authenticate Cloudbreak users against an existing LDAP/AD server. For more information, refer to <a href="../cb-ldap/index.html">Configuring Cloudbreak for LDAP/AD Authentication</a>. </p>
 <h5 id="launching-cloudbreak-in-environments-with-limited-or-no-internet-access"><strong>Launching Cloudbreak in Environments with Limited or No Internet Access</strong></h5>
-<p>You can launch Cloudbreak in environments with limited internet access or no internet access. </p>
+<p>You can launch Cloudbreak in environments with limited internet access or no internet access. For more information, refer to <a href="../cb-proxy/index.html">Configuring Outbound Internet Access and Proxy</a>. </p>
 <hr />
 <h4 id="behavioral-changes">Behavioral Changes</h4>
 <hr />
@@ -651,7 +652,7 @@ For updated blueprint information, refer to <a href="../blueprints/index.html#de
 <hr />
 <h4 id="image-catalog-updates">Image Catalog Updates</h4>
 <hr />
-<h5 id="march-16-2018"><strong>March 16, 2018</strong></h5>
+<h5 id="march-22-2018"><strong>March 22, 2018</strong></h5>
 <p>Update 1:</p>
 <p>Default Ambari version 2.6.1.3<br />
 Default HDP version 2.6.4.5-2<br />
