@@ -631,16 +631,16 @@
 <p>Cloudbreak includes one default HDF blueprint "Flow Management: Apache Nifi" and supports uploading your own custom blueprints. This feature supports HDF 3.1.1 blueprints. HDF clusters are currently launched from base images; prewarmed images are not available.  </p>
 <p>For updated create cluster instructions, refer to <a href="../aws-launch/index.html">Creating a Cluster</a> instructions for your chosen cloud provider.
 For updated blueprint information, refer to <a href="../blueprints/index.html#default-blueprints">Default Blueprints</a>. </p>
-<h5 id="using-external-database-for-cluster-services"><strong>Using External Database for Cluster Services</strong></h5>
+<h5 id="using-external-databases-for-cluster-services"><strong>Using External Databases for Cluster Services</strong></h5>
 <p>You can register an existing external RDBMS in the Cloudbreak UI or CLI so that it can be used for those cluster components which have support for it. After the RDBMS has been registered with Cloudbreak, it will be available during the cluster create and can be reused with multiple clusters.  </p>
 <p>Only Postgres is supported at this time. Refer to component-specific documentation for information on which version of Postgres (if any) is supported.  </p>
 <p>For more information, refer to <a href="../external-db/index.html">Register an External Database</a>.   </p>
-<h5 id="using-external-authentication-source-ldapad-for-clusters"><strong>Using External Authentication Source (LDAP/AD) for Clusters</strong></h5>
+<h5 id="using-external-authentication-sources-ldapad-for-clusters"><strong>Using External Authentication Sources (LDAP/AD) for Clusters</strong></h5>
 <p>You can configure an existing LDAP/AD authentication source in the Cloudbreak UI or CLI so that it can later be associated with one or more Cloudbreak-managed clusters. After the authentication source has been registered with Cloudbreak, it will be available during the cluster create and can be reused with multiple clusters.</p>
 <p>For more information, refer to <a href="../external-ldap/index.html">Register an Authentication Source</a>.     </p>
 <h5 id="modifying-existing-cloudbreak-credentials"><strong>Modifying Existing Cloudbreak Credentials</strong></h5>
 <p>Cloudbreak allows you to modify existing credentials by using the edit option available in Cloudbreak UI or CLI. For more information, refer to <a href="../cb-credentials/index.html#modify-an-existing-credential">Modify an Existing Credential</a>. </p>
-<h5 id="configuring-existing-ldapad-for-cloudbreak"><strong>Configuring Existing LDAP/AD for Cloudbreak</strong></h5>
+<h5 id="configuring-cloudbreak-to-use-existing-ldapad"><strong>Configuring Cloudbreak to Use Existing LDAP/AD</strong></h5>
 <p>You can configure Cloudbreak to use your existing LDAP/AD so that you can authenticate Cloudbreak users against an existing LDAP/AD server. For more information, refer to <a href="../cb-ldap/index.html">Configuring Cloudbreak for LDAP/AD Authentication</a>. </p>
 <h5 id="launching-cloudbreak-in-environments-with-limited-or-no-internet-access"><strong>Launching Cloudbreak in Environments with Limited or No Internet Access</strong></h5>
 <p>You can launch Cloudbreak in environments with limited internet access or no internet access. For more information, refer to <a href="../cb-proxy/index.html">Configure Outbound Internet Access and Proxy</a>. </p>
@@ -659,10 +659,29 @@ Default HDP version 2.6.4.5-2<br />
 Default HDF version 3.1.1.0-35   </p>
 <h5 id="february-23-2018"><strong>February 23, 2018</strong></h5>
 <p>Default Ambari version 2.6.1.3 <br />
-Default HDP version  2.6.4.0-91    </p>
+Default HDP version  2.6.4.0-91<br />
+Default HDF version 3.1.1.0-35   </p>
 <hr />
 <h4 id="fixed-issues">Fixed Issues</h4>
 <hr />
+<table>
+<thead>
+<tr>
+<th>Jira Issue</th>
+<th>Issue Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BUG-96764</td>
+<td>When trying to delete instances by using the delete icon on the cluster details in the Hardware tab, the following appears: "Failed to remove instance".</td>
+</tr>
+<tr>
+<td>BUG-96784</td>
+<td>Hive LLAP start times out in Ambari, but eventually it starts (after 15 minutes on AWS and after one hour or so on other providers).</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h4 id="known-issues">Known Issues</h4>
 <hr />
@@ -680,19 +699,11 @@ Default HDP version  2.6.4.0-91    </p>
 <p><em>Workaround</em>: </p>
 <p>This may mean that the volumes that you requested exceed volumes available on your cloud provider account. When creating a cluster, on the advanced <strong>Hardware and Storage</strong> page of the create cluster wizard, try reducing the amount of requested storage. If you need more storage, try using a different region or ask your cloud provider admin to increase the resource quota for volumes.  </p>
 <hr />
-<h5 id="bug-91013-incorrect-node-status-after-cluster-restart">(BUG-91013) <strong>Incorrect Node Status After Cluster Restart</strong></h5>
-<p>You may sporadically experience an issue where after you stop and restart a cluster, the node status displayed in the "Hardware" section is incorrect.   </p>
-<hr />
 <h5 id="bug-93241-error-when-scaling-multiple-host-groups">(BUG-93241) <strong>Error When Scaling Multiple Host Groups</strong></h5>
 <p>Scaling of multiple host groups fails with the following error: </p>
 <p><em>Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1; nested exception is org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1</em></p>
 <p><em>Workaround:</em></p>
 <p>Scaling multiple host groups at once is not supported. If you would like to scale multiple host groups: scale the first host group and wait until scaling has completed, then scale the second host group, and so on.  </p>
-<hr />
-<h5 id="bug-96764-failed-to-remove-instance-error-when-using-the-delete-icon">(BUG-96764) <strong>"Failed to remove instance" Error When Using the Delete Icon</strong></h5>
-<p>When trying to delete instances by using the delete icon on the cluster details in the <strong>Hardware</strong> tab, you will get the following error: "Failed to remove instance".</p>
-<p><em>Workaround:</em></p>
-<p>This issue will be fixed in a future release. If you would like to change the number of instances in a given host group, you can use the <strong>Resize</strong> option available from the <strong>Actions</strong> menu.  </p>
 <hr />
 <h5 id="bug-97044-show-cli-command-copy-json-button-does-not-work">(BUG-97044) <strong>Show CLI Command Copy JSON Button Does Not Work</strong></h5>
 <p>When using the <strong>Show CLI Command</strong> &gt; <strong>Copy the JSON</strong> or <strong>Copy the Command</strong> button with  Firefox, the content does not does not get copied if adblock plugin or other advertise blocker plugins are present.</p>
@@ -719,19 +730,6 @@ Default HDP version  2.6.4.0-91    </p>
 <p><em>Workaround:</em></p>
 <p>Refresh the page if you think that the history displayed may be incorrect.  </p>
 <hr />
-<h5 id="ambari-14149-ambari-cluster-cannot-be-started-after-stop">(AMBARI-14149) <strong>Ambari Cluster Cannot Be Started After Stop</strong></h5>
-<p>When using Ambari version 2.5.0.3, after stopping and starting a cluster, Event History shows the following error:</p>
-<pre>Ambari cluster could not be started. Reason: Failed to start Hadoop services.
-2/7/2018, 12:47:05 PM
-Starting Ambari services.
-2/7/2018, 12:47:04 PM
-Manual recovery is needed for the following failed nodes:   
-[host-10-0-0-4.openstacklocal, host-10-0-0-3.openstacklocal, host-10-0-0-5.openstacklocal</pre>
-
-<p>Ambari dashboard shows that nodes are not sending heartbeats. </p>
-<p><em>Workaround:</em>  </p>
-<p>This issue is fixed in Ambari version 2.5.1.0 and newer.  </p>
-<hr />
 <p><strong>Known Issues: Ambari 2.6.1.3 and HDP 2.6.4.0</strong></p>
 <blockquote>
 <p>The known issues described here were discovered when testing Cloubdreak with Ambari 2.6.1.3 and HDP 2.6.4.0, which are used by default in Cloudbreak.</p>
@@ -739,9 +737,6 @@ Manual recovery is needed for the following failed nodes:
 <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.3/bk_ambari-release-notes/content/ch_relnotes-ambari-2.6.1.3.html">Ambari 2.6.1.3 Release Notes</a><br />
 <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.4/bk_release-notes/content/ch_relnotes.html">HDP 2.6.4.0 Release Notes</a>  </p>
 </blockquote>
-<hr />
-<h5 id="bug-96784-hive-llap-start-takes-more-than-an-hour">(BUG-96784) <strong>Hive LLAP Start Takes More Than an Hour</strong></h5>
-<p>Hive LLAP start times out in Ambari, but eventually it starts (after 15 minutes on AWS and after one hour or so on other providers).  </p>
 <hr />
 <h5 id="bug-96707-druid-overload-does-not-start">(BUG-96707) <strong>Druid Overload Does Not Start</strong></h5>
 <p>Druid overload start fails with the following error when using Ambari 2.6.1.3 and HDP 2.6.4.0: </p>
@@ -755,13 +750,25 @@ agent.auto.cache.update=true*
 parallel_execution=1</pre>
 
 <hr />
+<h5 id="ambari-14149-ambari-cluster-cannot-be-started-after-stop">(AMBARI-14149) <strong>Ambari Cluster Cannot Be Started After Stop</strong></h5>
+<p>When using Ambari version 2.5.0.3, after stopping and starting a cluster, Event History shows the following error:</p>
+<pre>Ambari cluster could not be started. Reason: Failed to start Hadoop services.
+2/7/2018, 12:47:05 PM
+Starting Ambari services.
+2/7/2018, 12:47:04 PM
+Manual recovery is needed for the following failed nodes:   
+[host-10-0-0-4.openstacklocal, host-10-0-0-3.openstacklocal, host-10-0-0-5.openstacklocal</pre>
+
+<p>Ambari dashboard shows that nodes are not sending heartbeats. </p>
+<p><em>Workaround:</em>  </p>
+<p>This issue is fixed in Ambari version 2.5.1.0 and newer.  </p>
+<hr />
 <p><strong>Known Issues: HDF 3.1.1</strong></p>
 <p>The known issues described here were discovered when testing Cloubdreak with Ambari 2.6.1.3 and HDF 3.1.1, which are used by default in Cloudbreak.</p>
 <blockquote>
 <p>For general HDF 3.1.1 known issues, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDF3/HDF-3.1.1/bk_release-notes/content/ch_hdf_relnotes.html">HDF 3.1.1 Release Notes</a></p>
 </blockquote>
-<hr />
-<p>N/A </p></div>
+<hr /></div>
         
     </div>
 
