@@ -768,7 +768,12 @@ Manual recovery is needed for the following failed nodes:
 <blockquote>
 <p>For general HDF 3.1.1 known issues, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDF3/HDF-3.1.1/bk_release-notes/content/ch_hdf_relnotes.html">HDF 3.1.1 Release Notes</a></p>
 </blockquote>
-<hr /></div>
+<hr />
+<h5 id="bug-98865-scaling-hdf-clusters-does-not-update-configurations-on-new-nodes">(BUG-98865) Scaling HDF Clusters Does Not Update Configurations on New Nodes</h5>
+<p>After HDF cluster upscale/downscale the <code>nifi.web.proxy.host</code> blueprint parameter should be changed. It is necessary for the Nifi UI to be reachable. </p>
+<p><em>Workaround:</em>  </p>
+<p>In Ambari web UI, navigate to NiFi Configs and manually edit <code>nifi.web.proxy.host</code> by adding new NiFi hosts. For example: </p>
+<p><code>HOST1:PORT,HOST2:PORT,HOST3:PORT</code></p></div>
         
     </div>
 
