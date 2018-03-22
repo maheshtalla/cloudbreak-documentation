@@ -700,6 +700,8 @@ b) specify your own local hosted repositories when you create a cluster. </p>
 <li>
 <p>After downloading and installing Cloudbreak, configure the Docker daemon to use proxy by adding the following to the Docker service file:</p>
 <p><pre>Environment="HTTP_PROXY=http://my-proxy-host:my-proxy-port" "NO_PROXY=localhost,127.0.0.1"</pre>   </p>
+<p>For example:</p>
+<p><pre>vi /etc/systemd/system/docker.service -&gt; Environment="HTTP_PROXY=http://10.0.2.237:3128" "NO_PROXY=localhost,127.0.0.1"</pre></p>
 <p>For more information refer to
 <a href="https://docs.docker.com/config/daemon/systemd/#httphttps-proxy">Docker docs</a>.     </p>
 </li>
