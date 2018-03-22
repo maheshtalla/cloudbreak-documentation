@@ -1514,15 +1514,15 @@
 <p>Registers an existing external database with Cloudbreak.</p>
 <p><strong>Required Options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>   Name for the database   <br />
-<strong><code>--rds-username &lt;value&gt;</code></strong>  Username for the JDBC connection<br />
-<strong><code>--rds-password &lt;value&gt;</code></strong>  Password for the JDBC connection<br />
+<strong><code>--database-username &lt;value&gt;</code></strong>  Username for the JDBC connection<br />
+<strong><code>--database-password &lt;value&gt;</code></strong>  Password for the JDBC connection<br />
 <strong><code>--url &lt;value&gt;</code></strong>  JDBC connection URL in the form of jdbc:db-type://address:port/db<br />
 <strong><code>--driver &lt;value&gt;</code></strong>   Name of the JDBC connection driver (for example: 'org.postgresql.Driver')<br />
 <strong><code>--database-engine &lt;value&gt;</code></strong>   Name of the external database engine (MYSQL, POSTGRES...)<br />
-<strong><code>--type &lt;value&gt;</code></strong>   Name if the service that will use the RDS (HIVE, DRUID, SUPERSET, RANGER, etc.)    </p>
+<strong><code>--type &lt;value&gt;</code></strong>   Name if the service that will use the database (HIVE, DRUID, SUPERSET, RANGER, etc.)    </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--description &lt;value&gt;</code></strong>  Description for the database     <br />
-<strong><code>--not-validated</code></strong>  If set, then the RDS configuration will be not validated<br />
+<strong><code>--not-validated</code></strong>  If set, then the database configuration will be not validated<br />
 <strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
 <strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
 <strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD] <br />
@@ -1530,8 +1530,8 @@
 <strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE] <br />
 <strong><code>--public</code></strong>   Public in account  </p>
 <p><strong>Examples</strong></p>
-<p>Registers an existing Postgres database called "test-rds" with Cloudbreak:</p>
-<pre>cb rds create --name testrds --rds-username testuser --rds-password MySecurePassword123 --url jdbc:postgresql://test-db.cic6nusrpqec.us-west-2.rds.amazonaws.com:5432/testdb --driver 'org.postgresql.Driver' --database-engine POSTGRES --type HIVE</pre>
+<p>Registers an existing Postgres database called "test-database" with Cloudbreak:</p>
+<pre>cb database create --name testdatabase --database-username testuser --database-password MySecurePassword123 --url jdbc:postgresql://test-db.cic6nusrpqec.us-west-2.rds.amazonaws.com:5432/testdb --driver 'org.postgresql.Driver' --database-engine POSTGRES --type HIVE</pre>
 
 <p>The connection URL includes three components db-type://address:port/db: </p>
 <ul>
@@ -1553,7 +1553,7 @@
 <strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
 <strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]</p>
 <p><strong>Examples</strong></p>
-<pre>cb rds delete --name testrds</pre>
+<pre>cb database delete --name testdatabase</pre>
 
 <hr />
 <h4 id="database-list">database list</h4>
