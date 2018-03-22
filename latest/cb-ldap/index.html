@@ -620,11 +620,11 @@
 <h2 id="configuring-cloudbreak-for-ldapad-authentication">Configuring Cloudbreak for LDAP/AD Authentication</h2>
 <p>By default Cloudbreak uses an internal system as the user store for authentication (enabled by using <a href="https://github.com/cloudfoundry/uaa">CloudFoundry UAA</a>). If you would like to configure LDAP or Active Directory (AD) external authentication, you need to:  </p>
 <ol>
-<li>Collect the following information about your LDAP/AD setup    </li>
-<li>Configure Cloudbreak to work with that LDAP/AD setup.</li>
+<li>Collect the <a href="#ldapad-information">following information</a> about your LDAP/AD setup    </li>
+<li><a href="#configuring-cloudbreak-for-ldapad">Configure Cloudbreak</a> to work with that LDAP/AD setup.</li>
 </ol>
 <h3 id="ldapad-information">LDAP/AD Information</h3>
-<p>The following table details the properties and values you need to know about your LDAP/AD environment: </p>
+<p>The following table details the properties and values that you need to know about your LDAP/AD environment on order to use the LDAP/AD with Cloudbreak: </p>
 <table>
 <thead>
 <tr>
@@ -699,11 +699,10 @@
 </blockquote>
 </li>
 <li>
-<p>In the yml file enter the following using your LDAP/AD information: </p>
+<p>In the yml file enter the following using your <a href="#ldapad-information">LDAP/AD information</a>. Next, save the file and restart Cloudbreak.  </p>
 </li>
 </ol>
-<pre>
-spring_profiles: postgresql,ldap
+<pre>spring_profiles: postgresql,ldap
 
 ldap:
   profile:
@@ -723,9 +722,6 @@ ldap:
     autoAdd: true
 </pre>
 
-<ol>
-<li>Save the file and restart Cloudbreak. </li>
-</ol>
 <h4 id="configure-group-authorization">Configure Group Authorization</h4>
 <p>Once user authentication is configured, you need to configure which group(s) can access Cloudbreak. Users (once authenticated) will be granted permission to access Cloudbreak and use the capabilities of Cloudbreak based on their group member. The following describes how to create (i.e. execute-and-map) a group authorization and how to remove (i.e. delete-mapping) an authorization</p>
 <p>To create a group authorization, execute the following (for example: to add “Analysts” group):</p>
