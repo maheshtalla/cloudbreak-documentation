@@ -662,6 +662,12 @@
             
                 <li class="third-level"><a href="#credential-modify">credential modify</a></li>
             
+                <li class="third-level"><a href="#database-create">database create</a></li>
+            
+                <li class="third-level"><a href="#database-delete">database delete</a></li>
+            
+                <li class="third-level"><a href="#database-list">database list</a></li>
+            
                 <li class="third-level"><a href="#imagecatalog-create">imagecatalog create</a></li>
             
                 <li class="third-level"><a href="#imagecatalog-delete">imagecatalog delete</a></li>
@@ -683,12 +689,6 @@
                 <li class="third-level"><a href="#proxy-delete">proxy delete</a></li>
             
                 <li class="third-level"><a href="#proxy-list">proxy list</a></li>
-            
-                <li class="third-level"><a href="#rds-create">rds create</a></li>
-            
-                <li class="third-level"><a href="#rds-delete">rds delete</a></li>
-            
-                <li class="third-level"><a href="#rds-list">rds list</a></li>
             
                 <li class="third-level"><a href="#recipe-create">recipe create</a></li>
             
@@ -772,6 +772,12 @@
 <li><a href="#cluster-stop">cluster stop</a>              </li>
 <li><a href="#cluster-sync">cluster sync</a> </li>
 </ul>
+<p>Database:            </p>
+<ul>
+<li><a href="#database-create">database create</a>  </li>
+<li><a href="#database-delete">database delete</a>  </li>
+<li><a href="#database-list">database list</a></li>
+</ul>
 <p>Image Catalog</p>
 <ul>
 <li><a href="#imagecatalog-create">imagecatalog create</a>     </li>
@@ -798,12 +804,6 @@
 <li><a href="#recipe-delete">recipe delete</a>            </li>
 <li><a href="#recipe-describe">recipe describe</a>            </li>
 <li><a href="#recipe-list">recipe list</a>              </li>
-</ul>
-<p>Rds:            </p>
-<ul>
-<li><a href="#rds-create">rds create</a>  </li>
-<li><a href="#rds-delete">rds delete</a>  </li>
-<li><a href="#rds-list">rds list</a></li>
 </ul>
 <hr />
 <h4 id="blueprint-create">blueprint create</h4>
@@ -1510,6 +1510,71 @@
 <pre>cb credential modify openstack keystone-v2 --name my-credential5 --tenant-user test --tenant-password MySecurePass123 --tenant-name test --endpoint http://openstack.test.organization.com:5000/v2.0</pre>
 
 <hr />
+<h4 id="database-create">database create</h4>
+<p>Registers an existing external database with Cloudbreak.</p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>   Name for the database   <br />
+<strong><code>--rds-username &lt;value&gt;</code></strong>  Username for the JDBC connection<br />
+<strong><code>--rds-password &lt;value&gt;</code></strong>  Password for the JDBC connection<br />
+<strong><code>--url &lt;value&gt;</code></strong>  JDBC connection URL in the form of jdbc:db-type://address:port/db<br />
+<strong><code>--driver &lt;value&gt;</code></strong>   Name of the JDBC connection driver (for example: 'org.postgresql.Driver')<br />
+<strong><code>--database-engine &lt;value&gt;</code></strong>   Name of the external database engine (MYSQL, POSTGRES...)<br />
+<strong><code>--type &lt;value&gt;</code></strong>   Name if the service that will use the RDS (HIVE, DRUID, SUPERSET, RANGER, etc.)    </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--description &lt;value&gt;</code></strong>  Description for the database     <br />
+<strong><code>--not-validated</code></strong>  If set, then the RDS configuration will be not validated<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD] <br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE] <br />
+<strong><code>--public</code></strong>   Public in account  </p>
+<p><strong>Examples</strong></p>
+<p>Registers an existing Postgres database called "test-rds" with Cloudbreak:</p>
+<pre>cb rds create --name testrds --rds-username testuser --rds-password MySecurePassword123 --url jdbc:postgresql://test-db.cic6nusrpqec.us-west-2.rds.amazonaws.com:5432/testdb --driver 'org.postgresql.Driver' --database-engine POSTGRES --type HIVE</pre>
+
+<p>The connection URL includes three components db-type://address:port/db: </p>
+<ul>
+<li>Database type "jdbc:postgresql"  </li>
+<li>Endpoint "test-db.cic6nusrpqec.us-west-2.rds.amazonaws.com:5432"  </li>
+<li>Port "5432"  </li>
+<li>Database name "testdb"  </li>
+</ul>
+<hr />
+<h4 id="database-delete">database delete</h4>
+<p>Unregisters a previously registered database with Cloudbreak. It does not delete the database instance. </p>
+<p><strong>Required Options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the database     </p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]</p>
+<p><strong>Examples</strong></p>
+<pre>cb rds delete --name testrds</pre>
+
+<hr />
+<h4 id="database-list">database list</h4>
+<p>Lists all available database registrations.</p>
+<p><strong>Required Options</strong></p>
+<p>None</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]</p>
+<p><strong>Examples</strong></p>
+<p>Lists existing database registrations:</p>
+<pre>cb database list</pre>
+
+<p>Lists existing database registrations, with output presented in a table format:</p>
+<pre>cb database list --output table</pre>
+
+<hr />
 <h4 id="imagecatalog-create">imagecatalog create</h4>
 <p>Registers a new custom image catalog based on the URL provided.  </p>
 <p><strong>Required Options</strong>  </p>
@@ -1743,71 +1808,6 @@
 
 <p>Lists existing proxy registrations, with output presented in a table format:</p>
 <pre>cb proxy list --output table</pre>
-
-<hr />
-<h4 id="rds-create">rds create</h4>
-<p>Registers an existing external RDS with Cloudbreak.</p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>   Name for the RDS <br />
-<strong><code>--rds-username &lt;value&gt;</code></strong>  Username for the JDBC connection<br />
-<strong><code>--rds-password &lt;value&gt;</code></strong>  Password for the JDBC connection<br />
-<strong><code>--url &lt;value&gt;</code></strong>  JDBC connection URL in the form of jdbc:db-type://address:port/db<br />
-<strong><code>--driver &lt;value&gt;</code></strong>   Name of the JDBC connection driver (for example: 'org.postgresql.Driver')<br />
-<strong><code>--database-engine &lt;value&gt;</code></strong>   Name of the external database engine (MYSQL, POSTGRES...)<br />
-<strong><code>--type &lt;value&gt;</code></strong>   Name if the service that will use the RDS (HIVE, DRUID, SUPERSET, RANGER, etc.)    </p>
-<p><strong>Options</strong></p>
-<p><strong><code>--description &lt;value&gt;</code></strong>  Description for the RDS   <br />
-<strong><code>--not-validated</code></strong>  If set, then the RDS configuration will be not validated<br />
-<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD] <br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE] <br />
-<strong><code>--public</code></strong>   Public in account  </p>
-<p><strong>Examples</strong></p>
-<p>Registers an existing Postgres RDS called "test-rds" with Cloudbreak:</p>
-<pre>cb rds create --name testrds --rds-username testuser --rds-password MySecurePassword123 --url jdbc:postgresql://test-db.cic6nusrpqec.us-west-2.rds.amazonaws.com:5432/testdb --driver 'org.postgresql.Driver' --database-engine POSTGRES --type HIVE</pre>
-
-<p>The connection URL includes three components db-type://address:port/db: </p>
-<ul>
-<li>Database type "jdbc:postgresql"  </li>
-<li>Endpoint "test-db.cic6nusrpqec.us-west-2.rds.amazonaws.com:5432"  </li>
-<li>Port "5432"  </li>
-<li>Database name "testdb"  </li>
-</ul>
-<hr />
-<h4 id="rds-delete">rds delete</h4>
-<p>Unregisters a previously registered RDS with Cloudbreak. It does not delete the RDS instance. </p>
-<p><strong>Required Options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Name for the RDS   </p>
-<p><strong>Options</strong></p>
-<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
-<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak erver address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]</p>
-<p><strong>Examples</strong></p>
-<pre>cb rds delete --name testrds</pre>
-
-<hr />
-<h4 id="rds-list">rds list</h4>
-<p>Lists all available RDS registrations.</p>
-<p><strong>Required Options</strong></p>
-<p>None</p>
-<p><strong>Options</strong></p>
-<p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
-<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
-<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
-<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]<br />
-<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
-<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]</p>
-<p><strong>Examples</strong></p>
-<p>Lists existing rds registrations:</p>
-<pre>cb rds list</pre>
-
-<p>Lists existing rds registrations, with output presented in a table format:</p>
-<pre>cb rds list --output table</pre>
 
 <hr />
 <h4 id="recipe-create">recipe create</h4>
