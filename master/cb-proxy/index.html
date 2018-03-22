@@ -643,53 +643,45 @@
 <h3 id="outbound-network-access-destinations">Outbound Network Access Destinations</h3>
 <p>To install and configure Cloudbreak, you will need the following outbound destinations available:</p>
 <table>
-<thead>
 <tr>
-<th>Destination</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*.docker.io</td>
-<td>Obtain the Docker images for Cloudbreak.</td>
-</tr>
-<tr>
-<td><p>raw.githubusercontent.com</p><p>github.com</p><p>s3.amazonaws.com</p><p>*.cloudfront.net</p></td>
-<td>Obtain Cloudbreak dependencies.</td>
-</tr>
-<tr>
-<td>cloudbreak-imagecatalog.s3.amazonaws.com</td>
-<td>The default Cloudbreak image catalog used for VMs. Refer to <a href="../images/index.html">Custom Images</a> for more information on image catalogs.</td>
-</tr>
-</tbody>
+    <th>Destination</th>
+    <th>Description</th> 
+  </tr>
+  <tr>
+    <td>*.docker.io</td>
+    <td>Obtain the Docker images for Cloudbreak.</td> 
+  </tr>
+  <tr>
+    <td><p>raw.githubusercontent.com</p><p>github.com</p><p>s3.amazonaws.com</p><p>*.cloudfront.net</p></td>
+    <td>Obtain Cloudbreak dependencies.</td> 
+  </tr>
+  <tr>
+  <td>cloudbreak-imagecatalog.s3.amazonaws.com </td><td> The default Cloudbreak image catalog used for VMs. Refer to [Custom Images](images.md) for more information on image catalogs. </td>
+  </tr>
 </table>
+
 <p>Once Cloudbreak is installed and configured, you will need the following outbound destinations available in order to communicate with the cloud provider APIs to obtain cloud resources for clusters.</p>
 <table>
-<thead>
 <tr>
-<th>Cloud Provider</th>
-<th>Cloud Provider API Destinations</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Amazon Web Services</td>
-<td>*.amazonaws.com</td>
-</tr>
-<tr>
-<td>Microsoft Azure</td>
-<td><p><em>.microsoftonline.com</p><p></em>.windows.net</p><p>*.azure.com</p></td>
-</tr>
-<tr>
-<td>Google Cloud Platform</td>
-<td><p>accounts.google.com</p><p>*.googleapis.com</p></td>
-</tr>
-</tbody>
+    <th>Cloud Provider</th>
+    <th>Cloud Provider API Destinations</th> 
+  </tr>
+  <tr>
+  <td>Amazon Web Services</td>
+  <td>*.amazonaws.com</td>
+ </tr>
+  <td> Microsoft Azure </td>
+  <td> <p>*.microsoftonline.com</p><p>*.windows.net</p><p>*.azure.com</p></td>
+   </tr>
+   <tr>
+  <td> Google Cloud Platform  </td>  
+  <td> <p>accounts.google.com</p><p>*.googleapis.com</p></td>
+  </tr>
 </table>
+
 <p>To install the cluster software, you can: </p>
 <p>a) use the public hosted repositories provided by Hortonworks, or<br />
-b) specify your own local hosted repositories when you Create a Cluster. </p>
+b) specify your own local hosted repositories when you create a cluster. </p>
 <p>If you choose to (a) use the public hosted repositories, be sure to allow outbound access to the following destinations:</p>
 <ul>
 <li>private-repo-1.hortonworks.com  </li>
