@@ -770,10 +770,11 @@ Manual recovery is needed for the following failed nodes:
 </blockquote>
 <hr />
 <h5 id="bug-98865-scaling-hdf-clusters-does-not-update-configurations-on-new-nodes">(BUG-98865) Scaling HDF Clusters Does Not Update Configurations on New Nodes</h5>
-<p>After HDF cluster upscale/downscale the <code>nifi.web.proxy.host</code> blueprint parameter should be changed. It is necessary for the Nifi UI to be reachable. </p>
+<p>Blueprint configuration parameters are not applied when scaling an HDF cluster. 
+One example that affects all users is that after HDF cluster upscale/downscale the <code>nifi.web.proxy.host</code> blueprint parameter does not get updated to include the new nodes, and as a result the Nifi UI is not reachable from these nodes. </p>
 <p><em>Workaround:</em>  </p>
-<p>In Ambari web UI, navigate to NiFi Configs and manually edit <code>nifi.web.proxy.host</code> by adding new NiFi hosts. For example: </p>
-<p><code>HOST1:PORT,HOST2:PORT,HOST3:PORT</code></p></div>
+<p>Configuration parameters set in the blueprint are not applied when scaling an HDF cluster. One example that affects all NiFi users is that after HDF cluster upscale the <code>nifi.web.proxy.host</code> parameter does not get updated to include the new hosts, and as a result the Nifi UI is not reachable from these hosts. </p>
+<p><code>HOST1-IP:PORT,HOST2-IP:PORT,HOST3-IP:PORT</code></p></div>
         
     </div>
 
