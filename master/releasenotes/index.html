@@ -716,11 +716,8 @@ Default HDF version 3.1.1.0-35   </p>
  ~  integration-test  1  time="2018-02-01T12:56:44+01:00" level="error" msg="the following parameters are missing: url\n"</pre>
 
 <p><em>Workaround:</em><br />
- You have two options:</p>
-<ul>
-<li>Do not include any of the following special characters <code>@#$%|:&amp;*;</code> in the blueprint name.  </li>
-<li>If you want to use special characters in the name, perform the task via the UI.  </li>
-</ul>
+When using special characters in a blueprint name, make sure to use quotes; for example "test@#":<br />
+<pre>cb blueprint create from-url --name "test@#" --url https://myurl.com/myblueprint.bp</pre></p>
 <hr />
 <h5 id="bug-93257-clusters-are-missing-from-history">(BUG-93257) <strong>Clusters Are Missing From History</strong></h5>
 <p>After changing the dates on the History page multiple times, the results displayed may sometimes be incorrect. </p>
