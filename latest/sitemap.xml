@@ -15,6 +15,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//security/index.html</loc>
+     <lastmod>2018-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
@@ -167,18 +173,6 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation/</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//dev/index.html</loc>
-     <lastmod>2018-03-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
@@ -191,6 +185,12 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//faq/index.html</loc>
+     <lastmod>2018-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//dev/index.html</loc>
      <lastmod>2018-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
