@@ -478,12 +478,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../trouble-os/index.html">Troubleshooting OpenStack</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -557,7 +551,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../trouble-os/index.html">
+                        <a rel="prev" href="../releasenotes/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -584,13 +578,19 @@
     
         <li class="first-level active"><a href="#troubleshooting-cloudbreak-on-gcp">Troubleshooting Cloudbreak on GCP</a></li>
         
+            <li class="second-level"><a href="#google-cloud-create-cluster-fails-with-permissions-related-error">Google Cloud Create Cluster Fails with Permissions Related Error</a></li>
+            
+        
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h2 id="troubleshooting-cloudbreak-on-gcp">Troubleshooting Cloudbreak on GCP</h2>
-<p>Coming soon!</p></div>
+<h3 id="google-cloud-create-cluster-fails-with-permissions-related-error">Google Cloud Create Cluster Fails with Permissions Related Error</h3>
+<p>In order to launch clusters on GCP via Cloudbreak, you must have a Service Account that Cloudbreak can use to create resources. In addition, you must also have a P12 key associated with that account.</p>
+<p>Usually, a user with an "Owner" role can assign roles to new and existing service accounts from <strong>IAM &amp; Admin &gt; IAM</strong> in the Google Cloud console. If you are using your own account, you should be able to perform this step, but if you are using a corporate account, you will likely have to contact your Google Cloud admin.</p>
+<p>The roles for the service account are described in <a href="../gcp-launch/index.html#service-account">Service Account</a>. </p></div>
         
     </div>
 

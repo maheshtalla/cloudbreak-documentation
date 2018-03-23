@@ -478,12 +478,6 @@
 </li>
 
         
-            
-<li >
-    <a href="../trouble-os/index.html">Troubleshooting OpenStack</a>
-</li>
-
-        
     </ul>
   </li>
 
@@ -589,6 +583,13 @@
                 <li class="third-level"><a href="#invalid-resource-reference">Invalid Resource Reference</a></li>
             
         
+            <li class="second-level"><a href="#credential-prerequisite-errors">Credential Prerequisite Errors</a></li>
+            
+                <li class="third-level"><a href="#you-dont-have-enough-permissions-to-assign-roles">You Don't Have Enough Permissions to Assign Roles</a></li>
+            
+                <li class="third-level"><a href="#problems-with-iam-permissions-assignment">Problems with IAM Permissions Assignment</a></li>
+            
+        
             <li class="second-level"><a href="#credential-creation-errors">Credential Creation Errors</a></li>
             
                 <li class="third-level"><a href="#role-already-exists">Role already exists</a></li>
@@ -617,6 +618,12 @@ Microsoft.Network/networkInterfaces/cbdeployerNic was not found.<br />
 Please make sure that the referenced resource exists, and that both resources are in the same region.</span></em></p>
 <p><strong>Symptom</strong>: The most common reason for this error is that you did not provide the Vnet RG Name (last parameter in the template).  </p>
 <p><strong>Solution</strong>: When launching Cloudbreak, under "Vnet RG Name" provide the name of the resource group in which the selected VNet is located. If using a new VNet, enter the same resource group name as in "Resource group". </p>
+<h3 id="credential-prerequisite-errors">Credential Prerequisite Errors</h3>
+<h4 id="you-dont-have-enough-permissions-to-assign-roles">You Don't Have Enough Permissions to Assign Roles</h4>
+<p>This error during the interactive credential creation typically means that you do not have suitable permissions to create an interactive credential. Using an interactive credential currently requires an "Owner" role or its equivalent so if you are using a corporate account you are unlikely to have it. Try using the app-based credential. </p>
+<h4 id="problems-with-iam-permissions-assignment">Problems with IAM Permissions Assignment</h4>
+<p>After registering an Azure application you may have to ask your Azure administrator to perform the step of assigning the "Contributor" role to it:</p>
+<p><a href="../images/azure-appbased03.png" target="_blank" title="click to enlarge"><img src="../images/azure-appbased03.png" width="650" title="Azure Portal"></a> </p>
 <h3 id="credential-creation-errors">Credential Creation Errors</h3>
 <h4 id="role-already-exists">Role already exists</h4>
 <p>Example error message: <em><span class="cfn-output3">Role already exists in Azure with the name: CloudbreakCustom50</span></em></p>
