@@ -590,22 +590,6 @@
             
                 <li class="third-level"><a href="#cluster-information">Cluster Information</a></li>
             
-                <li class="third-level"><a href="#hardware">Hardware</a></li>
-            
-                <li class="third-level"><a href="#tags">Tags</a></li>
-            
-                <li class="third-level"><a href="#recipes">Recipes</a></li>
-            
-                <li class="third-level"><a href="#repository-details">Repository Details</a></li>
-            
-                <li class="third-level"><a href="#image-details">Image Details</a></li>
-            
-                <li class="third-level"><a href="#network">Network</a></li>
-            
-                <li class="third-level"><a href="#security">Security</a></li>
-            
-                <li class="third-level"><a href="#autoscaling">Autoscaling</a></li>
-            
                 <li class="third-level"><a href="#event-history">Event History</a></li>
             
         
@@ -631,15 +615,7 @@
 <p>The information presented includes:</p>
 <ul>
 <li><a href="#cluster-summary">Cluster Summary</a>  </li>
-<li><a href="#cluster-information">Cluster Information</a>  </li>
-<li><a href="#hardware">Hardware</a>  </li>
-<li><a href="#tags">Tags</a>   </li>
-<li><a href="#recipes">Recipes</a>  </li>
-<li><a href="#repository-details">Repository Details</a>  </li>
-<li><a href="#image-details">Image Details</a>    </li>
-<li><a href="#network">Network</a>   </li>
-<li><a href="#security">Security</a>  </li>
-<li><a href="#autoscaling">Autoscaling</a>    </li>
+<li><a href="#cluster-information">Cluster Information</a>     </li>
 <li><a href="#event-history">Event History</a>  </li>
 </ul>
 <div class="note">
@@ -698,6 +674,7 @@
 </tbody>
 </table>
 <h4 id="cluster-information">Cluster Information</h4>
+<p>The following information is available on the cluster details page: </p>
 <table>
 <thead>
 <tr>
@@ -742,24 +719,59 @@
 <td>HDP/HDF Version</td>
 <td>The HDP or HDF version which this cluster is currently running.</td>
 </tr>
+<tr>
+<td>Authentication Source</td>
+<td>If you are using an external authentication source (LDAP/AD) for your cluster, you can see it here. Refer to <a href="../external-ldap/index.html">Register an Authentication Source</a>.</td>
+</tr>
 </tbody>
 </table>
-<h4 id="hardware">Hardware</h4>
-<p>This section includes information about your cluster instances: instance names, instance IDs, instance types, their status, fully qualified domain names (FQDNs), and private and public IPs. </p>
-<h4 id="tags">Tags</h4>
-<p>This section lists keys and values of the user-defined tags, in the same order as you added them.</p>
-<h4 id="recipes">Recipes</h4>
-<p>This section includes recipe-related information. For each recipe, you can see the host group on which a recipe was executed, recipe name, and recipe type. </p>
-<h4 id="repository-details">Repository Details</h4>
-<p>This section includes Ambari and HDP/HDF repository information, as you provided it in the "Base Images" section when creating a cluster.</p>
-<h4 id="image-details">Image Details</h4>
-<p>This section includes information about the base image that was used for the Cloudbreak instance. </p>
-<h4 id="network">Network</h4>
-<p>This section includes information about the names of the network and subnet in which the cluster is running and the links to related cloud provider console.</p>
-<h4 id="security">Security</h4>
-<p>This section is only available if you have enabled Kerberos security. It provides you with the details of your Kerberos configuration.  </p>
-<h4 id="autoscaling">Autoscaling</h4>
-<p>This section includes configuration options related to autoscaling. Refer to <a href="../autoscaling/index.html">Autoscaling</a>.  </p>
+<p>Below this, you will see additional tabs that you can click on in order to see their content:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware</td>
+<td>This section includes information about your cluster instances: instance names, instance IDs, instance types, their status, fully qualified domain names (FQDNs), and private and public IPs.</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>This section lists keys and values of the user-defined tags, in the same order as you added them.</td>
+</tr>
+<tr>
+<td>Recipes</td>
+<td>This section includes recipe-related information. For each recipe, you can see the host group on which a recipe was executed, recipe name, and recipe type. Refer to <a href="../recipes/index.html">Recipes</a>.</td>
+</tr>
+<tr>
+<td>External Databases</td>
+<td>If you are using an external database for your cluster, you can see it here. Refer to <a href="../external-db/index.html">Register an External Database</a>.</td>
+</tr>
+<tr>
+<td>Repository Details</td>
+<td>This section includes Ambari and HDP/HDF repository information, as you provided it in the "Base Images" section when creating a cluster.</td>
+</tr>
+<tr>
+<td>Image Details</td>
+<td>This section includes information about the base image that was used for the Cloudbreak instance.</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>This section includes information about the names of the network and subnet in which the cluster is running and the links to related cloud provider console.</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>This section is only available if you have enabled Kerberos security. It provides you with the details of your Kerberos configuration.</td>
+</tr>
+<tr>
+<td>Autoscaling</td>
+<td>This section includes configuration options related to autoscaling. Refer to <a href="../autoscaling/index.html">Autoscaling</a>.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="event-history">Event History</h4>
 <p>The Event History section shows you events logged for the cluster, with the most recent event at the top. For example, after your cluster has been created, the following messages will be written to the log:</p>
 <pre>

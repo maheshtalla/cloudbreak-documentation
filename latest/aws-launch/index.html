@@ -595,6 +595,16 @@
                 <li class="third-level"><a href="#authentication">Authentication</a></li>
             
         
+            <li class="second-level"><a href="#option-1-configure-key-based-authentication">(Option 1) Configure Key-based Authentication</a></li>
+            
+        
+            <li class="second-level"><a href="#option-2-configure-role-based-authentication">(Option 2) Configure Role-based Authentication</a></li>
+            
+                <li class="third-level"><a href="#create-cloudbreakrole">Create CloudbreakRole</a></li>
+            
+                <li class="third-level"><a href="#create-credentialrole">Create CredentialRole</a></li>
+            
+        
             <li class="second-level"><a href="#launch-the-vm">Launch the VM</a></li>
             
         
@@ -702,12 +712,12 @@
 <p><strong>Role-based</strong>: This requires that you or your AWS admin create an IAM role to allow Cloudbreak to assume AWS roles (the "AssumeRole" policy).</p>
 </li>
 </ul>
-<p><strong>Option 1: Key-based Authentication</strong></p>
+<h3 id="option-1-configure-key-based-authentication">(Option 1) Configure Key-based Authentication</h3>
 <p>If you are using key-based authentication for Cloudbreak on AWS, you must be able to provide your AWS access key and secret key pair. Cloudbreak will use these keys to launch the resources. You must provide the access and secret keys later in the Cloudbreak web UI later when creating a credential. </p>
 <p>If you choose this option, all you need to do at this point is check your AWS account and make sure that you can access this key pair. You can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong>. Next, select a user and click on the <strong>Security credentials</strong> tab:</p>
 <p><a href="../images/aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/aws-iam_security_creds.png" width="650" title="IAM Console"></a> </p>
 <p>If you choose this option, you can proceed to <a href="#launch-the-vm">Launch the VM</a>.</p>
-<p><strong>Option 2: Role-based Authentication</strong></p>
+<h3 id="option-2-configure-role-based-authentication">(Option 2) Configure Role-based Authentication</h3>
 <p>If you are using role-based authentication for Cloudbreak on AWS, you must create two IAM roles: one to grant Cloudbreak access to allow Cloudbreak to assume AWS roles (using the "AssumeRole" policy) and the second one to provide Cloudbreak with the capabilities required for cluster creation (using the "cb-policy" policy).</p>
 <p>The following table provides contextual information about the two roles required: </p>
 <table>
@@ -739,7 +749,7 @@
 <p>Alternatively you can generate the "CredentialRole" role later once your Cloudbreak VM is running by SSHing to the Cloudbreak VM and running the <code>cbd aws generate-role</code> command. This command creates a role with the name "cbreak-deployer" (equivalent to the "CredentialRole"). To customize the name of the role, add <code>export AWS_ROLE_NAME=my-cloudbreak-role-name</code> (where "my-cloudbreak-role-name" is your custom role name) as a new line to your Profile. If you choose this option, you must make sure that the "CloudbreakRole" or the IAM user have a permission not only to assume a role but also to create a role.  </p>
 </blockquote>
 <p>You can create these roles in the <strong>IAM console</strong>, on the <strong>Roles</strong> page via the <strong>Create Role</strong> option. Detailed steps are provided below. </p>
-<p><strong>Create CloudbreakRole</strong></p>
+<h4 id="create-cloudbreakrole">Create CloudbreakRole</h4>
 <p>Use these steps to create CloudbreakRole. </p>
 <p>Use the following "AssumeRole" policy definition: </p>
 <pre>{
@@ -796,7 +806,7 @@
 <p>When done, click <strong>Create role</strong> to finish the role creation process.</p>
 </li>
 </ol>
-<p><strong>Create CredentialRole</strong></p>
+<h4 id="create-credentialrole">Create CredentialRole</h4>
 <p>Use these steps to create CredentialRole.</p>
 <p>Use the following "cb-policy" policy definition: </p>
 <pre>{
