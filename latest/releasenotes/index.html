@@ -640,7 +640,7 @@ For updated blueprint information, refer to <a href="../blueprints/index.html#de
 <hr />
 <h4 id="image-catalog-updates">Image Catalog Updates</h4>
 <hr />
-<h5 id="march-21-2018"><strong>March 21, 2018</strong></h5>
+<h5 id="april-3-2018"><strong>April 3, 2018</strong></h5>
 <p>Update 1:</p>
 <p>Default Ambari version 2.6.1.3<br />
 Default HDP version 2.6.4.5-2<br />
@@ -655,18 +655,82 @@ Default HDF version 3.1.1.0-35   </p>
 <table>
 <thead>
 <tr>
-<th>Jira Issue</th>
+<th>Issue</th>
 <th>Issue Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>BUG-96764</td>
-<td>When trying to delete instances by using the delete icon on the cluster details in the Hardware tab, the following appears: "Failed to remove instance".</td>
+<td>BUG-99168</td>
+<td>All clusters created on Google Cloud Platform fail.</td>
 </tr>
 <tr>
-<td>BUG-96784</td>
-<td>Hive LLAP start times out in Ambari, but eventually it starts (after 15 minutes on AWS and after one hour or so on other providers).</td>
+<td>BUG-99400</td>
+<td>Time-based cluster autoscaling does not work.</td>
+</tr>
+<tr>
+<td>BUG-99505</td>
+<td>Sync is not working for an AWS instance that was terminated a long time ago.</td>
+</tr>
+<tr>
+<td>BUG-98277</td>
+<td>Network interface handling in CloudBreak should be improved.</td>
+</tr>
+<tr>
+<td>BUG-97395</td>
+<td>Networks are duplicated on networks tab of the cluster create wizard.</td>
+</tr>
+<tr>
+<td>BUG-97259</td>
+<td>"Update failed" status after downscale failed, even though cluster was not modified and its status should be "Running".</td>
+</tr>
+<tr>
+<td>BUG-97207</td>
+<td>Changing lifecycle management on YARN causes NPE.</td>
+</tr>
+<tr>
+<td>BUG-99189</td>
+<td>ImageCatalog PUT endpoint is not secured.</td>
+</tr>
+<tr>
+<td>BUG-97895</td>
+<td>LDAP password should be removed from Cloudbreak logs.</td>
+</tr>
+<tr>
+<td>BUG-97300</td>
+<td>Cloudbreak should show proper error messages when the given credential is not valid anymore.</td>
+</tr>
+<tr>
+<td>BUG-97296</td>
+<td>GCP credential creation should validate whether resources are available with the credential.</td>
+</tr>
+<tr>
+<td>BUG-99635</td>
+<td>Default credential selection problem.</td>
+</tr>
+<tr>
+<td>BUG-97660</td>
+<td>Ignore repository warnings checkbox are missing after changing base image Ambari or HDP to a custom one.</td>
+</tr>
+<tr>
+<td>BUG-97307</td>
+<td>Ignore repository warnings checkbox is not selectable after change the HDP VDF URL.</td>
+</tr>
+<tr>
+<td>BUG-96764</td>
+<td>"Failed to remove instance" error when using the delete icon.</td>
+</tr>
+<tr>
+<td>BUG-97390</td>
+<td>Cloudbreak should support longer resource ID-s on AWS.</td>
+</tr>
+<tr>
+<td>BUG-99512</td>
+<td>Azure ES_v3 instances should support premium storage.</td>
+</tr>
+<tr>
+<td>BUG-97206</td>
+<td>Backend should return only images for enabled platforms.</td>
 </tr>
 </tbody>
 </table>
