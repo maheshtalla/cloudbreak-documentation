@@ -584,20 +584,17 @@
     
         <li class="first-level active"><a href="#blueprints">Blueprints</a></li>
         
-            <li class="second-level"><a href="#default-blueprints">Default Blueprints</a></li>
-            
-        
             <li class="second-level"><a href="#using-custom-blueprints">Using Custom Blueprints</a></li>
             
                 <li class="third-level"><a href="#creating-a-blueprint">Creating a Blueprint</a></li>
             
+                <li class="third-level"><a href="#creating-a-dynamic-blueprint">Creating a Dynamic Blueprint</a></li>
+            
                 <li class="third-level"><a href="#upload-a-blueprint">Upload a Blueprint</a></li>
             
-        
-            <li class="second-level"><a href="#view-blueprint-details">View Blueprint Details</a></li>
+                <li class="third-level"><a href="#view-blueprint-details">View Blueprint Details</a></li>
             
-        
-            <li class="second-level"><a href="#delete-blueprint">Delete Blueprint</a></li>
+                <li class="third-level"><a href="#delete-blueprint">Delete Blueprint</a></li>
             
         
     
@@ -609,69 +606,10 @@
 <p><strong>Ambari blueprints</strong> are your declarative definition of your HDP or HDF cluster, defining the host groups and which components to install on which host group. Ambari uses them as a base for your clusters. </p>
 <p>You have two options concerning using blueprints with Cloudbreak:</p>
 <ul>
-<li>Use one of the pre-defined blueprints.    </li>
-<li>Add your custom blueprint by uploading a JSON file or pasting the JSON text. </li>
+<li><strong>Use one of the pre-defined blueprints</strong>: To use one of the default blueprints, simply select them when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Stack Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. For the list of default blueprints, refer to <a href="../index.html#default-cluster-configurations">Default Cluster Configurations</a>.       </li>
+<li><strong>Add your custom blueprint</strong> by uploading a JSON file or pasting the JSON text. </li>
 </ul>
 <p>We recommend that you review the default blueprints to check if they meet your requirements. You can do this by selecting <strong>Blueprints</strong> from the navigation pane in the Cloudbreak web UI or by reading the documentation below.</p>
-<h3 id="default-blueprints">Default Blueprints</h3>
-<p>Cloudbreak includes the following default cluster blueprints:</p>
-<p>Platform Version: <strong>HDP 2.6</strong></p>
-<table>
-<thead>
-<tr>
-<th>Cluster Type</th>
-<th>Main Services</th>
-<th>Description</th>
-<th>List of All Services Included</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Data Science</td>
-<td><i class="fa fa-check" style="color: green"></i> Spark 2,<br>Zeppelin</td>
-<td>Useful for data science with Spark 2 and Zeppelin.</td>
-<td>HDFS, YARN, MapReduce2, Tez, Hive, Pig, Sqoop, ZooKeeper, Ambari Metrics, Spark 2, Zeppelin</td>
-</tr>
-<tr>
-<td>EDW - Analytics</td>
-<td><span><i class="fa fa-check" style="color: green"></i> Hive 2 LLAP</span>,<br>Zeppelin</td>
-<td>Useful for EDW analytics using Hive LLAP.</td>
-<td>HDFS, YARN, MapReduce2, Tez, Hive 2 LLAP, Druid, Pig, ZooKeeper, Ambari Metrics, Spark 2</td>
-</tr>
-<tr>
-<td>EDW - ETL</td>
-<td><i class="fa fa-check" style="color: green"></i> Hive,<br> Spark 2</td>
-<td>Useful for ETL data processing with Hive and Spark 2.</td>
-<td>HDFS, YARN, MapReduce2, Tez, Hive, Pig, ZooKeeper, Ambari Metrics, Spark 2</td>
-</tr>
-</tbody>
-</table>
-<p>Platform Version: <strong>HDF 3.1</strong></p>
-<table>
-<thead>
-<tr>
-<th>Cluster Type</th>
-<th>Main Services</th>
-<th>Description</th>
-<th>List of All Services Included</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Flow Management</td>
-<td><i class="fa fa-warning" style="color: orange"></i> NiFi</td>
-<td>Useful for flow management with NiFi.</td>
-<td>NiFi, ZooKeeper, Ambari Metrics</td>
-</tr>
-</tbody>
-</table>
-<p>The following configuration classification applies:
-<ul>
-<li><i class="fa fa-check" style="color: green"></i> Stable configurations are the best choice if you want to avoid issues and other problems with launching and using clusters.</li>
-<li><i class="fa fa-warning" style="color: orange"></i> If you want to use a Technical Preview version of a component in a release of HDP/HDF, use these configurations.</li>
-<li><i class="fa fa-warning" style="color: red"></i> These are the most cutting edge of the configurations, including Technical Preview components in a Technical Preview HDP/HDF release.</li>
-</ul></p>
-<p>To use one of the default blueprints, simply select them when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Stack Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. </p>
 <h3 id="using-custom-blueprints">Using Custom Blueprints</h3>
 <p>This option allows you to create and save your custom blueprints. </p>
 <h4 id="creating-a-blueprint">Creating a Blueprint</h4>
@@ -734,6 +672,59 @@ For information on how to configure an external database and pass your external 
 <p><strong>Related Links</strong><br />
 <a href="https://github.com/hortonworks/cloudbreak/tree/master/core/src/main/resources/defaults/blueprints">Blueprint Examples</a> (Hortonworks)   <br />
 <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> (External)  </p>
+<h4 id="creating-a-dynamic-blueprint">Creating a Dynamic Blueprint</h4>
+<p>Cloudbreak allows you to create special blueprints which include templating: the values of the variables specified in the blueprint and provided in the UI or CLI will be dynamically generated in the cluster creation phase. Cloudbreak supports mustache kind of templating with the {{{variable}}} syntax.
+You cannot use functions in the blueprint file only the variable injection is supported.</p>
+<p>The following variables can be specified:</p>
+<p>LDAP properties which were assigned to the cluster:
+    - ldap.connectionURL - the URL of the LDAP (host:port)<br />
+    - ldap.bindDn<br />
+    - ldap.bindPassword<br />
+    - ldap.directoryType<br />
+    - ldap.userSearchBase<br />
+    - ldap.userNameAttribute<br />
+    - ldap.userObjectClass<br />
+    - ldap.groupSearchBase<br />
+    - ldap.groupNameAttribute<br />
+    - ldap.groupObjectClass<br />
+    - ldap.groupMemberAttribute<br />
+    - ldap.domain<br />
+- Rds properties which were assigned to the cluster:<br />
+    - rds.[type].connectionURL - The jdbc url to the RDBMS  <br />
+    - rds.[type].connectionDriver - In case of Postgres this is org.postgresql.Driver<br />
+    - rds.[type].connectionUserName - The user name to the database   <br />
+    - rds.[type].connectionPassword - The password for the connection<br />
+    - rds.[type].databaseName - The name of the database<br />
+    - rds.[type].host - The host of the database<br />
+    - rds.[type].hostWithPort - Database host + port like 10.1.1.1:1234<br />
+    - rds.[type].subprotocol - Parsed from jdbc url like postgres<br />
+    - rds.[type].databaseEngine - Capital database name like POSTGRES<br />
+- Gateway which are used for Knox:<br />
+    - gateway.enableGateway<br />
+    - gateway.gatewayType<br />
+    - gateway.path<br />
+    - gateway.topologyName<br />
+    - gateway.exposedServices<br />
+    - gateway.ssoType<br />
+    - gateway.ssoProvider <br />
+    - gateway.signKey<br />
+    - gateway.signPub<br />
+    - gateway.signCert<br />
+    - gateway.tokenCert<br />
+- Name of the cluster:<br />
+    - cluster_name<br />
+- First name of the cluster user:<br />
+    - cluster_admin_firstname<br />
+- Password for Ambari:<br />
+    - cluster_admin_password<br />
+- Last name of the cluster user:<br />
+    - cluster_admin_lastname<br />
+- Email of the cluster user:<br />
+    - admin_email  <br />
+- Version of HDP or HDF:<br />
+    - stack_type_version<br />
+- Type of stack (HDF or HDP):<br />
+    - stack_type  </p>
 <h4 id="upload-a-blueprint">Upload a Blueprint</h4>
 <p>Once you have your blueprint ready, perform these steps.</p>
 <p><strong>Steps</strong></p>
@@ -770,20 +761,17 @@ For information on how to configure an external database and pass your external 
 <p><a href="../images/cb-blueprint-select.png" target="_blank" title="click to enlarge"><img src="../images/cb-blueprint-select.png" width="650" title="Cloudbreak web UI"></a> </p>
 </li>
 </ol>
-<h3 id="view-blueprint-details">View Blueprint Details</h3>
+<h4 id="view-blueprint-details">View Blueprint Details</h4>
 <p>Once a blueprint has been registered in Cloudbreak, you can access its details in the Cloudbreak UI.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>In the Cloudbreak UI, select <strong>Blueprints</strong> from the navigation pane. </p>
-</li>
-<li>
-<p>Click on an entry to navigate to details. </p>
+<p>In the Cloudbreak UI, select <strong>Blueprints</strong> from the navigation pane and click on an entry to navigate to details. </p>
 <p>You can view blueprint details using the <strong>List View</strong> and <strong>Raw View</strong>:</p>
 <p><a href="../images/cb-blueprint-details.png" target="_blank" title="click to enlarge"><img src="../images/cb-blueprint-details.png" width="650" title="Cloudbreak web UI"></a> </p>
 </li>
 </ol>
-<h3 id="delete-blueprint">Delete Blueprint</h3>
+<h4 id="delete-blueprint">Delete Blueprint</h4>
 <p>To delete a default or custom blueprint, perform these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
