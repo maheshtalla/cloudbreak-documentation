@@ -582,31 +582,211 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#register-an-external-database">Register an External Database</a></li>
+        <li class="first-level active"><a href="#using-an-external-database">Using an External Database</a></li>
+        
+            <li class="second-level"><a href="#external-database-options">External Database Options</a></li>
+            
+                <li class="third-level"><a href="#example-1-built-in-type-hive">Example 1: Built-in Type Hive</a></li>
+            
+                <li class="third-level"><a href="#example-2-other-type">Example 2: Other Type</a></li>
+            
+        
+            <li class="second-level"><a href="#creating-a-template-blueprint-for-rdmbs">Creating a Template Blueprint for RDMBS</a></li>
+            
+                <li class="third-level"><a href="#rdbms-property-variables">RDBMS Property Variables</a></li>
+            
+        
+            <li class="second-level"><a href="#register-an-external-database">Register an External Database</a></li>
+            
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="register-an-external-database">Register an External Database</h2>
-<p>Cloudbreak allows you to register an existing RDBMS instance to be used for a database for the following services:   </p>
-<ul>
-<li>Hive  </li>
-<li>Druid  </li>
-<li>Ranger  </li>
-<li>Superset  </li>
-<li>Oozie  </li>
-<li>Hue </li>
-</ul>
+<h2 id="using-an-external-database">Using an External Database</h2>
+<p>Cloudbreak allows you to register an existing RDBMS instance to be used for a database for certain services. After you register the RDBMS with Cloudbreak, you can use it for multiple clusters. </p>
+<blockquote>
+<p>Only <strong>PostgreSQL</strong> is supported at this time.  </p>
+</blockquote>
+<h3 id="external-database-options">External Database Options</h3>
+<p>Cloudbreak includes the following external database options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Blueprint Requirements</th>
+<th>Steps</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Built-in types</td>
+<td>Cloudbreak includes a few built-in types: Hive, Druid, Ranger, Superset, and Oozie.</td>
+<td>Use a standard blueprint which does not include any JDBC  parameters. Cloudbreak automatically injects the JDBC property variables into the blueprint.</td>
+<td>Simply <a href="#register-an-external-database">register the database in the UI</a>. After that, you can attach the database config to your clusters.</td>
+<td>Refer to <a href="#example-1-built-in-type-hive">Example 1</a></td>
+</tr>
+<tr>
+<td>Custom types</td>
+<td>In addition to the built-in types, Cloudbreak allows you to specify custom types. In the UI, this corresponds to the UI option is called "Other" &gt; "Enter the type".</td>
+<td>You must provide a custom dynamic blueprint which includes RDBMS-specific variables. Refer to <a href="../blueprints/index.html#creating-a-template-blueprint-for-rdmbs">Creating a Dynamic Blueprint</a>.</td>
+<td>Prepare your custom blueprint first. Next, <a href="#register-an-external-database">register the database in the UI</a>. After that, you can attach the database config to your clusters.</td>
+<td>Refer to <a href="#example-2-other-type">Example 2</a></td>
+</tr>
+</tbody>
+</table>
+<p>During cluster create, Cloudbreak checks whether the JDBC properties are present in the blueprint:</p>
+<p><a href="../images/cb-rdbms-diagram.png" target="_blank" title="click to enlarge"><img src="../images/cb-rdbms-diagram.png" width="550" title="Cloudbreak web UI"></a></p>
+<h4 id="example-1-built-in-type-hive">Example 1: Built-in Type Hive</h4>
+<p>In this scenario, you start up with a standard blueprint, and Cloudbreak injects the JDBC properties into the blueprint.</p>
+<ol>
+<li>
+<p>Register an existing external database of "Hive" type (built-in type):</p>
+<p><a href="../images/cb-rdbms-e1.png" target="_blank" title="click to enlarge"><img src="../images/cb-rdbms-e1.png" width="550" title="Cloudbreak web UI"></a></p>
+<table>
+<thead>
+<tr>
+<th>Property Variable</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rds.hive.connectionURL</td>
+<td>jdbc:postgresql://hive.test.eu-west-1:5432/hive</td>
+</tr>
+<tr>
+<td>rds.hive.connectionDriver</td>
+<td>org.postgresql.Driver</td>
+</tr>
+<tr>
+<td>rds.hive.connectionUserName</td>
+<td>mydatabaseuser</td>
+</tr>
+<tr>
+<td>rds.hive.connectionPassword</td>
+<td>Hadoop123!</td>
+</tr>
+<tr>
+<td>rds.hive.subprotocol</td>
+<td>postgres</td>
+</tr>
+<tr>
+<td>rds.hive.databaseEngine</td>
+<td>POSTGRES</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Create a cluster by using a standard blueprint (i.e. one without JDBC related variables) and by attaching the external Hive database configuration.  </p>
+</li>
+<li>
+<p>Upon cluster create, Hive JDBC properties will be injected into the blueprint according to the following template:</p>
+<p><pre>...
+"hive-site": {
+ "properties": {
+   "javax.jdo.option.ConnectionURL": "{{{ rds.hive.connectionURL }}}",
+   "javax.jdo.option.ConnectionDriverName": "{{{ rds.hive.connectionDriver }}}",
+   "javax.jdo.option.ConnectionUserName": "{{{ rds.hive.connectionUserName }}}",
+   "javax.jdo.option.ConnectionPassword": "{{{ rds.hive.connectionPassword }}}"
+  }
+},
+"hive-env" : {
+ "properties" : {
+   "hive_database" : "Existing {{{ rds.hive.subprotocol }}} Database",
+   "hive_database_type" : "{{{ rds.hive.databaseEngine }}}"
+  }
+}
+...</pre> </p>
+</li>
+</ol>
+<h4 id="example-2-other-type">Example 2: Other Type</h4>
+<p>In this scenario, you start up with a special blueprint including JDBC property variables, and Cloudbreak replaces JDBC-related property variables in the blueprint. </p>
+<ol>
+<li>
+<p>Prepare a blueprint blueprint that includes property variables. Use <a href="https://mustache.github.io/">mustache template</a> syntax. For example:</p>
+<p><pre>...
+"test-site": {
+"properties": {
+   "javax.jdo.option.ConnectionURL":"{{rds.test.connectionURL}}"
+  }
+...</pre></p>
+</li>
+<li>
+<p>Register an existing external database of some "Other" type. For example:</p>
+<p><a href="../images/cb-rdbms-e2.png" target="_blank" title="click to enlarge"><img src="../images/cb-rdbms-e2.png" width="550" title="Cloudbreak web UI"></a></p>
+<table>
+<thead>
+<tr>
+<th>Property Variable</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rds.hive.connectionURL</td>
+<td>db.test.eu-west-1:5432/sometest</td>
+</tr>
+<tr>
+<td>rds.hive.connectionDriver</td>
+<td>org.postgresql.Driver</td>
+</tr>
+<tr>
+<td>rds.hive.connectionUserName</td>
+<td>mydatabaseuser</td>
+</tr>
+<tr>
+<td>rds.hive.connectionPassword</td>
+<td>Hadoop123!</td>
+</tr>
+<tr>
+<td>rds.hive.subprotocol</td>
+<td>postgres</td>
+</tr>
+<tr>
+<td>rds.hive.databaseEngine</td>
+<td>POSTGRES</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Create a cluster by using your custom blueprint and by attaching the external database configuration.  </p>
+</li>
+<li>
+<p>Upon cluster create, Cloudbreak replaces JDBC-related property variables in the blueprint. </p>
+</li>
+</ol>
+<p><strong>Related Links</strong><br />
+<a href="https://mustache.github.io/">Mustache Template Syntax</a>  </p>
+<h3 id="creating-a-template-blueprint-for-rdmbs">Creating a Template Blueprint for RDMBS</h3>
+<p>In order to use an external RDBMS for some component other than the built-in components, you must include JDBC property variables in your blueprint. You must use <a href="https://mustache.github.io/">mustache template</a> syntax. See <a href="#example-2-other-type">Example 2: Other Type</a> for an example configuration. </p>
+<p><strong>Related Links</strong><br />
+<a href="../blueprints/index.html#creating-a-template-blueprint">Creating a Template Blueprint</a><br />
+<a href="https://mustache.github.io/">Mustache Template Syntax</a> (External)  </p>
+<h4 id="rdbms-property-variables">RDBMS Property Variables</h4>
+<p>Cloudbreak utilizes the following RDBMS related variables, where [type] can be one of [hive,druid,oozie,ranger,superset] or other specified by you (for example "beacon").</p>
+<pre>rds.[type].connectionURL
+rds.[type].connectionDriver
+rds.[type].connectionUserName
+rds.[type].connectionPassword
+rds.[type].databaseName
+rds.[type].host
+rds.[type].hostWithPort
+rds.[type].subprotocol
+rds.[type].databaseEngine</pre>
+
+<p>These parameters correspond to the external database UI and CLI options. </p>
+<h3 id="register-an-external-database">Register an External Database</h3>
 <p>You must create the external RDBMS instance and database prior to registering it with Cloudbreak. Once you have it ready, you can:</p>
 <ol>
 <li>Register it in Cloudbreak web UI or CLI.  </li>
 <li>Use it with one or more clusters. Once registered, the database will now show up in the list of available databases when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Databases</strong>.  </li>
 </ol>
-<blockquote>
-<p>Only <strong>PostgreSQL</strong> is supported at this time. </p>
-</blockquote>
 <p><strong>Steps</strong> </p>
 <ol>
 <li>From the navigation pane, select <strong>External Sources</strong> &gt; <strong>Database Configurations</strong>.  </li>
@@ -627,7 +807,7 @@
 </tr>
 <tr>
 <td align="left">Type</td>
-<td align="left">Select the service for which you would like to use the external database. If you selected "Other", you must provide a special blueprint. Refer to <a href="../blueprints/index.html#creating-a-dynamic-blueprint-template">Creating a Dynamic Blueprint Template</a>.</td>
+<td align="left">Select the service for which you would like to use the external database. If you selected "Other", you must provide a special blueprint.</td>
 </tr>
 <tr>
 <td align="left">JDBC Connection</td>
