@@ -669,6 +669,9 @@ Only <strong>base images</strong> can be created and registered as custom images
 <li><code>images</code>: Contains information about the created images. The burned images are stored in the <code>base-images</code> section.  </li>
 <li><code>versions</code>: Contains the <code>cloudbreak</code> entry, which includes mapping between Cloudbreak versions and the image identifiers of burned images available for these Cloudbreak versions.</li>
 </ul>
+<blockquote>
+<p>After adding your image(s) to the <code>images</code> section, make sure to also update the <code>versions</code> section. </p>
+</blockquote>
 <p><strong>Images Section</strong>  </p>
 <p>The burned images are stored in the <code>base-images</code> sub-section of <code>images</code>. The <code>base-images</code> section stores one or more image "records". Every image "record" must contain the date, description, images, os, os_type, and uuid fields.</p>
 <table>

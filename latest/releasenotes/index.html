@@ -617,8 +617,8 @@
 <li>Enabling kerberos is mandatory. You can either use your own kerberos or select for Cloudbreak to create a test KDC.    </li>
 <li>Although Cloudbreak includes cluster scaling (including autoscaling), scaling is not fully supported by NiFi. Downscaling NiFi clusters is not supported - as it can result in data loss when a node is removed that has not yet processed all the data on that node. There is also a known issue related to scaling listed in the <a href="#known-issues">Known Issues</a> below.  </li>
 </ul>
-<p>For updated create cluster instructions, refer to <a href="../aws-launch/index.html">Creating a Cluster</a> instructions for your chosen cloud provider.
-For updated blueprint information, refer to <a href="../blueprints/index.html#default-blueprints">Default Blueprints</a>. </p>
+<p>For updated create cluster instructions, refer to <a href="../aws-launch/index.html">Creating a Cluster</a> instructions for your chosen cloud provider. For updated blueprint information, refer to <a href="../blueprints/index.html#default-blueprints">Default Blueprints</a>. </p>
+<p>For a tutorial on creating a NiFi cluster with Cloudbreak, refer to the following <a href="https://community.hortonworks.com/articles/182221/create-a-nifi-cluster-on-aws-azure-google-or-opens.html">HCC post</a>. </p>
 <h5 id="using-external-databases-for-cluster-services"><strong>Using External Databases for Cluster Services</strong></h5>
 <p>You can register an existing external RDBMS in the Cloudbreak UI or CLI so that it can be used for those cluster components which have support for it. After the RDBMS has been registered with Cloudbreak, it will be available during the cluster create and can be reused with multiple clusters.  </p>
 <p>Only Postgres is supported at this time. Refer to component-specific documentation for information on which version of Postgres (if any) is supported.  </p>
@@ -765,9 +765,9 @@ Default HDF version 3.1.1.0-35   </p>
 <hr />
 <p><strong>Known Issues: Ambari 2.6.1.3 and HDP 2.6.4.0</strong></p>
 <blockquote>
-<p>The known issues described here were discovered when testing Cloubdreak with Ambari 2.6.1.3 and HDP 2.6.4.0, which are used by default in Cloudbreak.</p>
-<p>For general Ambari 2.6.1.3 and HDP 2.6.4.0 known issues, refer to:<br />
-<a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.3/bk_ambari-release-notes/content/ch_relnotes-ambari-2.6.1.3.html">Ambari 2.6.1.3 Release Notes</a><br />
+<p>The known issues described here were discovered when testing Cloudbreak with Ambari 2.6.1.3 and HDP 2.6.4.0, which are used by default in Cloudbreak.</p>
+<p>For general Ambari 2.6.1.5 and HDP 2.6.4.0 known issues, refer to:<br />
+<a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.3/bk_ambari-release-notes/content/ch_relnotes-ambari-2.6.1.5.html">Ambari 2.6.1.5 Release Notes</a><br />
 <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.4/bk_release-notes/content/ch_relnotes.html">HDP 2.6.4.0 Release Notes</a>  </p>
 </blockquote>
 <hr />
@@ -797,16 +797,16 @@ Manual recovery is needed for the following failed nodes:
 <p>This issue is fixed in Ambari version 2.5.1.0 and newer.  </p>
 <hr />
 <p><strong>Known Issues: HDF 3.1.1</strong></p>
-<p>The known issues described here were discovered when testing Cloubdreak with Ambari 2.6.1.3 and HDF 3.1.1, which are used by default in Cloudbreak.</p>
+<p>The known issues described here were discovered when testing Cloudbreak with Ambari 2.6.1.3 and HDF 3.1.1, which are used by default in Cloudbreak.</p>
 <blockquote>
 <p>For general HDF 3.1.1 known issues, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDF3/HDF-3.1.1/bk_release-notes/content/ch_hdf_relnotes.html">HDF 3.1.1 Release Notes</a></p>
 </blockquote>
 <hr />
 <h5 id="bug-98865-scaling-hdf-clusters-does-not-update-configurations-on-new-nodes">(BUG-98865) Scaling HDF Clusters Does Not Update Configurations on New Nodes</h5>
 <p>Blueprint configuration parameters are not applied when scaling an HDF cluster. 
-One example that affects all users is that after HDF cluster upscale/downscale the <code>nifi.web.proxy.host</code> blueprint parameter does not get updated to include the new nodes, and as a result the Nifi UI is not reachable from these nodes. </p>
+One example that affects all users is that after HDF cluster upscale/downscale the <code>nifi.web.proxy.host</code> blueprint parameter does not get updated to include the new nodes, and as a result the NiFi UI is not reachable from these nodes. </p>
 <p><em>Workaround:</em>  </p>
-<p>Configuration parameters set in the blueprint are not applied when scaling an HDF cluster. One example that affects all NiFi users is that after HDF cluster upscale the <code>nifi.web.proxy.host</code> parameter does not get updated to include the new hosts, and as a result the Nifi UI is not reachable from these hosts. </p>
+<p>Configuration parameters set in the blueprint are not applied when scaling an HDF cluster. One example that affects all NiFi users is that after HDF cluster upscale the <code>nifi.web.proxy.host</code> parameter does not get updated to include the new hosts, and as a result the NiFi UI is not reachable from these hosts. </p>
 <p><code>HOST1-IP:PORT,HOST2-IP:PORT,HOST3-IP:PORT</code></p></div>
         
     </div>
