@@ -584,11 +584,10 @@
     
         <li class="first-level active"><a href="#using-an-external-database">Using an External Database</a></li>
         
-            <li class="second-level"><a href="#external-database-options">External Database Options</a></li>
+            <li class="second-level"><a href="#example-1-built-in-type-hive">Example 1: Built-in Type Hive</a></li>
             
-                <li class="third-level"><a href="#example-1-built-in-type-hive">Example 1: Built-in Type Hive</a></li>
-            
-                <li class="third-level"><a href="#example-2-other-type">Example 2: Other Type</a></li>
+        
+            <li class="second-level"><a href="#example-2-other-type">Example 2: Other Type</a></li>
             
         
             <li class="second-level"><a href="#creating-a-template-blueprint-for-rdmbs">Creating a Template Blueprint for RDMBS</a></li>
@@ -609,7 +608,6 @@
 <blockquote>
 <p>Only <strong>PostgreSQL</strong> is supported at this time.  </p>
 </blockquote>
-<h3 id="external-database-options">External Database Options</h3>
 <p>Cloudbreak includes the following external database options:</p>
 <table>
 <thead>
@@ -640,7 +638,7 @@
 </table>
 <p>During cluster create, Cloudbreak checks whether the JDBC properties are present in the blueprint:</p>
 <p><a href="../images/cb-rdbms-diagram.png" target="_blank" title="click to enlarge"><img src="../images/cb-rdbms-diagram.png" width="550" title="Cloudbreak web UI"></a></p>
-<h4 id="example-1-built-in-type-hive">Example 1: Built-in Type Hive</h4>
+<h3 id="example-1-built-in-type-hive">Example 1: Built-in Type Hive</h3>
 <p>In this scenario, you start up with a standard blueprint, and Cloudbreak injects the JDBC properties into the blueprint.</p>
 <ol>
 <li>
@@ -704,7 +702,7 @@
 ...</pre> </p>
 </li>
 </ol>
-<h4 id="example-2-other-type">Example 2: Other Type</h4>
+<h3 id="example-2-other-type">Example 2: Other Type</h3>
 <p>In this scenario, you start up with a special blueprint including JDBC property variables, and Cloudbreak replaces JDBC-related property variables in the blueprint. </p>
 <ol>
 <li>
