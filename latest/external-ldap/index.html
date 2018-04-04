@@ -603,6 +603,9 @@
 <li>Prepare a blueprint which includes Ranger or Atlas.</li>
 <li>Create a cluster by using the Ranger/Atlas blueprint and by attaching the authentication source. Cloudbreak automatically injects the LDAP property variables into the blueprint. </li>
 </ol>
+<blockquote>
+<p>Before injecting the properties, Cloudbreak checks if ldap properties already exist in the blueprint. If they exist, they are not injected. </p>
+</blockquote>
 <h3 id="preparing-a-blueprint-for-ldapad">Preparing a Blueprint for LDAP/AD</h3>
 <p>In order to use this feature, your blueprint must include Ranger or Atlas. </p>
 <h3 id="register-an-authentication-source">Register an Authentication Source</h3>
