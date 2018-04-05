@@ -673,99 +673,139 @@ For information on how to configure an external database and pass your external 
 <a href="https://github.com/hortonworks/cloudbreak/tree/master/core/src/main/resources/defaults/blueprints">Blueprint Examples</a> (Hortonworks)   <br />
 <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> (External)  </p>
 <h4 id="creating-a-template-blueprint">Creating a Template Blueprint</h4>
-<p>Cloudbreak allows you to create special blueprints which include templating: the values of the variables specified in the blueprint will be dynamically generated in the cluster creation phase, picking up the parameter values that you provided in the UI or CLI. Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of templating with {{{variable}}} syntax. You cannot use functions in the blueprint file; only variable injection is supported.</p>
-<p>The following variables can be specified:</p>
-<ul>
-<li>
-<p>LDAP properties (when assigning an external LDAP to a cluster):</p>
-<ul>
-<li>ldap.connectionURL - the URL of the LDAP (host:port)  </li>
-<li>ldap.bindDn  </li>
-<li>ldap.bindPassword  </li>
-<li>ldap.directoryType  </li>
-<li>ldap.userSearchBase  </li>
-<li>ldap.userNameAttribute  </li>
-<li>ldap.userObjectClass  </li>
-<li>ldap.groupSearchBase  </li>
-<li>ldap.groupNameAttribute  </li>
-<li>ldap.groupObjectClass  </li>
-<li>ldap.groupMemberAttribute  </li>
-<li>ldap.domain  </li>
-</ul>
-</li>
-<li>
-<p>External database properties (when assigning an external database to a cluster):</p>
-<ul>
-<li>rds.[type].connectionURL - The jdbc url to the RDBMS    </li>
-<li>rds.[type].connectionDriver - In case of Postgres this is org.postgresql.Driver  </li>
-<li>rds.[type].connectionUserName - The user name to the database     </li>
-<li>rds.[type].connectionPassword - The password for the connection  </li>
-<li>rds.[type].databaseName - The name of the database  </li>
-<li>rds.[type].host - The host of the database  </li>
-<li>rds.[type].hostWithPort - Database host + port like 10.1.1.1:1234  </li>
-<li>rds.[type].subprotocol - Parsed from jdbc url like postgres  </li>
-<li>rds.[type].databaseEngine - Capital database name like POSTGRES  </li>
-</ul>
-</li>
-<li>
-<p>Properties related to the gateway used for Knox:</p>
-<ul>
-<li>gateway.enableGateway  </li>
-<li>gateway.gatewayType  </li>
-<li>gateway.path  </li>
-<li>gateway.topologyName  </li>
-<li>gateway.exposedServices  </li>
-<li>gateway.ssoType  </li>
-<li>gateway.ssoProvider   </li>
-<li>gateway.signKey  </li>
-<li>gateway.signPub  </li>
-<li>gateway.signCert  </li>
-<li>gateway.tokenCert  </li>
-</ul>
-</li>
-<li>
-<p>Name of the cluster:</p>
-<ul>
-<li>cluster_name  </li>
-</ul>
-</li>
-<li>
-<p>First name of the cluster user:</p>
-<ul>
-<li>cluster_admin_firstname  </li>
-</ul>
-</li>
-<li>
-<p>Password for Ambari:</p>
-<ul>
-<li>cluster_admin_password  </li>
-</ul>
-</li>
-<li>
-<p>Last name of the cluster user:</p>
-<ul>
-<li>cluster_admin_lastname  </li>
-</ul>
-</li>
-<li>
-<p>Email of the cluster user:</p>
-<ul>
-<li>admin_email    </li>
-</ul>
-</li>
-<li>
-<p>Version of HDP or HDF:</p>
-<ul>
-<li>stack_type_version  </li>
-</ul>
-</li>
-<li>
-<p>Type of stack (HDF or HDP):</p>
-<ul>
-<li>stack_type  </li>
-</ul>
-</li>
-</ul>
+<p>Cloudbreak allows you to create special blueprints which include templating: the values of the variables specified in the blueprint will be dynamically generated &amp; replaced in the cluster creation phase, picking up the parameter values that you provided in the Cloudbreak UI or CLI.
+Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of templating with {{{variable}}} syntax. You cannot use functions in the blueprint file; only variable injection is supported.</p>
+<h5 id="external-authentication-source-ldapad">External Authentication Source (LDAP/AD)</h5>
+<p>When using <a href="../external-ldap/index.html">External Authentication Sources</a>, the following variables can be specified in your Blueprint for replacement:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ldap.connectionURL</td>
+<td>the URL of the LDAP (host:port)</td>
+<td>ldap://10.1.1.1:389</td>
+</tr>
+<tr>
+<td>ldap.bindDn</td>
+<td>The root Distinguished Name to search in the directory for users</td>
+<td>CN=Administrator,CN=Users,DC=ad,DC=hdc,DC=com</td>
+</tr>
+<tr>
+<td>ldap.bindPassword</td>
+<td>The root Distinguished Name password</td>
+<td>Password1234!</td>
+</tr>
+<tr>
+<td>ldap.directoryType</td>
+<td>The directory of type</td>
+<td>LDAP or ACTIVE_DIRECTORY</td>
+</tr>
+<tr>
+<td>ldap.userSearchBase</td>
+<td>User search base</td>
+<td>CN=Users,DC=ad,DC=hdc,DC=com</td>
+</tr>
+<tr>
+<td>ldap.userNameAttribute</td>
+<td>Username attribute</td>
+<td>cn</td>
+</tr>
+<tr>
+<td>ldap.userObjectClass</td>
+<td>Object class for users</td>
+<td>person</td>
+</tr>
+<tr>
+<td>ldap.groupSearchBase</td>
+<td>Group search base</td>
+<td>OU=Groups,DC=ad,DC=hdc,DC=com</td>
+</tr>
+<tr>
+<td>ldap.groupNameAttribute</td>
+<td>Group attribute</td>
+<td>cb</td>
+</tr>
+<tr>
+<td>ldap.groupObjectClass</td>
+<td>Group object class</td>
+<td>group</td>
+</tr>
+<tr>
+<td>ldap.groupMemberAttribute</td>
+<td>Attribute for membershio</td>
+<td>member</td>
+</tr>
+<tr>
+<td>ldap.domain</td>
+<td>Your domain</td>
+<td>example.com</td>
+</tr>
+</tbody>
+</table>
+<h5 id="external-database-rdbms">External Database (RDBMS)</h5>
+<p>When using <a href="../external-db/index.html">External Databases</a>, the following variables can be specified in your Blueprint for replacement:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rds.[type].connectionURL</td>
+<td>The jdbc url to the RDBMS</td>
+<td>jdbc:postgresql://db.test:5432/test</td>
+</tr>
+<tr>
+<td>rds.[type].connectionDriver</td>
+<td>The connection driver</td>
+<td>org.postgresql.Driver</td>
+</tr>
+<tr>
+<td>rds.[type].connectionUserName</td>
+<td>The user name to the database</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>rds.[type].connectionPassword</td>
+<td>The password for the connection</td>
+<td>Password1234!</td>
+</tr>
+<tr>
+<td>rds.[type].databaseName</td>
+<td>The name of the database</td>
+<td>hive</td>
+</tr>
+<tr>
+<td>rds.[type].host</td>
+<td>The host of the database</td>
+<td>10.1.1.1</td>
+</tr>
+<tr>
+<td>rds.[type].hostWithPort</td>
+<td>Database host + port</td>
+<td>10.1.1.1:1234</td>
+</tr>
+<tr>
+<td>rds.[type].subprotocol</td>
+<td>Parsed from jdbc url</td>
+<td>postgres</td>
+</tr>
+<tr>
+<td>rds.[type].databaseEngine</td>
+<td>Capital database name</td>
+<td>POSTGRES</td>
+</tr>
+</tbody>
+</table>
 <h4 id="upload-a-blueprint">Upload a Blueprint</h4>
 <p>Once you have your blueprint ready, perform these steps.</p>
 <p><strong>Steps</strong></p>

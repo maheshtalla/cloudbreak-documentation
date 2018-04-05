@@ -672,12 +672,6 @@
 </tr>
 </tbody>
 </table>
-<p>The following configuration classification applies:
-<ul>
-<li><i class="fa fa-check" style="color: green"></i> Stable configurations are the best choice if you want to avoid issues and other problems with launching and using clusters.</li>
-<li><i class="fa fa-warning" style="color: orange"></i> If you want to use a Technical Preview version of a component in a release of HDP/HDF, use these configurations.</li>
-<li><i class="fa fa-warning" style="color: red"></i> These are the most cutting edge of the configurations, including Technical Preview components in a Technical Preview HDP/HDF release.</li>
-</ul></p>
 <h3 id="core-concepts">Core Concepts</h3>
 <p>Refer to <a href="architecture/index.html">Architecture</a> and <a href="architecture/index.html#core-concepts">Core Concepts</a>.</p>
 <h3 id="get-started">Get Started</h3>
@@ -706,24 +700,24 @@
 </thead>
 <tbody>
 <tr>
-<td>Instantiate one of the pre-built cloud images</td>
-<td><p>This is the recommended basic deployment option.</p><p> The cloud images include Cloudbreak deployer pre-installed on a CentOS VM.</p></td>
+<td>Option 1: Instantiate Cloudbreak using one of the provided pre-built cloud images</td>
+<td><p>This is the basic deployment option and the easiest to get started with.</p><p> The cloud images include Cloudbreak deployer pre-installed on a CentOS VM.</p></td>
 </tr>
 <tr>
-<td>Install the Cloudbreak deployer on your own VM</td>
+<td>Option2: Install the Cloudbreak deployer on your own VM</td>
 <td><p>This is an advanced deployment option.</p> <p>Select this option if you have custom VM requirements. The supported operating systems are RHEL, CentOS, and Oracle Linux 7 (64-bit).</p></td>
 </tr>
 </tbody>
 </table>
 <h4 id="launch-cloudbreak">Launch Cloudbreak</h4>
-<p>(Option 1) You can launch Cloudbreak from one of the pre-built images:  </p>
+<p><strong>(Option 1)</strong> You can launch Cloudbreak from one of the pre-built images:  </p>
 <ul>
 <li><a href="aws-launch/index.html">Launch on AWS</a>  </li>
 <li><a href="azure-launch/index.html">Launch on Azure</a>  </li>
 <li><a href="gcp-launch/index.html">Launch on GCP</a>   </li>
 <li><a href="os-launch/index.html">Launch on OpenStack</a>    </li>
 </ul>
-<p>(Option 2) Or you can launch Cloudbreak <a href="vm-launch/index.html">on your own VM</a> on one of these cloud platforms. This is an advanced deployment option that you should only use if you have custom VM requirements. </p>
+<p><strong>(Option 2)</strong> Or you can launch Cloudbreak <a href="vm-launch/index.html">on your own VM</a> on one of these cloud platforms. This is an advanced deployment option that you should only use if you have custom VM requirements. </p>
 <p>In general, the steps include meeting the prerequisites, launching Cloudbreak on a VM, and creating the Cloudbreak credential. After performing these steps, you can create a cluster based on one of the default blueprints or upload your own blueprint and then create a cluster. </p>
 <div class="note">
     <p class="first admonition-title">Note</p>
@@ -783,5 +777,5 @@
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2018-04-04 20:54:25.226192
+Build Date UTC : 2018-04-05 15:28:01.004265
 -->
