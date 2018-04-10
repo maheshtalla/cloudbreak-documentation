@@ -624,7 +624,7 @@
 <ul>
 <li>Minimum VM requirements: 16GB RAM, 40GB disk, 4 cores</li>
 <li>Supported operating systems: RHEL, CentOS, and Oracle Linux 7 (64-bit)</li>
-<li>Docker 1.9.1 must be installed </li>
+<li>Docker 1.9.1 must be installed</li>
 </ul>
 <blockquote>
 <p>You can install Cloudbreak on Mac OS X for evaluation purposes only. Mac OS X is not supported for a production deployment of Cloudbreak.</p>
@@ -634,7 +634,7 @@
 <h4 id="ports">Ports</h4>
 <p>Ports 22 (SSH), 80 (HTTPS), and 443 (HTTPS) must be open.</p>
 <h4 id="root-access">Root Access</h4>
-<p>Every command must be executed as root. In order to get root privileges execute: </p>
+<p>Every command must be executed as root. In order to get root privileges execute:</p>
 <pre>sudo -i</pre>
 
 <h4 id="system-updates">System Updates</h4>
@@ -655,12 +655,12 @@ service iptables save
 </pre>
 
 <h4 id="more">More</h4>
-<p>Additionally, review the following prerequisites: </p>
+<p>Additionally, review the following prerequisites:</p>
 <ul>
 <li><a href="../aws-launch/index.html#meet-the-prerequisites">Prerequisites on AWS</a></li>
 <li><a href="../azure-launch/index.html#meet-the-prerequisites">Prerequisites on Azure</a></li>
 <li><a href="../gcp-launch/index.html#meet-the-prerequisites">Prerequisites on GCP</a></li>
-<li><a href="../os-launch/index.html#meet-the-prerequisites">Prerequisites on OpenStack</a> </li>
+<li><a href="../os-launch/index.html#meet-the-prerequisites">Prerequisites on OpenStack</a></li>
 </ul>
 <h3 id="install-cloudbreak-on-your-own-vm">Install Cloudbreak on Your Own VM</h3>
 <p>Install Cloudbreak using the following steps.</p>
@@ -669,7 +669,7 @@ service iptables save
 <li>
 <p>Install the Cloudbreak deployer and unzip the platform-specific single binary to your PATH. For example:</p>
 <p><pre>yum -y install unzip tar
-curl -Ls curl -Ls public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_2.5.0_$(uname)_x86_64.tgz | sudo tar -xz -C /bin cbd
+curl -Ls public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_2.5.0_$(uname)_x86_64.tgz | sudo tar -xz -C /bin cbd
 cbd --version</pre></p>
 <p>Once the Cloudbreak deployer is installed, you can set up the Cloudbreak application.</p>
 </li>
@@ -708,7 +708,7 @@ cbd start</pre></p>
 <p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, the process will take longer than usual due to the download of all the necessary docker images.</p>
 </li>
 <li>
-<p>Next, check Cloudbreak application logs: </p>
+<p>Next, check Cloudbreak application logs:</p>
 <p><pre>cbd logs cloudbreak</pre></p>
 <p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
 </li>
