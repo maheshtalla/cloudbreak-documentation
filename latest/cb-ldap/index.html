@@ -582,16 +582,16 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#configuring-cloudbreak-for-ldapad-authentication">Configuring Cloudbreak for LDAP/AD Authentication</a></li>
+        <li class="first-level active"><a href="#configuring-cloudbreak-for-ldapad-authentication">Configuring Cloudbreak for LDAP/AD authentication</a></li>
         
-            <li class="second-level"><a href="#ldapad-information">LDAP/AD Information</a></li>
+            <li class="second-level"><a href="#ldapad-information">LDAP/AD information</a></li>
             
         
             <li class="second-level"><a href="#configuring-cloudbreak-for-ldapad">Configuring Cloudbreak for LDAP/AD</a></li>
             
-                <li class="third-level"><a href="#configure-user-authentication">Configure User Authentication</a></li>
+                <li class="third-level"><a href="#configure-user-authentication">Configure user authentication</a></li>
             
-                <li class="third-level"><a href="#configure-group-authorization">Configure Group Authorization</a></li>
+                <li class="third-level"><a href="#configure-group-authorization">Configure group authorization</a></li>
             
         
     
@@ -599,13 +599,13 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="configuring-cloudbreak-for-ldapad-authentication">Configuring Cloudbreak for LDAP/AD Authentication</h2>
+<h2 id="configuring-cloudbreak-for-ldapad-authentication">Configuring Cloudbreak for LDAP/AD authentication</h2>
 <p>By default Cloudbreak uses an internal system as the user store for authentication (enabled by using <a href="https://github.com/cloudfoundry/uaa">CloudFoundry UAA</a>). If you would like to configure LDAP or Active Directory (AD) external authentication, you need to:  </p>
 <ol>
 <li>Collect the <a href="#ldapad-information">following information</a> about your LDAP/AD setup    </li>
 <li><a href="#configuring-cloudbreak-for-ldapad">Configure Cloudbreak</a> to work with that LDAP/AD setup</li>
 </ol>
-<h3 id="ldapad-information">LDAP/AD Information</h3>
+<h3 id="ldapad-information">LDAP/AD information</h3>
 <p>The following table details the properties and values that you need to know about your LDAP/AD environment on order to use the LDAP/AD with Cloudbreak: </p>
 <table>
 <thead>
@@ -669,7 +669,7 @@
 <li>Configuring LDAP/AD user authentication for Cloudbreak  </li>
 <li>Configuring LDAP/AD group authorization for Cloudbreak  </li>
 </ul>
-<h4 id="configure-user-authentication">Configure User Authentication</h4>
+<h4 id="configure-user-authentication">Configure user authentication</h4>
 <p>Configure LDAP/AD user authentication for Cloudbreak by using these steps. </p>
 <p><strong>Steps</strong> </p>
 <ol>
@@ -704,7 +704,7 @@ ldap:
     autoAdd: true
 </pre>
 
-<h4 id="configure-group-authorization">Configure Group Authorization</h4>
+<h4 id="configure-group-authorization">Configure group authorization</h4>
 <p>Once user authentication is configured, you need to configure which group(s) can access Cloudbreak. Users (once authenticated) will be granted permission to access Cloudbreak and use the capabilities of Cloudbreak based on their group member. The following describes how to create (i.e. execute-and-map) a group authorization and how to remove (i.e. delete-mapping) an authorization. </p>
 <p>To create a group authorization, execute the following (for example: to add “Analysts” group):</p>
 <pre>cbd util execute-ldap-mapping cn=Analysts,ou=Groups,dc=hortonworks,dc=local</pre>

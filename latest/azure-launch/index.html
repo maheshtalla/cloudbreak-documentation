@@ -584,31 +584,28 @@
     
         <li class="first-level active"><a href="#launching-cloudbreak-on-azure">Launching Cloudbreak on Azure</a></li>
         
-            <li class="second-level"><a href="#meet-the-prerequisites">Meet the Prerequisites</a></li>
+            <li class="second-level"><a href="#meet-the-prerequisites">Meet the prerequisites</a></li>
             
-                <li class="third-level"><a href="#azure-account">Azure Account</a></li>
+                <li class="third-level"><a href="#azure-account">Azure account</a></li>
             
-                <li class="third-level"><a href="#azure-region">Azure Region</a></li>
+                <li class="third-level"><a href="#azure-region">Azure region</a></li>
             
-                <li class="third-level"><a href="#azure-roles">Azure Roles</a></li>
+                <li class="third-level"><a href="#azure-roles">Azure roles</a></li>
             
-                <li class="third-level"><a href="#ssh-key-pair">SSH Key Pair</a></li>
-            
-        
-            <li class="second-level"><a href="#launch-cloudbreak">Launch Cloudbreak</a></li>
+                <li class="third-level"><a href="#ssh-key-pair">SSH key pair</a></li>
             
         
-            <li class="second-level"><a href="#explore-newly-created-resources">Explore Newly Created Resources</a></li>
+            <li class="second-level"><a href="#launch-cloudbreak-from-a-template">Launch Cloudbreak from a Template</a></li>
             
         
-            <li class="second-level"><a href="#access-cloudbreak-ui">Access Cloudbreak UI</a></li>
+            <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
             
         
-            <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak Credential</a></li>
+            <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
             
-                <li class="third-level"><a href="#create-an-interactive-credential">Create an Interactive Credential</a></li>
+                <li class="third-level"><a href="#create-an-interactive-credential">Create an interactive credential</a></li>
             
-                <li class="third-level"><a href="#create-an-app-based-credential">Create an App Based Credential</a></li>
+                <li class="third-level"><a href="#create-an-app-based-credential">Create an app-based credential</a></li>
             
         
     
@@ -618,16 +615,16 @@
 
 <h2 id="launching-cloudbreak-on-azure">Launching Cloudbreak on Azure</h2>
 <p>Before launching Cloudbreak on Azure, review and meet the prerequisites. Next, launch Cloudbreak using one of the two available methods. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential.</p>
-<h3 id="meet-the-prerequisites">Meet the Prerequisites</h3>
+<h3 id="meet-the-prerequisites">Meet the prerequisites</h3>
 <p>Before launching Cloudbreak on Azure, you must meet the following prerequisites.</p>
-<h4 id="azure-account">Azure Account</h4>
+<h4 id="azure-account">Azure account</h4>
 <p>In order to launch Cloudbreak on the Azure, log in to your existing Microsoft Azure account. If you don't have an account, you can set it up at <a href="https://azure.microsoft.com">https://azure.microsoft.com</a>.</p>
-<h4 id="azure-region">Azure Region</h4>
+<h4 id="azure-region">Azure region</h4>
 <p>Decide in which Azure region you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://azure.microsoft.com/en-us/regions/">supported by Microsoft Azure</a>.</p>
 <p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it.</p>
-<p><strong>Related Links</strong><br />
-<a href="https://azure.microsoft.com/en-us/regions/">Azure Regions</a> (External)</p>
-<h4 id="azure-roles">Azure Roles</h4>
+<p><strong>Related links</strong><br />
+<a href="https://azure.microsoft.com/en-us/regions/">Azure regions</a> (External)</p>
+<h4 id="azure-roles">Azure roles</h4>
 <p>In order to provision clusters on Azure, Cloudbreak must be able to assume a sufficient Azure role ("Owner" or "Contributor") via Cloudbreak credential:</p>
 <ul>
 <li>
@@ -638,16 +635,16 @@
 </li>
 </ul>
 <p>To check the roles in your subscription, log in to your Azure account and navigate to <strong>Subscriptions</strong>.</p>
-<p><strong>Related Links</strong><br />
-<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Built-in Roles: Owner</a> (External)<br />
-<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Built-in Roles: Contributor</a> (External)</p>
-<h4 id="ssh-key-pair">SSH Key Pair</h4>
+<p><strong>Related links</strong><br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Built-in roles: Owner</a> (External)<br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Built-in roles: Contributor</a> (External)</p>
+<h4 id="ssh-key-pair">SSH key pair</h4>
 <p>When launching Cloudbreak, you will be required to provide your public SSH key. If needed, you can generate a new SSH key pair:</p>
 <ul>
 <li>On MacOS X and Linux using <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code>  </li>
 <li>On Windows using <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows">PuTTygen</a></li>
 </ul>
-<h3 id="launch-cloudbreak">Launch Cloudbreak</h3>
+<h3 id="launch-cloudbreak-from-a-template">Launch Cloudbreak from a Template</h3>
 <p>Launch Cloudbreak deployer using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -774,49 +771,11 @@
 <p>If you encounter errors, refer to <a href="../trouble-azure/index.html">Troubleshooting Azure</a>.   </p>
 </blockquote>
 </li>
-<li>
-<p>Proceed to the next step: <a href="#explore-newly-created-resources">Explore Newly Created Resources</a>.</p>
-</li>
 </ol>
-<p><strong>Related Links</strong><br />
+<p><strong>Related links</strong><br />
 <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> (External) <br />
-<a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter Network Traffic with Network Security Groups</a> (External)  </p>
-<h3 id="explore-newly-created-resources">Explore Newly Created Resources</h3>
-<blockquote>
-<p>This step is optional.</p>
-</blockquote>
-<p>While the deployment is in progress, you can optionally navigate to the newly created resource group and see what Azure resources are being provisioned.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>From the left pane, select <strong>Resource groups</strong>.</p>
-</li>
-<li>
-<p>Find the the resource group that you just created and select it to view details.</p>
-</li>
-<li>
-<p>The following resources should have been created in your resource group:</p>
-<p><a href="../images/cb_azure-resources.png" target="_blank" title="click to enlarge"><img src="../images/cb_azure-resources.png" width="650" title="Azure Portal"></a></p>
-<blockquote>
-<p>If you chose to use an existing virtual network, the virtual network will not be added to the resource group.</p>
-</blockquote>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview">Virtual network</a> (VNet) securely connects Azure resources to each other.    </li>
-<li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Network security group</a> (NSG) defines inbound and outbound security rules, which control network traffic flow.  </li>
-<li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Virtual machine</a> runs Cloudbreak.   </li>
-<li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm">Public IP address</a> is assigned to your VM so that it can communicate with other Azure resources.  </li>
-<li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface">Network interface</a> (NIC) attached to the VM provides the interconnection between the VM and the underlying software network.    </li>
-<li><a href="https://docs.microsoft.com/en-us/azure/storage/storage-introduction">Blob storage container</a> is created to store Cloudbreak Deployer OS disk's data.  </li>
-</ul>
-</li>
-<li>
-<p>You can click on each entry to view details of the resource. For example, click on <strong>cbdeployerVM</strong> to view details, including Cloudbreak IP address.</p>
-</li>
-<li>
-<p>Once your deployment is ready, the status will change from "Deploying" to "Success".</p>
-</li>
-</ol>
-<h3 id="access-cloudbreak-ui">Access Cloudbreak UI</h3>
+<a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter network traffic with network security groups</a> (External)  </p>
+<h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -870,7 +829,7 @@
 </li>
 </ol>
 <p>The last task that you need to perform before you can use Cloudbreak is to <a href="#create-cloudbreak-credential">create a cloudbreak credential</a>.         </p>
-<h3 id="create-cloudbreak-credential">Create Cloudbreak Credential</h3>
+<h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Before you can start creating clusters, you must first create a <a href="../architecture/index.html#cloudbreak-credential">Cloudbreak credential</a>. Without this credential, you will not be able to create clusters via Cloudbreak. Cloudbreak works by connecting your Azure account through this credential, and then uses it to create resources on your behalf.</p>
 <p>There are two methods for creating a Cloudbreak credential:</p>
 <table>
@@ -887,17 +846,17 @@
 <td><strong>Interactive</strong></td>
 <td>The advantage of using this method is that the app and service principal creation and role assignment are fully automated, so the only input that you need to provide is the Subscription ID and Directory ID. During the interactive credential creation, you are required to log in to your Azure account.</td>
 <td>(1) Your account must have the "Owner" role (or its equivalent) in the subscription. (2) You must be able log in to your Azure account.</td>
-<td>To configure an interactive credential, refer to <a href="#create-an-interactive-credential">Create an Interactive Credential</a>.</td>
+<td>To configure an interactive credential, refer to <a href="#create-an-interactive-credential">Create an interactive credential</a>.</td>
 </tr>
 <tr>
 <td><strong>App-based</strong></td>
 <td>The advantage of the app-based credential creation is that it allows you to create a credential without logging in to the Azure account, as long as you have been given all the information. In addition to providing your Subscription ID and  Directory ID, you must provide information for your previously created Azure AD application (its ID and key which allows access to it).</td>
 <td>(1) Your account must have the "Contributor" role (or equivalent) in the subscription. (2) You or your Azure administrator must perform prerequisite steps of registering an Azure application and assigning the  "Contributor" role to it. This step typically requires admin permissions so you may have to contact your Azure administrator.</td>
-<td>To configure an app based credential, refer to <a href="#create-an-app-based-credential">Create an App Based Credential</a>.</td>
+<td>To configure an app based credential, refer to <a href="#create-an-app-based-credential">Create an app-based credential</a>.</td>
 </tr>
 </tbody>
 </table>
-<h4 id="create-an-interactive-credential">Create an Interactive Credential</h4>
+<h4 id="create-an-interactive-credential">Create an interactive credential</h4>
 <p>Follow these steps to create an interactive Cloudbreak credential.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -977,12 +936,12 @@
 <p>Congratulations! You've successfully launched and configured Cloudbreak. Now you can use Cloudbreak to <a href="../azure-create/index.html">create clusters</a>.</p>
 </li>
 </ol>
-<h4 id="create-an-app-based-credential">Create an App Based Credential</h4>
+<h4 id="create-an-app-based-credential">Create an app-based credential</h4>
 <p>Follow these steps to create an app based Cloudbreak credential.</p>
 <p><strong>Prerequisites</strong></p>
 <ol>
 <li>
-<p>On Azure Portal, navigate to the <strong>Active Directory</strong> &gt; <strong>App Registrations</strong> and register a new application. For more information, refer to <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Create an Azure AD Application</a>.</p>
+<p>On Azure Portal, navigate to the <strong>Active Directory</strong> &gt; <strong>App Registrations</strong> and register a new application. For more information, refer to <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Create an Azure AD application</a>.</p>
 <blockquote>
 <p>Aa an alternative to the steps listed below for creating an application registration, you use a utility called <code>azure-cli-tools</code>. The utility supports app creation and role assignment. It is available at <a href="https://github.com/sequenceiq/azure-cli-tools/blob/master/cli_tools">https://github.com/sequenceiq/azure-cli-tools/blob/master/cli_tools</a>.</p>
 </blockquote>
@@ -1067,9 +1026,9 @@
 <p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to <a href="../azure-create/index.html">create clusters</a>.</p>
 </li>
 </ol>
-<p><strong>Related Links</strong><br />
-<a href="https://github.com/hortonworks/cloudbreak-azure-cli-tools/blob/master/cli_tools">CLI Tools</a> (Hortonworks)  <br />
-<a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Use Portal to Create an Azure Active Directory Application</a> (External)     </p>
+<p><strong>Related links</strong><br />
+<a href="https://github.com/hortonworks/cloudbreak-azure-cli-tools/blob/master/cli_tools">CLI tools</a> (Hortonworks)  <br />
+<a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Use portal to create an Azure Active Directory application</a> (External)     </p>
 <div class="next">
 <a href="../azure-create/index.html">Next: Create a Cluster</a>
 </div></div>

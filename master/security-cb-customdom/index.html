@@ -582,14 +582,14 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#configure-access-from-custom-domains">Configure Access from Custom Domains</a></li>
+        <li class="first-level active"><a href="#configure-sccess-from-custom-domains">Configure sccess from custom domains</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="configure-access-from-custom-domains">Configure Access from Custom Domains</h2>
+<h2 id="configure-sccess-from-custom-domains">Configure sccess from custom domains</h2>
 <p>Cloudbreak deployer, which uses UAA as an identity provider, supports multitenancy. In UAA, multitenancy is managed through identity zones. An identity zone is accessed through a unique subdomain. For example, if the standard UAA responds to <code>https://uaa.10.244.0.34.xip.io</code>, a zone on this UAA can be accessed through a unique subdomain <code>https://testzone1.uaa.10.244.0.34.xip.io</code>.</p>
 <p>If you want to use a custom domain for your identity or deployment, add the <code>UAA_ZONE_DOMAIN</code> line to your <code>Profile</code>:</p>
 <pre>export UAA_ZONE_DOMAIN=my-subdomain.example.com</pre>

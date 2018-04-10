@@ -582,29 +582,29 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#managing-and-monitoring-clusters">Managing and Monitoring Clusters</a></li>
+        <li class="first-level active"><a href="#managing-and-monitoring-clusters">Managing and monitoring clusters</a></li>
         
-            <li class="second-level"><a href="#resize-a-cluster">Resize a Cluster</a></li>
+            <li class="second-level"><a href="#resize-a-cluster">Resize a cluster</a></li>
             
         
-            <li class="second-level"><a href="#synchronize-a-cluster">Synchronize a Cluster</a></li>
+            <li class="second-level"><a href="#synchronize-a-cluster">Synchronize a cluster</a></li>
             
         
-            <li class="second-level"><a href="#stop-a-cluster">Stop a Cluster</a></li>
+            <li class="second-level"><a href="#stop-a-cluster">Stop a cluster</a></li>
             
         
-            <li class="second-level"><a href="#restart-a-cluster">Restart a Cluster</a></li>
+            <li class="second-level"><a href="#restart-a-cluster">Restart a cluster</a></li>
             
         
-            <li class="second-level"><a href="#terminate-a-cluster">Terminate a Cluster</a></li>
+            <li class="second-level"><a href="#terminate-a-cluster">Terminate a cluster</a></li>
             
         
-            <li class="second-level"><a href="#force-terminate-a-cluster">Force Terminate a Cluster</a></li>
+            <li class="second-level"><a href="#force-terminate-a-cluster">Force terminate a cluster</a></li>
             
         
-            <li class="second-level"><a href="#view-cluster-history">View Cluster History</a></li>
+            <li class="second-level"><a href="#view-cluster-history">View cluster history</a></li>
             
-                <li class="third-level"><a href="#history-report-content">History Report Content</a></li>
+                <li class="third-level"><a href="#history-report-content">History report content</a></li>
             
         
     
@@ -612,7 +612,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="managing-and-monitoring-clusters">Managing and Monitoring Clusters</h2>
+<h2 id="managing-and-monitoring-clusters">Managing and monitoring clusters</h2>
 <p>You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access. The actions available for your cluster are listed in the top right corner: </p>
 <p><a href="../images/cb_cb-cl-details2.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-cl-details2.png" width="650" title="Cloudbreak web UI"></a> </p>
 <div class="note">
@@ -626,7 +626,7 @@
 </p>
 </div>
 
-<h3 id="resize-a-cluster">Resize a Cluster</h3>
+<h3 id="resize-a-cluster">Resize a cluster</h3>
 <p>To resize a cluster, follow these steps.</p>
 <blockquote>
 <p>To configure automated cluster scaling, refer to <a href="../autoscaling/index.html">Autoscaling</a>.  </p>
@@ -651,7 +651,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>While nodes are being added or removed, cluster status changes to "Update In Progress". Once the operation has completed, cluster status changes back to "Running". </p>
 </li>
 </ol>
-<h3 id="synchronize-a-cluster">Synchronize a Cluster</h3>
+<h3 id="synchronize-a-cluster">Synchronize a cluster</h3>
 <p>Use the <strong>sync</strong> option if you:  </p>
 <ul>
 <li>Made changes on your cloud provider side (for example, deleted cluster VMs) and you would like to synchronize Cloudbreak with the cloud provider.  </li>
@@ -671,7 +671,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>Your cluster infrastructure is synchronized based on changes on the cloud provider. The updates are written to the "Event History". </p>
 </li>
 </ol>
-<h3 id="stop-a-cluster">Stop a Cluster</h3>
+<h3 id="stop-a-cluster">Stop a cluster</h3>
 <p>Cloudbreak supports stopping and restarting clusters. To stop and restart a cluster managed by Cloudbreak, use the options available from the Cloudbreak UI. </p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -689,7 +689,7 @@ It is not possible to resize the Ambari server host group.     </p>
 </li>
 </ol>
 <p>When a cluster is in the "stopped" state, you are not charged for the VMs, but you are charged for external storage.  </p>
-<h3 id="restart-a-cluster">Restart a Cluster</h3>
+<h3 id="restart-a-cluster">Restart a cluster</h3>
 <p>If your cluster is in the "Stopped" state, you can restart the cluster by follow these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -701,7 +701,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>Your cluster status changes to "Start in progress" and then to "Running". </p>
 </li>
 </ol>
-<h3 id="terminate-a-cluster">Terminate a Cluster</h3>
+<h3 id="terminate-a-cluster">Terminate a cluster</h3>
 <p>To terminate a cluster managed by Cloudbreak, use the option available from the Cloudbreak UI. </p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -716,7 +716,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>All cluster-related resources will be deleted, unless the resources (such as networks and subnets) existed prior to cluster creation or are used by other VMs in which case they will be preserved. </p>
 </li>
 </ol>
-<h3 id="force-terminate-a-cluster">Force Terminate a Cluster</h3>
+<h3 id="force-terminate-a-cluster">Force terminate a cluster</h3>
 <p>Cluster deletion may fail if Cloudbreak is unable to delete one or more of the cloud resources that were part of your cluster infrastructure. In such as case, you can use the <strong>Terminate</strong> &gt; <strong>Force terminate</strong> option to remove the cluster entry from the Cloudbreak web UI, but you must also check your cloud provider account to see if there are any resources that must be deleted manually.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -740,7 +740,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>Log in to your cloud provider account and <a href="../cb-delete/index.html">manually delete</a> any resources that failed to be deleted.</p>
 </li>
 </ol>
-<h3 id="view-cluster-history">View Cluster History</h3>
+<h3 id="view-cluster-history">View cluster history</h3>
 <p>From the navigation menu in the Cloudbreak UI, you can access the History page that allows you to generate a report showing basic information related to the clusters that were running within the specified range of dates.</p>
 <p>To generate a report, follow these steps.</p>
 <p><strong>Steps</strong></p>
@@ -752,7 +752,7 @@ It is not possible to resize the Ambari server host group.     </p>
 <p>On the History page, select the range of dates and click <strong>Show History</strong> to generate a tabular report for the selected period.</p>
 </li>
 </ol>
-<h4 id="history-report-content">History Report Content</h4>
+<h4 id="history-report-content">History report content</h4>
 <p>Each entry in the report represents one cluster instance group. For each entry, the report includes the following information:</p>
 <ul>
 <li><strong>Created</strong> - The date when your cluster was created (YYYY-MM-DD).</li>

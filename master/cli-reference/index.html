@@ -582,12 +582,12 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#cloudbreak-cli-reference">Cloudbreak CLI Reference</a></li>
+        <li class="first-level active"><a href="#cloudbreak-cli-reference">Cloudbreak CLI reference</a></li>
         
-            <li class="second-level"><a href="#command-structure">Command Structure</a></li>
+            <li class="second-level"><a href="#command-structure">Command structure</a></li>
             
         
-            <li class="second-level"><a href="#command-output">Command Output</a></li>
+            <li class="second-level"><a href="#command-output">Command output</a></li>
             
         
             <li class="second-level"><a href="#commands">Commands</a></li>
@@ -692,13 +692,13 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="cloudbreak-cli-reference">Cloudbreak CLI Reference</h2>
+<h2 id="cloudbreak-cli-reference">Cloudbreak CLI reference</h2>
 <p>This section will help you get started with the Cloudbreak CLI after you have <a href="../cli-install/index.html">installed and configured it</a>.</p>
-<h3 id="command-structure">Command Structure</h3>
+<h3 id="command-structure">Command structure</h3>
 <p>The CLI command can contain multiple parts. The first part is a set of global options. The next part is the command. The next part is a set of command options and arguments which could include sub-commands.</p>
 <pre>cb [global options] command [command options] [arguments...]</pre>
 
-<h3 id="command-output">Command Output</h3>
+<h3 id="command-output">Command output</h3>
 <p>You can control the output from the CLI using the --output argument. The possible output formats include:</p>
 <ul>
 <li>JSON (<code>json</code>)</li>
@@ -717,7 +717,7 @@
 <ul>
 <li><a href="#configure">configure</a>  </li>
 </ul>
-<p>Cloud Provider:</p>
+<p>Cloud provider:</p>
 <ul>
 <li><a href="#cloud-availability-zones">cloud availability-zones</a>  </li>
 <li><a href="#cloud-regions">cloud regions</a>       </li>
@@ -760,7 +760,7 @@
 <li><a href="#database-delete">database delete</a>  </li>
 <li><a href="#database-list">database list</a></li>
 </ul>
-<p>Image Catalog</p>
+<p>Image catalog</p>
 <ul>
 <li><a href="#imagecatalog-create">imagecatalog create</a>     </li>
 <li><a href="#imagecatalog-delete">imagecatalog delete</a> </li>
@@ -768,7 +768,7 @@
 <li><a href="#imagecatalog-list">imagecatalog list</a>  </li>
 <li><a href="#imagecatalog-set-default">imagecatalog set-default</a>            </li>
 </ul>
-<p>Ldap:</p>
+<p>LDAP:</p>
 <ul>
 <li><a href="#ldap-create">ldap create</a>  </li>
 <li><a href="#ldap-delete">ldap delete</a>  </li>
@@ -793,7 +793,7 @@
 <p><strong>Sub-commands</strong></p>
 <p><strong><code>from-url</code></strong> Creates a blueprint by downloading it from a URL location<br />
 <strong><code>from-file</code></strong> Creates a blueprint by reading it from a local file</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>from-url</code></strong> </p>
 <p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint<br />
 <strong><code>--url &lt;value&gt;</code></strong> URL location of the Ambari blueprint JSON file</p>
@@ -815,12 +815,12 @@
 <p>Adds a blueprint from a local file:</p>
 <pre>cb blueprint create from-file --file /Users/test/Documents/blueprints/test.bp --name test2</pre>
 
-<p><strong>Related Links</strong></p>
+<p><strong>Related links</strong></p>
 <p><a href="../blueprints/index.html">Blueprints</a></p>
 <hr />
 <h4 id="blueprint-delete">blueprint delete</h4>
 <p>Deletes an existing blueprint.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
@@ -834,7 +834,7 @@
 <hr />
 <h4 id="blueprint-describe">blueprint describe</h4>
 <p>Describes an existing blueprint.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong> Name of the blueprint </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -856,7 +856,7 @@
 <hr />
 <h4 id="blueprint-list">blueprint list</h4>
 <p>Lists available blueprints.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p>Nome</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong> Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT] <br />
@@ -908,7 +908,7 @@
 <hr />
 <h4 id="cloud-availability-zones">cloud availability-zones</h4>
 <p>Lists all availability zones available in the specified cloud provider region. </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--credential &lt;value&gt;</code></strong>  Name of the credential<br />
 <strong><code>--region &lt;value&gt;</code></strong>   Name of the region  </p>
 <p><strong>Options</strong></p>
@@ -936,7 +936,7 @@
 <hr />
 <h4 id="cloud-regions">cloud regions</h4>
 <p>Lists the available cloud provider regions. </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--credential &lt;value&gt;</code></strong>  Name of the credential  </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT] <br />
@@ -966,7 +966,7 @@
 <p><strong><code>aws</code></strong>     Lists the available aws volume types<br />
 <strong><code>azure</code></strong>   Lists the available azure volume types<br />
 <strong><code>gcp</code></strong>     Lists the available gcp volume types  </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p>None</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1000,7 +1000,7 @@
 <hr />
 <h4 id="cloud-instances">cloud instances</h4>
 <p>Lists the available cloud provider instance types.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--credential &lt;value&gt;</code></strong>  Name of the credential<br />
 <strong><code>--region &lt;value&gt;</code></strong>   Name of the region  </p>
 <p><strong>Options</strong></p>
@@ -1032,7 +1032,7 @@
 <hr />
 <h4 id="cluster-change-ambari-password">cluster change-ambari-password</h4>
 <p>Changes Ambari password.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name<br />
 <strong><code>--old-password &lt;value&gt;</code></strong> Old Ambari password <br />
 <strong><code>--new-password &lt;value&gt;</code></strong>  New Ambari password  <br />
@@ -1051,7 +1051,7 @@
 <hr />
 <h4 id="cluster-create">cluster create</h4>
 <p>Creates a new cluster based on a JSON template. </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--cli-input-json &lt;value&gt;</code></strong>  User provided file in JSON format  </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the cluster<br />
@@ -1068,12 +1068,12 @@
 <p>Creates a cluster called "testcluster" based on a local JSON file called "mytemplate.json" located in the /Users/test/Documents directory:   </p>
 <pre>cb cluster create --name testcluster --cli-input-json /Users/test/Documents/mytemplate.json</pre>
 
-<p><strong>Related Links</strong><br />
+<p><strong>Related links</strong><br />
 <a href="../cli-get-started/index.html#obtain-json-template-from-the-ui">Obtain Cluster JSON Template from the UI</a>   </p>
 <hr />
 <h4 id="cluster-delete">cluster delete</h4>
 <p>Deletes an existing cluster. </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--force</code></strong>  Force the operation<br />
@@ -1089,7 +1089,7 @@
 <hr />
 <h4 id="cluster-describe">cluster describe</h4>
 <p>Describes an existing cluster.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT] <br />
@@ -1128,7 +1128,7 @@
 <hr />
 <h4 id="cluster-generate-reinstall-template">cluster generate-reinstall-template</h4>
 <p>Generates a cluster template that you can use to reinstall the cluster if installation went fail. </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--blueprint-name &lt;value&gt;</code></strong>  Name of the blueprint </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1143,7 +1143,7 @@
 <hr />
 <h4 id="cluster-list">cluster list</h4>
 <p>Lists all clusters which are currently associated with the Cloudbreak instance.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p>None</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1176,7 +1176,7 @@
 <hr />
 <h4 id="cluster-repair">cluster repair</h4>
 <p>Repairs a cluster if cluster installation failed.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
@@ -1192,7 +1192,7 @@
 <hr />
 <h4 id="cluster-scale">cluster scale</h4>
 <p>Scales a cluster by adding or removing nodes.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name of the cluster<br />
 <strong><code>--group-name &lt;value&gt;</code></strong>  Name of the group to scale<br />
 <strong><code>--desired-node-count &lt;value&gt;</code></strong>  Desired number of nodes  </p>
@@ -1210,7 +1210,7 @@
 <hr />
 <h4 id="cluster-start">cluster start</h4>
 <p>Starts a cluster which has previously been stopped.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
@@ -1226,7 +1226,7 @@
 <hr />
 <h4 id="cluster-stop">cluster stop</h4>
 <p>Stops a cluster.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
@@ -1242,7 +1242,7 @@
 <hr />
 <h4 id="cluster-sync">cluster sync</h4>
 <p>Synchronizes a cluster with the cloud provider.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1257,7 +1257,7 @@
 <hr />
 <h4 id="configure">configure</h4>
 <p>Configures the Cloudbreak server address and credentials used to communicate with this server.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--server &lt;value&gt;</code></strong>  Server address [$CB_SERVER_ADDRESS]<br />
 <strong><code>--username &lt;value&gt;</code></strong>     User name (e-mail address) [$CB_USER_NAME]  </p>
 <p><strong>Options</strong></p>
@@ -1272,7 +1272,7 @@
 <p>This example configures the server address with username but without a password:</p>
 <pre>cb configure --server https://ec2-11-111-111-11.compute-1.amazonaws.com --username admin@hortonworks.com</pre>
 
-<p><strong>Related Links</strong></p>
+<p><strong>Related links</strong></p>
 <p><a href="../cli-install/index.html#configure-the-cli">Configure CLI</a></p>
 <hr />
 <h4 id="credential-create">credential create</h4>
@@ -1284,7 +1284,7 @@
 <strong><code>gcp</code></strong> Creates a new gcp credential<br />
 <strong><code>openstack keystone-v2</code></strong> Creates a new OpenStack credential<br />
 <strong><code>openstack keystone-v3</code></strong> Creates a new OpenStack credential </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>aws role-based</code></strong> </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Credential name<br />
 <strong><code>--role-arn &lt;value&gt;</code></strong> IAM Role ARN of the role used for Cloudbreak credential  </p>
@@ -1346,7 +1346,7 @@
 <p>Creates a role-based credential on OpenStack with Keystone-v2:</p>
 <pre>cb credential create openstack keystone-v2 --name my-credential5 --tenant-user test --tenant-password MySecurePass123 --tenant-name test --endpoint http://openstack.test.organization.com:5000/v2.0</pre>
 
-<p><strong>Related Links</strong>  </p>
+<p><strong>Related links</strong>  </p>
 <p><a href="../aws-launch/index.html#create-credential">Create Credential on AWS</a><br />
 <a href="../azure-launch/index.html#create-credential">Create Credential on Azure</a><br />
 <a href="../gcp-launch/index.html#create-credential">Create Credential on GCP</a><br />
@@ -1354,7 +1354,7 @@
 <hr />
 <h4 id="credential-delete">credential delete</h4>
 <p>Deletes an existing Cloudbreak credential.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name of the credential </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
@@ -1368,7 +1368,7 @@
 <hr />
 <h4 id="credential-describe">credential describe</h4>
 <p>Describes an existing credential.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name of the credential </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  <br />
@@ -1388,7 +1388,7 @@
 <hr />
 <h4 id="credential-list">credential list</h4>
 <p>Lists existing Cloudbreak credentials.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p>None</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1430,7 +1430,7 @@
 <strong><code>gcp</code></strong> Modifies a Google Cloud credential<br />
 <strong><code>openstack keystone-v2</code></strong> Modifies an OpenStack v2 credential<br />
 <strong><code>openstack keystone-v3</code></strong> Modifies an  OpenStack v3 credential </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>aws role-based</code></strong> </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Credential name<br />
 <strong><code>--role-arn &lt;value&gt;</code></strong> IAM Role ARN of the role used for Cloudbreak credential  </p>
@@ -1494,7 +1494,7 @@
 <hr />
 <h4 id="database-create">database create</h4>
 <p>Registers an existing external database with Cloudbreak.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>   Name for the database   <br />
 <strong><code>--db-username &lt;value&gt;</code></strong>  Username for the JDBC connection<br />
 <strong><code>--db-password &lt;value&gt;</code></strong>  Password for the JDBC connection<br />
@@ -1525,7 +1525,7 @@
 <hr />
 <h4 id="database-delete">database delete</h4>
 <p>Unregisters a previously registered database with Cloudbreak. It does not delete the database instance. </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the database     </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1540,7 +1540,7 @@
 <hr />
 <h4 id="database-list">database list</h4>
 <p>Lists all available database registrations.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p>None</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1559,7 +1559,7 @@
 <hr />
 <h4 id="imagecatalog-create">imagecatalog create</h4>
 <p>Registers a new custom image catalog based on the URL provided.  </p>
-<p><strong>Required Options</strong>  </p>
+<p><strong>Required options</strong>  </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the image catalog<br />
 <strong><code>--url &lt;value&gt;</code></strong>   URL location of the image catalog JSON file  </p>
 <p><strong>Options</strong></p>
@@ -1574,12 +1574,12 @@
 <p>Registers an image catalog called "mycustomcatalog" which is available at https://example.com/myimagecatalog.json: </p>
 <pre>cb imagecatalog create --name mycustomcatalog --url https://example.com/myimagecatalog.json</pre>
 
-<p><strong>Related Links</strong>  </p>
+<p><strong>Related links</strong>  </p>
 <p><a href="../images/index.html">Custom Images</a>   </p>
 <hr />
 <h4 id="imagecatalog-delete">imagecatalog delete</h4>
 <p>Deletes a previously registered custom image catalog. It does not delete any cloud provider resources that you created as a prerequisite for creating the Cloudbreak credential.    </p>
-<p><strong>Required Options</strong>  </p>
+<p><strong>Required options</strong>  </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the image catalog   </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1592,7 +1592,7 @@
 <p>Deletes an image catalog called "mycustomcatalog":</p>
 <pre>cb imagecatalog delete --name mycustomcatalog</pre>
 
-<p><strong>Related Links</strong>  </p>
+<p><strong>Related links</strong>  </p>
 <p><a href="../images/index.html">Custom Images</a>  </p>
 <hr />
 <h4 id="imagecatalog-images">imagecatalog images</h4>
@@ -1602,7 +1602,7 @@
 <strong><code>azure</code></strong>       Lists available azure images   <br />
 <strong><code>gcp</code></strong>         Lists available gcp images  <br />
 <strong><code>openstack</code></strong>   Lists available openstack images    </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--imagecatalog &lt;value&gt;</code></strong>  Name of the imagecatalog     </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]  <br />
@@ -1629,12 +1629,12 @@
   }
 ]</pre>
 
-<p><strong>Related Links</strong>  </p>
+<p><strong>Related links</strong>  </p>
 <p><a href="../images/index.html">Custom Images</a>  </p>
 <hr />
 <h4 id="imagecatalog-list">imagecatalog list</h4>
 <p>Lists default and custom image catalogs registered with Cloudbreak instance.   </p>
-<p><strong>Required Options</strong>  </p>
+<p><strong>Required options</strong>  </p>
 <p>None  </p>
 <p><strong>Options</strong>  </p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT] <br />
@@ -1659,12 +1659,12 @@
   }
 ]</pre>
 
-<p><strong>Related Links</strong>  </p>
+<p><strong>Related links</strong>  </p>
 <p><a href="../images/index.html">Custom Images</a>  </p>
 <hr />
 <h4 id="imagecatalog-set-default">imagecatalog set-default</h4>
 <p>Sets the specified image catalog as default.  </p>
-<p><strong>Required Options</strong>   </p>
+<p><strong>Required options</strong>   </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the image catalog    </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1677,12 +1677,12 @@
 <p>Sets "mycustomcatalog" as default:  </p>
 <pre>imagecatalog set-default --name mycustomcatalog</pre>
 
-<p><strong>Related Links</strong>  </p>
+<p><strong>Related links</strong>  </p>
 <p><a href="../images/index.html">Custom Images</a>  </p>
 <hr />
 <h4 id="ldap-create">ldap create</h4>
 <p>Registers an existing LDAP with Cloudbreak.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the LDAP     <br />
 <strong><code>--ldap-server &lt;value&gt;</code></strong>  Address of the LDAP server (e.g. ldap://10.0.0.1:384)<br />
 <strong><code>--ldap-domain &lt;value&gt;</code></strong>   LDAP domain (e.g. ad.cb.com)<br />
@@ -1708,7 +1708,7 @@
 <hr />
 <h4 id="ldap-delete">ldap delete</h4>
 <p>Deletes selected LDAP registration from Cloudbreak. It does not delete the LDAP. </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the proxy     </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1723,7 +1723,7 @@
 <hr />
 <h4 id="ldap-list">ldap list</h4>
 <p>Lists all available LDAPs.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p>None</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1742,7 +1742,7 @@
 <hr />
 <h4 id="proxy-create">proxy create</h4>
 <p>Registers an existing proxy with Cloudbreak.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the proxy   <br />
 <strong><code>--proxy-host &lt;value&gt;</code></strong>  Hostname or IP address of the proxy<br />
 <strong><code>--proxy-port &lt;value&gt;</code></strong>  Port of the proxy  </p>
@@ -1760,7 +1760,7 @@
 <hr />
 <h4 id="proxy-delete">proxy delete</h4>
 <p>Unregisters a previously registered proxy with Cloudbreak. It does not delete the proxy. </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the proxy     </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1775,7 +1775,7 @@
 <hr />
 <h4 id="proxy-list">proxy list</h4>
 <p>Lists all proxies that were previously registered with Cloudbreak.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p>None</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1797,7 +1797,7 @@
 <p><strong>Sub-commands</strong></p>
 <p><strong><code>from-url</code></strong>  Creates a recipe by downloading it from a URL location<br />
 <strong><code>from-file</code></strong>  Creates a recipe by reading it from a local file  </p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>from-url</code></strong>  </p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe <br />
 <strong><code>--execution-type &lt;value&gt;</code></strong>  Type of execution [pre-ambari-start, pre-termination, post-ambari-start, post-cluster-install]  <br />
@@ -1821,12 +1821,12 @@
 <p>Adds a new recipe called "test2" from a file:</p>
 <pre>cb recipe create from-url --name "test2" --execution-type post-ambari-start --file /Users/test/Documents/test.sh</pre>
 
-<p><strong>Related Links</strong></p>
+<p><strong>Related links</strong></p>
 <p><a href="../recipes/index.html">Recipes</a></p>
 <hr />
 <h4 id="recipe-delete">recipe delete</h4>
 <p>Deletes an existing recipe.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe  </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1841,7 +1841,7 @@
 <hr />
 <h4 id="recipe-describe">recipe describe</h4>
 <p>Describes an existing recipe.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p><strong><code>--name &lt;value&gt;</code></strong>  Name for the recipe    </p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />
@@ -1870,7 +1870,7 @@
 <hr />
 <h4 id="recipe-list">recipe list</h4>
 <p>Lists all available recipes.</p>
-<p><strong>Required Options</strong></p>
+<p><strong>Required options</strong></p>
 <p>None</p>
 <p><strong>Options</strong></p>
 <p><strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT]<br />

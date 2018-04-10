@@ -582,17 +582,14 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#recipes">Recipes</a></li>
+        <li class="first-level active"><a href="#creating-custom-scripts-recipes">Creating Custom Scripts (Recipes)</a></li>
         
-            <li class="second-level"><a href="#writing-recipes">Writing Recipes</a></li>
+            <li class="second-level"><a href="#writing-recipes">Writing recipes</a></li>
             
-                <li class="third-level"><a href="#sample-recipe-for-yum-proxy-setting">Sample Recipe for Yum Proxy Setting</a></li>
-            
-        
-            <li class="second-level"><a href="#add-recipes">Add Recipes</a></li>
+                <li class="third-level"><a href="#sample-recipe-for-yum-proxy-setting">Sample recipe for yum proxy setting</a></li>
             
         
-            <li class="second-level"><a href="#delete-recipes">Delete Recipes</a></li>
+            <li class="second-level"><a href="#add-recipes">Add recipes</a></li>
             
         
     
@@ -600,7 +597,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="recipes">Recipes</h2>
+<h2 id="creating-custom-scripts-recipes">Creating Custom Scripts (Recipes)</h2>
 <p>Although Cloudbreak lets you provision clusters in the cloud based on custom Ambari blueprints, Cloudbreak provisioning options don't consider all possible use cases. For that reason, we introduced recipes. </p>
 <p>A recipe is a script that runs on all nodes of a selected node group at a specific time. You can use recipes for tasks such as installing additional software or performing advanced cluster configuration. For example, you can use a recipe to put a JAR file on the Hadoop classpath.</p>
 <p>Available recipe execution times are:  </p>
@@ -611,7 +608,7 @@
 <li>Before cluster termination   </li>
 </ul>
 <p>You can upload your recipes to Cloudbreak via the UI or CLI. Then, when creating a cluster, you can optionally attach one or more "recipes" and they will be executed on a specific host group at a specified time. </p>
-<h3 id="writing-recipes">Writing Recipes</h3>
+<h3 id="writing-recipes">Writing recipes</h3>
 <p>When using recipes, consider the following:</p>
 <ul>
 <li>The scripts will be executed on the node types you specify (such as "master", "worker", "compute"). If you want to run a a script on all nodes, define the recipe one per node type.  </li>
@@ -621,14 +618,14 @@
 <li>Do not execute yum update –y since it may update other components on the instances (such as salt), which can create unintended or unstable behavior.   </li>
 <li>The scripts will be executed as root. The recipe output is written to <code>/var/log/recipes</code> on each node on which it was executed.</li>
 </ul>
-<h4 id="sample-recipe-for-yum-proxy-setting">Sample Recipe for Yum Proxy Setting</h4>
+<h4 id="sample-recipe-for-yum-proxy-setting">Sample recipe for yum proxy setting</h4>
 <pre><code>#!/bin/bash
 cat &gt;&gt; /etc/yum.conf &lt;&lt;ENDOF
 proxy=http://10.0.0.133:3128
 ENDOF
 </code></pre>
 
-<h3 id="add-recipes">Add Recipes</h3>
+<h3 id="add-recipes">Add recipes</h3>
 <p>To add a recipe, perform these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -673,9 +670,7 @@ ENDOF
 <li>
 <p>When creating a cluster, you can select previously added recipes in the advanced <strong>Recipes</strong> page of the cluster wizard. </p>
 </li>
-</ol>
-<h3 id="delete-recipes">Delete Recipes</h3>
-<p>You can delete previously added items by selecting and item and using the <strong>delete</strong> option. </p></div>
+</ol></div>
         
     </div>
 

@@ -582,27 +582,27 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#editing-cloudbreak-profile">Editing Cloudbreak Profile</a></li>
+        <li class="first-level active"><a href="#customizing-cloudbreak-profile-file">Customizing Cloudbreak Profile file</a></li>
         
-            <li class="second-level"><a href="#set-profile-variables">Set Profile Variables</a></li>
+            <li class="second-level"><a href="#set-profile-variables">Set Profile variables</a></li>
             
         
-            <li class="second-level"><a href="#check-available-profile-variables">Check Available Profile Variables</a></li>
+            <li class="second-level"><a href="#check-available-profile-variables">Check available Profile variables</a></li>
             
         
-            <li class="second-level"><a href="#create-environment-specific-profiles">Create Environment Specific Profiles</a></li>
+            <li class="second-level"><a href="#create-environment-specific-profiles">Create environment-specific profiles</a></li>
             
         
-            <li class="second-level"><a href="#secure-the-profile">Secure the Profile</a></li>
+            <li class="second-level"><a href="#secure-the-profile-file">Secure the Profile file</a></li>
             
         
-            <li class="second-level"><a href="#change-smtp-parameters">Change SMTP Parameters</a></li>
+            <li class="second-level"><a href="#change-smtp-parameters">Change SMTP parameters</a></li>
             
         
             <li class="second-level"><a href="#configure-consul">Configure Consul</a></li>
             
         
-            <li class="second-level"><a href="#add-tags-in-profile-aws">Add Tags in Profile (AWS)</a></li>
+            <li class="second-level"><a href="#add-tags-in-profile-aws">Add tags in Profile (AWS)</a></li>
             
         
     
@@ -610,10 +610,10 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="editing-cloudbreak-profile">Editing Cloudbreak Profile</h2>
+<h2 id="customizing-cloudbreak-profile-file">Customizing Cloudbreak Profile file</h2>
 <p>Cloudbreak deployer configuration is based on environment variables.  </p>
 <p>During startup, Cloudbreak deployer tries to determine the underlying infrastructure and then sets required environment variables with appropriate default values. If these environment variables are not sufficient for your use case, you can set additional environment variables in your <code>Profile</code> file. </p>
-<h3 id="set-profile-variables">Set Profile Variables</h3>
+<h3 id="set-profile-variables">Set Profile variables</h3>
 <p>To set environment variables relevant for Cloudbreak Deployer, add them to a file called <code>Profile</code> located in the Cloudbreak deployment directory (typically <code>/var/lib/cloudbreak-deployment</code>).</p>
 <p>The <code>Profile</code> file is sourced, so you can use the usual syntax to set configuration values:</p>
 <pre><code>export MY_VAR=some_value
@@ -621,12 +621,12 @@ export MY_OTHER_VAR=another_value
 </code></pre>
 
 <p>After changing a property, you must regenerate the config file and restart the application by using <code>cbd restart</code>.</p>
-<h3 id="check-available-profile-variables">Check Available Profile Variables</h3>
+<h3 id="check-available-profile-variables">Check available Profile variables</h3>
 <p>To see all available environment variables with their default values, use:</p>
 <pre><code>cbd env show
 </code></pre>
 
-<h3 id="create-environment-specific-profiles">Create Environment Specific Profiles</h3>
+<h3 id="create-environment-specific-profiles">Create environment-specific profiles</h3>
 <p>If you would like to use a different versions of Cloudbreak for prod and qa profile, you must create two environment specific configurations that can be sourced. For example:</p>
 <ul>
 <li>Profile.prod  </li>
@@ -642,7 +642,7 @@ export MY_OTHER_VAR=another_value
 <pre>CBD_DEFAULT_PROFILE=prod cbd some_commands</pre>
 
 <p>To permanently use the prod profile, set <code>export CBD_DEFAULT_PROFILE=prod</code> in your <code>.bash_profile</code>.</p>
-<h3 id="secure-the-profile">Secure the Profile</h3>
+<h3 id="secure-the-profile-file">Secure the Profile file</h3>
 <p>Before starting Cloudbreak for the first time, configure the Profile file as directed below. Changes are applied during startup so a restart (<code>cbd restart</code>) is required after each change.</p>
 <ol>
 <li>
@@ -679,7 +679,7 @@ cbd util add-default-user
 </li>
 </ol>
 <p>For more information about setting environment variables in Profile, refer to <a href="#configure-profile-variables">Configure Profile Variables</a>.</p>
-<h3 id="change-smtp-parameters">Change SMTP Parameters</h3>
+<h3 id="change-smtp-parameters">Change SMTP parameters</h3>
 <p>If you want to change SMTP parameters, add them your <code>Profile</code>.</p>
 <p>The default values of the SMTP parameters are:</p>
 <pre><code>export CLOUDBREAK_SMTP_SENDER_USERNAME=
@@ -701,7 +701,7 @@ export CLOUDBREAK_SMTP_TYPE=smtp
 <p>Consul’s built-in DNS server is able to fallback on another DNS server. This option is called <code>-recursor</code>. Cloudbreak Deployer first tries to discover the DNS settings of the host by looking for nameserver entry in the <code>/etc/resolv.conf</code> file. If it finds one, consul will use it as a recursor. Otherwise, it will use <code>8.8.8.8</code>.</p>
 <p>For a full list of available consul config options, refer to <a href="https://www.consul.io/docs/agent/options.html">Consul documentation</a>.</p>
 <p>To pass any additional Consul configuration, define the <code>DOCKER_CONSUL_OPTIONS</code> variable in the Profile file.</p>
-<h3 id="add-tags-in-profile-aws">Add Tags in Profile (AWS)</h3>
+<h3 id="add-tags-in-profile-aws">Add tags in Profile (AWS)</h3>
 <p>In order to differentiate launched instances, you can optionally define custom tags for your AWS resources deployed by Cloudbreak. </p>
 <ul>
 <li>

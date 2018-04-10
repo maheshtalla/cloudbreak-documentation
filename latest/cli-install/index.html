@@ -589,9 +589,9 @@
         
             <li class="second-level"><a href="#configure-the-cli">Configure the CLI</a></li>
             
-                <li class="third-level"><a href="#add-multiple-configurations">Add Multiple Configurations</a></li>
+                <li class="third-level"><a href="#add-multiple-configurations">Add multiple configurations</a></li>
             
-                <li class="third-level"><a href="#configure-default-output">Configure Default Output</a></li>
+                <li class="third-level"><a href="#configure-default-output">Configure default output</a></li>
             
         
     
@@ -653,7 +653,7 @@
     </p>
 </div>
 
-<h4 id="add-multiple-configurations">Add Multiple Configurations</h4>
+<h4 id="add-multiple-configurations">Add multiple configurations</h4>
 <p>If you are using multiple profiles for multiple environments, you can configure them using the <code>cb configure</code> command and passing the name of your environment-specific profile file using the <code>--profile</code> parameter. After running the command, the configuration will be added as a new entry to the <code>config</code> file. For example, running the following command <code>cb configure --server https://192.167.65.4 --username test@hortonworks.com --profile staging</code> will add the "staging" entry:</p>
 <pre><small>default:
   username: admin@hortonworks.com
@@ -676,7 +676,7 @@ staging:
   username: test@hortonworks.com
   server: https://192.167.65.4</small></pre>
 
-<h4 id="configure-default-output">Configure Default Output</h4>
+<h4 id="configure-default-output">Configure default output</h4>
 <p>By default, JSON format is used in command output. For example, if you run <code>cb list-clusters</code> without specifying output type, the output will be JSON. If you would like to change default output, add it to the config file. For example:</p>
 <pre><small>default:
   username: admin@hortonworks.com

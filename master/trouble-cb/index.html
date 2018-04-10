@@ -587,10 +587,10 @@
             <li class="second-level"><a href="#invalid-public_ip-in-cbd-profile">Invalid PUBLIC_IP in CBD Profile</a></li>
             
         
-            <li class="second-level"><a href="#cbd-cannot-get-vms-public-ip">Cbd Cannot Get VM's Public IP</a></li>
+            <li class="second-level"><a href="#cbd-cannot-get-vms-public-ip">Cbd cannot get VM's public IP</a></li>
             
         
-            <li class="second-level"><a href="#permission-or-connection-problems">Permission or Connection Problems</a></li>
+            <li class="second-level"><a href="#permission-or-connection-problems">Permission or connection problems</a></li>
             
         
     
@@ -603,11 +603,11 @@
 <h3 id="invalid-public_ip-in-cbd-profile">Invalid PUBLIC_IP in CBD Profile</h3>
 <p>The <code>PUBLIC_IP</code> property must be set in the cbd Profile file or else you won’t be able to log in on the Cloudbreak UI. </p>
 <p>If you are migrating your instance, make sure that after the start the IP remains valid. If you need to edit the <code>PUBLIC_IP</code> property in Profile, make sure to restart Cloudbreak using <code>cbd restart</code>.</p>
-<h3 id="cbd-cannot-get-vms-public-ip">Cbd Cannot Get VM's Public IP</h3>
+<h3 id="cbd-cannot-get-vms-public-ip">Cbd cannot get VM's public IP</h3>
 <p>By default the <code>cbd</code> tool tries to get the VM's public IP to bind Cloudbreak UI to it. But if <code>cbd</code> cannot get the IP address during the initialization, you must set it manually. Check your <code>Profile</code> and if <code>PUBLIC_IP</code> is not set, add the <code>PUBLIC_IP</code> variable and set it to the public IP of the VM. For example: </p>
 <pre>export PUBLIC_IP=192.134.23.10</pre>
 
-<h3 id="permission-or-connection-problems">Permission or Connection Problems</h3>
+<h3 id="permission-or-connection-problems">Permission or connection problems</h3>
 <p>If you face permission or connection issues, disable SELinux:</p>
 <ol>
 <li>Set <code>SELINUX=disabled</code> in <code>/etc/selinux/config</code>.  </li>

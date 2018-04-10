@@ -582,12 +582,12 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#moving-a-cloudbreak-instance">Moving a Cloudbreak Instance</a></li>
+        <li class="first-level active"><a href="#moving-a-cloudbreak-instance">Moving a Cloudbreak instance</a></li>
         
-            <li class="second-level"><a href="#back-up-cloudbreak-database">Back up Cloudbreak Database</a></li>
+            <li class="second-level"><a href="#back-up-cloudbreak-database">Back up Cloudbreak database</a></li>
             
         
-            <li class="second-level"><a href="#populate-database-with-dump-from-original-cloudbreak-instance">Populate Database with Dump from Original Cloudbreak Instance</a></li>
+            <li class="second-level"><a href="#populate-database-with-dump-from-original-cloudbreak-instance">Populate database with dump from original Cloudbreak instance</a></li>
             
         
             <li class="second-level"><a href="#modify-cloudbreak-profile">Modify Cloudbreak Profile</a></li>
@@ -598,7 +598,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="moving-a-cloudbreak-instance">Moving a Cloudbreak Instance</h2>
+<h2 id="moving-a-cloudbreak-instance">Moving a Cloudbreak instance</h2>
 <p>To transfer a Cloudbreak instance from one host to another, perform these tasks:</p>
 <ol>
 <li>If you are using the embedded PostgreSQL database, <a href="#back-up-cloudbreak-database">back up current Cloudbreak database</a> data  </li>
@@ -606,7 +606,7 @@
 <li>If you are using the embedded PostgreSQL database, <a href="#populate-database-with-dump-from-original-cloudbreak-instance">populate the new Cloudbreak instance database with the dump from the original Cloudbreak instance</a> on the new host.  </li>
 <li><a href="#modify-cloudbreak-profile">Modify Cloudbreak Profile</a>  </li>
 </ol>
-<h3 id="back-up-cloudbreak-database">Back up Cloudbreak Database</h3>
+<h3 id="back-up-cloudbreak-database">Back up Cloudbreak database</h3>
 <p>To create a backup of the embedded PostgreSQL database, perform these steps.</p>
 <p><strong>Steps</strong> </p>
 <ol>
@@ -631,12 +631,12 @@ docker cp cbreak_commondb_1:/uaadb.dump ./uaadb.dump
 docker cp cbreak_commondb_1:/periscopedb.dump ./periscopedb.dump</small></pre></p>
 </li>
 </ol>
-<h3 id="populate-database-with-dump-from-original-cloudbreak-instance">Populate Database with Dump from Original Cloudbreak Instance</h3>
+<h3 id="populate-database-with-dump-from-original-cloudbreak-instance">Populate database with dump from original Cloudbreak instance</h3>
 <p>Perform these steps to populate databases with information from the Cloudbreak server.</p>
 <p><strong>Steps</strong> </p>
 <ol>
 <li>
-<p>Copy the saved database files from <a href="#backup-cloudbreak-database">Backup Cloudbreak Database</a> to the new Cloudbreak server host.</p>
+<p>Copy the saved database files from <a href="#back-up-cloudbreak-database">Back up Cloudbreak database</a> to the new Cloudbreak server host.</p>
 </li>
 <li>
 <p>Copy the dump files into the database container with the following commands. Modify the location as necessary (The example below assumes that the files are in <code>/tmp</code>):</p>

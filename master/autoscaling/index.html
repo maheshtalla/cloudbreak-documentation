@@ -584,20 +584,20 @@
     
         <li class="first-level active"><a href="#autoscaling">Autoscaling</a></li>
         
-            <li class="second-level"><a href="#enable-auto-scaling">Enable Auto Scaling</a></li>
+            <li class="second-level"><a href="#enable-auto-scaling">Enable auto scaling</a></li>
             
         
-            <li class="second-level"><a href="#defining-an-alert">Defining an Alert</a></li>
+            <li class="second-level"><a href="#defining-an-alert">Defining an alert</a></li>
             
-                <li class="third-level"><a href="#define-a-metric-based-alert">Define a Metric-based Alert</a></li>
+                <li class="third-level"><a href="#define-a-metric-based-alert">Define a metric-based alert</a></li>
             
-                <li class="third-level"><a href="#define-a-time-based-alert">Define a Time-based Alert</a></li>
-            
-        
-            <li class="second-level"><a href="#create-a-scaling-policy">Create a Scaling Policy</a></li>
+                <li class="third-level"><a href="#define-a-time-based-alert">Define a time-based alert</a></li>
             
         
-            <li class="second-level"><a href="#configure-autoscaling-settings">Configure Autoscaling Settings</a></li>
+            <li class="second-level"><a href="#create-a-scaling-policy">Create a scaling policy</a></li>
+            
+        
+            <li class="second-level"><a href="#configure-autoscaling-settings">Configure autoscaling settings</a></li>
             
         
     
@@ -611,7 +611,7 @@
 <li>An <strong>alert</strong> that triggers a scaling policy. An alert can be based on an Ambari metric or can be time-based.     </li>
 <li>A <strong>scaling policy</strong> that adds or removes a set number of nodes to a selected host group when the conditions defined in the attached alert are met.    </li>
 </ul>
-<p><strong>Metric-based Autoscaling</strong></p>
+<p><strong>Metric-based autoscaling</strong></p>
 <p>Cloudbreak accesses all available Ambari metrics and allows you to define alerts based on these metrics. For example:</p>
 <table>
 <thead>
@@ -635,7 +635,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Time-based Autoscaling</strong></p>
+<p><strong>Time-based autoscaling</strong></p>
 <p>Time-based alerts can be defined by providing a cron expression. For example: </p>
 <table>
 <thead>
@@ -655,7 +655,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="enable-auto-scaling">Enable Auto Scaling</h3>
+<h3 id="enable-auto-scaling">Enable auto scaling</h3>
 <p>For each newly created cluster, autoscaling is disabled by default but it can be enabled once the cluster is in a running state. </p>
 <blockquote>
 <p>Autoscaling configuration is only available in the UI. It is currently not available in the CLI. </p>
@@ -673,13 +673,13 @@
 <li><a href="#defining-an-alert">Define alerts</a> and then <a href="#create-a-scaling-policy">define scaling policies</a>. You can also <a href="#configure-autoscaling-settings">adjust the autoscaling settings</a>. </li>
 </ol>
 <p>If you decide to disable autoscaling, your previously defined alerts and policies will be preserved. </p>
-<h3 id="defining-an-alert">Defining an Alert</h3>
+<h3 id="defining-an-alert">Defining an alert</h3>
 <p>After you have enabled autoscaling, define a metric-based or time-based alert.  </p>
-<h4 id="define-a-metric-based-alert">Define a Metric-based Alert</h4>
+<h4 id="define-a-metric-based-alert">Define a metric-based alert</h4>
 <p>After <a href="#enable-autoscaling">enabling autoscaling</a>, perform the following steps to create a metric-based alert.  </p>
 <blockquote>
-<p>If you would like to change default thresholds for an Ambari metric, refer to <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.0/bk_ambari-operations/content/modifying_alerts.html">Modifying Alerts</a> in Ambari documentation. </p>
-<p>If you would like to create a custom Ambari alert, refer to <a href="https://community.hortonworks.com/articles/143762/how-to-create-a-custom-ambari-alert-and-use-it-for.html">How to Create a Custom Ambari Alert and Use it for Cloudbreak Autoscaling Policies</a>.</p>
+<p>If you would like to change default thresholds for an Ambari metric, refer to <a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.0/bk_ambari-operations/content/modifying_alerts.html">Modifying alerts</a> in Ambari documentation. </p>
+<p>If you would like to create a custom Ambari alert, refer to <a href="https://community.hortonworks.com/articles/143762/how-to-create-a-custom-ambari-alert-and-use-it-for.html">How to create a custom Ambari alert and use it for Cloudbreak autoscaling policies</a>.</p>
 </blockquote>
 <p><strong>Steps</strong></p>
 <ol>
@@ -718,10 +718,10 @@
 </li>
 </ol>
 <p>Once you have defined an alert, <a href="#create-a-scaling-policy">create a scaling policy</a> that this metric should trigger.</p>
-<p><strong>Related Links:</strong><br />
-<a href="https://community.hortonworks.com/articles/143762/how-to-create-a-custom-ambari-alert-and-use-it-for.html">How to Create a Custom Ambari Alert and Use it for Cloudbreak Autoscaling Policies</a> (HCC) <br />
-<a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.0/bk_ambari-operations/content/modifying_alerts.html">Modifying Alerts</a> (Hortonworks)   </p>
-<h4 id="define-a-time-based-alert">Define a Time-based Alert</h4>
+<p><strong>Related links:</strong><br />
+<a href="https://community.hortonworks.com/articles/143762/how-to-create-a-custom-ambari-alert-and-use-it-for.html">How to create a custom Ambari alert and use it for Cloudbreak autoscaling policies</a> (HCC) <br />
+<a href="https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.1.0/bk_ambari-operations/content/modifying_alerts.html">Modifying alerts</a> (Hortonworks)   </p>
+<h4 id="define-a-time-based-alert">Define a time-based alert</h4>
 <p>After <a href="#enable-autoscaling">enabling autoscaling</a>, perform the following steps to create a time-based alert.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -746,7 +746,7 @@
 </tr>
 <tr>
 <td>Enter cron expression</td>
-<td>Enter a cron expression that defines the frequency of the alert. Refer to <a href="http://www.cronmaker.com/">Cron Expression Generator</a>.</td>
+<td>Enter a cron expression that defines the frequency of the alert. Refer to <a href="http://www.cronmaker.com/">Cron expression generator</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -756,7 +756,7 @@
 </li>
 </ol>
 <p>Once you have defined an alert, <a href="#create-a-scaling-policy">create a scaling policy</a> that this metric should trigger.</p>
-<h3 id="create-a-scaling-policy">Create a Scaling Policy</h3>
+<h3 id="create-a-scaling-policy">Create a scaling policy</h3>
 <p>After <a href="#enable-autoscaling">enabling autoscaling</a> and <a href="#defining-an-alert">creating at least one alert</a>, perform the following steps to create a scaling policy.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -801,7 +801,7 @@
 <p>Click <strong>+</strong> to save the alert.   </p>
 </li>
 </ol>
-<h3 id="configure-autoscaling-settings">Configure Autoscaling Settings</h3>
+<h3 id="configure-autoscaling-settings">Configure autoscaling settings</h3>
 <p>After <a href="#enable-autoscaling">enabling autoscaling</a>, perform these steps to configure the auto scaling settings for your cluster.   </p>
 <p><strong>Steps</strong></p>
 <ol>

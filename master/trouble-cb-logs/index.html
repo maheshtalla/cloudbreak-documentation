@@ -582,28 +582,28 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#checking-cloudbreak-logs">Checking Cloudbreak Logs</a></li>
+        <li class="first-level active"><a href="#checking-cloudbreak-logs">Checking Cloudbreak logs</a></li>
         
-            <li class="second-level"><a href="#cloudbreak-logs">Cloudbreak Logs</a></li>
+            <li class="second-level"><a href="#cloudbreak-logs">Cloudbreak logs</a></li>
             
-                <li class="third-level"><a href="#aggregated-logs">Aggregated Logs</a></li>
+                <li class="third-level"><a href="#aggregated-logs">Aggregated logs</a></li>
             
-                <li class="third-level"><a href="#individual-service-logs">Individual Service Logs</a></li>
+                <li class="third-level"><a href="#individual-service-logs">Individual service logs</a></li>
             
-                <li class="third-level"><a href="#docker-logs">Docker Logs</a></li>
-            
-        
-            <li class="second-level"><a href="#saltstack-logs">Saltstack Logs</a></li>
+                <li class="third-level"><a href="#docker-logs">Docker logs</a></li>
             
         
-            <li class="second-level"><a href="#ambari-logs">Ambari Logs</a></li>
-            
-                <li class="third-level"><a href="#ambari-server-logs">Ambari Server Logs</a></li>
-            
-                <li class="third-level"><a href="#ambari-agent-logs">Ambari Agent Logs</a></li>
+            <li class="second-level"><a href="#saltstack-logs">Saltstack logs</a></li>
             
         
-            <li class="second-level"><a href="#recipe-logs">Recipe Logs</a></li>
+            <li class="second-level"><a href="#ambari-logs">Ambari logs</a></li>
+            
+                <li class="third-level"><a href="#ambari-server-logs">Ambari server logs</a></li>
+            
+                <li class="third-level"><a href="#ambari-agent-logs">Ambari agent logs</a></li>
+            
+        
+            <li class="second-level"><a href="#recipe-logs">Recipe logs</a></li>
             
         
     
@@ -611,46 +611,46 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="checking-cloudbreak-logs">Checking Cloudbreak Logs</h2>
+<h2 id="checking-cloudbreak-logs">Checking Cloudbreak logs</h2>
 <p>When troubleshooting, you can access the following Cloudbreak logs.</p>
-<h3 id="cloudbreak-logs">Cloudbreak Logs</h3>
+<h3 id="cloudbreak-logs">Cloudbreak logs</h3>
 <p>When installing Cloudbreak using a pre-built cloud image, the  Cloudbreak deployer location and the cbd root folder is <code>/var/lib/cloudbreak-deployment</code>. You must execute all cbd actions from the cbd root folder as a cloudbreak user. </p>
 <blockquote>
 <p>Your cbd root directory may be different if you installed Cloudbreak on your own VM. </p>
 </blockquote>
-<h4 id="aggregated-logs">Aggregated Logs</h4>
+<h4 id="aggregated-logs">Aggregated logs</h4>
 <p>Cloudbreak consists of multiple microservices deployed into Docker containers. </p>
 <p>To check aggregated service logs, use the following commands:</p>
 <p><code>cbd logs</code> shows all service logs.</p>
 <p><code>cbd logs | tee cloudbreak.log</code> allows you to redirect the input into a file for sharing these logs.</p>
-<h4 id="individual-service-logs">Individual Service Logs</h4>
+<h4 id="individual-service-logs">Individual service logs</h4>
 <p>To check individual service logs, use the following commands:</p>
 <p><code>cbd logs cloudbreak</code> shows Cloudbreak logs. This service is the backend service that handles all deployments.</p>
 <p><code>cbd logs uluwatu</code> shows Cloudbreak UI logs. Uluwatu is the UI component of Cloudbreak.</p>
 <p><code>cbd logs identity</code> shows Identity logs. Identity is responsible for authentication and authorization.</p>
 <p><code>cbd logs periscope</code> shows Periscope logs. Periscope is responsible for triggering autoscaling rules.</p>
-<h4 id="docker-logs">Docker Logs</h4>
+<h4 id="docker-logs">Docker logs</h4>
 <p>The same logs can be accessed via Docker commands:</p>
 <p><code>docker logs cbreak_cloudbreak_1</code> shows the same logs as <code>cbd logs cloudbreak</code>.</p>
 <p>Cloudbreak logs are rotated and can be accessed later from the Cloudbreak deployment folder. Each time you restart the application via cbd restart a new log file is created with a timestamp in the name (for example, cbreak-20170821-105900.log). </p>
 <blockquote>
 <p>There is a symlink called <code>cbreak.log</code> which points to the latest log file. Sharing this symlink does not share the log itself.</p>
 </blockquote>
-<h3 id="saltstack-logs">Saltstack Logs</h3>
+<h3 id="saltstack-logs">Saltstack logs</h3>
 <p>Cloudbreak uses Saltstack to install Ambari and the necessary packages for the HDP provisioning. Salt Master always runs alongside the Ambari Server node. Each instance in the cluster runs a Salt Minion, which connects to the Salt Master. There can be multiple Salt Masters if the cluster is configured to run in HA (High Availability) mode and in this case each Salt Minion connects to each Salt Master.</p>
 <p>Cloudbreak also uses SaltStack to execute user-provided customization scripts called "recipes". </p>
 <p>Salt Master and Salt Minion logs can be found at the following location: <code>/var/log/salt</code></p>
-<h3 id="ambari-logs">Ambari Logs</h3>
+<h3 id="ambari-logs">Ambari logs</h3>
 <p>Cloudbreak uses Ambari to orchestrate the installation of the different HDP components. Each instance in the cluster runs an Ambari agent which connects to the Ambari server. Ambari server is declared by the user during the cluster installation wizard. </p>
-<h4 id="ambari-server-logs">Ambari Server Logs</h4>
+<h4 id="ambari-server-logs">Ambari server logs</h4>
 <p>Ambari server logs can be found on the nodes where Ambari server is installed in the following locations:</p>
 <p><code>/var/log/ambari-server/ambari-server.log</code></p>
 <p><code>/var/log/ambari-server/ambari-server.out</code></p>
 <p>Both files contain important information about the root cause of a certain issue so it is advised to check both.</p>
-<h4 id="ambari-agent-logs">Ambari Agent Logs</h4>
+<h4 id="ambari-agent-logs">Ambari agent logs</h4>
 <p>Ambari agent logs can be found on the nodes where Ambari agent is installed in the following locations:</p>
 <p><code>/var/log/ambari-agent/ambari-agent.log</code></p>
-<h3 id="recipe-logs">Recipe Logs</h3>
+<h3 id="recipe-logs">Recipe logs</h3>
 <p>Cloudbreak supports "recipes" - user-provided customization scripts that can be run prior to or after cluster installation. It is the user’s responsibility to provide an idempotent well tested script. If the execution fails, the recipe logs can be found at <code>/var/log/recipes</code> on the nodes on which the recipes were executed.</p>
 <p>It is advised, but not required to have an advanced logging mechanism in the script, as Cloudbreak always logs every script that are run. Recipes are often the sources of installation failures as users might try to remove necessary packages or reconfigure services.</p></div>
         

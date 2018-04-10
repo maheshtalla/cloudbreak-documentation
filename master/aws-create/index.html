@@ -582,33 +582,33 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#creating-a-cluster-on-aws">Creating a Cluster on AWS</a></li>
+        <li class="first-level active"><a href="#creating-a-cluster-on-aws">Creating a cluster on AWS</a></li>
         
-            <li class="second-level"><a href="#advanced-options">Advanced Options</a></li>
+            <li class="second-level"><a href="#advanced-cluster-options">Advanced cluster options</a></li>
             
-                <li class="third-level"><a href="#availability-zone">Availability Zone</a></li>
+                <li class="third-level"><a href="#availability-zone">Availability zone</a></li>
             
-                <li class="third-level"><a href="#choose-image-catalog">Choose Image Catalog</a></li>
+                <li class="third-level"><a href="#choose-image-catalog">Choose image catalog</a></li>
             
-                <li class="third-level"><a href="#prewarmed-and-base-images">Prewarmed and Base Images</a></li>
+                <li class="third-level"><a href="#prewarmed-and-base-images">Prewarmed and base images</a></li>
             
-                <li class="third-level"><a href="#enable-lifetime-management">Enable Lifetime Management</a></li>
+                <li class="third-level"><a href="#enable-lifetime-management">Enable lifetime management</a></li>
             
                 <li class="third-level"><a href="#tags">Tags</a></li>
             
                 <li class="third-level"><a href="#storage">Storage</a></li>
             
-                <li class="third-level"><a href="#use-spot-instances">Use Spot Instances</a></li>
+                <li class="third-level"><a href="#use-spot-instances">Use spot instances</a></li>
             
-                <li class="third-level"><a href="#file-system">File System</a></li>
+                <li class="third-level"><a href="#file-system">File system</a></li>
             
                 <li class="third-level"><a href="#recipes">Recipes</a></li>
             
-                <li class="third-level"><a href="#external-sources">External Sources</a></li>
+                <li class="third-level"><a href="#external-sources">External sources</a></li>
             
-                <li class="third-level"><a href="#ambari-server-master-key">Ambari Server Master Key</a></li>
+                <li class="third-level"><a href="#ambari-server-master-key">Ambari server master key</a></li>
             
-                <li class="third-level"><a href="#enable-kerberos-security">Enable Kerberos Security</a></li>
+                <li class="third-level"><a href="#enable-kerberos-security">Enable Kerberos security</a></li>
             
         
     
@@ -616,7 +616,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="creating-a-cluster-on-aws">Creating a Cluster on AWS</h2>
+<h2 id="creating-a-cluster-on-aws">Creating a cluster on AWS</h2>
 <p>Use these steps to create a cluster.</p>
 <div class="note">
 <p class="first admonition-title">Troubleshooting Cluster Creation</p>
@@ -629,7 +629,7 @@
 </li>
 <li>
 <p>Click <strong>Create Cluster</strong> and the <em>Create Cluster</em> wizard is displayed.<br />
-    By default, <strong>Basic</strong> view is displayed. To view advanced options, click <strong>Advanced</strong>. To learn about advanced options, refer to <a href="#advanced-options">Advanced Options</a>.</p>
+    By default, <strong>Basic</strong> view is displayed. To view advanced options, click <strong>Advanced</strong>. To learn about advanced options, refer to <a href="#advanced-cluster-options">Advanced cluster options</a>.</p>
 <p><a href="../images/cb_cb-create.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-create.png" width="650" title="Cluster Information"></a> </p>
 </li>
 <li>
@@ -664,7 +664,7 @@
 </tr>
 <tr>
 <td>Flex Subscription</td>
-<td>This option will appear if you have configured your deployment for a <a href="../get-help/index.html#flex-subscription">Flex subscription</a>.</td>
+<td>This option will appear if you have configured your deployment for a <a href="../get-help/index.html#flex-subscription">flex support subscription</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -720,7 +720,7 @@
 </table>
 <blockquote>
 <p>Cloudbreak uses public IP addresses when communicating with cluster nodes.<br />
-On AWS, you can configure it to use private IPs instead. For instructions, refer to <a href="../trouble-cluster/index.html#configure-communication-via-private-ips-on-aws">Configure Communication via Private IPs on AWS</a>. </p>
+On AWS, you can configure it to use private IPs instead. For instructions, refer to <a href="../trouble-cluster/index.html#configure-communication-via-private-ips-on-aws">Configure communication via private IPs on AWS</a>. </p>
 </blockquote>
 </li>
 <li>
@@ -801,21 +801,21 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 <p>You will be redirected to the Cloudbreak dashboard, and a new tile representing your cluster will appear at the top of the page.</p>
 </li>
 </ol>
-<p><strong>Related Links</strong><br />
+<p><strong>Related links</strong><br />
 <a href="../blueprints/index.html">Blueprints</a> <br />
-<a href="../security/index.html#default-cluster-security-groups">Default Cluster Security Groups</a><br />
-<a href="https://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a> (External) <br />
-<a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">AWS Regions and Endpoints</a> (External)   <br />
+<a href="../security/index.html#default-cluster-security-groups">Default cluster security groups</a><br />
+<a href="https://aws.amazon.com/ec2/instance-types/">Amazon EC2 instance types</a> (External) <br />
+<a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">AWS regions and endpoints</a> (External)   <br />
 <a href="http://www.ipaddressguide.com/cidr">CIDR</a> (External)   </p>
-<h3 id="advanced-options">Advanced Options</h3>
+<h3 id="advanced-cluster-options">Advanced cluster options</h3>
 <p>Click on <strong>Advanced</strong> to view and enter additional configuration options</p>
-<h4 id="availability-zone">Availability Zone</h4>
+<h4 id="availability-zone">Availability zone</h4>
 <p>Choose one of the availability zones within the selected region. </p>
-<h4 id="choose-image-catalog">Choose Image Catalog</h4>
-<p>By default, <strong>Choose Image Catalog</strong> is set to the default image catalog that is provided with Cloudbreak. If you would like to use a different image catalog, you must first create and register it. For complete instructions, refer to <a href="../images/index.html">Custom Images</a>.</p>
+<h4 id="choose-image-catalog">Choose image catalog</h4>
+<p>By default, <strong>Choose Image Catalog</strong> is set to the default image catalog that is provided with Cloudbreak. If you would like to use a different image catalog, you must first create and register it. For complete instructions, refer to <a href="../images/index.html">Custom images</a>.</p>
 <p><strong>Related Links</strong>   <br />
-<a href="../images/index.html">Custom Images</a>  </p>
-<h4 id="prewarmed-and-base-images">Prewarmed and Base Images</h4>
+<a href="../images/index.html">Custom images</a>  </p>
+<h4 id="prewarmed-and-base-images">Prewarmed and base images</h4>
 <p>Cloudbreak supports the following types of images for launching clusters:</p>
 <table>
 <thead>
@@ -847,10 +847,10 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <li>Use an Ambari and HDP/HDF versions different than what the prewarmed image includes and/or  </li>
 <li>Choose a previously created custom base image</li>
 </ul>
-<p><strong>Choose Image</strong>  </p>
-<p>If under <a href="#choose-image-catalog">Choose Image Catalog</a>, you selected a custom image catalog, under <strong>Choose Image</strong> you can select an image from that catalog. For complete instructions, refer to <a href="../images/index.html">Custom Images</a>. </p>
+<p><strong>Choose image</strong>  </p>
+<p>If under <a href="#choose-image-catalog">Choose image catalog</a>, you selected a custom image catalog, under <strong>Choose Image</strong> you can select an image from that catalog. For complete instructions, refer to <a href="../images/index.html">Custom images</a>. </p>
 <p>If you are trying to customize Ambari and HDP/HDF versions, you can ignore the <strong>Choose Image</strong> option; in this case default base image is used.</p>
-<p><strong>Ambari Repository Specification</strong></p>
+<p><strong>Ambari repository specification</strong></p>
 <p>If you would like to use a custom Ambari version, provide the following information: </p>
 <div class="note">
 <p class="first admonition-title"> Ambari 2.6.1</p>
@@ -882,7 +882,7 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 </tr>
 </tbody>
 </table>
-<p><strong>HDP or HDF Repository Specification</strong></p>
+<p><strong>HDP or HDF repository specification</strong></p>
 <p>If you would like to use a custom HDP or HDF version, provide the following information: </p>
 <table>
 <thead>
@@ -934,13 +934,13 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <p>If you choose to use a base image with custom Ambari and/or HDP/HDF version, Cloudbreak validates the information entered. When Cloudbreak detects that the information entered is incorrect, it displays a warning marked with the <img src="../images/cb_warning.png" width="25" title="Icon"> sign. You should review all the warnings before proceeding and make sure that the information that you entered is correct. If you choose to proceed in spite of the warnings, check "Ignore repository warnings".  </p>
 </blockquote>
 <p><strong>Related Links</strong>    <br />
-<a href="../images/index.html">Custom Images</a>      </p>
-<h4 id="enable-lifetime-management">Enable Lifetime Management</h4>
+<a href="../images/index.html">Custom images</a>      </p>
+<h4 id="enable-lifetime-management">Enable lifetime management</h4>
 <p>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minutes). </p>
 <h4 id="tags">Tags</h4>
-<p>You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account. refer to <a href="../tags/index.html">Resource Tagging</a>.</p>
+<p>You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account. refer to <a href="../tags/index.html">Resource tagging</a>.</p>
 <p><strong>Related Links</strong>    <br />
-<a href="../tags/index.html">Resource Tagging</a> </p>
+<a href="../tags/index.html">Resource tagging</a> </p>
 <h4 id="storage">Storage</h4>
 <p>You can optionally specify the following storage options for your cluster:</p>
 <table>
@@ -965,7 +965,7 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 </tr>
 </tbody>
 </table>
-<h4 id="use-spot-instances">Use Spot Instances</h4>
+<h4 id="use-spot-instances">Use spot instances</h4>
 <p>Check this option to use EC2 spot instances as your cluster nodes. Next, enter your bid price. The price that is pre-loaded in the form is the current on-demand price for your chosen EC2 instance type.   </p>
 <p>Note that: </p>
 <ul>
@@ -976,27 +976,27 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <li>If spot instances are not available right away, creating a cluster will take longer than usual. </li>
 </ul>
 <p>After creating a cluster, you can view your spot instance requests, including bid price, on the EC2 dashboard under <strong>INSTANCES</strong> &gt; <strong>Spot Requests</strong>. For more information about spot instances, refer to <a href="https://aws.amazon.com/ec2/spot/">AWS documentation</a>.  </p>
-<h4 id="file-system">File System</h4>
-<p>If you would like to access S3 from your cluster, you must configure access to S3 trough an instance profile. For instructions, refer to <a href="../aws-data/index.html#configuring-access-to-s3">Configuring Access to S3</a>. </p>
+<h4 id="file-system">File system</h4>
+<p>If you would like to access S3 from your cluster, you must configure access to S3 trough an instance profile. For instructions, refer to <a href="../aws-data/index.html#configuring-access-to-s3">Configuring access to S3</a>. </p>
 <h4 id="recipes">Recipes</h4>
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>. </p>
 <p><strong>Related Links</strong>    <br />
 <a href="../recipes/index.html">Recipes</a> </p>
-<h4 id="external-sources">External Sources</h4>
+<h4 id="external-sources">External sources</h4>
 <p>You can register external sources with Cloudbreak and then select them during cluster create. To register external sources with Cloudbreak, refer to:</p>
 <ul>
-<li><a href="../external-ldap/index.html">Register Authentication Source</a>    </li>
-<li><a href="../external-db/index.html">Register External Database</a>  </li>
-<li><a href="../external-proxy/index.html">Register Proxy</a>  </li>
+<li><a href="../external-ldap/index.html">Register authentication source</a>    </li>
+<li><a href="../external-db/index.html">Register external database</a>  </li>
+<li><a href="../external-proxy/index.html">Register proxy</a>  </li>
 </ul>
-<h4 id="ambari-server-master-key">Ambari Server Master Key</h4>
-<p>The Ambari Server Master Key is used to configure Ambari to encrypt database and Kerberos credentials that are retained by Ambari as part of the Ambari setup.  </p>
-<h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
+<h4 id="ambari-server-master-key">Ambari server master key</h4>
+<p>The Ambari server master key is used to configure Ambari to encrypt database and Kerberos credentials that are retained by Ambari as part of the Ambari setup.  </p>
+<h4 id="enable-kerberos-security">Enable Kerberos security</h4>
 <p>Select this option to enable Kerberos for your cluster. For information about available Kerberos options, refer to <a href="../security-kerberos/index.html">Enabling Kerberos Security</a>. </p>
 <p><strong>Related Links</strong>    <br />
 <a href="../security-kerberos/index.html">Kerberos</a> <br />
-<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 Instance Store</a> (External)<br />
-<a href="https://aws.amazon.com/ec2/spot/">Amazon EC2 Spot Instances</a> (External)   </p>
+<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 instance store</a> (External)<br />
+<a href="https://aws.amazon.com/ec2/spot/">Amazon EC2 spot instances</a> (External)   </p>
 <div class="next">
 <a href="../aws-clusters-access/index.html">Next: Access Cluster</a>
 </div></div>

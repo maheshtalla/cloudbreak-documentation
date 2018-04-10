@@ -582,26 +582,26 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#accessing-data-on-azure">Accessing Data on Azure</a></li>
+        <li class="first-level active"><a href="#accessing-data-on-azure">Accessing data on Azure</a></li>
         
-            <li class="second-level"><a href="#accessing-data-in-adls-from-hdp">Accessing Data in ADLS from HDP</a></li>
+            <li class="second-level"><a href="#accessing-data-in-adls-from-hdp">Accessing data in ADLS from HDP</a></li>
             
                 <li class="third-level"><a href="#prerequisites">Prerequisites</a></li>
             
-                <li class="third-level"><a href="#configuring-access-to-adls">Configuring Access to ADLS</a></li>
+                <li class="third-level"><a href="#configure-access-to-adls">Configure access to ADLS</a></li>
             
-                <li class="third-level"><a href="#testing-access-to-adls">Testing Access to ADLS</a></li>
+                <li class="third-level"><a href="#test-access-to-adls">Test access to ADLS</a></li>
             
                 <li class="third-level"><a href="#working-with-adls">Working with ADLS</a></li>
             
         
-            <li class="second-level"><a href="#accessing-data-in-wasb-from-hdp">Accessing Data in WASB from HDP</a></li>
+            <li class="second-level"><a href="#accessing-data-in-wasb-from-hdp">Accessing data in WASB from HDP</a></li>
             
                 <li class="third-level"><a href="#prerequisites_1">Prerequisites</a></li>
             
-                <li class="third-level"><a href="#configuring-access-to-wasb">Configuring Access to WASB</a></li>
+                <li class="third-level"><a href="#configure-access-to-wasb">Configure access to WASB</a></li>
             
-                <li class="third-level"><a href="#testing-access-to-wasb">Testing Access to WASB</a></li>
+                <li class="third-level"><a href="#test-access-to-wasb">Test access to WASB</a></li>
             
                 <li class="third-level"><a href="#working-with-wasb">Working with WASB</a></li>
             
@@ -611,17 +611,17 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="accessing-data-on-azure">Accessing Data on Azure</h2>
+<h2 id="accessing-data-on-azure">Accessing data on Azure</h2>
 <p>Hortonworks Data Platform (HDP) supports reading and writing both block blobs and page blobs
 from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as reading and writing files stored in an
 <em>Azure Data Lake Storage (ADLS)</em> account. </p>
-<h3 id="accessing-data-in-adls-from-hdp">Accessing Data in ADLS from HDP</h3>
+<h3 id="accessing-data-in-adls-from-hdp">Accessing data in ADLS from HDP</h3>
 <p><a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store (ADLS)</a> is an enterprise-wide hyper-scale repository for big data analytic workloads.</p>
 <h4 id="prerequisites">Prerequisites</h4>
 <p>If you want to use ADLS to store your data, you must enable Azure subscription for Data Lake Store, and then create an Azure Data Lake Store <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">storage account</a>.</p>
-<h4 id="configuring-access-to-adls">Configuring Access to ADLS</h4>
-<p>ADLS is not supported as a default file system, but access to data in ADLS via the adl connector. To configure access to ADLS from a cluster managed via Cloudbreak use the steps described in <a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to Configure Authentication with ADLS</a>.</p>
-<h4 id="testing-access-to-adls">Testing Access to ADLS</h4>
+<h4 id="configure-access-to-adls">Configure access to ADLS</h4>
+<p>ADLS is not supported as a default file system, but access to data in ADLS via the adl connector. To configure access to ADLS from a cluster managed via Cloudbreak use the steps described in <a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to Configure authentication with ADLS</a>.</p>
+<h4 id="test-access-to-adls">Test access to ADLS</h4>
 <p>To tests access to ADLS, SSH to a cluster node and run a few hadoop fs shell commands against your existing ADLS account.</p>
 <p>ADLS access path syntax is:</p>
 <pre>adl://<b>account_name</b>.azuredatalakestore.net/<b>dir/file</b></pre>
@@ -638,17 +638,17 @@ from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as read
     adl://<b>myaccount</b>.azuredatalakestore.net/testDir/</pre></p>
 <h4 id="working-with-adls">Working with ADLS</h4>
 <p>For more information about configuring the ADLS connector and working with data stored in ADLS, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
-<p><strong>Related Links</strong> <br />
+<p><strong>Related links</strong> <br />
 <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks) 
 <a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to Configure Authentication with ADLS</a> (Hortonworks)<br />
 <a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store</a> (External)   <br />
-<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a Storage Account</a> (External)   <br />
+<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a storage account</a> (External)   <br />
 <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">Get started with Azure Data Lake Store</a> (External)  </p>
-<h3 id="accessing-data-in-wasb-from-hdp">Accessing Data in WASB from HDP</h3>
+<h3 id="accessing-data-in-wasb-from-hdp">Accessing data in WASB from HDP</h3>
 <p>Windows Azure Storage Blob (WASB) is an object store service available on Azure.</p>
 <h4 id="prerequisites_1">Prerequisites</h4>
 <p>If you want to use Windows Azure Storage Blob to store your data, you must enable Azure subscription for Blob Storage, and then create a <a href="https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account">storage account</a>.  </p>
-<h4 id="configuring-access-to-wasb">Configuring Access to WASB</h4>
+<h4 id="configure-access-to-wasb">Configure access to WASB</h4>
 <p>In order to access data stored in your Azure blob storage account, you must configure your storage account access key in <code>core-site.xml</code>. The configuration property that you must use is <code>fs.azure.account.key.&lt;account name&gt;.blob.core.windows.net</code> and the value is the access key. </p>
 <p>For example the following property should be used for a storage account called "testaccount": </p>
 <pre><code>&lt;property&gt;
@@ -658,7 +658,7 @@ from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as read
 </code></pre>
 
 <p>You can obtain your access key from the Access keys in your storage account settings.</p>
-<h4 id="testing-access-to-wasb">Testing Access to WASB</h4>
+<h4 id="test-access-to-wasb">Test access to WASB</h4>
 <p>To tests access to WASB, SSH to a cluster node and run a few hadoop fs shell commands against your existing WASB account.</p>
 <p>WASB access path syntax is:</p>
 <pre>wasb://<b>container_name</b>@<b>storage_account_name</b>.blob.core.windows.net/<b>dir/file</b></pre>
@@ -681,9 +681,9 @@ test file content</pre>
 
 <h4 id="working-with-wasb">Working with WASB</h4>
 <p>For more information about configuring the WASB connector and working with data stored in WASB, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
-<p><strong>Related Links</strong> <br />
+<p><strong>Related links</strong> <br />
 <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks) <br />
-<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a Storage Account</a> (External)   </p></div>
+<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a storage account</a> (External)   </p></div>
         
     </div>
 

@@ -582,19 +582,19 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#security-overview">Security Overview</a></li>
+        <li class="first-level active"><a href="#security-overview">Security overview</a></li>
         
-            <li class="second-level"><a href="#virtual-networks">Virtual Networks</a></li>
-            
-        
-            <li class="second-level"><a href="#network-security">Network Security</a></li>
-            
-                <li class="third-level"><a href="#cloudbreak-instance-security-group">Cloudbreak Instance Security Group</a></li>
-            
-                <li class="third-level"><a href="#default-cluster-security-groups">Default Cluster Security Groups</a></li>
+            <li class="second-level"><a href="#virtual-networks">Virtual networks</a></li>
             
         
-            <li class="second-level"><a href="#identity-management">Identity Management</a></li>
+            <li class="second-level"><a href="#network-security">Network security</a></li>
+            
+                <li class="third-level"><a href="#cloudbreak-instance-security-group">Cloudbreak instance security group</a></li>
+            
+                <li class="third-level"><a href="#default-cluster-security-groups">Default cluster security groups</a></li>
+            
+        
+            <li class="second-level"><a href="#identity-management">Identity management</a></li>
             
                 <li class="third-level"><a href="#authentication-with-aws">Authentication with AWS</a></li>
             
@@ -610,17 +610,17 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="security-overview">Security Overview</h2>
+<h2 id="security-overview">Security overview</h2>
 <p>Cloudbreak utilizes cloud provider security resources such as virtual networks, security groups, and identity and access management:</p>
 <ol>
 <li><strong>Network isolation</strong> is achieved via user-configured virtual networks and subnets.<br />
-    Read more about <a href="#virtual-networks">Virtual Networks</a>.  </li>
+    Read more about <a href="#virtual-networks">Virtual networks</a>.  </li>
 <li><strong>Network security</strong> is achieved via out-of-the-box security group settings.<br />
-    Read more about <a href="#network-security">Network Security</a>.   </li>
+    Read more about <a href="#network-security">Network security</a>.   </li>
 <li><strong>Controlled use of cloud resources</strong> using IAM roles (AWS, GCP) or Active Directory (in case of Azure). 
-    Read more about <a href="#identity-management">Identity Management</a>.    </li>
+    Read more about <a href="#identity-management">Identity management</a>.    </li>
 </ol>
-<h3 id="virtual-networks">Virtual Networks</h3>
+<h3 id="virtual-networks">Virtual networks</h3>
 <p>Cloud providers use virtual networks which resemble traditional networks. Depending on the options that you selected during deployment, your Cloudbreak instance and clusters are launched into new or existing cloud provider networking infrastructure (virtual networks and subnets). For more information about virtual networks, refer to the cloud-provider documentation:</p>
 <table>
 <thead>
@@ -648,10 +648,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="network-security">Network Security</h3>
+<h3 id="network-security">Network security</h3>
 <p>Security groups are set up to control network traffic to the instances in the system.</p>
 <p>Cloudbreak uses public IP addresses when communicating with cluster nodes. On AWS, you can configure it to use private IPs instead. For instructions, refer to <a href="../trouble-cluster/index.html#configure-communication-via-private-ips-on-aws">Configure Communication via Private IPs on AWS</a>.  </p>
-<h4 id="cloudbreak-instance-security-group">Cloudbreak Instance Security Group</h4>
+<h4 id="cloudbreak-instance-security-group">Cloudbreak instance security group</h4>
 <p>The following table lists the minimum security group port configuration required for the Cloudbreak instance:</p>
 <table>
 <thead>
@@ -675,10 +675,10 @@
 </tr>
 </tbody>
 </table>
-<h4 id="default-cluster-security-groups">Default Cluster Security Groups</h4>
+<h4 id="default-cluster-security-groups">Default cluster security groups</h4>
 <p>For clusters, Cloudbreak provides the following security group settings. If you do not modify these settings, these default security rules will be created. You can modify these rules either when creating or, if you don't want to use security group, remove them. </p>
 <p>As an alternative to creating new security groups, you can select from your existing set of security groups, which can be modified using the cloud provider tools. </p>
-<p><strong>Cluster Host Group with Ambari Server</strong></p>
+<p><strong>Cluster host group with Ambari server</strong></p>
 <table>
 <thead>
 <tr>
@@ -711,7 +711,7 @@ By default, ports 22, 443, and 9443 are set to 0.0.0.0/0 CIDR for inbound access
 </p>
 </div>
 
-<p><strong>Cluster Host Groups without the Ambari Server</strong></p>
+<p><strong>Cluster host groups without the Ambari server</strong></p>
 <table>
 <thead>
 <tr>
@@ -733,7 +733,7 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 </div>
 
 <p>When creating a new security group, Cloudbreak uses the following naming convention: <code>&lt;clustername&gt;-ClusterNodeSecurityGroup&lt;hostgroupname&gt;</code> </p>
-<h3 id="identity-management">Identity Management</h3>
+<h3 id="identity-management">Identity management</h3>
 <p>To securely control access to cloud resources, cloud providers use identity management services such as IAM roles (AWS and GCP) and Active Directory (Azure). </p>
 <table>
 <thead>
@@ -790,8 +790,8 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 </tr>
 </tbody>
 </table>
-<p><strong>Related Links</strong><br />
-<a href="../aws-launch/index.html#authentication">Meet the Prerequisites: Authentication</a>  </p>
+<p><strong>Related links</strong><br />
+<a href="../aws-launch/index.html#authentication">Meet the prerequisites: Authentication</a>  </p>
 <h4 id="authentication-with-azure">Authentication with Azure</h4>
 <p>After launching Cloudbread on Azure, you are required to create a Cloudbreak credential, which allows Cloudbreak to authenticate with your Azure Active Directory. </p>
 <p>You have two options:</p>
@@ -803,16 +803,16 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 <p>App-based: The app and service principal creation and role assignment are not automated You must create an Azure Active Directory application registration and then provide its parameters to Cloudbreak, in addition to providing your Subscription ID and Directory ID. </p>
 </li>
 </ul>
-<p><strong>Related Links</strong><br />
-<a href="../azure-launch/index.html#create-cloudbreak-credential">Create Cloudbreak Credential</a>  </p>
+<p><strong>Related links</strong><br />
+<a href="../azure-launch/index.html#create-cloudbreak-credential">Create Cloudbreak credential</a>  </p>
 <h4 id="authentication-with-gcp">Authentication with GCP</h4>
 <p>After launching Cloudbreak on GCP, you are required to register a service account in Cloudbreak via creating a Cloudbreak credential. Cloudbreak uses this account to authenticate with the GCP identity management service.</p>
-<p><strong>Related Links</strong><br />
-<a href="../gcp-launch/index.html#service-account">Meet the Prerequisites: Service Account</a>  </p>
+<p><strong>Related links</strong><br />
+<a href="../gcp-launch/index.html#service-account">Meet the prerequisites: Service account</a>  </p>
 <h4 id="authentication-with-openstack">Authentication with OpenStack</h4>
 <p>After launching Cloudbreak on OpenStack, you are required to create a Cloudbreak credential, which allows Cloudbreak to authenticate with keystone. </p>
-<p><strong>Related Links</strong><br />
-<a href="../os-launch/index.html#create-cloudbreak-credential">Create Cloudbreak Credential</a>  </p></div>
+<p><strong>Related links</strong><br />
+<a href="../os-launch/index.html#create-cloudbreak-credential">Create Cloudbreak credential</a>  </p></div>
         
     </div>
 

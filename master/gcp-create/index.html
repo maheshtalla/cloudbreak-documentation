@@ -582,31 +582,31 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#creating-a-cluster-on-gcp">Creating a Cluster on GCP</a></li>
+        <li class="first-level active"><a href="#creating-a-cluster-on-gcp">Creating a cluster on GCP</a></li>
         
-            <li class="second-level"><a href="#advanced-options">Advanced Options</a></li>
+            <li class="second-level"><a href="#advanced-options">Advanced options</a></li>
             
-                <li class="third-level"><a href="#availability-zone">Availability Zone</a></li>
+                <li class="third-level"><a href="#availability-zone">Availability zone</a></li>
             
-                <li class="third-level"><a href="#choose-image-catalog">Choose Image Catalog</a></li>
+                <li class="third-level"><a href="#choose-image-catalog">Choose image catalog</a></li>
             
-                <li class="third-level"><a href="#prewarmed-and-base-images">Prewarmed and Base Images</a></li>
+                <li class="third-level"><a href="#prewarmed-and-base-images">Prewarmed and base images</a></li>
             
-                <li class="third-level"><a href="#enable-lifetime-management">Enable Lifetime Management</a></li>
+                <li class="third-level"><a href="#enable-lifetime-management">Enable lifetime management</a></li>
             
                 <li class="third-level"><a href="#tags">Tags</a></li>
             
                 <li class="third-level"><a href="#storage">Storage</a></li>
             
-                <li class="third-level"><a href="#use-preemptible-instances">Use Preemptible Instances</a></li>
+                <li class="third-level"><a href="#use-preemptible-instances">Use preemptible instances</a></li>
             
                 <li class="third-level"><a href="#recipes">Recipes</a></li>
             
-                <li class="third-level"><a href="#external-sources">External Sources</a></li>
+                <li class="third-level"><a href="#external-sources">External sources</a></li>
             
-                <li class="third-level"><a href="#ambari-server-master-key">Ambari Server Master Key</a></li>
+                <li class="third-level"><a href="#ambari-server-master-key">Ambari server master key</a></li>
             
-                <li class="third-level"><a href="#enable-kerberos-security">Enable Kerberos Security</a></li>
+                <li class="third-level"><a href="#enable-kerberos-security">Enable Kerberos security</a></li>
             
         
     
@@ -614,7 +614,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="creating-a-cluster-on-gcp">Creating a Cluster on GCP</h2>
+<h2 id="creating-a-cluster-on-gcp">Creating a cluster on GCP</h2>
 <p>Use these steps to create a cluster.</p>
 <div class="note">
 <p class="first admonition-title">Troubleshooting Cluster Creation</p>
@@ -627,7 +627,7 @@
 </li>
 <li>
 <p>Click <strong>Create Cluster</strong> and the <em>Create Cluster</em> wizard is displayed.<br />
-    By default, <strong>Basic</strong> view is displayed. To view advanced options, click <strong>Advanced</strong>. To learn about advanced options, refer to <a href="#advanced-options">Advanced Options</a>.</p>
+    By default, <strong>Basic</strong> view is displayed. To view advanced options, click <strong>Advanced</strong>. To learn about advanced options, refer to <a href="#advanced-cluster-options">Advanced cluster options</a>.</p>
 <p><a href="../images/cb_cb-create.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-create.png" width="650" title="Cluster Information"></a> </p>
 </li>
 <li>
@@ -662,7 +662,7 @@
 </tr>
 <tr>
 <td>Flex Subscription</td>
-<td>This option will appear if you have configured your deployment for a <a href="../get-help/index.html#flex-subscription">Flex subscription</a>.</td>
+<td>This option will appear if you have configured your deployment for a <a href="../get-help/index.html#flex-subscription">flex support subscription</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -800,19 +800,19 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 </ol>
 <p><strong>Related Links</strong><br />
 <a href="../blueprints/index.html">Blueprints</a> <br />
-<a href="../security/index.html#default-cluster-security-groups">Default Cluster Security Groups</a> <br />
+<a href="../security/index.html#default-cluster-security-groups">Default cluster security groups</a> <br />
 <a href="http://www.ipaddressguide.com/cidr">CIDR</a> (External) <br />
-<a href="https://cloud.google.com/about/locations/">Cloud Locations</a> (External)<br />
-<a href="https://cloud.google.com/compute/docs/machine-types">Machine Types</a> (External)     </p>
-<h3 id="advanced-options">Advanced Options</h3>
+<a href="https://cloud.google.com/about/locations/">Cloud locations</a> (External)<br />
+<a href="https://cloud.google.com/compute/docs/machine-types">Machine types</a> (External)     </p>
+<h3 id="advanced-options">Advanced options</h3>
 <p>Click on <strong>Advanced</strong> to view and enter additional configuration options</p>
-<h4 id="availability-zone">Availability Zone</h4>
+<h4 id="availability-zone">Availability zone</h4>
 <p>Choose one of the availability zones within the selected region. </p>
-<h4 id="choose-image-catalog">Choose Image Catalog</h4>
-<p>By default, <strong>Choose Image Catalog</strong> is set to the default image catalog that is provided with Cloudbreak. If you would like to use a different image catalog, you must first create and register it. For complete instructions, refer to <a href="../images/index.html">Custom Images</a>.</p>
+<h4 id="choose-image-catalog">Choose image catalog</h4>
+<p>By default, <strong>Choose Image Catalog</strong> is set to the default image catalog that is provided with Cloudbreak. If you would like to use a different image catalog, you must first create and register it. For complete instructions, refer to <a href="../images/index.html">Custom images</a>.</p>
 <p><strong>Related Links</strong>   <br />
-<a href="../images/index.html">Custom Images</a>  </p>
-<h4 id="prewarmed-and-base-images">Prewarmed and Base Images</h4>
+<a href="../images/index.html">Custom images</a>  </p>
+<h4 id="prewarmed-and-base-images">Prewarmed and base images</h4>
 <p>Cloudbreak supports the following types of images for launching clusters:</p>
 <table>
 <thead>
@@ -844,10 +844,10 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <li>Use an Ambari and HDP/HDF versions different than what the prewarmed image includes and/or  </li>
 <li>Choose a previously created custom base image</li>
 </ul>
-<p><strong>Choose Image</strong>  </p>
-<p>If under <a href="#choose-image-catalog">Choose Image Catalog</a>, you selected a custom image catalog, under <strong>Choose Image</strong> you can select an image from that catalog. For complete instructions, refer to <a href="../images/index.html">Custom Images</a>. </p>
+<p><strong>Choose image</strong>  </p>
+<p>If under <a href="#choose-image-catalog">Choose image catalog</a>, you selected a custom image catalog, under <strong>Choose Image</strong> you can select an image from that catalog. For complete instructions, refer to <a href="../images/index.html">Custom images</a>. </p>
 <p>If you are trying to customize Ambari and HDP/HDF versions, you can ignore the <strong>Choose Image</strong> option; in this case default base image is used.</p>
-<p><strong>Ambari Repository Specification</strong></p>
+<p><strong>Ambari repository specification</strong></p>
 <p>If you would like to use a custom Ambari version, provide the following information: </p>
 <div class="note">
 <p class="first admonition-title"> Ambari 2.6.1</p>
@@ -879,7 +879,7 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 </tr>
 </tbody>
 </table>
-<p><strong>HDP or HDF Repository Specification</strong></p>
+<p><strong>HDP or HDF repository specification</strong></p>
 <p>If you would like to use a custom HDP or HDF version, provide the following information: </p>
 <table>
 <thead>
@@ -931,13 +931,13 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <p>If you choose to use a base image with custom Ambari and/or HDP/HDF version, Cloudbreak validates the information entered. When Cloudbreak detects that the information entered is incorrect, it displays a warning marked with the <img src="../images/cb_warning.png" width="25" title="Icon"> sign. You should review all the warnings before proceeding and make sure that the information that you entered is correct. If you choose to proceed in spite of the warnings, check "Ignore repository warnings".  </p>
 </blockquote>
 <p><strong>Related Links</strong>    <br />
-<a href="../images/index.html">Custom Images</a>      </p>
-<h4 id="enable-lifetime-management">Enable Lifetime Management</h4>
+<a href="../images/index.html">Custom images</a>      </p>
+<h4 id="enable-lifetime-management">Enable lifetime management</h4>
 <p>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minutes). </p>
 <h4 id="tags">Tags</h4>
-<p>You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account. refer to <a href="../tags/index.html">Resource Tagging</a>.</p>
+<p>You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account. refer to <a href="../tags/index.html">Resource tagging</a>.</p>
 <p><strong>Related Links</strong>    <br />
-<a href="../tags/index.html">Resource Tagging</a> </p>
+<a href="../tags/index.html">Resource tagging</a> </p>
 <h4 id="storage">Storage</h4>
 <p>You can optionally specify the following storage options for your cluster:</p>
 <table>
@@ -962,7 +962,7 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 </tr>
 </tbody>
 </table>
-<h4 id="use-preemptible-instances">Use Preemptible Instances</h4>
+<h4 id="use-preemptible-instances">Use preemptible instances</h4>
 <p>Check this option to use Google Cloud preemptive VM instances as your cluster nodes. To learn more, refer to <a href="https://cloud.google.com/compute/docs/instances/preemptible">Google Cloud documentation</a>.    </p>
 <p>Note that: </p>
 <ul>
@@ -976,21 +976,21 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Recipes</a>. </p>
 <p><strong>Related Links</strong>    <br />
 <a href="../recipes/index.html">Recipes</a> </p>
-<h4 id="external-sources">External Sources</h4>
+<h4 id="external-sources">External sources</h4>
 <p>You can register external sources with Cloudbreak and then select them during cluster create. To register external sources with Cloudbreak, refer to:</p>
 <ul>
-<li><a href="../external-ldap/index.html">Register Authentication Source</a>    </li>
-<li><a href="../external-db/index.html">Register External Database</a>  </li>
-<li><a href="../external-proxy/index.html">Register Proxy</a>  </li>
+<li><a href="../external-ldap/index.html">Register authentication source</a>    </li>
+<li><a href="../external-db/index.html">Register external database</a>  </li>
+<li><a href="../external-proxy/index.html">Register proxy</a>  </li>
 </ul>
-<h4 id="ambari-server-master-key">Ambari Server Master Key</h4>
-<p>The Ambari Server Master Key is used to configure Ambari to encrypt database and Kerberos credentials that are retained by Ambari as part of the Ambari setup.  </p>
-<h4 id="enable-kerberos-security">Enable Kerberos Security</h4>
+<h4 id="ambari-server-master-key">Ambari server master key</h4>
+<p>The Ambari server master key is used to configure Ambari to encrypt database and Kerberos credentials that are retained by Ambari as part of the Ambari setup.  </p>
+<h4 id="enable-kerberos-security">Enable Kerberos security</h4>
 <p>Select this option to enable Kerberos for your cluster. For information about available Kerberos options, refer to <a href="../security-kerberos/index.html">Enabling Kerberos Security</a>. </p>
 <p><strong>Related Links</strong>    <br />
 <a href="../security-kerberos/index.html">Kerberos</a> <br />
-<a href="https://cloud.google.com/compute/docs/instances/preemptible">Preemptible VM Instances</a> (External) <br />
-<a href="https://cloud.google.com/compute/docs/disks/">Storage Options</a> (External)  </p>
+<a href="https://cloud.google.com/compute/docs/instances/preemptible">Preemptible VM instances</a> (External) <br />
+<a href="https://cloud.google.com/compute/docs/disks/">Storage options</a> (External)  </p>
 <div class="next">
 <a href="../gcp-clusters-access/index.html">Next: Access Cluster</a>
 </div></div>

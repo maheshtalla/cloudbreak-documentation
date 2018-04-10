@@ -582,28 +582,28 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#installing-cloudbreak-on-your-own-vm">Installing Cloudbreak on Your Own VM</a></li>
+        <li class="first-level active"><a href="#installing-cloudbreak-on-your-own-vm">Installing Cloudbreak on your own VM</a></li>
         
-            <li class="second-level"><a href="#system-requirements">System Requirements</a></li>
+            <li class="second-level"><a href="#system-requirements">System requirements</a></li>
             
         
             <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
                 <li class="third-level"><a href="#ports">Ports</a></li>
             
-                <li class="third-level"><a href="#root-access">Root Access</a></li>
+                <li class="third-level"><a href="#root-access">Root access</a></li>
             
-                <li class="third-level"><a href="#system-updates">System Updates</a></li>
+                <li class="third-level"><a href="#system-updates">System updates</a></li>
             
                 <li class="third-level"><a href="#iptables">Iptables</a></li>
             
                 <li class="third-level"><a href="#more">More</a></li>
             
         
-            <li class="second-level"><a href="#install-cloudbreak-on-your-own-vm">Install Cloudbreak on Your Own VM</a></li>
+            <li class="second-level"><a href="#install-cloudbreak-on-your-own-vm">Install Cloudbreak on your own VM</a></li>
             
         
-            <li class="second-level"><a href="#next-steps-after-installing-on-your-own-vm">Next Steps After Installing on Your Own VM</a></li>
+            <li class="second-level"><a href="#next-steps-after-installing-on-your-own-vm">Next steps after installing on your own VM</a></li>
             
         
     
@@ -611,7 +611,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="installing-cloudbreak-on-your-own-vm">Installing Cloudbreak on Your Own VM</h2>
+<h2 id="installing-cloudbreak-on-your-own-vm">Installing Cloudbreak on your own VM</h2>
 <p>This is an advanced deployment option. Select this option if you have custom VM requirements. Otherwise, you should use one of the pre-built images and follow these instructions:</p>
 <ul>
 <li><a href="../aws-launch/index.html">Launch on AWS</a>  </li>
@@ -619,7 +619,7 @@
 <li><a href="../gcp-launch/index.html">Launch on GCP</a>  </li>
 <li><a href="../os-launch/index.html">Launch on OpenStack</a>   </li>
 </ul>
-<h3 id="system-requirements">System Requirements</h3>
+<h3 id="system-requirements">System requirements</h3>
 <p>To launch the Cloudbreak deployer and install the Cloudbreak application, your system must meet the following requirements:</p>
 <ul>
 <li>Minimum VM requirements: 16GB RAM, 40GB disk, 4 cores</li>
@@ -633,11 +633,11 @@
 <p>To launch the Cloudbreak deployer and install the Cloudbreak application, you must first meet the following prerequisites:</p>
 <h4 id="ports">Ports</h4>
 <p>Ports 22 (SSH), 80 (HTTPS), and 443 (HTTPS) must be open.</p>
-<h4 id="root-access">Root Access</h4>
+<h4 id="root-access">Root access</h4>
 <p>Every command must be executed as root. In order to get root privileges execute:</p>
 <pre>sudo -i</pre>
 
-<h4 id="system-updates">System Updates</h4>
+<h4 id="system-updates">System updates</h4>
 <p>Ensure that your system is up-to-date by executing:</p>
 <pre>yum -y update</pre>
 
@@ -662,7 +662,7 @@ service iptables save
 <li><a href="../gcp-launch/index.html#meet-the-prerequisites">Prerequisites on GCP</a></li>
 <li><a href="../os-launch/index.html#meet-the-prerequisites">Prerequisites on OpenStack</a></li>
 </ul>
-<h3 id="install-cloudbreak-on-your-own-vm">Install Cloudbreak on Your Own VM</h3>
+<h3 id="install-cloudbreak-on-your-own-vm">Install Cloudbreak on your own VM</h3>
 <p>Install Cloudbreak using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -710,16 +710,17 @@ cbd start</pre></p>
 <li>
 <p>Next, check Cloudbreak application logs:</p>
 <p><pre>cbd logs cloudbreak</pre></p>
-<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
+<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.
+å</p>
 </li>
 </ol>
-<h3 id="next-steps-after-installing-on-your-own-vm">Next Steps After Installing on Your Own VM</h3>
+<h3 id="next-steps-after-installing-on-your-own-vm">Next steps after installing on your own VM</h3>
 <p>Log in to the Cloudbreak web UI and create a credential for Cloudbreak using the following platform-specific instructions:</p>
 <ul>
-<li><a href="../aws-launch/index.html#access-cloudbreak-ui">Access Cloudbreak UI on AWS</a>  </li>
-<li><a href="../azure-launch/index.html#access-cloudbreak-ui">Access Cloudbreak UI on Azure</a>  </li>
-<li><a href="../gcp-launch/index.html#access-cloudbreak-ui">Access Cloudbreak UI on GCP</a>  </li>
-<li><a href="../os-launch/index.html#access-cloudbreak-ui">Access Cloudbreak UI on OpenStack</a>  </li>
+<li><a href="../aws-launch/index.html#access-cloudbreak-web-ui">Access Cloudbreak web UI on AWS</a>  </li>
+<li><a href="../azure-launch/index.html#access-cloudbreak-web-ui">Access Cloudbreak web UI on Azure</a>  </li>
+<li><a href="../gcp-launch/index.html#access-cloudbreak-web-ui">Access Cloudbreak web UI on GCP</a>  </li>
+<li><a href="../os-launch/index.html#access-cloudbreak-web-ui">Access Cloudbreak web UI on OpenStack</a>  </li>
 </ul></div>
         
     </div>
