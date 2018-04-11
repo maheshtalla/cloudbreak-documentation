@@ -256,6 +256,21 @@
                 
                 
                 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">VM <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -330,12 +345,6 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
-</li>
-
-        
-            
-<li >
     <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
 </li>
 
@@ -360,7 +369,7 @@
         
             
 <li >
-    <a href="../security-cb-ssl/index.html">Configure SSL certificates</a>
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
 </li>
 
         
@@ -592,7 +601,7 @@
         
             <li class="second-level"><a href="#creating-a-template-blueprint-for-rdmbs">Creating a template blueprint for RDMBS</a></li>
             
-                <li class="third-level"><a href="#rdbms-property-variables">RDBMS Property Variables</a></li>
+                <li class="third-level"><a href="#rdbms-property-variables">RDBMS property variables</a></li>
             
         
             <li class="second-level"><a href="#register-an-external-database">Register an external database</a></li>
@@ -614,7 +623,7 @@
 <tr>
 <th>Option</th>
 <th>Description</th>
-<th>Blueprint Requirements</th>
+<th>Blueprint requirements</th>
 <th>Steps</th>
 <th>Example</th>
 </tr>
@@ -647,8 +656,8 @@
 <table>
 <thead>
 <tr>
-<th>Property Variable</th>
-<th>Example Value</th>
+<th>Property variable</th>
+<th>Example value</th>
 </tr>
 </thead>
 <tbody>
@@ -720,8 +729,8 @@
 <table>
 <thead>
 <tr>
-<th>Property Variable</th>
-<th>Example Value</th>
+<th>Property variable</th>
+<th>Example value</th>
 </tr>
 </thead>
 <tbody>
@@ -766,7 +775,7 @@
 <p><strong>Related links</strong><br />
 <a href="../blueprints/index.html#creating-a-template-blueprint">Creating a template blueprint</a><br />
 <a href="https://mustache.github.io/">Mustache template syntax</a> (External)  </p>
-<h4 id="rdbms-property-variables">RDBMS Property Variables</h4>
+<h4 id="rdbms-property-variables">RDBMS property variables</h4>
 <p>Cloudbreak utilizes the following RDBMS related variables, where [type] can be one of [hive,druid,oozie,ranger,superset] or other specified by you (for example "beacon").</p>
 <pre>rds.[type].connectionURL
 rds.[type].connectionDriver

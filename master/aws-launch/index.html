@@ -257,6 +257,21 @@
                 
                 
                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">VM <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -330,12 +345,6 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
-</li>
-
-        
-            
-<li >
     <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
 </li>
 
@@ -360,7 +369,7 @@
         
             
 <li >
-    <a href="../security-cb-ssl/index.html">Configure SSL certificates</a>
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
 </li>
 
         
@@ -640,7 +649,7 @@
 <table>
 <thead>
 <tr>
-<th>Region Name</th>
+<th>Region name</th>
 <th>Region</th>
 </tr>
 </thead>
@@ -716,7 +725,7 @@
 <p>If you are using key-based authentication for Cloudbreak on AWS, you must be able to provide your AWS access key and secret key pair. Cloudbreak will use these keys to launch the resources. You must provide the access and secret keys later in the Cloudbreak web UI later when creating a credential. </p>
 <p>If you choose this option, all you need to do at this point is check your AWS account and make sure that you can access this key pair. You can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong>. Next, select a user and click on the <strong>Security credentials</strong> tab:</p>
 <p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a> </p>
-<p>If you choose this option, you can proceed to <a href="#launch-the-vm">Launch the VM</a>.</p>
+<p>If you choose this option, you can proceed to <a href="#launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</a>.</p>
 <h3 id="option-2-configure-role-based-authentication">(Option 2) Configure role-based authentication</h3>
 <p>If you are using role-based authentication for Cloudbreak on AWS, you must create two IAM roles: one to grant Cloudbreak access to allow Cloudbreak to assume AWS roles (using the "AssumeRole" policy) and the second one to provide Cloudbreak with the capabilities required for cluster creation (using the "cb-policy" policy).</p>
 <p>The following table provides contextual information about the two roles required: </p>
@@ -725,7 +734,7 @@
 <tr>
 <th>Role</th>
 <th>Purpose</th>
-<th>Overview of Steps</th>
+<th>Overview of steps</th>
 <th>Configuration</th>
 </tr>
 </thead>
@@ -964,7 +973,7 @@
 <p>When done, click <strong>Create role</strong> to finish the role creation process. </p>
 </li>
 </ol>
-<p>Once you are done, you can proceed to <a href="#launch-the-vm">Launch the VM</a>.  </p>
+<p>Once you are done, you can proceed to <a href="#launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</a>.  </p>
 <p><strong>Related links</strong><br />
 <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using instance profiles</a> (External)<br />
 <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">Using an IAM role to grant permissions to applications</a> (External)   </p>
@@ -1147,7 +1156,7 @@ export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
 <p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 <li>
-<p>Log in to the Cloudbreak web UI using the credential that you configured in your <code>Profile</code> file when <a href="#launch-cloudbreak-deployer">launching Cloudbreak deployer</a>:</p>
+<p>Log in to the Cloudbreak web UI using the credential that you configured in your <code>Profile</code> file when <a href="#start-cloudbreak-deployer">starting Cloudbreak deployer</a>:</p>
 <ul>
 <li>The username is the <code>UAA_DEFAULT_USER_EMAIL</code>     </li>
 <li>The password is the <code>UAA_DEFAULT_USER_PW</code> </li>
@@ -1221,7 +1230,7 @@ export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
 </li>
 </ol>
 <h4 id="create-role-based-credential">Create role-based credential</h4>
-<p>To perform these steps, you must know the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" (configured as a <a href="#authorization-for-cloudbreak">prerequisite</a>).  </p>
+<p>To perform these steps, you must know the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" (configured as a <a href="#authentication">prerequisite</a>).  </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>

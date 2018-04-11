@@ -257,6 +257,21 @@
                 
                 
                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">VM <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -330,12 +345,6 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
-</li>
-
-        
-            
-<li >
     <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
 </li>
 
@@ -360,7 +369,7 @@
         
             
 <li >
-    <a href="../security-cb-ssl/index.html">Configure SSL certificates</a>
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
 </li>
 
         
@@ -597,7 +606,7 @@
                 <li class="third-level"><a href="#vpc-network">VPC network</a></li>
             
         
-            <li class="second-level"><a href="#launch-cloudbreak-deployer-from-image">Launch Cloudbreak deployer from image</a></li>
+            <li class="second-level"><a href="#launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</a></li>
             
         
             <li class="second-level"><a href="#ssh-to-the-vm">SSH to the VM</a></li>
@@ -649,7 +658,7 @@
 <h4 id="vpc-network">VPC network</h4>
 <p>When launching Cloudbreak, you will be required to select an existing network in which Cloudbreak can be placed. The following ports must be open on the security group: 22 (for access via SSH), 80 (for access via HTTP), and 443 (for access via HTTPS). You may use the <em>default</em> network as long as the aforementioned ports are open. </p>
 <p>You can manage networks under <strong>Networking</strong> &gt; <strong>VPC Networks</strong>. To edit ports, click on the network name and then click on <strong>Add firewall rules</strong>. </p>
-<h3 id="launch-cloudbreak-deployer-from-image">Launch Cloudbreak deployer from image</h3>
+<h3 id="launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</h3>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -775,7 +784,7 @@ export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
 <p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 <li>
-<p>Log in to the Cloudbreak web UI using the credential that you configured in your <code>Profile</code> file when <a href="#launch-cloudbreak-deployer">launching Cloudbreak deployer</a>:</p>
+<p>Log in to the Cloudbreak web UI using the credential that you configured in your <code>Profile</code> file when <a href="#launch-cloudbreak-deployer-from-an-image">launching Cloudbreak deployer from an image</a>:</p>
 <ul>
 <li>The username is the <code>UAA_DEFAULT_USER_EMAIL</code>     </li>
 <li>The password is the <code>UAA_DEFAULT_USER_PW</code> </li>

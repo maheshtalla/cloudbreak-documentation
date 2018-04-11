@@ -256,6 +256,21 @@
                 
                 
                 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">VM <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -330,12 +345,6 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
-</li>
-
-        
-            
-<li >
     <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
 </li>
 
@@ -360,7 +369,7 @@
         
             
 <li >
-    <a href="../security-cb-ssl/index.html">Configure SSL certificates</a>
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
 </li>
 
         
@@ -582,7 +591,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#creating-custom-scripts-recipes">Creating Custom Scripts (recipes)</a></li>
+        <li class="first-level active"><a href="#creating-custom-scripts-recipes">Creating custom scripts (recipes)</a></li>
         
             <li class="second-level"><a href="#writing-recipes">Writing recipes</a></li>
             
@@ -597,7 +606,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="creating-custom-scripts-recipes">Creating Custom Scripts (recipes)</h2>
+<h2 id="creating-custom-scripts-recipes">Creating custom scripts (recipes)</h2>
 <p>Although Cloudbreak lets you provision clusters in the cloud based on custom Ambari blueprints, Cloudbreak provisioning options don't consider all possible use cases. For that reason, we introduced recipes. </p>
 <p>A recipe is a script that runs on all nodes of a selected node group at a specific time. You can use recipes for tasks such as installing additional software or performing advanced cluster configuration. For example, you can use a recipe to put a JAR file on the Hadoop classpath.</p>
 <p>Available recipe execution times are:  </p>

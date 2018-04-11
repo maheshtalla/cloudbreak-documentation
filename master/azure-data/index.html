@@ -257,6 +257,21 @@
                 
                 
                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">VM <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -330,12 +345,6 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
-</li>
-
-        
-            
-<li >
     <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
 </li>
 
@@ -360,7 +369,7 @@
         
             
 <li >
-    <a href="../security-cb-ssl/index.html">Configure SSL certificates</a>
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
 </li>
 
         
@@ -620,7 +629,7 @@ from/to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as read
 <h4 id="prerequisites">Prerequisites</h4>
 <p>If you want to use ADLS to store your data, you must enable Azure subscription for Data Lake Store, and then create an Azure Data Lake Store <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">storage account</a>.</p>
 <h4 id="configure-access-to-adls">Configure access to ADLS</h4>
-<p>ADLS is not supported as a default file system, but access to data in ADLS via the adl connector. To configure access to ADLS from a cluster managed via Cloudbreak use the steps described in <a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to Configure authentication with ADLS</a>.</p>
+<p>ADLS is not supported as a default file system, but access to data in ADLS via the adl connector. To configure access to ADLS from a cluster managed via Cloudbreak use the steps described in <a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to configure authentication with ADLS</a>.</p>
 <h4 id="test-access-to-adls">Test access to ADLS</h4>
 <p>To tests access to ADLS, SSH to a cluster node and run a few hadoop fs shell commands against your existing ADLS account.</p>
 <p>ADLS access path syntax is:</p>

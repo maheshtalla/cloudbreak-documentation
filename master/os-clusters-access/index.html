@@ -257,6 +257,21 @@
                 
                 
                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">VM <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -330,12 +345,6 @@
         
             
 <li >
-    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
-</li>
-
-        
-            
-<li >
     <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
 </li>
 
@@ -360,7 +369,7 @@
         
             
 <li >
-    <a href="../security-cb-ssl/index.html">Configure SSL certificates</a>
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
 </li>
 
         
@@ -584,6 +593,9 @@
     
         <li class="first-level active"><a href="#accessing-your-cluster">Accessing your cluster</a></li>
         
+            <li class="second-level"><a href="#cloudbreak-user-accounts">Cloudbreak user accounts</a></li>
+            
+        
             <li class="second-level"><a href="#finding-cluster-information-in-the-web-ui">Finding cluster information in the web UI</a></li>
             
                 <li class="third-level"><a href="#cluster-summary">Cluster summary</a></li>
@@ -599,9 +611,6 @@
             <li class="second-level"><a href="#access-ambari">Access Ambari</a></li>
             
         
-            <li class="second-level"><a href="#cloudbreak-user-accounts">Cloudbreak user accounts</a></li>
-            
-        
     
     </ul>
 </div></div>
@@ -609,6 +618,44 @@
 
 <h2 id="accessing-your-cluster">Accessing your cluster</h2>
 <p>The following section describes how to access the various services in the cluster.</p>
+<h3 id="cloudbreak-user-accounts">Cloudbreak user accounts</h3>
+<p>The following table describes what credentials to use to access Cloudbreak and Cloudbreak-managed clusters:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloudbreak</td>
+<td>Web UI, CLI</td>
+<td>Access with the username and password provided when launching Cloudbreak on the cloud provider.</td>
+</tr>
+<tr>
+<td>Cloudbreak</td>
+<td>SSH to VM</td>
+<td>Access as the "cloudbreak" user with the SSH key provided when launching Cloudbreak on the cloud provider.</td>
+</tr>
+<tr>
+<td>Cluster</td>
+<td>SSH to VMs</td>
+<td>Access as the "cloudbreak" user with the SSH key provided during cluster creation.</td>
+</tr>
+<tr>
+<td>Cluster</td>
+<td>Ambari web UI</td>
+<td>Access with the credentials provided in the “Cluster User” parameter during cluster creation.</td>
+</tr>
+<tr>
+<td>Cluster</td>
+<td>Web UIs for specific cluster services</td>
+<td>Access with the credentials provided in the “Cluster User” parameter during cluster creation.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="finding-cluster-information-in-the-web-ui">Finding cluster information in the web UI</h3>
 <p>Once your cluster is up and running, click on the tile representing your cluster in the Cloudbreak UI to access information related the cluster and access cluster actions. </p>
 <p><a href="../images/cb_cb-cl-details1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-cl-details1.png" width="650" title="Cluster Information"></a> </p>
@@ -721,7 +768,7 @@
 </tr>
 <tr>
 <td>Authentication Source</td>
-<td>If you are using an external authentication source (LDAP/AD) for your cluster, you can see it here. Refer to <a href="../external-ldap/index.html">Register an authentication source</a>.</td>
+<td>If you are using an external authentication source (LDAP/AD) for your cluster, you can see it here. Refer to <a href="../external-ldap/index.html">Using an external authentication source</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -744,11 +791,11 @@
 </tr>
 <tr>
 <td>Recipes</td>
-<td>This section includes recipe-related information. For each recipe, you can see the host group on which a recipe was executed, recipe name, and recipe type. Refer to <a href="../recipes/index.html">Recipes</a>.</td>
+<td>This section includes recipe-related information. For each recipe, you can see the host group on which a recipe was executed, recipe name, and recipe type. Refer to <a href="../recipes/index.html">Using custom scripts (recipes)</a>.</td>
 </tr>
 <tr>
 <td>External Databases</td>
-<td>If you are using an external database for your cluster, you can see it here. Refer to <a href="../external-db/index.html">Register an external database</a>.</td>
+<td>If you are using an external database for your cluster, you can see it here. Refer to <a href="../external-db/index.html">using an external database</a>.</td>
 </tr>
 <tr>
 <td>Repository Details</td>
@@ -768,7 +815,7 @@
 </tr>
 <tr>
 <td>Autoscaling</td>
-<td>This section includes configuration options related to autoscaling. Refer to <a href="../autoscaling/index.html">Autoscaling</a>.</td>
+<td>This section includes configuration options related to autoscaling. Refer to <a href="../autoscaling/index.html">Configuring autoscaling</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -849,44 +896,6 @@ For example:
 </table>
 </li>
 </ol>
-<h3 id="cloudbreak-user-accounts">Cloudbreak user accounts</h3>
-<p>The following table describes what credentials to use to access Cloudbreak and Cloudbreak-managed clusters:</p>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cloudbreak</td>
-<td>Web UI, CLI</td>
-<td>Access with the username and password provided when launching Cloudbreak on the cloud provider.</td>
-</tr>
-<tr>
-<td>Cloudbreak</td>
-<td>SSH to VM</td>
-<td>Access as the "cloudbreak" user with the SSH key provided when launching Cloudbreak on the cloud provider.</td>
-</tr>
-<tr>
-<td>Cluster</td>
-<td>SSH to VMs</td>
-<td>Access as the "cloudbreak" user with the SSH key provided during cluster creation.</td>
-</tr>
-<tr>
-<td>Cluster</td>
-<td>Ambari web UI</td>
-<td>Access with the credentials provided in the “Cluster User” parameter during cluster creation.</td>
-</tr>
-<tr>
-<td>Cluster</td>
-<td>Web UIs for specific cluster services</td>
-<td>Access with the credentials provided in the “Cluster User” parameter during cluster creation.</td>
-</tr>
-</tbody>
-</table>
 <div class="next">
 <a href="../os-clusters-manage/index.html">Next: Manage and Monitor Clusters</a>
 </div></div>

@@ -150,6 +150,16 @@
     
         
     <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//vm-launch/index.html</loc>
+     <lastmod>2018-04-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation/</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
