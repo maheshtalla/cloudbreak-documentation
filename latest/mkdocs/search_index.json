@@ -1393,7 +1393,7 @@
         {
             "location": "/tags/index.html", 
             "text": "Tagging resources\n\n\nWhen you manually create resources in the cloud, you have an option to add custom tags that help you track these resources. Likewise, when creating clusters, you can instruct Cloudbreak to tag the cloud resources that it creates on your behalf. The tags added during cluster creation are displayed in your cloud account on the resources that Cloudbreak provisioned for your clusters. \n\n\nYou can use tags to categorize your cloud resources by purpose, owner, and so on. Tags come in especially handy when you are using a corporate AWS account and you want to quickly identify which resources belong to your cluster(s). In fact, your corporate cloud account admin may require you to tag all the resources that you create, in particular resources, such as VMs, which incur charges.\n\n\nAdd tags when creating a cluster\n\n\nYou can tag the cloud resources used for a cluster by providing custom tag names and values when creating a cluster via UI or CLI. In the Cloudbreak UI, this option is available in the create cluster wizard, in the advanced \nGeneral Configuration\n page \n \nTags\n section. \n\n\nIt is not possible to add tags via Cloudbreak after your cluster has been created.  \n\n\nTo learn more about tags and their restrictions, refer to the cloud provider documentation. \n\n\nRelated links\n\n\nTags on AWS\n  \n\n\nTags on Azure\n\n\nLabels on GCP\n\n\nTags on OpenStack", 
-            "title": "Tagging resources"
+            "title": "Tag resources"
         }, 
         {
             "location": "/tags/index.html#tagging-resources", 
