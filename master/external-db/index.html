@@ -593,15 +593,17 @@
     
         <li class="first-level active"><a href="#using-an-external-database-for-cluster-services">Using an external database for cluster services</a></li>
         
-            <li class="second-level"><a href="#example-1-built-in-type-hive">Example 1: Built-in type Hive</a></li>
+            <li class="second-level"><a href="#external-database-support-matrix">External database support matrix</a></li>
             
         
-            <li class="second-level"><a href="#example-2-other-type">Example 2: Other type</a></li>
+            <li class="second-level"><a href="#external-database-options">External database options</a></li>
+            
+                <li class="third-level"><a href="#example-1-built-in-type-hive">Example 1: Built-in type Hive</a></li>
+            
+                <li class="third-level"><a href="#example-2-other-type">Example 2: Other type</a></li>
             
         
             <li class="second-level"><a href="#creating-a-template-blueprint-for-rdmbs">Creating a template blueprint for RDMBS</a></li>
-            
-                <li class="third-level"><a href="#rdbms-property-variables">RDBMS property variables</a></li>
             
         
             <li class="second-level"><a href="#register-an-external-database">Register an external database</a></li>
@@ -614,9 +616,71 @@
 
 <h2 id="using-an-external-database-for-cluster-services">Using an external database for cluster services</h2>
 <p>Cloudbreak allows you to register an existing RDBMS instance to be used for a database for certain services. After you register the RDBMS with Cloudbreak, you can use it for multiple clusters. </p>
-<blockquote>
-<p>Only <strong>PostgreSQL</strong> is supported at this time.  </p>
-</blockquote>
+<h3 id="external-database-support-matrix">External database support matrix</h3>
+<p>If you would like to use an external database for one of the components that support it, you may use the following database types and versions: </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Postgres</th>
+<th>MySQL</th>
+<th>Oracle 11</th>
+<th>Oracle 12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ambari</strong></td>
+<td>X</td>
+<td>X</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Druid</strong></td>
+<td>X</td>
+<td>X</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Hive</strong></td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><strong>Oozie</strong></td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><strong>Ranger</strong></td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><strong>Superset</strong></td>
+<td>X</td>
+<td>X</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Other</strong></td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<h3 id="external-database-options">External database options</h3>
 <p>Cloudbreak includes the following external database options:</p>
 <table>
 <thead>
@@ -647,7 +711,7 @@
 </table>
 <p>During cluster create, Cloudbreak checks whether the JDBC properties are present in the blueprint:</p>
 <p><a href="../images/cb_cb-rdbms-diagram.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-rdbms-diagram.png" width="550" title="Cloudbreak web UI"></a></p>
-<h3 id="example-1-built-in-type-hive">Example 1: Built-in type Hive</h3>
+<h4 id="example-1-built-in-type-hive">Example 1: Built-in type Hive</h4>
 <p>In this scenario, you start up with a standard blueprint, and Cloudbreak injects the JDBC properties into the blueprint.</p>
 <ol>
 <li>
@@ -711,7 +775,7 @@
 ...</pre> </p>
 </li>
 </ol>
-<h3 id="example-2-other-type">Example 2: Other type</h3>
+<h4 id="example-2-other-type">Example 2: Other type</h4>
 <p>In this scenario, you start up with a special blueprint including JDBC property variables, and Cloudbreak replaces JDBC-related property variables in the blueprint. </p>
 <ol>
 <li>
@@ -775,19 +839,6 @@
 <p><strong>Related links</strong><br />
 <a href="../blueprints/index.html#creating-a-template-blueprint">Creating a template blueprint</a><br />
 <a href="https://mustache.github.io/">Mustache template syntax</a> (External)  </p>
-<h4 id="rdbms-property-variables">RDBMS property variables</h4>
-<p>Cloudbreak utilizes the following RDBMS related variables, where [type] can be one of [hive,druid,oozie,ranger,superset] or other specified by you (for example "beacon").</p>
-<pre>rds.[type].connectionURL
-rds.[type].connectionDriver
-rds.[type].connectionUserName
-rds.[type].connectionPassword
-rds.[type].databaseName
-rds.[type].host
-rds.[type].hostWithPort
-rds.[type].subprotocol
-rds.[type].databaseEngine</pre>
-
-<p>These parameters correspond to the external database UI and CLI options. </p>
 <h3 id="register-an-external-database">Register an external database</h3>
 <p>You must create the external RDBMS instance and database prior to registering it with Cloudbreak. Once you have it ready, you can:</p>
 <ol>
@@ -818,7 +869,11 @@ rds.[type].databaseEngine</pre>
 </tr>
 <tr>
 <td align="left">JDBC Connection</td>
-<td align="left">Select the database <strong>type</strong> (PostgreSQL) and enter the <strong>JDBC connection</strong> string (HOST:PORT/DB_NAME).</td>
+<td align="left">Select the database <strong>type</strong> and enter the <strong>JDBC connection</strong> string (HOST:PORT/DB_NAME).</td>
+</tr>
+<tr>
+<td align="left">Connector's JAR URL</td>
+<td align="left">(MySQL and Oracle only) Provide a URL to the JDBC connector's JAR file. The JAR file must be hosted in a location accessible to the cluster host on which Ambari is installed. At cluster creation time, Cloudbreak places the JAR file in the /opts/jdbc-drivers/ directory. You do not need to provide the "Connector's JAR URL if you are using a custom image and the JAR file was placed on the VM as part of custom image burning.</td>
 </tr>
 <tr>
 <td align="left">Username</td>
