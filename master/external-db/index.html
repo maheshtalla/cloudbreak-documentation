@@ -593,7 +593,7 @@
     
         <li class="first-level active"><a href="#using-an-external-database-for-cluster-services">Using an external database for cluster services</a></li>
         
-            <li class="second-level"><a href="#external-database-support-matrix">External database support matrix</a></li>
+            <li class="second-level"><a href="#supported-databases">Supported databases</a></li>
             
         
             <li class="second-level"><a href="#external-database-options">External database options</a></li>
@@ -616,7 +616,7 @@
 
 <h2 id="using-an-external-database-for-cluster-services">Using an external database for cluster services</h2>
 <p>Cloudbreak allows you to register an existing RDBMS instance to be used for a database for certain services. After you register the RDBMS with Cloudbreak, you can use it for multiple clusters. </p>
-<h3 id="external-database-support-matrix">External database support matrix</h3>
+<h3 id="supported-databases">Supported databases</h3>
 <p>If you would like to use an external database for one of the components that support it, you may use the following database types and versions: </p>
 <table>
 <thead>
@@ -838,6 +838,11 @@
 <li>Register it in Cloudbreak web UI or CLI.  </li>
 <li>Use it with one or more clusters. Once registered, the database will now show up in the list of available databases when creating a cluster under advanced <strong>External Sources</strong> &gt; <strong>Configure Databases</strong>.  </li>
 </ol>
+<p><strong>Prerequisites</strong>  </p>
+<p>If you are planning to use an external MySQL or Oracle database, you must download the JDBC connector's JAR file and place it in a location available to the cluster host on which Ambari is installed. The steps below require that you provide the URL to the JDBC connector's JAR file. </p>
+<blockquote>
+<p>If you are using your own <a href="../images/index.html">custom image</a>, you may place the JDBC connector's JAR file directly on the machine as part of the image burning process. </p>
+</blockquote>
 <p><strong>Steps</strong> </p>
 <ol>
 <li>From the navigation pane, select <strong>External Sources</strong> &gt; <strong>Database Configurations</strong>.  </li>
@@ -866,7 +871,7 @@
 </tr>
 <tr>
 <td align="left">Connector's JAR URL</td>
-<td align="left">(MySQL and Oracle only) Provide a URL to the JDBC connector's JAR file. The JAR file must be hosted in a location accessible to the cluster host on which Ambari is installed. At cluster creation time, Cloudbreak places the JAR file in the /opts/jdbc-drivers/ directory. You do not need to provide the "Connector's JAR URL if you are using a custom image and the JAR file was placed on the VM as part of custom image burning.</td>
+<td align="left">(MySQL and Oracle only) Provide a URL to the JDBC connector's JAR file. The JAR file must be hosted in a location accessible to the cluster host on which Ambari is installed. At cluster creation time, Cloudbreak places the JAR file in the /opts/jdbc-drivers directory. You do not need to provide the "Connector's JAR URL if you are using a custom image and the JAR file was placed on the VM as part of custom image burning.</td>
 </tr>
 <tr>
 <td align="left">Username</td>
