@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/gcp-launch/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/mpacks/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Launch on GCP - Cloudbreak</title>
+    <title>Use management packs - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -190,13 +190,13 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="index.html">Launch on GCP</a>
+<li >
+    <a href="../gcp-launch/index.html">Launch on GCP</a>
 </li>
 
                         
@@ -271,7 +271,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -293,8 +293,8 @@
 
         
             
-<li >
-    <a href="../mpacks/index.html">Use management packs</a>
+<li class="active">
+    <a href="index.html">Use management packs</a>
 </li>
 
         
@@ -567,12 +567,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../azure-data/index.html">
+                        <a rel="next" href="../recipes/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../gcp-create/index.html">
+                        <a rel="prev" href="../images/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -597,268 +597,15 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#launching-cloudbreak-on-gcp">Launching Cloudbreak on GCP</a></li>
-        
-            <li class="second-level"><a href="#meet-the-prerequisites">Meet the prerequisites</a></li>
-            
-                <li class="third-level"><a href="#gcp-account">GCP account</a></li>
-            
-                <li class="third-level"><a href="#service-account">Service account</a></li>
-            
-                <li class="third-level"><a href="#ssh-key-pair">SSH key pair</a></li>
-            
-                <li class="third-level"><a href="#region-and-zone">Region and zone</a></li>
-            
-                <li class="third-level"><a href="#vpc-network">VPC network</a></li>
-            
-        
-            <li class="second-level"><a href="#launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</a></li>
-            
-        
-            <li class="second-level"><a href="#ssh-to-the-vm">SSH to the VM</a></li>
-            
-        
-            <li class="second-level"><a href="#start-cloudbreak-deployer">Start Cloudbreak deployer</a></li>
-            
-        
-            <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
-            
-        
-            <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
-            
+        <li class="first-level active"><a href="#using-management-packs">Using management packs</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="launching-cloudbreak-on-gcp">Launching Cloudbreak on GCP</h2>
-<p>Before launching Cloudbreak on Google Cloud, review and meet the prerequisites. Next, import Cloudbreak image, launch a VM, SSH to the VM, and start Cloudbreak. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential. </p>
-<h3 id="meet-the-prerequisites">Meet the prerequisites</h3>
-<p>Before launching Cloudbreak on GCP, you must meet the following prerequisites.</p>
-<h4 id="gcp-account">GCP account</h4>
-<p>In order to launch Cloudbreak on GCP, you must log in to your GCP account. If you don't have an account, you can create one at <a href="https://console.cloud.google.com">https://console.cloud.google.com</a>.</p>
-<p>Once you log in to your GCP account, you must either create a project or use an existing project. </p>
-<h4 id="service-account">Service account</h4>
-<p>In order to launch clusters on GCP via Cloudbreak, you must have a Service Account that Cloudbreak can use to create resources. In addition, you must also have a P12 key associated with the account. The service account must have the following roles are enabled:</p>
-<ul>
-<li>Compute Engine &gt; Compute Image User   </li>
-<li>Compute Engine &gt; Compute Instance Admin (v1)  </li>
-<li>Compute Engine &gt; Compute Network Admin  </li>
-<li>Compute Engine &gt; Compute Security Admin  </li>
-<li>Storage &gt; Storage Admin </li>
-</ul>
-<p>A user with an "Owner" role can assign roles to new and existing service accounts from <strong>IAM &amp; Admin</strong> &gt; <strong>IAM</strong>, as presented in the following screenshots: </p>
-<p><a href="../images/cb_gcp-iam.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-iam.png" width="650" title="GCP Console"></a> </p>
-<p><a href="../images/cb_gcp-iam2.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-iam2.png" width="650" title="GCP Console"></a> </p>
-<p>For more information on creating a Service Account and generating a P12 key, refer to <a href="https://cloud.google.com/storage/docs/authentication#service_accounts">GCP documentation</a>. </p>
-<p><strong>Related links</strong><br />
-<a href="https://cloud.google.com/storage/docs/authentication#service_accounts">Service account credentials</a> (External)  </p>
-<h4 id="ssh-key-pair">SSH key pair</h4>
-<p><a href="../faq/index.html#generate-ssh-key-pair">Generate a new SSH key pair</a> or use an existing SSH key pair. You will be required to provide it when launching the VM. </p>
-<h4 id="region-and-zone">Region and zone</h4>
-<p>Decide in which region and zone you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones">supported by GCP</a>.  </p>
-<p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it. </p>
-<p><strong>Related links</strong><br />
-<a href="https://cloud.google.com/compute/docs/regions-zones/">Regions and zones</a> (External)  </p>
-<h4 id="vpc-network">VPC network</h4>
-<p>When launching Cloudbreak, you will be required to select an existing network in which Cloudbreak can be placed. The following ports must be open on the security group: 22 (for access via SSH), 80 (for access via HTTP), and 443 (for access via HTTPS). You may use the <em>default</em> network as long as the aforementioned ports are open. </p>
-<p>You can manage networks under <strong>Networking</strong> &gt; <strong>VPC Networks</strong>. To edit ports, click on the network name and then click on <strong>Add firewall rules</strong>. </p>
-<h3 id="launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</h3>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Log in to Google Cloud Platform.</p>
-</li>
-<li>
-<p>Open the <strong>Google Cloud Shell</strong> by clicking on the  <img src="../images/cb_gcp-icon.png" width="25" title="Icon"> icon in the top-right corner:</p>
-<p><a href="../images/cb_gcp-01.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-01.png" width="650" title="GCP Console"></a> </p>
-</li>
-<li>
-<p>Import the Cloudbreak deployer image by executing the following command: </p>
-<p><pre>gcloud compute images create cloudbreak-deployer-250-2018-04-03 --source-uri gs://sequenceiqimage/cloudbreak-deployer-250-2018-04-03.tar.gz</pre></p>
-</li>
-<li>
-<p>In the GCP UI, from the <strong>Products and services</strong> menu, select <strong>Compute Engine</strong> &gt; <strong>Images</strong>.</p>
-</li>
-<li>
-<p>In the search bar, type the name of the Cloudbreak deployer image that you imported earlier.</p>
-</li>
-<li>
-<p>Select the image and then click <strong>Create Instance</strong>:  </p>
-<p><a href="../images/cb_gcp-02.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-02.png" width="650" title="GCP Console"></a>  </p>
-</li>
-<li>
-<p>You will be redirected to <strong>VM instances</strong> &gt; <strong>Create an instance</strong> form. Provide the following parameters for your VM:</p>
-<p><a href="../images/cb_gcp-03.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-03.png" width="650" title="GCP Console"></a>  </p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Name</td>
-<td>Enter a name for the VM.</td>
-</tr>
-<tr>
-<td>Zone</td>
-<td>Select the zone in which to launch the VM.</td>
-</tr>
-<tr>
-<td>Machine type</td>
-<td>The minimum instance type suitable for Cloudbreak is <strong>n1-standard-4</strong>. The minimum requirements are 16GB RAM, 40GB disk, 4 cores.</td>
-</tr>
-<tr>
-<td>Boot disk</td>
-<td>Verify that the Cloudbreak deployer disk which you imported earlier is pre-selected.</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Click on <strong>Management, disks, networking, SSH keys</strong> to view the options.</p>
-</li>
-<li>
-<p>Under <strong>Networking</strong> &gt; <strong>Network interfaces</strong>, select the network in which you want to launch Cloudbreak. </p>
-</li>
-<li>
-<p>Under <strong>SSH Keys</strong>, check <strong>Block project-wise SSH keys</strong> and paste your public SSH key.</p>
-</li>
-<li>
-<p>Click <strong>Create</strong>. </p>
-</li>
-</ol>
-<h3 id="ssh-to-the-vm">SSH to the VM</h3>
-<p>Now that your VM is ready, access it via SSH: </p>
-<ul>
-<li>Use a private key matching the public key that you added to your  project.</li>
-<li>The SSH user is called "cloudbreak".</li>
-<li>You can obtain the VM's IP address from <strong>Compute Engine</strong> &gt; <strong>VM Instances</strong>, the <strong>External IP</strong> column.</li>
-</ul>
-<p>On Mac OS X, you can SSH to the VM by running the following from the Terminal app: <code>ssh -i "your-private-key.pem" cloudbreak@instance_IP</code> where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.</p>
-<p>On Windows, you can use <a href="http://www.putty.org/">PuTTy</a>.</p>
-<h3 id="start-cloudbreak-deployer">Start Cloudbreak deployer</h3>
-<p>After accessing the VM via SSH, launch Cloudbreak deployer using the following steps.</p>
-<p><strong>Steps</strong> </p>
-<ol>
-<li>
-<p>Navigate to the cloudbreak-deployment directory:</p>
-<p><pre>cd /var/lib/cloudbreak-deployment/</pre></p>
-<p>This directory contains configuration files and the supporting binaries for Cloudbreak deployer.</p>
-</li>
-<li>
-<p>Initialize your profile by creating a new file called <code>Profile</code> and adding the following content:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
-export UAA_DEFAULT_USER_PW=MY-PASSWORD
-export UAA_DEFAULT_USER_EMAIL=MY-EMAIL</pre>  </p>
-<p>For example: </p>
-<p><pre>export UAA_DEFAULT_SECRET=MySecret123
-export UAA_DEFAULT_USER_PW=MySecurePassword123
-export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
-<blockquote>
-<p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.  </p>
-</blockquote>
-</li>
-<li>
-<p>Start the Cloudbreak application by using the following command:</p>
-<p><pre>cbd start</pre></p>
-<p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, this also downloads of all the necessary docker images.</p>
-<p>Once the <code>cbd start</code> has finished, it returns the "Uluwatu (Cloudbreak UI) url" which you can later paste in your browser and log in to Cloudbreak web UI.</p>
-<p>To check Cloudbreak deployer version and health, use: </p>
-<p><pre>cbd doctor</pre></p>
-<p>If you need to check Cloudbreak Application logs, use: </p>
-<p><pre>cbd logs cloudbreak</pre></p>
-<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak takes less than a minute to start. If you try to access the Cloudbreak UI before Cloudbreak started, you will get a "Bad Gateway" error or "Cannot connect to Cloudbreak" error.</p>
-</li>
-</ol>
-<h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
-<p>Log in to the Cloudbreak UI using the following steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>You can log into the Cloudbreak application at <code>https://IP_Address</code>. For example <code>https://34.212.141.253</code>. You can obtain the VM's IP address from <strong>Compute Engine</strong> &gt; <strong>VM Instances</strong>, the <strong>External IP</strong> column.</p>
-</li>
-<li>
-<p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
-<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
-</li>
-<li>
-<p>The login page is displayed:</p>
-<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
-</li>
-<li>
-<p>Log in to the Cloudbreak web UI using the credential that you configured in your <code>Profile</code> file when <a href="#launch-cloudbreak-deployer-from-an-image">launching Cloudbreak deployer from an image</a>:</p>
-<ul>
-<li>The username is the <code>UAA_DEFAULT_USER_EMAIL</code>     </li>
-<li>The password is the <code>UAA_DEFAULT_USER_PW</code> </li>
-</ul>
-</li>
-<li>
-<p>Upon a successful login, you are redirected to the dashboard:</p>
-<p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
-</li>
-</ol>
-<h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
-<p>Cloudbreak works by connecting your GCP account through this credential, and then uses it to create resources on your behalf. Before you can start provisioning cluster using Cloudbreak, you must create a Cloudbreak credential.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the navigation pane. </p>
-</li>
-<li>
-<p>Click <strong>Create Credential</strong>. </p>
-</li>
-<li>
-<p>Under <strong>Cloud provider</strong>, select "Google Cloud Platform":</p>
-<p><a href="../images/cb_cb-gcp-cred.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-gcp-cred.png" width="650" title="Cloudbreak web UI"></a>  </p>
-</li>
-<li>
-<p>Provide the following information:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Name</td>
-<td>Enter a name for your credential.</td>
-</tr>
-<tr>
-<td>Description</td>
-<td>(Optional) Enter a description.</td>
-</tr>
-<tr>
-<td>Project Id</td>
-<td>Enter the project ID. You can obtain it from your GCP account by clicking on the name of your project at the top of the page and copying the <strong>ID</strong>.</td>
-</tr>
-<tr>
-<td>Service Account Email Address</td>
-<td>"Service account ID" value for your service account created in prerequisites. You can find it on GCP at <strong>IAM &amp; Admin</strong> &gt; <strong>Service accounts</strong>.</td>
-</tr>
-<tr>
-<td>Service Account Private (p12) Key</td>
-<td>Upload the P12 key that you created in the prerequisites when creating a service account.</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Click <strong>Create</strong>.</p>
-</li>
-<li>
-<p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
-<p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to <a href="../gcp-create/index.html">create clusters</a>. </p>
-</li>
-</ol>
-<div class="next">
-<a href="../gcp-create/index.html">Next: Create a Cluster</a>
-</div></div>
+<h2 id="using-management-packs">Using management packs</h2>
+<p>TBD</p></div>
         
     </div>
 
