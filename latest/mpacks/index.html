@@ -599,13 +599,64 @@
     
         <li class="first-level active"><a href="#using-management-packs">Using management packs</a></li>
         
+            <li class="second-level"><a href="#add-management-pack">Add management pack</a></li>
+            
+        
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h2 id="using-management-packs">Using management packs</h2>
-<p>TBD</p></div>
+<p>TBD</p>
+<p>https://cwiki.apache.org/confluence/display/AMBARI/Management+Packs </p>
+<h3 id="add-management-pack">Add management pack</h3>
+<p>In order to have a management stack installed for a specific cluster, you must register it first by using the steps below.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>In CLoudbreak web UI, select <strong>External Sources &gt; Management Packs</strong> from the navigation menu. </p>
+</li>
+<li>
+<p>Click on <strong>Register Management Pack</strong>. </p>
+</li>
+<li>
+<p>Provide the following:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Enter a name for your managament pack.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>(Optional) Enter a description.</td>
+</tr>
+<tr>
+<td>Management pack URL</td>
+<td>Provide the URL to the location where the management pack tarball is available.</td>
+</tr>
+<tr>
+<td>Remove all existing Ambari stack definitions prior to installing this Management Pack (“mpack --purge”).</td>
+<td></td>
+</tr>
+<tr>
+<td>Checking this option allows you to purge any existing stack definition and should be included only when installing a stack management pack. Do not select this when installing an add-on service management pack.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>When creating a cluster, you can select previously added management packs on the advanced <strong>Cluster Extensions</strong> page of the cluster wizard. </p>
+</li>
+</ol></div>
         
     </div>
 
