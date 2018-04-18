@@ -629,7 +629,7 @@
 <tr>
 <th>Component</th>
 <th>Supported databases</th>
-<th></th>
+<th>Description</th>
 <th></th>
 <th></th>
 </tr>
@@ -638,7 +638,7 @@
 <tr>
 <td><strong>Ambari</strong></td>
 <td>PostgreSQL, MySQL</td>
-<td></td>
+<td>By default, Ambari uses an embedded PostgreSQL instance.</td>
 <td></td>
 <td></td>
 </tr>
@@ -652,7 +652,7 @@
 <tr>
 <td><strong>Hive</strong></td>
 <td>PostgreSQL, MySQL, Oracle 11, Oracle 12</td>
-<td></td>
+<td>By default, Cloudbreak installs a PostgreSQL instance on the Hive Metastore host.</td>
 <td></td>
 <td></td>
 </tr>
@@ -673,6 +673,13 @@
 <tr>
 <td><strong>Superset</strong></td>
 <td>PostgreSQL, MySQL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Other</strong></td>
+<td>PostgreSQL, MySQL, Oracle 11, Oracle 12</td>
 <td></td>
 <td></td>
 <td></td>
@@ -877,7 +884,7 @@
 </tr>
 <tr>
 <td align="left">Connector's JAR URL</td>
-<td align="left">(MySQL and Oracle only) Provide a URL to the JDBC connector's JAR file. The JAR file must be hosted in a location accessible to the cluster host on which Ambari is installed. At cluster creation time, Cloudbreak places the JAR file in the /opts/jdbc-drivers directory. You do not need to provide the "Connector's JAR URL if you are using a custom image and the JAR file was placed on the VM as part of custom image burning.</td>
+<td align="left">(MySQL and Oracle only) Provide a URL to the JDBC connector's JAR file. The JAR file must be hosted in a location accessible to the cluster host on which Ambari is installed. At cluster creation time, Cloudbreak places the JAR file in the /opts/jdbc-drivers directory. You do not need to provide the "Connector's JAR URL if you are using a custom image and the JAR file was either manually placed on the VM as part of custom image burning or it was placed there by using a recipe.</td>
 </tr>
 <tr>
 <td align="left">Username</td>
