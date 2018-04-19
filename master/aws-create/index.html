@@ -770,7 +770,7 @@ By default, ports 22, 443, and 9443 are set to 0.0.0.0/0 CIDR for inbound access
 <ul><li>Ports 22 and 9443 must be open to Cloudbreak's CIDR. You can set CB_DEFAULT_GATEWAY_CIDR in your Cloudbreak's Profile file in order to automatically open ports 22 and 9443 to your Cloudbreak IP. Refer to <a href="../security-cb-inbound/index.html">Restricting inbound access to clusters</a>.</li>
 <li>Port 22 must be open to your CIDR if you would like to access the master node via SSH.</li>
 <li>Port 443 must be open to your CIDR if you would like to access Cloudbreak web UI in a browser.</li>
-<li>Some services may require that you open additional ports. For example, when using the Flow Management blueprint, you must open port 9091 for NiFi (on NiFI host group) and port 61443 fro NiFI Registry (on the Services host group).</li></ul><br />
+<li>Some services may require that you open additional ports. For example, when using the Flow Management blueprint, you must open port 9091 for NiFi (on NiFI host group) and port 61443 for NiFI Registry (on the Services host group).</li></ul><br />
 </p>
 </div></p>
 <p><div class="danger">
