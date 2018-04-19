@@ -679,56 +679,71 @@ service iptables save
 </ul>
 <h3 id="install-cloudbreak-on-your-own-vm">Install Cloudbreak on your own VM</h3>
 <p>Install Cloudbreak using the following steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Install the Cloudbreak deployer and unzip the platform-specific single binary to your PATH. For example:</p>
-<p><pre>yum -y install unzip tar
+<div class="danger">
+    <p class="first admonition-title">About this release</p>
+    <p>This is an internal technical preview. There are two ways to try Cloudbreak 2.6.0 TP:</p>
+    <ul><li> Option 1: By accessing hosted Cloudbreak at <a href="https://cloud.eng.hortonworks.com" target="_blank">https://cloud.eng.hortonworks.com</a>.</li> <li>Option 2: By updating your current Cloudbreak deployment. See <a href="https://wiki.hortonworks.com/display/EN/Updating+cbd+binary+manually" target="_blank">here</a> for steps.</li></ul>
+</div>
+
+<!---Commenting out the regular steps--->
+
+<!---
+
+**Steps**
+
+1. Install the Cloudbreak deployer and unzip the platform-specific single binary to your PATH. For example:
+
+    <pre>yum -y install unzip tar
 curl -Ls public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_2.5.0_$(uname)_x86_64.tgz | sudo tar -xz -C /bin cbd
-cbd --version</pre></p>
-<p>Once the Cloudbreak deployer is installed, you can set up the Cloudbreak application.</p>
-</li>
-<li>
-<p>Create a Cloudbreak deployment directory and navigate to it:</p>
-<p><pre>mkdir cloudbreak-deployment
-cd cloudbreak-deployment</pre></p>
-</li>
-<li>
-<p>In the directory, create a file called <code>Profile</code> with the following content:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
+cbd --version</pre>
+
+
+    Once the Cloudbreak deployer is installed, you can set up the Cloudbreak application.
+
+2. Create a Cloudbreak deployment directory and navigate to it:
+
+    <pre>mkdir cloudbreak-deployment
+cd cloudbreak-deployment</pre>
+
+3. In the directory, create a file called `Profile` with the following content:
+
+    <pre>export UAA_DEFAULT_SECRET=MY-SECRET
 export UAA_DEFAULT_USER_PW=MY-PASSWORD
-export UAA_DEFAULT_USER_EMAIL=MY-EMAIL</pre></p>
-<p>For example:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MySecret123
+export UAA_DEFAULT_USER_EMAIL=MY-EMAIL</pre>
+
+    For example:
+
+    <pre>export UAA_DEFAULT_SECRET=MySecret123
 export UAA_DEFAULT_USER_PW=MySecurePassword123
-export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre></p>
-<blockquote>
-<p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.</p>
-</blockquote>
-</li>
-<li>
-<p>Generate configurations by executing:</p>
-<p><pre>rm *.yml
-cbd generate</pre>   </p>
-<p>The cbd start command includes the cbd generate command which applies the following steps:</p>
-<ul>
-<li>Creates the <code>docker-compose.yml</code> file, which describes the configuration of all the Docker containers required for the Cloudbreak deployment.  </li>
-<li>Creates the <code>uaa.yml</code> file, which holds the configuration of the identity server used to authenticate users with Cloudbreak.   </li>
-</ul>
-</li>
-<li>
-<p>Start the Cloudbreak application by using the following commands:</p>
-<p><pre>cbd pull
-cbd start</pre></p>
-<p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, the process will take longer than usual due to the download of all the necessary docker images.</p>
-</li>
-<li>
-<p>Next, check Cloudbreak application logs:</p>
-<p><pre>cbd logs cloudbreak</pre></p>
-<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.
-å</p>
-</li>
-</ol>
+export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre>
+
+    > You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.
+
+4. Generate configurations by executing:
+
+    <pre>rm *.yml
+cbd generate</pre>   
+
+    The cbd start command includes the cbd generate command which applies the following steps:
+
+    * Creates the `docker-compose.yml` file, which describes the configuration of all the Docker containers required for the Cloudbreak deployment.  
+    * Creates the `uaa.yml` file, which holds the configuration of the identity server used to authenticate users with Cloudbreak.   
+
+5. Start the Cloudbreak application by using the following commands:
+
+    <pre>cbd pull
+cbd start</pre>
+
+    This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, the process will take longer than usual due to the download of all the necessary docker images.
+
+5. Next, check Cloudbreak application logs:
+
+    <pre>cbd logs cloudbreak</pre>
+
+    You should see a message like this in the log: `Started CloudbreakApplication in 36.823 seconds.` Cloudbreak normally takes less than a minute to start.
+å
+--->
+
 <h3 id="next-steps-after-installing-on-your-own-vm">Next steps after installing on your own VM</h3>
 <p>Log in to the Cloudbreak web UI and create a credential for Cloudbreak using the following platform-specific instructions:</p>
 <ul>

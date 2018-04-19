@@ -661,135 +661,72 @@
 </ul>
 <h3 id="launch-cloudbreak-from-a-template">Launch Cloudbreak from a template</h3>
 <p>Launch Cloudbreak deployer using the following steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Log in to your <a href="https://portal.azure.com">Azure Portal</a>.</p>
-</li>
-<li>
-<p>Click here to get started with Cloudbreak installation using the Azure Resource Manager template:</p>
-<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhortonworks%2Fazure-cbd-quickstart%2F2.5.0%2FmainTemplate.json" target="_blank"> <img alt="deploy on azure" src="http://azuredeploy.net/deploybutton.png" /></a></p>
-</li>
-<li>
-<p>The template for installing Cloudbreak will appear. On the <strong>Basics</strong> page, provide the following basic parameters:   </p>
-<blockquote>
-<p>All parameters except "SmartSense Id" are required.</p>
-</blockquote>
-<p><strong>BASICS</strong></p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Subscription</td>
-<td>Select which existing subscription you want to use.</td>
-</tr>
-<tr>
-<td>Resource group</td>
-<td>Select an existing resource group or create a new one by selecting <strong>Create new</strong> and entering a name for your new resource group. Cloudbreak resources will later be accessible in that chosen resource group.</td>
-</tr>
-<tr>
-<td>Location</td>
-<td>Select an Azure region in which you want to deploy Cloudbreak.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>SETTINGS</strong></p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Base Url</td>
-<td>This is the URL to the page where the template is stored.</td>
-</tr>
-<tr>
-<td>Location</td>
-<td>This is an internal parameter. Do not change it.</td>
-</tr>
-<tr>
-<td>Vm Size</td>
-<td>Select virtual machine instance type to use for the Cloudbreak controller. The minimum instance type suitable for Cloudbreak is <em>Standard_DS3</em>. The minimum requirements are 16GB RAM, 40GB disk, 4 cores.</td>
-</tr>
-<tr>
-<td>Admin Username</td>
-<td>Create an admin login that you will use to log in to the Cloudbreak UI. Must be a valid email address. By default, admin@example.com is used but you should change it to your email address.</td>
-</tr>
-<tr>
-<td>Admin User Password</td>
-<td>Password for the admin login. Must be at least 8 characters containing letters, numbers, and symbols.</td>
-</tr>
-<tr>
-<td>Username</td>
-<td>Enter an admin username for the virtual machine. You will use it to SSH to the VM. By default, "cloudbreak" is used.</td>
-</tr>
-<tr>
-<td>SmartSense</td>
-<td>Select whether you want to use <a href="../smartsense/index.html">SmartSense telemetry</a>. Default is "false" (not using SmartSense telemetry).</td>
-</tr>
-<tr>
-<td>SmartSense Id</td>
-<td>(Optional) Your SmartSense ID.</td>
-</tr>
-<tr>
-<td>Remote Location</td>
-<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags. Default value is <code>Internet</code> which allows access from all IP addresses. Examples: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Azure documentation</a>.</p></td>
-</tr>
-<tr>
-<td>Ssh Key</td>
-<td><p>Paste your SSH public key.</p><p>You can use <code>pbcopy</code> to quickly copy it. For example: <code>pbcopy &lt; /Users/homedir/.ssh/id_rsa.pub</code></p></td>
-</tr>
-<tr>
-<td>Vnet New Or Existing</td>
-<td>By default, Cloudbreak is launched in a new VNet called <code>cbdeployerVnet</code> and a new subnet called <code>cbdeployerSubnet</code>; if needed, you can customize the settings for the new VNet using available VNet and Subnet parameters.</td>
-</tr>
-<tr>
-<td>Vnet Name</td>
-<td>Provide the name for a new Vnet. Default is <code>`cbdeployerVnet</code>.</td>
-</tr>
-<tr>
-<td>Vnet Subnet Name</td>
-<td>Provide a name for a new subnet. Default is <code>cbdeployerSubnet</code>.</td>
-</tr>
-<tr>
-<td>Vnet Address Prefix</td>
-<td>Provide a CIDR for the virtual network. Default is <code>10.0.0.0/16</code>.</td>
-</tr>
-<tr>
-<td>Vnet Subnet Address Prefix</td>
-<td>Provide a CIDR for the subnet. Default is <code>10.0.0.0/24</code>.</td>
-</tr>
-<tr>
-<td>Vnet RG Name</td>
-<td>The name of the resource group in which the Vnet is located. If creating a new Vnet, enter the same resource group name as provided in the <code>Resource group</code> field in the <strong>BASICS</strong> section.</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Review terms of use and check "I agree to the terms and conditions stated above".</p>
-</li>
-<li>
-<p>Click <strong>Purchase</strong>.</p>
-</li>
-<li>
-<p>Your deployment should be initiated.  </p>
-<blockquote>
-<p>If you encounter errors, refer to <a href="../trouble-azure/index.html">Troubleshooting Cloudbreak on Azure</a>.   </p>
-</blockquote>
-</li>
-</ol>
-<p><strong>Related links</strong><br />
-<a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> (External) <br />
-<a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter network traffic with network security groups</a> (External)  </p>
+<div class="danger">
+    <p class="first admonition-title">About this release</p>
+    <p>This is an internal technical preview. There are two ways to try Cloudbreak 2.6.0 TP:</p>
+    <ul><li> Option 1: By accessing hosted Cloudbreak at <a href="https://cloud.eng.hortonworks.com" target="_blank">https://cloud.eng.hortonworks.com</a>.</li> <li>Option 2: By updating your current Cloudbreak deployment. See <a href="https://wiki.hortonworks.com/display/EN/Updating+cbd+binary+manually" target="_blank">here</a> for steps.</li></ul>
+</div>
+
+<!---Commenting out the regular steps--->
+
+<!---
+
+**Steps**
+
+1. Log in to your [Azure Portal](https://portal.azure.com).
+
+2. Click here to get started with Cloudbreak installation using the Azure Resource Manager template:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhortonworks%2Fazure-cbd-quickstart%2F2.5.0%2FmainTemplate.json" target="_blank"> ![deploy on azure](http://azuredeploy.net/deploybutton.png)</a>
+
+3. The template for installing Cloudbreak will appear. On the **Basics** page, provide the following basic parameters:   
+
+    > All parameters except "SmartSense Id" are required.
+
+    **BASICS**
+
+    | Parameter | Description |
+|---|---|
+| Subscription | Select which existing subscription you want to use. |
+| Resource group | Select an existing resource group or create a new one by selecting **Create new** and entering a name for your new resource group. Cloudbreak resources will later be accessible in that chosen resource group. |
+| Location | Select an Azure region in which you want to deploy Cloudbreak. |
+
+    **SETTINGS**
+
+    | Parameter | Description |
+|---|---|
+| Base Url | This is the URL to the page where the template is stored. |
+| Location | This is an internal parameter. Do not change it.|
+| Vm Size | Select virtual machine instance type to use for the Cloudbreak controller. The minimum instance type suitable for Cloudbreak is *Standard_DS3*. The minimum requirements are 16GB RAM, 40GB disk, 4 cores. |
+| Admin Username | Create an admin login that you will use to log in to the Cloudbreak UI. Must be a valid email address. By default, admin@example.com is used but you should change it to your email address. |
+| Admin User Password | Password for the admin login. Must be at least 8 characters containing letters, numbers, and symbols. |
+| Username | Enter an admin username for the virtual machine. You will use it to SSH to the VM. By default, "cloudbreak" is used. |
+| SmartSense | Select whether you want to use [SmartSense telemetry](smartsense.md). Default is "false" (not using SmartSense telemetry). |
+| SmartSense Id | (Optional) Your SmartSense ID. |
+| Remote Location |<p>Enter a valid [CIDR IP](http://www.ipaddressguide.com/cidr) or use one of the default tags. Default value is `Internet` which allows access from all IP addresses. Examples: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the [Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).</p> |
+| Ssh Key| <p>Paste your SSH public key.</p><p>You can use `pbcopy` to quickly copy it. For example: `pbcopy < /Users/homedir/.ssh/id_rsa.pub`</p> |
+| Vnet New Or Existing | By default, Cloudbreak is launched in a new VNet called `cbdeployerVnet` and a new subnet called `cbdeployerSubnet`; if needed, you can customize the settings for the new VNet using available VNet and Subnet parameters. |
+| Vnet Name | Provide the name for a new Vnet. Default is ``cbdeployerVnet`. |
+| Vnet Subnet Name | Provide a name for a new subnet. Default is `cbdeployerSubnet`. |
+| Vnet Address Prefix | Provide a CIDR for the virtual network. Default is `10.0.0.0/16`. |
+| Vnet Subnet Address Prefix | Provide a CIDR for the subnet. Default is `10.0.0.0/24`. |
+| Vnet RG Name | The name of the resource group in which the Vnet is located. If creating a new Vnet, enter the same resource group name as provided in the `Resource group` field in the **BASICS** section. |
+
+4. Review terms of use and check "I agree to the terms and conditions stated above".
+
+5. Click **Purchase**.
+
+6. Your deployment should be initiated.  
+
+    > If you encounter errors, refer to [Troubleshooting Cloudbreak on Azure](trouble-azure.md).   
+
+
+**Related links**  
+[CIDR IP](http://www.ipaddressguide.com/cidr) (External)   
+[Filter network traffic with network security groups](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) (External)  
+
+--->
+
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong></p>
@@ -810,7 +747,10 @@
 </li>
 <li>
 <p>Paste the link in your browser's address bar.</p>
-<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception. You can safely proceed to the website.</p>
+</li>
+<li>
+<p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
+<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
 <table>
 <thead>
 <tr>
@@ -835,8 +775,11 @@
 </table>
 </li>
 <li>
-<p>Now you should be able to access Cloudbreak UI and log in with the <strong>Admin email address</strong> and <strong>Admin password</strong> that you created when launching Cloudbreak:</p>
-<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Azure Portal"></a></p>
+<p>The login page is displayed:</p>
+<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Now you should be able to access Cloudbreak UI and log in with the <strong>Admin email address</strong> and <strong>Admin password</strong> that you created when launching Cloudbreak. </p>
 </li>
 <li>
 <p>Upon a successful login, you are redirected to the dashboard:</p>

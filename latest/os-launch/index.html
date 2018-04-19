@@ -618,20 +618,6 @@
             <li class="second-level"><a href="#launch-the-vm">Launch the VM</a></li>
             
         
-            <li class="second-level"><a href="#ssh-to-the-vm">SSH to the VM</a></li>
-            
-        
-            <li class="second-level"><a href="#initialize-the-profile">Initialize the Profile</a></li>
-            
-        
-            <li class="second-level"><a href="#perform-optional-configurations">Perform optional configurations</a></li>
-            
-                <li class="third-level"><a href="#configuring-a-self-signed-certificate">Configuring a self-signed certificate</a></li>
-            
-        
-            <li class="second-level"><a href="#start-cloudbreak-deployer">Start Cloudbreak deployer</a></li>
-            
-        
             <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
             
         
@@ -750,79 +736,118 @@ export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
 </ol>
 <p>After performing the import, you should be able to see the Cloudbreak image among your OpenStack images.</p>
 <h3 id="launch-the-vm">Launch the VM</h3>
-<p>In your OpenStack, launch and instance providing the following parameters:</p>
-<ul>
-<li>Select a VM flavor which meets the following minimum requirements: 4GB RAM, 10GB disk, 2 cores.</li>
-<li>Select the Cloudbreak deployer image that you imported earlier and launch an instance using that image.</li>
-<li>Select your SSH key pair.</li>
-<li>Select the security group which has the following ports open: 22 (SSH) and 443 (HTTPS).</li>
-<li>Select your preconfigured network.</li>
-</ul>
-<h3 id="ssh-to-the-vm">SSH to the VM</h3>
-<p>Now that your VM is ready, access it via SSH:</p>
-<ul>
-<li>Use a private key matching the public key that you added to your OpenStack project.</li>
-<li>The SSH user is called "cloudbreak".</li>
-<li>You can obtain the VM's IP address from the details of your instance.</li>
-</ul>
-<p>On Mac OS X, you can SSH to the VM by running the following from the Terminal app: <code>ssh -i "your-private-key.pem" cloudbreak@instance_IP</code> where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.</p>
-<p>On Windows, you can use <a href="http://www.putty.org/">PuTTy</a>.</p>
-<h3 id="initialize-the-profile">Initialize the Profile</h3>
-<p>After accessing the VM via SSH, you must initialize your Profile.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Navigate to the cloudbreak-deployment directory:</p>
-<p><pre>cd /var/lib/cloudbreak-deployment/</pre></p>
-<p>This directory contains configuration files and the supporting binaries for Cloudbreak deployer.</p>
-</li>
-<li>
-<p>Initialize your profile by creating a new file called <code>Profile</code> and adding the following content:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
+<div class="danger">
+    <p class="first admonition-title">About this release</p>
+    <p>This is an internal technical preview. There are two ways to try Cloudbreak 2.6.0 TP:</p>
+    <ul><li> Option 1: By accessing hosted Cloudbreak at <a href="https://cloud.eng.hortonworks.com" target="_blank">https://cloud.eng.hortonworks.com</a>.</li> <li>Option 2: By updating your current Cloudbreak deployment. See <a href="https://wiki.hortonworks.com/display/EN/Updating+cbd+binary+manually" target="_blank">here</a> for steps.</li></ul>
+</div>
+
+<!---Commenting out the regular steps--->
+
+<!---
+
+In your OpenStack, launch and instance providing the following parameters:
+
+* Select a VM flavor which meets the following minimum requirements: 4GB RAM, 10GB disk, 2 cores.
+* Select the Cloudbreak deployer image that you imported earlier and launch an instance using that image.
+* Select your SSH key pair.
+* Select the security group which has the following ports open: 22 (SSH) and 443 (HTTPS).
+* Select your preconfigured network.
+
+
+### SSH to the VM
+
+Now that your VM is ready, access it via SSH:
+
+* Use a private key matching the public key that you added to your OpenStack project.
+* The SSH user is called "cloudbreak".
+* You can obtain the VM's IP address from the details of your instance.
+
+On Mac OS X, you can SSH to the VM by running the following from the Terminal app: `ssh -i "your-private-key.pem" cloudbreak@instance_IP` where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.
+
+On Windows, you can use [PuTTy](http://www.putty.org/).
+
+
+### Initialize the Profile
+
+After accessing the VM via SSH, you must initialize your Profile.
+
+**Steps**
+
+1. Navigate to the cloudbreak-deployment directory:
+
+    <pre>cd /var/lib/cloudbreak-deployment/</pre>
+
+    This directory contains configuration files and the supporting binaries for Cloudbreak deployer.
+
+2.  Initialize your profile by creating a new file called `Profile` and adding the following content:
+
+    <pre>export UAA_DEFAULT_SECRET=MY-SECRET
 export UAA_DEFAULT_USER_PW=MY-PASSWORD
 export UAA_DEFAULT_USER_EMAIL=MY-EMAIL
-export PUBLIC_IP=VM-PUBLIC-IP</pre></p>
-<p>For example:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MySecret123
+export PUBLIC_IP=VM-PUBLIC-IP</pre>
+
+    For example:
+
+    <pre>export UAA_DEFAULT_SECRET=MySecret123
 export UAA_DEFAULT_USER_PW=MySecurePassword123
 export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com
-export PUBLIC_IP=34.212.141.253</pre></p>
-<blockquote>
-<p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="perform-optional-configurations">Perform optional configurations</h3>
-<blockquote>
-<p>These configurations are optional.</p>
-</blockquote>
-<h4 id="configuring-a-self-signed-certificate">Configuring a self-signed certificate</h4>
-<p>If your OpenStack is secured with a self-signed certificate, you need to import that certificate into Cloudbreak, or else Cloudbreak won't be able to communicate with your OpenStack.</p>
-<p>To import the certificate, place the certificate file in the <code>/certs/trusted/</code> directory, follow these steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>Navigate to the <code>certs</code> directory (automatically generated).</li>
-<li>Create the <code>trusted</code> directory.</li>
-<li>Copy the certificate to the <code>trusted</code> directory.</li>
-</ol>
-<p>Cloudbreak will automatically pick up the certificate and import it into its trust store upon start.</p>
-<h3 id="start-cloudbreak-deployer">Start Cloudbreak deployer</h3>
-<p>Launch Cloudbreak deployer using the following steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Start the Cloudbreak application by using the following command:</p>
-<p><pre>cbd start</pre></p>
-<p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, the process will take longer than usual due to the download of all the necessary docker images.</p>
-<p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, this also downloads of all the necessary docker images.</p>
-<p>Once the <code>cbd start</code> has finished, it returns the "Uluwatu (Cloudbreak UI) url" which you can later paste in your browser and log in to Cloudbreak web UI.</p>
-<p>To check Cloudbreak deployer version and health, use:</p>
-<p><pre>cbd doctor</pre></p>
-<p>If you would like to check Cloudbreak Application logs, use:</p>
-<p><pre>cbd logs cloudbreak</pre></p>
-<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak takes less than a minute to start. If you try to access the Cloudbreak UI before Cloudbreak started, you will get a "Bad Gateway" error or "Cannot connect to Cloudbreak" error.</p>
-</li>
-</ol>
+export PUBLIC_IP=34.212.141.253</pre>
+
+    > You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.
+
+
+### Perform optional configurations
+
+> These configurations are optional.
+
+
+#### Configuring a self-signed certificate
+
+If your OpenStack is secured with a self-signed certificate, you need to import that certificate into Cloudbreak, or else Cloudbreak won't be able to communicate with your OpenStack.
+
+To import the certificate, place the certificate file in the `/certs/trusted/` directory, follow these steps.
+
+**Steps**
+
+1. Navigate to the `certs` directory (automatically generated).
+2. Create the `trusted` directory.
+3. Copy the certificate to the `trusted` directory.
+
+Cloudbreak will automatically pick up the certificate and import it into its trust store upon start.
+
+
+
+### Start Cloudbreak deployer
+
+Launch Cloudbreak deployer using the following steps.
+
+**Steps**
+
+1. Start the Cloudbreak application by using the following command:
+
+    <pre>cbd start</pre>
+
+    This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, the process will take longer than usual due to the download of all the necessary docker images.
+
+    This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, this also downloads of all the necessary docker images.
+
+[Comment]: <> (Extra info which may not be needed here: The `cbd start` command includes the `cbd generate` command which applies the following steps: Creates the `docker-compose.yml` file, which describes the configuration of all the Docker containers needed for the Cloudbreak deployment. Creates the `uaa.yml` file, which holds the configuration of the identity server used to authenticate users with Cloudbreak.)
+
+    Once the `cbd start` has finished, it returns the "Uluwatu (Cloudbreak UI) url" which you can later paste in your browser and log in to Cloudbreak web UI.
+
+    To check Cloudbreak deployer version and health, use:
+
+    <pre>cbd doctor</pre>
+
+    If you would like to check Cloudbreak Application logs, use:
+
+    <pre>cbd logs cloudbreak</pre>
+
+    You should see a message like this in the log: `Started CloudbreakApplication in 36.823 seconds.` Cloudbreak takes less than a minute to start. If you try to access the Cloudbreak UI before Cloudbreak started, you will get a "Bad Gateway" error or "Cannot connect to Cloudbreak" error.
+
+-->
+
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong></p>
@@ -832,7 +857,29 @@ export PUBLIC_IP=34.212.141.253</pre></p>
 </li>
 <li>
 <p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
-<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
+<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception. You can safely proceed to the website.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Add Exception...</strong> &gt; Click <strong>Confirm Security Exception</strong></td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Click <strong>Continue</strong></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Proceed...</strong></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p>The login page is displayed:</p>

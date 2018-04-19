@@ -623,26 +623,40 @@
 <hr />
 <h4 id="new-features">New features</h4>
 <hr />
-<h5 id="using-mysql-and-oracle-external-databases">Using MySQL and Oracle External Databases</h5>
+<h5 id="using-mysql-and-oracle-external-databases"><strong>Using MySQL and Oracle External Databases</strong></h5>
 <p>Cloudbreak 2.6.0 TP introduces support for creating external MySQL and Oracle databases, in addition to previously supported Postgres. For more information, refer to <a href="../external-db/index.html">Using an external database</a>.   </p>
-<h5 id="creating-hdf-messaging-clusters">Creating HDF Messaging Clusters</h5>
-<p>Cloudbreak 2.6.0 TP introduces the ability to create HDF Messaging clusters, including Apache Kafka. To help you get started, Cloudbreak provides a new built-in <strong>HDF Messaging: Apache Kafka</strong> blueprint. For the list of available blueprints, refer to <a href="../index.html#default-cluster-configurations">Default Cluster Configurations</a>.  </p>
-<h5 id="creating-flow-management-clusters-with-nifi-registry">Creating Flow Management Clusters with NiFi Registry</h5>
-<p>Cloudbreak 2.6.0 TP adds support for NiFi Registry and NiFi Registry was added to the default <strong>Flow Management: Apache Nifi</strong> blueprint. </p>
-<p>When creating a NiFI cluster with NiFi registry, make sure to do the following:</p>
+<hr />
+<h5 id="creating-hdf-messaging-clusters"><strong>Creating HDF Messaging Clusters</strong></h5>
+<p>Cloudbreak 2.6.0 TP introduces the ability to create HDF Messaging clusters, including Apache Kafka. To help you get started, Cloudbreak provides a new built-in <strong>HDF Messaging: Apache Kafka</strong> blueprint.<br />
+For the list of available blueprints, refer to <a href="../index.html#default-cluster-configurations">Default Cluster Configurations</a>.  </p>
+<hr />
+<h5 id="creating-flow-management-clusters-with-nifi-registry"><strong>Creating Flow Management Clusters with NiFi Registry</strong></h5>
+<p>Cloudbreak 2.6.0 TP adds support for NiFi Registry and NiFi Registry was added to the default <strong>Flow Management: Apache NiFi</strong> blueprint. </p>
+<p>When creating a NiFI cluster, make sure to do the following:</p>
 <ul>
-<li>Open port 61443 for NiFi Registry on Services node  </li>
-<li>When creating the NiFi Registry controller service in NiFi, the internal hostname has to be used, <code>e.g. https://ip-1-2-3-4.us-west-2.compute.internal:61443</code> </li>
+<li>When creating a cluster, open 9091 TCP port on the NiFi host group. Without it, you will be unable to access the NiFi web UI.   </li>
+<li>When creating a cluster, open port 61443 for NiFi Registry on the Services host group.    </li>
+<li>When creating the NiFi Registry controller service in NiFi, the internal hostname has to be used, <code>e.g. https://ip-1-2-3-4.us-west-2.compute.internal:61443</code>   </li>
+<li>Enabling kerberos is mandatory. You can either use your own kerberos or select for Cloudbreak to create a test KDC.  </li>
+<li>Although Cloudbreak includes cluster scaling (including autoscaling), scaling is not supported by NiFi. Downscaling NiFi clusters is not supported - as it can result in data loss when a node is removed that has not yet processed all the data on that node. There is also a known issue related to scaling listed in the <a href="#known-issues">Known Issues</a> below.  </li>
 </ul>
-<p>For the list of available blueprints, refer to <a href="../index.html#default-cluster-configurations">Default Cluster Configurations</a>. To get started creating NiFi clusters, refer to the following <a href="https://community.hortonworks.com/articles/182221/create-a-nifi-cluster-on-aws-azure-google-or-opens.html">HCC post</a>.  </p>
-<h5 id="using-management-packs">Using Management Packs</h5>
-<p>Cloudbreak 2.6.0 TP introduces support for using management packs, allowing you to register them in Cloudbreak web UI or CLI and then select to install them as part of cluster creation. For more information, refer to <a href="../mpacks/index.html">Using management packs</a>.  </p>
+<p>For the list of available blueprints, refer to <a href="../index.html#default-cluster-configurations">Default Cluster Configurations</a>.<br />
+To get started creating NiFi clusters, refer to the following <a href="https://community.hortonworks.com/articles/182221/create-a-nifi-cluster-on-aws-azure-google-or-opens.html">HCC post</a>.  </p>
+<hr />
+<h5 id="using-management-packs"><strong>Using Management Packs</strong></h5>
+<p>Cloudbreak 2.6.0 TP introduces support for using management packs, allowing you to register them in Cloudbreak web UI or CLI and then select to install them as part of cluster creation.<br />
+For more information, refer to <a href="../mpacks/index.html">Using management packs</a>.  </p>
+<hr />
+<h5 id="technical-preview-of-hdp-30"><strong>Technical Preview of HDP 3.0</strong></h5>
+<p>Cloudbreak 2.6.0 TP includes one default HDP 3.0 blueprint, allowing you to try HDP 3.0.<br />
+For the list of available blueprints, refer to <a href="../index.html#default-cluster-configurations">Default Cluster Configurations</a>.</p>
 <hr />
 <h4 id="behavioral-changes">Behavioral changes</h4>
 <hr />
-<h5 id="image-catalog-option-moved-to-external-sources">Image Catalog Option Moved to External Sources</h5>
+<h5 id="image-catalog-option-moved-to-external-sources"><strong>Image Catalog Option Moved to External Sources</strong></h5>
 <p>The options related to registering a custom image catalog and selecting a default image catalog were removed from the <strong>Settings</strong> navigation menu option and are now available under <strong>External Sources &gt; Image Catalogs</strong>.</p>
-<h5 id="recipes-menu-option-moved-to-cluster-extensions">Recipes Menu Option Moved to Cluster Extensions</h5>
+<hr />
+<h5 id="recipes-menu-option-moved-to-cluster-extensions"><strong>Recipes Menu Option Moved to Cluster Extensions</strong></h5>
 <p>The <strong>Recipes</strong> navigation menu option was moved under <strong>Cluster Extensions</strong>, so to find recipe-related settings, select <strong>Cluster Extensions &gt; Recipes</strong> from the navigation menu. </p>
 <hr />
 <h4 id="image-catalog-updates">Image catalog updates</h4>
@@ -651,7 +665,8 @@
 <p>Update 1:</p>
 <p>Default Ambari version 2.6.1.3<br />
 Default HDP version 2.6.4.5-2<br />
-Default HDF version 3.1.1.0-35   </p>
+Default HDF version 3.1.1.0-35  </p>
+<hr />
 <h5 id="february-23-2018"><strong>February 23, 2018</strong></h5>
 <p>Default Ambari version 2.6.1.3 <br />
 Default HDP version  2.6.4.0-91<br />

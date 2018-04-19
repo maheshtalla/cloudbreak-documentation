@@ -620,13 +620,7 @@
                 <li class="third-level"><a href="#create-credentialrole">Create CredentialRole</a></li>
             
         
-            <li class="second-level"><a href="#launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</a></li>
-            
-        
-            <li class="second-level"><a href="#ssh-to-the-vm">SSH to the VM</a></li>
-            
-        
-            <li class="second-level"><a href="#start-cloudbreak-deployer">Start Cloudbreak deployer</a></li>
+            <li class="second-level"><a href="#launch-cloudbreak-deployer">Launch Cloudbreak deployer</a></li>
             
         
             <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
@@ -983,169 +977,148 @@
 <p><strong>Related links</strong><br />
 <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using instance profiles</a> (External)<br />
 <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">Using an IAM role to grant permissions to applications</a> (External)   </p>
-<h3 id="launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</h3>
-<p>Now that you've met the prerequisites, you can launch the Cloudbreak deployer VM available as a Community AMI.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>On AWS, navigate to the EC2 Console.  </p>
-</li>
-<li>
-<p>In the top right corner, select the region in which you want to launch Cloudbreak.  </p>
-<p><a href="../images/cb_aws-01.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-01.png" width="650" title="EC2 Console"></a> </p>
-</li>
-<li>
-<p>From the left pane, select <strong>INSTANCES</strong> &gt; <strong>Instances</strong>.  </p>
-</li>
-<li>
-<p>Click on <strong>Launch Instance</strong>.</p>
-</li>
-<li>
-<p>In <em>Step 1: Choose an Amazon Machine Image (AMI)</em>, select <strong>Community AMIs</strong> from the left pane. </p>
-<p><a href="../images/cb_aws-02.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-02.png" width="650" title="EC2 Console"></a> </p>
-</li>
-<li>
-<p>In the search box, enter the image name. The following Cloudbreak deployer images are available:</p>
-<table>
-<thead>
-<tr>
-<th>Region Name</th>
-<th>Region</th>
-<th>Community AMI</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>EU (Ireland)</td>
-<td>eu-west-1</td>
-<td>ami-0b70cb1044802db4a</td>
-</tr>
-<tr>
-<td>EU (Frankfurt)</td>
-<td>eu-central-1</td>
-<td>ami-2d7827c6</td>
-</tr>
-<tr>
-<td>US East (N. Virginia)</td>
-<td>us-east-1</td>
-<td>ami-8d8220f0</td>
-</tr>
-<tr>
-<td>US West (N. California)</td>
-<td>us-west-1</td>
-<td>ami-de5949be</td>
-</tr>
-<tr>
-<td>US West (Oregon)</td>
-<td>us-west-2</td>
-<td>ami-59432721</td>
-</tr>
-<tr>
-<td>South America (São Paulo)</td>
-<td>sa-east-1</td>
-<td>ami-955402f9</td>
-</tr>
-<tr>
-<td>Asia Pacific (Tokyo)</td>
-<td>ap-northeast-1</td>
-<td>ami-e9564195</td>
-</tr>
-<tr>
-<td>Asia Pacific (Singapore)</td>
-<td>ap-southeast-1</td>
-<td>ami-8e98c2f2</td>
-</tr>
-<tr>
-<td>Asia Pacific (Sydney)</td>
-<td>ap-southeast-2</td>
-<td>ami-31985653</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Click <strong>Select</strong>.  </p>
-<blockquote>
-<p>The steps listed below only mention required parameters. You may optionally review and adjust additional parameters. </p>
-</blockquote>
-</li>
-<li>
-<p>In <em>Step2: Choose Instance Type</em>, choose an instance type. The minimum instance type which is suitable for Cloudbreak is <strong>m4.xlarge</strong>. Minimum requirements are 16GB RAM, 40GB disk, 4 cores. When done, click <strong>Next</strong>.</p>
-<p><a href="../images/cb_aws-03.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-03.png" width="650" title="EC2 Console"></a>   </p>
-</li>
-<li>
-<p>(Perform this step only if you are using role-based authorization) In <strong>Step 3: Configure Instance Details</strong> &gt; <strong>IAM</strong>, select the "CloudbreakRole" IAM role which you <a href="#authorization-for-cloudbreak">created earlier</a>.</p>
-</li>
-<li>
-<p>In <em>Step4: Add Storage</em>, attach as much storage as you need. </p>
-</li>
-<li>
-<p>In <em>Step 6: Configure Security Group</em>, open the following ports:</p>
-<ul>
-<li>22 (for access via SSH)  </li>
-<li>80 (for access via HTTP)   </li>
-<li>443 (for access via HTTPS). </li>
-</ul>
-<p><a href="../images/cb_aws-04.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-04.png" width="650" title="EC2 Console"></a> </p>
-<p>When done, click <strong>Review and Launch</strong>.</p>
-</li>
-<li>
-<p>In <em>Step 7: Review Instance Launch</em>, review the information carefully and then click <strong>Launch</strong>. </p>
-</li>
-<li>
-<p>When prompted select an existing key pair or create a new one. Next, acknowledge that you have access to the private key file and click <strong>Launch Instance</strong>. </p>
-<p><a href="../images/cb_aws-05.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-05.png" width="400" title="EC2 Console"></a>  </p>
-</li>
-<li>
-<p>Click on the instance ID to navigate to the <strong>Instances</strong> view in your EC2 console. </p>
-<p><a href="../images/cb_aws-06.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-06.png" width="650" title="EC2 Console"></a>  </p>
-</li>
-</ol>
-<h3 id="ssh-to-the-vm">SSH to the VM</h3>
-<p>Now that your VM is ready, access it via SSH: </p>
-<ul>
-<li>Use the private key from the key pair that you selected when launching the instance. </li>
-<li>The SSH user is called "cloudbreak".</li>
-<li>You can obtain the host IP from the EC2 console &gt; <strong>Instances</strong> view by selecting the instance, selecting the <strong>Description</strong> tab, and copying the value of the <strong>Public DNS (IPv4) </strong> or <strong>IPv4 Public IP</strong> parameter.</li>
-</ul>
-<p>On Mac OS X, you can SSH to the VM by running the following from the Terminal app: <code>ssh -i "your-private-key.pem" cloudbreak@instance_IP</code> where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.</p>
-<p>On Windows, you can use <a href="http://www.putty.org/">PuTTy</a>.</p>
-<h3 id="start-cloudbreak-deployer">Start Cloudbreak deployer</h3>
-<p>After accessing the VM via SSH, launch Cloudbreak deployer using the following steps.  </p>
-<p><strong>Steps</strong>  </p>
-<ol>
-<li>
-<p>Navigate to the cloudbreak-deployment directory:</p>
-<p><pre>cd /var/lib/cloudbreak-deployment/</pre></p>
-<p>This directory contains configuration files and the supporting binaries for Cloudbreak deployer.</p>
-</li>
-<li>
-<p>Initialize your profile by creating a new file called <code>Profile</code> and adding the following content:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
+<h3 id="launch-cloudbreak-deployer">Launch Cloudbreak deployer</h3>
+<div class="danger">
+    <p class="first admonition-title">About this release</p>
+    <p>This is an internal technical preview. There are two ways to try Cloudbreak 2.6.0 TP:</p>
+    <ul><li> Option 1: By accessing hosted Cloudbreak at <a href="https://cloud.eng.hortonworks.com" target="_blank">https://cloud.eng.hortonworks.com</a>.</li> <li>Option 2: By updating your current Cloudbreak deployment. See <a href="https://wiki.hortonworks.com/display/EN/Updating+cbd+binary+manually" target="_blank">here</a> for steps.</li></ul>
+</div>
+
+<!---Commenting out the regular steps--->
+
+<!---
+
+### Launch Cloudbreak deployer from an image   
+
+Now that you've met the prerequisites, you can launch the Cloudbreak deployer VM available as a Community AMI.
+
+**Steps**
+
+1. On AWS, navigate to the EC2 Console.  
+
+2. In the top right corner, select the region in which you want to launch Cloudbreak.  
+
+    <a href="../images/cb_aws-01.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-01.png" width="650" title="EC2 Console"></a> 
+
+3. From the left pane, select **INSTANCES** > **Instances**.  
+
+4. Click on **Launch Instance**.
+
+5. In *Step 1: Choose an Amazon Machine Image (AMI)*, select **Community AMIs** from the left pane. 
+
+    <a href="../images/cb_aws-02.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-02.png" width="650" title="EC2 Console"></a> 
+
+6. In the search box, enter the image name. The following Cloudbreak deployer images are available:
+
+    | Region Name | Region | Community AMI |
+|---|---|---|
+| EU (Ireland) | eu-west-1 |    ami-0b70cb1044802db4a |
+| EU (Frankfurt) | eu-central-1 |    ami-2d7827c6 |
+| US East (N. Virginia) | us-east-1 | ami-8d8220f0 |
+| US West (N. California) | us-west-1 | ami-de5949be |
+| US West (Oregon) | us-west-2 | ami-59432721 | 
+| South America (São Paulo) | sa-east-1 | ami-955402f9 |
+| Asia Pacific (Tokyo) | ap-northeast-1 | ami-e9564195 |
+| Asia Pacific (Singapore) | ap-southeast-1 | ami-8e98c2f2 | 
+| Asia Pacific (Sydney) | ap-southeast-2 | ami-31985653 |
+
+7. Click **Select**.  
+
+    > The steps listed below only mention required parameters. You may optionally review and adjust additional parameters. 
+
+8. In *Step2: Choose Instance Type*, choose an instance type. The minimum instance type which is suitable for Cloudbreak is **m4.xlarge**. Minimum requirements are 16GB RAM, 40GB disk, 4 cores. When done, click **Next**.
+
+    <a href="../images/cb_aws-03.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-03.png" width="650" title="EC2 Console"></a>   
+
+9. (Perform this step only if you are using role-based authorization) In **Step 3: Configure Instance Details** > **IAM**, select the "CloudbreakRole" IAM role which you [created earlier](#authorization-for-cloudbreak).
+
+9. In *Step4: Add Storage*, attach as much storage as you need. 
+
+10. In *Step 6: Configure Security Group*, open the following ports:
+
+    * 22 (for access via SSH)  
+    * 80 (for access via HTTP)   
+    * 443 (for access via HTTPS). 
+
+    <a href="../images/cb_aws-04.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-04.png" width="650" title="EC2 Console"></a> 
+
+    When done, click **Review and Launch**.
+
+12. In *Step 7: Review Instance Launch*, review the information carefully and then click **Launch**. 
+
+13. When prompted select an existing key pair or create a new one. Next, acknowledge that you have access to the private key file and click **Launch Instance**. 
+
+    <a href="../images/cb_aws-05.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-05.png" width="400" title="EC2 Console"></a>  
+
+14. Click on the instance ID to navigate to the **Instances** view in your EC2 console. 
+
+    <a href="../images/cb_aws-06.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-06.png" width="650" title="EC2 Console"></a>  
+
+
+### SSH to the VM  
+
+Now that your VM is ready, access it via SSH: 
+
+* Use the private key from the key pair that you selected when launching the instance. 
+* The SSH user is called "cloudbreak".
+* You can obtain the host IP from the EC2 console > **Instances** view by selecting the instance, selecting the **Description** tab, and copying the value of the **Public DNS (IPv4) ** or **IPv4 Public IP** parameter.
+
+On Mac OS X, you can SSH to the VM by running the following from the Terminal app: `ssh -i "your-private-key.pem" cloudbreak@instance_IP` where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.
+
+On Windows, you can use [PuTTy](http://www.putty.org/).
+
+
+### Start Cloudbreak deployer 
+
+After accessing the VM via SSH, launch Cloudbreak deployer using the following steps.  
+
+**Steps**  
+
+1. Navigate to the cloudbreak-deployment directory:
+
+    <pre>cd /var/lib/cloudbreak-deployment/</pre>
+
+    This directory contains configuration files and the supporting binaries for Cloudbreak deployer.
+
+
+2.  Initialize your profile by creating a new file called `Profile` and adding the following content:
+
+    <pre>export UAA_DEFAULT_SECRET=MY-SECRET
 export UAA_DEFAULT_USER_PW=MY-PASSWORD
-export UAA_DEFAULT_USER_EMAIL=MY-EMAIL</pre>  </p>
-<p>For example: </p>
-<p><pre>export UAA_DEFAULT_SECRET=MySecret123
+export UAA_DEFAULT_USER_EMAIL=MY-EMAIL</pre>  
+
+    For example: 
+
+    <pre>export UAA_DEFAULT_SECRET=MySecret123
 export UAA_DEFAULT_USER_PW=MySecurePassword123
-export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
-<blockquote>
-<p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.  </p>
-</blockquote>
-</li>
-<li>
-<p>Start the Cloudbreak application by using the following command:</p>
-<p><pre>cbd start</pre></p>
-<p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, this also downloads of all the necessary docker images.</p>
-</li>
-<li>
-<p>Once the <code>cbd start</code> has finished, it returns the "Uluwatu (Cloudbreak UI) url" which you can later paste in your browser and log in to Cloudbreak web UI. </p>
-<p>If you would like to check Cloudbreak deployer version and health, use: </p>
-<p><pre>cbd doctor</pre></p>
-<p>If you need to check Cloudbreak application logs, use: </p>
-<p><pre>cbd logs cloudbreak</pre></p>
-<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak takes less than a minute to start. If you try to access the Cloudbreak UI before Cloudbreak started, you will get a "Bad Gateway" error or "Cannot connect to Cloudbreak" error.</p>
-</li>
-</ol>
+export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> 
+
+    > You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.  
+
+3. Start the Cloudbreak application by using the following command:
+
+    <pre>cbd start</pre>
+
+    This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, this also downloads of all the necessary docker images.
+
+[Comment]: <> (Extra info which may not be needed here: The `cbd start` command includes the `cbd generate` command which applies the following steps: Creates the `docker-compose.yml` file, which describes the configuration of all the Docker containers needed for the Cloudbreak deployment. Creates the `uaa.yml` file, which holds the configuration of the identity server used to authenticate users with Cloudbreak.)
+
+4. Once the `cbd start` has finished, it returns the "Uluwatu (Cloudbreak UI) url" which you can later paste in your browser and log in to Cloudbreak web UI. 
+
+    If you would like to check Cloudbreak deployer version and health, use: 
+
+    <pre>cbd doctor</pre>
+
+    If you need to check Cloudbreak application logs, use: 
+
+    <pre>cbd logs cloudbreak</pre>
+
+    You should see a message like this in the log: `Started CloudbreakApplication in 36.823 seconds.` Cloudbreak takes less than a minute to start. If you try to access the Cloudbreak UI before Cloudbreak started, you will get a "Bad Gateway" error or "Cannot connect to Cloudbreak" error.
+
+--->
+
+<pre><code>
+</code></pre>
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong></p>
@@ -1156,6 +1129,28 @@ export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre> </p>
 <li>
 <p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
 <p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Add Exception...</strong> &gt; Click <strong>Confirm Security Exception</strong></td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Click <strong>Continue</strong></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Proceed...</strong></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p>The login page is displayed:</p>
