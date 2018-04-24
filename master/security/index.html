@@ -723,7 +723,7 @@ By default, ports 22, 443, and 9443 are set to 0.0.0.0/0 CIDR for inbound access
 <ul><li>Ports 22 and 9443 must be open to Cloudbreak's CIDR. You can set CB_DEFAULT_GATEWAY_CIDR in your Cloudbreak's Profile file in order to automatically open ports 22 and 9443 to your Cloudbreak IP. Refer to <a href="../security-cb-inbound/index.html">Restricting inbound access from Cloudbreak to cluster</a>.</li>
 <li>Port 22 must be open to your CIDR if you would like to access the master node via SSH.</li>
 <li>Port 443 must be open to your CIDR if you would like to access Ambari web UI in a browser.</li>
-<li>Some services may require that you open additional ports. For example, when using the Flow Management blueprint, you must open port 9091 for NiFi (on NiFI host group) and port 61443 for NiFI Registry (on the Services host group).</li></ul>  
+</ul>  
 </p>
 </div>
 
@@ -749,6 +749,13 @@ By default, port 22 is set to 0.0.0.0/0 CIDR for inbound access on non-Ambari no
 </div>
 
 <p>When creating a new security group, Cloudbreak uses the following naming convention: <code>&lt;clustername&gt;-ClusterNodeSecurityGroup&lt;hostgroupname&gt;</code> </p>
+<div class="danger">
+<p class="first admonition-title">Important</p>
+<p class="last">
+Depending on what services you are including, you need to open additional ports as required by these services. For example, when using the Flow Management blueprint, you must open port 9091 for NiFi (on NiFI host group) and port 61443 for NiFI Registry (on the Services host group).  
+</p>
+</div>
+
 <h3 id="identity-management">Identity management</h3>
 <p>To securely control access to cloud resources, cloud providers use identity management services such as IAM roles (AWS and GCP) and Active Directory (Azure). </p>
 <table>
