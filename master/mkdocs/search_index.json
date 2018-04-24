@@ -1687,13 +1687,13 @@
         }, 
         {
             "location": "/cb-ports/index.html", 
-            "text": "Configure network port numbers\n\n\nBy default, Cloudbreak uses ports 80 (HTTP) and 443 (HTTPS) for accessing the Cloudbreak web UI. To change these port numbers, you must edit the Profile file.\n\n\nCloudbreak should not be running when you change the port numbers. Edit Profile either before you start Cloudbreak the first time or stop Cloudbreak before editing the file.\n\n\nSteps\n  \n\n\n\n\n\n\nNavigate to the Cloudbreak deployment directory (typically \n/var/lib/cloudbreak-deployment\n) and open the Profile file with a text editor. \n\n\n\n\n\n\nAdd one or both of the following parameters, setting them to the port numbers that you want to use:\n\n\nexport TRAEFIK_PORT_HTTP=111\nexport TRAEFIK_PORT_HTTPS=222\n\n\n\n\n\n\nStart or restart Cloudbreak by using \ncbd restart\n.", 
-            "title": "Configure network port numbers"
+            "text": "Change default Cloudbreak ports\n\n\nBy default, Cloudbreak uses ports 80 (HTTP) and 443 (HTTPS) for accessing the Cloudbreak web UI. To change these port numbers, you must edit the Profile file.\n\n\nCloudbreak should not be running when you change the port numbers. Edit Profile either before you start Cloudbreak the first time or stop Cloudbreak before editing the file.\n\n\nSteps\n  \n\n\n\n\n\n\nNavigate to the Cloudbreak deployment directory (typically \n/var/lib/cloudbreak-deployment\n) and open the Profile file with a text editor. \n\n\n\n\n\n\nAdd one or both of the following parameters, setting them to the port numbers that you want to use:\n\n\nexport TRAEFIK_PORT_HTTP=111\nexport TRAEFIK_PORT_HTTPS=222\n\n\n\n\n\n\nStart or restart Cloudbreak by using \ncbd restart\n.", 
+            "title": "Change default Cloudbreak ports"
         }, 
         {
-            "location": "/cb-ports/index.html#configure-network-port-numbers", 
+            "location": "/cb-ports/index.html#change-default-cloudbreak-ports", 
             "text": "By default, Cloudbreak uses ports 80 (HTTP) and 443 (HTTPS) for accessing the Cloudbreak web UI. To change these port numbers, you must edit the Profile file.  Cloudbreak should not be running when you change the port numbers. Edit Profile either before you start Cloudbreak the first time or stop Cloudbreak before editing the file.  Steps       Navigate to the Cloudbreak deployment directory (typically  /var/lib/cloudbreak-deployment ) and open the Profile file with a text editor.     Add one or both of the following parameters, setting them to the port numbers that you want to use:  export TRAEFIK_PORT_HTTP=111\nexport TRAEFIK_PORT_HTTPS=222    Start or restart Cloudbreak by using  cbd restart .", 
-            "title": "Configure network port numbers"
+            "title": "Change default Cloudbreak ports"
         }, 
         {
             "location": "/cb-profile/index.html", 
