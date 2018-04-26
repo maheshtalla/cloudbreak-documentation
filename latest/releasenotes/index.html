@@ -677,7 +677,7 @@ For more information, refer to <a href="../mpacks/index.html">Using management p
 <h5 id="image-catalog-option-was-moved-to-external-sources"><strong>Image Catalog Option Was Moved to External Sources</strong></h5>
 <p>The options related to registering a custom image catalog and selecting a default image catalog were removed from the <strong>Settings</strong> navigation menu option and are now available under <strong>External Sources &gt; Image Catalogs</strong>.</p>
 <hr />
-<h5 id="recipes-option-was-moved-to-cluster-extension"><strong>Recipes Option Was Moved to Cluster Extension</strong>*</h5>
+<h5 id="recipes-option-was-moved-to-cluster-extension"><strong>Recipes Option Was Moved to Cluster Extension</strong></h5>
 <p>The <strong>Recipes</strong> navigation menu option was moved under <strong>Cluster Extensions</strong>, so to find recipe-related settings, select <strong>Cluster Extensions &gt; Recipes</strong> from the navigation menu. </p>
 <hr />
 <h4 id="image-catalog-updates">Image catalog updates</h4>
@@ -826,7 +826,7 @@ Default HDF version 3.1.1.0-35   </p>
 <p><em>Workaround</em>: </p>
 <p>This may mean that the volumes that you requested exceed volumes available on your cloud provider account. When creating a cluster, on the advanced <strong>Hardware and Storage</strong> page of the create cluster wizard, try reducing the amount of requested storage. If you need more storage, try using a different region or ask your cloud provider admin to increase the resource quota for volumes.  </p>
 <hr />
-<h5 id="bug-101319-cluster-status-is-running-when-some-steps-failed">(BUG-101319) Cluster Status is Running When Some Steps Failed</h5>
+<h5 id="bug-101319-cluster-status-is-running-when-some-steps-failed">(BUG-101319) <strong>Cluster Status is Running When Some Steps Failed</strong></h5>
 <p>Cluster status is <em>Running</em> (green) when:  </p>
 <ul>
 <li>Upscale failed, or  </li>
@@ -857,7 +857,7 @@ Default HDF version 3.1.1.0-35   </p>
 <h5 id="bug-101223-hardware-status-is-incorrect-after-stop-and-start">(BUG-101223) <strong>Hardware Status is Incorrect After Stop and Start</strong></h5>
 <p>After stopping and starting a cluster, cluster state is incorrectly listed as "Unhealty", even though the nodes are healthy.</p>
 <hr />
-<h5 id="bug-101230-the-curl-command-for-cli-download-doesnt-work-on-windows">(BUG-101230) <strong>The <code>curl</code> Command for CLI Download Doesn't Work on Windows</strong></h5>
+<h5 id="bug-101230-the-command-for-cli-download-doesnt-work-on-windows">(BUG-101230) <strong>The Command for CLI Download Doesn't Work on Windows</strong></h5>
 <p>The <code>curl</code> command listed on the <strong>Download CLI</strong> page for Windows does not work on Windows. </p>
 <hr />
 <h5 id="bug-101225-cli-manual-repair-does-not-work">(BUG-101225) <strong>CLI: Manual Repair Does Not Work</strong></h5>
@@ -908,7 +908,7 @@ Manual recovery is needed for the following failed nodes:
 <p>For general HDF 3.1.1 known issues, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDF3/HDF-3.1.1/bk_release-notes/content/ch_hdf_relnotes.html">HDF 3.1.1 Release Notes</a></p>
 </blockquote>
 <hr />
-<h5 id="bug-98865-scaling-hdf-clusters-does-not-update-configurations-on-new-nodes">(BUG-98865) Scaling HDF Clusters Does Not Update Configurations on New Nodes</h5>
+<h5 id="bug-98865-scaling-hdf-clusters-does-not-update-configurations-on-new-nodes">(BUG-98865) <strong>Scaling HDF Clusters Does Not Update Configurations on New Nodes</strong></h5>
 <p>Blueprint configuration parameters are not applied when scaling an HDF cluster. 
 One example that affects all users is that after HDF cluster upscale/downscale the <code>nifi.web.proxy.host</code> blueprint parameter does not get updated to include the new nodes, and as a result the NiFi UI is not reachable from these nodes. </p>
 <p><em>Workaround:</em>  </p>
