@@ -826,15 +826,6 @@ Default HDF version 3.1.1.0-35   </p>
 <p><em>Workaround</em>: </p>
 <p>This may mean that the volumes that you requested exceed volumes available on your cloud provider account. When creating a cluster, on the advanced <strong>Hardware and Storage</strong> page of the create cluster wizard, try reducing the amount of requested storage. If you need more storage, try using a different region or ask your cloud provider admin to increase the resource quota for volumes.  </p>
 <hr />
-<h5 id="bug-101319-cluster-status-is-running-when-some-steps-failed">(BUG-101319) <strong>Cluster Status is Running When Some Steps Failed</strong></h5>
-<p>Cluster status is <em>Running</em> (green) when:  </p>
-<ul>
-<li>Upscale failed, or  </li>
-<li>Nodes are missing after being manually removed  </li>
-</ul>
-<p><em>Workaround:</em></p>
-<p>Review <em>Event History</em> to find out the status of recent events. </p>
-<hr />
 <h5 id="bug-93241-error-when-scaling-multiple-host-groups">(BUG-93241) <strong>Error When Scaling Multiple Host Groups</strong></h5>
 <p>Scaling of multiple host groups fails with the following error: </p>
 <p><em>Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1; nested exception is org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1</em></p>
