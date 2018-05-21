@@ -685,19 +685,12 @@ service iptables save
 </ul>
 <h3 id="install-cloudbreak-on-your-own-vm">Install Cloudbreak on your own VM</h3>
 <p>Install Cloudbreak using the following steps.</p>
-<div class="danger">
-    <p class="first admonition-title">About this release</p>
-    <p>This is an internal technical preview. There are two ways to try Cloudbreak 2.6.0 TP:</p>
-    <ul><li> Option 1: By accessing hosted Cloudbreak at <a href="https://cloud.eng.hortonworks.com" target="_blank">https://cloud.eng.hortonworks.com</a>.</li> <li>Option 2: By updating your current Cloudbreak deployment. See <a href="https://wiki.hortonworks.com/display/EN/Updating+cbd+binary+manually" target="_blank">here</a> for steps.</li></ul>
-    <p>if you would like to try <b>shared services</b>, refer to <a href="https://docs.google.com/document/d/1hST-nSd8BDnXQXc9ZRvpimpor_MRaY8jpZyMaNHaCRE/edit#heading=h.32ylkzt6gc1s" target="_blank">this Google doc </a> for instructions.</p>
-</div>
-
 <p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Install the Cloudbreak deployer and unzip the platform-specific single binary to your PATH. For example:</p>
 <p><pre>yum -y install unzip tar
-curl -Ls public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_2.5.0_$(uname)_x86_64.tgz | sudo tar -xz -C /bin cbd
+curl -Ls public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_2.7.0_$(uname)_x86_64.tgz | sudo tar -xz -C /bin cbd
 cbd --version</pre></p>
 <p>Once the Cloudbreak deployer is installed, you can set up the Cloudbreak application.</p>
 </li>
@@ -738,8 +731,7 @@ cbd start</pre></p>
 <li>
 <p>Next, check Cloudbreak application logs:</p>
 <p><pre>cbd logs cloudbreak</pre></p>
-<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.
-å</p>
+<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
 </li>
 </ol>
 <h3 id="next-steps-after-installing-on-your-own-vm">Next steps after installing on your own VM</h3>
