@@ -632,9 +632,12 @@
 <h5 id="technical-preview-of-shared-services"><strong>Technical Preview of Shared Services</strong></h5>
 <p>Cloudbreak 2.6.0 TP allows you to create a shared services instance and attach it to a cluster.</p>
 <hr />
+<h5 id="sorting-and-filtering-resource-tables"><strong>Sorting and Filtering Resource Tables</strong></h5>
+<p>Cloudbreak introduces the ability to sort and filter tables listing resources such as clusters, recipes, and blueprints in the Cloudbreak web UI.</p>
+<hr />
 <h5 id="creating-flow-management-clusters"><strong>Creating Flow Management Clusters</strong></h5>
 <p>Cloudbreak introduces the ability to create HDF flow management cluster with Apache NiFi and NiFi Registry. To help you get started, Cloudbreak provides a new built-in <strong>Flow Management: Apache NiFi</strong> blueprint. </p>
-<p>When creating a NiFI cluster from the default blueprint, make sure to do the following:</p>
+<p>When creating a Flow Management cluster from the default blueprint, make sure to do the following:</p>
 <ul>
 <li>Place the Ambari Server on the "Services" host group.     </li>
 <li>When creating a cluster, open 9091 TCP port on the NiFi host group. Without it, you will be unable to access the NiFi web UI.   </li>
@@ -647,8 +650,8 @@
 To get started creating NiFi clusters, refer to the following <a href="https://community.hortonworks.com/articles/182221/create-a-nifi-cluster-on-aws-azure-google-or-opens.html">HCC post</a>.  </p>
 <hr />
 <h5 id="creating-hdf-messaging-management-clusters"><strong>Creating HDF Messaging Management Clusters</strong></h5>
-<p>Cloudbreak introduces the ability to create HDF Messaging clusters, including Apache Kafka. To help you get started, Cloudbreak provides a new built-in <strong>HDF Messaging: Apache Kafka</strong> blueprint. </p>
-<p>When creating a Messaging cluster from the default blueprint, make sure to do the following:</p>
+<p>Cloudbreak introduces the ability to create HDF Messaging clusters, including Apache Kafka. To help you get started, Cloudbreak provides a new built-in <strong>HDF Messaging Management: Apache Kafka</strong> blueprint. </p>
+<p>When creating a Messaging Management cluster from the default blueprint, make sure to do the following:</p>
 <ul>
 <li>If using the default blueprint, place the Ambari Server on the "Services" host group.  </li>
 <li>When creating a cluster, open 3000 TCP port on the Services host group for Grafana.     </li>
