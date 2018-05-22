@@ -651,21 +651,22 @@
 </div>
 
 <h3 id="retry-a-cluster">Retry a cluster</h3>
-<p>In some cases the cause of a failed stack provisioning or cluster creation can be eliminated with manual intervention. After corrections were made, the operation can be continuted where it left off.</p>
-<p>To retry a cluster, follow these steps.</p>
-<blockquote>
-<p>Only failed stack or cluster creations are retryable.</p>
-</blockquote>
+<p>When a stack provisioning or cluster creation failure occurs, the "retry" option allows you to resume the process from the last failed step. </p>
+<p>In some cases the cause of a failed stack provisioning or cluster creation can be eliminated by simply retrying the process. For example, in case of a temporary network outage, a retry should be successful. In other cases, a manual modification is required before a retry can succeed. For example, if you are using a custom image but some configuration is missing, causing the process to fail, you must log in to the machine and fix the issue; Only after that you can retry the the process.</p>
+<p>Only failed stack or cluster creations can be retried. A retry can be initiated any number of times on a failed creation process. </p>
+<p>To retry provisioning a failed stack or cluster, follow these steps.  </p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>Browse to the cluster details.</p>
 </li>
 <li>
 <p>Click <strong>Actions</strong> and select <strong>Retry</strong>. </p>
+<p>Only failed stack or cluster creations can be retried, so the option is only available in these two cases.  </p>
 </li>
 <li>
-<p>Click <strong>Yes</strong> to confirm</p>
-<p>The operation continues from the last failed step. A retry can be initiated any number of times on a failed creation process.</p>
+<p>Click <strong>Yes</strong> to confirm. </p>
+<p>The operation continues from the last failed step. </p>
 </li>
 </ol>
 <h3 id="resize-a-cluster">Resize a cluster</h3>

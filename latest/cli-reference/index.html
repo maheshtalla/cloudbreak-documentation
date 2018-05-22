@@ -645,6 +645,8 @@
             
                 <li class="third-level"><a href="#cluster-repair">cluster repair</a></li>
             
+                <li class="third-level"><a href="#cluster-retry">cluster retry</a></li>
+            
                 <li class="third-level"><a href="#cluster-scale">cluster scale</a></li>
             
                 <li class="third-level"><a href="#cluster-start">cluster start</a></li>
@@ -777,7 +779,8 @@
 <li><a href="#cluster-generate-template">cluster generate-template</a>   </li>
 <li><a href="#cluster-generate-reinstall-template">cluster generate-reinstall-template</a>  </li>
 <li><a href="#cluster-list">cluster list</a>    </li>
-<li><a href="#cluster-repair">cluster repair</a>             </li>
+<li><a href="#cluster-repair">cluster repair</a>    </li>
+<li><a href="#cluster-retry">cluster retry</a>         </li>
 <li><a href="#cluster scale">cluster scale</a>      </li>
 <li><a href="#cluster-start">cluster start</a>        </li>
 <li><a href="#cluster-stop">cluster stop</a>              </li>
@@ -1224,6 +1227,22 @@
 <strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]   </p>
 <p><strong>Examples</strong></p>
 <pre>cb cluster repair --name test1234</pre>
+
+<hr />
+<h4 id="cluster-retry">cluster retry</h4>
+<p>Retries the process if cluster or stack provisioning failed.</p>
+<p><strong>Required options</strong></p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong>Options</strong></p>
+<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT] 
+<strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
+<strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
+<strong><code>--password &lt;value&gt;</code></strong>  Cloudbreak password [$CB_PASSWORD]  <br />
+<strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
+<strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]   </p>
+<p><strong>Examples</strong></p>
+<pre>cb cluster retry --name test1234</pre>
 
 <hr />
 <h4 id="cluster-scale">cluster scale</h4>
