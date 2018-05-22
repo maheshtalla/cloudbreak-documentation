@@ -629,13 +629,67 @@
 <hr />
 <h4 id="new-features">New features</h4>
 <hr />
-<h5 id="feature-1"><strong>Feature 1</strong></h5>
-<p>Feature 1</p>
+<h5 id="technical-preview-of-shared-services"><strong>Technical Preview of Shared Services</strong></h5>
+<p>Cloudbreak 2.6.0 TP allows you to create a shared services instance and attach it to a cluster.</p>
+<hr />
+<h5 id="creating-flow-management-clusters"><strong>Creating Flow Management Clusters</strong></h5>
+<p>Cloudbreak introduces the ability to create HDF flow management cluster with Apache NiFi and NiFi Registry. To help you get started, Cloudbreak provides a new built-in <strong>Flow Management: Apache NiFi</strong> blueprint. </p>
+<p>When creating a NiFI cluster from the default blueprint, make sure to do the following:</p>
+<ul>
+<li>Place the Ambari Server on the "Services" host group.     </li>
+<li>When creating a cluster, open 9091 TCP port on the NiFi host group. Without it, you will be unable to access the NiFi web UI.   </li>
+<li>When creating a cluster, open port 61443 on the Services host group. This port is used by NiFi Registry.      </li>
+<li>When creating the NiFi Registry controller service in NiFi, the internal hostname has to be used, <code>e.g. https://ip-1-2-3-4.us-west-2.compute.internal:61443</code>   </li>
+<li>Enable Kerberos. You can either use your own kerberos or select for Cloudbreak to create a test KDC.  </li>
+<li>Although Cloudbreak allows cluster scaling (including autoscaling), scaling is not supported by NiFi. Downscaling NiFi clusters is not supported - as it can result in data loss when a node is removed that has not yet processed all the data on that node. There is also a known issue related to scaling listed in the <a href="#known-issues">Known Issues</a> below.  </li>
+</ul>
+<p>For the list of available blueprints, refer to <a href="../index.html#default-cluster-configurations">Default Cluster Configurations</a>.<br />
+To get started creating NiFi clusters, refer to the following <a href="https://community.hortonworks.com/articles/182221/create-a-nifi-cluster-on-aws-azure-google-or-opens.html">HCC post</a>.  </p>
+<hr />
+<h5 id="creating-hdf-messaging-management-clusters"><strong>Creating HDF Messaging Management Clusters</strong></h5>
+<p>Cloudbreak introduces the ability to create HDF Messaging clusters, including Apache Kafka. To help you get started, Cloudbreak provides a new built-in <strong>HDF Messaging: Apache Kafka</strong> blueprint. </p>
+<p>When creating a Messaging cluster from the default blueprint, make sure to do the following:</p>
+<ul>
+<li>If using the default blueprint, place the Ambari Server on the "Services" host group.  </li>
+<li>When creating a cluster, open 3000 TCP port on the Services host group for Grafana.     </li>
+</ul>
+<p>For the list of available blueprints, refer to <a href="../index.html#default-cluster-configurations">Default Cluster Configurations</a>.  </p>
+<hr />
+<h5 id="using-mysql-and-oracle-external-databases"><strong>Using MySQL and Oracle External Databases</strong></h5>
+<p>Cloudbreak introduces support for creating external MySQL and Oracle databases, in addition to previously supported Postgres. For more information, refer to <a href="../external-db/index.html">Using an external database</a>.   </p>
+<hr />
+<h5 id="using-external-databases-for-cluster-services"><strong>Using External Databases for Cluster Services</strong></h5>
+<p>You can register an existing external RDBMS in the Cloudbreak UI or CLI so that it can be used for those cluster components which have support for it. After the RDBMS has been registered with Cloudbreak, it will be available during the cluster create and can be reused with multiple clusters.  </p>
+<p>Only Postgres is supported at this time. Refer to component-specific documentation for information on which version of Postgres (if any) is supported.  </p>
+<p>For more information, refer to <a href="../external-db/index.html">Register an External Database</a>.  </p>
+<hr />
+<h5 id="using-external-authentication-sources-ldapad-for-clusters"><strong>Using External Authentication Sources (LDAP/AD) for Clusters</strong></h5>
+<p>You can configure an existing LDAP/AD authentication source in the Cloudbreak UI or CLI so that it can later be associated with one or more Cloudbreak-managed clusters. After the authentication source has been registered with Cloudbreak, it will be available during the cluster create and can be reused with multiple clusters.</p>
+<p>For more information, refer to <a href="../external-ldap/index.html">Register an Authentication Source</a>.   </p>
+<hr />
+<h5 id="configuring-cloudbreak-to-use-existing-ldapad"><strong>Configuring Cloudbreak to Use Existing LDAP/AD</strong></h5>
+<p>You can configure Cloudbreak to use your existing LDAP/AD so that you can authenticate Cloudbreak users against an existing LDAP/AD server. For more information, refer to <a href="../cb-ldap/index.html">Configuring Cloudbreak for LDAP/AD Authentication</a>. </p>
+<hr />
+<h5 id="launching-cloudbreak-in-environments-with-restricted-internet-access-or-required-use-of-proxy"><strong>Launching Cloudbreak in Environments with Restricted Internet Access or Required Use of Proxy</strong></h5>
+<p>You can launch Cloudbreak in environments with limited or restricted internet access and/or required use of a proxy to obtain internet access. For more information, refer to <a href="../cb-proxy/index.html">Configure Outbound Internet Access and Proxy</a>. </p>
+<hr />
+<h5 id="modifying-existing-cloudbreak-credentials"><strong>Modifying Existing Cloudbreak Credentials</strong></h5>
+<p>Cloudbreak allows you to modify existing credentials by using the edit option available in Cloudbreak UI or by using the <code>credential modify</code> command in the CLI. For more information, refer to <a href="../cb-credentials/index.html#modify-an-existing-credential">Modify an Existing Credential</a>.</p>
+<hr />
+<h5 id="using-management-packs"><strong>Using Management Packs</strong></h5>
+<p>Cloudbreak 2.6.0 TP introduces support for using management packs, allowing you to register them in Cloudbreak web UI or CLI and then select to install them as part of cluster creation.<br />
+For more information, refer to <a href="../mpacks/index.html">Using management packs</a>.  </p>
 <hr />
 <h4 id="behavioral-changes">Behavioral changes</h4>
 <hr />
-<h5 id="feature-1_1"><strong>Feature 1</strong></h5>
-<p>Feature 1</p>
+<h5 id="image-catalog-option-was-moved-to-external-sources"><strong>Image Catalog Option Was Moved to External Sources</strong></h5>
+<p>The options related to registering a custom image catalog and selecting a default image catalog were removed from the <strong>Settings</strong> navigation menu option and are now available under <strong>External Sources &gt; Image Catalogs</strong>.</p>
+<hr />
+<h5 id="recipes-option-was-moved-to-cluster-extension"><strong>Recipes Option Was Moved to Cluster Extension</strong></h5>
+<p>The <strong>Recipes</strong> navigation menu option was moved under <strong>Cluster Extensions</strong>, so to find recipe-related settings, select <strong>Cluster Extensions &gt; Recipes</strong> from the navigation menu. </p>
+<hr />
+<h5 id="auto-import-of-hdphdf-images-on-openstack"><strong>Auto-import of HDP/HDF Images on OpenStack</strong></h5>
+<p>When using Cloudbreak on OpenStack, you no longer need to import HDP and HDF images manually, because during your first attempt to create a cluster, Cloudbreak automatically imports HDP and HDF images to your OpenStack. Only Cloudbreak image must be imported manually. </p>
 <hr />
 <h4 id="image-catalog-updates">Image catalog updates</h4>
 <hr />
