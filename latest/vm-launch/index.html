@@ -665,7 +665,11 @@
 <p>Reboot it if necessary.</p>
 <h4 id="iptables">Iptables</h4>
 <p>Install iptables-services:</p>
-<pre>yum -y install iptables-services net-tools</pre>
+<pre>
+yum -y install net-tools ntp wget lsof unzip tar iptables-services
+systemctl enable ntpd && systemctl start ntpd
+systemctl disable firewalld && systemctl stop firewalld
+</pre>
 
 <p>Without iptables-services installed the <code>iptables save</code> command will not be available.</p>
 <p>Next, configure permissive iptables on your machine:</p>
@@ -675,6 +679,27 @@ iptables --flush FORWARD && \
 service iptables save
 </pre>
 
+<p>Next, Disable SELINUX
+<pre>
+sed -i --follow-symlinks 's/^SELINUX=.*/SELINUX=disabled/g' /etc/sysconfig/selinux
+</pre></p>
+<p>Create Docker Repo
+<pre>
+cat &gt; /etc/yum.repos.d/docker.repo &lt;&lt;"EOF"
+[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/7
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+EOF
+</pre></p>
+<p>Install Docker Service
+<pre>
+yum install -y docker-engine-1.9.1 docker-engine-selinux-1.9.1
+systemctl start docker
+systemctl enable docker
+</pre></p>
 <h4 id="more">More</h4>
 <p>Additionally, review the following prerequisites:</p>
 <ul>
@@ -701,16 +726,29 @@ cd cloudbreak-deployment</pre></p>
 </li>
 <li>
 <p>In the directory, create a file called <code>Profile</code> with the following content:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
+<p><pre>
+export UAA_DEFAULT_SECRET=MY-SECRET
 export UAA_DEFAULT_USER_PW=MY-PASSWORD
-export UAA_DEFAULT_USER_EMAIL=MY-EMAIL</pre></p>
+export UAA_DEFAULT_USER_EMAIL=MY-EMAIL
+export PUBLIC_IP=172.26.231.100
+export CLOUDBREAK_SMTP_SENDER_USERNAME='<myemail>'
+export CLOUDBREAK_SMTP_SENDER_PASSWORD='<mypassword>'
+export CLOUDBREAK_SMTP_SENDER_HOST='smtp.gmail.com'
+export CLOUDBREAK_SMTP_SENDER_PORT=25
+export CLOUDBREAK_SMTP_SENDER_FROM='<myemail>'
+export CLOUDBREAK_SMTP_AUTH=true
+export CLOUDBREAK_SMTP_STARTTLS_ENABLE=true
+export CLOUDBREAK_SMTP_TYPE=smtp
+</pre></p>
 <p>For example:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MySecret123
+<p><pre>
+export UAA_DEFAULT_SECRET=MySecret123
 export UAA_DEFAULT_USER_PW=MySecurePassword123
-export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com</pre></p>
-<blockquote>
+export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com
+</pre></p>
 <p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.</p>
-</blockquote>
+<p>You should set the CLOUDBREAK_SMTP_SENDER_USERNAME variable to the username you use to authenticate to your SMTP server. You should set the CLOUDBREAK_SMTP_SENDER_PASSWORD variable to the password you use to authenticate to your SMTP server.</p>
+<p>NOTE: The SMTP variables are how you enable Cloudbreak to send you an email when the cluster operations are done. This is optional and is only required if you want to use the checkbox to get emails when you build a cluster. The example above assumes you are using GMail. You should use the settings appropriate for your SMTP server.</p>
 </li>
 <li>
 <p>Generate configurations by executing:</p>
