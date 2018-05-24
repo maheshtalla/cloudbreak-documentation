@@ -674,7 +674,7 @@
 </li>
 <li>
 <p>Click here to get started with Cloudbreak installation using the Azure Resource Manager template:</p>
-<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhortonworks%2Fazure-cbd-quickstart%2F2.5.0%2FmainTemplate.json" target="_blank"> <img alt="deploy on azure" src="http://azuredeploy.net/deploybutton.png" /></a></p>
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhortonworks%2Fazure-cbd-quickstart%2F2.7.0-dev.170%2FmainTemplate.json" target="_blank"> <img alt="deploy on azure" src="http://azuredeploy.net/deploybutton.png" /></a></p>
 </li>
 <li>
 <p>The template for installing Cloudbreak will appear. On the <strong>Basics</strong> page, provide the following basic parameters:   </p>
@@ -714,14 +714,6 @@
 </thead>
 <tbody>
 <tr>
-<td>Base Url</td>
-<td>This is the URL to the page where the template is stored.</td>
-</tr>
-<tr>
-<td>Location</td>
-<td>This is an internal parameter. Do not change it.</td>
-</tr>
-<tr>
 <td>Vm Size</td>
 <td>Select virtual machine instance type to use for the Cloudbreak controller. The minimum instance type suitable for Cloudbreak is <em>Standard_DS3</em>. The minimum requirements are 16GB RAM, 40GB disk, 4 cores.</td>
 </tr>
@@ -736,14 +728,6 @@
 <tr>
 <td>Username</td>
 <td>Enter an admin username for the virtual machine. You will use it to SSH to the VM. By default, "cloudbreak" is used.</td>
-</tr>
-<tr>
-<td>SmartSense</td>
-<td>Select whether you want to use <a href="../smartsense/index.html">SmartSense telemetry</a>. Default is "false" (not using SmartSense telemetry).</td>
-</tr>
-<tr>
-<td>SmartSense Id</td>
-<td>(Optional) Your SmartSense ID.</td>
 </tr>
 <tr>
 <td>Remote Location</td>
