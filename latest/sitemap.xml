@@ -16,6 +16,18 @@
     </url>
         
     <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//concepts/index.html</loc>
+     <lastmod>2018-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//deployment-options/index.html</loc>
+     <lastmod>2018-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//security/index.html</loc>
      <lastmod>2018-05-25</lastmod>
      <changefreq>daily</changefreq>
