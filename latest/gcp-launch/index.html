@@ -618,7 +618,7 @@
                 <li class="third-level"><a href="#vpc-network">VPC network</a></li>
             
         
-            <li class="second-level"><a href="#launch-cloudbreak-from-template">Launch Cloudbreak from template</a></li>
+            <li class="second-level"><a href="#launch-cloudbreak-from-a-template">Launch Cloudbreak from a template</a></li>
             
         
             <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
@@ -664,8 +664,90 @@
 <h4 id="vpc-network">VPC network</h4>
 <p>When launching Cloudbreak, you will be required to select an existing network in which Cloudbreak can be placed. The following ports must be open on the security group: 22 (for access via SSH), 80 (for access via HTTP), and 443 (for access via HTTPS). You may use the <em>default</em> network as long as the aforementioned ports are open. </p>
 <p>You can manage networks under <strong>Networking</strong> &gt; <strong>VPC Networks</strong>. To edit ports, click on the network name and then click on <strong>Add firewall rules</strong>. </p>
-<h3 id="launch-cloudbreak-from-template">Launch Cloudbreak from template</h3>
-<p>TBD </p>
+<h3 id="launch-cloudbreak-from-a-template">Launch Cloudbreak from a template</h3>
+<p>Follow these steps to launch Cloudbreak on Google Cloud by using the Cloud Deployer Manager. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>In order to use the Cloud Deployment Manager, you must install the Google cloud SDK on your machine. The SDK contains the gcloud CLI tool, which is used to deploy Cloudbreak. </p>
+<p>For instructions, refer to <a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> in Google Cloud documentation.  </p>
+</li>
+<li>
+<p>Open a text editor and paste the following into the file:  </p>
+<p><pre>region: us-central1
+zone: us-central1-a
+instance_type: n1-standard-4
+ssh_pub_key: ....
+os_user: cloudbreak
+user_email: admin@example.com
+user_password: cloudbreak</pre></p>
+</li>
+<li>
+<p>Edit the file by updating the parameters: </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td>The GCP region in which you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones">supported by GCP</a>.</td>
+<td>us-central-1</td>
+</tr>
+<tr>
+<td>zone</td>
+<td>The GCP region's zone in which you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones">supported by GCP</a>.</td>
+<td>us-central1-a</td>
+</tr>
+<tr>
+<td>instance_type</td>
+<td>Select the VM instance type. For available instance types, reefer to <a href="https://cloud.google.com/compute/docs/machine-types">Machine Types</a> in GCP docuemntation.</td>
+<td>n1-standard-4</td>
+</tr>
+<tr>
+<td>ssh_pub_key</td>
+<td>Paste your SSH public key.</td>
+<td>...</td>
+</tr>
+<tr>
+<td>os_user</td>
+<td>Enter the name of the user that you would like to use to SSH to the VM.</td>
+<td>cloudbreak</td>
+</tr>
+<tr>
+<td>user_email</td>
+<td>Enter the email address that you would like to use to log in to Cloudbreak.</td>
+<td>admin@cloudbreak.com</td>
+</tr>
+<tr>
+<td>user_password</td>
+<td>Enter the password that you would like to use to log in to Cloudbreak.</td>
+<td>cloudbreak</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Save the file on your local machine in the yaml format. </p>
+</li>
+<li>
+<p>Run the following command to create a new deployment:</p>
+<p><pre>gcloud deployment-manager deployments create cbd-deployment --config=/path/to/your/file.yaml</pre></p>
+<p>For example:</p>
+<p><pre>gcloud deployment-manager deployments create cbd-deployment --config=vm_template_config.yaml</pre></p>
+</li>
+</ol>
+<p>To delete the previously created deployment via gcloud command line interface, use:</p>
+<pre>gcloud deployment-manager deployments delete cbd-deployment -q</pre>
+
+<p><strong>Related Links</strong><br />
+<a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> (External)<br />
+<a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones">Regions and Zones</a> (External)  <br />
+<a href="https://cloud.google.com/compute/docs/machine-types">Machine Types</a> (External)    </p>
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong></p>

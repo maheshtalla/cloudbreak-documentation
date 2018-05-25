@@ -616,9 +616,13 @@
         
             <li class="second-level"><a href="#get-started">Get started</a></li>
             
-                <li class="third-level"><a href="#select-a-cloud-platform">Select a cloud platform</a></li>
+                <li class="third-level"><a href="#deployment-options-on-aws">Deployment options on AWS</a></li>
             
-                <li class="third-level"><a href="#select-a-deployment-option">Select a deployment option</a></li>
+                <li class="third-level"><a href="#deployment-options-on-azure">Deployment options on Azure</a></li>
+            
+                <li class="third-level"><a href="#deployment-options-on-gcp">Deployment options on GCP</a></li>
+            
+                <li class="third-level"><a href="#deployment-options-on-openstack">Deployment options on OpenStack</a></li>
             
                 <li class="third-level"><a href="#launch-cloudbreak">Launch Cloudbreak</a></li>
             
@@ -704,49 +708,48 @@
 <h3 id="get-started">Get started</h3>
 <p>To get started with Cloudbreak:</p>
 <ol>
-<li>Select the <a href="#select-a-cloud-platform">cloud platform</a> on which you would like to launch Cloudbreak.   </li>
-<li>Select the <a href="#select-a-deployment-option">deployment option</a> that you would like to use. </li>
-<li><a href="#launch-cloudbreak">Launch Cloudbreak</a>. </li>
-</ol>
-<h4 id="select-a-cloud-platform">Select a cloud platform</h4>
-<p>You can deploy and use Cloudbreak on the following cloud platforms:</p>
+<li>
+<p>Select the cloud platform on which you would like to launch Cloudbreak:</p>
 <ul>
-<li>Amazon Web Services (AWS)</li>
-<li>Microsoft Azure</li>
-<li>Google Cloud Platform (GCP)</li>
-<li>OpenStack</li>
+<li>Amazon Web Services (AWS)  </li>
+<li>Microsoft Azure  </li>
+<li>Google Cloud Platform (GCP)  </li>
+<li>OpenStack  </li>
 </ul>
-<h4 id="select-a-deployment-option">Select a deployment option</h4>
+</li>
+<li>
+<p>Select the deployment option. In general, Cloudbreak offers a quickstart option and an advanced deployment option.  </p>
+</li>
+</ol>
+<h4 id="deployment-options-on-aws">Deployment options on AWS</h4>
 <p>There are two basic deployment options:</p>
-<table>
-<thead>
-<tr>
-<th>Deployment option</th>
-<th>When to use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Option 1: Instantiate Cloudbreak using one of the provided pre-built cloud images</td>
-<td><p>This is the basic deployment option and the easiest to get started with.</p><p> The cloud images include Cloudbreak deployer pre-installed on a CentOS VM.</p></td>
-</tr>
-<tr>
-<td>Option 2: Install the Cloudbreak deployer on your own VM</td>
-<td><p>This is an advanced deployment option.</p> <p>Select this option if you have custom VM requirements. The supported operating systems are RHEL, CentOS, and Oracle Linux 7 (64-bit).</p></td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><a href="aws-launch/index.html">AWS quickstart option</a>: Instantiate Cloudbreak by using the CloudFormation template. This is the basic deployment option and the easiest to get started with.   </li>
+<li><a href="vm-launch/index.html">Advanced Option</a>: Install the Cloudbreak deployer on your own VM. This is an advanced deployment option. Select this option if you have custom requirements. The supported operating systems are RHEL, CentOS, and Oracle Linux 7 (64-bit).</li>
+</ul>
+<h4 id="deployment-options-on-azure">Deployment options on Azure</h4>
+<ul>
+<li><a href="azure-launch/index.html">Azure quickstart option</a>: Instantiate Cloudbreak by using ???. This is the basic deployment option and the easiest to get started with. </li>
+<li><a href="vm-launch/index.html">Advanced Option</a>: Install the Cloudbreak deployer on your own VM. This is an advanced deployment option.</p> <p>Select this option if you have custom requirements. The supported operating systems are RHEL, CentOS, and Oracle Linux 7 (64-bit).</li>
+</ul>
+<h4 id="deployment-options-on-gcp">Deployment options on GCP</h4>
+<ul>
+<li><a href="gcp-launch/index.html">GCP quickstart option</a>: Instantiate Cloudbreak using ???. This is the basic deployment option and the easiest to get started with.   </li>
+<li><a href="vm-launch/index.html">Advanced Option</a>: Install the Cloudbreak deployer on your own VM. This is an advanced deployment option. Select this option if you have custom requirements. The supported operating systems are RHEL, CentOS, and Oracle Linux 7 (64-bit).</li>
+</ul>
+<h4 id="deployment-options-on-openstack">Deployment options on OpenStack</h4>
+<p>You must launch Cloudbreak manually on <strong>OpenStack</strong>. Refer to <a href="os-launch/index.html">Launch on OpenStack</a>. This is an advanced deployment option. Select this option if you have custom VM requirements. The supported operating systems are RHEL, CentOS, and Oracle Linux 7 (64-bit).</p>
 <h4 id="launch-cloudbreak">Launch Cloudbreak</h4>
-<p><strong>(Option 1)</strong> You can launch Cloudbreak from a template:  </p>
+<p><strong>(Quickstart Option)</strong> You can launch Cloudbreak from a template:  </p>
 <ul>
 <li><a href="aws-launch/index.html">Launch on AWS</a>  </li>
-<li><a href="azure-launch/index.html">Launch on Azure</a>  </li>
-<li><a href="gcp-launch/index.html">Launch on GCP</a>   </li>
+<li><a href="azure-launch/index.html">Launch on Azure</a> </li>
+<li><a href="gcp-launch/index.html">Launch on GCP</a>  </li>
 </ul>
 <blockquote>
 <p>This option is not available for <strong>OpenStack</strong>; you must launch Cloudbreak manually. Refer to <a href="os-launch/index.html">Launch on OpenStack</a>.    </p>
 </blockquote>
-<p><strong>(Option 2)</strong> Or you can launch Cloudbreak <a href="vm-launch/index.html">on your own VM</a> on one of these cloud platforms. This is an advanced deployment option that you should only use if you have custom VM requirements. </p>
+<p><strong>(Advanced Option)</strong> Or you can launch Cloudbreak <a href="vm-launch/index.html">on your own VM</a> on one of these cloud platforms. This is an advanced deployment option that you should only use if you have custom requirements. </p>
 <p>In general, the steps include meeting the prerequisites, launching Cloudbreak on a VM, and creating the Cloudbreak credential. After performing these steps, you can create a cluster based on one of the default blueprints or upload your own blueprint and then create a cluster. </p>
 <div class="note">
     <p class="first admonition-title">Note</p>
@@ -806,5 +809,5 @@
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2018-05-24 22:56:28.835844
+Build Date UTC : 2018-05-25 15:08:24.461982
 -->

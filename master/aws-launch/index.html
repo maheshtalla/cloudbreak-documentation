@@ -760,6 +760,7 @@
 </tbody>
 </table>
 <blockquote>
+<p>These role and policy names are just examples. You may use different names when creating your resources.  </p>
 <p>CloudbreakRole: Alternatively, instead of attaching the "CloudbreakRole" role during the VM launch, you can assign the "CloudbreakRole" to an IAM user and then add the access and secret key of that user to your 'Profile'.</p>
 <p>CredentialRole: Alternatively you can generate the "CredentialRole" role later once your Cloudbreak VM is running by SSHing to the Cloudbreak VM and running the <code>cbd aws generate-role</code> command. This command creates a role with the name "cbreak-deployer" (equivalent to the "CredentialRole"). To customize the name of the role, add <code>export AWS_ROLE_NAME=my-cloudbreak-role-name</code> (where "my-cloudbreak-role-name" is your custom role name) as a new line to your Profile. If you choose this option, you must make sure that the "CloudbreakRole" or the IAM user have a permission not only to assume a role but also to create a role.  </p>
 </blockquote>
