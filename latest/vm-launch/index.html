@@ -91,7 +91,7 @@
                         
                             
 <li >
-    <a href="../index.html">Get started</a>
+    <a href="../index.html">Introduction</a>
 </li>
 
                         
@@ -127,6 +127,12 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../aws-pre/index.html">Prerequisites</a>
+</li>
+
                         
                             
 <li >
@@ -169,6 +175,12 @@
                         
                             
 <li >
+    <a href="../azure-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../azure-launch/index.html">Launch on Azure</a>
 </li>
 
@@ -208,6 +220,12 @@
                         
                             
 <li >
+    <a href="../gcp-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../gcp-launch/index.html">Launch on GCP</a>
 </li>
 
@@ -241,6 +259,12 @@
                         
                             
 <li >
+    <a href="../os-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../os-launch/index.html">Launch on OpenStack</a>
 </li>
 
@@ -269,7 +293,7 @@
                 
                 
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">VM <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced Launch <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -630,7 +654,7 @@
             
                 <li class="third-level"><a href="#iptables">Iptables</a></li>
             
-                <li class="third-level"><a href="#more">More</a></li>
+                <li class="third-level"><a href="#cloud-provider-prerequisites">Cloud Provider Prerequisites</a></li>
             
         
             <li class="second-level"><a href="#install-cloudbreak-on-your-own-vm">Install Cloudbreak on your own VM</a></li>
@@ -645,7 +669,7 @@
         <div class="col-md-9" role="main">
 
 <h2 id="installing-cloudbreak-on-your-own-vm">Installing Cloudbreak on your own VM</h2>
-<p>This is an advanced deployment option. Select this option if you have custom VM requirements. Otherwise, you should use one of the pre-built images and follow these instructions:</p>
+<p>This is an advanced deployment option. Select this option if you have custom requirements. Otherwise, you can launch Cloudbreak from a template:</p>
 <ul>
 <li><a href="../aws-launch/index.html">Launch on AWS</a>  </li>
 <li><a href="../azure-launch/index.html">Launch on Azure</a>  </li>
@@ -714,8 +738,8 @@ systemctl start docker
 systemctl enable docker</pre></p>
 </li>
 </ol>
-<h4 id="more">More</h4>
-<p>Additionally, review the following prerequisites:</p>
+<h4 id="cloud-provider-prerequisites">Cloud Provider Prerequisites</h4>
+<p>Additionally, review the following cloud provider prerequisites:</p>
 <ul>
 <li><a href="../aws-launch/index.html#meet-the-prerequisites">Prerequisites on AWS</a></li>
 <li><a href="../azure-launch/index.html#meet-the-prerequisites">Prerequisites on Azure</a></li>
@@ -743,14 +767,12 @@ cd cloudbreak-deployment</pre></p>
 <p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
 export UAA_DEFAULT_USER_PW=MY-PASSWORD
 export UAA_DEFAULT_USER_EMAIL=MY-EMAIL
-export PUBLIC_IP=MY_VM_IP<br />
-</pre></p>
+export PUBLIC_IP=MY_VM_IP</pre></p>
 <p>For example:</p>
 <p><pre>export UAA_DEFAULT_SECRET=MySecret123
 export UAA_DEFAULT_USER_PW=MySecurePassword123
 export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com
-export PUBLIC_IP=172.26.231.100
-</pre></p>
+export PUBLIC_IP=172.26.231.100</pre></p>
 <p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.</p>
 <p>You should set the CLOUDBREAK_SMTP_SENDER_USERNAME variable to the username you use to authenticate to your SMTP server. You should set the CLOUDBREAK_SMTP_SENDER_PASSWORD variable to the password you use to authenticate to your SMTP server.</p>
 </li>

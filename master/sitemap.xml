@@ -38,6 +38,12 @@
     
         
     <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-pre/index.html</loc>
+     <lastmod>2018-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-launch/index.html</loc>
      <lastmod>2018-05-25</lastmod>
      <changefreq>daily</changefreq>
@@ -70,6 +76,12 @@
     
 
     
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-pre/index.html</loc>
+     <lastmod>2018-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-launch/index.html</loc>
@@ -106,6 +118,12 @@
     
         
     <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-pre/index.html</loc>
+     <lastmod>2018-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-launch/index.html</loc>
      <lastmod>2018-05-25</lastmod>
      <changefreq>daily</changefreq>
@@ -132,6 +150,12 @@
     
 
     
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//os-pre/index.html</loc>
+     <lastmod>2018-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//os-launch/index.html</loc>

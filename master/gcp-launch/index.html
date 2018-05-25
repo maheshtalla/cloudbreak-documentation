@@ -91,7 +91,7 @@
                         
                             
 <li >
-    <a href="../index.html">Get started</a>
+    <a href="../index.html">Introduction</a>
 </li>
 
                         
@@ -127,6 +127,12 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../aws-pre/index.html">Prerequisites</a>
+</li>
+
                         
                             
 <li >
@@ -169,6 +175,12 @@
                         
                             
 <li >
+    <a href="../azure-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../azure-launch/index.html">Launch on Azure</a>
 </li>
 
@@ -207,6 +219,12 @@
                         <ul class="dropdown-menu">
                         
                             
+<li >
+    <a href="../gcp-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
 <li class="active">
     <a href="index.html">Launch on GCP</a>
 </li>
@@ -241,6 +259,12 @@
                         
                             
 <li >
+    <a href="../os-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../os-launch/index.html">Launch on OpenStack</a>
 </li>
 
@@ -269,7 +293,7 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">VM <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced Launch <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -585,7 +609,7 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../azure-data/index.html">
+                        <a rel="next" href="../gcp-pre/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -617,20 +641,10 @@
     
         <li class="first-level active"><a href="#launching-cloudbreak-on-gcp">Launching Cloudbreak on GCP</a></li>
         
-            <li class="second-level"><a href="#meet-the-prerequisites">Meet the prerequisites</a></li>
-            
-                <li class="third-level"><a href="#gcp-account">GCP account</a></li>
-            
-                <li class="third-level"><a href="#service-account">Service account</a></li>
-            
-                <li class="third-level"><a href="#ssh-key-pair">SSH key pair</a></li>
-            
-                <li class="third-level"><a href="#region-and-zone">Region and zone</a></li>
-            
-                <li class="third-level"><a href="#vpc-network">VPC network</a></li>
+            <li class="second-level"><a href="#quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</a></li>
             
         
-            <li class="second-level"><a href="#launch-cloudbreak-from-a-template">Launch Cloudbreak from a template</a></li>
+            <li class="second-level"><a href="#advanced-launch-cloudbreak-on-your-own-vm">(Advanced) Launch Cloudbreak on your own VM</a></li>
             
         
             <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
@@ -645,39 +659,17 @@
         <div class="col-md-9" role="main">
 
 <h2 id="launching-cloudbreak-on-gcp">Launching Cloudbreak on GCP</h2>
-<p>Before launching Cloudbreak on Google Cloud, review and meet the prerequisites. Next, import Cloudbreak image, launch a VM, SSH to the VM, and start Cloudbreak. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential. </p>
-<h3 id="meet-the-prerequisites">Meet the prerequisites</h3>
-<p>Before launching Cloudbreak on GCP, you must meet the following prerequisites.</p>
-<h4 id="gcp-account">GCP account</h4>
-<p>In order to launch Cloudbreak on GCP, you must log in to your GCP account. If you don't have an account, you can create one at <a href="https://console.cloud.google.com">https://console.cloud.google.com</a>.</p>
-<p>Once you log in to your GCP account, you must either create a project or use an existing project. </p>
-<h4 id="service-account">Service account</h4>
-<p>In order to launch clusters on GCP via Cloudbreak, you must have a Service Account that Cloudbreak can use to create resources. In addition, you must also have a P12 key associated with the account. The service account must have the following roles are enabled:</p>
+<p>Before launching Cloudbreak on Google Cloud:</p>
 <ul>
-<li>Compute Engine &gt; Compute Image User   </li>
-<li>Compute Engine &gt; Compute Instance Admin (v1)  </li>
-<li>Compute Engine &gt; Compute Network Admin  </li>
-<li>Compute Engine &gt; Compute Security Admin  </li>
-<li>Storage &gt; Storage Admin </li>
+<li>Review and meet the <a href="#prerequisites">prerequisites</a>.  </li>
+<li>If you haven't already, review the <a href="../deployment-options/index.html">deployment options</a>.  </li>
 </ul>
-<p>A user with an "Owner" role can assign roles to new and existing service accounts from <strong>IAM &amp; admin</strong> &gt; <strong>Service accounts</strong>, as presented in the following screenshots: </p>
-<p><a href="../images/cb_gcp-iam.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-iam.png" width="650" title="GCP Console"></a> </p>
-<p><a href="../images/cb_gcp-iam2.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-iam2.png" width="650" title="GCP Console"></a> </p>
-<p>For more information on creating a Service Account and generating a P12 key, refer to <a href="https://cloud.google.com/storage/docs/authentication#service_accounts">GCP documentation</a>. </p>
-<p><strong>Related links</strong><br />
-<a href="https://cloud.google.com/storage/docs/authentication#service_accounts">Service account credentials</a> (External)  </p>
-<h4 id="ssh-key-pair">SSH key pair</h4>
-<p><a href="../faq/index.html#generate-ssh-key-pair">Generate a new SSH key pair</a> or use an existing SSH key pair. You will be required to provide it when launching the VM. </p>
-<h4 id="region-and-zone">Region and zone</h4>
-<p>Decide in which region and zone you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones">supported by GCP</a>.  </p>
-<p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it. </p>
-<p><strong>Related links</strong><br />
-<a href="https://cloud.google.com/compute/docs/regions-zones/">Regions and zones</a> (External)  </p>
-<h4 id="vpc-network">VPC network</h4>
-<p>When launching Cloudbreak, you will be required to select an existing network in which Cloudbreak can be placed. The following ports must be open on the security group: 22 (for access via SSH), 80 (for access via HTTP), and 443 (for access via HTTPS). You may use the <em>default</em> network as long as the aforementioned ports are open. </p>
-<p>You can manage networks under <strong>Networking</strong> &gt; <strong>VPC Networks</strong>. To edit ports, click on the network name and then click on <strong>Add firewall rules</strong>. </p>
-<h3 id="launch-cloudbreak-from-a-template">Launch Cloudbreak from a template</h3>
+<p>The steps below describe how to launch Cloudbreak by using one of the two available deployment options (quickstart and advanced), access Cloudbreak web UI, and create a Cloudbreak credential.</p>
+<h3 id="quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</h3>
 <p>Follow these steps to launch Cloudbreak on Google Cloud by using the Cloud Deployer Manager. </p>
+<blockquote>
+<p>This is the GCP quickstart option. If you would like to install Cloudbreak on your own VM, refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>. </p>
+</blockquote>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -760,6 +752,8 @@ user_password: cloudbreak</pre></p>
 <a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> (External)<br />
 <a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones">Regions and Zones</a> (External)  <br />
 <a href="https://cloud.google.com/compute/docs/machine-types">Machine Types</a> (External)    </p>
+<h3 id="advanced-launch-cloudbreak-on-your-own-vm">(Advanced) Launch Cloudbreak on your own VM</h3>
+<p>Refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>. </p>
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong></p>

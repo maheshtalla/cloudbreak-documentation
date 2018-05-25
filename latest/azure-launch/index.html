@@ -91,7 +91,7 @@
                         
                             
 <li >
-    <a href="../index.html">Get started</a>
+    <a href="../index.html">Introduction</a>
 </li>
 
                         
@@ -127,6 +127,12 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../aws-pre/index.html">Prerequisites</a>
+</li>
+
                         
                             
 <li >
@@ -166,6 +172,12 @@
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../azure-pre/index.html">Prerequisites</a>
+</li>
+
                         
                             
 <li class="active">
@@ -208,6 +220,12 @@
                         
                             
 <li >
+    <a href="../gcp-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../gcp-launch/index.html">Launch on GCP</a>
 </li>
 
@@ -241,6 +259,12 @@
                         
                             
 <li >
+    <a href="../os-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../os-launch/index.html">Launch on OpenStack</a>
 </li>
 
@@ -269,7 +293,7 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">VM <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced Launch <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -585,7 +609,7 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../aws-data/index.html">
+                        <a rel="next" href="../azure-pre/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -617,18 +641,10 @@
     
         <li class="first-level active"><a href="#launching-cloudbreak-on-azure">Launching Cloudbreak on Azure</a></li>
         
-            <li class="second-level"><a href="#meet-the-prerequisites">Meet the prerequisites</a></li>
-            
-                <li class="third-level"><a href="#azure-account">Azure account</a></li>
-            
-                <li class="third-level"><a href="#azure-region">Azure region</a></li>
-            
-                <li class="third-level"><a href="#azure-roles">Azure roles</a></li>
-            
-                <li class="third-level"><a href="#ssh-key-pair">SSH key pair</a></li>
+            <li class="second-level"><a href="#quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</a></li>
             
         
-            <li class="second-level"><a href="#launch-cloudbreak-from-a-template">Launch Cloudbreak from a template</a></li>
+            <li class="second-level"><a href="#advanced-launch-cloudbrak-on-your-own-vm">(Advanced) Launch Cloudbrak on your own VM</a></li>
             
         
             <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
@@ -647,38 +663,17 @@
         <div class="col-md-9" role="main">
 
 <h2 id="launching-cloudbreak-on-azure">Launching Cloudbreak on Azure</h2>
-<p>Before launching Cloudbreak on Azure, review and meet the prerequisites. Next, launch Cloudbreak using one of the two available methods. Once Cloudbreak is running, log in to the Cloudbreak UI and create a Cloudbreak credential.</p>
-<h3 id="meet-the-prerequisites">Meet the prerequisites</h3>
-<p>Before launching Cloudbreak on Azure, you must meet the following prerequisites.</p>
-<h4 id="azure-account">Azure account</h4>
-<p>In order to launch Cloudbreak on the Azure, log in to your existing Microsoft Azure account. If you don't have an account, you can set it up at <a href="https://azure.microsoft.com">https://azure.microsoft.com</a>.</p>
-<h4 id="azure-region">Azure region</h4>
-<p>Decide in which Azure region you would like to launch Cloudbreak. You can launch Cloudbreak and provision your clusters in all regions <a href="https://azure.microsoft.com/en-us/regions/">supported by Microsoft Azure</a>.</p>
-<p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it.</p>
-<p><strong>Related links</strong><br />
-<a href="https://azure.microsoft.com/en-us/regions/">Azure regions</a> (External)</p>
-<h4 id="azure-roles">Azure roles</h4>
-<p>In order to provision clusters on Azure, Cloudbreak must be able to assume a sufficient Azure role ("Owner" or "Contributor") via Cloudbreak credential:</p>
+<p>Before launching Cloudbreak on Azure:</p>
 <ul>
-<li>
-<p>Your account must have the "<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Owner</a>" role (or a role with equivalent permissions) in the subscription in order to <a href="#create-cloudbreak-credential">create a Cloudbreak credential</a> using the interactive credential method.</p>
-</li>
-<li>
-<p>Your account must have the "<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Contributor</a>" role (or a role with equivalent permissions) in the subscription in order to <a href="#create-cloudbreak-credential">create a Cloudbreak credential</a> using the app-based credential method. The role must be assigned to the app that you register in Cloudbreak.</p>
-</li>
+<li>Review and meet the <a href="#prerequisites">prerequisites</a>.  </li>
+<li>If you haven't already, review the <a href="../deployment-options/index.html">deployment options</a>.  </li>
 </ul>
-<p>To check the roles in your subscription, log in to your Azure account and navigate to <strong>Subscriptions</strong>.</p>
-<p><strong>Related links</strong><br />
-<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Built-in roles: Owner</a> (External)<br />
-<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Built-in roles: Contributor</a> (External)</p>
-<h4 id="ssh-key-pair">SSH key pair</h4>
-<p>When launching Cloudbreak, you will be required to provide your public SSH key. If needed, you can generate a new SSH key pair:</p>
-<ul>
-<li>On MacOS X and Linux using <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code>  </li>
-<li>On Windows using <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows">PuTTygen</a></li>
-</ul>
-<h3 id="launch-cloudbreak-from-a-template">Launch Cloudbreak from a template</h3>
+<p>The steps below describe how to launch Cloudbreak by using one of the two available deployment options (quickstart and advanced), access Cloudbreak web UI, and create a Cloudbreak credential.</p>
+<h3 id="quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</h3>
 <p>Launch Cloudbreak deployer by using the following steps.</p>
+<blockquote>
+<p>This is the Azure quickstart option. If you would like to install Cloudbreak on your own VM, refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>. </p>
+</blockquote>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -792,6 +787,8 @@
 <p><strong>Related links</strong><br />
 <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> (External) <br />
 <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter network traffic with network security groups</a> (External)  </p>
+<h3 id="advanced-launch-cloudbrak-on-your-own-vm">(Advanced) Launch Cloudbrak on your own VM</h3>
+<p>Refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>. </p>
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong></p>

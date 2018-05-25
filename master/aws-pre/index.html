@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/aws-pre/index.html"> 
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <title>Prerequisites - Cloudbreak</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+
+
+    <link href="../css/extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-22950817-24', 'auto');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../index.html">Cloudbreak</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Intro <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../index.html">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../concepts/index.html">Core concepts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../deployment-options/index.html">Deployment options</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../security/index.html">Security overview</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-launch/index.html">Launch on AWS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-clusters-access/index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-clusters-manage/index.html">Manage and monitor clusters</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-data/index.html">Access data on S3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../azure-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-launch/index.html">Launch on Azure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-clusters-access/index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-clusters-manage/index.html">Manage and monitor clusters</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-data/index.html">Access data on Azure</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gcp-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-launch/index.html">Launch on GCP</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-clusters-access/index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-clusters-manage/index.html">Manage and monitor clusters</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenStack <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../os-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-launch/index.html">Launch on OpenStack</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-clusters-access/index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-clusters-manage/index.html">Manage and monitor clusters</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced Launch <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../vm-launch/index.html">Install Cloudbreak on your own VM</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Advanced cluster options</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../blueprints/index.html">Use custom blueprints</a>
+</li>
+
+        
+            
+<li >
+    <a href="../recipes/index.html">Use custom scripts (recipes)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mpacks/index.html">Use management packs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../images/index.html">Use custom images</a>
+</li>
+
+        
+            
+<li >
+    <a href="../tags/index.html">Tag resources</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-kerberos/index.html">Enable Kerberos security</a>
+</li>
+
+        
+            
+<li >
+    <a href="../autoscaling/index.html">Configure autoscaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-db/index.html">Register external database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-ldap/index.html">Register external authentication source</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-proxy/index.html">Register proxy configuration</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Advanced Cloudbreak options</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../cb-credentials/index.html">Manage Cloudbreak credentials</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-migrate/index.html">Move Cloudbreak instance</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-ldap/index.html">Configure LDAP/AD authentication for Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-proxy/index.html">Configure outbound internet access and proxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-inbound/index.html">Restrict inbound access to clusters</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-customdom/index.html">Configure access from custom domains</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Configure external Cloudbreak database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-disable-provider/index.html">Disable providers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-ports/index.html">Change default Cloudbreak ports</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-profile/index.html">Modify settings in Cloudbreak Profile</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cloudbreak CLI</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../cli-install/index.html">Install the CLI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cli-get-started/index.html">Get started with the CLI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cli-reference/index.html">CLI Reference</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Troubleshooting</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../trouble-cb-logs/index.html">Cloudbreak logs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-cb/index.html">Troubleshooting Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-cluster/index.html">Troubleshooting cluster creation</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-aws/index.html">Troubleshooting AWS</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-azure/index.html">Troubleshooting Azure</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-gcp/index.html">Troubleshooting GCP</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-cli/index.html">Troubleshooting Cloudbreak CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cb-delete/index.html">Delete Cloudbreak</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../dev/index.html">Developer documentation links</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense telemetry</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Legal</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../acknowledge/index.html">Acknowledgements</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li >
+                        <a rel="next" href="../security/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../aws-launch/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/hortonworks/cloudbreak-documentation">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#meet-the-prerequisites-on-aws">Meet the prerequisites on AWS</a></li>
+        
+            <li class="second-level"><a href="#aws-account">AWS account</a></li>
+            
+        
+            <li class="second-level"><a href="#aws-region">AWS region</a></li>
+            
+        
+            <li class="second-level"><a href="#ssh-key-pair">SSH key pair</a></li>
+            
+        
+            <li class="second-level"><a href="#authentication">Authentication</a></li>
+            
+        
+            <li class="second-level"><a href="#option-1-use-key-based-authentication">(Option 1) Use key-based authentication</a></li>
+            
+        
+            <li class="second-level"><a href="#option-2-configure-role-based-authentication">(Option 2) Configure role-based authentication</a></li>
+            
+                <li class="third-level"><a href="#create-cloudbreakrole">Create CloudbreakRole</a></li>
+            
+                <li class="third-level"><a href="#create-credentialrole">Create CredentialRole</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="meet-the-prerequisites-on-aws">Meet the prerequisites on AWS</h2>
+<p>Before launching Cloudbreak on AWS, you must meet the following prerequisites.</p>
+<h3 id="aws-account">AWS account</h3>
+<p>In order to launch Cloudbreak on AWS, you must log in to your AWS account. If you don't have an account, you can create one at <a href="https://aws.amazon.com/">https://aws.amazon.com/</a>.</p>
+<h3 id="aws-region">AWS region</h3>
+<p>Decide in which AWS region you would like to launch Cloudbreak. The following AWS regions are supported: </p>
+<table>
+<thead>
+<tr>
+<th>Region name</th>
+<th>Region</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EU (Ireland)</td>
+<td>eu-west-1</td>
+</tr>
+<tr>
+<td>EU (Frankfurt)</td>
+<td>eu-central-1</td>
+</tr>
+<tr>
+<td>US East (N. Virginia)</td>
+<td>us-east-1</td>
+</tr>
+<tr>
+<td>US West (N. California)</td>
+<td>us-west-1</td>
+</tr>
+<tr>
+<td>US West (Oregon)</td>
+<td>us-west-2</td>
+</tr>
+<tr>
+<td>South America (São Paulo)</td>
+<td>sa-east-1</td>
+</tr>
+<tr>
+<td>Asia Pacific (Tokyo)</td>
+<td>ap-northeast-1</td>
+</tr>
+<tr>
+<td>Asia Pacific (Singapore)</td>
+<td>ap-southeast-1</td>
+</tr>
+<tr>
+<td>Asia Pacific (Sydney)</td>
+<td>ap-southeast-2</td>
+</tr>
+</tbody>
+</table>
+<p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it.</p>
+<p><strong>Related links</strong><br />
+<a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">AWS regions and endpoints</a> (External)   </p>
+<h3 id="ssh-key-pair">SSH key pair</h3>
+<p>Import an existing key pair or generate a new key pair in the AWS region which you are planning to use for launching Cloudbreak and clusters. You can do this using the following steps.</p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>Navigate to the Amazon EC2 console at https://console.aws.amazon.com/ec2/.  </li>
+<li>Check the region listed in the top right corner to make sure that you are in the correct region.  </li>
+<li>In the left pane, find <strong>NETWORK AND SECURITY</strong> and click <strong>Key Pairs</strong>.   </li>
+<li>Do one of the following:<ul>
+<li>Click <strong>Create Key Pair</strong> to create a new key pair. Your private key file will be automatically downloaded onto your computer. Make sure to save it in a secure location. You will need it to SSH to the cluster nodes. You may want to change access settings for the file using <code>chmod 400 my-key-pair.pem</code>.  </li>
+<li>Click <strong>Import Key Pair</strong> to upload an existing public key and then select it and click <strong>Import</strong>. Make sure that you have access to its corresponding private key.    </li>
+</ul>
+</li>
+</ol>
+<p>You need this SSH key pair to SSH to the Cloudbreak instance and start Cloudbreak. </p>
+<p><strong>Related links</strong><br />
+<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair">Creating a key pair using Amazon EC2</a> (External)</p>
+<h3 id="authentication">Authentication</h3>
+<p>Before you can start using Cloudbreak for provisioning clusters, you must select a way for Cloudbreak to authenticate with your AWS account and create resources on your behalf. There are two ways to do this: </p>
+<ul>
+<li>
+<p><strong>Key-based</strong>: This is a simpler option which does not require additional configuration at this point. It requires that you provide your AWS access key and secret key pair in the Cloudbreak web UI later. All you need to do now is check your AWS account and ensure that you can access this key pair.</p>
+</li>
+<li>
+<p><strong>Role-based</strong>: This requires that you or your AWS admin create an IAM role to allow Cloudbreak to assume AWS roles (the "AssumeRole" policy).</p>
+</li>
+</ul>
+<h3 id="option-1-use-key-based-authentication">(Option 1) Use key-based authentication</h3>
+<p>If you are using key-based authentication for Cloudbreak on AWS, you must be able to provide your AWS access key and secret key pair. Cloudbreak will use these keys to launch the resources. You must provide the access and secret keys later in the Cloudbreak web UI later when creating a credential. </p>
+<p>If you choose this option, all you need to do at this point is check your AWS account and make sure that you can access this key pair. You can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong>. Next, select a user and click on the <strong>Security credentials</strong> tab:</p>
+<p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a> </p>
+<p>If you choose this option, you can proceed to <a href="#launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</a>.</p>
+<h3 id="option-2-configure-role-based-authentication">(Option 2) Configure role-based authentication</h3>
+<p>If you are using role-based authentication for Cloudbreak on AWS, you must create two IAM roles: one to grant Cloudbreak access to allow Cloudbreak to assume AWS roles (using the "AssumeRole" policy) and the second one to provide Cloudbreak with the capabilities required for cluster creation (using the "cb-policy" policy).</p>
+<p>The following table provides contextual information about the two roles required: </p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Purpose</th>
+<th>Overview of steps</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CloudbreakRole</strong></td>
+<td>Allows Cloudbreak to assume other IAM roles - specifically the CredentialRole.</td>
+<td>Create a role called "CloudbreakRole" and attach the "AssumeRole" policy. The "AssumeRole" policy definition and steps for creating the CloudbreakRole are provided below.</td>
+<td><p>When launching Cloudbreak, you will attach the "CloudbreakRole" IAM role to the VM.</p><p>If you are using hosted Cloudbreak, you do not need to perform this step.</p></td>
+</tr>
+<tr>
+<td><strong>CredentialRole</strong></td>
+<td>Allows Cloudbreak to create AWS resources required for clusters.</td>
+<td><p>Create a new IAM role called "CredentialRole" and attach the "cb-policy" policy to it. The "cb-policy" policy definition and steps for creating the CredentialRole are provided below.</p><p> When creating this role using the AWS Console, make sure that that it is a role for cross-account access and that the trust-relation is set up as follows: 'Account ID' is your own 12-digit AWS account ID and 'External ID' is “provision-ambari”. See steps below.</p></td>
+<td>Once you log in to the Cloudbreak UI and are ready to create clusters, you will use this role to create the Cloudbreak credential.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>These role and policy names are just examples. You may use different names when creating your resources.  </p>
+<p>CloudbreakRole: Alternatively, instead of attaching the "CloudbreakRole" role during the VM launch, you can assign the "CloudbreakRole" to an IAM user and then add the access and secret key of that user to your 'Profile'.</p>
+<p>CredentialRole: Alternatively you can generate the "CredentialRole" role later once your Cloudbreak VM is running by SSHing to the Cloudbreak VM and running the <code>cbd aws generate-role</code> command. This command creates a role with the name "cbreak-deployer" (equivalent to the "CredentialRole"). To customize the name of the role, add <code>export AWS_ROLE_NAME=my-cloudbreak-role-name</code> (where "my-cloudbreak-role-name" is your custom role name) as a new line to your Profile. If you choose this option, you must make sure that the "CloudbreakRole" or the IAM user have a permission not only to assume a role but also to create a role.  </p>
+</blockquote>
+<p>You can create these roles in the <strong>IAM console</strong>, on the <strong>Roles</strong> page via the <strong>Create Role</strong> option. Detailed steps are provided below. </p>
+<h4 id="create-cloudbreakrole">Create CloudbreakRole</h4>
+<p>Use these steps to create CloudbreakRole. </p>
+<p>Use the following "AssumeRole" policy definition: </p>
+<pre>{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Sid": "Stmt1400068149000",
+    "Effect": "Allow",
+    "Action": ["sts:AssumeRole"],
+    "Resource": "*"
+  }
+}
+</pre>
+
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Navigate to the <strong>IAM console</strong> &gt; <strong>Roles</strong> and click <strong>Create Role</strong>.</p>
+<p><a href="../images/cb_aws_role-00.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-00.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>In the "Create Role" wizard, select <strong>AWS service</strong> role type and then select any service. </p>
+<p><a href="../images/cb_aws_role-10.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-10.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>When done, click <strong>Next: Permissions</strong> to navigate to the next page in the wizard.</p>
+</li>
+<li>
+<p>Click <strong>Create policy</strong>.</p>
+<p><a href="../images/cb_aws_role-11.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-11.png" width="650" title="IAM Console"></a></p>
+</li>
+<li>
+<p>Click <strong>Select</strong> next to "Create Your Own Policy".</p>
+<p><a href="../images/cb_aws_role-12.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-12.png" width="650" title="IAM Console"></a>  </p>
+</li>
+<li>
+<p>In the <strong>Policy Name</strong> field, enter "AssumeRole" and in the <strong>Policy Document</strong> paste the policy definition. You can either copy it from the section preceding these steps or download and copy it from <a href="https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cb-doc-resources/AssumeRole.json">here</a>.</p>
+<p><a href="../images/cb_aws_role-13.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-13.png" width="650" title="IAM Console"></a>  </p>
+</li>
+<li>
+<p>When done, click <strong>Create Policy</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Refresh</strong>. Next, find the "AssumeRole" policy that you just created and select it by checking the box.</p>
+<p><a href="../images/cb_aws_role-14.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-14.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>When done, click <strong>Next: Review</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Roles name</strong> field, enter role name, for example "CloudbreakRole". </p>
+<p><a href="../images/cb_aws_role-15.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-15.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>When done, click <strong>Create role</strong> to finish the role creation process.</p>
+</li>
+</ol>
+<h4 id="create-credentialrole">Create CredentialRole</h4>
+<p>Use these steps to create CredentialRole.</p>
+<p>Use the following "cb-policy" policy definition: </p>
+<pre>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateStack",
+        "cloudformation:DeleteStack",
+        "cloudformation:DescribeStackEvents",
+        "cloudformation:DescribeStackResource",
+        "cloudformation:DescribeStacks"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AllocateAddress",
+        "ec2:AssociateAddress",
+        "ec2:AssociateRouteTable",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:DescribeRegions",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:CreateRoute",
+        "ec2:CreateRouteTable",
+        "ec2:CreateSecurityGroup",
+        "ec2:CreateSubnet",
+        "ec2:CreateTags",
+        "ec2:CreateVpc",
+        "ec2:ModifyVpcAttribute",
+        "ec2:DeleteSubnet",
+        "ec2:CreateInternetGateway",
+        "ec2:CreateKeyPair",
+        "ec2:DeleteKeyPair", 
+        "ec2:DisassociateAddress",
+        "ec2:DisassociateRouteTable",
+        "ec2:ModifySubnetAttribute",
+        "ec2:ReleaseAddress",
+        "ec2:DescribeAddresses",
+        "ec2:DescribeImages",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeKeyPairs",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSpotInstanceRequests",
+        "ec2:DescribeVpcAttribute",
+        "ec2:ImportKeyPair",
+        "ec2:AttachInternetGateway",
+        "ec2:DeleteVpc",
+        "ec2:DeleteSecurityGroup",
+        "ec2:DeleteRouteTable",
+        "ec2:DeleteInternetGateway",
+        "ec2:DeleteRouteTable",
+        "ec2:DeleteRoute",
+        "ec2:DetachInternetGateway",
+        "ec2:RunInstances",
+        "ec2:StartInstances",
+        "ec2:StopInstances",
+        "ec2:TerminateInstances"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:ListRolePolicies",
+        "iam:GetRolePolicy",
+        "iam:ListAttachedRolePolicies",
+        "iam:ListInstanceProfiles",
+        "iam:PutRolePolicy",
+        "iam:PassRole",
+        "iam:GetRole"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "autoscaling:CreateAutoScalingGroup",
+        "autoscaling:CreateLaunchConfiguration",
+        "autoscaling:DeleteAutoScalingGroup",
+        "autoscaling:DeleteLaunchConfiguration",
+        "autoscaling:DescribeAutoScalingGroups",
+        "autoscaling:DescribeLaunchConfigurations",
+        "autoscaling:DescribeScalingActivities",
+        "autoscaling:DetachInstances",
+        "autoscaling:ResumeProcesses",
+        "autoscaling:SuspendProcesses",
+        "autoscaling:UpdateAutoScalingGroup"
+      ],
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}</pre>
+
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Navigate to the <strong>IAM console</strong> &gt; <strong>Roles</strong> and click <strong>Create Role</strong>.</p>
+<p><a href="../images/cb_aws_role0.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role0.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>In the "Create Role" wizard, select <strong>Another AWS account</strong> role type. Next, provide the following:</p>
+<ul>
+<li>In the <strong>Account ID</strong> field, enter your AWS account ID.</li>
+<li>Under <strong>Options</strong>, check <strong>Require external ID</strong>.</li>
+<li>In the <strong>External ID</strong>, enter "provision-ambari".</li>
+</ul>
+<p><a href="../images/cb_aws_role1.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role1.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>When done, click <strong>Next: Permissions</strong> to navigate to the next page in the wizard.</p>
+</li>
+<li>
+<p>Click <strong>Create policy</strong>.</p>
+<p><a href="../images/cb_aws_role2.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role2.png" width="650" title="IAM Console"></a></p>
+</li>
+<li>
+<p>Click <strong>Select</strong> next to "Create Your Own Policy".</p>
+<p><a href="../images/cb_aws_role3.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role3.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>In the <strong>Policy Name</strong> field, enter "cb-policy" and in the <strong>Policy Document</strong> paste the policy definition.  You can either copy it from the section preceding these steps or download and copy it from <a href="https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cb-doc-resources/cb-policy.json">here</a>.</p>
+<p><a href="../images/cb_aws_role4.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role4.png" width="650" title="IAM Console"></a>  </p>
+</li>
+<li>
+<p>When done, click <strong>Create Policy</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Refresh</strong>. Next, find the "cb-policy" that you just created and select it by checking the box.</p>
+<p><a href="../images/cb_aws_role5.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role5.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>When done, click <strong>Next: Review</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Roles name</strong> field, enter role name, for example "CredentialRole". </p>
+<p><a href="../images/cb_aws_role6.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role6.png" width="650" title="IAM Console"></a> </p>
+</li>
+<li>
+<p>When done, click <strong>Create role</strong> to finish the role creation process. </p>
+</li>
+</ol>
+<p>Once you are done, you can proceed to launch Cloudbreak.  </p>
+<p><strong>Related links</strong><br />
+<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using instance profiles</a> (External)<br />
+<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">Using an IAM role to grant permissions to applications</a> (External)   </p>
+<div class="next">
+<a href="../aws-launch/index.html">Next: Launch Cloudbreak</a>
+</div></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>© 2011-2018 <a href="http://www.hortonworks.com" target="_blank">Hortonworks Inc</a>. All Rights Reserved. | <a href="http://hortonworks.com/privacy-policy/" target="_blank">Privacy Policy</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
