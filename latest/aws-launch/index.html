@@ -857,18 +857,47 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 <p><strong>Steps</strong>     </p>
 <ol>
 <li>
-<p>Once the stack creation is complete, Cloudbreak is ready to use. You can obtain the URL to the cloud controller
-and the SSH access information from the <strong>Outputs</strong> tab:</p>
+<p>Once the stack creation is complete, Cloudbreak is ready to use. You can obtain the URL to Cloudbreak from the <strong>Outputs</strong> tab:</p>
 <p><a href="../images/cb_aws-05.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-05.png" width="650" title="CFN Console - Outputs"></a></p>
 <blockquote>
 <p>If the Outputs tab is blank, refresh the page.</p>
 </blockquote>
 </li>
 <li>
-<p>Once the stack creation is complete, browse instance created at the <strong>CloudURL</strong> provided in the <strong>Outputs</strong> tab and log in.</p>
+<p>Paste the link in your browser's address bar.</p>
 </li>
 <li>
-<p>Log in to the Cloudbreak web UI using the credential that you configured.</p>
+<p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
+<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Add Exception...</strong> &gt; Click <strong>Confirm Security Exception</strong></td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Click <strong>Continue</strong></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Proceed...</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The login page is displayed:</p>
+<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Log in to the Cloudbreak web UI using the credential that you configured in the CloudFormation template.</p>
 </li>
 <li>
 <p>Upon a successful login, you are redirected to the dashboard:</p>
