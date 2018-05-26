@@ -660,6 +660,9 @@
             <li class="second-level"><a href="#install-cloudbreak-on-your-own-vm">Install Cloudbreak on your own VM</a></li>
             
         
+            <li class="second-level"><a href="#configure-external-cloudbreak-database">Configure external Cloudbreak database</a></li>
+            
+        
             <li class="second-level"><a href="#next-steps-after-installing-on-your-own-vm">Next steps after installing on your own VM</a></li>
             
         
@@ -669,7 +672,7 @@
         <div class="col-md-9" role="main">
 
 <h2 id="installing-cloudbreak-on-your-own-vm">Installing Cloudbreak on your own VM</h2>
-<p>This is an advanced deployment option. Select this option if you have custom requirements. Otherwise, you can launch Cloudbreak from a template:</p>
+<p>This is a production deployment option. Select this option if you have custom requirements. Otherwise, you can launch Cloudbreak from a template:</p>
 <ul>
 <li><a href="../aws-launch/index.html">Launch on AWS</a>  </li>
 <li><a href="../azure-launch/index.html">Launch on Azure</a>  </li>
@@ -798,6 +801,8 @@ cbd start</pre></p>
 <p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
 </li>
 </ol>
+<h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
+<p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, we suggest that you <a href="../cb-db/index.html">configure an external database</a>.</p>
 <h3 id="next-steps-after-installing-on-your-own-vm">Next steps after installing on your own VM</h3>
 <p>Log in to the Cloudbreak web UI and create a credential for Cloudbreak using the following platform-specific instructions:</p>
 <ul>

@@ -653,7 +653,7 @@
             <li class="second-level"><a href="#deployment-on-openstack">Deployment on OpenStack</a></li>
             
         
-            <li class="second-level"><a href="#advanced-deployment-option">Advanced deployment option</a></li>
+            <li class="second-level"><a href="#production-deployment-option">Production deployment option</a></li>
             
         
     
@@ -662,21 +662,19 @@
         <div class="col-md-9" role="main">
 
 <h2 id="deployment-options">Deployment options</h2>
-<p>In general, Cloudbreak offers a quickstart option for AWS, Azure, and GCP cloud platforms, as well as an advanced deployment option (similar for all cloud platforms). </p>
-<p>We recommend that you review the quickstart option for your chosen cloud platform to determine if it fulfills your requirements; If it doesn't, use the advanced deployment option. </p>
-<h3 id="quickstart-option-for-aws">Quickstart option for AWS</h3>
-<p>There are two basic deployment options on AWS: </p>
+<p>In general, Cloudbreak offers a quickstart option, as well as a production deployment option. </p>
 <ul>
-<li><strong>Quickstart option</strong>: Recommended for getting started with Cloudbreak on AWS.    </li>
-<li><strong>Advanced option</strong>: Install Cloudbreak deployer on your own VM. This option is recommended when your production environment has custom requirements (existing VPC, custom VM requirements, and so on). For more information about this option, refer to <a href="#advanced-deployment-option">Advanced deployment option</a>.   </li>
+<li>The <strong>quickstart option</strong> allows you to get started with Cloudbreak quickly, but offers limited flexibility. Use this option for getting started with Cloudbreak. This option is not suitable a production.       </li>
+<li>The <strong>production option</strong> is less automated, but offers more configurability. This option is recommended when your production environments. For more information about this option, refer to <a href="#production-deployment-option">Production deployment option</a>. </li>
 </ul>
+<h3 id="quickstart-option-for-aws">Quickstart option for AWS</h3>
 <p>The quickstart option allows you to instantiate Cloudbreak by using the CloudFormation template. This is the basic deployment option and the easiest to get started with. This option:</p>
 <ul>
 <li>
-<p>Uses <a href="https://aws.amazon.com/documentation/cloudformation/">AWS CloudFormation</a> to create and manage a collection of related AWS resources. Cloudbreak is launched by using a CloudFormation template.  </p>
+<p>Uses <a href="https://aws.amazon.com/documentation/cloudformation/">AWS CloudFormation</a> to create and manage a collection of related AWS resources. Cloudbreak is launched by using the CloudFormation template.  </p>
 </li>
 <li>
-<p>Provisions a new VM and launches Cloudbreak on it. <a href="https://aws.amazon.com/documentation/ec2/">Amazon EC2</a> is used to launch a virtual machine for Cloudbreak. Security groups are used to control the inbound and outbound traffic to and from the Cloudbreak instance. </p>
+<p>Automatically provisions a new VM that runs Amazon Linux, installs Docker, and launches Cloudbreak. <a href="https://aws.amazon.com/documentation/ec2/">Amazon EC2</a> is used to launch a virtual machine for Cloudbreak. Security groups are used to control the inbound and outbound traffic to and from the Cloudbreak instance. </p>
 </li>
 <li>
 <p>Provisions a new VPC and subnet, and launches the Cloudbreak VM within it. <a href="https://aws.amazon.com/documentation/vpc/">Amazon VPC</a> is used to provision your own dedicated virtual network and launch resources into that network. As part of VPC infrastructure, an internet gateway and a route table are provisioned: An internet gateway is used to enable outbound access to the internet from the control plane and the clusters, and a route table is used to connect the subnet to the internet gateway. For more information on Amazon VPC architecture, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/GettingStartedGuide/ExerciseOverview.html">Amazon VPC documentation</a>.   </p>
@@ -691,34 +689,31 @@
 </ul>
 <p>To launch Cloudbreak on AWS by using the quickstart option, refer to <a href="../aws-launch/index.html">Launch Cloubreak from template (AWS)</a>.   </p>
 <h3 id="quickstart-option-for-azure">Quickstart option for Azure</h3>
-<p>There are two basic deployment options on Azure:</p>
-<ul>
-<li><strong>Quickstart option</strong>: Instantiate Cloudbreak by using Azure Resource Manager template. This is the basic deployment option and the easiest to get started with. It allows you to either use an existing VCP or launch Cloudbreak into a new VPC.   </li>
-<li><strong>Advanced option</strong>: Install Cloudbreak deployer on your own VM. This option is recommended if you have custom VM requirements. For more information about this option, refer to <a href="#advanced-deployment-option">Advanced deployment option</a>.   </li>
-</ul>
-<p>The quickstart option allows you to instantiate Cloudbreak by using Azure Resource Manager template. </p>
+<p>The quickstart option allows you to instantiate Cloudbreak by using Azure Resource Manager (ARM) template. </p>
 <p>On Azure, resources are organized by using resource groups. When you launch Cloudbreak, you may either select to use an existing resource group or a new resource group is created. The following Azure resources are provisioned within the selected resource group:</p>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview">Virtual network</a> (VNet) securely connects Azure resources to each other. You may either launch Cloudbreak into an existing VPC, or a new VPC is created and added to the resource group.  </li>
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm">Network security group</a> (NSG) defines inbound and outbound security rules, which control network traffic flow.  </li>
-<li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json">Virtual machine</a> runs Cloudbreak.  </li>
+<li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json">Virtual machine</a> runs Cloudbreak. Based on the ARM template, Azure automatically provisions a new VM that runs CentOS 7, installs Docker, and launches Cloudbreak.   </li>
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm">Public IP address</a> is assigned to your VM so that it can communicate with other Azure resources.  </li>
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface">Network interface</a> (NIC) attached to the VM provides the interconnection between the VM and the underlying software network.  </li>
 <li><a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction">Blob storage container</a> is created to store Cloudbreak Deployer OS disk's data.  </li>
 </ul>
 <p>To launch Cloudbreak on Azure by using the quickstart option, refer to <a href="../azure-launch/index.html">Launch Cloubreak from template (Azure)</a>.</p>
 <h3 id="quickstart-option-for-gcp">Quickstart option for GCP</h3>
-<p>There are two basic deployment options:</p>
-<ul>
-<li><strong>Quickstart option</strong>: Instantiate Cloudbreak by using Google's Cloud Deployment Manager. This is the basic deployment option and the easiest to get started with.   </li>
-<li><strong>Advanced option</strong>: Install Cloudbreak deployer on your own VM. This option is recommended when your production environment has custom requirements (existing VPC, custom VM requirements, and so on). For more information about this option, refer to <a href="#advanced-deployment-option">Advanced deployment option</a>. </li>
-</ul>
-<p>MORE INFO - TBD </p>
+<p>Based on the Cloud Deployment Manager template, GCP automatically provisions a new VM that runs CentOS 7, installs Docker, and launches Cloudbreak. </p>
 <p>To launch Cloudbreak on GCP by using the quickstart option, refer to <a href="../gcp-launch/index.html">Launch Cloubreak from template (GCP)</a>.</p>
 <h3 id="deployment-on-openstack">Deployment on OpenStack</h3>
-<p>You must launch Cloudbreak on OpenStack manually by installing Cloudbreak deployer on your own VM. There is no available quickstart option. Refer to <a href="../os-launch/index.html">Launch on OpenStack</a>. </p>
-<h3 id="advanced-deployment-option">Advanced deployment option</h3>
-<p>The option to install Cloudbreak deployer manually on your own VM is available for all cloud providers. Use this option if the template-based deployment does not fulfill your requrements.</p>
+<p>You must launch Cloudbreak on OpenStack manually by installing Cloudbreak deployer on your own VM (the production option). There is no available quickstart option. Refer to <a href="../os-launch/index.html">Launch on OpenStack</a>. </p>
+<h3 id="production-deployment-option">Production deployment option</h3>
+<p>The option to install Cloudbreak deployer manually on your own VM is available for all cloud providers. </p>
+<p>This option:</p>
+<ul>
+<li>Allows you to provide your own VM with CentOS 7, RHEL 7, or Oracle Linux 7  </li>
+<li>Allows you to use your custom virtual network (On Azure this is also possible with the quickstart option)  </li>
+<li>Requires you to install Docker  </li>
+<li>Requires you to download the cbd tarball, extract it, and configure Cloudbreak deployer  </li>
+</ul>
 <p>To get started, refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>.</p></div>
         
     </div>
