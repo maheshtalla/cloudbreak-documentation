@@ -648,13 +648,13 @@
                 <li class="third-level"><a href="#cloud-provider-prerequisites">Cloud Provider Prerequisites</a></li>
             
         
-            <li class="second-level"><a href="#install-cloudbreak-on-your-own-vm">Install Cloudbreak on your own VM</a></li>
-            
-        
-            <li class="second-level"><a href="#configure-external-cloudbreak-database">Configure external Cloudbreak database</a></li>
+            <li class="second-level"><a href="#install-cloudbreak-on-a-vm">Install Cloudbreak on a VM</a></li>
             
         
             <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
+            
+        
+            <li class="second-level"><a href="#configure-external-cloudbreak-database">Configure external Cloudbreak database</a></li>
             
         
             <li class="second-level"><a href="#next-steps">Next steps</a></li>
@@ -737,7 +737,7 @@ systemctl enable docker</pre></p>
 <li><a href="../gcp-launch/index.html#meet-the-prerequisites">Prerequisites on GCP</a></li>
 <li><a href="../os-launch/index.html#meet-the-prerequisites">Prerequisites on OpenStack</a></li>
 </ul>
-<h3 id="install-cloudbreak-on-your-own-vm">Install Cloudbreak on your own VM</h3>
+<h3 id="install-cloudbreak-on-a-vm">Install Cloudbreak on a VM</h3>
 <p>Install Cloudbreak using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -789,8 +789,6 @@ cbd start</pre></p>
 <p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
 </li>
 </ol>
-<h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
-<p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, we suggest that you <a href="../cb-db/index.html">configure an external database</a>.</p>
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong> </p>
@@ -840,6 +838,8 @@ cbd start</pre></p>
 <p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 </ol>
+<h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
+<p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, we suggest that you <a href="../cb-db/index.html">configure an external database</a>.</p>
 <h3 id="next-steps">Next steps</h3>
 <p>Before you can create clusters, you must configure a Cloudbreak credential. Refer to the steps for your cloud platform:</p>
 <ul>
