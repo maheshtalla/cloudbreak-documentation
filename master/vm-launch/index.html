@@ -663,7 +663,10 @@
             <li class="second-level"><a href="#configure-external-cloudbreak-database">Configure external Cloudbreak database</a></li>
             
         
-            <li class="second-level"><a href="#next-steps-after-installing-on-your-own-vm">Next steps after installing on your own VM</a></li>
+            <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
+            
+        
+            <li class="second-level"><a href="#next-steps">Next steps</a></li>
             
         
     
@@ -803,13 +806,62 @@ cbd start</pre></p>
 </ol>
 <h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
 <p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, we suggest that you <a href="../cb-db/index.html">configure an external database</a>.</p>
-<h3 id="next-steps-after-installing-on-your-own-vm">Next steps after installing on your own VM</h3>
-<p>Log in to the Cloudbreak web UI and create a credential for Cloudbreak using the following platform-specific instructions:</p>
+<h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
+<p>Log in to the Cloudbreak UI using the following steps.</p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>
+<p>You can log into the Cloudbreak application at <code>https://IP_Address</code>. For example <code>https://34.212.141.253</code>. You can obtain the VM's IP address from your cloud provider console.</p>
+</li>
+<li>
+<p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
+<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Add Exception...</strong> &gt; Click <strong>Confirm Security Exception</strong></td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Click <strong>Continue</strong></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Proceed...</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The login page is displayed:</p>
+<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Log in to the Cloudbreak web UI using the credentials that you configured in your <code>Profile</code> file:</p>
 <ul>
-<li><a href="../aws-launch/index.html#access-cloudbreak-web-ui">Access Cloudbreak web UI on AWS</a>  </li>
-<li><a href="../azure-launch/index.html#access-cloudbreak-web-ui">Access Cloudbreak web UI on Azure</a>  </li>
-<li><a href="../gcp-launch/index.html#access-cloudbreak-web-ui">Access Cloudbreak web UI on GCP</a>  </li>
-<li><a href="../os-launch/index.html#access-cloudbreak-web-ui">Access Cloudbreak web UI on OpenStack</a>  </li>
+<li>The username is the <code>UAA_DEFAULT_USER_EMAIL</code>     </li>
+<li>The password is the <code>UAA_DEFAULT_USER_PW</code> </li>
+</ul>
+</li>
+<li>
+<p>Upon a successful login, you are redirected to the dashboard:</p>
+<p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+</ol>
+<h3 id="next-steps">Next steps</h3>
+<p>Before you can create clusters, you must configure a Cloudbreak credential. Refer to the steps for your cloud platform:</p>
+<ul>
+<li><a href="../aws-launch/index.html#create-cloudbreak-credential">Create a Cloudbreak credential on AWS</a>  </li>
+<li><a href="../azure-launch/index.html#create-cloudbreak-credential">Create a Cloudbreak credential on Azure</a>  </li>
+<li><a href="../gcp-launch/index.html#create-cloudbreak-credential">Create a Cloudbreak credential on GCP</a>  </li>
+<li><a href="../os-launch/index.html#create-cloudbreak-credential">Create a Cloudbreak credential on OpenStack</a>  </li>
 </ul></div>
         
     </div>

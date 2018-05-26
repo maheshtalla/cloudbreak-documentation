@@ -647,9 +647,6 @@
             <li class="second-level"><a href="#production-launch-cloudbreak-on-your-own-vm">(Production) Launch Cloudbreak on your own VM</a></li>
             
         
-            <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
-            
-        
             <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
             
                 <li class="third-level"><a href="#create-key-based-credential">Create key-based credential</a></li>
@@ -845,13 +842,8 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 <p>The <strong>Stack Name</strong> is shown in the table with a <span class="cfn-output">CREATE_IN_PROGRESS</span> status. You can click on the <strong>Stack Name</strong> and see the specific events that are in progress. The create process takes about 10 minutes and once ready, you will see <span class="cfn-output2">CREATE_COMPLETE</span>. </p>
 </blockquote>
 </li>
-</ol>
-<h3 id="production-launch-cloudbreak-on-your-own-vm">(Production) Launch Cloudbreak on your own VM</h3>
-<p>Refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>. </p>
-<h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
-<ol>
 <li>
-<p>Once the stack creation is complete, the cloud controller is ready to use. You can obtain the URL to the cloud controller
+<p>Once the stack creation is complete, Cloudbreak is ready to use. You can obtain the URL to the cloud controller
 and the SSH access information from the <strong>Outputs</strong> tab:</p>
 <p><a href="../images/cb_aws-05.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-05.png" width="650" title="CFN Console - Outputs"></a></p>
 <blockquote>
@@ -869,6 +861,8 @@ and the SSH access information from the <strong>Outputs</strong> tab:</p>
 <p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 </ol>
+<h3 id="production-launch-cloudbreak-on-your-own-vm">(Production) Launch Cloudbreak on your own VM</h3>
+<p>Refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>. </p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Before you can start creating clusters, you must first create a <a href="../architecture/index.html#cloudbreak-credential">Cloudbreak credential</a>. Without this credential, you will not be able to create clusters via Cloudbreak. </p>
 <p>As part of the <a href="#authentication">prerequisites</a>, you had two options to allow Cloudbreak to authenticate with AWS and create resources on your behalf: key-based or role-based authentication. Depending on your choice, you must configure a key-based or role-based credential: </p>
