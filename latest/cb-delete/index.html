@@ -653,9 +653,6 @@
             <li class="second-level"><a href="#delete-cloudbreak-on-gcp">Delete Cloudbreak on GCP</a></li>
             
         
-            <li class="second-level"><a href="#delete-cloudbreak-on-openstack">Delete Cloudbreak on OpenStack</a></li>
-            
-        
     
     </ul>
 </div></div>
@@ -673,11 +670,11 @@
 </ul>
 <p>Upon cluster termination, Cloudbreak only terminates the resources that it created. It does not terminate any resources (such as networks, subnets, roles, and so on) which existed prior to cluster creation. </p>
 <h3 id="delete-cloudbreak-on-aws">Delete Cloudbreak on AWS</h3>
-<p>If you want to delete the Cloudbreak instance, you can do so by deleting the EC2 instance on which it is running.</p>
+<p>If you want to delete Cloudbreak deployment, you can do so by deleting the stack in the CloudFormation console.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>Log in to the CloudFormation Console.</p>
+<p>Log in to the CloudFormation console.</p>
 </li>
 <li>
 <p>Select the deployment that you want to delete.</p>
@@ -725,22 +722,7 @@
 <pre>gcloud deployment-manager deployments delete deployment-name -q</pre>
 
 <p>For example: </p>
-<pre>gcloud deployment-manager deployments delete cbd-deployment -q</pre>
-
-<h3 id="delete-cloudbreak-on-openstack">Delete Cloudbreak on OpenStack</h3>
-<p>You can delete Cloudbreak instance from your OpenStack console. </p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Navigate to your OpenStack account.</p>
-</li>
-<li>
-<p>Navigate to <strong>Instances</strong>.</p>
-</li>
-<li>
-<p>Select the instance to delete, click <strong>Terminate Instances</strong>, and confirm.</p>
-</li>
-</ol></div>
+<pre>gcloud deployment-manager deployments delete cbd-deployment -q</pre></div>
         
     </div>
 
