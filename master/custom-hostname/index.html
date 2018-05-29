@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/blueprints/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/custom-hostname/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Use custom blueprints - Cloudbreak</title>
+    <title>Use custom hostnames based on DNS - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -308,8 +308,8 @@
     <ul class="dropdown-menu">
         
             
-<li class="active">
-    <a href="index.html">Use custom blueprints</a>
+<li >
+    <a href="../blueprints/index.html">Use custom blueprints</a>
 </li>
 
         
@@ -368,8 +368,8 @@
 
         
             
-<li >
-    <a href="../custom-hostname/index.html">Use custom hostnames based on DNS</a>
+<li class="active">
+    <a href="index.html">Use custom hostnames based on DNS</a>
 </li>
 
         
@@ -606,12 +606,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../vm-launch/index.html">
+                        <a rel="next" href="../external-proxy/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../recipes/index.html">
+                        <a rel="prev" href="../cb-credentials/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -636,15 +636,13 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#using-custom-blueprints">Using custom blueprints</a></li>
+        <li class="first-level active"><a href="#configuring-custom-hostnames-based-on-domain-name-system-dns">Configuring Custom hostnames based on Domain Name System (DNS)</a></li>
         
-            <li class="second-level"><a href="#creating-a-blueprint">Creating a blueprint</a></li>
+            <li class="second-level"><a href="#configure-reverse-dns-on-aws">Configure reverse DNS on AWS</a></li>
             
-        
-            <li class="second-level"><a href="#creating-a-template-blueprint">Creating a template blueprint</a></li>
+                <li class="third-level"><a href="#using-route53">Using Route53</a></li>
             
-        
-            <li class="second-level"><a href="#upload-a-blueprint">Upload a blueprint</a></li>
+                <li class="third-level"><a href="#using-custom-dns-server">Using custom DNS server</a></li>
             
         
     
@@ -652,243 +650,164 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="using-custom-blueprints">Using custom blueprints</h2>
-<p>This option allows you to create and save your custom blueprints. </p>
-<p><strong>Ambari blueprints</strong> are your declarative definition of your HDP or HDF cluster, defining the host groups and which components to install on which host group. Ambari uses them as a base for your clusters. </p>
-<p>You have two options concerning using blueprints with Cloudbreak:</p>
+<h2 id="configuring-custom-hostnames-based-on-domain-name-system-dns">Configuring Custom hostnames based on Domain Name System (DNS)</h2>
+<p>It's is possible to have different hostnames for cluster members other than the ones configured by the service provider by default.
+When the cluster member machines are spun up they try to make a reverse DNS lookup (by querying of the DNS to determine the domain name associated with a specific IP address) and if it returns a valid value, then it is set as hostname.</p>
+<h3 id="configure-reverse-dns-on-aws">Configure reverse DNS on AWS</h3>
+<p>On AWS you have the following two options:</p>
 <ul>
-<li><strong>Use one of the pre-defined blueprints</strong>: To use one of the default blueprints, simply select them when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Stack Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. For the list of default blueprints, refer to <a href="../index.html#default-cluster-configurations">Default cluster configurations</a>.       </li>
-<li><strong>Add your custom blueprint</strong> by uploading a JSON file or pasting the JSON text. </li>
+<li>use <a href="https://aws.amazon.com/route53/">Route53</a> as DNS provider</li>
+<li>setup your own DNS server in your VPC</li>
 </ul>
-<p>We recommend that you review the default blueprints to check if they meet your requirements. You can do this by selecting <strong>Blueprints</strong> from the navigation pane in the Cloudbreak web UI or by reading the documentation below.</p>
-<h4 id="creating-a-blueprint">Creating a blueprint</h4>
-<p>Ambari blueprints are specified in the JSON format. A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, it includes  some hardcoded configurations such as domain names, memory configurations, and so on, that are not applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually. </p>
-<p>In general, the blueprint should include the following elements:</p>
-<pre>"Blueprints": {
-    "blueprint_name": "hdp-small-default",
-    "stack_name": "HDP",
-    "stack_version": "2.6"
-  },
-  "settings": [],
-  "configurations": [],
-  "host_groups": [
-  {
-      "name": "master",
-      "configurations": [],
-      "components": []
-    },
-    {
-      "name": "worker",
-      "configurations": [],
-      "components": [ ]
-    },
-    {
-      "name": "compute",
-      "configurations": [],
-      "components": []
-    }
-   ]
-  }</pre>
-
-<p>For correct blueprint layout and other information about Ambari blueprints, refer to the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> page. </p>
-<div class="note">
-    <p class="first admonition-title">Creating Blueprints for Ambari 2.6.1+</p>
-    <p class="last">
-Ambari 2.6.1 or newer does not install the mysqlconnector; therefore, when creating a blueprint for Ambari 2.6.1 or newer <b>you should not include the MYSQL_SERVER component</b> for Hive Metastore in your blueprint. Instead, you have two options:
-<ul>
-<li>Configure an external RDBMS instance for Hive Metastore and include the JDBC connection information in your blueprint. If you choose to use an external database that is not PostgreSQL (such as Oracle, mysql) you must also set up Ambari with the appropriate connector; to do this, create a pre-ambari-start recipe and pass it when creating a cluster.</li>
-<li>If a remote Hive RDBMS is not provided, Cloudbreak installs a Postgres instance and configures it for Hive Metastore during the cluster launch.</li>
-</ul>
-For information on how to configure an external database and pass your external database connection parameters, refer to <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari blueprint</a> documentation.
-</p>
-</div>
-
-<p>Cloudbreak requires you to define an additional element in the blueprint called "blueprint_name". This should be a unique name within Cloudbreak list of blueprints. For example:</p>
-<pre>"Blueprints": {
-    "blueprint_name": "hdp-small-default",
-    "stack_name": "HDP",
-    "stack_version": "2.6"
-  },
-  "settings": [],
-  "configurations": [],
-  "host_groups": [
-  ...
-</pre>
-
-<p>The "blueprint_name" is not included in the Ambari export. </p>
-<p>After you provide the blueprint to Cloudbreak, the host groups in the JSON will be mapped to a set of instances when starting the cluster, and the specified services and components will be installed on the corresponding nodes. It is not necessary to define a complete configuration in the blueprint. If a configuration is missing, Ambari will use a default value. </p>
-<p>Here are a few <a href="https://github.com/hortonworks/cloudbreak/tree/master/core/src/main/resources/defaults/blueprints">blueprint examples</a>. You can also refer to the default blueprints provided in the Cloudbreak UI.</p>
-<p><strong>Related links</strong><br />
-<a href="https://github.com/hortonworks/cloudbreak/tree/master/core/src/main/resources/defaults/blueprints">Blueprint examples</a> (Hortonworks)   <br />
-<a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> (External)  </p>
-<h4 id="creating-a-template-blueprint">Creating a template blueprint</h4>
-<p>Cloudbreak allows you to create special blueprints which include templating: the values of the variables specified in the blueprint will be dynamically generated &amp; replaced in the cluster creation phase, picking up the parameter values that you provided in the Cloudbreak UI or CLI.
-Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of templating with {{{variable}}} syntax. You cannot use functions in the blueprint file; only variable injection is supported.</p>
-<p><strong>External authentication source (LDAP/AD)</strong></p>
-<p>When using <a href="../external-ldap/index.html">external authentication sources</a>, the following variables can be specified in your Blueprint for replacement:</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ldap.connectionURL</td>
-<td>the URL of the LDAP (host:port)</td>
-<td>ldap://10.1.1.1:389</td>
-</tr>
-<tr>
-<td>ldap.bindDn</td>
-<td>The root Distinguished Name to search in the directory for users</td>
-<td>CN=Administrator,CN=Users,DC=ad,DC=hdc,DC=com</td>
-</tr>
-<tr>
-<td>ldap.bindPassword</td>
-<td>The root Distinguished Name password</td>
-<td>Password1234!</td>
-</tr>
-<tr>
-<td>ldap.directoryType</td>
-<td>The directory of type</td>
-<td>LDAP or ACTIVE_DIRECTORY</td>
-</tr>
-<tr>
-<td>ldap.userSearchBase</td>
-<td>User search base</td>
-<td>CN=Users,DC=ad,DC=hdc,DC=com</td>
-</tr>
-<tr>
-<td>ldap.userNameAttribute</td>
-<td>Username attribute</td>
-<td>cn</td>
-</tr>
-<tr>
-<td>ldap.userObjectClass</td>
-<td>Object class for users</td>
-<td>person</td>
-</tr>
-<tr>
-<td>ldap.groupSearchBase</td>
-<td>Group search base</td>
-<td>OU=Groups,DC=ad,DC=hdc,DC=com</td>
-</tr>
-<tr>
-<td>ldap.groupNameAttribute</td>
-<td>Group attribute</td>
-<td>cb</td>
-</tr>
-<tr>
-<td>ldap.groupObjectClass</td>
-<td>Group object class</td>
-<td>group</td>
-</tr>
-<tr>
-<td>ldap.groupMemberAttribute</td>
-<td>Attribute for membershio</td>
-<td>member</td>
-</tr>
-<tr>
-<td>ldap.domain</td>
-<td>Your domain</td>
-<td>example.com</td>
-</tr>
-</tbody>
-</table>
-<p><strong>External database (RDBMS)</strong></p>
-<p>When using <a href="../external-db/index.html">external databases</a>, the following variables can be specified in your Blueprint for replacement:</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rds.[type].connectionURL</td>
-<td>The jdbc url to the RDBMS</td>
-<td>jdbc:postgresql://db.test:5432/test</td>
-</tr>
-<tr>
-<td>rds.[type].connectionDriver</td>
-<td>The connection driver</td>
-<td>org.postgresql.Driver</td>
-</tr>
-<tr>
-<td>rds.[type].connectionUserName</td>
-<td>The user name to the database</td>
-<td>admin</td>
-</tr>
-<tr>
-<td>rds.[type].connectionPassword</td>
-<td>The password for the connection</td>
-<td>Password1234!</td>
-</tr>
-<tr>
-<td>rds.[type].databaseName</td>
-<td>The name of the database</td>
-<td>hive</td>
-</tr>
-<tr>
-<td>rds.[type].host</td>
-<td>The host of the database</td>
-<td>10.1.1.1</td>
-</tr>
-<tr>
-<td>rds.[type].hostWithPort</td>
-<td>Database host + port</td>
-<td>10.1.1.1:1234</td>
-</tr>
-<tr>
-<td>rds.[type].subprotocol</td>
-<td>Parsed from jdbc url</td>
-<td>postgres</td>
-</tr>
-<tr>
-<td>rds.[type].databaseEngine</td>
-<td>Capital database name</td>
-<td>POSTGRES</td>
-</tr>
-</tbody>
-</table>
-<h4 id="upload-a-blueprint">Upload a blueprint</h4>
-<p>Once you have your blueprint ready, perform these steps.</p>
-<p><strong>Steps</strong></p>
+<p>Both setups require the customer to have a VPC and attach a custom <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP option</a> to it.</p>
+<h4 id="using-route53">Using Route53</h4>
 <ol>
-<li>In the Cloudbreak UI, select <strong>Blueprints</strong> from the navigation pane. </li>
-<li>
-<p>To add your own blueprint, click <strong>Create Blueprint</strong> and enter the following parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Name</td>
-<td>Enter a name for your blueprint.</td>
-</tr>
-<tr>
-<td>Description</td>
-<td>(Optional) Enter a description for your blueprint.</td>
-</tr>
-<tr>
-<td>Blueprint Source</td>
-<td><p>Select one of: <ul><li><strong>Text</strong>: Paste blueprint in JSON format.</li><li> <strong>File</strong>: Upload a file that contains the blueprint.</li><li> <strong>URL</strong>: Specify the URL for your blueprint.</li></ul></td>
-</tr>
-</tbody>
-</table>
-<p><a href="../images/cb_cb-blueprint-add.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-blueprint-add.png" width="650" title="Cloudbreak web UI"></a> </p>
+<li><strong>Create or bring your own VPC</strong><ol>
+<li>CIDR eg. <em>10.1.0.0/16</em></li>
+<li>Enable DNS resolution and <strong>DNS hostnames</strong></li>
+<li>Create a subnet with CIDR eg. <em>10.1.1.0/28</em><blockquote>
+<p>Notice that you might want to set an Internet Gateway for the VPC and add a default route to the routing table for the IGW.
+Also you may enable <em>Auto-assign Public IP</em> option.
+This way Cloudbreak would reach the cluster from outside of the VPC and the cluster would have internet access.</p>
+</blockquote>
+</li>
+</ol>
 </li>
 <li>
-<p>To use the uploaded blueprints, select it when creating a cluster. The option is available on the <strong>General Configuration</strong> page. First select the <strong>Platform Version</strong> and then select your chosen blueprint under <strong>Cluster Type</strong>. </p>
-<p><a href="../images/cb_cb-blueprint-select.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-blueprint-select.png" width="650" title="Cloudbreak web UI"></a> </p>
+<p><strong>Setup DHCP options</strong></p>
+<ol>
+<li>Create a DHCP Option Set as documented <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/dhcp_options_set.html">here</a>.</li>
+<li>Set the domain name to a preferred domain, eg. cloudbreak.beer</li>
+<li>
+<p>Set domain name servers to AmazonProviderDNS</p>
+<p><a href="../images/aws-route53-dhcp-option.png" target="_blank" title="click to enlarge"><img src="../images/aws-route53-dhcp-option.png" width="350" title="DHCP option for Route53"></a> <br />
+    4. Go back to your VPC view and click on <em>Actions -&gt; Edit DHCP Options Set</em> to be able select the newly created DHCP Option Set for the VPC</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Configure domain at Route53</strong></p>
+<ol>
+<li>Go to the Route53 service page in AWS console</li>
+<li>Create a Hosted Zone as documented <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-creating.html">here</a><ul>
+<li>with the Domain Name used previously with DHCP Options</li>
+<li>set the Type to <em>Private Hosted Zone for Amazon VPC</em></li>
+<li>select the VPC ID to which you previously assigned the DHCP option</li>
+</ul>
+</li>
+<li>
+<p>Add records</p>
+<ul>
+<li>Go to <em>Record set</em></li>
+<li>Use <em>Create Record Set</em> for every available IP to have a custom name (10.1.1.4-14 if you have the subnet used above)<ul>
+<li>Type: A</li>
+<li>Name: eg. <em>b10</em></li>
+<li>
+<p>Value: eg. <em>10.1.1.10</em></p>
+<p><a href="../images/aws-route53-record.png" target="_blank" title="click to enlarge"><img src="../images/aws-route53-record.png" width="350" title="Domain record for Route53"></a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Create another hosted zone for reverse DNS lookup.</p>
+<ul>
+<li>
+<p>It's domain name should look like this if you used the previous subnet (as reverse DNS lookups use the special domain <em>in-addr.arpa</em>):</p>
+<p><pre>1.1.10.in-addr.arpa.</pre></p>
+</li>
+<li>
+<p>set the Type to <em>Private Hosted Zone for Amazon VPC</em></p>
+</li>
+<li>select the VPC ID to which you previously assigned the DHCP option</li>
+</ul>
+</li>
+<li>
+<p>Add records (for every created domain)</p>
+<ul>
+<li>Type: PTR</li>
+<li>Name: is the IP last part eg. <em>10</em></li>
+<li>
+<p>Value: the domain name you set in the previous step eg. <em>b10</em></p>
+<p><a href="../images/aws-route53-reverse-record.png" target="_blank" title="click to enlarge"><img src="../images/aws-route53-reverse-record.png" width="350" title="Domain PTR record for Route53"></a></p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Create the cluster</strong> in the VPC and you will have the same hostnames set as the domain names.</p>
+<blockquote>
+<p>Notice that you don't have control the order over the IP addresses leased to the machines, so the names may not be in order.</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="using-custom-dns-server">Using custom DNS server</h4>
+<ol>
+<li><strong>Create or bring your own VPC</strong><ol>
+<li>CIDR eg. <em>10.3.0.0/16</em></li>
+<li>Enable DNS resolution and <strong>DNS hostnames</strong></li>
+<li>Create a subnet with CIDR eg. <em>10.3.3.0/28</em><blockquote>
+<p>Notice that you might want to set an Internet Gateway for the VPC and add a default route to the routing table for the IGW.
+Also you may enable <em>Auto-assign Public IP</em> option.
+This way Cloudbreak would reach the cluster from outside of the VPC and the cluster would have internet access.</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Setup DNS server</strong> in your VPC/subnet</p>
+<ol>
+<li>In the configuration ensure that you have DNS records and reverse DNS pointers for all IP address (eg. 10.3.3.4-14)</li>
+<li>
+<p>Example unbound configuration:</p>
+<p><pre>
+    [root@ip-10-3-3-9 conf.d]# cat 00-cloudbreak.cloud.conf
+    server:
+        local-zone: "cloudbreak.cloud." static
+        local-data: "aww1.cloudbreak.cloud. IN A 10.3.3.4"
+        local-data-ptr: "10.3.3.4 aww1.cloudbreak.cloud."
+        local-data: "aww2.cloudbreak.cloud. IN A 10.3.3.5"
+        local-data-ptr: "10.3.3.5 aww2.cloudbreak.cloud."
+        local-data: "aww3.cloudbreak.cloud. IN A 10.3.3.6"
+        local-data-ptr: "10.3.3.6 aww3.cloudbreak.cloud."
+        local-data: "aww4.cloudbreak.cloud. IN A 10.3.3.7"
+        local-data-ptr: "10.3.3.7 aww4.cloudbreak.cloud."
+        local-data: "aww5.cloudbreak.cloud. IN A 10.3.3.8"
+        local-data-ptr: "10.3.3.8 aww5.cloudbreak.cloud."
+        local-data: "aww6.cloudbreak.cloud. IN A 10.3.3.9"
+        local-data-ptr: "10.3.3.9 aww6.cloudbreak.cloud."
+        local-data: "aww7.cloudbreak.cloud. IN A 10.3.3.10"
+        local-data-ptr: "10.3.3.10 aww7.cloudbreak.cloud."
+        local-data: "aww8.cloudbreak.cloud. IN A 10.3.3.11"
+        local-data-ptr: "10.3.3.11 aww8.cloudbreak.cloud."
+        local-data: "aww9.cloudbreak.cloud. IN A 10.3.3.12"
+        local-data-ptr: "10.3.3.12 aww9.cloudbreak.cloud."
+        local-data: "aww10.cloudbreak.cloud. IN A 10.3.3.13"
+        local-data-ptr: "10.3.3.13 aww10.cloudbreak.cloud."
+        local-data: "aww11.cloudbreak.cloud. IN A 10.3.3.14"
+        local-data-ptr: "10.3.3.14 aww11.cloudbreak.cloud."
+</pre></p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Setup DHCP options</strong></p>
+<ol>
+<li>Set the domain name to a preferred domain, eg. cloudbreak.cloud</li>
+<li>
+<p>Set domain name servers to the previously created DNS server</p>
+<p><a href="../images/aws-custondns-dhcp-option.png" target="_blank" title="click to enlarge"><img src="../images/aws-custondns-dhcp-option.png" width="350" title="DHCP option for own DNS server"></a> <br />
+    3. Go back to your VPC view and click on <em>Actions -&gt; Edit DHCP Options Set</em> to be able select the newly created DHCP Option Set for the VPC</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Create the cluster</strong> in the VPC and you will have the same hostnames set as the domain names.</p>
+<blockquote>
+<p>Notice that you don't have control the order over the IP address leased to the machines, so the names may not be in order.</p>
+</blockquote>
 </li>
 </ol></div>
         
