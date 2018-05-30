@@ -666,7 +666,7 @@
 <ol>
 <li>
 <p><strong>Create a new VPC or use your existing VPC</strong>:</p>
-<p>You can create a new VPC from the Amazon VCP console by clicking on <em>Start VPC Wizard</em>.  </p>
+<p>To create a new VPC, navigate to the Amazon VCP console and click on <em>Start VPC Wizard</em>.  </p>
 <ul>
 <li>CIDR block example: <em>10.1.0.0/16</em> </li>
 <li>Enable DNS resolution and DNS hostnames: <em>Yes</em> [DB-QUESTION: I only see an option called "Enable DNS hostnames". Is that what you mean here?]</li>
@@ -681,7 +681,7 @@ For detailed steps, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/late
 </li>
 <li>
 <p><strong>Create a DHCP options set</strong>: </p>
-<p>You can find this option in the Amazon VPC console by selecting <em>DHCP Options Sets</em> from the left pane.   </p>
+<p>Perform this step from the Amazon VPC console. Select <em>DHCP Options Sets</em> from the left pane and click on <em>Create a DHCP options set</em>. Make sure to:   </p>
 <ol>
 <li>Set the <em>Domain name</em> to a preferred domain, for example <code>cloudbreak.beer</code>.</li>
 <li>Set the <em>Domain name servers</em> to <code>AmazonProvidedDNS</code>  </li>
@@ -703,7 +703,7 @@ For detailed steps, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/late
 </li>
 <li>
 <p><strong>Configure your domain at Route53</strong>:</p>
-<p>Perform these steps in the Amazon Route53 console.<br />
+<p>Perform these steps from the Amazon Route53 console.<br />
 For similar steps, refer to <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-creating.html">AWS documentation</a>. </p>
 <ol>
 <li>Select <em>Hosted zones</em> from the left pane.    </li>
@@ -734,7 +734,7 @@ For similar steps, refer to <a href="https://docs.aws.amazon.com/Route53/latest/
 </li>
 <li>
 <p><strong>Create another hosted zone for reverse DNS lookup.</strong></p>
-<p>Perform these steps in the Amazon Route53 console.  </p>
+<p>Perform these steps from the Amazon Route53 console.  </p>
 <ol>
 <li>Select <em>Hosted zones</em> from the left pane.    </li>
 <li>
@@ -776,6 +776,7 @@ For similar steps, refer to <a href="https://docs.aws.amazon.com/Route53/latest/
 <ol>
 <li>
 <p><strong>Create a new VPC or use your existing VPC</strong>:</p>
+<p>To create a new VPC, navigate to the Amazon VCP console and click on <em>Start VPC Wizard</em>. </p>
 <ul>
 <li>CIDR block example: <em>10.3.0.0/16</em> [DB-QUESTION: I only see an option  called "Enable DNS hostnames". Is that what you mean here?]</li>
 <li>Enable DNS resolution and DNS hostnames: <em>Yes</em> </li>
@@ -786,6 +787,7 @@ This way Cloudbreak would reach the cluster from outside of the VPC and the clus
 </blockquote>
 </li>
 </ul>
+<p>For detailed steps, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/working-with-vpcs.html#Create-VPC">AWS documentation</a>. </p>
 </li>
 <li>
 <p><strong>Set up DNS server in your VPC/subnet</strong>:</p>
@@ -825,16 +827,16 @@ This way Cloudbreak would reach the cluster from outside of the VPC and the clus
 </li>
 <li>
 <p><strong>Create a DHCP options set</strong>: </p>
-<p>You can find this option in the Amazon VPC console by selecting <em>DHCP Options Sets</em> from the left pane.<br />
-For detailed steps, refer to <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/dhcp_options_set.html">AWS documentation</a>.</p>
+<p>Perform this step from the Amazon VPC console. Select <em>DHCP Options Sets</em> from the left pane and click on <em>Create a DHCP options set</em>. Make sure to:   </p>
 <ul>
 <li>Set the <em>Domain name</em> to your preferred domain, for example <code>cloudbreak.cloud</code></li>
 <li>Set <em>Domain name servers</em> to the previously created DNS server</li>
 <li>
 <p>Optionally, set a <em>Name tag</em>  </p>
-<p><a href="../images/cb_aws-custondns-dhcp-option.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-custondns-dhcp-option.png" width="650" title="DHCP option for own DNS server"></a>   </p>
+<p><a href="../images/cb_aws-custondns-dhcp-option.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-custondns-dhcp-option.png" width="650" title="DHCP option for own DNS server"></a>  </p>
 </li>
 </ul>
+<p>For detailed steps, refer to <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/dhcp_options_set.html">AWS documentation</a>. </p>
 </li>
 <li>
 <p><strong>Assign the newly created DHCP options set to your VPC</strong>:</p>
