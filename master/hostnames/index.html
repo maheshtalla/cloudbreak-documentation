@@ -638,11 +638,11 @@
     
         <li class="first-level active"><a href="#using-custom-hostnames-based-on-dns">Using custom hostnames based on DNS</a></li>
         
-            <li class="second-level"><a href="#configure-reverse-dns-on-aws">Configure reverse DNS on AWS</a></li>
+            <li class="second-level"><a href="#configure-dns-on-aws">Configure DNS on AWS</a></li>
             
-                <li class="third-level"><a href="#configure-reverse-dns-using-route53">Configure reverse DNS using Route53</a></li>
+                <li class="third-level"><a href="#configure-dns-using-route53">Configure DNS using Route53</a></li>
             
-                <li class="third-level"><a href="#configure-reverse-dns-using-custom-dns-server">Configure reverse DNS using custom DNS server</a></li>
+                <li class="third-level"><a href="#configure-dns-using-custom-dns-server">Configure DNS using custom DNS server</a></li>
             
         
     
@@ -653,30 +653,32 @@
 <h2 id="using-custom-hostnames-based-on-dns">Using custom hostnames based on DNS</h2>
 <p>By default, when Cloudbreak provisions cloud provider resources, your cloud provider assigns hostnames for your cluster nodes. Optionally, instead of using default hostnames, you can configure Cloudbreak to use custom hostnames based on DNS. To do that, follow the steps for configuring reverse Domain Name System (DNS) described below. </p>
 <p>When the cluster node machines are provisioned, they try to make a reverse DNS lookup (by querying of the DNS to determine the domain name associated with a specific IP address); if the reverse DNS lookup returns a valid value, then that value is set as hostname. This is why reverse DNS setup is required for using custom hostnames.   </p>
-<h3 id="configure-reverse-dns-on-aws">Configure reverse DNS on AWS</h3>
+<h3 id="configure-dns-on-aws">Configure DNS on AWS</h3>
 <p>On AWS you have the following two options:</p>
 <ul>
 <li>Use <a href="https://aws.amazon.com/route53/">Route53</a> as DNS provider.  </li>
 <li>Set up your own DNS server in your VPC  </li>
 </ul>
 <p>Both options require you to have an existing VPC and attach a custom <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP option</a> to it.</p>
-<h4 id="configure-reverse-dns-using-route53">Configure reverse DNS using Route53</h4>
+<h4 id="configure-dns-using-route53">Configure DNS using Route53</h4>
 <p>Follow these general steps to configure reverse DNS using <a href="https://aws.amazon.com/route53/">Route53</a>.  </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
 <p><strong>Create a new VPC or use your existing VPC</strong>:</p>
-<p>To create a new VPC, navigate to the Amazon VCP console and click on <em>Start VPC Wizard</em>.  </p>
-<ul>
+<ol>
+<li>To create a new VPC, navigate to the Amazon VCP console and click on <em>Start VPC Wizard</em>.              <ul>
 <li>CIDR block example: <em>10.1.0.0/16</em> </li>
-<li>Enable DNS resolution and DNS hostnames: <em>Yes</em> [DB-QUESTION: I only see an option called "Enable DNS hostnames". Is that what you mean here?]</li>
 <li>Subnet's CIDR example: <em>10.1.1.0/28</em>  </li>
 </ul>
+</li>
+<li>Enable DNS resolution. You can do this by selecting the VPC, selecting <em>Actions &gt; Edit DNS resolution</em> and choosing <em>Yes</em>. </li>
+<li>Enable DNS hostnames. You can do this by selecting the VPC, selecting <em>Actions &gt; Edit DNS hostnames</em> and choosing <em>Yes</em>.</li>
+</ol>
 <blockquote>
 <p>Optionally, you may want to set up an Internet Gateway for the VPC and add a default route to the routing table for the Internet Gateway.
 Additionally, you may want to enable the <em>Auto-assign Public IP</em> option.
-This way Cloudbreak would reach the cluster from outside of the VPC and the cluster would have internet access.
-For detailed steps, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/working-with-vpcs.html#Create-VPC">AWS documentation</a>. </p>
+This way Cloudbreak would reach the cluster from outside of the VPC and the cluster would have internet access.</p>
 </blockquote>
 </li>
 <li>
@@ -716,19 +718,23 @@ For similar steps, refer to <a href="https://docs.aws.amazon.com/Route53/latest/
 </ul>
 </li>
 <li>
-<p>Add records for your hosted zone: [DB-QUESTION: I'm not sure about what you mean in these substeps]</p>
+<p>Add records for your hosted zone:</p>
 <ul>
 <li>Select the hosted zone and choose <em>Go to Record Sets</em></li>
 <li>
-<p>Click <em>Create Record Set</em> to create a record set. You must do this for every available IP, so that each IP can have a custom name (If you used the subnet example listed above, these IPs will be in the range of 10.1.1.4-14) (DB-QUESTION: So in this example I need to do this one time but enter 11 IP addresses under "Value", each in a new line? Is that correct?)</p>
+<p>Click <em>Create Record Set</em> to create a record set. You must perform this step for every available IP, so that each IP can have a custom name (If you used the subnet example listed above, these IPs will be in the range of 10.1.1.4-14):</p>
 <ul>
 <li>Type: select <em>A</em></li>
 <li>Name: for example <em>b10</em></li>
 <li>Value: for example <em>10.1.1.10</em></li>
 </ul>
-<p><a href="../images/cb_aws-route53-record.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-route53-record.png" width="350" title="Domain record for Route53"></a>  </p>
+<p><a href="../images/cb_aws-route53-record.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-route53-record.png" width="350" title="Domain record for Route53"></a> </p>
 </li>
 </ul>
+</li>
+<li>
+<p>After performing this step for each IP, you should end up with an many records as IPs. For example:<br />
+      <a href="../images/cb_aws-route53-records.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-route53-records.png" width="650" title="Domain record for Route53"></a></p>
 </li>
 </ol>
 </li>
@@ -751,7 +757,7 @@ For similar steps, refer to <a href="https://docs.aws.amazon.com/Route53/latest/
 </ul>
 </li>
 <li>
-<p>Add records for every created domain: (DB-QUESTION: What do you mean by "every created domain"? Do you mean for every record set created in step 2? Can I do this all in one step, by entering multiple values, each in a new line?)</p>
+<p>Add records for every created domain: </p>
 <ul>
 <li>Type: select <em>PTR</em> </li>
 <li>Name: This determines the first part of the IP, for example <em>10</em></li>
@@ -760,6 +766,10 @@ For similar steps, refer to <a href="https://docs.aws.amazon.com/Route53/latest/
 <p><a href="../images/cb_aws-route53-reverse-record.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-route53-reverse-record.png" width="350" title="Domain PTR record for Route53"></a></p>
 </li>
 </ul>
+</li>
+<li>
+<p>After performing this step for each domain, you should end up with as many records as IPs. For example:<br />
+      <a href="../images/cb_aws-route53-reverse-records.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-route53-reverse-records.png" width="650" title="Domain record for Route53"></a></p>
 </li>
 </ol>
 </li>
@@ -770,24 +780,26 @@ For similar steps, refer to <a href="https://docs.aws.amazon.com/Route53/latest/
 </blockquote>
 </li>
 </ol>
-<h4 id="configure-reverse-dns-using-custom-dns-server">Configure reverse DNS using custom DNS server</h4>
+<h4 id="configure-dns-using-custom-dns-server">Configure DNS using custom DNS server</h4>
 <p>Follow these general steps to configure reverse DNS using a custom DNS server.  </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
 <p><strong>Create a new VPC or use your existing VPC</strong>:</p>
-<p>To create a new VPC, navigate to the Amazon VCP console and click on <em>Start VPC Wizard</em>. </p>
-<ul>
-<li>CIDR block example: <em>10.3.0.0/16</em> [DB-QUESTION: I only see an option  called "Enable DNS hostnames". Is that what you mean here?]</li>
-<li>Enable DNS resolution and DNS hostnames: <em>Yes</em> </li>
-<li>Subnet's CIDR example: <em>10.3.3.0/28</em><blockquote>
+<ol>
+<li>To create a new VPC, navigate to the Amazon VCP console and click on <em>Start VPC Wizard</em>.              <ul>
+<li>CIDR block example: <em>10.1.0.0/16</em> </li>
+<li>Subnet's CIDR example: <em>10.1.1.0/28</em>  </li>
+</ul>
+</li>
+<li>Enable DNS resolution. You can do this by selecting the VPC, selecting <em>Actions &gt; Edit DNS resolution</em> and choosing <em>Yes</em>. </li>
+<li>Enable DNS hostnames. You can do this by selecting the VPC, selecting <em>Actions &gt; Edit DNS hostnames</em> and choosing <em>Yes</em>.<blockquote>
 <p>Optionally, you may want to set up an Internet Gateway for the VPC and add a default route to the routing table for the Internet Gateway.
 Additionally, you may want to enable the <em>Auto-assign Public IP</em> option.
 This way Cloudbreak would reach the cluster from outside of the VPC and the cluster would have internet access.</p>
 </blockquote>
 </li>
-</ul>
-<p>For detailed steps, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/working-with-vpcs.html#Create-VPC">AWS documentation</a>. </p>
+</ol>
 </li>
 <li>
 <p><strong>Set up DNS server in your VPC/subnet</strong>:</p>
