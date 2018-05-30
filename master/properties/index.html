@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/security-cb-ssl/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/properties/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Add SSL certificate for Cloudbreak UI - Cloudbreak</title>
+    <title>Set custom properties - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -338,8 +338,8 @@
 
         
             
-<li >
-    <a href="../properties/index.html">Set custom properties</a>
+<li class="active">
+    <a href="index.html">Set custom properties</a>
 </li>
 
         
@@ -407,8 +407,8 @@
 
         
             
-<li class="active">
-    <a href="index.html">Add SSL certificate for Cloudbreak UI</a>
+<li >
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
 </li>
 
         
@@ -612,12 +612,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../cb-ldap/index.html">
+                        <a rel="next" href="../tags/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../cb-proxy/index.html">
+                        <a rel="prev" href="../security-kerberos/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -642,83 +642,83 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#add-ssl-certificate-for-cloudbreak-web-ui">Add SSL certificate for Cloudbreak web UI</a></li>
+        <li class="first-level active"><a href="#set-custom-properties">Set custom properties</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="add-ssl-certificate-for-cloudbreak-web-ui">Add SSL certificate for Cloudbreak web UI</h2>
-<p>By default Cloudbreak has been configured with a self-signed certificate for access via HTTPS. This is sufficient for many deployments such as trials, development, testing, or staging. However, for production deployments, a trusted certificate is preferred and can be configured in the controller. Follow these steps to configure the cloud controller to use your own trusted certificate. </p>
-<p><strong>Prerequisites</strong></p>
-<p>To use your own certificate, you must have:</p>
-<ul>
-<li>A resolvable fully qualified domain name (FQDN) for the controller host IP address. For example, this can be set up in <a href="https://aws.amazon.com/documentation/route53/">Amazon Route 53</a>.  </li>
-<li>A valid SSL certificate for this fully qualified domain name. The certificate can be obtained from a number of certificate providers.  </li>
-</ul>
+<h2 id="set-custom-properties">Set custom properties</h2>
+<p>When creating a cluster based on an Ambari blueprint, you can set custom properties in the blueprint. In addition, Cloudbreak allows you to set custom property template in your blueprints so that you can set these custom properties on a per-cluster basis. </p>
+<p>In order to set custom properties for a cluster you must:</p>
+<ol>
+<li>Create a blueprint that includes a template for the properties that you want to set.  </li>
+<li>When creating a cluster, you can specify the property values under Cluster Extensions &gt; Custom Properties.    </li>
+</ol>
+<p>In the cluster creation phase, the property values in the blueprint will be replaced based on the input, picking up the parameter values that you provided.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>SSH to the Cloudbreak host instance:</p>
-<p><pre><small>ssh -i mykeypair.pem cloudbreak@[CONTROLLER-IP-ADDRESS]</small></pre></p>
+<p>Prepare a blueprint which includes a template for the properties that you would like to set. Make sure to:</p>
+<ul>
+<li>Include these templates in the “configurations” section of your blueprint.  </li>
+<li>Use the mustache format. Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of templating with {{{variable}}} syntax, so your templates must be in the mustache format.   </li>
+</ul>
+<p><strong>Example:</strong>    <br />
+This example provides a template for setting three properties:</p>
+<ul>
+<li><code>fs.trash.interval</code>  </li>
+<li><code>hadoop.tmp.dir</code>  </li>
+<li><code>hive.exec.compress.output</code>    </li>
+</ul>
+<p><pre>...
+{
+  "core-site": {
+    "fs.trash.interval": "{{{ fs.trash.interval }}}",
+    "hadoop.tmp.dir": "{{{ my.tmp.directory }}}"
+  }
+},
+{
+  "hive-site": {
+    "hive.exec.compress.output": "{{{ hive.exec.compress.output }}}"
+  }
+},
+...</pre></p>
 </li>
 <li>
-<p>Make sure that the target fully qualified domain name (FQDN) which you plan to use for Cloudbreak is resolvable:</p>
-<p><pre><small>nslookup [TARGET-CONTROLLER-FQDN]</small></pre></p>
-<p>For example:</p>
-<p><pre><small>nslookup hdcloud.example.com</small></pre></p>
+<p>When creating a cluster:</p>
+<ol>
+<li>Under <strong>General Configuration &gt; Cluster Type</strong>, select the blueprint prepared in the previous step.  </li>
+<li>
+<p>Under <strong>Cluster Extensions &gt; Custom Properties</strong>, include a JSON file which defines the property values.</p>
+<p>TO DO: Include a screenshot when the UI is ready </p>
+</li>
+</ol>
+<p><strong>Example:</strong><br />
+The following JSON entry sets the values for the properties from the previous step: </p>
+<p><pre>{
+"fs.trash.interval": "4320",
+"hive.exec.compress.output": "true",
+"my.tmp.directory": "/hadoop/tmp"
+}</pre></p>
 </li>
 <li>
-<p>Browse to the Cloudbreak deployment directory and edit the <code>Profile</code> file:</p>
-<p><pre><small>vi /var/lib/cloudbreak-deployment/Profile</small></pre></p>
-</li>
-<li>
-<p>Replace the value of the <code>PUBLIC_IP</code> variable with the <code>TARGET-CONTROLLER-FQDN</code> value:</p>
-<p><pre><small>PUBLIC_IP=[TARGET-CONTROLLER-FQDN]</small></pre></p>
-</li>
-<li>
-<p>Copy your private key and certificate files for the FQDN onto the Cloudbreak host. These files must be placed under <code>/var/lib/cloudbreak-deployment/certs/traefik/</code> directory.</p>
-<blockquote>
-<p>File permissions for the private key and certificate files can be set to 600.</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>File</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>PRIV-KEY-LOCATION</td>
-<td>/var/lib/cloudbreak-deployment/certs/traefik/hdcloud.example.com.key</td>
-</tr>
-<tr>
-<td>CERT-LOCATION</td>
-<td>/var/lib/cloudbreak-deployment/certs/traefik/hdcloud.example.com.crt</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Configure TLS details in your <code>Profile</code> by adding the following line at the end of the file.</p>
-<blockquote>
-<p>Notice that <code>CERT-LOCATION</code> and <code>PRIV-KEY-LOCATION</code> are file locations from Step 5, starting at the <code>/certs/...</code> path.</p>
-</blockquote>
-<p><pre><small>export CBD_TRAEFIK_TLS=”[CERT-LOCATION],[PRIV-KEY-LOCATION]”</small></pre></p>
-<p>For example:</p>
-<p><pre><small>export CBD_TRAEFIK_TLS="/certs/traefik/hdcloud.example.com.crt,/certs/traefik/hdcloud.example.com.key"</small></pre></p>
-</li>
-<li>
-<p>Restart Cloudbreak deployer:</p>
-<p><pre><small>cbd restart</small></pre></p>
-</li>
-<li>
-<p>Using your web browser, access the Cloudbreak UI using the new resolvable fully qualified domain name.</p>
-</li>
-<li>
-<p>Confirm that the connection is SSL-protected and that the certificate used is the certificate that you provided to Cloudbreak.</p>
+<p>As a result, the values of <code>hive.exec.compress.output</code>, <code>my.tmp.directory</code> and <code>fs.trash.interval</code> will be replaced in the blueprint based on the input that you provided. </p>
+<p><strong>Example:</strong><br />
+The property values will be replaced for the cluster as follows based on what was defined in the previous step: </p>
+<p><pre>...
+   {
+ "core-site": {
+   "fs.trash.interval": "4320",
+   "hadoop.tmp.dir": "/hadoop/tmp"
+ }
+   },
+   {
+ "hive-site": {
+   "hive.exec.compress.output": "true"
+ }
+   },</pre></p>
 </li>
 </ol></div>
         
