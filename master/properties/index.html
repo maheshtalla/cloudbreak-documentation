@@ -692,16 +692,15 @@ This example provides a template for setting three properties:</p>
 <li>Under <strong>General Configuration &gt; Cluster Type</strong>, select the blueprint prepared in the previous step.  </li>
 <li>
 <p>Under <strong>Cluster Extensions &gt; Custom Properties</strong>, include a JSON file which defines the property values.</p>
-<p>TO DO: Include a screenshot when the UI is ready </p>
-</li>
-</ol>
 <p><strong>Example:</strong><br />
 The following JSON entry sets the values for the properties from the previous step: </p>
 <p><pre>{
-"fs.trash.interval": "4320",
-"hive.exec.compress.output": "true",
-"my.tmp.directory": "/hadoop/tmp"
+    "fs.trash.interval": "4320",
+    "hive.exec.compress.output": "true",
+    "my.tmp.directory": "/hadoop/tmp"
 }</pre></p>
+</li>
+</ol>
 </li>
 <li>
 <p>As a result, the values of <code>hive.exec.compress.output</code>, <code>my.tmp.directory</code> and <code>fs.trash.interval</code> will be replaced in the blueprint based on the input that you provided. </p>
