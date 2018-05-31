@@ -654,7 +654,7 @@
 <p>In order to set custom properties for a cluster you must:</p>
 <ol>
 <li>Create a blueprint that includes a template for the properties that you want to set.  </li>
-<li>When creating a cluster, you can specify the property values under Cluster Extensions &gt; Custom Properties.    </li>
+<li>When creating a cluster, select the blueprint and then specify the property values under Cluster Extensions &gt; Custom Properties in the advanced view of the cluster wizard..    </li>
 </ol>
 <p>In the cluster creation phase, the property values in the blueprint will be replaced based on the input, picking up the parameter values that you provided.</p>
 <p><strong>Steps</strong></p>
@@ -691,7 +691,7 @@ This example provides a template for setting three properties:</p>
 <ol>
 <li>Under <strong>General Configuration &gt; Cluster Type</strong>, select the blueprint prepared in the previous step.  </li>
 <li>
-<p>Under <strong>Cluster Extensions &gt; Custom Properties</strong>, include a JSON file which defines the property values.</p>
+<p>In the advanced view of the cluster wizard, under <strong>Cluster Extensions &gt; Custom Properties</strong>, include a JSON file which defines the property values.</p>
 <p><strong>Example:</strong><br />
 The following JSON entry sets the values for the properties from the previous step: </p>
 <p><pre>{
