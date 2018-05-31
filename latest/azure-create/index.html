@@ -654,13 +654,14 @@
             
                 <li class="third-level"><a href="#tags">Tags</a></li>
             
-                <li class="third-level"><a href="#hardware-and-storage">Hardware and Storage</a></li>
+        
+            <li class="second-level"><a href="#root-volume-size">Root volume size</a></li>
             
                 <li class="third-level"><a href="#availability-sets">Availability sets</a></li>
             
                 <li class="third-level"><a href="#recipes">Recipes</a></li>
             
-                <li class="third-level"><a href="#management-packs">Management Packs</a></li>
+                <li class="third-level"><a href="#management-packs">Management packs</a></li>
             
                 <li class="third-level"><a href="#external-sources">External sources</a></li>
             
@@ -757,6 +758,18 @@
 <tr>
 <td>Instance Count</td>
 <td>Enter the number of instances of a given type. Default is 1.</td>
+</tr>
+<tr>
+<td>Storage Type</td>
+<td><p>Select the volume type. The options are:<ul><li>Locally-redundant storage</li><li>Geo-redundant storage</li><li>Premium locally-redundant storage</li></ul> For more information about these options refer to <a href="https://docs.microsoft.com/en-us/azure/storage/storage-introduction" target="_blank">Azure documentation</a>.</td>
+</tr>
+<tr>
+<td>Attached Volumes Per Instance</td>
+<td>Enter the number of volumes attached per instance. Default is 1.</td>
+</tr>
+<tr>
+<td>Volume Size</td>
+<td>Enter the size in GBs for each volume. Default is 100.</td>
 </tr>
 </tbody>
 </table>
@@ -1033,35 +1046,9 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <p>For more information, refer to <a href="../tags/index.html">Tagging resources</a>.</p>
 <p><strong>Related links</strong>    <br />
 <a href="../tags/index.html">Tagging resources</a> </p>
-<h4 id="hardware-and-storage">Hardware and Storage</h4>
-<p>You can optionally specify the following storage options for your cluster.     </p>
-<p>To edit this section, click on the <img src="../images/cb_edit.png"/>. When done editing, click on the <img src="../images/cb_save.png" width="25"/> to save the changes. </p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Storage Type</td>
-<td><p>Select the volume type. The options are:<ul><li>Locally-redundant storage</li><li>Geo-redundant storage</li><li>Premium locally-redundant storage</li></ul> For more information about these options refer to <a href="https://docs.microsoft.com/en-us/azure/storage/storage-introduction" target="_blank">Azure documentation</a>.</td>
-</tr>
-<tr>
-<td>Attached Volumes Per Instance</td>
-<td>Enter the number of volumes attached per instance. Default is 1.</td>
-</tr>
-<tr>
-<td>Volume Size (GB)</td>
-<td>Enter the size in GBs for each volume. Default is 100.</td>
-</tr>
-<tr>
-<td>Root Volume Size</td>
-<td><p>Use this option to increase the root volume size. Default is 30 GB. This option is useful if your custom image requires more space than the default 30 GB.</p><p>If you change the value of the root volume size, an osDisk with the given rootVolumeSize will be created for the instance automatically; However, you will have to manually resize the osDisk partition by using the steps provided in the <a href="https://blogs.msdn.microsoft.com/linuxonazure/2017/04/03/how-to-resize-linux-osdisk-partition-on-azure/" target="_blank">Azure documentation</a>.</p></td>
-</tr>
-</tbody>
-</table>
+<h3 id="root-volume-size">Root volume size</h3>
+<p>Use this option to increase the root volume size. Default is 30 GB. This option is useful if your custom image requires more space than the default 30 GB.</p>
+<p>If you change the value of the root volume size, an osDisk with the given rootVolumeSize will be created for the instance automatically; However, you will have to manually resize the osDisk partition by using the steps provided in the <a href="https://blogs.msdn.microsoft.com/linuxonazure/2017/04/03/how-to-resize-linux-osdisk-partition-on-azure/">Azure documentation</a>.</p>
 <p><strong>Related links</strong><br />
 <a href="https://blogs.msdn.microsoft.com/linuxonazure/2017/04/03/how-to-resize-linux-osdisk-partition-on-azure/">How to: Resize Linux osDisk partition on Azure</a>  </p>
 <h4 id="availability-sets">Availability sets</h4>
@@ -1099,7 +1086,7 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Using custom scripts (recipes)</a>. </p>
 <p><strong>Related links</strong>    <br />
 <a href="../recipes/index.html">Using custom scripts (recipes)</a> </p>
-<h4 id="management-packs">Management Packs</h4>
+<h4 id="management-packs">Management packs</h4>
 <p>This option allows you to select previously uploaded management packs. For more information on management packs, refer to <a href="../mpacks/index.html">Using management packs</a>. </p>
 <p><strong>Related links</strong>    <br />
 <a href="../mpacks/index.html">Using management packs</a>  </p>
