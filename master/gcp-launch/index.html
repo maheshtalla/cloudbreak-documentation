@@ -881,11 +881,14 @@ vm-cbd-deployment               compute.v1.instance    COMPLETED  []</pre></p>
 <td>"Service account ID" value for your service account created in prerequisites. You can find it on GCP at <strong>IAM &amp; Admin</strong> &gt; <strong>Service accounts</strong>.</td>
 </tr>
 <tr>
-<td>Service Account Private (p12) Key</td>
-<td>Upload the P12 key that you created in the prerequisites when creating a service account.</td>
+<td>Service Account Private (JSON) Key</td>
+<td>Upload the JSON key that you created in the prerequisites when creating a service account.</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Although earlier versions of Cloudbreak supported keys in P12 format, all new keys specified during the Cloudbreak credential creation must be in JSON format. </p>
+</blockquote>
 </li>
 <li>
 <p>Click <strong>Create</strong>.</p>
