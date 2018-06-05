@@ -694,6 +694,9 @@
 <h5 id="setting-root-volume-size"><strong>Setting Root Volume Size</strong></h5>
 <p>When creating a cluster, you can modify the root volume size. This option is available on the advanced <strong>Hardware and Storage</strong> page of the create cluster wizard. Default is 50 GB for AWS and GCP, and 30 GB for Azure. This option is useful if your custom image requires more space than provided by default. </p>
 <hr />
+<h5 id="support-for-json-key-on-google-cloud"><strong>Support for JSON Key on Google Cloud</strong></h5>
+<p>Cloudbreak introduces support for Google Cloud's service account JSON key. Since activating service accounts with P12 private keys has been deprecated in the Cloud SDK, we recommend using JSON keys. For more information, refer to <a href="../gcp-pre#service-account">GCP Prerequisites</a> and <a href="../gcp-launch/index.html#create-cloudbreak-credential">Create Cloudbreak credential</a>. </p>
+<hr />
 <h5 id="sorting-and-filtering-resource-tables-in-the-ui"><strong>Sorting and Filtering Resource Tables in the UI</strong></h5>
 <p>Cloudbreak introduces the ability to sort and filter resource tables that list resources such as clusters, cluster hardware, blueprints, recipes, and so on, in the Cloudbreak web UI.</p>
 <hr />
