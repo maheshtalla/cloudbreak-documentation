@@ -1255,9 +1255,11 @@
 <h4 id="cluster-repair">cluster repair</h4>
 <p>Repairs a cluster if cluster installation failed.</p>
 <p><strong>Required options</strong></p>
-<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name</p>
+<p><strong><code>--name &lt;value&gt;</code></strong>  Cluster name<br />
+<strong><code>--host-groups &lt;value&gt;</code></strong> Comma separated list of host groups where the failed nodes should be repaired  </p>
 <p><strong>Options</strong></p>
-<p><strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
+<p><strong><code>--remove-only</code></strong> The failed nodes will be removed (rather than "repaired" by removing and replacing) <br />
+<strong><code>--wait</code></strong>  Wait for the operation to finish. No argument is required<br />
 <strong><code>--output &lt;value&gt;</code></strong>  Supported formats: json, yaml, table (default: "json") [$CB_OUT_FORMAT] 
 <strong><code>--server &lt;value&gt;</code></strong>  Cloudbreak server address [$CB_SERVER_ADDRESS]<br />
 <strong><code>--username &lt;value&gt;</code></strong>  Cloudbreak user name (e-mail address) [$CB_USER_NAME]<br />
