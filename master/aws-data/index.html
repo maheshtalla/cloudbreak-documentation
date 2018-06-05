@@ -248,6 +248,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../gcp-data/index.html">Access data on GCS</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -704,12 +710,12 @@
 </li>
 </ol>
 <h3 id="configure-access-to-s3">Configure access to S3</h3>
-<p>Amazon S3 is not supported as a default file system, but access to data in S3 from your cluster VMs can be automatically configured by attaching an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">instance profile</a> allowing access to S3. You can optionally create or attach an existing instance profile during cluster creation on the <strong>File System</strong> page.</p>
+<p>Amazon S3 is not supported as a default file system, but access to data in S3 from your cluster VMs can be automatically configured by attaching an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">instance profile</a> allowing access to S3. You can optionally create or attach an existing instance profile during cluster creation on the <strong>Cloud Storage</strong> page.</p>
 <p>To configure access to S3 with an instance profile, follow these steps. </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>You or your AWS admin must create an IAM role with an S3 access policy which can be used by cluster instances to access one or more S3 buckets. Refer to <a href="#creating-an-iam-role-for-s3-access">Creating an IAM role for S3 access</a>.  </li>
-<li>On the <strong>File System</strong> page in the advanced cluster wizard view, select <strong>Use existing instance profile</strong>. </li>
+<li>On the <strong>Cloud Storage</strong> page in the advanced cluster wizard view, select <strong>Use existing instance profile</strong>. </li>
 <li>Select an existing IAM role created in step 1:</li>
 </ol>
 <p>During the cluster creation process, Cloudbreak assigns the IAM role and its associated permissions to the EC2 instances that are part of the cluster so that applications running on these instances can use the role to access S3.   </p>
