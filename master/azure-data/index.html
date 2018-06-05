@@ -664,7 +664,7 @@
             
                 <li class="third-level"><a href="#test-access-to-adls">Test access to ADLS</a></li>
             
-                <li class="third-level"><a href="#working-with-adls">Working with ADLS</a></li>
+                <li class="third-level"><a href="#configure-adls-storage-locations">Configure ADLS Storage Locations</a></li>
             
         
             <li class="second-level"><a href="#accessing-data-in-wasb-from-hdp">Accessing data in WASB from HDP</a></li>
@@ -675,7 +675,7 @@
             
                 <li class="third-level"><a href="#test-access-to-wasb">Test access to WASB</a></li>
             
-                <li class="third-level"><a href="#working-with-wasb">Working with WASB</a></li>
+                <li class="third-level"><a href="#configure-wasb-storage-locations">Configure WASB Storage Locations</a></li>
             
         
     
@@ -700,7 +700,10 @@
 </blockquote>
 </li>
 <li>
-<p>In Cloudbreak web UI, on the <strong>Cloud Storage</strong> page of the create a cluster wizard, provide the following parameters for your registered application:    </p>
+<p>In Cloudbreak web UI, on the advaned <strong>Cloud Storage</strong> page of the create a cluster wizard, select <strong>Use existing ADLS storage</strong>.</p>
+</li>
+<li>
+<p>Provide the following parameters for your registered application:    </p>
 <ul>
 <li><strong>ADLS Account Name</strong>: This is the ADL account that your application was assigned to.    </li>
 <li><strong>Application ID</strong>: You can find it in your application's settings. </li>
@@ -724,7 +727,6 @@
     [-D hadoop.security.credential.provider.path=localjceks://file/home/user/adls.jceks]
     hdfs://<b>namenode_hostname</b>:9001/user/foo/007020615
     adl://<b>myaccount</b>.azuredatalakestore.net/testDir/</pre></p>
-<h4 id="working-with-adls">Working with ADLS</h4>
 <p>For more information about configuring the ADLS connector and working with data stored in ADLS, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.5/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
 <p><strong>Related links</strong> <br />
 <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks)<br />
@@ -732,6 +734,22 @@
 <a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store</a> (External)   <br />
 <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a storage account</a> (External)   <br />
 <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">Get started with Azure Data Lake Store</a> (External)  </p>
+<h4 id="configure-adls-storage-locations">Configure ADLS Storage Locations</h4>
+<p>After configuring access to ADLS, you can optionally use that ADLS storage account as a base storage location; this storage location is mainly for the Hive Warehouse Directory (used for storing the table data for managed tables).   </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>When creating a cluster, on the <strong>Cloud Storage</strong> page in the advanced cluster wizard view, select <strong>Use existing ADLS storage</strong> and select the instance profile to use, as described in <a href="#configure-access-to-adls">Configure access to ADLS</a>.    </li>
+<li>Under <strong>Storage Locations</strong>, enable <strong>Configure Storage Locations</strong> by clicking the <img src="../images/cb_toggle.png" alt="On"/> button.   </li>
+<li>
+<p>Provide your existing directory name under <strong>Base Storage Location</strong>. </p>
+<blockquote>
+<p>Make sure that the directory exists within the account.</p>
+</blockquote>
+</li>
+<li>
+<p>Under <strong>Path for Hive Warehouse Directory property (hive.metastore.warehouse.dir)</strong>, Cloudbreak automatically suggests a location within the bucket. For example, if the directory that you specified is <code>my-test-dir</code> then the suggested location will be <code>my-test-adls-account.azuredatalakestore.net/my-test-dir/apps/hive/warehouse</code>. You may optionally update this path.        </p>
+</li>
+</ol>
 <h3 id="accessing-data-in-wasb-from-hdp">Accessing data in WASB from HDP</h3>
 <p>Windows Azure Storage Blob (WASB) is an object store service available on Azure. WASB is not supported as a default file system, but access to data in WASB ia possible via the wasb connector.</p>
 <h4 id="prerequisites_1">Prerequisites</h4>
@@ -754,7 +772,10 @@
 <p><a href="../images/cb_wasb2.png" target="_blank" title="click to enlarge"><img src="../images/cb_wasb2.png" width="650" title="WASB"></a></p>
 </li>
 <li>
-<p>In Cloudbreak web UI, on the <strong>Cloud Storage</strong> page of the create a cluster wizard, provide the <em>Storage Account Name</em> and <em>Access Key</em> parameters obtained in the previous step.   </p>
+<p>In Cloudbreak web UI, on the advanced <strong>Cloud Storage</strong> page of the create a cluster wizard,  select <strong>Use existing WASB storage</strong>.  </p>
+</li>
+<li>
+<p>Provide the <em>Storage Account Name</em> and <em>Access Key</em> parameters obtained in the previous step.   </p>
 </li>
 </ol>
 <p>Once your cluster is in the running state, you will be able to access the Azure blob storage account from the cluster nodes. </p>
@@ -779,11 +800,26 @@ hadoop fs -put testFile wasb://mycontainer@myaccount.blob.core.windows.net/testD
 hadoop fs -cat wasb://mycontainer@myaccount.blob.core.windows.net/testDir/testFile
 test file content</pre>
 
-<h4 id="working-with-wasb">Working with WASB</h4>
 <p>For more information about configuring the WASB connector and working with data stored in WASB, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.5/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
 <p><strong>Related links</strong> <br />
 <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.5/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks) <br />
-<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a storage account</a> (External)   </p></div>
+<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a storage account</a> (External)   </p>
+<h4 id="configure-wasb-storage-locations">Configure WASB Storage Locations</h4>
+<p>After configuring access to WASB, you can optionally use that WASB storage account as a base storage location; this storage location is mainly for the Hive Warehouse Directory (used for storing the table data for managed tables).   </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>When creating a cluster, on the <strong>Cloud Storage</strong> page in the advanced cluster wizard view, select <strong>Use existing WASB storage</strong> and select the instance profile to use, as described in <a href="#configure-access-to-wasb">Configure access to WASB</a>.    </li>
+<li>Under <strong>Storage Locations</strong>, enable <strong>Configure Storage Locations</strong> by clicking the <img src="../images/cb_toggle.png" alt="On"/> button.   </li>
+<li>
+<p>Provide your existing directory name under <strong>Base Storage Location</strong>. </p>
+<blockquote>
+<p>Make sure that the container exists within the account.</p>
+</blockquote>
+</li>
+<li>
+<p>Under <strong>Path for Hive Warehouse Directory property (hive.metastore.warehouse.dir)</strong>, Cloudbreak automatically suggests a location within the bucket. For example, if the directory that you specified is <code>my-test-container</code> then the suggested location will be <code>my-test-container@my-wasb-account.blob.core.windows.net/apps/hive/warehouse</code>. You may optionally update this path.  </p>
+</li>
+</ol></div>
         
     </div>
 
