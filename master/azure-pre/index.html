@@ -289,7 +289,13 @@
                         
                             
 <li >
-    <a href="../vm-launch/index.html">Launch Cloudbreak (production)</a>
+    <a href="../clusters-access/index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../clusters-manage/index.html">Manage cluster</a>
 </li>
 
                         
@@ -643,7 +649,14 @@
         
             <li class="second-level"><a href="#ssh-key-pair">SSH key pair</a></li>
             
-                <li class="third-level"><a href="#azure-roles">Azure roles</a></li>
+        
+            <li class="second-level"><a href="#virtual-network">Virtual network</a></li>
+            
+        
+            <li class="second-level"><a href="#security-group">Security group</a></li>
+            
+        
+            <li class="second-level"><a href="#azure-roles">Azure roles</a></li>
             
         
     
@@ -666,7 +679,11 @@
 <li>On MacOS X and Linux using <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code>  </li>
 <li>On Windows using <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows">PuTTygen</a></li>
 </ul>
-<h4 id="azure-roles">Azure roles</h4>
+<h3 id="virtual-network">Virtual network</h3>
+<p>You must have a virtual network configured on your cloud provider.</p>
+<h3 id="security-group">Security group</h3>
+<p>Ports 22 (SSH), 80 (HTTPS), and 443 (HTTPS) must be open on the security group</p>
+<h3 id="azure-roles">Azure roles</h3>
 <p>In order to provision clusters on Azure, Cloudbreak must be able to assume a sufficient Azure role ("Owner" or "Contributor") via Cloudbreak credential:</p>
 <ul>
 <li>

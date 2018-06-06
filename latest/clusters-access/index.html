@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/vm-launch/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/clusters-access/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Launch Cloudbreak (production) - Cloudbreak</title>
+    <title>Access cluster - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -289,7 +289,13 @@
                         
                             
 <li class="active">
-    <a href="index.html">Launch Cloudbreak (production)</a>
+    <a href="index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../clusters-manage/index.html">Manage cluster</a>
 </li>
 
                         
@@ -608,7 +614,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../blueprints/index.html">
+                        <a rel="prev" href="../clusters-manage/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -633,34 +639,24 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#production-installing-cloudbreak-on-your-own-vm">(Production) Installing Cloudbreak on your own VM</a></li>
+        <li class="first-level active"><a href="#accessing-a-cluster">Accessing a cluster</a></li>
         
-            <li class="second-level"><a href="#system-requirements">System requirements</a></li>
-            
-        
-            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
-            
-                <li class="third-level"><a href="#ports">Ports</a></li>
-            
-                <li class="third-level"><a href="#root-access">Root access</a></li>
-            
-                <li class="third-level"><a href="#system-updates">System updates</a></li>
-            
-                <li class="third-level"><a href="#iptables">Iptables</a></li>
-            
-                <li class="third-level"><a href="#cloud-provider-prerequisites">Cloud Provider Prerequisites</a></li>
+            <li class="second-level"><a href="#cloudbreak-user-accounts">Cloudbreak user accounts</a></li>
             
         
-            <li class="second-level"><a href="#install-cloudbreak-on-a-vm">Install Cloudbreak on a VM</a></li>
+            <li class="second-level"><a href="#finding-cluster-information-in-the-web-ui">Finding cluster information in the web UI</a></li>
+            
+                <li class="third-level"><a href="#cluster-summary">Cluster summary</a></li>
+            
+                <li class="third-level"><a href="#cluster-information">Cluster information</a></li>
+            
+                <li class="third-level"><a href="#event-history">Event history</a></li>
             
         
-            <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
+            <li class="second-level"><a href="#accessing-cluster-via-ssh">Accessing cluster via SSH</a></li>
             
         
-            <li class="second-level"><a href="#configure-external-cloudbreak-database">Configure external Cloudbreak database</a></li>
-            
-        
-            <li class="second-level"><a href="#next-steps">Next steps</a></li>
+            <li class="second-level"><a href="#access-ambari">Access Ambari</a></li>
             
         
     
@@ -668,140 +664,266 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="production-installing-cloudbreak-on-your-own-vm">(Production) Installing Cloudbreak on your own VM</h2>
-<p>This is a production deployment option. To review all deployment options, refer to <a href="../deployment-options/index.html">Deployment options</a>.  </p>
-<h3 id="system-requirements">System requirements</h3>
-<p>To launch the Cloudbreak deployer and install the Cloudbreak application, your system must meet the following requirements:</p>
+<h2 id="accessing-a-cluster">Accessing a cluster</h2>
+<p>The following section describes how to access the various services in the cluster.</p>
+<h3 id="cloudbreak-user-accounts">Cloudbreak user accounts</h3>
+<p>The following table describes what credentials to use to access Cloudbreak and Cloudbreak-managed clusters:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloudbreak</td>
+<td>Web UI, CLI</td>
+<td>Access with the username and password provided when launching Cloudbreak on the cloud provider.</td>
+</tr>
+<tr>
+<td>Cloudbreak</td>
+<td>SSH to VM</td>
+<td>Access as the "cloudbreak" user with the SSH key provided when launching Cloudbreak on the cloud provider.</td>
+</tr>
+<tr>
+<td>Cluster</td>
+<td>SSH to VMs</td>
+<td>Access as the "cloudbreak" user with the SSH key provided during cluster creation.</td>
+</tr>
+<tr>
+<td>Cluster</td>
+<td>Ambari web UI</td>
+<td>Access with the credentials provided in the “Cluster User” parameter during cluster creation.</td>
+</tr>
+<tr>
+<td>Cluster</td>
+<td>Web UIs for specific cluster services</td>
+<td>Access with the credentials provided in the “Cluster User” parameter during cluster creation.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="finding-cluster-information-in-the-web-ui">Finding cluster information in the web UI</h3>
+<p>Once your cluster is up and running, click on the tile representing your cluster in the Cloudbreak UI to access information related the cluster and access cluster actions. </p>
+<p><a href="../images/cb_cb-cl-details1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-cl-details1.png" width="650" title="Cluster Information"></a> </p>
+<p>The information presented includes:</p>
 <ul>
-<li>Minimum VM requirements: 16GB RAM, 40GB disk, 4 cores</li>
-<li>Supported operating systems: RHEL, CentOS, and Oracle Linux 7 (64-bit)</li>
-<li>Docker 1.9.1 must be installed</li>
+<li><a href="#cluster-summary">Cluster summary</a>  </li>
+<li><a href="#cluster-information">Cluster information</a>     </li>
+<li><a href="#event-history">Event history</a>  </li>
 </ul>
-<blockquote>
-<p>You can install Cloudbreak on Mac OS X for evaluation purposes only. Mac OS X is not supported for a production deployment of Cloudbreak.</p>
-</blockquote>
-<h3 id="prerequisites">Prerequisites</h3>
-<p>To launch the Cloudbreak deployer and install the Cloudbreak application, you must first meet the following prerequisites:</p>
-<h4 id="ports">Ports</h4>
-<p>Ports 22 (SSH), 80 (HTTPS), and 443 (HTTPS) must be open.</p>
-<h4 id="root-access">Root access</h4>
-<p>Every command must be executed as root. In order to get root privileges execute:</p>
-<pre>sudo -i</pre>
+<div class="note">
+  <p class="first admonition-title">Tips</p>
+  <p class="last"><ul>
+  <li> Access cluster actions such as resize and sync by clicking on <b>ACTIONS</b>.</li>
+  <li> Access Ambari web UI by clicking on the link in the <b>CLUSTER INFORMATION</b> section.</li>
+<li> View public IP addresses for all cluster instances in the <b>HARDWARE</b> section. Click on the links to view the instances in the cloud console.</li>
+<li> The SSH user that you must use when accessing cluster VMs is "cloudbreak".</li> 
+</ul>
+</p>
+</div>
 
-<h4 id="system-updates">System updates</h4>
-<p>Ensure that your system is up-to-date by executing:</p>
-<pre>yum -y update</pre>
+<h4 id="cluster-summary">Cluster summary</h4>
+<p>The summary bar includes the following information about your cluster:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cluster Name</td>
+<td>The name that you selected for your cluster is displayed at the top of the page. Below it is the name of the cluster blueprint.</td>
+</tr>
+<tr>
+<td>Time Remaining</td>
+<td>If you enabled lifetime management for your cluster, the clock next to the cluster name indicates the amount of time that your cluster will run before it gets terminated. Note that the time remaining counter does not stop when you stop the cluster.</td>
+</tr>
+<tr>
+<td>Cloud Provider</td>
+<td>The logo of the cloud provider on which the cluster is running.</td>
+</tr>
+<tr>
+<td>Credential</td>
+<td>The name of the credential used to create the cluster.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Current status. When a cluster is healthy, the status is <em>Running</em>.</td>
+</tr>
+<tr>
+<td>Nodes</td>
+<td>The current number of cluster nodes, including the master node.</td>
+</tr>
+<tr>
+<td>Uptime</td>
+<td>The amount of time (HH:MM) that the cluster has been in the running state since it was started. Each time you stop and restart the cluster, the running time is reset to 0.</td>
+</tr>
+<tr>
+<td>Created</td>
+<td>The date when the cluster was created. The date format is Mon DD, YYYY. For example: Oct 27, 2017.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cluster-information">Cluster information</h4>
+<p>The following information is available on the cluster details page: </p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cluster User</td>
+<td>The name of the cluster user that you created when creating the cluster.</td>
+</tr>
+<tr>
+<td>SSH Username</td>
+<td>The SSH user which you must use when accessing cluster VMs via SSH. The SSH user is always "cloudbreak".</td>
+</tr>
+<tr>
+<td>Ambari URL</td>
+<td>Link to the Ambari web UI.</td>
+</tr>
+<tr>
+<td>Region</td>
+<td>The region in which the cluster is running in the cloud provider infrastructure.</td>
+</tr>
+<tr>
+<td>Availability Zone</td>
+<td>The availability zone within the region in which the cluster is running.</td>
+</tr>
+<tr>
+<td>Blueprint</td>
+<td>The name of the blueprint selected under "Cluster Type" to create this cluster.</td>
+</tr>
+<tr>
+<td>Created With</td>
+<td>The version of Cloudbreak used to create this cluster.</td>
+</tr>
+<tr>
+<td>Ambari Version</td>
+<td>The Ambari version which this cluster is currently running.</td>
+</tr>
+<tr>
+<td>HDP/HDF Version</td>
+<td>The HDP or HDF version which this cluster is currently running.</td>
+</tr>
+<tr>
+<td>Authentication Source</td>
+<td>If you are using an external authentication source (LDAP/AD) for your cluster, you can see it here. Refer to <a href="../external-ldap/index.html">Using an external authentication source</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Below this, you will see additional tabs that you can click on in order to see their content:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware</td>
+<td>This section includes information about your cluster instances: instance names, instance IDs, instance types, their status, fully qualified domain names (FQDNs), and private and public IPs.</td>
+</tr>
+<tr>
+<td>Cloud storage</td>
+<td>If you configured any cloud storage options, you will see them listed here.</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>This section lists keys and values of the user-defined tags, in the same order as you added them.</td>
+</tr>
+<tr>
+<td>Recipes</td>
+<td>This section includes recipe-related information. For each recipe, you can see the host group on which a recipe was executed, recipe name, and recipe type. Refer to <a href="../recipes/index.html">Using custom scripts (recipes)</a>.</td>
+</tr>
+<tr>
+<td>External databases</td>
+<td>If you are using an external database for your cluster, you can see it here. Refer to <a href="../external-db/index.html">using an external database</a>.</td>
+</tr>
+<tr>
+<td>Repository details</td>
+<td>This section includes Ambari and HDP/HDF repository information, as you provided it in the "Base Images" section when creating a cluster.</td>
+</tr>
+<tr>
+<td>Image details</td>
+<td>This section includes information about the base image that was used for the Cloudbreak instance.</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>This section includes information about the names of the network and subnet in which the cluster is running and the links to related cloud provider console.</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>This section is only available if you have enabled Kerberos security. It provides you with the details of your Kerberos configuration.</td>
+</tr>
+<tr>
+<td>Autoscaling</td>
+<td>This section includes configuration options related to autoscaling. Refer to <a href="../autoscaling/index.html">Configuring autoscaling</a>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="event-history">Event history</h4>
+<p>The Event History section shows you events logged for the cluster, with the most recent event at the top. For example, after your cluster has been created, the following messages will be written to the log:</p>
+<pre>
+Ambari cluster built; Ambari ip:34.215.103.66
+10/26/2017, 9:41:58 AM
+Building Ambari cluster; Ambari ip:34.215.103.66
+10/26/2017, 9:30:20 AM
+Starting Ambari cluster services
+10/26/2017, 9:27:12 AM
+Setting up infrastructure metadata
+10/26/2017, 9:27:11 AM
+Bootstrapping infrastructure cluster
+10/26/2017, 9:26:38 AM
+Infrastructure successfully provisioned
+10/26/2017, 9:26:37 AM
+Billing started, Infrastructure successfully provisioned
+10/26/2017, 9:26:37 AM
+Infrastructure metadata collection finished
+10/26/2017, 9:25:39 AM
+Infrastructure creation took 194 seconds
+10/26/2017, 9:25:37 AM
+Creating infrastructure
+10/26/2017, 9:22:22 AM
+Setting up HDP image
+10/26/2017, 9:22:21 AM</pre>
 
-<p>Reboot it if necessary.</p>
-<h4 id="iptables">Iptables</h4>
-<ol>
-<li>
-<p>Install iptables-services:</p>
-<p><pre>yum -y install net-tools ntp wget lsof unzip tar iptables-services
-systemctl enable ntpd &amp;&amp; systemctl start ntpd
-systemctl disable firewalld &amp;&amp; systemctl stop firewalld</pre></p>
-<blockquote>
-<p>Without iptables-services installed the <code>iptables save</code> command will not be available.</p>
-</blockquote>
-</li>
-<li>
-<p>Configure permissive iptables on your machine:</p>
-<p><pre>iptables --flush INPUT &amp;&amp; \
-iptables --flush FORWARD &amp;&amp; \
-service iptables save</pre></p>
-</li>
-<li>
-<p>Disable SELINUX:</p>
-<p><pre>sed -i --follow-symlinks 's/^SELINUX=.*/SELINUX=disabled/g' /etc/sysconfig/selinux</pre></p>
-</li>
-<li>
-<p>Create Docker repo:</p>
-<p><pre>cat &gt; /etc/yum.repos.d/docker.repo &lt;&lt;"EOF"
-[dockerrepo]
-name=Docker Repository
-baseurl=https://yum.dockerproject.org/repo/main/centos/7
-enabled=1
-gpgcheck=1
-gpgkey=https://yum.dockerproject.org/gpg
-EOF</pre></p>
-</li>
-<li>
-<p>Install Docker service:</p>
-<p><pre>yum install -y docker-engine-1.9.1 docker-engine-selinux-1.9.1
-systemctl start docker
-systemctl enable docker</pre></p>
-</li>
-</ol>
-<h4 id="cloud-provider-prerequisites">Cloud Provider Prerequisites</h4>
-<p>Additionally, review the following cloud provider prerequisites:</p>
+<h3 id="accessing-cluster-via-ssh">Accessing cluster via SSH</h3>
+<p>If you plan to access the cluster via the command line clients, SSH into the master node instance in the cluster. </p>
 <ul>
-<li><a href="../aws-launch/index.html#meet-the-prerequisites">Prerequisites on AWS</a></li>
-<li><a href="../azure-launch/index.html#meet-the-prerequisites">Prerequisites on Azure</a></li>
-<li><a href="../gcp-launch/index.html#meet-the-prerequisites">Prerequisites on GCP</a></li>
-<li><a href="../os-launch/index.html#meet-the-prerequisites">Prerequisites on OpenStack</a></li>
+<li>In order to use SSH, you must generate an SSH key pair or use an existing SSH key pair.  </li>
+<li>You can find the cluster instance public IP addresses on the cluster details page.  </li>
+<li>When accessing instances via SSH use the <code>cloudbreak</code> user. </li>
 </ul>
-<h3 id="install-cloudbreak-on-a-vm">Install Cloudbreak on a VM</h3>
-<p>Install Cloudbreak using the following steps.</p>
+<p>On Mac OS, you can use the following syntax to SSH to the VM:
+<pre>ssh -i "privatekey.pem" cloudbreak@publicIP</pre>
+For example:
+<pre>ssh -i "dominika-kp.pem" cloudbreak@p52.25.169.132</pre></p>
+<p>On Windows, you can SSH using an SSH client such as PuTTY.</p>
+<h3 id="access-ambari">Access Ambari</h3>
+<p>You can access Ambari web UI by clicking on the links provided in the <strong>Cluster Information</strong> &gt; <strong>Ambari URL</strong>.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>Install the Cloudbreak deployer and unzip the platform-specific single binary to your PATH. For example:</p>
-<p><pre>yum -y install unzip tar
-curl -Ls public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_2.7.0_$(uname)_x86_64.tgz | sudo tar -xz -C /bin cbd
-cbd --version</pre></p>
-<p>Once the Cloudbreak deployer is installed, you can set up the Cloudbreak application.</p>
+<p>From the cluster dashboard, click on the tile representing your cluster to navigate to cluster details.</p>
 </li>
 <li>
-<p>Create a Cloudbreak deployment directory and navigate to it:</p>
-<p><pre>mkdir cloudbreak-deployment
-cd cloudbreak-deployment</pre></p>
+<p>Find the Ambari URL in the <strong>Cluster Information</strong> section. This URL is available once the Ambari cluster creation process has completed.  </p>
 </li>
 <li>
-<p>In the directory, create a file called <code>Profile</code> with the following content:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
-export UAA_DEFAULT_USER_PW=MY-PASSWORD
-export UAA_DEFAULT_USER_EMAIL=MY-EMAIL
-export PUBLIC_IP=MY_VM_IP</pre></p>
-<p>For example:</p>
-<p><pre>export UAA_DEFAULT_SECRET=MySecret123
-export UAA_DEFAULT_USER_PW=MySecurePassword123
-export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com
-export PUBLIC_IP=172.26.231.100</pre></p>
-<p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.</p>
-<p>You should set the CLOUDBREAK_SMTP_SENDER_USERNAME variable to the username you use to authenticate to your SMTP server. You should set the CLOUDBREAK_SMTP_SENDER_PASSWORD variable to the password you use to authenticate to your SMTP server.</p>
+<p>Click on the <strong>Ambari URL</strong> link.</p>
 </li>
 <li>
-<p>Generate configurations by executing:</p>
-<p><pre>rm *.yml
-cbd generate</pre>   </p>
-<p>The cbd start command includes the cbd generate command which applies the following steps:</p>
-<ul>
-<li>Creates the <code>docker-compose.yml</code> file, which describes the configuration of all the Docker containers required for the Cloudbreak deployment.  </li>
-<li>Creates the <code>uaa.yml</code> file, which holds the configuration of the identity server used to authenticate users with Cloudbreak.   </li>
-</ul>
-</li>
-<li>
-<p>Start the Cloudbreak application by using the following commands:</p>
-<p><pre>cbd pull
-cbd start</pre></p>
-<p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, the process will take longer than usual due to the download of all the necessary docker images.</p>
-</li>
-<li>
-<p>Next, check Cloudbreak application logs:</p>
-<p><pre>cbd logs cloudbreak</pre></p>
-<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
-</li>
-</ol>
-<h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
-<p>Log in to the Cloudbreak UI using the following steps.</p>
-<p><strong>Steps</strong> </p>
-<ol>
-<li>
-<p>You can log into the Cloudbreak application at <code>https://IP_Address</code>. For example <code>https://34.212.141.253</code>. You can obtain the VM's IP address from your cloud provider console.</p>
-</li>
-<li>
-<p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
-<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
+<p>The first time you access the server, your browser will attempt to confirm that the SSL Certificate is valid. Since Cloudbreak automatically generates a self-signed certificate, your browser will warn you about an Untrusted Connection and ask you to confirm a Security Exception. Depending on your browser, perform the steps below to proceed.</p>
 <table>
 <thead>
 <tr>
@@ -825,32 +947,7 @@ cbd start</pre></p>
 </tbody>
 </table>
 </li>
-<li>
-<p>The login page is displayed:</p>
-<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
-</li>
-<li>
-<p>Log in to the Cloudbreak web UI using the credentials that you configured in your <code>Profile</code> file:</p>
-<ul>
-<li>The username is the <code>UAA_DEFAULT_USER_EMAIL</code>     </li>
-<li>The password is the <code>UAA_DEFAULT_USER_PW</code> </li>
-</ul>
-</li>
-<li>
-<p>Upon a successful login, you are redirected to the dashboard:</p>
-<p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
-</li>
-</ol>
-<h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
-<p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, we suggest that you <a href="../cb-db/index.html">configure an external database</a>.</p>
-<h3 id="next-steps">Next steps</h3>
-<p>Before you can create clusters, you must configure a Cloudbreak credential. Refer to the steps for your cloud platform:</p>
-<ul>
-<li><a href="../aws-launch/index.html#create-cloudbreak-credential">Create a Cloudbreak credential on AWS</a>  </li>
-<li><a href="../azure-launch/index.html#create-cloudbreak-credential">Create a Cloudbreak credential on Azure</a>  </li>
-<li><a href="../gcp-launch/index.html#create-cloudbreak-credential">Create a Cloudbreak credential on GCP</a>  </li>
-<li><a href="../os-launch/index.html#create-cloudbreak-credential">Create a Cloudbreak credential on OpenStack</a>  </li>
-</ul></div>
+</ol></div>
         
     </div>
 

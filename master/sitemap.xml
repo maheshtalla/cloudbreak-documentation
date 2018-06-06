@@ -172,7 +172,13 @@
     
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//vm-launch/index.html</loc>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//clusters-access/index.html</loc>
+     <lastmod>2018-06-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//clusters-manage/index.html</loc>
      <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>

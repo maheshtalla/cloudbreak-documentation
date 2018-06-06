@@ -289,7 +289,13 @@
                         
                             
 <li >
-    <a href="../vm-launch/index.html">Launch Cloudbreak (production)</a>
+    <a href="../clusters-access/index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../clusters-manage/index.html">Manage cluster</a>
 </li>
 
                         
@@ -633,26 +639,24 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#meet-the-prerequisites-on-openstack">Meet the prerequisites on OpenStack</a></li>
+        <li class="first-level active"><a href="#meet-minimum-system-requirements">Meet minimum system requirements</a></li>
         
-            <li class="second-level"><a href="#meet-minimum-system-requirements">Meet minimum system requirements</a></li>
-            
-                <li class="third-level"><a href="#supported-linux-distributions">Supported Linux distributions</a></li>
-            
-                <li class="third-level"><a href="#standard-modules">Standard modules</a></li>
+            <li class="second-level"><a href="#supported-linux-distributions">Supported Linux distributions</a></li>
             
         
-            <li class="second-level"><a href="#meet-the-prerequisites">Meet the prerequisites</a></li>
-            
-                <li class="third-level"><a href="#ssh-key-pair">SSH key pair</a></li>
-            
-                <li class="third-level"><a href="#security-group">Security group</a></li>
+            <li class="second-level"><a href="#standard-modules">Standard modules</a></li>
             
         
-            <li class="second-level"><a href="#launch-the-vm">Launch the VM</a></li>
+    
+        <li class="first-level "><a href="#meet-the-prerequisites">Meet the prerequisites</a></li>
+        
+            <li class="second-level"><a href="#ssh-key-pair">SSH key pair</a></li>
             
         
-            <li class="second-level"><a href="#ssh-to-the-vm">SSH to the VM</a></li>
+            <li class="second-level"><a href="#virtual-network">Virtual network</a></li>
+            
+        
+            <li class="second-level"><a href="#security-group">Security group</a></li>
             
         
     
@@ -660,11 +664,9 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="meet-the-prerequisites-on-openstack">Meet the prerequisites on OpenStack</h2>
-<p>Before launching Cloudbreak on OpenStack, review and meet the prerequisites. </p>
-<h3 id="meet-minimum-system-requirements">Meet minimum system requirements</h3>
+<h2 id="meet-minimum-system-requirements">Meet minimum system requirements</h2>
 <p>Before launching Cloudbreak on your OpenStack, make sure that your OpenStack deployment fulfills the following requirements.</p>
-<h4 id="supported-linux-distributions">Supported Linux distributions</h4>
+<h3 id="supported-linux-distributions">Supported Linux distributions</h3>
 <p>The following versions of the <a href="https://www.rdoproject.org/">Red Hat distribution of OpenStack</a> (RDO) are supported:</p>
 <ul>
 <li>Juno</li>
@@ -672,7 +674,7 @@
 <li>Liberty</li>
 <li>Mitaka</li>
 </ul>
-<h4 id="standard-modules">Standard modules</h4>
+<h3 id="standard-modules">Standard modules</h3>
 <p>Cloudbreak requires that the following standard modules are installed and configured on OpenStack:</p>
 <ul>
 <li>Keystone V2 or Keystone V3</li>
@@ -684,33 +686,14 @@
 </ul>
 <p><strong>Related links</strong><br />
 <a href="https://www.rdoproject.org/">Red Hat distribution of OpenStack</a> (External)</p>
-<h3 id="meet-the-prerequisites">Meet the prerequisites</h3>
+<h2 id="meet-the-prerequisites">Meet the prerequisites</h2>
 <p>Before launching Cloudbreak on OpenStack, you must meet the following prerequisites.</p>
-<h4 id="ssh-key-pair">SSH key pair</h4>
+<h3 id="ssh-key-pair">SSH key pair</h3>
 <p><a href="../faq/index.html#generate-ssh-key-pair">Generate a new SSH key pair</a> or use an existing SSH key pair to your OpenStack account. You will be required to select it when launching the VM.</p>
-<h4 id="security-group">Security group</h4>
-<p>In order to launch Cloudbreak, you must have an existing security group with the following ports open: 22 (for access via SSH), 80 (for access via HTTP), and 443 (for access via HTTPS).</p>
-<p>For information about OpenStack security groups, refer to the <a href="https://docs.openstack.org/ops-guide/index.html">OpenStack Administrator Guide</a>.</p>
-<p><strong>Related links</strong><br />
-<a href="https://docs.openstack.org/ops-guide/index.html">OpenStack Administrator Guide</a> (External)</p>
-<h3 id="launch-the-vm">Launch the VM</h3>
-<p>In your OpenStack, launch and instance providing the following parameters:</p>
-<ul>
-<li>Select a VM flavor which meets the following minimum requirements: 4GB RAM, 10GB disk, 2 cores.</li>
-<li>Select the Cloudbreak deployer image that you imported earlier and launch an instance using that image.</li>
-<li>Select your SSH key pair.</li>
-<li>Select the security group which has the following ports open: 22 (SSH) and 443 (HTTPS).</li>
-<li>Select your preconfigured network.</li>
-</ul>
-<h3 id="ssh-to-the-vm">SSH to the VM</h3>
-<p>Now that your VM is ready, access it via SSH:</p>
-<ul>
-<li>Use a private key matching the public key that you added to your OpenStack project.</li>
-<li>The SSH user is called "cloudbreak".</li>
-<li>You can obtain the VM's IP address from the details of your instance.</li>
-</ul>
-<p>On Mac OS X, you can SSH to the VM by running the following from the Terminal app: <code>ssh -i "your-private-key.pem" cloudbreak@instance_IP</code> where "your-private-key.pem" points to the location of your private key and "instance_IP" is the public IP address of the VM.</p>
-<p>On Windows, you can use <a href="http://www.putty.org/">PuTTy</a>.</p>
+<h3 id="virtual-network">Virtual network</h3>
+<p>You must have a virtual network configured on your cloud provider.</p>
+<h3 id="security-group">Security group</h3>
+<p>Ports 22 (SSH), 80 (HTTPS), and 443 (HTTPS) must be open on the security group</p>
 <div class="next">
 <a href="../os-launch/index.html">Next: Launch Cloudbreak</a>
 </div></div>

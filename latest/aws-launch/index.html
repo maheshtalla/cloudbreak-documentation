@@ -289,7 +289,13 @@
                         
                             
 <li >
-    <a href="../vm-launch/index.html">Launch Cloudbreak (production)</a>
+    <a href="../clusters-access/index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../clusters-manage/index.html">Manage cluster</a>
 </li>
 
                         
@@ -635,7 +641,26 @@
     
         <li class="first-level active"><a href="#launching-cloudbreak-on-aws">Launching Cloudbreak on AWS</a></li>
         
-            <li class="second-level"><a href="#launch-cloudbreak-on-your-own-vm">Launch Cloudbreak on your own VM</a></li>
+            <li class="second-level"><a href="#vm-requirements">VM requirements</a></li>
+            
+                <li class="third-level"><a href="#system-requirements">System requirements</a></li>
+            
+                <li class="third-level"><a href="#root-access">Root access</a></li>
+            
+                <li class="third-level"><a href="#system-updates">System updates</a></li>
+            
+                <li class="third-level"><a href="#iptables">Iptables</a></li>
+            
+                <li class="third-level"><a href="#docker">Docker</a></li>
+            
+        
+            <li class="second-level"><a href="#install-cloudbreak-on-a-vm">Install Cloudbreak on a VM</a></li>
+            
+        
+            <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
+            
+        
+            <li class="second-level"><a href="#configure-external-cloudbreak-database">Configure external Cloudbreak database</a></li>
             
         
             <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
@@ -651,14 +676,176 @@
         <div class="col-md-9" role="main">
 
 <h2 id="launching-cloudbreak-on-aws">Launching Cloudbreak on AWS</h2>
-<p>Before launching Cloudbreak on AWS:</p>
+<p>Before launching Cloudbreak on AWS, review and meet the AWS-specific <a href="../aws-pre/index.html">prerequisites</a>.  </p>
+<h3 id="vm-requirements">VM requirements</h3>
+<p>To launch the Cloudbreak deployer and install the Cloudbreak application, you must have an existing VM. </p>
+<h4 id="system-requirements">System requirements</h4>
+<p>Your system must meet the following requirements:</p>
 <ul>
-<li>Review and meet the <a href="../aws-pre/index.html">prerequisites</a>.  </li>
-<li>If you haven't already, review the <a href="../deployment-options/index.html">deployment options</a>.  </li>
+<li>Minimum VM requirements: 16GB RAM, 40GB disk, 4 cores</li>
+<li>Supported operating systems: RHEL, CentOS, and Oracle Linux 7 (64-bit)</li>
 </ul>
-<p>The steps below describe how to launch Cloudbreak, access Cloudbreak web UI, and create a Cloudbreak credential.         </p>
-<h3 id="launch-cloudbreak-on-your-own-vm">Launch Cloudbreak on your own VM</h3>
-<p>Refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>. </p>
+<blockquote>
+<p>You can install Cloudbreak on Mac OS X for evaluation purposes only. Mac OS X is not supported for a production deployment of Cloudbreak.</p>
+</blockquote>
+<h4 id="root-access">Root access</h4>
+<p>Every command must be executed as root. In order to get root privileges execute:</p>
+<pre>sudo -i</pre>
+
+<h4 id="system-updates">System updates</h4>
+<p>Ensure that your system is up-to-date by executing:</p>
+<pre>yum -y update</pre>
+
+<p>Reboot it if necessary.</p>
+<h4 id="iptables">Iptables</h4>
+<p>Perform these steps to install and configure iptables.</p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>
+<p>Install iptables-services:</p>
+<p><pre>yum -y install net-tools ntp wget lsof unzip tar iptables-services
+systemctl enable ntpd &amp;&amp; systemctl start ntpd
+systemctl disable firewalld &amp;&amp; systemctl stop firewalld</pre></p>
+<blockquote>
+<p>Without iptables-services installed the <code>iptables save</code> command will not be available.</p>
+</blockquote>
+</li>
+<li>
+<p>Configure permissive iptables on your machine:</p>
+<p><pre>iptables --flush INPUT &amp;&amp; \
+iptables --flush FORWARD &amp;&amp; \
+service iptables save</pre></p>
+</li>
+<li>
+<p>Disable SELINUX:</p>
+<p><pre>sed -i --follow-symlinks 's/^SELINUX=.*/SELINUX=disabled/g' /etc/sysconfig/selinux</pre></p>
+</li>
+</ol>
+<h4 id="docker">Docker</h4>
+<p>Perform these steps to install Docker.</p>
+<p><strong>Steps</strong>    </p>
+<ol>
+<li>
+<p>Create Docker repo:</p>
+<p><pre>cat &gt; /etc/yum.repos.d/docker.repo &lt;&lt;"EOF"
+[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/7
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+EOF</pre></p>
+</li>
+<li>
+<p>Install Docker service:</p>
+<p><pre>yum install -y docker-engine-1.9.1 docker-engine-selinux-1.9.1
+systemctl start docker
+systemctl enable docker</pre></p>
+</li>
+</ol>
+<h3 id="install-cloudbreak-on-a-vm">Install Cloudbreak on a VM</h3>
+<p>Install Cloudbreak using the following steps.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Install the Cloudbreak deployer and unzip the platform-specific single binary to your PATH. For example:</p>
+<p><pre>yum -y install unzip tar
+curl -Ls public-repo-1.hortonworks.com/HDP/cloudbreak/cloudbreak-deployer_2.7.0_$(uname)_x86_64.tgz | sudo tar -xz -C /bin cbd
+cbd --version</pre></p>
+<p>Once the Cloudbreak deployer is installed, you can set up the Cloudbreak application.</p>
+</li>
+<li>
+<p>Create a Cloudbreak deployment directory and navigate to it:</p>
+<p><pre>mkdir cloudbreak-deployment
+cd cloudbreak-deployment</pre></p>
+</li>
+<li>
+<p>In the directory, create a file called <code>Profile</code> with the following content:</p>
+<p><pre>export UAA_DEFAULT_SECRET=MY-SECRET
+export UAA_DEFAULT_USER_PW=MY-PASSWORD
+export UAA_DEFAULT_USER_EMAIL=MY-EMAIL
+export PUBLIC_IP=MY_VM_IP</pre></p>
+<p>For example:</p>
+<p><pre>export UAA_DEFAULT_SECRET=MySecret123
+export UAA_DEFAULT_USER_PW=MySecurePassword123
+export UAA_DEFAULT_USER_EMAIL=dbialek@hortonworks.com
+export PUBLIC_IP=172.26.231.100</pre></p>
+<p>You will need to provide the email and password when logging in to the Cloudbreak web UI and when using the Cloudbreak CLI. The secret will be used by Cloudbreak for authentication.</p>
+<p>You should set the CLOUDBREAK_SMTP_SENDER_USERNAME variable to the username you use to authenticate to your SMTP server. You should set the CLOUDBREAK_SMTP_SENDER_PASSWORD variable to the password you use to authenticate to your SMTP server.</p>
+</li>
+<li>
+<p>Generate configurations by executing:</p>
+<p><pre>rm *.yml
+cbd generate</pre>   </p>
+<p>The cbd start command includes the cbd generate command which applies the following steps:</p>
+<ul>
+<li>Creates the <code>docker-compose.yml</code> file, which describes the configuration of all the Docker containers required for the Cloudbreak deployment.  </li>
+<li>Creates the <code>uaa.yml</code> file, which holds the configuration of the identity server used to authenticate users with Cloudbreak.   </li>
+</ul>
+</li>
+<li>
+<p>Start the Cloudbreak application by using the following commands:</p>
+<p><pre>cbd pull
+cbd start</pre></p>
+<p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, the process will take longer than usual due to the download of all the necessary docker images.</p>
+</li>
+<li>
+<p>Next, check Cloudbreak application logs:</p>
+<p><pre>cbd logs cloudbreak</pre></p>
+<p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
+</li>
+</ol>
+<h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
+<p>Log in to the Cloudbreak UI using the following steps.</p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>
+<p>You can log into the Cloudbreak application at <code>https://IP_Address</code>. For example <code>https://34.212.141.253</code>. You can obtain the VM's IP address from your cloud provider console.</p>
+</li>
+<li>
+<p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
+<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Add Exception...</strong> &gt; Click <strong>Confirm Security Exception</strong></td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Click <strong>Continue</strong></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Proceed...</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The login page is displayed:</p>
+<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Log in to the Cloudbreak web UI using the credentials that you configured in your <code>Profile</code> file:</p>
+<ul>
+<li>The username is the <code>UAA_DEFAULT_USER_EMAIL</code>     </li>
+<li>The password is the <code>UAA_DEFAULT_USER_PW</code> </li>
+</ul>
+</li>
+<li>
+<p>Upon a successful login, you are redirected to the dashboard:</p>
+<p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+</ol>
+<h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
+<p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, we suggest that you <a href="../cb-db/index.html">configure an external database</a>.</p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Before you can start creating clusters, you must first create a <a href="../architecture/index.html#cloudbreak-credential">Cloudbreak credential</a>. Without this credential, you will not be able to create clusters via Cloudbreak. </p>
 <p>As part of the <a href="#authentication">prerequisites</a>, you had two options to allow Cloudbreak to authenticate with AWS and create resources on your behalf: key-based or role-based authentication. Depending on your choice, you must configure a key-based or role-based credential: </p>

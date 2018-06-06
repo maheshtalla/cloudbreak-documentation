@@ -289,7 +289,13 @@
                         
                             
 <li >
-    <a href="../vm-launch/index.html">Launch Cloudbreak (production)</a>
+    <a href="../clusters-access/index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../clusters-manage/index.html">Manage cluster</a>
 </li>
 
                         
@@ -644,6 +650,12 @@
             <li class="second-level"><a href="#ssh-key-pair">SSH key pair</a></li>
             
         
+            <li class="second-level"><a href="#virtual-network">Virtual network</a></li>
+            
+        
+            <li class="second-level"><a href="#security-group">Security group</a></li>
+            
+        
             <li class="second-level"><a href="#authentication">Authentication</a></li>
             
         
@@ -733,6 +745,10 @@
 <p>You need this SSH key pair to SSH to the Cloudbreak instance and start Cloudbreak.</p>
 <p><strong>Related links</strong><br />
 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair">Creating a key pair using Amazon EC2</a> (External)</p>
+<h3 id="virtual-network">Virtual network</h3>
+<p>You must have a virtual network configured on your cloud provider.</p>
+<h3 id="security-group">Security group</h3>
+<p>Ports 22 (SSH), 80 (HTTPS), and 443 (HTTPS) must be open on the security group</p>
 <h3 id="authentication">Authentication</h3>
 <p>Before you can start using Cloudbreak for provisioning clusters, you must select a way for Cloudbreak to authenticate with your AWS account and create resources on your behalf. There are two ways to do this:</p>
 <ul>
