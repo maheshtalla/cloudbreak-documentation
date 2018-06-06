@@ -44,6 +44,22 @@
     </url>
         
     <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-quick/index.html</loc>
+     <lastmod>2018-06-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-quick/index.html</loc>
+     <lastmod>2018-06-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-pre/index.html</loc>
      <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
@@ -70,12 +86,6 @@
     
 
     
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-quick/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-pre/index.html</loc>
@@ -110,12 +120,6 @@
     
 
     
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-quick/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-pre/index.html</loc>

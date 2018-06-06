@@ -8,7 +8,7 @@
     <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/gcp-quick/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Quickstart - Cloudbreak</title>
+    <title>Quickstart on GCP - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -124,15 +124,36 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quickstart <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../aws-quick/index.html">Quickstart</a>
+    <a href="../aws-quick/index.html">Quickstart on AWS</a>
 </li>
 
+                        
+                            
+<li >
+    <a href="../azure-quick/index.html">Quickstart on Azure</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="index.html">Quickstart on GCP</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
                         
                             
 <li >
@@ -169,12 +190,6 @@
                         
                             
 <li >
-    <a href="../azure-quick/index.html">Quickstart</a>
-</li>
-
-                        
-                            
-<li >
     <a href="../azure-pre/index.html">Prerequisites</a>
 </li>
 
@@ -208,15 +223,9 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li class="active">
-    <a href="index.html">Quickstart</a>
-</li>
-
                         
                             
 <li >
@@ -594,12 +603,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../azure-data-wasb/index.html">
+                        <a rel="next" href="../azure-quick/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../gcp-pre/index.html">
+                        <a rel="prev" href="../aws-pre/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -624,12 +633,24 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</a></li>
+        <li class="first-level active"><a href="#quickstart-on-gcp">Quickstart on GCP</a></li>
         
             <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
+                <li class="third-level"><a href="#cloud-sdk">Cloud SDK</a></li>
+            
+                <li class="third-level"><a href="#gcp-apis">GCP APIs</a></li>
+            
+                <li class="third-level"><a href="#service-account">Service account</a></li>
+            
         
             <li class="second-level"><a href="#launch-from-a-template">Launch from a template</a></li>
+            
+        
+            <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
+            
+        
+            <li class="second-level"><a href="#create-cluster">Create cluster</a></li>
             
         
     
@@ -637,34 +658,88 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</h2>
-<p>Follow these steps to launch Cloudbreak on Google Cloud by using the Cloud Deployer Manager. </p>
+<h2 id="quickstart-on-gcp">Quickstart on GCP</h2>
+<p>This quickstart documentation will help you get started with Cloudbreak. </p>
 <h3 id="prerequisites">Prerequisites</h3>
-<ol>
-<li>
+<p>Prior to launching Cloudbreak, you must meet these prerequisites.</p>
+<h4 id="cloud-sdk">Cloud SDK</h4>
 <p>In order to use the Cloud Deployment Manager, you must install the Google Cloud SDK on your machine. The SDK contains the gcloud CLI tool, which is used to deploy Cloudbreak. </p>
 <p>For instructions, refer to <a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> in the Google Cloud documentation. Make sure to perform all of the steps and validate that the <code>gcloud</code> command works on your computer. Only after validating, proceed to the next step.  </p>
+<h4 id="gcp-apis">GCP APIs</h4>
+<p>You must enable the <strong>Compute Engine API</strong> and the <strong>Cloud Runtime Configuration API</strong> services.</p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>
+<p>In GCP web console, from the services menu, select <strong>APIs &amp; Services</strong>: </p>
+<p><a href="../images/cb_gcp-api-01.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-api-01.png" width="650" title="Cloudbreak web UI"></a></p>
 </li>
 <li>
-<p>Enable the <strong>Compute Engine API</strong> and the <strong>Cloud Runtime Configuration API</strong> services. </p>
-<p>To enable these, from services menu, select <strong>APIs &amp; Services</strong>. Next, click on <strong>ENABLE APIS AND SERVICES</strong>, type each service name in the filter, and enable it.    </p>
+<p>Click on <strong>Enable APIs and services</strong>:</p>
+<p><a href="../images/cb_gcp-api-02.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-api-02.png" width="650" title="Cloudbreak web UI"></a></p>
 </li>
 <li>
-<p>Create a service account that has read and write permissions to:</p>
+<p>On this page:</p>
 <ul>
-<li>Compute Image    </li>
-<li>Compute Instance  </li>
-<li>Compute Network  </li>
-<li>Compute Security  </li>
-<li>Cloud RuntimeConfig. </li>
+<li>In the filter, type "Compute Engine API".  </li>
+<li>Click on the corresponding tile to navigate to the API details   </li>
 </ul>
-<p>The service account email needs to specified in the config.yaml (or in the gcloud command) as a property.     </p>
+<p><a href="../images/cb_gcp-api-03.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-api-03.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Click on the <strong>Enable</strong> button. Once the API has been enabled you should see:</p>
+<p><a href="../images/cb_gcp-api-04.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-api-04.png" width="650" title="Cloudbreak web UI"></a></p>
+</li>
+<li>
+<p>Perform the same for the "Cloud Runtime Configuration API". </p>
+</li>
+</ol>
+<h4 id="service-account">Service account</h4>
+<p>Create a service account that has the following roles:</p>
+<p>Computer Engine roles: </p>
+<ul>
+<li>Compute Image User     </li>
+<li>Compute Instance Admin </li>
+<li>Compute Network Admin  </li>
+<li>Compute Security Admin </li>
+</ul>
+<p>Other roles: </p>
+<ul>
+<li>Cloud RuntimeConfig Admin (You can find it under "Other")</li>
+</ul>
+<p>If you already have a service account and a JSON key but you need to update the permissions for the account, you can do it from <strong>IAM &amp; admin</strong> &gt; <strong>IAM</strong>. If you need to create a service account, follow these steps. </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>To create a service account In GCP web console, from the services menu, select <strong>IAM &amp; admin</strong> &gt; <strong>Service account</strong>:</p>
+<p><a href="../images/cb_gcp-service-01.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-service-01.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Click on <strong>Create service account</strong>:</p>
+<p><a href="../images/cb_gcp-service-02.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-service-02.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Provide the following:</p>
+<ul>
+<li>Enter the <strong>Service account name</strong>.   <blockquote>
+<p>This will determine your service account email. Make a note of this service account email. You will need to provide it when creating a Cloudbreak credential.       </p>
+</blockquote>
+</li>
+<li>Under <strong>Role</strong>, select the roles described above.  </li>
+<li>Under <strong>Key type</strong>, select <strong>JSON</strong>.    </li>
+</ul>
+<p><a href="../images/cb_gcp-service-03.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-service-03.png" width="500" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Click <strong>Create</strong>.   </p>
+</li>
+<li>
+<p>The JSON key will be downloaded on your machine. You will need it later to create a CLoudbreak credential.  </p>
 </li>
 </ol>
 <h3 id="launch-from-a-template">Launch from a template</h3>
 <ol>
 <li>
-<p>Log in to GitHub (https://github.com/).  </p>
+<p>Log in to GitHub at <a href="https://github.com/">https://github.com/</a>.  </p>
 </li>
 <li>
 <p>Download the "cbd-quickstart" Hortonworks repo located at <code>https://github.com/hortonworks/cbd-quickstart/tree/rc-2.7</code> onto your computer. </p>
@@ -800,9 +875,104 @@ deploymentIp  35.224.36.96</pre></p>
 </li>
 </ol>
 <p><strong>Related Links</strong><br />
-<a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> (External)<br />
-<a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones">Regions and Zones</a> (External)  <br />
-<a href="https://cloud.google.com/compute/docs/machine-types">Machine Types</a> (External)    </p></div>
+<a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> (External)  </p>
+<h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
+<p>Cloudbreak works by connecting your GCP account through this credential, and then uses it to create resources on your behalf. Before you can start provisioning cluster using Cloudbreak, you must create a Cloudbreak credential.  </p>
+<p><strong>Prerequisites</strong></p>
+<p>In order to launch clusters on GCP via Cloudbreak, you must have a service account that Cloudbreak can use to create resources.  </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the navigation pane. </p>
+</li>
+<li>
+<p>Click <strong>Create Credential</strong>. </p>
+</li>
+<li>
+<p>Under <strong>Cloud provider</strong>, select "Google Cloud Platform":</p>
+<p><a href="../images/cb_cb-gcp-cred.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-gcp-cred.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Provide the following information:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Key type</td>
+<td>Select JSON or P12. Since activating service accounts with P12 private keys has been deprecated in the Cloud SDK, we recommend using JSON.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Enter a name for your credential.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>(Optional) Enter a description.</td>
+</tr>
+<tr>
+<td>Project Id</td>
+<td>(Only required for P12 key type) Enter the project ID. You can obtain it from your GCP account by clicking on the name of your project at the top of the page and copying the <strong>ID</strong>.</td>
+</tr>
+<tr>
+<td>Service Account Email Address</td>
+<td>(Only required for P12 key type) "Service account ID" value for your service account created in prerequisites. You can find it on GCP at <strong>IAM &amp; Admin</strong> &gt; <strong>Service accounts</strong>.</td>
+</tr>
+<tr>
+<td>Service Account Private Key</td>
+<td>Upload the key that you created in the prerequisites when creating a service account.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+</li>
+<li>
+<p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
+<p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to <a href="../gcp-create/index.html">create clusters</a>. </p>
+</li>
+</ol>
+<h3 id="create-cluster">Create cluster</h3>
+<p>Use these steps to create a cluster.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Click the <strong>Create Cluster</strong> button and the <em>Create Cluster</em> wizard is displayed.<br />
+    By default, <strong>Basic</strong> view is displayed.</p>
+<p><a href="../images/cb_quick-create01.png" target="_blank" title="click to enlarge"><img src="../images/cb_quick-create01.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>On the <strong>General Configuration</strong> page:</p>
+<ul>
+<li><strong>Cluster Name</strong>: Enter a name for your cluster. The name must be between 5 and 40 characters, must start with a letter, and must only include lowercase letters, numbers, and hyphens.</li>
+<li><strong>Region</strong>: Select the region in which you would like to launch your cluster. </li>
+<li><strong>Cluster Type</strong>: Choose one of default cluster configurations.  </li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Next</strong> 3 times to navigate to the <strong>Security Page</strong>. You do not need to enter anything on the <strong>Hardware and Storage</strong> and <strong>Network</strong> because by default Cloudbreak suggests the instance types, storage, and network to use (a new network and subnet is created by default).   </p>
+</li>
+<li>
+<p>One the <strong>Security</strong> page, provide the following:</p>
+<ul>
+<li><strong>Cluster User</strong>: This will be the user that you should use to log in to Ambari and other cluster UIs. By default, this is <code>admin</code>.   </li>
+<li><strong>Cluster Password</strong>: Password for the cluster user.  </li>
+<li><strong>SSH public key</strong>: Select the existing public SSH key or paste your key. The key will be placed on the cluster VMs so that you can use the matching private key to access the VMs via SSH. </li>
+</ul>
+<p><a href="../images/cb_quick-create02.png" target="_blank" title="click to enlarge"><img src="../images/cb_quick-create02.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Click on <strong>Create Cluster</strong> to create a cluster.</p>
+</li>
+<li>
+<p>You will be redirected to the Cloudbreak dashboard, and a new tile representing your cluster will appear at the top of the page.</p>
+</li>
+</ol></div>
         
     </div>
 

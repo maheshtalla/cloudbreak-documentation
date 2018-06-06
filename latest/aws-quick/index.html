@@ -8,7 +8,7 @@
     <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/aws-quick/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Quickstart - Cloudbreak</title>
+    <title>Quickstart on AWS - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -125,14 +125,35 @@
                 
                 
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quickstart <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li class="active">
-    <a href="index.html">Quickstart</a>
+    <a href="index.html">Quickstart on AWS</a>
 </li>
 
+                        
+                            
+<li >
+    <a href="../azure-quick/index.html">Quickstart on Azure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-quick/index.html">Quickstart on GCP</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
                         
                             
 <li >
@@ -166,12 +187,6 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../azure-quick/index.html">Quickstart</a>
-</li>
-
                         
                             
 <li >
@@ -211,12 +226,6 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../gcp-quick/index.html">Quickstart</a>
-</li>
-
                         
                             
 <li >
@@ -599,7 +608,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../aws-pre/index.html">
+                        <a rel="prev" href="../azure-quick/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -624,21 +633,21 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#quickstart-launch-cloudbreak-on-aws-from-a-template">(Quickstart) Launch Cloudbreak on AWS from a template</a></li>
+        <li class="first-level active"><a href="#quickstart-on-aws">Quickstart on AWS</a></li>
         
             <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
         
-            <li class="second-level"><a href="#launch-from-cf-template">Launch from CF template</a></li>
+            <li class="second-level"><a href="#launch-cloudbreak-from-cf-template">Launch Cloudbreak from CF template</a></li>
             
         
             <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
             
         
-            <li class="second-level"><a href="#create-a-cloudbreak-credential">Create a Cloudbreak credential</a></li>
+            <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
             
         
-            <li class="second-level"><a href="#create-a-cluster">Create a cluster</a></li>
+            <li class="second-level"><a href="#create-cluster">Create cluster</a></li>
             
         
     
@@ -646,9 +655,9 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="quickstart-launch-cloudbreak-on-aws-from-a-template">(Quickstart) Launch Cloudbreak on AWS from a template</h2>
+<h2 id="quickstart-on-aws">Quickstart on AWS</h2>
 <p>This quickstart documentation will help you get started with Cloudbreak. </p>
-<h4 id="prerequisites">Prerequisites</h4>
+<h3 id="prerequisites">Prerequisites</h3>
 <p>In order to launch Cloudbreak from the CloudFormation template you must:</p>
 <ul>
 <li>
@@ -661,8 +670,8 @@
 <p>Your AWS account must have the minimal permissions described in <a href="../aws-pre/index.html#credential-role">CloudbreakRole</a> as well as the permission to create an IAM role.  </p>
 </li>
 </ul>
-<h4 id="launch-from-cf-template">Launch from CF template</h4>
-<p>Follow these steps to launch Cloudbreak from an Amazon CloudFormation template.</p>
+<h3 id="launch-cloudbreak-from-cf-template">Launch Cloudbreak from CF template</h3>
+<p>Follow these steps to launch Cloudbreak from an Amazon CloudFormation template. </p>
 <p><strong>Steps</strong> </p>
 <ol>
 <li>
@@ -834,7 +843,7 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 </div></p>
 </li>
 </ol>
-<h4 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h4>
+<h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Follow these steps to obtain Cloudbreak VM's public IP address and log in to the Cloudbreak web UI. </p>
 <p><strong>Steps</strong>     </p>
 <ol>
@@ -886,9 +895,10 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 <p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 </ol>
-<h4 id="create-a-cloudbreak-credential">Create a Cloudbreak credential</h4>
+<h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Before you can start using Cloudbreak to create clusters, you must create a Cloudbreak credential. Cloudbreak credential allows Cloudbreak to authenticate with your AWS account and provision resources on your behalf.</p>
 <p>There are two ways for Cloudbreak to authenticate with AWS: key-based and role-based. Since the key-based approach is faster, the steps below describe how to configure a key-based Cloudbreak credential.  </p>
+<p>If you would like to review both options, refer to <a href="../aws-pre#authentication">Authentication</a>. </p>
 <p><strong>Prerequisites</strong></p>
 <p>To perform these steps, you must know your access and secret key. If needed, you or your AWS administrator can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong> &gt; select a user &gt; <strong>Security credentials</strong>:</p>
 <p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a>  </p>
@@ -945,7 +955,7 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 <p>Congratulations! You've successfully launched Cloudbreak and create a Cloudbreak credential. Now it's time to <a href="../aws-create/index.html">create a cluster</a>.</p>
 </li>
 </ol>
-<h4 id="create-a-cluster">Create a cluster</h4>
+<h3 id="create-cluster">Create cluster</h3>
 <p>Use these steps to create a cluster.</p>
 <p><strong>Steps</strong></p>
 <ol>

@@ -8,7 +8,7 @@
     <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/azure-quick/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Quickstart - Cloudbreak</title>
+    <title>Quickstart on Azure - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -124,15 +124,36 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quickstart <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../aws-quick/index.html">Quickstart</a>
+    <a href="../aws-quick/index.html">Quickstart on AWS</a>
 </li>
 
+                        
+                            
+<li class="active">
+    <a href="index.html">Quickstart on Azure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-quick/index.html">Quickstart on GCP</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
                         
                             
 <li >
@@ -163,15 +184,9 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li class="active">
-    <a href="index.html">Quickstart</a>
-</li>
-
                         
                             
 <li >
@@ -211,12 +226,6 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../gcp-quick/index.html">Quickstart</a>
-</li>
-
                         
                             
 <li >
@@ -594,12 +603,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../aws-data/index.html">
+                        <a rel="next" href="../aws-quick/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../azure-pre/index.html">
+                        <a rel="prev" href="../gcp-quick/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -624,15 +633,21 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#quickstart-launch-cloudbreak-on-azure-from-a-template">(Quickstart) Launch Cloudbreak on Azure from a template</a></li>
+        <li class="first-level active"><a href="#quickstart-on-azure">Quickstart on Azure</a></li>
         
             <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
         
-            <li class="second-level"><a href="#launch-from-arm-template">Launch from ARM template</a></li>
+            <li class="second-level"><a href="#launch-cloudbreak-on-azure-from-arm-template">Launch Cloudbreak on Azure from ARM template</a></li>
             
         
             <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
+            
+        
+            <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
+            
+        
+            <li class="second-level"><a href="#create-cluster">Create cluster</a></li>
             
         
     
@@ -640,9 +655,26 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="quickstart-launch-cloudbreak-on-azure-from-a-template">(Quickstart) Launch Cloudbreak on Azure from a template</h2>
-<h4 id="prerequisites">Prerequisites</h4>
-<h4 id="launch-from-arm-template">Launch from ARM template</h4>
+<h2 id="quickstart-on-azure">Quickstart on Azure</h2>
+<p>This quickstart documentation will help you get started with Cloudbreak. </p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>In order to launch Cloudbreak from the ARM template you must:</p>
+<ul>
+<li>
+<p>Have an existing an Azure account. If you don't have an account, you can create one at <a href="https://azure.microsoft.com">https://azure.microsoft.com</a>.</p>
+</li>
+<li>
+<p>Have an SSH key that you can provide when launching Cloudbreak. If needed, you can generate a new SSH key pair:</p>
+<ul>
+<li>On MacOS X and Linux using <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code>  </li>
+<li>On Windows using <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows">PuTTygen</a></li>
+</ul>
+</li>
+<li>
+<p>In order to use Cloudbreak for creating clusters, you Azure account must have the minimal permissions described in <a href="../azure-pre#azure-roles">Azure roles</a>.      </p>
+</li>
+</ul>
+<h3 id="launch-cloudbreak-on-azure-from-arm-template">Launch Cloudbreak on Azure from ARM template</h3>
 <p>Launch Cloudbreak deployer by using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -651,7 +683,7 @@
 </li>
 <li>
 <p>Click here to get started with Cloudbreak installation using the Azure Resource Manager template:</p>
-<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhortonworks%2Fazure-cbd-quickstart%2F2.7.0-dev.170%2FmainTemplate.json" target="_blank"> <img alt="deploy on azure" src="http://azuredeploy.net/deploybutton.png" /></a></p>
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhortonworks%2Fazure-cbd-quickstart%2F2.7.0-rc.5%2FmainTemplate.json" target="_blank"> <img alt="deploy on azure" src="http://azuredeploy.net/deploybutton.png" /></a></p>
 </li>
 <li>
 <p>The template for installing Cloudbreak will appear. On the <strong>Basics</strong> page, provide the following basic parameters:   </p>
@@ -758,7 +790,7 @@
 </div></p>
 </li>
 </ol>
-<h4 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h4>
+<h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Follow these steps to obtain Cloudbreak VM's public IP address and log in to the Cloudbreak web UI. </p>
 <p><strong>Steps</strong>       </p>
 <ol>
@@ -820,7 +852,125 @@
 <p>The last task that you need to perform before you can use Cloudbreak is to <a href="#create-cloudbreak-credential">create a cloudbreak credential</a>.     </p>
 <p><strong>Related links</strong><br />
 <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> (External) <br />
-<a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter network traffic with network security groups</a> (External)  </p></div>
+<a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter network traffic with network security groups</a> (External)  </p>
+<h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
+<p>Before you can start using Cloudbreak to create clusters, you must create a Cloudbreak credential. Cloudbreak credential allows Cloudbreak to authenticate with your Azure account and provision resources on your behalf.</p>
+<p>There are two ways for Cloudbreak to authenticate with Azure: interactive and app-based. Since the interactive approach is simpler, the steps below describe how to configure an interactive Cloudbreak credential. If you would like to review both options, refer to <a href="../azure-launch#create-cloudbreak-credential">Create Cloudbreak credential</a>. </p>
+<p>Follow these steps to create an interactive Cloudbreak credential.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the navigation pane.</p>
+</li>
+<li>
+<p>Click <strong>Create Credential</strong>.</p>
+</li>
+<li>
+<p>Under <strong>Cloud provider</strong>, select "Microsoft Azure".</p>
+</li>
+<li>
+<p>Select <strong>Interactive Login</strong>:</p>
+<p><a href="../images/cb_cb-azure-cred-inter.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-azure-cred-inter.png" width="650" title="Cloudbreak web UI"></a>     </p>
+</li>
+<li>
+<p>Provide the following information:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Enter a name for your credential.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>(Optional) Enter a description.</td>
+</tr>
+<tr>
+<td>Subscription Id</td>
+<td>Copy and paste the Subscription ID from your <strong>Subscriptions</strong>.</td>
+</tr>
+<tr>
+<td>Tenant Id</td>
+<td>Copy and paste your Directory ID from your <strong>Active Directory</strong> &gt; <strong>Properties</strong>.</td>
+</tr>
+<tr>
+<td>Azure role type</td>
+<td><p>You have the following options:<ul><li>"Use existing Contributor role" (default): If you select this option, Cloudbreak will use the "<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Contributor</a>" role to create resources. This requires no further input.</li><li>"Reuse existing custom role": If you select this option and enter the name of an existing role, Cloudbreak will use this role to create resources.</li><li>"Let Cloudbreak create a custom role": If you select this option and enter a name for the new role, the role will be created. When choosing role name, make sure that there is no existing role with the name chosen. For information on creating custom roles, refer to <a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles">Azure</a> documentation. </li></ul></p><p>If using a custom role, make sure that it includes the necessary Action set for Cloudbreak to be able to manage clusters: <code>Microsoft.Compute/*</code>, <code>Microsoft.Network/*</code>, <code>Microsoft.Storage/*</code>, <code>Microsoft.Resources/*</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>To obtain the <strong>Subscription Id</strong>:</p>
+<p><a href="../images/cb_azure-cred-subscription.png" target="_blank" title="click to enlarge"><img src="../images/cb_azure-cred-subscription.png" width="650" title="Cloudbreak web UI"></a>   </p>
+<p>To obtain the <strong>Tenant ID</strong> (actually <strong>Directory Id</strong>):</p>
+<p><a href="../images/cb_azure-cred-directoryid.png" target="_blank" title="click to enlarge"><img src="../images/cb_azure-cred-directoryid.png" width="650" title="Cloudbreak web UI"></a>    </p>
+</li>
+<li>
+<p>After providing the parameters, click <strong>Interactive Login</strong>.</p>
+</li>
+<li>
+<p>Copy the code provided in the UI:</p>
+<p><a href="../images/cb_cb-azure-cred-inter2.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-azure-cred-inter2.png" width="650" title="Cloudbreak web UI"></a>     </p>
+</li>
+<li>
+<p>Click <strong>Azure login</strong> and a new <strong>Device login</strong> page will open in a new browser tab:</p>
+<p><a href="../images/cb_azure-device-login.png" target="_blank" title="click to enlarge"><img src="../images/cb_azure-device-login.png" width="650" title="Azure Portal"></a>  </p>
+</li>
+<li>
+<p>Next, paste the code in field on the  <strong>Device login</strong> page and click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>Confirm your account by selecting it:</p>
+<p><a href="../images/cb_azure-device-login2.png" target="_blank" title="click to enlarge"><img src="../images/cb_azure-device-login2.png" width="650" title="Azure Portal"></a></p>
+</li>
+<li>
+<p>A confirmation page will appear, confirming that you have signed in to the Microsoft Azure Cross-platform Command Line Interface application on your device. You may now close this window.</p>
+<blockquote>
+<p>If you encounter errors, refer to <a href="../trouble-azure/index.html">Troubleshooting Azure</a>.</p>
+</blockquote>
+<p>Congratulations! You've successfully launched and configured Cloudbreak. Now you can use Cloudbreak to <a href="../azure-create/index.html">create clusters</a>.</p>
+</li>
+</ol>
+<h3 id="create-cluster">Create cluster</h3>
+<p>Use these steps to create a cluster.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Click the <strong>Create Cluster</strong> button and the <em>Create Cluster</em> wizard is displayed.<br />
+    By default, <strong>Basic</strong> view is displayed.</p>
+<p><a href="../images/cb_quick-create01.png" target="_blank" title="click to enlarge"><img src="../images/cb_quick-create01.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>On the <strong>General Configuration</strong> page:</p>
+<ul>
+<li><strong>Cluster Name</strong>: Enter a name for your cluster. The name must be between 5 and 40 characters, must start with a letter, and must only include lowercase letters, numbers, and hyphens.</li>
+<li><strong>Region</strong>: Select the region in which you would like to launch your cluster. </li>
+<li><strong>Cluster Type</strong>: Choose one of default cluster configurations.  </li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Next</strong> 3 times to navigate to the <strong>Security Page</strong>. You do not need to enter anything on the <strong>Hardware and Storage</strong> and <strong>Network</strong> because by default Cloudbreak suggests the instance types, storage, and network to use (a new network and subnet is created by default).   </p>
+</li>
+<li>
+<p>One the <strong>Security</strong> page, provide the following:</p>
+<ul>
+<li><strong>Cluster User</strong>: This will be the user that you should use to log in to Ambari and other cluster UIs. By default, this is <code>admin</code>.   </li>
+<li><strong>Cluster Password</strong>: Password for the cluster user.  </li>
+<li><strong>SSH public key</strong>: Select the existing public SSH key or paste your key. The key will be placed on the cluster VMs so that you can use the matching private key to access the VMs via SSH. </li>
+</ul>
+<p><a href="../images/cb_quick-create02.png" target="_blank" title="click to enlarge"><img src="../images/cb_quick-create02.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Click on <strong>Create Cluster</strong> to create a cluster.</p>
+</li>
+<li>
+<p>You will be redirected to the Cloudbreak dashboard, and a new tile representing your cluster will appear at the top of the page.</p>
+</li>
+</ol></div>
         
     </div>
 
