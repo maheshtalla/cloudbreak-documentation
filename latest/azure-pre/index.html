@@ -130,6 +130,12 @@
                         
                             
 <li >
+    <a href="../aws-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../aws-pre/index.html">Prerequisites</a>
 </li>
 
@@ -143,18 +149,6 @@
                             
 <li >
     <a href="../aws-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../aws-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../aws-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -174,6 +168,12 @@
                         <ul class="dropdown-menu">
                         
                             
+<li >
+    <a href="../azure-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
 <li class="active">
     <a href="index.html">Prerequisites</a>
 </li>
@@ -188,18 +188,6 @@
                             
 <li >
     <a href="../azure-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../azure-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../azure-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -226,6 +214,12 @@
                         
                             
 <li >
+    <a href="../gcp-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../gcp-pre/index.html">Prerequisites</a>
 </li>
 
@@ -239,18 +233,6 @@
                             
 <li >
     <a href="../gcp-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../gcp-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../gcp-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -284,18 +266,6 @@
                             
 <li >
     <a href="../os-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../os-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../os-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -624,7 +594,7 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../aws-data/index.html">
+                        <a rel="next" href="../azure-quick/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -664,6 +634,8 @@
         
             <li class="second-level"><a href="#ssh-key-pair">SSH key pair</a></li>
             
+                <li class="third-level"><a href="#azure-roles">Azure roles</a></li>
+            
         
     
     </ul>
@@ -685,6 +657,20 @@
 <li>On MacOS X and Linux using <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code>  </li>
 <li>On Windows using <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows">PuTTygen</a></li>
 </ul>
+<h4 id="azure-roles">Azure roles</h4>
+<p>In order to provision clusters on Azure, Cloudbreak must be able to assume a sufficient Azure role ("Owner" or "Contributor") via Cloudbreak credential:</p>
+<ul>
+<li>
+<p>Your account must have the "<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Owner</a>" role (or a role with equivalent permissions) in the subscription in order to <a href="#create-cloudbreak-credential">create a Cloudbreak credential</a> using the interactive credential method.</p>
+</li>
+<li>
+<p>Your account must have the "<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Contributor</a>" role (or a role with equivalent permissions) in the subscription in order to <a href="#create-cloudbreak-credential">create a Cloudbreak credential</a> using the app-based credential method. The role must be assigned to the app that you register in Cloudbreak.</p>
+</li>
+</ul>
+<p>To check the roles in your subscription, log in to your Azure account and navigate to <strong>Subscriptions</strong>.</p>
+<p><strong>Related links</strong><br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Built-in roles: Owner</a> (External)<br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Built-in roles: Contributor</a> (External)</p>
 <div class="next">
 <a href="../azure-launch/index.html">Next: Launch Cloudbreak</a>
 </div></div>

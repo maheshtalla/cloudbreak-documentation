@@ -130,6 +130,12 @@
                         
                             
 <li >
+    <a href="../aws-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../aws-pre/index.html">Prerequisites</a>
 </li>
 
@@ -143,18 +149,6 @@
                             
 <li >
     <a href="../aws-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../aws-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../aws-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -175,6 +169,12 @@
                         
                             
 <li >
+    <a href="../azure-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../azure-pre/index.html">Prerequisites</a>
 </li>
 
@@ -188,18 +188,6 @@
                             
 <li >
     <a href="../azure-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../azure-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../azure-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -226,6 +214,12 @@
                         
                             
 <li >
+    <a href="../gcp-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../gcp-pre/index.html">Prerequisites</a>
 </li>
 
@@ -239,18 +233,6 @@
                             
 <li >
     <a href="../gcp-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../gcp-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../gcp-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -284,18 +266,6 @@
                             
 <li >
     <a href="../os-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../os-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../os-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -665,10 +635,10 @@
             <li class="second-level"><a href="#quickstart-option-for-gcp">Quickstart option for GCP</a></li>
             
         
-            <li class="second-level"><a href="#deployment-on-openstack">Deployment on OpenStack</a></li>
+            <li class="second-level"><a href="#production-deployment-option">Production deployment option</a></li>
             
         
-            <li class="second-level"><a href="#production-deployment-option">Production deployment option</a></li>
+            <li class="second-level"><a href="#deployment-on-openstack">Deployment on OpenStack</a></li>
             
         
     
@@ -695,13 +665,13 @@
 <p>Provisions a new VPC and subnet, and launches the Cloudbreak VM within it. <a href="https://aws.amazon.com/documentation/vpc/">Amazon VPC</a> is used to provision your own dedicated virtual network and launch resources into that network. As part of VPC infrastructure, an internet gateway and a route table are provisioned: An internet gateway is used to enable outbound access to the internet from the control plane and the clusters, and a route table is used to connect the subnet to the internet gateway. For more information on Amazon VPC architecture, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/GettingStartedGuide/ExerciseOverview.html">Amazon VPC documentation</a>.    </p>
 </li>
 <li>
-<p>Allows you to attach an existing IAM role (for role-based authentication). <a href="https://aws.amazon.com/documentation/iam/">AWS Identity &amp; Access Management</a> is used to control access to AWS services and resources. Cloudbreak does not create any IAM roles but allows you to use exiting IAM roles.  </p>
+<p>Provisions the CloudbreakRole IAM role (for role-based authentication). <a href="https://aws.amazon.com/documentation/iam/">AWS Identity &amp; Access Management</a> is used to control access to AWS services and resources.   </p>
 </li>
 <li>
 <p><a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>, a utility service for running code in AWS, is used when deploying Cloudbreak.  </p>
 </li>
 </ul>
-<p>To launch Cloudbreak on AWS by using the quickstart option, refer to <a href="../aws-launch/index.html">Launch Cloubreak from template (AWS)</a>.   </p>
+<p>To launch Cloudbreak on AWS by using the quickstart option, refer to <a href="../aws-quick/index.html">Launch Cloubreak from template (AWS)</a>.   </p>
 <h3 id="quickstart-option-for-azure">Quickstart option for Azure</h3>
 <p>The quickstart option allows you to instantiate Cloudbreak by using Azure Resource Manager (ARM) template. </p>
 <p>On Azure, resources are organized by using resource groups. When you launch Cloudbreak, you may either select to use an existing resource group or a new resource group is created. The following Azure resources are provisioned within the selected resource group:</p>
@@ -713,12 +683,10 @@
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface">Network interface</a> (NIC) attached to the VM provides the interconnection between the VM and the underlying software network.  </li>
 <li><a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction">Blob storage container</a> is created to store Cloudbreak Deployer OS disk's data.  </li>
 </ul>
-<p>To launch Cloudbreak on Azure by using the quickstart option, refer to <a href="../azure-launch/index.html">Launch Cloubreak from template (Azure)</a>.</p>
+<p>To launch Cloudbreak on Azure by using the quickstart option, refer to <a href="../azure-quick/index.html">Launch Cloubreak from template (Azure)</a>.</p>
 <h3 id="quickstart-option-for-gcp">Quickstart option for GCP</h3>
 <p>Based on the Cloud Deployment Manager template, GCP automatically provisions a new VM that runs CentOS 7, installs Docker, and launches Cloudbreak. </p>
-<p>To launch Cloudbreak on GCP by using the quickstart option, refer to <a href="../gcp-launch/index.html">Launch Cloubreak from template (GCP)</a>.</p>
-<h3 id="deployment-on-openstack">Deployment on OpenStack</h3>
-<p>You must launch Cloudbreak on OpenStack manually by installing Cloudbreak deployer on your own VM (the production option). There is no available quickstart option. Refer to <a href="../os-launch/index.html">Launch on OpenStack</a>. </p>
+<p>To launch Cloudbreak on GCP by using the quickstart option, refer to <a href="../gcp-quick/index.html">Launch Cloubreak from template (GCP)</a>.</p>
 <h3 id="production-deployment-option">Production deployment option</h3>
 <p>The option to install Cloudbreak deployer manually on your own VM is available for all cloud providers. </p>
 <p>This option:</p>
@@ -728,7 +696,8 @@
 <li>Requires you to install Docker  </li>
 <li>Requires you to download the cbd tarball, extract it, and configure Cloudbreak deployer  </li>
 </ul>
-<p>To get started, refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>.</p></div>
+<h3 id="deployment-on-openstack">Deployment on OpenStack</h3>
+<p>You must launch Cloudbreak on OpenStack manually by installing Cloudbreak deployer on your own VM (the production option). There is no available quickstart option.</p></div>
         
     </div>
 

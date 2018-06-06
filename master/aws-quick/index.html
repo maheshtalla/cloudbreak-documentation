@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/aws-quick/index.html"> 
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <title>Quickstart - Cloudbreak</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+
+
+    <link href="../css/extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-22950817-24', 'auto');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../index.html">Cloudbreak</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Intro <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../index.html">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../concepts/index.html">Core concepts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../deployment-options/index.html">Deployment options</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../security/index.html">Security overview</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-launch/index.html">Launch on AWS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-data/index.html">Configure access to S3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../azure-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-launch/index.html">Launch on Azure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-data-adls/index.html">Configure access to ADLS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-data-wasb/index.html">Configure access to WASB</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gcp-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-launch/index.html">Launch on GCP</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-data/index.html">Configure access to GCS</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenStack <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../os-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-launch/index.html">Launch on OpenStack</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../vm-launch/index.html">Launch Cloudbreak (production)</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Advanced cluster options</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../blueprints/index.html">Use custom blueprints</a>
+</li>
+
+        
+            
+<li >
+    <a href="../recipes/index.html">Use custom scripts (recipes)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mpacks/index.html">Use management packs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../images/index.html">Use custom images</a>
+</li>
+
+        
+            
+<li >
+    <a href="../tags/index.html">Tag resources</a>
+</li>
+
+        
+            
+<li >
+    <a href="../properties/index.html">Set custom properties</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-kerberos/index.html">Enable Kerberos security</a>
+</li>
+
+        
+            
+<li >
+    <a href="../autoscaling/index.html">Configure autoscaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-db/index.html">Register external database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-ldap/index.html">Register external authentication source</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-proxy/index.html">Register proxy configuration</a>
+</li>
+
+        
+            
+<li >
+    <a href="../hostnames/index.html">Use custom hostnames based on DNS</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Advanced Cloudbreak options</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../cb-credentials/index.html">Manage Cloudbreak credentials</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-migrate/index.html">Move Cloudbreak instance</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-ldap/index.html">Configure LDAP/AD authentication for Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-proxy/index.html">Configure outbound internet access and proxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-inbound/index.html">Restrict inbound access to clusters</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-customdom/index.html">Configure access from custom domains</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Configure external Cloudbreak database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-disable-provider/index.html">Disable providers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-ports/index.html">Change default Cloudbreak ports</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-profile/index.html">Modify settings in Cloudbreak Profile</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cloudbreak CLI</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../cli-install/index.html">Install the CLI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cli-get-started/index.html">Get started with the CLI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cli-reference/index.html">CLI Reference</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Troubleshooting</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../trouble-cb-logs/index.html">Cloudbreak logs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-cb/index.html">Troubleshooting Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-cluster/index.html">Troubleshooting cluster creation</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-aws/index.html">Troubleshooting AWS</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-azure/index.html">Troubleshooting Azure</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-gcp/index.html">Troubleshooting GCP</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-cli/index.html">Troubleshooting Cloudbreak CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cb-delete/index.html">Delete Cloudbreak</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../dev/index.html">Developer documentation links</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense telemetry</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Legal</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../acknowledge/index.html">Acknowledgements</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li >
+                        <a rel="next" href="../security/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../aws-pre/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/hortonworks/cloudbreak-documentation">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#quickstart-launch-cloudbreak-on-aws-from-a-template">(Quickstart) Launch Cloudbreak on AWS from a template</a></li>
+        
+            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
+            
+        
+            <li class="second-level"><a href="#launch-from-cf-template">Launch from CF template</a></li>
+            
+        
+            <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
+            
+        
+            <li class="second-level"><a href="#create-a-cloudbreak-credential">Create a Cloudbreak credential</a></li>
+            
+        
+            <li class="second-level"><a href="#create-a-cluster">Create a cluster</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="quickstart-launch-cloudbreak-on-aws-from-a-template">(Quickstart) Launch Cloudbreak on AWS from a template</h2>
+<p>This quickstart documentation will help you get started with Cloudbreak. </p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>In order to launch Cloudbreak from the CloudFormation template you must:</p>
+<ul>
+<li>
+<p>Have an existing an AWS account. If you don't have an account, you can create one at <a href="https://aws.amazon.com/">https://aws.amazon.com/</a>.</p>
+</li>
+<li>
+<p>Import an existing key pair or generate a new key pair in the AWS region which you are planning to use for launching Cloudbreak and clusters. If you don't have a key pair, use <a href="../aws-pre/index.html#ssh-key-pair">these</a> steps to create or import a key pair. </p>
+</li>
+<li>
+<p>Your AWS account must have the minimal permissions described in <a href="../aws-pre/index.html#credential-role">CloudbreakRole</a> as well as the permission to create an IAM role.  </p>
+</li>
+</ul>
+<h4 id="launch-from-cf-template">Launch from CF template</h4>
+<p>Follow these steps to launch Cloudbreak from an Amazon CloudFormation template.</p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>
+<p>Click on the link to launch the CloudFormation template that will create the AWS resources, including an EC2 Instance running Cloudbreak:</p>
+<p><table>
+ <tr>
+   <th>Region</th>
+   <th>Link</th>
+ </tr>
+ <tr>
+   <td>us-east-1 (N. Virginia)</td>
+   <td><span class="button-instruction">
+   <a href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-rc.5.template" target="_blank">
+   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in US East</a></span></td>
+ </tr>
+  <tr>
+   <td>us-west-1 (N. California)</td>
+   <td><span class="button-instruction">
+   <a href="https://us-west-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-rc.5.template" target="_blank">
+   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in US West (N. California)</a></span></td>
+ </tr>
+ <tr>
+   <td>us-west-2 (Oregon)</td>
+   <td><span class="button-instruction">
+   <a href="https://us-west-2.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-rc.5.template" target="_blank">
+   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in US West (Oregon)</a></span></td>
+ </tr>
+ <tr>
+   <td>eu-central-1 (Frankfurt)</td>
+   <td><span class="button-instruction">
+   <a href="https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-rc.5.template" target="_blank">
+   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in EU Central</a></span></td>
+ </tr>
+ <tr>
+   <td>eu-west-1 (Dublin)</td>
+   <td><span class="button-instruction">
+   <a href="https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-rc.5.template" target="_blank">
+   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in EU West </a></span></td>
+ </tr>
+ <tr>
+   <td>sa-east-1 (São Paulo)</td>
+   <td><span class="button-instruction">
+   <a href="https://sa-east-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-rc.5.template" target="_blank">
+   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in South America</a></span></td>
+ </tr>
+ <tr>
+   <td>ap-northeast-1 Asia Pacific (Tokyo)</td>
+   <td><span class="button-instruction">
+   <a href="https://ap-northeast-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-rc.5.template" target="_blank">
+   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in Asia Pacific (Tokyo)</a></span></td>
+ </tr>
+ <tr>
+   <td>ap-southeast-1 (Singapore)</td>
+   <td><span class="button-instruction">
+   <a href="https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-rc.5.template" target="_blank">
+   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in Asia Pacific (Singapore)</a></span></td>
+ </tr>
+ <tr>
+   <td>ap-southeast-2 (Sydney)</td>
+   <td><span class="button-instruction">
+   <a href="https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-rc.5.template" target="_blank">
+   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in Asia Pacific (Sydney)</a></span></td>
+ </tr>
+</table>  </p>
+</li>
+<li>
+<p>The <strong>Create stack</strong> wizard is launched in the Amazon CloudFormation management console:  </p>
+</li>
+<li>
+<p>You do not need to change any template parameters on the <strong>Select Template</strong> page, but check the region name in the top right corner to confirm the region in which you want to launch Cloudbreak:  </p>
+<p><a href="../images/cb_aws-01.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-01.png" width="650" title="IAM Console"></a>  </p>
+<blockquote>
+<p>If needed, you may change the region if needed by using the dropdown in the top right corner.</p>
+</blockquote>
+</li>
+<li>
+<p>Click <strong>Next</strong> to display the <strong>Specify Details</strong> page.</p>
+</li>
+<li>
+<p>On the the <strong>Specify Details</strong> page, enter the following information:</p>
+<p><a href="../images/cb_aws-02.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-02.png" width="650" title="IAM Console"></a> </p>
+<p><strong>Specify Details</strong> section </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stack name</td>
+<td>Enter name for your stack. It must be unique in your AWS environment.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>General Configuration</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Controller Instance Type</td>
+<td>EC2 instance type to use for the cloud controller.</td>
+</tr>
+<tr>
+<td>Email Address</td>
+<td>Username for the Admin login. Must be a valid email address.</td>
+</tr>
+<tr>
+<td>Admin Password</td>
+<td>Password for Admin login. Must be at least 8 characters containing letters, numbers, and symbols.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Security Configuration</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH Key Name</td>
+<td>Name of an existing EC2 key pair to enable SSH to access the instances. Key pairs are region-specific, so only the key pairs that you created for a selected region will appear in the dropdown. See <a href="#prerequisites">Prerequisites</a> for more information.</td>
+</tr>
+<tr>
+<td>Remote Access</td>
+<td>Allow connections to the cloud controller ports from this address range. Must be a valid <a href="http://www.ipaddressguide.com/cidr" target="_blank">CIDR IP</a>. For example: <ul><li>192.168.27.0/24 will allow access from 192.168.27.0 through 192.168.27.255.</li><li>192.168.27.10/32 will allow access from 192.168.27.10.</li><li>0.0.0.0/0 will allow access from all.</li></ul> Refer to <a href="../security/index.html#network-security">Network security</a> for more information on the inbound ports that are used with Cloudbreak.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click <strong>Next</strong>  to display the <strong>Options</strong> page.    </p>
+</li>
+<li>
+<p>On he <strong>Options</strong> page, if you expand the <strong>Advanced</strong> section, there is an option to <strong>Rollback on failure</strong>. </p>
+<ul>
+<li>By
+default, this option is set to <strong>Yes</strong>, which means that if there are any event failures when creating
+the stack, all the AWS resources created so far are deleted (i.e rolled back) to avoid unnecessary charges. </li>
+<li>If you set this option to <strong>No</strong>, if there are any event failures when creating
+the stack, the
+resources are left intact (i.e. not rolled back). Select the <strong>No</strong> option to aid in
+troubleshooting. Note that in this case you are responsible for deleting the stack later.</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Next</strong> to display the <strong>Review</strong> page.</p>
+</li>
+<li>
+<p>On the <strong>Review</strong> page, click the <strong>I acknowledge...</strong> checkbox.  </p>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+<blockquote>
+<p>The <strong>Stack Name</strong> is shown in the table with a <span class="cfn-output">CREATE_IN_PROGRESS</span> status. You can click on the <strong>Stack Name</strong> and see the specific events that are in progress. The create process takes about 10 minutes and once ready, you will see <span class="cfn-output2">CREATE_COMPLETE</span>. </p>
+</blockquote>
+<p><div class="note">
+<p class="first admonition-title">Cleaning up after a failed deployment</p>
+<p class="last">For steps on how to delete Cloudbreak after a failed deployment, refer to <a href="../cb-delete/index.html#delete-cloudbreak-on-aws">Delete Cloudbreak on AWS</a></p>
+</div></p>
+</li>
+</ol>
+<h4 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h4>
+<p>Follow these steps to obtain Cloudbreak VM's public IP address and log in to the Cloudbreak web UI. </p>
+<p><strong>Steps</strong>     </p>
+<ol>
+<li>
+<p>Once the stack creation is complete, Cloudbreak is ready to use. You can obtain the URL to Cloudbreak from the <strong>Outputs</strong> tab:</p>
+<p><a href="../images/cb_aws-05.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-05.png" width="650" title="CFN Console - Outputs"></a></p>
+<blockquote>
+<p>If the Outputs tab is blank, refresh the page.</p>
+</blockquote>
+</li>
+<li>
+<p>Paste the link in your browser's address bar.</p>
+</li>
+<li>
+<p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
+<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Add Exception...</strong> &gt; Click <strong>Confirm Security Exception</strong></td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Click <strong>Continue</strong></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Proceed...</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The login page is displayed:</p>
+<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Log in to the Cloudbreak web UI using the credential that you configured in the CloudFormation template.</p>
+</li>
+<li>
+<p>Upon a successful login, you are redirected to the dashboard:</p>
+<p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+</ol>
+<h4 id="create-a-cloudbreak-credential">Create a Cloudbreak credential</h4>
+<p>Before you can start using Cloudbreak to create clusters, you must create a Cloudbreak credential. Cloudbreak credential allows Cloudbreak to authenticate with your AWS account and provision resources on your behalf.</p>
+<p>There are two ways for Cloudbreak to authenticate with AWS: key-based and role-based. Since the key-based approach is faster, the steps below describe how to configure a key-based Cloudbreak credential.  </p>
+<p><strong>Prerequisites</strong></p>
+<p>To perform these steps, you must know your access and secret key. If needed, you or your AWS administrator can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong> &gt; select a user &gt; <strong>Security credentials</strong>:</p>
+<p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a>  </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the navigation pane. </p>
+</li>
+<li>
+<p>Click <strong>Create Credential</strong>. </p>
+</li>
+<li>
+<p>Under <strong>Cloud provider</strong>, select "Amazon Web Services":</p>
+<p><a href="../images/cb_cb-aws-cred-key.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-aws-cred-key.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Provide the following information:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Select Credential Type</td>
+<td>Select <strong>Key Based</strong>.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Enter a name for your credential.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>(Optional) Enter a description.</td>
+</tr>
+<tr>
+<td>Access Key</td>
+<td>Paste your access key.</td>
+</tr>
+<tr>
+<td>Secret Access Key</td>
+<td>Paste your secret key.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+</li>
+<li>
+<p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
+<p>Congratulations! You've successfully launched Cloudbreak and create a Cloudbreak credential. Now it's time to <a href="../aws-create/index.html">create a cluster</a>.</p>
+</li>
+</ol>
+<h4 id="create-a-cluster">Create a cluster</h4>
+<p>Use these steps to create a cluster.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Click the <strong>Create Cluster</strong> button and the <em>Create Cluster</em> wizard is displayed.<br />
+    By default, <strong>Basic</strong> view is displayed.</p>
+<p><a href="../images/cb_quick-create01.png" target="_blank" title="click to enlarge"><img src="../images/cb_quick-create01.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>On the <strong>General Configuration</strong> page:</p>
+<ul>
+<li><strong>Cluster Name</strong>: Enter a name for your cluster. The name must be between 5 and 40 characters, must start with a letter, and must only include lowercase letters, numbers, and hyphens.</li>
+<li><strong>Region</strong>: Select the region in which you would like to launch your cluster. </li>
+<li><strong>Cluster Type</strong>: Choose one of default cluster configurations.  </li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Next</strong> 3 times to navigate to the <strong>Security Page</strong>. You do not need to enter anything on the <strong>Hardware and Storage</strong> and <strong>Network</strong> because by default Cloudbreak suggests the instance types, storage, and network to use (a new network and subnet is created by default).   </p>
+</li>
+<li>
+<p>One the <strong>Security</strong> page, provide the following:</p>
+<ul>
+<li><strong>Cluster User</strong>: This will be the user that you should use to log in to Ambari and other cluster UIs. By default, this is <code>admin</code>.   </li>
+<li><strong>Cluster Password</strong>: Password for the cluster user.  </li>
+<li><strong>SSH public key</strong>: Select the existing public SSH key or paste your key. The key will be placed on the cluster VMs so that you can use the matching private key to access the VMs via SSH. </li>
+</ul>
+<p><a href="../images/cb_quick-create02.png" target="_blank" title="click to enlarge"><img src="../images/cb_quick-create02.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Click on <strong>Create Cluster</strong> to create a cluster.</p>
+</li>
+<li>
+<p>You will be redirected to the Cloudbreak dashboard, and a new tile representing your cluster will appear at the top of the page.</p>
+</li>
+</ol></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>© 2011-2018 <a href="http://www.hortonworks.com" target="_blank">Hortonworks Inc</a>. All Rights Reserved. | <a href="http://hortonworks.com/privacy-policy/" target="_blank">Privacy Policy</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

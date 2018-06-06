@@ -130,6 +130,12 @@
                         
                             
 <li >
+    <a href="../aws-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../aws-pre/index.html">Prerequisites</a>
 </li>
 
@@ -143,18 +149,6 @@
                             
 <li >
     <a href="../aws-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../aws-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../aws-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -175,6 +169,12 @@
                         
                             
 <li >
+    <a href="../azure-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../azure-pre/index.html">Prerequisites</a>
 </li>
 
@@ -188,18 +188,6 @@
                             
 <li >
     <a href="../azure-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../azure-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../azure-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -226,6 +214,12 @@
                         
                             
 <li >
+    <a href="../gcp-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../gcp-pre/index.html">Prerequisites</a>
 </li>
 
@@ -239,18 +233,6 @@
                             
 <li >
     <a href="../gcp-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../gcp-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../gcp-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -284,18 +266,6 @@
                             
 <li >
     <a href="../os-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../os-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../os-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -656,13 +626,6 @@
     
         <li class="first-level active"><a href="#launching-cloudbreak-on-aws">Launching Cloudbreak on AWS</a></li>
         
-            <li class="second-level"><a href="#quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</a></li>
-            
-                <li class="third-level"><a href="#launch-from-cf-template">Launch from CF template</a></li>
-            
-                <li class="third-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
-            
-        
             <li class="second-level"><a href="#production-launch-cloudbreak-on-your-own-vm">(Production) Launch Cloudbreak on your own VM</a></li>
             
         
@@ -684,238 +647,7 @@
 <li>Review and meet the <a href="../aws-pre/index.html">prerequisites</a>.  </li>
 <li>If you haven't already, review the <a href="../deployment-options/index.html">deployment options</a>.  </li>
 </ul>
-<p>The steps below describe how to launch Cloudbreak by using one of the two available deployment options (quickstart and production), access Cloudbreak web UI, and create a Cloudbreak credential. </p>
-<h3 id="quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</h3>
-<h4 id="launch-from-cf-template">Launch from CF template</h4>
-<p>Follow these steps to launch Cloudbreak by using an Amazon CloudFormation template.  </p>
-<p><strong>Steps</strong> </p>
-<ol>
-<li>
-<p>Click on the link to launch the CloudFormation template that will create the AWS resources, including an EC2 Instance running Cloudbreak:</p>
-<p><table>
- <tr>
-   <th>Region</th>
-   <th>Link</th>
- </tr>
- <tr>
-   <td>us-east-1 (N. Virginia)</td>
-   <td><span class="button-instruction">
-   <a href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-dev.241.template" target="_blank">
-   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in US East</a></span></td>
- </tr>
-  <tr>
-   <td>us-west-1 (N. California)</td>
-   <td><span class="button-instruction">
-   <a href="https://us-west-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-dev.241.template" target="_blank">
-   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in US West (N. California)</a></span></td>
- </tr>
- <tr>
-   <td>us-west-2 (Oregon)</td>
-   <td><span class="button-instruction">
-   <a href="https://us-west-2.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-dev.241.template" target="_blank">
-   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in US West (Oregon)</a></span></td>
- </tr>
- <tr>
-   <td>eu-central-1 (Frankfurt)</td>
-   <td><span class="button-instruction">
-   <a href="https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-dev.241.template" target="_blank">
-   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in EU Central</a></span></td>
- </tr>
- <tr>
-   <td>eu-west-1 (Dublin)</td>
-   <td><span class="button-instruction">
-   <a href="https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-dev.241.template" target="_blank">
-   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in EU West </a></span></td>
- </tr>
- <tr>
-   <td>sa-east-1 (São Paulo)</td>
-   <td><span class="button-instruction">
-   <a href="https://sa-east-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-dev.241.template" target="_blank">
-   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in South America</a></span></td>
- </tr>
- <tr>
-   <td>ap-northeast-1 Asia Pacific (Tokyo)</td>
-   <td><span class="button-instruction">
-   <a href="https://ap-northeast-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-dev.241.template" target="_blank">
-   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in Asia Pacific (Tokyo)</a></span></td>
- </tr>
- <tr>
-   <td>ap-southeast-1 (Singapore)</td>
-   <td><span class="button-instruction">
-   <a href="https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-dev.241.template" target="_blank">
-   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in Asia Pacific (Singapore)</a></span></td>
- </tr>
- <tr>
-   <td>ap-southeast-2 (Sydney)</td>
-   <td><span class="button-instruction">
-   <a href="https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?templateURL=https://s3.amazonaws.com/cbd-quickstart/cbd-quickstart-2.7.0-dev.241.template" target="_blank">
-   <i class="fa fa-rocket" aria-hidden="true"></i> Launch the CloudFormation Template in Asia Pacific (Sydney)</a></span></td>
- </tr>
-</table>  </p>
-</li>
-<li>
-<p>The <strong>Create stack</strong> wizard is launched in the Amazon CloudFormation management console:  </p>
-</li>
-<li>
-<p>In the top right corner, confirm the region in which you want to launch Cloudbreak:  </p>
-<p><a href="../images/cb_aws-01.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-01.png" width="650" title="IAM Console"></a>  </p>
-<blockquote>
-<p>You may change the region if needed by using the dropdown in the top right corner.</p>
-</blockquote>
-</li>
-<li>
-<p>You do not need to change any template parameters on the <strong>Select Template</strong> page. Click <strong>Next</strong> to display the <strong>Specify Details</strong> page:</p>
-<p><a href="../images/cb_aws-02.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-02.png" width="650" title="IAM Console"></a> </p>
-</li>
-<li>
-<p>On the the <strong>Specify Details</strong> page, enter the <strong>Stack name</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Stack name</td>
-<td>Enter name for your stack. It must be unique in your AWS environment.</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>On the same page, enter the following in the <strong>Parameters</strong> section:</p>
-<blockquote>
-<p>All parameters are required.</p>
-</blockquote>
-<p><strong>General Configuration</strong> </p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Controller Instance Type</td>
-<td>EC2 instance type to use for the cloud controller.</td>
-</tr>
-<tr>
-<td>Email Address</td>
-<td>Username for the Admin login. Must be a valid email address.</td>
-</tr>
-<tr>
-<td>Admin Password</td>
-<td>Password for Admin login. Must be at least 8 characters containing letters, numbers, and symbols.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Security Configuration</strong> </p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SSH Key Name</td>
-<td>Name of an existing EC2 key pair to enable SSH to access the instances. Key pairs are region-specific, so only the key pairs that you created for a selected region will appear in the dropdown. See <a href="#prerequisites">Prerequisites</a> for more information.</td>
-</tr>
-<tr>
-<td>Remote Access</td>
-<td>Allow connections to the cloud controller ports from this address range. Must be a valid <a href="http://www.ipaddressguide.com/cidr" target="_blank">CIDR IP</a>. For example: <ul><li>192.168.27.0/24 will allow access from 192.168.27.0 through 192.168.27.255.</li><li>192.168.27.10/32 will allow access from 192.168.27.10.</li><li>0.0.0.0/0 will allow access from all.</li></ul> Refer to <a href="../security/index.html#network-security">Network security</a> for more information on the inbound ports that are used with Cloudbreak.</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Click <strong>Next</strong>  to display the <strong>Options</strong> page.    </p>
-</li>
-<li>
-<p>On he <strong>Options</strong> page, if you expand the <strong>Advanced</strong> section, there is an option to <strong>Rollback on failure</strong>. </p>
-<ul>
-<li>By
-default, this option is set to <strong>Yes</strong>, which means that if there are any event failures when creating
-the stack, all the AWS resources created so far are deleted (i.e rolled back) to avoid unnecessary charges. </li>
-<li>If you set this option to <strong>No</strong>, if there are any event failures when creating
-the stack, the
-resources are left intact (i.e. not rolled back). Select the <strong>No</strong> option to aid in
-troubleshooting. Note that in this case you are responsible for deleting the stack later.</li>
-</ul>
-</li>
-<li>
-<p>Click <strong>Next</strong> to display the <strong>Review</strong> page.</p>
-</li>
-<li>
-<p>On the <strong>Review</strong> page, click the <strong>I acknowledge...</strong> checkbox.  </p>
-</li>
-<li>
-<p>Click <strong>Create</strong>.</p>
-<blockquote>
-<p>The <strong>Stack Name</strong> is shown in the table with a <span class="cfn-output">CREATE_IN_PROGRESS</span> status. You can click on the <strong>Stack Name</strong> and see the specific events that are in progress. The create process takes about 10 minutes and once ready, you will see <span class="cfn-output2">CREATE_COMPLETE</span>. </p>
-</blockquote>
-<p><div class="note">
-<p class="first admonition-title">Cleaning up after a failed deployment</p>
-<p class="last">For steps on how to delete Cloudbreak after a failed deployment, refer to <a href="../cb-delete/index.html#delete-cloudbreak-on-aws">Delete Cloudbreak on AWS</a></p>
-</div></p>
-</li>
-</ol>
-<h4 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h4>
-<p>Follow these steps to obtain Cloudbreak VM's public IP address and log in to the Cloudbreak web UI. </p>
-<p><strong>Steps</strong>     </p>
-<ol>
-<li>
-<p>Once the stack creation is complete, Cloudbreak is ready to use. You can obtain the URL to Cloudbreak from the <strong>Outputs</strong> tab:</p>
-<p><a href="../images/cb_aws-05.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-05.png" width="650" title="CFN Console - Outputs"></a></p>
-<blockquote>
-<p>If the Outputs tab is blank, refresh the page.</p>
-</blockquote>
-</li>
-<li>
-<p>Paste the link in your browser's address bar.</p>
-</li>
-<li>
-<p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
-<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
-<table>
-<thead>
-<tr>
-<th>Browser</th>
-<th>Steps</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Firefox</td>
-<td>Click <strong>Advanced</strong> &gt; Click <strong>Add Exception...</strong> &gt; Click <strong>Confirm Security Exception</strong></td>
-</tr>
-<tr>
-<td>Safari</td>
-<td>Click <strong>Continue</strong></td>
-</tr>
-<tr>
-<td>Chrome</td>
-<td>Click <strong>Advanced</strong> &gt; Click <strong>Proceed...</strong></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>The login page is displayed:</p>
-<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
-</li>
-<li>
-<p>Log in to the Cloudbreak web UI using the credential that you configured in the CloudFormation template.</p>
-</li>
-<li>
-<p>Upon a successful login, you are redirected to the dashboard:</p>
-<p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
-</li>
-</ol>
+<p>The steps below describe how to launch Cloudbreak, access Cloudbreak web UI, and create a Cloudbreak credential.         </p>
 <h3 id="production-launch-cloudbreak-on-your-own-vm">(Production) Launch Cloudbreak on your own VM</h3>
 <p>Refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>. </p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
@@ -926,6 +658,7 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 <li><a href="#create-role-based-credential">Create role-based credential</a></li>
 </ul>
 <h4 id="create-key-based-credential">Create key-based credential</h4>
+<p><strong>Prerequisites</strong></p>
 <p>To perform these steps, you must know your access and secret key. If needed, you or your AWS administrator can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong> &gt; select a user &gt; <strong>Security credentials</strong>:</p>
 <p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a>  </p>
 <p><strong>Steps</strong></p>

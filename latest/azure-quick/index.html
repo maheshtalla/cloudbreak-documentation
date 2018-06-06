@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/gcp-clusters-manage/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/azure-quick/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Manage and monitor clusters - Cloudbreak</title>
+    <title>Quickstart - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -130,6 +130,12 @@
                         
                             
 <li >
+    <a href="../aws-quick/index.html">Quickstart</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../aws-pre/index.html">Prerequisites</a>
 </li>
 
@@ -148,18 +154,6 @@
                         
                             
 <li >
-    <a href="../aws-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../aws-clusters-manage/index.html">Manage and monitor clusters</a>
-</li>
-
-                        
-                            
-<li >
     <a href="../aws-data/index.html">Configure access to S3</a>
 </li>
 
@@ -169,9 +163,15 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="index.html">Quickstart</a>
+</li>
+
                         
                             
 <li >
@@ -193,18 +193,6 @@
                         
                             
 <li >
-    <a href="../azure-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../azure-clusters-manage/index.html">Manage and monitor clusters</a>
-</li>
-
-                        
-                            
-<li >
     <a href="../azure-data-adls/index.html">Configure access to ADLS</a>
 </li>
 
@@ -220,9 +208,15 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gcp-quick/index.html">Quickstart</a>
+</li>
+
                         
                             
 <li >
@@ -239,18 +233,6 @@
                             
 <li >
     <a href="../gcp-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../gcp-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -284,18 +266,6 @@
                             
 <li >
     <a href="../os-create/index.html">Create a cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../os-clusters-access/index.html">Access cluster</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../os-clusters-manage/index.html">Manage and monitor clusters</a>
 </li>
 
                         
@@ -624,12 +594,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../gcp-clusters-access/index.html">
+                        <a rel="next" href="../aws-data/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../gcp-data/index.html">
+                        <a rel="prev" href="../azure-pre/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -654,32 +624,15 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#managing-and-monitoring-clusters">Managing and monitoring clusters</a></li>
+        <li class="first-level active"><a href="#quickstart-launch-cloudbreak-on-azure-from-a-template">(Quickstart) Launch Cloudbreak on Azure from a template</a></li>
         
-            <li class="second-level"><a href="#retry-a-cluster">Retry a cluster</a></li>
+            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
         
-            <li class="second-level"><a href="#resize-a-cluster">Resize a cluster</a></li>
+            <li class="second-level"><a href="#launch-from-arm-template">Launch from ARM template</a></li>
             
         
-            <li class="second-level"><a href="#synchronize-a-cluster">Synchronize a cluster</a></li>
-            
-        
-            <li class="second-level"><a href="#stop-a-cluster">Stop a cluster</a></li>
-            
-        
-            <li class="second-level"><a href="#restart-a-cluster">Restart a cluster</a></li>
-            
-        
-            <li class="second-level"><a href="#terminate-a-cluster">Terminate a cluster</a></li>
-            
-        
-            <li class="second-level"><a href="#force-terminate-a-cluster">Force terminate a cluster</a></li>
-            
-        
-            <li class="second-level"><a href="#view-cluster-history">View cluster history</a></li>
-            
-                <li class="third-level"><a href="#history-report-content">History report content</a></li>
+            <li class="second-level"><a href="#access-cloudbreak-web-ui">Access Cloudbreak web UI</a></li>
             
         
     
@@ -687,186 +640,187 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="managing-and-monitoring-clusters">Managing and monitoring clusters</h2>
-<p>You can manage monitor your clusters from the Cloudbreak UI. To do that, click on the tile representing the cluster that you want to access. The actions available for your cluster are listed in the top right corner: </p>
-<p><a href="../images/cb_cb-cl-details2.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-cl-details2.png" width="650" title="Cloudbreak web UI"></a> </p>
-<div class="note">
-  <p class="first admonition-title">Tips</p>
-  <p class="last"><ul>
-  <li>To add or remove nodes from your cluster click <b>ACTIONS>Resize</b>.</li>
-  <li>To synchronize your cluster with the cloud provider account click <b>ACTIONS>Sync</b>.</li>
-  <li>To temporarily stop your cluster click <b>STOP</b>.</li>
-  <li>To terminate your cluster click <b>TERMINATE</b>.</li>
-</ul>
-</p>
-</div>
-
-<h3 id="retry-a-cluster">Retry a cluster</h3>
-<p>When stack provisioning or cluster creation failure occurs, the "retry" option allows you to resume the process from the last failed step. </p>
-<p>In some cases the cause of a failed stack provisioning or cluster creation can be eliminated by simply retrying the process. For example, in case of a temporary network outage, a retry should be successful. In other cases, a manual modification is required before a retry can succeed. For example, if you are using a custom image but some configuration is missing, causing the process to fail, you must log in to the machine and fix the issue; Only after that you can retry the the process.</p>
-<p>Only failed stack or cluster creations can be retried. A retry can be initiated any number of times on a failed creation process. </p>
-<p>To retry provisioning a failed stack or cluster, follow these steps.  </p>
+<h2 id="quickstart-launch-cloudbreak-on-azure-from-a-template">(Quickstart) Launch Cloudbreak on Azure from a template</h2>
+<h4 id="prerequisites">Prerequisites</h4>
+<h4 id="launch-from-arm-template">Launch from ARM template</h4>
+<p>Launch Cloudbreak deployer by using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>Browse to the cluster details.</p>
+<p>Log in to your <a href="https://portal.azure.com">Azure Portal</a>.</p>
 </li>
 <li>
-<p>Click <strong>Actions</strong> and select <strong>Retry</strong>. </p>
-<p>Only failed stack or cluster creations can be retried, so the option is only available in these two cases.  </p>
+<p>Click here to get started with Cloudbreak installation using the Azure Resource Manager template:</p>
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhortonworks%2Fazure-cbd-quickstart%2F2.7.0-dev.170%2FmainTemplate.json" target="_blank"> <img alt="deploy on azure" src="http://azuredeploy.net/deploybutton.png" /></a></p>
 </li>
 <li>
-<p>Click <strong>Yes</strong> to confirm. </p>
-<p>The operation continues from the last failed step. </p>
-</li>
-</ol>
-<h3 id="resize-a-cluster">Resize a cluster</h3>
-<p>To resize a cluster, follow these steps.</p>
+<p>The template for installing Cloudbreak will appear. On the <strong>Basics</strong> page, provide the following basic parameters:   </p>
 <blockquote>
-<p>Cluster resizing is not supported for HDF clusters.<br />
-To configure automated cluster scaling, refer to <a href="../autoscaling/index.html">Configure autoscaling</a>.   </p>
+<p>All parameters except "SmartSense Id" are required.</p>
 </blockquote>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Browse to the cluster details.</p>
+<p><strong>BASICS</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subscription</td>
+<td>Select which existing subscription you want to use.</td>
+</tr>
+<tr>
+<td>Resource group</td>
+<td>Select an existing resource group or create a new one by selecting <strong>Create new</strong> and entering a name for your new resource group. Cloudbreak resources will later be accessible in that chosen resource group.</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>Select an Azure region in which you want to deploy Cloudbreak.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SETTINGS</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vm Size</td>
+<td>Select virtual machine instance type to use for the Cloudbreak controller. The minimum instance type suitable for Cloudbreak is <em>Standard_DS3</em>. The minimum requirements are 16GB RAM, 40GB disk, 4 cores.</td>
+</tr>
+<tr>
+<td>Admin Username</td>
+<td>Create an admin login that you will use to log in to the Cloudbreak UI. Must be a valid email address. By default, admin@example.com is used but you should change it to your email address.</td>
+</tr>
+<tr>
+<td>Admin User Password</td>
+<td>Password for the admin login. Must be at least 8 characters containing letters, numbers, and symbols.</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>Enter an admin username for the virtual machine. You will use it to SSH to the VM. By default, "cloudbreak" is used.</td>
+</tr>
+<tr>
+<td>Remote Location</td>
+<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags. Default value is <code>Internet</code> which allows access from all IP addresses. Examples: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Azure documentation</a>.</p></td>
+</tr>
+<tr>
+<td>Ssh Key</td>
+<td><p>Paste your SSH public key.</p><p>You can use <code>pbcopy</code> to quickly copy it. For example: <code>pbcopy &lt; /Users/homedir/.ssh/id_rsa.pub</code></p></td>
+</tr>
+<tr>
+<td>Vnet New Or Existing</td>
+<td>By default, Cloudbreak is launched in a new VNet called <code>cbdeployerVnet</code> and a new subnet called <code>cbdeployerSubnet</code>; if needed, you can customize the settings for the new VNet using available VNet and Subnet parameters.</td>
+</tr>
+<tr>
+<td>Vnet Name</td>
+<td>Provide the name for a new Vnet. Default is <code>`cbdeployerVnet</code>.</td>
+</tr>
+<tr>
+<td>Vnet Subnet Name</td>
+<td>Provide a name for a new subnet. Default is <code>cbdeployerSubnet</code>.</td>
+</tr>
+<tr>
+<td>Vnet Address Prefix</td>
+<td>Provide a CIDR for the virtual network. Default is <code>10.0.0.0/16</code>.</td>
+</tr>
+<tr>
+<td>Vnet Subnet Address Prefix</td>
+<td>Provide a CIDR for the subnet. Default is <code>10.0.0.0/24</code>.</td>
+</tr>
+<tr>
+<td>Vnet RG Name</td>
+<td>The name of the resource group in which the Vnet is located. If creating a new Vnet, enter the same resource group name as provided in the <code>Resource group</code> field in the <strong>BASICS</strong> section.</td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
-<p>Click <strong>Actions</strong> and select <strong>Resize</strong>. The cluster resize dialog is displayed.</p>
+<p>Review terms of use and check "I agree to the terms and conditions stated above".</p>
 </li>
 <li>
-<p>Using the +/- controls, adjust the number of nodes for a chosen host group. </p>
+<p>Click <strong>Purchase</strong>.</p>
+</li>
+<li>
+<p>Your deployment should be initiated.  </p>
 <blockquote>
-<p>You can only modify one host group at a time. <br />
-It is not possible to resize the Ambari server host group.     </p>
+<p>If you encounter errors, refer to <a href="../trouble-azure/index.html">Troubleshooting Cloudbreak on Azure</a>. </p>
+</blockquote>
+<p><div class="note">
+<p class="first admonition-title">Cleaning up after a failed deployment</p>
+<p class="last">For steps on how to delete Cloudbreak after a failed deployment, refer to <a href="../cb-delete/index.html#delete-cloudbreak-on-azure">Delete Cloudbreak on Azure</a></p>
+</div></p>
+</li>
+</ol>
+<h4 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h4>
+<p>Follow these steps to obtain Cloudbreak VM's public IP address and log in to the Cloudbreak web UI. </p>
+<p><strong>Steps</strong>       </p>
+<ol>
+<li>
+<p>When your deployment succeeds, you will receive a notification in the top-right corner. You can click on the link provided to navigate to the resource group created earlier.</p>
+<blockquote>
+<p>This only works right after deployment. At other times, you can find your resource group by selecting <strong>Resource Groups</strong> from the service menu and then finding your resource group by name.</p>
 </blockquote>
 </li>
 <li>
-<p>Click <strong>Yes</strong> to confirm the scale-up/scale-down.</p>
-<p>While nodes are being added or removed, cluster status changes to "Update In Progress". Once the operation has completed, cluster status changes back to "Running". </p>
+<p>Once you've navigated to your resource group, click on <strong>Deployments</strong> and then click on <strong>Microsoft.Template</strong>:</p>
+<p><a href="../images/cb_azure-resource-find.png" target="_blank" title="click to enlarge"><img src="../images/cb_azure-resource-find.png" width="650" title="Azure Portal"></a></p>
+</li>
+<li>
+<p>From <strong>Outputs</strong>, you can copy the link by clicking on the copy icon:</p>
+<p><a href="../images/cb_azure-outputs.png" target="_blank" title="click to enlarge"><img src="../images/cb_azure-outputs.png" width="650" title="Azure Portal"></a>   </p>
+</li>
+<li>
+<p>Paste the link in your browser's address bar.</p>
+</li>
+<li>
+<p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
+<p>The first time you access Cloudbreak UI, Cloudbreak will automatically generate a self-signed certificate, due to which your browser will warn you about an untrusted connection and will ask you to confirm a security exception.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Add Exception...</strong> &gt; Click <strong>Confirm Security Exception</strong></td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Click <strong>Continue</strong></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Click <strong>Advanced</strong> &gt; Click <strong>Proceed...</strong></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The login page is displayed:</p>
+<p><a href="../images/cb_cb-ui.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>Now you should be able to access Cloudbreak UI and log in with the <strong>Admin email address</strong> and <strong>Admin password</strong> that you created when launching Cloudbreak. </p>
+</li>
+<li>
+<p>Upon a successful login, you are redirected to the dashboard:</p>
+<p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 </ol>
-<h3 id="synchronize-a-cluster">Synchronize a cluster</h3>
-<p>Use the <strong>sync</strong> option if you:  </p>
-<ul>
-<li>Made changes on your cloud provider side (for example, deleted cluster VMs) and you would like to synchronize Cloudbreak with the cloud provider.  </li>
-<li>Manually changed service status in Ambari (for example, restarted services).   </li>
-</ul>
-<p>To synchronize your cluster with the cloud provider, follow these steps. </p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Browse to the cluster details.</p>
-</li>
-<li>
-<p>Click <strong>Actions</strong> and select <strong>Sync</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Yes</strong> to confirm.</p>
-<p>Your cluster infrastructure is synchronized based on changes on the cloud provider. The updates are written to the "Event History". </p>
-</li>
-</ol>
-<h3 id="stop-a-cluster">Stop a cluster</h3>
-<p>Cloudbreak supports stopping and restarting clusters. To stop and restart a cluster managed by Cloudbreak, use the options available from the Cloudbreak UI. </p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Browse to the cluster details.</p>
-</li>
-<li>
-<p>Click <strong>Stop</strong> to stop a currently running cluster.  </p>
-</li>
-<li>
-<p>Click <strong>Yes</strong> to confirm. </p>
-</li>
-<li>
-<p>Your cluster status changes to "Stopping in progress" and then to "Stopped". Once stopping the infrastructure has completed, you will see a <strong>Start</strong> option to restart your cluster. </p>
-</li>
-</ol>
-<p>When a cluster is in the "stopped" state, you are not charged for the VMs, but you are charged for external storage.  </p>
-<h3 id="restart-a-cluster">Restart a cluster</h3>
-<p>If your cluster is in the "Stopped" state, you can restart the cluster by follow these steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>click <strong>Start</strong>. This option is only available when the cluster has been stopped. </p>
-</li>
-<li>
-<p>Click <strong>Yes</strong> to confirm.</p>
-<p>Your cluster status changes to "Start in progress" and then to "Running". </p>
-</li>
-</ol>
-<h3 id="terminate-a-cluster">Terminate a cluster</h3>
-<p>To terminate a cluster managed by Cloudbreak, use the option available from the Cloudbreak UI. </p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Browse to the cluster details.</p>
-</li>
-<li>
-<p>Click <strong>Terminate</strong>. </p>
-</li>
-<li>
-<p>Click <strong>Yes</strong> to confirm.</p>
-<p>All cluster-related resources will be deleted, unless the resources (such as networks and subnets) existed prior to cluster creation or are used by other VMs in which case they will be preserved. </p>
-</li>
-</ol>
-<h3 id="force-terminate-a-cluster">Force terminate a cluster</h3>
-<p>Cluster deletion may fail if Cloudbreak is unable to delete one or more of the cloud resources that were part of your cluster infrastructure. In such as case, you can use the <strong>Terminate</strong> &gt; <strong>Force terminate</strong> option to remove the cluster entry from the Cloudbreak web UI, but you must also check your cloud provider account to see if there are any resources that must be deleted manually.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Browse to the cluster details.</p>
-</li>
-<li>
-<p>Click <strong>Terminate</strong>. </p>
-</li>
-<li>
-<p>Check  <strong>Force terminate</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Yes</strong> to confirm. </p>
-<p>When terminating a cluster with Kerberos enabled, you have an option to disable Kerberos prior to cluster termination. This option removes any cluster-related principals from the KDC.</p>
-</li>
-<li>
-<p>This deletes the cluster tile from the UI.  </p>
-</li>
-<li>
-<p>Log in to your cloud provider account and <a href="../cb-delete/index.html">manually delete</a> any resources that failed to be deleted.</p>
-</li>
-</ol>
-<h3 id="view-cluster-history">View cluster history</h3>
-<p>From the navigation menu in the Cloudbreak UI, you can access the History page that allows you to generate a report showing basic information related to the clusters that were running within the specified range of dates.</p>
-<p>To generate a report, follow these steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>From the Cloudbreak UI navigation menu, select <strong>History</strong>.</p>
-</li>
-<li>
-<p>On the History page, select the range of dates and click <strong>Show History</strong> to generate a tabular report for the selected period.</p>
-</li>
-</ol>
-<h4 id="history-report-content">History report content</h4>
-<p>Each entry in the report represents one cluster instance group. For each entry, the report includes the following information:</p>
-<ul>
-<li><strong>Created</strong> - The date when your cluster was created (YYYY-MM-DD).</li>
-<li><strong>Provider</strong> - The name of the cloud provider (AWS, Azure, Google, or OpenStack) on which the cluster instances are/were running.</li>
-<li><strong>Cluster Name</strong> - The name that you selected for the cluster.  </li>
-<li><strong>Instance Group</strong> - The name of the host group.   </li>
-<li><strong>Instance Count</strong> - The number of nodes in the host group. This number may be a decimal if a cluster has been resized.</li>
-<li><strong>Instance Type</strong> - Provider-specific VM type of the cluster instances. </li>
-<li><strong>Region</strong> - The AWS region in which your cluster is/was running.</li>
-<li><strong>Availability Zone</strong> - The availability zone in which your cluster is/was running.      </li>
-<li><strong>Running Time (hours)</strong> - The sum of the running times for all the nodes in the instance group.</li>
-</ul>
-<p>The <strong>AGGREGATE RUNNING TIME</strong> is the sum of the Running Times, adjusted for the selected time range.</p>
-<p>To learn about how your cloud provider bills you for the VMs, refer to their documentation:</p>
-<ul>
-<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-hour-billing/">AWS</a>      </li>
-<li><a href="https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/">Azure</a>     </li>
-<li><a href="https://cloud.google.com/compute/pricing">GCP</a>   </li>
-</ul></div>
+<p>The last task that you need to perform before you can use Cloudbreak is to <a href="#create-cloudbreak-credential">create a cloudbreak credential</a>.     </p>
+<p><strong>Related links</strong><br />
+<a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> (External) <br />
+<a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter network traffic with network security groups</a> (External)  </p></div>
         
     </div>
 

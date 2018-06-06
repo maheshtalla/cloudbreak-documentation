@@ -38,6 +38,12 @@
     
         
     <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-quick/index.html</loc>
+     <lastmod>2018-06-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-pre/index.html</loc>
      <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
@@ -56,18 +62,6 @@
     </url>
         
     <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-clusters-access/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-clusters-manage/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-data/index.html</loc>
      <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
@@ -76,6 +70,12 @@
     
 
     
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-quick/index.html</loc>
+     <lastmod>2018-06-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-pre/index.html</loc>
@@ -91,18 +91,6 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-create/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-clusters-access/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-clusters-manage/index.html</loc>
      <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -124,6 +112,12 @@
     
         
     <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-quick/index.html</loc>
+     <lastmod>2018-06-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-pre/index.html</loc>
      <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
@@ -137,18 +131,6 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-create/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-clusters-access/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-clusters-manage/index.html</loc>
      <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -177,18 +159,6 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//os-create/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//os-clusters-access/index.html</loc>
-     <lastmod>2018-06-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation//os-clusters-manage/index.html</loc>
      <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
