@@ -659,6 +659,9 @@
             <li class="second-level"><a href="#gcp-account">GCP account</a></li>
             
         
+            <li class="second-level"><a href="#service-account">Service account</a></li>
+            
+        
             <li class="second-level"><a href="#ssh-key-pair">SSH key pair</a></li>
             
         
@@ -675,6 +678,22 @@
 <h3 id="gcp-account">GCP account</h3>
 <p>In order to launch Cloudbreak on GCP, you must log in to your GCP account. If you don't have an account, you can create one at <a href="https://console.cloud.google.com">https://console.cloud.google.com</a>.</p>
 <p>Once you log in to your GCP account, you must either create a project or use an existing project. </p>
+<h3 id="service-account">Service account</h3>
+<p>In order to launch clusters on GCP via Cloudbreak, you must have a service account that Cloudbreak can use to create resources. In addition, you must also have a JSON key associated with the account. </p>
+<p>The service account must have the following roles are enabled:</p>
+<ul>
+<li>Compute Engine &gt; Compute Image User   </li>
+<li>Compute Engine &gt; Compute Instance Admin (v1)  </li>
+<li>Compute Engine &gt; Compute Network Admin  </li>
+<li>Compute Engine &gt; Compute Security Admin  </li>
+<li>Storage &gt; Storage Admin </li>
+</ul>
+<p>A user with an "Owner" role can assign roles to new and existing service accounts from <strong>IAM &amp; admin</strong> &gt; <strong>Service accounts</strong>, as presented in the following screenshots: </p>
+<p><a href="../images/cb_gcp-iam.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-iam.png" width="650" title="GCP Console"></a> </p>
+<p><a href="../images/cb_gcp-iam2.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-iam2.png" width="650" title="GCP Console"></a> </p>
+<p>For more information on creating a service account and generating a JSON key, refer to <a href="https://cloud.google.com/storage/docs/authentication#service_accounts">GCP documentation</a>. </p>
+<p><strong>Related links</strong><br />
+<a href="https://cloud.google.com/storage/docs/authentication#service_accounts">Service account credentials</a> (External) </p>
 <h3 id="ssh-key-pair">SSH key pair</h3>
 <p><a href="../faq/index.html#generate-ssh-key-pair">Generate a new SSH key pair</a> or use an existing SSH key pair. You will be required to provide it when launching the VM. </p>
 <h3 id="region-and-zone">Region and zone</h3>

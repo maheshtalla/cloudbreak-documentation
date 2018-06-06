@@ -664,10 +664,6 @@
         
             <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
             
-                <li class="third-level"><a href="#create-a-service-account">Create a service account</a></li>
-            
-                <li class="third-level"><a href="#register-the-service-account">Register the service account</a></li>
-            
         
     
     </ul>
@@ -851,23 +847,9 @@ deploymentIp  35.224.36.96</pre></p>
 <p>Refer to <a href="../vm-launch/index.html">Launch Cloudbreak on your own VM</a>. </p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Cloudbreak works by connecting your GCP account through this credential, and then uses it to create resources on your behalf. Before you can start provisioning cluster using Cloudbreak, you must create a Cloudbreak credential.  </p>
-<h4 id="create-a-service-account">Create a service account</h4>
-<p>In order to launch clusters on GCP via Cloudbreak, you must have a service account that Cloudbreak can use to create resources. In addition, you must also have a JSON key associated with the account. </p>
-<p>The service account must have the following roles are enabled:</p>
-<ul>
-<li>Compute Engine &gt; Compute Image User   </li>
-<li>Compute Engine &gt; Compute Instance Admin (v1)  </li>
-<li>Compute Engine &gt; Compute Network Admin  </li>
-<li>Compute Engine &gt; Compute Security Admin  </li>
-<li>Storage &gt; Storage Admin </li>
-</ul>
-<p>A user with an "Owner" role can assign roles to new and existing service accounts from <strong>IAM &amp; admin</strong> &gt; <strong>Service accounts</strong>, as presented in the following screenshots: </p>
-<p><a href="../images/cb_gcp-iam.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-iam.png" width="650" title="GCP Console"></a> </p>
-<p><a href="../images/cb_gcp-iam2.png" target="_blank" title="click to enlarge"><img src="../images/cb_gcp-iam2.png" width="650" title="GCP Console"></a> </p>
-<p>For more information on creating a service account and generating a JSON key, refer to <a href="https://cloud.google.com/storage/docs/authentication#service_accounts">GCP documentation</a>. </p>
-<p><strong>Related links</strong><br />
-<a href="https://cloud.google.com/storage/docs/authentication#service_accounts">Service account credentials</a> (External)  </p>
-<h4 id="register-the-service-account">Register the service account</h4>
+<p><strong>Prerequisites</strong></p>
+<p>In order to launch clusters on GCP via Cloudbreak, you must have a service account that Cloudbreak can use to create resources. The requirements for the service account are described in the <a href="../gcp-pre/index.html#service-account">GCP Prerequisites</a>. </p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>
 <p>In the Cloudbreak web UI, select <strong>Credentials</strong> from the navigation pane. </p>
