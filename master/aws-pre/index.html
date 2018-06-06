@@ -694,7 +694,7 @@
 <h3 id="aws-account">AWS account</h3>
 <p>In order to launch Cloudbreak on AWS, you must log in to your AWS account. If you don't have an account, you can create one at <a href="https://aws.amazon.com/">https://aws.amazon.com/</a>.</p>
 <h3 id="aws-region">AWS region</h3>
-<p>Decide in which AWS region you would like to launch Cloudbreak. The following AWS regions are supported: </p>
+<p>Decide in which AWS region you would like to launch Cloudbreak. The following AWS regions are supported:</p>
 <table>
 <thead>
 <tr>
@@ -746,7 +746,7 @@
 <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">AWS regions and endpoints</a> (External)   </p>
 <h3 id="ssh-key-pair">SSH key pair</h3>
 <p>Import an existing key pair or generate a new key pair in the AWS region which you are planning to use for launching Cloudbreak and clusters. You can do this using the following steps.</p>
-<p><strong>Steps</strong> </p>
+<p><strong>Steps</strong></p>
 <ol>
 <li>Navigate to the Amazon EC2 console at https://console.aws.amazon.com/ec2/.  </li>
 <li>Check the region listed in the top right corner to make sure that you are in the correct region.  </li>
@@ -757,11 +757,11 @@
 </ul>
 </li>
 </ol>
-<p>You need this SSH key pair to SSH to the Cloudbreak instance and start Cloudbreak. </p>
+<p>You need this SSH key pair to SSH to the Cloudbreak instance and start Cloudbreak.</p>
 <p><strong>Related links</strong><br />
 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair">Creating a key pair using Amazon EC2</a> (External)</p>
 <h3 id="authentication">Authentication</h3>
-<p>Before you can start using Cloudbreak for provisioning clusters, you must select a way for Cloudbreak to authenticate with your AWS account and create resources on your behalf. There are two ways to do this: </p>
+<p>Before you can start using Cloudbreak for provisioning clusters, you must select a way for Cloudbreak to authenticate with your AWS account and create resources on your behalf. There are two ways to do this:</p>
 <ul>
 <li>
 <p><strong>Key-based</strong>: This is a simpler option which does not require additional configuration at this point. It requires that you provide your AWS access key and secret key pair in the Cloudbreak web UI later. All you need to do now is check your AWS account and ensure that you can access this key pair.</p>
@@ -771,9 +771,12 @@
 </li>
 </ul>
 <h3 id="option-1-use-key-based-authentication">(Option 1) Use key-based authentication</h3>
-<p>If you are using key-based authentication for Cloudbreak on AWS, you must be able to provide your AWS access key and secret key pair. Cloudbreak will use these keys to launch the resources. You must provide the access and secret keys later in the Cloudbreak web UI later when creating a credential. </p>
+<p>If you are using key-based authentication for Cloudbreak on AWS, you must be able to provide your AWS access key and secret key pair. Cloudbreak will use these keys to launch the resources. You must provide the access and secret keys later in the Cloudbreak web UI later when creating a credential.</p>
 <p>If you choose this option, all you need to do at this point is check your AWS account and make sure that you can access this key pair. You can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong>. Next, select a user and click on the <strong>Security credentials</strong> tab:</p>
-<p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a> </p>
+<p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a></p>
+<blockquote>
+<p>The minimum set of permissions required by Cloudbreak are the same as for <a href="index.html#create-credentialrole">CredentialRole</a>. </p>
+</blockquote>
 <p>If you choose this option, you can proceed to <a href="#launch-cloudbreak-deployer-from-an-image">Launch Cloudbreak deployer from an image</a>.</p>
 <h3 id="option-2-configure-role-based-authentication">(Option 2) Configure role-based authentication</h3>
 <p>If you are using role-based authentication for Cloudbreak on AWS, you must create two IAM roles: one to grant Cloudbreak access to allow Cloudbreak to assume AWS roles (using the "AssumeRole" policy) and the second one to provide Cloudbreak with the capabilities required for cluster creation (using the "cb-policy" policy).</p>
@@ -807,10 +810,10 @@
 <p>CloudbreakRole: Alternatively, instead of attaching the "CloudbreakRole" role during the VM launch, you can assign the "CloudbreakRole" to an IAM user and then add the access and secret key of that user to your 'Profile'.</p>
 <p>CredentialRole: Alternatively you can generate the "CredentialRole" role later once your Cloudbreak VM is running by SSHing to the Cloudbreak VM and running the <code>cbd aws generate-role</code> command. This command creates a role with the name "cbreak-deployer" (equivalent to the "CredentialRole"). To customize the name of the role, add <code>export AWS_ROLE_NAME=my-cloudbreak-role-name</code> (where "my-cloudbreak-role-name" is your custom role name) as a new line to your Profile. If you choose this option, you must make sure that the "CloudbreakRole" or the IAM user have a permission not only to assume a role but also to create a role.  </p>
 </blockquote>
-<p>You can create these roles in the <strong>IAM console</strong>, on the <strong>Roles</strong> page via the <strong>Create Role</strong> option. Detailed steps are provided below. </p>
+<p>You can create these roles in the <strong>IAM console</strong>, on the <strong>Roles</strong> page via the <strong>Create Role</strong> option. Detailed steps are provided below.</p>
 <h4 id="create-cloudbreakrole">Create CloudbreakRole</h4>
-<p>Use these steps to create CloudbreakRole. </p>
-<p>Use the following "AssumeRole" policy definition: </p>
+<p>Use these steps to create CloudbreakRole.</p>
+<p>Use the following "AssumeRole" policy definition:</p>
 <pre>{
   "Version": "2012-10-17",
   "Statement": {
@@ -826,11 +829,11 @@
 <ol>
 <li>
 <p>Navigate to the <strong>IAM console</strong> &gt; <strong>Roles</strong> and click <strong>Create Role</strong>.</p>
-<p><a href="../images/cb_aws_role-00.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-00.png" width="650" title="IAM Console"></a> </p>
+<p><a href="../images/cb_aws_role-00.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-00.png" width="650" title="IAM Console"></a></p>
 </li>
 <li>
-<p>In the "Create Role" wizard, select <strong>AWS service</strong> role type and then select any service. </p>
-<p><a href="../images/cb_aws_role-10.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-10.png" width="650" title="IAM Console"></a> </p>
+<p>In the "Create Role" wizard, select <strong>AWS service</strong> role type and then select any service.</p>
+<p><a href="../images/cb_aws_role-10.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-10.png" width="650" title="IAM Console"></a></p>
 </li>
 <li>
 <p>When done, click <strong>Next: Permissions</strong> to navigate to the next page in the wizard.</p>
@@ -852,14 +855,14 @@
 </li>
 <li>
 <p>Click <strong>Refresh</strong>. Next, find the "AssumeRole" policy that you just created and select it by checking the box.</p>
-<p><a href="../images/cb_aws_role-14.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-14.png" width="650" title="IAM Console"></a> </p>
+<p><a href="../images/cb_aws_role-14.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-14.png" width="650" title="IAM Console"></a></p>
 </li>
 <li>
 <p>When done, click <strong>Next: Review</strong>.</p>
 </li>
 <li>
-<p>In the <strong>Roles name</strong> field, enter role name, for example "CloudbreakRole". </p>
-<p><a href="../images/cb_aws_role-15.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-15.png" width="650" title="IAM Console"></a> </p>
+<p>In the <strong>Roles name</strong> field, enter role name, for example "CloudbreakRole".</p>
+<p><a href="../images/cb_aws_role-15.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role-15.png" width="650" title="IAM Console"></a></p>
 </li>
 <li>
 <p>When done, click <strong>Create role</strong> to finish the role creation process.</p>
@@ -867,7 +870,7 @@
 </ol>
 <h4 id="create-credentialrole">Create CredentialRole</h4>
 <p>Use these steps to create CredentialRole.</p>
-<p>Use the following "cb-policy" policy definition: </p>
+<p>Use the following "cb-policy" policy definition:</p>
 <pre>{
   "Version": "2012-10-17",
   "Statement": [
@@ -903,7 +906,7 @@
         "ec2:DeleteSubnet",
         "ec2:CreateInternetGateway",
         "ec2:CreateKeyPair",
-        "ec2:DeleteKeyPair", 
+        "ec2:DeleteKeyPair",
         "ec2:DisassociateAddress",
         "ec2:DisassociateRouteTable",
         "ec2:ModifySubnetAttribute",
@@ -979,7 +982,7 @@
 <ol>
 <li>
 <p>Navigate to the <strong>IAM console</strong> &gt; <strong>Roles</strong> and click <strong>Create Role</strong>.</p>
-<p><a href="../images/cb_aws_role0.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role0.png" width="650" title="IAM Console"></a> </p>
+<p><a href="../images/cb_aws_role0.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role0.png" width="650" title="IAM Console"></a></p>
 </li>
 <li>
 <p>In the "Create Role" wizard, select <strong>Another AWS account</strong> role type. Next, provide the following:</p>
@@ -988,7 +991,7 @@
 <li>Under <strong>Options</strong>, check <strong>Require external ID</strong>.</li>
 <li>In the <strong>External ID</strong>, enter "provision-ambari".</li>
 </ul>
-<p><a href="../images/cb_aws_role1.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role1.png" width="650" title="IAM Console"></a> </p>
+<p><a href="../images/cb_aws_role1.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role1.png" width="650" title="IAM Console"></a></p>
 </li>
 <li>
 <p>When done, click <strong>Next: Permissions</strong> to navigate to the next page in the wizard.</p>
@@ -999,7 +1002,7 @@
 </li>
 <li>
 <p>Click <strong>Select</strong> next to "Create Your Own Policy".</p>
-<p><a href="../images/cb_aws_role3.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role3.png" width="650" title="IAM Console"></a> </p>
+<p><a href="../images/cb_aws_role3.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role3.png" width="650" title="IAM Console"></a></p>
 </li>
 <li>
 <p>In the <strong>Policy Name</strong> field, enter "cb-policy" and in the <strong>Policy Document</strong> paste the policy definition.  You can either copy it from the section preceding these steps or download and copy it from <a href="https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cb-doc-resources/cb-policy.json">here</a>.</p>
@@ -1010,17 +1013,17 @@
 </li>
 <li>
 <p>Click <strong>Refresh</strong>. Next, find the "cb-policy" that you just created and select it by checking the box.</p>
-<p><a href="../images/cb_aws_role5.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role5.png" width="650" title="IAM Console"></a> </p>
+<p><a href="../images/cb_aws_role5.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role5.png" width="650" title="IAM Console"></a></p>
 </li>
 <li>
 <p>When done, click <strong>Next: Review</strong>.</p>
 </li>
 <li>
-<p>In the <strong>Roles name</strong> field, enter role name, for example "CredentialRole". </p>
-<p><a href="../images/cb_aws_role6.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role6.png" width="650" title="IAM Console"></a> </p>
+<p>In the <strong>Roles name</strong> field, enter role name, for example "CredentialRole".</p>
+<p><a href="../images/cb_aws_role6.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws_role6.png" width="650" title="IAM Console"></a></p>
 </li>
 <li>
-<p>When done, click <strong>Create role</strong> to finish the role creation process. </p>
+<p>When done, click <strong>Create role</strong> to finish the role creation process.</p>
 </li>
 </ol>
 <p>Once you are done, you can proceed to launch Cloudbreak.  </p>
