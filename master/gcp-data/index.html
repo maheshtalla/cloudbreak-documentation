@@ -702,6 +702,7 @@
 <p>Under <strong>Service Account Email Address</strong> provide the email for your GCS storage account.  </p>
 </li>
 </ol>
+<p>Once your cluster is in the running state, you should be able to access buckets that the configured storage account has access to.  </p>
 <h3 id="testing-access-to-gcs">Testing access to GCS</h3>
 <p>Test access to the Google Cloud Storage bucket by running a few commands from any cluster node. For example, you can use the command listed below (replace “mytestbucket” with the name of your bucket):</p>
 <pre>hadoop fs -ls gs://my-test-bucket/</pre>
