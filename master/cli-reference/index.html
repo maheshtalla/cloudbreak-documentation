@@ -504,12 +504,6 @@
         
             
 <li >
-    <a href="../trouble-export-logs/index.html">Export logs for support case troubleshooting</a>
-</li>
-
-        
-            
-<li >
     <a href="../trouble-cb-logs/index.html">Cloudbreak logs</a>
 </li>
 
@@ -635,7 +629,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../trouble-export-logs/index.html">
+                        <a rel="prev" href="../trouble-cb-logs/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -1285,7 +1279,7 @@
 <strong><code>--profile &lt;value&gt;</code></strong>  Selects a config profile to use [$CB_PROFILE]<br />
 <strong><code>--auth-type &lt;value&gt;</code></strong>  Authentication method to use. Values: oauth2, basic [$CB_AUTH_TYPE]   </p>
 <p><strong>Examples</strong></p>
-<pre>cb cluster repair --name test1234</pre>
+<pre>cb cluster repair --name test1234 --host-groups master,worker</pre>
 
 <hr />
 <h4 id="cluster-retry">cluster retry</h4>
