@@ -932,7 +932,8 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 <li><a href="#create-role-based-credential">Create role-based credential</a></li>
 </ul>
 <h4 id="create-key-based-credential">Create key-based credential</h4>
-<p>To perform these steps, you must know your access and secret key. If needed, you or your AWS administrator can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong> &gt; select a user &gt; <strong>Security credentials</strong>. </p>
+<p>To perform these steps, you must know your access and secret key. If needed, you or your AWS administrator can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong> &gt; select a user &gt; <strong>Security credentials</strong>:</p>
+<p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a>  </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -987,7 +988,10 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 </li>
 </ol>
 <h4 id="create-role-based-credential">Create role-based credential</h4>
-<p>To perform these steps, you must know the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" (configured as a <a href="#authentication">prerequisite</a>).  </p>
+<p>To perform these steps, you must know the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" (configured as a <a href="#authentication">prerequisite</a>). </p>
+<blockquote>
+<p>In case you have not created the CredentialRole yet, follow the steps in <a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a>.  </p>
+</blockquote>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -1034,7 +1038,7 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 </li>
 <li>
 <p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
-<p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloubdreak to <a href="../aws-create/index.html">create clusters</a>. </p>
+<p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to <a href="../aws-create/index.html">create clusters</a>. </p>
 </li>
 </ol>
 <div class="next">

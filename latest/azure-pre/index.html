@@ -668,9 +668,6 @@
             <li class="second-level"><a href="#azure-region">Azure region</a></li>
             
         
-            <li class="second-level"><a href="#azure-roles">Azure roles</a></li>
-            
-        
             <li class="second-level"><a href="#ssh-key-pair">SSH key pair</a></li>
             
         
@@ -688,20 +685,6 @@
 <p>Clusters created via Cloudbreak can be in the same or different region as Cloudbreak; when you launch a cluster, you select the region in which to launch it.</p>
 <p><strong>Related links</strong><br />
 <a href="https://azure.microsoft.com/en-us/regions/">Azure regions</a> (External)</p>
-<h3 id="azure-roles">Azure roles</h3>
-<p>In order to provision clusters on Azure, Cloudbreak must be able to assume a sufficient Azure role ("Owner" or "Contributor") via Cloudbreak credential:</p>
-<ul>
-<li>
-<p>Your account must have the "<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Owner</a>" role (or a role with equivalent permissions) in the subscription in order to <a href="#create-cloudbreak-credential">create a Cloudbreak credential</a> using the interactive credential method.</p>
-</li>
-<li>
-<p>Your account must have the "<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Contributor</a>" role (or a role with equivalent permissions) in the subscription in order to <a href="#create-cloudbreak-credential">create a Cloudbreak credential</a> using the app-based credential method. The role must be assigned to the app that you register in Cloudbreak.</p>
-</li>
-</ul>
-<p>To check the roles in your subscription, log in to your Azure account and navigate to <strong>Subscriptions</strong>.</p>
-<p><strong>Related links</strong><br />
-<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#owner">Built-in roles: Owner</a> (External)<br />
-<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Built-in roles: Contributor</a> (External)</p>
 <h3 id="ssh-key-pair">SSH key pair</h3>
 <p>When launching Cloudbreak, you will be required to provide your public SSH key. If needed, you can generate a new SSH key pair:</p>
 <ul>
