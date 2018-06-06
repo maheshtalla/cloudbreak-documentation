@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/cb-db/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/azure-data-adls/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Configure external Cloudbreak database - Cloudbreak</title>
+    <title>Configure access to ADLS - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -169,7 +169,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -204,8 +204,8 @@
 
                         
                             
-<li >
-    <a href="../azure-data-adls/index.html">Configure access to ADLS</a>
+<li class="active">
+    <a href="index.html">Configure access to ADLS</a>
 </li>
 
                         
@@ -304,7 +304,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -443,8 +443,8 @@
 
         
             
-<li class="active">
-    <a href="index.html">Configure external Cloudbreak database</a>
+<li >
+    <a href="../cb-db/index.html">Configure external Cloudbreak database</a>
 </li>
 
         
@@ -630,12 +630,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../security-cb-customdom/index.html">
+                        <a rel="next" href="../azure-clusters-manage/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../cb-disable-provider/index.html">
+                        <a rel="prev" href="../azure-data-wasb/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -660,12 +660,18 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#configuring-external-cloudbreak-database">Configuring external Cloudbreak database</a></li>
+        <li class="first-level active"><a href="#configuring-access-to-adls">Configuring access to ADLS</a></li>
         
-            <li class="second-level"><a href="#supported-databases">Supported databases</a></li>
+            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
             
         
-            <li class="second-level"><a href="#configure-external-cloudbreak-database">Configure external Cloudbreak database</a></li>
+            <li class="second-level"><a href="#configure-access-to-adls">Configure access to ADLS</a></li>
+            
+        
+            <li class="second-level"><a href="#test-access-to-adls">Test access to ADLS</a></li>
+            
+        
+            <li class="second-level"><a href="#configure-adls-storage-locations">Configure ADLS storage locations</a></li>
             
         
     
@@ -673,93 +679,75 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="configuring-external-cloudbreak-database">Configuring external Cloudbreak database</h2>
-<p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, we suggest that you configure an external database. </p>
-<h3 id="supported-databases">Supported databases</h3>
-<p>An embedded PostgreSQL 9.6.1 database is used by Cloudbreak by default. If you would like to
-use an external database for Cloudbreak, you may use the following supported database types and versions: </p>
-<table>
-<thead>
-<tr>
-<th>Database type</th>
-<th>Supported version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>External PostgreSQL</td>
-<td>9.6.1 or above</td>
-</tr>
-<tr>
-<td>External MySQL</td>
-<td>Not supported</td>
-</tr>
-<tr>
-<td>External MariaDB</td>
-<td>Not supported</td>
-</tr>
-<tr>
-<td>External Oracle</td>
-<td>Not supported</td>
-</tr>
-<tr>
-<td>External SQL Server</td>
-<td>Not supported</td>
-</tr>
-</tbody>
-</table>
-<h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
-<p>The following section describes how to use Cloudbreak with an existing external database, other than
-the embedded PostgreSQL database instance that Cloudbreak uses by default. To configure an external PostgreSQL database for Cloudbreak, perform these steps. </p>
+<h2 id="configuring-access-to-adls">Configuring access to ADLS</h2>
+<p>Hortonworks Data Platform (HDP) supports reading and writing block blobs and page blobs from and to <em>Windows Azure Storage Blob (WASB)</em> object store, as well as reading and writing files stored in an <em>Azure Data Lake Storage (ADLS)</em> account. </p>
+<p><a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store (ADLS)</a> is an enterprise-wide hyper-scale repository for big data analytic workloads. ADLS is not supported as a default file system, but access to data in ADLS is possible via the adl connector. </p>
+<p>These steps assume that you are using an HDP version that supports the adl cloud storage connector (HDP 2.6.1 or newer).  </p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>If you would like to use ADLS to store your data, you must enable Azure subscription for Data Lake Store, and then create an Azure Data Lake Store <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">storage account</a>.</p>
+<h4 id="configure-access-to-adls">Configure access to ADLS</h4>
+<p>To configure authentication with ADLS using the client credential, you must register a new application with Active Directory service and then give your application access to your ADL account. After you've performed these steps, you can provide your application's information when creating a cluster. </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>On your Cloudbreak host machine, set the following environment variables according to the settings of your external database: </p>
-<p><pre><small>export DATABASE_HOST=my.database.host
-export DATABASE_PORT=5432
-export DATABASE_USERNAME=admin
-export DATABASE_PASSWORD=Admin123!
-</small></pre></p>
+<p>Register an application and add it to the ADLS account, as described in <em>Step 1</em> and <em>Step 2</em> of <a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to configure authentication with ADLS</a>. </p>
+<blockquote>
+<p>Do not perform the <em>Step 3</em> described in this article. Cloudbreak automates this step.  </p>
+</blockquote>
 </li>
 <li>
-<p>On your external database, create three databases: <code>cbdb, uaadb, periscopedb</code>. You can create these databases using the <code>createdb</code> utility with the following commands:</p>
-<p><pre><small>createdb -h $DATABASE_HOST -p $DATABASE_PORT -U $DATABASE_USERNAME cbdb
-createdb -h $DATABASE_HOST -p $DATABASE_PORT -U $DATABASE_USERNAME uaadb
-createdb -h $DATABASE_HOST -p $DATABASE_PORT -U $DATABASE_USERNAME periscopedb</small></pre></p>
-<p>For more information refer to the <a href="https://www.postgresql.org/docs/9.6/static/app-createdb.html">PostgreSQL documentation</a>. <br />
-Alternatively, you can log in to the management interface of your external database and execute <a href="https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html">create database</a> commands directly. </p>
+<p>In Cloudbreak web UI, on the advaned <strong>Cloud Storage</strong> page of the create a cluster wizard, select <strong>Use existing ADLS storage</strong>.</p>
 </li>
 <li>
-<p>Set the following variables in your Cloudbreak Profile file. Modify the database parameters according to your external database.</p>
-<p><pre><small>export DATABASE_HOST=my.database.host
-export DATABASE_PORT=5432
-export DATABASE_USERNAME=admin
-export DATABASE_PASSWORD=Admin123!</p>
-<p>export CB_DB_PORT_5432_TCP_ADDR=$DATABASE_HOST
-export CB_DB_PORT_5432_TCP_PORT=$DATABASE_PORT
-export CB_DB_ENV_USER=$DATABASE_USERNAME
-export CB_DB_ENV_PASS=$DATABASE_PASSWORD
-export CB_DB_ENV_DB=cbdb</p>
-<p>export PERISCOPE_DB_TCP_ADDR=$DATABASE_HOST
-export PERISCOPE_DB_TCP_PORT=$DATABASE_PORT
-export PERISCOPE_DB_USER=$DATABASE_USERNAME
-export PERISCOPE_DB_PASS=$DATABASE_PASSWORD
-export PERISCOPE_DB_NAME=periscopedb
-export PERISCOPE_DB_SCHEMA_NAME=public</p>
-<p>export IDENTITY_DB_URL=$DATABASE_HOST:$DATABASE_PORT
-export IDENTITY_DB_USER=$DATABASE_USERNAME
-export IDENTITY_DB_PASS=$DATABASE_PASSWORD
-export IDENTITY_DB_NAME=uaadb</small></pre></p>
-</li>
-<li>
-<p>Restart Cloudbreak application by using the <code>cbd restart</code> command. </p>
+<p>Provide the following parameters for your registered application:    </p>
+<ul>
+<li><strong>ADLS Account Name</strong>: This is the ADL account that your application was assigned to.    </li>
+<li><strong>Application ID</strong>: You can find it in your application's settings. </li>
+<li><strong>Key</strong>: This is the key that you generated for your application. If you did not copy the it, you must create a new key from the Keys page in your application's settings.   </li>
+</ul>
 </li>
 </ol>
-<p>After performing these steps, your external database will be used for Cloudbreak instead of the built-in database. </p>
-<div class="note">      
-<p class="first admonition-title">Data migration</p>  
-<p class="last"> If you want to migrate your existing data (such as  blueprints, recipes, and so on) from the embedded database to the external one, then after completing these steps, you should also  <a href="../cb-migrate/#back-up-cloudbreak-database">create a backup</a> of your original database and then <a href="../cb-migrate#populate-database-with-dump-from-original-cloudbreak-instance">restore</a> it in the external database.         
-</p>        
+<p>Once your cluster is in the running state, you will be able to access the Azure blob storage account from the cluster nodes. </p>
+<h4 id="test-access-to-adls">Test access to ADLS</h4>
+<p>To tests access to ADLS, SSH to a cluster node and run a few hadoop fs shell commands against your existing ADLS account.</p>
+<p>ADLS access path syntax is:</p>
+<pre>adl://<b>account_name</b>.azuredatalakestore.net/<b>dir/file</b></pre>
+
+<p>For example, the following Hadoop FileSystem shell commands demonstrate access to a storage account named "myaccount":</p>
+<pre>hadoop fs -mkdir adl://myaccount.azuredatalakestore.net/testdir</pre>
+
+<pre>hadoop fs -put testfile adl://myaccount.azuredatalakestore.net/testdir/testfile</pre>
+
+<p>To use DistCp against ADLS, use the following syntax:
+<pre>hadoop distcp
+    [-D hadoop.security.credential.provider.path=localjceks://file/home/user/adls.jceks]
+    hdfs://<b>namenode_hostname</b>:9001/user/foo/007020615
+    adl://<b>myaccount</b>.azuredatalakestore.net/testDir/</pre></p>
+<p>For more information about configuring the ADLS connector and working with data stored in ADLS, refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.5/bk_cloud-data-access/content/about.html">Cloud Data Access</a> documentation.</p>
+<p><strong>Related links</strong> <br />
+<a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_cloud-data-access/content/about.html">Cloud Data Access</a> (Hortonworks)<br />
+<a href="https://community.hortonworks.com/articles/105994/how-to-configure-authentication-with-adls.html">How to configure authentication with ADLS</a> (Hortonworks)<br />
+<a href="https://azure.microsoft.com/en-in/services/data-lake-store/">Azure Data Lake Store</a> (External)   <br />
+<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account">Create a storage account</a> (External)   <br />
+<a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal">Get started with Azure Data Lake Store</a> (External)  </p>
+<h4 id="configure-adls-storage-locations">Configure ADLS storage locations</h4>
+<p>After configuring access to ADLS, you can optionally use that ADLS storage account as a base storage location; this storage location is mainly for the Hive Warehouse Directory (used for storing the table data for managed tables).   </p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>When creating a cluster, on the <strong>Cloud Storage</strong> page in the advanced cluster wizard view, select <strong>Use existing ADLS storage</strong> and select the instance profile to use, as described in <a href="#configure-access-to-adls">Configure access to ADLS</a>.    </li>
+<li>Under <strong>Storage Locations</strong>, enable <strong>Configure Storage Locations</strong> by clicking the <img src="../images/cb_toggle.png" alt="On"/> button.   </li>
+<li>
+<p>Provide your existing directory name under <strong>Base Storage Location</strong>. </p>
+<blockquote>
+<p>Make sure that the directory exists within the account.</p>
+</blockquote>
+</li>
+<li>
+<p>Under <strong>Path for Hive Warehouse Directory property (hive.metastore.warehouse.dir)</strong>, Cloudbreak automatically suggests a location within the bucket. For example, if the directory that you specified is <code>my-test-dir</code> then the suggested location will be <code>my-test-adls-account.azuredatalakestore.net/my-test-dir/apps/hive/warehouse</code>. You may optionally update this path.        </p>
+</li>
+</ol>
+<div class="next">
+<a href="../azure-data-wasb/index.html">Next: Configure access to WASB</a>
 </div></div>
         
     </div>
