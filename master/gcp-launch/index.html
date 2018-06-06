@@ -664,8 +664,6 @@
         
             <li class="second-level"><a href="#quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</a></li>
             
-                <li class="third-level"><a href="#launch-from-dm-template">Launch from DM template</a></li>
-            
         
             <li class="second-level"><a href="#production-launch-cloudbreak-on-your-own-vm">(Production) Launch Cloudbreak on your own VM</a></li>
             
@@ -690,14 +688,31 @@
 </ul>
 <p>The steps below describe how to launch Cloudbreak by using one of the two available deployment options (quickstart and production), access Cloudbreak web UI, and create a Cloudbreak credential.</p>
 <h3 id="quickstart-launch-cloudbreak-from-a-template">(Quickstart) Launch Cloudbreak from a template</h3>
-<h4 id="launch-from-dm-template">Launch from DM template</h4>
 <p>Follow these steps to launch Cloudbreak on Google Cloud by using the Cloud Deployer Manager. </p>
-<p><strong>Steps</strong></p>
+<p><strong>Prerequisites</strong></p>
 <ol>
 <li>
 <p>In order to use the Cloud Deployment Manager, you must install the Google Cloud SDK on your machine. The SDK contains the gcloud CLI tool, which is used to deploy Cloudbreak. </p>
-<p>For instructions, refer to <a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> in the Google Cloud documentation. Make sure to perform all of the steps and validate that the <code>gcloud</code> command works on your computer. Only after validating, proceed to the next step.     </p>
+<p>For instructions, refer to <a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> in the Google Cloud documentation. Make sure to perform all of the steps and validate that the <code>gcloud</code> command works on your computer. Only after validating, proceed to the next step.  </p>
 </li>
+<li>
+<p>Enable the <strong>Compute Engine API</strong> and the <strong>Cloud Runtime Configuration API</strong> services. </p>
+<p>To enable these, from services menu, select <strong>APIs &amp; Services</strong>. Next, click on <strong>ENABLE APIS AND SERVICES</strong>, type each service name in the filter, and enable it.    </p>
+</li>
+<li>
+<p>Create a service account that has read and write permissions to:</p>
+<ul>
+<li>Compute Image    </li>
+<li>Compute Instance  </li>
+<li>Compute Network  </li>
+<li>Compute Security  </li>
+<li>Cloud RuntimeConfig. </li>
+</ul>
+<p>The service account email needs to specified in the config.yaml (or in the gcloud command) as a property.     </p>
+</li>
+</ol>
+<p><strong>Steps</strong>       </p>
+<ol>
 <li>
 <p>Log in to GitHub (https://github.com/).  </p>
 </li>
@@ -755,6 +770,11 @@
 <td>user_password</td>
 <td>Enter the password that you would like to use to log in to Cloudbreak.</td>
 <td>cloudbreak</td>
+</tr>
+<tr>
+<td>service_account_email</td>
+<td>The email for the service account created in prerequisites.</td>
+<td>...</td>
 </tr>
 </tbody>
 </table>
