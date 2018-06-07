@@ -847,8 +847,8 @@ cbd start</pre></p>
 <h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
 <p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, we suggest that you <a href="../cb-db/index.html">configure an external database</a>.</p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
-<p>Before you can start creating clusters, you must first create a <a href="../architecture/index.html#cloudbreak-credential">Cloudbreak credential</a>. Without this credential, you will not be able to create clusters via Cloudbreak. </p>
-<p>As part of the <a href="#authentication">prerequisites</a>, you had two options to allow Cloudbreak to authenticate with AWS and create resources on your behalf: key-based or role-based authentication. Depending on your choice, you must configure a key-based or role-based credential: </p>
+<p>Before you can start creating clusters, you must first create a <a href="../concepts/index.html#cloudbreak-credential">Cloudbreak credential</a>. Without this credential, you will not be able to create clusters via Cloudbreak. </p>
+<p>As part of the <a href="../aws-pre/index.html#authentication">prerequisites</a>, you had two options to allow Cloudbreak to authenticate with AWS and create resources on your behalf: key-based or role-based authentication. Depending on your choice, you must configure a key-based or role-based credential: </p>
 <ul>
 <li><a href="#create-key-based-credential">Create key-based credential</a>  </li>
 <li><a href="#create-role-based-credential">Create role-based credential</a></li>
@@ -911,7 +911,7 @@ cbd start</pre></p>
 </li>
 </ol>
 <h4 id="create-role-based-credential">Create role-based credential</h4>
-<p>To perform these steps, you must know the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" (configured as a <a href="#authentication">prerequisite</a>). </p>
+<p>To perform these steps, you must know the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" (configured as a <a href="#authentication">aws-pre.md#prerequisite</a>). </p>
 <blockquote>
 <p>In case you have not created the CredentialRole yet, follow the steps in <a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a>.  </p>
 </blockquote>
