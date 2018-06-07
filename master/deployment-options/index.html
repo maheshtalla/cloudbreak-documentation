@@ -669,23 +669,42 @@
 </ul>
 <h3 id="quickstart-option-for-aws">Quickstart option for AWS</h3>
 <p>The quickstart option allows you to instantiate Cloudbreak by using the CloudFormation template. This is the basic deployment option and the easiest to get started with. This option:</p>
-<ul>
-<li>
-<p>Uses <a href="https://aws.amazon.com/documentation/cloudformation/">AWS CloudFormation</a> to create and manage a collection of related AWS resources. Cloudbreak is launched by using the CloudFormation template.  </p>
-</li>
-<li>
-<p>Automatically provisions a new VM that runs Amazon Linux, installs Docker, and launches Cloudbreak. <a href="https://aws.amazon.com/documentation/ec2/">Amazon EC2</a> is used to launch a virtual machine for Cloudbreak. Security groups are used to control the inbound and outbound traffic to and from the Cloudbreak instance. </p>
-</li>
-<li>
-<p>Provisions a new VPC and subnet, and launches the Cloudbreak VM within it. <a href="https://aws.amazon.com/documentation/vpc/">Amazon VPC</a> is used to provision your own dedicated virtual network and launch resources into that network. As part of VPC infrastructure, an internet gateway and a route table are provisioned: An internet gateway is used to enable outbound access to the internet from the control plane and the clusters, and a route table is used to connect the subnet to the internet gateway. For more information on Amazon VPC architecture, refer to <a href="https://docs.aws.amazon.com/AmazonVPC/latest/GettingStartedGuide/ExerciseOverview.html">Amazon VPC documentation</a>.    </p>
-</li>
-<li>
-<p>Provisions the CloudbreakRole IAM role (for role-based authentication). <a href="https://aws.amazon.com/documentation/iam/">AWS Identity &amp; Access Management</a> is used to control access to AWS services and resources.   </p>
-</li>
-<li>
-<p><a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>, a utility service for running code in AWS, is used when deploying Cloudbreak.  </p>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+<th>How it is used by Cloudbreak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://aws.amazon.com/documentation/cloudformation/">AWS CloudFormation</a></td>
+<td>AWS CloudFormation is used to create and manage a collection of related AWS resources.</td>
+<td>Cloudbreak is launched by using a CloudFormation template.</td>
+</tr>
+<tr>
+<td><a href="https://aws.amazon.com/documentation/ec2/">Amazon EC2</a></td>
+<td>Amazon EC2 is used to launch a virtual machine for Cloudbreak. Security groups are used to control the inbound and outbound traffic to and from the Cloudbreak instance.</td>
+<td>Cloudbreak automatically provisions a new VM that runs Amazon Linux, installs Docker, and launches Cloudbreak.</td>
+</tr>
+<tr>
+<td><a href="https://aws.amazon.com/documentation/vpc/">Amazon VPC</a></td>
+<td><a href="https://aws.amazon.com/documentation/vpc/">Amazon VPC</a> is used to provision your own dedicated virtual network and launch resources into that network. As part of VPC infrastructure, an internet gateway and a route table are provisioned: An internet gateway is used to enable outbound access to the internet from the control plane and the clusters, and a route table is used to connect the subnet to the internet gateway.</td>
+<td>Cloudbreak provisions a new VPC and subnet, and launches the Cloudbreak VM within it.</td>
+</tr>
+<tr>
+<td><a href="https://aws.amazon.com/documentation/iam/">AWS IAM</a></td>
+<td>AWS Identity &amp; Access Management (IAM) is used to control access to AWS services and resources.</td>
+<td>Cloudbreak provisions the CloudbreakRole IAM role (for role-based authentication).</td>
+</tr>
+<tr>
+<td><a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a></td>
+<td>This is a utility service for running code in AWS.</td>
+<td>Cloudbreak uses AWS Lambda is for running code when deploying Cloudbreak.</td>
+</tr>
+</tbody>
+</table>
 <p>To launch Cloudbreak on AWS by using the quickstart option, refer to <a href="../aws-quick/index.html">Launch Cloubreak from template (AWS)</a>.   </p>
 <h3 id="quickstart-option-for-azure">Quickstart option for Azure</h3>
 <p>The quickstart option allows you to instantiate Cloudbreak by using Azure Resource Manager (ARM) template. </p>
@@ -711,8 +730,15 @@
 <li>Requires you to install Docker  </li>
 <li>Requires you to download the cbd tarball, extract it, and configure Cloudbreak deployer  </li>
 </ul>
+<p>To get started with the production option, refer to the instructions for your cloud platform:</p>
+<ul>
+<li><a href="../aws-launch/index.html">Launch on AWS</a>   </li>
+<li><a href="../azure-launch/index.html">Launch on Azure</a>   </li>
+<li><a href="../gcp-launch/index.html">Launch on GCP</a>  </li>
+<li><a href="../os-launch/index.html">Launch on OpenStack</a> </li>
+</ul>
 <h3 id="deployment-on-openstack">Deployment on OpenStack</h3>
-<p>You must launch Cloudbreak on OpenStack manually by installing Cloudbreak deployer on your own VM (the production option). There is no available quickstart option.</p></div>
+<p>You must launch Cloudbreak on OpenStack manually by installing Cloudbreak deployer on your own VM (the production option). There is no available quickstart option. For production steps, refer to <a href="../os-launch/index.html">Launch on OpenStack</a>.   </p></div>
         
     </div>
 
