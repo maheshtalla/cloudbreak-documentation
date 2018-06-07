@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/hive/index.html"> 
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <title>Using Hive - Cloudbreak</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+
+
+    <link href="../css/extra.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-22950817-24', 'auto');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../index.html">Cloudbreak</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Intro <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../index.html">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../architecture/index.html">Architecture</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../concepts/index.html">Core concepts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../deployment-options/index.html">Deployment options</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../security/index.html">Security overview</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quickstart <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../aws-quick/index.html">Quickstart on AWS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-quick/index.html">Quickstart on Azure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-quick/index.html">Quickstart on GCP</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AWS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../aws-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-launch/index.html">Launch on AWS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../aws-data/index.html">Configure access to S3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Azure <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../azure-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-launch/index.html">Launch on Azure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-data-adls/index.html">Configure access to ADLS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-data-wasb/index.html">Configure access to WASB</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../gcp-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-launch/index.html">Launch on GCP</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gcp-data/index.html">Configure access to GCS</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenStack <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../os-pre/index.html">Prerequisites</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-launch/index.html">Launch on OpenStack</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../os-create/index.html">Create a cluster</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../clusters-access/index.html">Access cluster</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../clusters-manage/index.html">Manage cluster</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="index.html">Using Hive</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Advanced cluster options</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../gateway/index.html">Configure the gateway</a>
+</li>
+
+        
+            
+<li >
+    <a href="../blueprints/index.html">Use custom blueprints</a>
+</li>
+
+        
+            
+<li >
+    <a href="../recipes/index.html">Use custom scripts (recipes)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mpacks/index.html">Use management packs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../images/index.html">Use custom images</a>
+</li>
+
+        
+            
+<li >
+    <a href="../tags/index.html">Tag resources</a>
+</li>
+
+        
+            
+<li >
+    <a href="../properties/index.html">Set custom properties</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-kerberos/index.html">Enable Kerberos security</a>
+</li>
+
+        
+            
+<li >
+    <a href="../autoscaling/index.html">Configure autoscaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-db/index.html">Register external database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-ldap/index.html">Register external authentication source</a>
+</li>
+
+        
+            
+<li >
+    <a href="../external-proxy/index.html">Register proxy configuration</a>
+</li>
+
+        
+            
+<li >
+    <a href="../hostnames/index.html">Use custom hostnames based on DNS</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Advanced Cloudbreak options</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../cb-credentials/index.html">Manage Cloudbreak credentials</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-migrate/index.html">Move Cloudbreak instance</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-ldap/index.html">Configure LDAP/AD authentication for Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-ssl/index.html">Add SSL certificate for Cloudbreak UI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-proxy/index.html">Configure outbound internet access and proxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-inbound/index.html">Restrict inbound access to clusters</a>
+</li>
+
+        
+            
+<li >
+    <a href="../security-cb-customdom/index.html">Configure access from custom domains</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-db/index.html">Configure external Cloudbreak database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-disable-provider/index.html">Disable providers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-ports/index.html">Change default Cloudbreak ports</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cb-profile/index.html">Modify settings in Cloudbreak Profile</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Cloudbreak CLI</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../cli-install/index.html">Install the CLI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cli-get-started/index.html">Get started with the CLI</a>
+</li>
+
+        
+            
+<li >
+    <a href="../cli-reference/index.html">CLI Reference</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Troubleshooting</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../trouble-cb-logs/index.html">Cloudbreak logs</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-cb/index.html">Troubleshooting Cloudbreak</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-cluster/index.html">Troubleshooting cluster creation</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-aws/index.html">Troubleshooting AWS</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-azure/index.html">Troubleshooting Azure</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-gcp/index.html">Troubleshooting GCP</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trouble-cli/index.html">Troubleshooting Cloudbreak CLI</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../cb-upgrade/index.html">Upgrade Cloudbreak</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cb-delete/index.html">Delete Cloudbreak</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../releasenotes/index.html">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/index.html">FAQs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../dev/index.html">Developer documentation links</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../get-help/index.html">Getting help</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../smartsense/index.html">SmartSense telemetry</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Legal</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../acknowledge/index.html">Acknowledgements</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li >
+                        <a rel="next" href="../clusters-manage/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../gateway/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/hortonworks/cloudbreak-documentation">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#using-hive">Using Hive</a></li>
+        
+            <li class="second-level"><a href="#accessing-hive-via-jdbc">Accessing Hive via JDBC</a></li>
+            
+                <li class="third-level"><a href="#download-ssl-certificate">Download SSL Certificate</a></li>
+            
+                <li class="third-level"><a href="#example-sql-workbenchj">Example: SQL Workbench/J</a></li>
+            
+                <li class="third-level"><a href="#example-tableau">Example: Tableau</a></li>
+            
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="using-hive">Using Hive</h2>
+<p>Refer to this documentation if you are using Hive with  Cloudbreak-managed clusters.  </p>
+<h3 id="accessing-hive-via-jdbc">Accessing Hive via JDBC</h3>
+<p>Hive can be accessed via JDBC through the <a href="../gateway/index.html">gateway</a> that is automatically installed and configured in your cluster. If your cluster configuration includes Hive LLAP, then Hive LLAP is configured with the gateway; otherwise, HiveServer2 is configured. In either case, the transport mode is “http” and the gateway path to Hive is <code>"${CLUSTER_NAME}/${TOPOLOGY-NAME}/hive"</code> (for example "test-cluster/db-proxy/hive").</p>
+<p>Before you can start using Hive JDBC, you must download the SSL certificate to your truststore. After downloading the SSL certificate, the Hive JDBC endpoint is:</p>
+<pre><code>jdbc:hive2://{GATEWAY_HOST}:8443/;ssl=true;sslTrustStore=gateway.jks;trustStorePassword={GATEWAY_JKS_PASSWORD};transportMode=http;httpPath={CLUSTER_NAME}/{TOPOLOGY_NAME}/hive
+</code></pre>
+<h4 id="download-ssl-certificate">Download SSL Certificate</h4>
+<p>By default, the gateway has been configured with a <em>self-signed certificate</em> to protect the Hive endpoint via SSL. Therefore, in order to use Hive via JDBC or Beeline client, you <em>must download the SSL certificate</em> from the <a href="../gateway/index.html">gateway</a> and add it to your truststore.</p>
+<p>On <strong>Linux or OSX</strong>, you can download the self-signed SSL certificate by using the following commands:</p>
+<pre><code>export GATEWAY_HOST=IP_OF_GATEWAY_NODE
+export GATEWAY_JKS_PASSWORD=GATEWAY_PASSWORD
+openssl s_client -servername ${GATEWAY_HOSTNAME} -connect ${GATEWAY_ADDRESS}:443 -showcerts &lt;/dev/null | openssl x509 -outform PEM &gt; gateway.pem
+keytool -import -alias gateway-identity -file gateway.pem -keystore gateway.jks -storepass ${GATEWAY_JKS_PASSWORD}
+</code></pre>
+<p><small>Where:<br>
+GATEWAY_HOST - Set this to the IP address of the instance on which gateway is running (Ambari server node).<br>
+GATEWAY_JKS_PASSWORD - Create a password for the truststore that will hold the <em>self-signed certificate</em>. The password must be at least 6 characters long.</small></p>
+<p>For example:</p>
+<pre><code>export GATEWAY_HOST=2-52-86-252-73
+export GATEWAY_JKS_PASSWORD=Hdcjks123!
+openssl s_client -servername ${GATEWAY_HOST} -connect ${GATEWAY_HOST}:443 -showcerts &lt;/dev/null | openssl x509 -outform PEM &gt; gateway.pem
+keytool -import -alias gateway-identity -file gateway.pem -keystore gateway.jks -storepass ${GATEWAY_JKS_PASSWORD}
+</code></pre>
+<p>After executing these commands, <strong>gateway.pem</strong> and <strong>gateway.jks</strong> files will be downloaded onto your computer to the location where you ran the commands.</p>
+<p>Here are two examples of using tools to connect to Hive via JDBC:</p>
+<ul>
+<li><a href="#example-sql-workbenchj">SQL Workbench/J</a></li>
+<li><a href="#example-tableau">Tableau</a></li>
+</ul>
+<h4 id="example-sql-workbenchj">Example: SQL Workbench/J</h4>
+<p><a href="http://www.sql-workbench.net/">SQL Workbench/J</a> is a cross-platform SQL tool that can be used to access database systems. In this example, we will provide a high-level overview of the steps required to setup SQL Workbench to access Hive via JDBC.</p>
+<p><strong>Prerequisite:</strong> <a href="#download-ssl-certificate">Download the SSL Certificate</a> </p>
+<p><strong>Step 1: Install SQL Workbench and Hive JDBC Driver</strong></p>
+<ol>
+<li>Download and install <em>SQL Workbench</em>. Refer to <a href="http://www.sql-workbench.net/getting-started.html" target="_blank">http://www.sql-workbench.net/getting-started.html</a>. </li>
+<li>Download the <em>Hortonworks JDBC Driver for Apache Hive</em> from <a href="https://hortonworks.com/downloads/#addons" target="_blank">https://hortonworks.com/downloads/#addons</a>. Next, extract the driver package.  </li>
+</ol>
+<p><strong>Step 2: Configure SQL Workbench with Hive JDBC Driver</strong></p>
+<ol>
+<li>Launch SQL Workbench. </li>
+<li>The <strong>Select Connection Profile</strong> window should be open by default. If it is not, you can open it from <strong>File</strong> &gt; <strong>Connect window</strong>.  </li>
+<li>Click <strong>Manage Drivers</strong>. The <strong>Manage drivers</strong> window will appear.</li>
+<li>Click <img src="../images/cb_sql-workbench-wb1.png" width="30"> to create a new driver, and enter the <strong>Name</strong>: “Hortonworks Hive JDBC”.</li>
+<li>Click <img src="../images/cb_sql-workbench-wb2.png"  width="35"> and then browse to the Hortonworks JDBC Driver for Apache Hive package that you downloaded earlier. Next, select the JDBC Driver JAR files in the package.</li>
+<li>When prompted, select the “com.simba.hive.jdbc41.HS2Driver” driver.  </li>
+<li>For the <strong>Sample URL</strong>, enter: <code>jdbc:hive2://${GATEWAY_HOST}:8443/</code>  </li>
+<li>
+<p>After performing these steps, your configuration should look similar to: </p>
+<p><a href="../images/cb_sql-workbench01.png" target="_blank" title="click to enlarge"><img src="../images/cb_sql-workbench01.png" width="650" title="SQL Workbench Configuration"></a> </p>
+</li>
+<li>
+<p>Click <strong>OK</strong> to save the driver.  </p>
+</li>
+</ol>
+<p><strong>Step 2: Create a Connection to Hive</strong></p>
+<ol>
+<li>From the <strong>Select Connection Profile</strong> window, select the “Hortonworks Hive JDBC" from the <strong>Driver</strong> dropdown.  </li>
+<li>For <strong>URL</strong> , enter the URL to the cluster instance where gateway is instlaled, such as <code>jdbc:hive2://52.52.98.57:8443/</code> (where <code>52.52.98.57</code> is the public hostname of your gateway node).  </li>
+<li>For <strong>Username</strong> and <strong>Password</strong>, enter the credentials that you created when creating your cluster.</li>
+<li>
+<p>Click <strong>Extended Properties</strong> and add the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ssl</td>
+<td><em>1</em></td>
+</tr>
+<tr>
+<td>transportMode</td>
+<td><em>http</em></td>
+</tr>
+<tr>
+<td>httpPath</td>
+<td>Provide <code>"${CLUSTER_NAME}/${TOPOLOGY-NAME}/hive"</code>. For example <code>hive-test/db-proxy/hive</code></td>
+</tr>
+<tr>
+<td>sslTrustStore</td>
+<td>Enter the path to the <strong>gateway.jks</strong> file. This file was generated when you <a href="#download-ssl-certificate">downloaded the SSL certificate</a>.</td>
+</tr>
+<tr>
+<td>trustStorePassword</td>
+<td>Enter the GATEWAY_JKS_PASSWORD that you specified when you <a href="#download-ssl-certificate">downloaded the SSL certificate</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>After performing these steps, your configuration should look similar to:</p>
+<p><a href="../images/cb_sql-workbench02.png" target="_blank" title="click to enlarge"><img src="../images/cb_sql-workbench02.png" width="650" title="SQL Workbench Configuration"></a> </p>
+</li>
+<li>
+<p>Click <strong>OK</strong> to save the properties.</p>
+</li>
+<li>Click <strong>Test</strong> to confirm a connection can be established.</li>
+<li>Click <strong>OK</strong> to make the connection and start using SQL Workbench to query Hive.</li>
+</ol>
+<h4 id="example-tableau">Example: Tableau</h4>
+<p><a href="https://www.tableau.com/">Tableau</a> is a business intelligence tool for interacting with and visualizing data via SQL. Connecting Tableau to Hive requires the use of an ODBC driver. In this example, we will provide high-level steps required to set up Tableau to access Hive.</p>
+<p><strong>Prerequisite:</strong> <a href="#download-ssl-certificate">Download the SSL Certificate</a>  </p>
+<p><strong>Step 1: Install ODBC Driver</strong></p>
+<ol>
+<li>Download the <em>Hortonworks ODBC Driver for Apache Hive</em> from <a href="https://hortonworks.com/downloads/#addons" target="_blank">https://hortonworks.com/downloads/#addons</a>.    2. Next, extract and install the driver.  </li>
+</ol>
+<p><strong>Step 2: Launch Tableau and Connect to Hive</strong></p>
+<ol>
+<li>Launch Tableau. If you do not already have Tableau, you can download a trial version from <a href="https://www.tableau.com/trial/download-tableau" target="_blank">https://www.tableau.com/trial/download-tableau</a>.</li>
+<li>
+<p>In Tableau, create a connection to a “Hortonworks Hadoop Hive” server. Enter the following:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server</td>
+<td>Enter the public hostname of your controller node instance.</td>
+</tr>
+<tr>
+<td>Port</td>
+<td><em>8443</em></td>
+</tr>
+<tr>
+<td>Type</td>
+<td><em>HiveServer2</em></td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td><em>Username and Password</em></td>
+</tr>
+<tr>
+<td>Transport</td>
+<td><em>HTTP</em></td>
+</tr>
+<tr>
+<td>Username</td>
+<td>Enter the cluster username created when creating your cluster</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Enter the cluster password created when creating your cluster</td>
+</tr>
+<tr>
+<td>HTTP Path</td>
+<td>Provide <code>"${CLUSTER_NAME}/${TOPOLOGY-NAME}/hive"</code>. For example <code>hive-test/db-proxy/hive</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Check the <strong>Require SSL</strong> checkbox.  </p>
+</li>
+<li>Click on the text underneath the checkbox to <strong>add a configuration file</strong> link.  </li>
+<li>
+<p>Specify to use a custom SSL certificate, and then browse to the SSL certificate <strong>gateway.pem</strong> file that was generated when you <a href="#download-ssl-certificate">downloaded the SSL certificate</a> as a prerequisite. </p>
+<p><a href="../images/cb_tableau01.png" target="_blank" title="click to enlarge"><img src="../images/cb_tableau01.png" width="375" title="Tableau Configuration"></a> </p>
+</li>
+<li>
+<p>Click <strong>OK</strong>.  </p>
+<p>After performing these steps, your configuration should look similar to:</p>
+<p><a href="../images/cb_tableau02.png" target="_blank" title="click to enlarge"><img src="../images/cb_tableau02.png" width="375" title="Tableau Configuration"></a> </p>
+</li>
+<li>
+<p>Click <strong>Sign In</strong> and you will be connected to Hive.  </p>
+</li>
+</ol></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>© 2011-2018 <a href="http://www.hortonworks.com" target="_blank">Hortonworks Inc</a>. All Rights Reserved. | <a href="http://hortonworks.com/privacy-policy/" target="_blank">Privacy Policy</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
