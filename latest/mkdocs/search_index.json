@@ -1332,13 +1332,13 @@
         }, 
         {
             "location": "/gateway/index.html", 
-            "text": "Configuring the Gateway\n\n\nTBD", 
-            "title": "Configure the Gateway"
+            "text": "Configuring the gateway\n\n\nTBD", 
+            "title": "Configure the gateway"
         }, 
         {
             "location": "/gateway/index.html#configuring-the-gateway", 
             "text": "TBD", 
-            "title": "Configuring the Gateway"
+            "title": "Configuring the gateway"
         }, 
         {
             "location": "/blueprints/index.html", 
