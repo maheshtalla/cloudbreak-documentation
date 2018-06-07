@@ -676,6 +676,7 @@
 </code></pre>
 <h4 id="download-ssl-certificate">Download SSL Certificate</h4>
 <p>By default, the gateway has been configured with a <em>self-signed certificate</em> to protect the Hive endpoint via SSL. Therefore, in order to use Hive via JDBC or Beeline client, you <em>must download the SSL certificate</em> from the <a href="../gateway/index.html">gateway</a> and add it to your truststore.</p>
+<p><strong>Steps</strong> </p>
 <p>On <strong>Linux or OSX</strong>, you can download the self-signed SSL certificate by using the following commands:</p>
 <pre><code>export GATEWAY_HOST=IP_OF_GATEWAY_NODE
 export GATEWAY_JKS_PASSWORD=GATEWAY_PASSWORD
@@ -694,8 +695,8 @@ keytool -import -alias gateway-identity -file gateway.pem -keystore gateway.jks 
 <p>After executing these commands, <strong>gateway.pem</strong> and <strong>gateway.jks</strong> files will be downloaded onto your computer to the location where you ran the commands.</p>
 <p>Here are two examples of using tools to connect to Hive via JDBC:</p>
 <ul>
-<li><a href="#example-sql-workbenchj">SQL Workbench/J</a></li>
-<li><a href="#example-tableau">Tableau</a></li>
+<li><a href="#example-sql-workbenchj">SQL Workbench/J</a>  </li>
+<li><a href="#example-tableau">Tableau</a>  </li>
 </ul>
 <h4 id="example-sql-workbenchj">Example: SQL Workbench/J</h4>
 <p><a href="http://www.sql-workbench.net/">SQL Workbench/J</a> is a cross-platform SQL tool that can be used to access database systems. In this example, we will provide a high-level overview of the steps required to setup SQL Workbench to access Hive via JDBC.</p>
