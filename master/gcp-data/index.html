@@ -698,7 +698,10 @@
 <li>When creating a cluster, on the <strong>Cloud Storage</strong> page in the advanced cluster wizard view, select <strong>Use existing GCS storage</strong> and select the existing service account, as described in <a href="#configure-access-to-gcs">Configure access to GCS</a>.    </li>
 <li>Under <strong>Storage Locations</strong>, enable <strong>Configure Storage Locations</strong> by clicking the <img src="../images/cb_toggle.png" alt="On"/> button.   </li>
 <li>Provide your existing bucket name under <strong>Base Storage Location</strong>.  </li>
-<li>Under <strong>Path for Hive Warehouse Directory property (hive.metastore.warehouse.dir)</strong>, Cloudbreak automatically suggests a location within the bucket. For example, if the bucket that you specified is <code>my-test-bucket</code> then the suggested location will be <code>my-test-bucket/apps/hive/warehouse</code>.  You may optionally update this path.        </li>
+<li>
+<p>Under <strong>Path for Hive Warehouse Directory property (hive.metastore.warehouse.dir)</strong>, Cloudbreak automatically suggests a location within the bucket. For example, if the bucket that you specified is <code>my-test-bucket</code> then the suggested location will be <code>my-test-bucket/apps/hive/warehouse</code>.  You may optionally update this path.        </p>
+<p>Cloudbreak automatically creates this directory structure in your bucket.  </p>
+</li>
 </ol></div>
         
     </div>
