@@ -659,17 +659,17 @@
     
         <li class="first-level active"><a href="#using-custom-blueprints">Using custom blueprints</a></li>
         
-            <li class="second-level"><a href="#creating-a-blueprint">Creating a blueprint</a></li>
+            <li class="second-level"><a href="#creating-blueprints">Creating blueprints</a></li>
             
         
-            <li class="second-level"><a href="#creating-a-dynamic-blueprint">Creating a dynamic blueprint</a></li>
+            <li class="second-level"><a href="#creating-dynamic-blueprints">Creating dynamic blueprints</a></li>
             
                 <li class="third-level"><a href="#external-authentication-source-ldapad">External authentication source (LDAP/AD)</a></li>
             
                 <li class="third-level"><a href="#external-database-rdbms">External database (RDBMS)</a></li>
             
         
-            <li class="second-level"><a href="#upload-a-blueprint">Upload a blueprint</a></li>
+            <li class="second-level"><a href="#upload-blueprints">Upload blueprints</a></li>
             
         
     
@@ -686,7 +686,7 @@
 <li><strong>Add your custom blueprint</strong> by uploading a JSON file or pasting the JSON text. </li>
 </ul>
 <p>We recommend that you review the default blueprints to check if they meet your requirements. You can do this by selecting <strong>Blueprints</strong> from the navigation pane in the Cloudbreak web UI or by reading the documentation below.</p>
-<h3 id="creating-a-blueprint">Creating a blueprint</h3>
+<h3 id="creating-blueprints">Creating blueprints</h3>
 <p>Ambari blueprints are specified in JSON format. A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, it includes  some hardcoded configurations such as domain names, memory configurations, and so on, that are not applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually. </p>
 <p>In general, the blueprint should include the following elements:</p>
 <pre>"Blueprints": {
@@ -746,7 +746,7 @@ For information on how to configure an external database and pass your external 
 <p><strong>Related links</strong><br />
 <a href="https://github.com/hortonworks/cloudbreak/tree/master/core/src/main/resources/defaults/blueprints">Blueprint examples</a> (Hortonworks)   <br />
 <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> (External)  </p>
-<h3 id="creating-a-dynamic-blueprint">Creating a dynamic blueprint</h3>
+<h3 id="creating-dynamic-blueprints">Creating dynamic blueprints</h3>
 <p>Cloudbreak allows you to create <a href="../concepts/index.html#dynamic-blueprints">dynamic blueprints</a>, which include templating: the values of the variables specified in the blueprint are dynamically replaced in the cluster creation phase, picking up the parameter values that you provided in the Cloudbreak UI or CLI.
 Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of templating with {{{variable}}} syntax. </p>
 <blockquote>
@@ -868,7 +868,7 @@ Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of t
 </tr>
 </tbody>
 </table>
-<h3 id="upload-a-blueprint">Upload a blueprint</h3>
+<h3 id="upload-blueprints">Upload blueprints</h3>
 <p>Once you have your blueprint ready, perform these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>

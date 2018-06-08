@@ -659,22 +659,22 @@
     
         <li class="first-level active"><a href="#deployment-options">Deployment options</a></li>
         
-            <li class="second-level"><a href="#deployment-option-cheatsheet">Deployment option cheatsheet</a></li>
+            <li class="second-level"><a href="#cloudbreak-deployment-options">Cloudbreak deployment options</a></li>
+            
+                <li class="third-level"><a href="#deployment-option-cheatsheet">Deployment option cheatsheet</a></li>
+            
+                <li class="third-level"><a href="#quickstart-option-for-aws">Quickstart option for AWS</a></li>
+            
+                <li class="third-level"><a href="#quickstart-option-for-azure">Quickstart option for Azure</a></li>
+            
+                <li class="third-level"><a href="#quickstart-option-for-gcp">Quickstart option for GCP</a></li>
+            
+                <li class="third-level"><a href="#production-deployment-option">Production deployment option</a></li>
+            
+                <li class="third-level"><a href="#deployment-on-openstack">Deployment on OpenStack</a></li>
             
         
-            <li class="second-level"><a href="#quickstart-option-for-aws">Quickstart option for AWS</a></li>
-            
-        
-            <li class="second-level"><a href="#quickstart-option-for-azure">Quickstart option for Azure</a></li>
-            
-        
-            <li class="second-level"><a href="#quickstart-option-for-gcp">Quickstart option for GCP</a></li>
-            
-        
-            <li class="second-level"><a href="#production-deployment-option">Production deployment option</a></li>
-            
-        
-            <li class="second-level"><a href="#deployment-on-openstack">Deployment on OpenStack</a></li>
+            <li class="second-level"><a href="#cluster-deployment-options">Cluster deployment options</a></li>
             
         
     
@@ -683,18 +683,19 @@
         <div class="col-md-9" role="main">
 
 <h2 id="deployment-options">Deployment options</h2>
+<h3 id="cloudbreak-deployment-options">Cloudbreak deployment options</h3>
 <p>In general, Cloudbreak offers a quickstart option, as well as a production deployment option:</p>
 <p><a href="../images/cb_deployment-options.png" target="_blank" title="click to enlarge"><img src="../images/cb_deployment-options.png" width="650" title="Cloudbreak deployment options"></a>  </p>
 <ul>
 <li>The <strong>quickstart option</strong> allows you to get started with Cloudbreak quickly, but offers limited flexibility. Use this option for getting started with Cloudbreak. This option is not suitable a production.        </li>
 <li>The <strong>production option</strong> is less automated, but offers more configurability. This option is recommended when your production environments. For more information about this option, refer to <a href="#production-deployment-option">Production deployment option</a>.</li>
 </ul>
-<h3 id="deployment-option-cheatsheet">Deployment option cheatsheet</h3>
+<h4 id="deployment-option-cheatsheet">Deployment option cheatsheet</h4>
 <p>The following table summarizes the available Cloudbreak deployment options:  </p>
 <p><a href="../images/cb_deployment-cheat.png" target="_blank" title="click to enlarge"><img src="../images/cb_deployment-cheat.png" width="650" title="Cloudbreak deployment options"></a></p>
 <p>The following operating systems are used when launching by using the quickstart option:</p>
 <p><a href="../images/cb_deployment-os.png" target="_blank" title="click to enlarge"><img src="../images/cb_deployment-os.png" width="650" title="Cloudbreak deployment options"></a> </p>
-<h3 id="quickstart-option-for-aws">Quickstart option for AWS</h3>
+<h4 id="quickstart-option-for-aws">Quickstart option for AWS</h4>
 <p>The quickstart option allows you to instantiate Cloudbreak by using the CloudFormation template. This is the basic deployment option and the easiest to get started with. </p>
 <p><a href="../images/cb_deployment-aws.png" target="_blank" title="click to enlarge"><img src="../images/cb_deployment-aws.png" width="650" title="Cloudbreak deployment options"></a> </p>
 <p>This option utilizes the following AWS services and provisions the following resources:</p>
@@ -735,7 +736,7 @@
 </tbody>
 </table>
 <p>To launch Cloudbreak on AWS by using the quickstart option, refer to <a href="../aws-quick/index.html">Launch Cloubreak from template (AWS)</a>.   </p>
-<h3 id="quickstart-option-for-azure">Quickstart option for Azure</h3>
+<h4 id="quickstart-option-for-azure">Quickstart option for Azure</h4>
 <p>The quickstart option allows you to instantiate Cloudbreak by using Azure Resource Manager (ARM) template. </p>
 <p>On Azure, resources are organized by using resource groups. When you launch Cloudbreak, you may either select to use an existing resource group or a new resource group is created. The following Azure resources are provisioned within the selected resource group:</p>
 <ul>
@@ -747,10 +748,10 @@
 <li><a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction">Blob storage container</a> is created to store Cloudbreak Deployer OS disk's data.  </li>
 </ul>
 <p>To launch Cloudbreak on Azure by using the quickstart option, refer to <a href="../azure-quick/index.html">Launch Cloubreak from template (Azure)</a>.</p>
-<h3 id="quickstart-option-for-gcp">Quickstart option for GCP</h3>
+<h4 id="quickstart-option-for-gcp">Quickstart option for GCP</h4>
 <p>Based on the Cloud Deployment Manager template, GCP automatically provisions a new VM that runs CentOS 7, installs Docker, and launches Cloudbreak. </p>
 <p>To launch Cloudbreak on GCP by using the quickstart option, refer to <a href="../gcp-quick/index.html">Launch Cloubreak from template (GCP)</a>.</p>
-<h3 id="production-deployment-option">Production deployment option</h3>
+<h4 id="production-deployment-option">Production deployment option</h4>
 <p>The option to install Cloudbreak deployer manually on your own VM is available for all cloud providers. </p>
 <p>This option:</p>
 <ul>
@@ -766,8 +767,19 @@
 <li><a href="../gcp-launch/index.html">Launch on GCP</a>  </li>
 <li><a href="../os-launch/index.html">Launch on OpenStack</a> </li>
 </ul>
-<h3 id="deployment-on-openstack">Deployment on OpenStack</h3>
-<p>You must launch Cloudbreak on OpenStack manually by installing Cloudbreak deployer on your own VM (the production option). There is no available quickstart option. For production steps, refer to <a href="../os-launch/index.html">Launch on OpenStack</a>.   </p></div>
+<h4 id="deployment-on-openstack">Deployment on OpenStack</h4>
+<p>You must launch Cloudbreak on OpenStack manually by installing Cloudbreak deployer on your own VM (the production option). There is no available quickstart option. For production steps, refer to <a href="../os-launch/index.html">Launch on OpenStack</a>.   </p>
+<h3 id="cluster-deployment-options">Cluster deployment options</h3>
+<p>On a basic level, Cloudbreak offers three cluster deployment options:</p>
+<ul>
+<li>Basic cluster deployment with prescriptive options  </li>
+<li>Advanced cluster deployment with customized options  </li>
+<li><a href="../data-lake/index.html">Enterprise cluster deployment</a> with a data lake and attached workload clusters: </li>
+</ul>
+<blockquote>
+<p>The data lake deployment option is technical preview.    </p>
+</blockquote>
+<p><a href="../images/cb_deployment-datalake.png" target="_blank" title="click to enlarge"><img src="../images/cb_deployment-datalake.png" width="650" title="Cluster deployment options"></a></p></div>
         
     </div>
 

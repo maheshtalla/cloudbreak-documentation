@@ -664,7 +664,73 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="setting-up-a-data-lake">Setting up a data lake</h2></div>
+<h2 id="setting-up-a-data-lake">Setting up a data lake</h2>
+<blockquote>
+<p>This feature is technical preview.  </p>
+</blockquote>
+<p>A <strong>data lake</strong> provides a way for you to centrally apply and enforce authentication, authorization, and audit policies across multiple ephemeral workload clusters. "Attaching" your workload cluster to the data lake instance allows the attached cluster workloads to access data and run in the security context provided by the data lake. </p>
+<p>While workloads are temporary, the security policies around your data schema are long-running and shared for all workloads. As your workloads come and go, the data lake instance lives on, providing consistent and available security policy definitions that are available for current and future ephemeral workloads. All information related to schema (Hive), security policies (Ranger) and audit (Ranger) is stored on external locations (external databases and cloud storage).</p>
+<p>Once you’ve created a data lake instance, you have an option to attach it to one or more ephemeral clusters. This allows you to apply the authentication, authorization, and audit across multiple workload clusters.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication source</td>
+<td>User source for authentication and definition of groups for authorization.</td>
+</tr>
+<tr>
+<td>Data lake</td>
+<td>Runs Ranger, which is used for configuring authorization. policies and is used for audit capture. Runs Hive Metastore, which is used for data schema.</td>
+</tr>
+<tr>
+<td>Attached clusters</td>
+<td>The clusters that get attached to the data lake to run workloads. This is where you run workloads such as Hive via <a href="../hive/index.html">JDBC</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>The components of the data lake include:</p>
+<p><a href="../images/cb_datalake-diag01.png" target="_blank" title="click to enlarge"><img src="../images/cb_datalake-diag01.png" width="550" title="Cloudbreak architecture"></a></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schema</td>
+<td>Apache Hive</td>
+<td>Provides Hive schema (tables, views, and so on). If you have two or more workloads accessing the same Hive data, you need to share schema across these workloads.</td>
+</tr>
+<tr>
+<td>Policy</td>
+<td>Apache Ranger</td>
+<td>Defines security policies around Hive schema. If you have two or more users accessing the same data, you need security policies to be consistently available and enforced.</td>
+</tr>
+<tr>
+<td>Audit</td>
+<td>Apache Ranger</td>
+<td>Audits user access and captures data access activity for the workloads.</td>
+</tr>
+<tr>
+<td><a href="../external-ldap/index.html">Directory </a></td>
+<td>LDAP/AD</td>
+<td>Provides an authentication source for users and a definition of groups for authorization.</td>
+</tr>
+<tr>
+<td><a href="../gateway/index.html">Gateway</a></td>
+<td>Apache Knox</td>
+<td>Supports a single workload endpoint that can be protected with SSL and enabled for authentication to access to resources.</td>
+</tr>
+</tbody>
+</table></div>
         
     </div>
 
