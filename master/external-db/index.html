@@ -786,8 +786,8 @@
 </thead>
 <tbody>
 <tr>
-<td>rds.hive.connectionURL</td>
-<td>jdbc:postgresql://hive.test.eu-west-1:5432/hive</td>
+<td>rds.hive.connectionString</td>
+<td>jdbc:postgresql://ec2-54-159-202-231.compute-1.amazonaws.com:5432/hive</td>
 </tr>
 <tr>
 <td>rds.hive.connectionDriver</td>
@@ -795,19 +795,19 @@
 </tr>
 <tr>
 <td>rds.hive.connectionUserName</td>
-<td>mydatabaseuser</td>
+<td>myuser</td>
 </tr>
 <tr>
 <td>rds.hive.connectionPassword</td>
 <td>Hadoop123!</td>
 </tr>
 <tr>
-<td>rds.hive.subprotocol</td>
-<td>postgres</td>
+<td>rds.hive.fancyName</td>
+<td>PostgreSQL</td>
 </tr>
 <tr>
-<td>rds.hive.databaseEngine</td>
-<td>POSTGRES</td>
+<td>rds.hive.databaseType</td>
+<td>postgres</td>
 </tr>
 </tbody>
 </table>
@@ -819,18 +819,18 @@
 <p>Upon cluster create, Hive JDBC properties will be injected into the blueprint according to the following template:</p>
 <p><pre>...
 "hive-site": {
- "properties": {
-   "javax.jdo.option.ConnectionURL": "{{{ rds.hive.connectionURL }}}",
-   "javax.jdo.option.ConnectionDriverName": "{{{ rds.hive.connectionDriver }}}",
-   "javax.jdo.option.ConnectionUserName": "{{{ rds.hive.connectionUserName }}}",
-   "javax.jdo.option.ConnectionPassword": "{{{ rds.hive.connectionPassword }}}"
-  }
-},
-"hive-env" : {
- "properties" : {
-   "hive_database" : "Existing {{{ rds.hive.subprotocol }}} Database",
-   "hive_database_type" : "{{{ rds.hive.databaseEngine }}}"
-  }
+"properties": {
+  "javax.jdo.option.ConnectionURL": "{{{ rds.hive.connectionString }}}",
+  "javax.jdo.option.ConnectionDriverName": "{{{ rds.hive.connectionDriver }}}",
+  "javax.jdo.option.ConnectionUserName": "{{{ rds.hive.connectionUserName }}}",
+  "javax.jdo.option.ConnectionPassword": "{{{ rds.hive.connectionPassword }}}"
+}
+  },
+  "hive-env" : {
+"properties" : {
+  "hive_database" : "Existing {{{ rds.hive.fancyName}}} Database",
+  "hive_database_type" : "{{{ rds.hive.databaseType }}}"
+}
 }
 ...</pre> </p>
 </li>
@@ -842,8 +842,8 @@
 <p>Prepare a blueprint blueprint that includes property variables. Use <a href="https://mustache.github.io/">mustache template</a> syntax. For example:</p>
 <p><pre>...
 "test-site": {
-"properties": {
-   "javax.jdo.option.ConnectionURL":"{{{rds.test.connectionURL}}}"
+  "properties": {
+   "javax.jdo.option.ConnectionURL":"{{rds.test.connectionString}}"
   }
 ...</pre></p>
 </li>
@@ -859,8 +859,8 @@
 </thead>
 <tbody>
 <tr>
-<td>rds.hive.connectionURL</td>
-<td>db.test.eu-west-1:5432/sometest</td>
+<td>rds.hive.connectionString</td>
+<td>ec2-54-159-202-231.compute-1.amazonaws.com:5432/hive</td>
 </tr>
 <tr>
 <td>rds.hive.connectionDriver</td>
@@ -868,7 +868,7 @@
 </tr>
 <tr>
 <td>rds.hive.connectionUserName</td>
-<td>mydatabaseuser</td>
+<td>myuser</td>
 </tr>
 <tr>
 <td>rds.hive.connectionPassword</td>
