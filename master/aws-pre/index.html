@@ -775,9 +775,7 @@
 <p>If you are using key-based authentication for Cloudbreak on AWS, you must be able to provide your AWS access key and secret key pair. Cloudbreak will use these keys to launch the resources. You must provide the access and secret keys later in the Cloudbreak web UI later when creating a credential.</p>
 <p>If you choose this option, all you need to do at this point is check your AWS account and make sure that you can access this key pair. You can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong>. Next, select a user and click on the <strong>Security credentials</strong> tab:</p>
 <p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a></p>
-<blockquote>
 <p>The minimum set of permissions required by Cloudbreak are the same as for <a href="index.html#create-credentialrole">CredentialRole</a>. </p>
-</blockquote>
 <p>If you choose this option, you can proceed to launch Cloudbreak.</p>
 <h3 id="option-2-configure-role-based-authentication">(Option 2) Configure role-based authentication</h3>
 <p>If you are using role-based authentication for Cloudbreak on AWS, you must create two IAM roles: one to grant Cloudbreak access to allow Cloudbreak to assume AWS roles (using the "AssumeRole" policy) and the second one to provide Cloudbreak with the capabilities required for cluster creation (using the "cb-policy" policy).</p>
