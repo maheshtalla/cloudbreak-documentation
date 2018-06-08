@@ -696,7 +696,12 @@ For more information, refer to <a href="../gateway/index.html">Configuring a Gat
 <p>After configuring access to S3, ADLS, WASB, or GCS you can optionally use that ADLS storage account as a base storage location; this storage location is mainly for the Hive Warehouse Directory (used for storing the table data for managed tables). For more information refer to Configure ADLS storage locations on <a href="../aws-data/index.html#configure-s3-storage-locations">Amazon S3</a>, <a href="../azure-data-adls/index.html#configure-adls-storage-locations">ADLS</a>, <a href="../azure-data-wasb/index.html#configure-wasb-storage-locations">WASB</a>, <a href="../gcp-data/index.html#configure-gcs-storage-locations">GCS</a>. </p>
 <hr />
 <h5 id="setting-custom-properties"><strong>Setting Custom Properties</strong></h5>
-<p>Cloudbreak allows you to add a custom property template in your blueprints and then set custom properties on a per-cluster basis. For more information, refer to <a href="../properties/index.html">Custom properties</a>.</p>
+<p>Cloudbreak allows you to add custom property variables in your blueprint for replacement (by using mustache template syntax), and then set custom properties on a per-cluster basis. For more information, refer to <a href="../properties/index.html">Custom properties</a>.</p>
+<hr />
+<h5 id="dynamic-blueprints"><strong>Dynamic Blueprints</strong></h5>
+<p>Cloudbreak allows you to create special "dynamic" blueprints which include templating: the values of the variables specified in the blueprint are dynamically replaced in the cluster creation phase, picking up the parameter values that you provided in the Cloudbreak UI or CLI.
+Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of templating with {{{variable}}} syntax. Dynamic blueprints offer the ability to manage external sources (such as RDBMS and LDAP/AD) outside of your blueprint</p>
+<p>For more information, refer to <a href="../concepts/index.html#dynamic-blueprints">Dynamic Blueprints</a> and <a href="../blueprints/index.html#creating-a-dynamic-blueprint">Creating a dynamic blueprint</a>. </p>
 <hr />
 <h5 id="retrying-failed-cluster"><strong>Retrying Failed Cluster</strong></h5>
 <p>When stack provisioning or cluster creation failure occurs, the new "retry" UI option allows you to resume the process from the last failed step. A corresponding <code>cb cluster retry</code> CLI command has been introduced. For more information, refer to <a href="../clusters-manage#retry-a-cluster">Retry a cluster</a> and <a href="../cli-reference/index.html">CLI</a> documentation.</p>
@@ -775,6 +780,9 @@ For more information, refer to <a href="../mpacks/index.html">Using management p
 <hr />
 <h5 id="redesigned-hardware-and-storage-ui"><strong>Redesigned Hardware and Storage UI</strong></h5>
 <p>The UI of the <strong>Hardware and Storage</strong> page in the create cluster wizard and in cluster details was redesigned for better user experience. </p>
+<hr />
+<h5 id="new-image-settings-page-in-create-cluster-wizard"><strong>New Image Settings Page in Create Cluster wizard</strong></h5>
+<p>All cluster options related to image settings, image catalog selection, and Ambari and HDP/HDF repository specification were moved to a separate <strong>Image Settings</strong> page in the create cluster wizard.    </p>
 <hr />
 <h5 id="file-system-cluster-page-was-renamed-to-cloud-storage"><strong>File System Cluster Page Was Renamed to Cloud Storage</strong></h5>
 <p>The <strong>File System</strong> page of the advanced create cluster wizard was renamed to <strong>Cloud Storage</strong>.    </p>

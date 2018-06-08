@@ -658,6 +658,10 @@
         
             <li class="second-level"><a href="#creating-a-dynamic-blueprint">Creating a dynamic blueprint</a></li>
             
+                <li class="third-level"><a href="#external-authentication-source-ldapad">External authentication source (LDAP/AD)</a></li>
+            
+                <li class="third-level"><a href="#external-database-rdbms">External database (RDBMS)</a></li>
+            
         
             <li class="second-level"><a href="#upload-a-blueprint">Upload a blueprint</a></li>
             
@@ -676,8 +680,8 @@
 <li><strong>Add your custom blueprint</strong> by uploading a JSON file or pasting the JSON text. </li>
 </ul>
 <p>We recommend that you review the default blueprints to check if they meet your requirements. You can do this by selecting <strong>Blueprints</strong> from the navigation pane in the Cloudbreak web UI or by reading the documentation below.</p>
-<h4 id="creating-a-blueprint">Creating a blueprint</h4>
-<p>Ambari blueprints are specified in the JSON format. A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, it includes  some hardcoded configurations such as domain names, memory configurations, and so on, that are not applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually. </p>
+<h3 id="creating-a-blueprint">Creating a blueprint</h3>
+<p>Ambari blueprints are specified in JSON format. A blueprint can be exported from a running Ambari cluster and can be reused in Cloudbreak after slight modifications. When a blueprint is exported, it includes  some hardcoded configurations such as domain names, memory configurations, and so on, that are not applicable to the Cloudbreak cluster. There is no automatic way to modify an exported blueprint and make it instantly usable in Cloudbreak, the modifications have to be done manually. </p>
 <p>In general, the blueprint should include the following elements:</p>
 <pre>"Blueprints": {
     "blueprint_name": "hdp-small-default",
@@ -736,11 +740,14 @@ For information on how to configure an external database and pass your external 
 <p><strong>Related links</strong><br />
 <a href="https://github.com/hortonworks/cloudbreak/tree/master/core/src/main/resources/defaults/blueprints">Blueprint examples</a> (Hortonworks)   <br />
 <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Ambari cwiki</a> (External)  </p>
-<h4 id="creating-a-dynamic-blueprint">Creating a dynamic blueprint</h4>
-<p>Cloudbreak allows you to create special "dynamic" blueprints which include templating: the values of the variables specified in the blueprint will be dynamically generated and replaced in the cluster creation phase, picking up the parameter values that you provided in the Cloudbreak UI or CLI.
-Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of templating with {{{variable}}} syntax. You cannot use functions in the blueprint file; only variable injection is supported.</p>
-<p><strong>External authentication source (LDAP/AD)</strong></p>
-<p>When using <a href="../external-ldap/index.html">external authentication sources</a>, the following variables can be specified in your Blueprint for replacement:</p>
+<h3 id="creating-a-dynamic-blueprint">Creating a dynamic blueprint</h3>
+<p>Cloudbreak allows you to create <a href="../concepts/index.html#dynamic-blueprints">dynamic blueprints</a>, which include templating: the values of the variables specified in the blueprint are dynamically replaced in the cluster creation phase, picking up the parameter values that you provided in the Cloudbreak UI or CLI.
+Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of templating with {{{variable}}} syntax. </p>
+<blockquote>
+<p>You cannot use functions in the blueprint file; only variable injection is supported.</p>
+</blockquote>
+<h4 id="external-authentication-source-ldapad">External authentication source (LDAP/AD)</h4>
+<p>When using <a href="../external-ldap/index.html">external authentication sources</a>, the following variables can be specified in your blueprint for replacement:</p>
 <table>
 <thead>
 <tr>
@@ -812,8 +819,8 @@ Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of t
 </tr>
 </tbody>
 </table>
-<p><strong>External database (RDBMS)</strong></p>
-<p>When using <a href="../external-db/index.html">external databases</a>, the following variables can be specified in your Blueprint for replacement:</p>
+<h4 id="external-database-rdbms">External database (RDBMS)</h4>
+<p>When using <a href="../external-db/index.html">external databases</a>, the following variables can be specified in your blueprint for replacement:</p>
 <table>
 <thead>
 <tr>
@@ -824,7 +831,7 @@ Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of t
 </thead>
 <tbody>
 <tr>
-<td>rds.[type].connectionURL</td>
+<td>rds.[type].connectionString</td>
 <td>The jdbc url to the RDBMS</td>
 <td>jdbc:postgresql://db.test:5432/test</td>
 </tr>
@@ -870,7 +877,7 @@ Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of t
 </tr>
 </tbody>
 </table>
-<h4 id="upload-a-blueprint">Upload a blueprint</h4>
+<h3 id="upload-a-blueprint">Upload a blueprint</h3>
 <p>Once you have your blueprint ready, perform these steps.</p>
 <p><strong>Steps</strong></p>
 <ol>

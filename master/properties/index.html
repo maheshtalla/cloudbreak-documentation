@@ -659,11 +659,11 @@
         <div class="col-md-9" role="main">
 
 <h2 id="set-custom-properties">Set custom properties</h2>
-<p>When creating a cluster based on an Ambari blueprint, you can set custom properties in the blueprint. In addition, Cloudbreak allows you to set custom property template in your blueprints so that you can set these custom properties on a per-cluster basis. </p>
+<p>Cloudbreak allows you to create dynamic blueprints with property variables and set properties on a per-cluster basis by providing property values during cluster creation. </p>
 <p>In order to set custom properties for a cluster you must:</p>
 <ol>
-<li>Create a blueprint that includes a template for the properties that you want to set.  </li>
-<li>When creating a cluster, select the blueprint and then specify the property values under Cluster Extensions &gt; Custom Properties in the advanced view of the cluster wizard..    </li>
+<li>Create a blueprint that includes property variables for the properties that you want to set.  </li>
+<li>When creating a cluster, select the blueprint and then specify the property values under <strong>Cluster Extensions</strong> &gt; <strong>Custom Properties</strong> in the advanced view of the cluster wizard.     </li>
 </ol>
 <p>In the cluster creation phase, the property values in the blueprint will be replaced based on the input, picking up the parameter values that you provided.</p>
 <p><strong>Steps</strong></p>

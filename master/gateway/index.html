@@ -683,6 +683,7 @@
 </li>
 <li>By default, the gateway is deployed and <em>Ambari</em> is proxied through the gateway.  </li>
 <li>The choice of cluster services to expose and proxy through the gateway depends on your blueprint. Cloudbreak analyzes your blueprint and provides a list of services that can be exposed through the gateway. You should review this list and select the services that should be proxied through the gateway.  </li>
+<li>If you do not enable the gateway, or you do not expose Ambari (or any other service) through the gateway, you must configure access to those services on the security group on your own. </li>
 </ul>
 <h3 id="services-available-via-gateway">Services available via gateway</h3>
 <p>The following cluster resources are available for access via the gateway endpoint:</p>

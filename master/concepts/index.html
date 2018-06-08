@@ -659,7 +659,13 @@
             <li class="second-level"><a href="#ambari-blueprints">Ambari blueprints</a></li>
             
         
+            <li class="second-level"><a href="#dynamic-blueprints">Dynamic blueprints</a></li>
+            
+        
             <li class="second-level"><a href="#recipes">Recipes</a></li>
+            
+        
+            <li class="second-level"><a href="#external-sources">External sources</a></li>
             
         
     
@@ -683,6 +689,11 @@
 <p><strong>Related links</strong><br />
 <a href="../blueprints/index.html">Using custom blueprints</a><br />
 <a href="https://cwiki.apache.org/confluence/display/AMBARI/Blueprints">Apache documentation</a> (External)  </p>
+<h3 id="dynamic-blueprints">Dynamic blueprints</h3>
+<p>Production cluster configurations typically include certain configuration parameters, such as those related to external database (for Hive, Ranger, etc) and LDAP/AD, forcing users to create 1+ versions of the same blueprint to handle different component configurations for these external systems.     </p>
+<p>Dynamic blueprints offer the ability to manage external sources (such as RDBMS and LDAP/AD) outside of your blueprint, because they merely use the blueprint as a template and Cloudbreak injects the actual configurations into your blueprint. This simplifies the reuse of cluster configurations for external sources (RDBMS and LDAP/AD) and simplifies the blueprints themselves.  </p>
+<p>Cloudbreak allows you to create special "dynamic" blueprints which include templating: the values of the variables specified in the blueprint are dynamically replaced in the cluster creation phase, picking up the parameter values that you provided in the Cloudbreak UI or CLI.
+Cloudbreak supports <a href="https://mustache.github.io/">mustache</a> kind of templating with {{{variable}}} syntax.</p>
 <h3 id="recipes">Recipes</h3>
 <p>Cloudbreak allows you to upload custom scripts, called "recipes". A recipe is a script that runs on all nodes of a selected node group at a specific time. You can use recipes for tasks such as installing additional software or performing advanced cluster configuration. For example, you can use a recipe to put a JAR file on the Hadoop classpath.</p>
 <p>Available recipe execution times are:  </p>
@@ -694,7 +705,18 @@
 </ul>
 <p>You can upload your recipes to Cloudbreak via the UI or CLI. Then, when creating a cluster, you can optionally attach one or more "recipes" and they will be executed on a specific host group at a specified time. </p>
 <p><strong>Related links</strong><br />
-<a href="../recipes/index.html">Using custom scripts (recipes)</a> </p></div>
+<a href="../recipes/index.html">Using custom scripts (recipes)</a> </p>
+<h3 id="external-sources">External sources</h3>
+<p>Cloudbreak allows you to define external sources that are created independently of a cluster -- and therefore their lifespan is not limited by the lifespan of any cluster -- and that can be reused with multiple clusters:</p>
+<p><a href="../images/cb_external-source.png" target="_blank" title="click to enlarge"><img src="../images/cb_external-source.png" width="650" title="How Cb uses Cloudbreak Credential"></a> </p>
+<p>The external sources that can be registered in Cloudbreak include: </p>
+<ul>
+<li>Authentication configurations (LDAP/AD) </li>
+<li>Database configurations   </li>
+<li>Image catalogs  </li>
+<li>Proxy configurations   </li>
+</ul>
+<p>Once you register an external source, you may reuse it for multiple clusters. </p></div>
         
     </div>
 

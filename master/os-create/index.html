@@ -657,13 +657,19 @@
             
                 <li class="third-level"><a href="#availability-zone">Availability zone</a></li>
             
-                <li class="third-level"><a href="#choose-image-catalog">Choose image catalog</a></li>
-            
-                <li class="third-level"><a href="#prewarmed-and-base-images">Prewarmed and base images</a></li>
-            
                 <li class="third-level"><a href="#enable-lifetime-management">Enable lifetime management</a></li>
             
                 <li class="third-level"><a href="#tags">Tags</a></li>
+            
+                <li class="third-level"><a href="#choose-image-catalog">Choose image catalog</a></li>
+            
+                <li class="third-level"><a href="#choose-image-type">Choose image type</a></li>
+            
+                <li class="third-level"><a href="#choose-image">Choose image</a></li>
+            
+                <li class="third-level"><a href="#ambari-repo-specification">Ambari repo specification</a></li>
+            
+                <li class="third-level"><a href="#hdphdf-repo-specification">HDP/HDF repo specification</a></li>
             
                 <li class="third-level"><a href="#recipes">Recipes</a></li>
             
@@ -881,11 +887,45 @@
 <p>Click on <strong>Advanced</strong> to view and enter additional configuration options</p>
 <h4 id="availability-zone">Availability zone</h4>
 <p>Choose one of the availability zones within the selected region. </p>
+<h4 id="enable-lifetime-management">Enable lifetime management</h4>
+<p>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minutes). </p>
+<h4 id="tags">Tags</h4>
+<p>You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account. </p>
+<p>By default, the following tags are created:</p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cb-version</td>
+<td>Cloudbreak version</td>
+</tr>
+<tr>
+<td>Owner</td>
+<td>Your Cloudbreak admin email.</td>
+</tr>
+<tr>
+<td>cb-account-name</td>
+<td>Your automatically generated Cloudbreak account name stored in the identity server.</td>
+</tr>
+<tr>
+<td>cb-user-name</td>
+<td>Your Cloudbreak admin email.</td>
+</tr>
+</tbody>
+</table>
+<p>For more information, refer to <a href="../tags/index.html">Tagging resources</a>.</p>
+<p><strong>Related links</strong>    <br />
+<a href="../tags/index.html">Tagging resources</a> </p>
 <h4 id="choose-image-catalog">Choose image catalog</h4>
 <p>By default, <strong>Choose Image Catalog</strong> is set to the default image catalog that is provided with Cloudbreak. If you would like to use a different image catalog, you must first create and register it. For complete instructions, refer to <a href="../images/index.html">Using custom images</a>.</p>
 <p><strong>Related links</strong>   <br />
 <a href="../images/index.html">Using custom images</a>  </p>
-<h4 id="prewarmed-and-base-images">Prewarmed and base images</h4>
+<h4 id="choose-image-type">Choose image type</h4>
 <p>Cloudbreak supports the following types of images for launching clusters:</p>
 <table>
 <thead>
@@ -898,16 +938,16 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Base Images</strong></td>
-<td>Base images include default configuration and default tooling. These images include the operating system but do not include Ambari or HDP/HDF software.</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>Prewarmed Images</strong></td>
+<td><strong>Prewarmed Image</strong></td>
 <td>By default, Cloudbreak launches clusters from prewarmed images. Prewarmed images include the operating system as well as Ambari and HDP. The Ambari and HDP version used by prewarmed images cannot be customized. No prewarmed HDF images are currently provided.</td>
 <td>Yes (HDP only)</td>
 <td>No</td>
+</tr>
+<tr>
+<td><strong>Base Image</strong></td>
+<td>Base images include default configuration and default tooling. These images include the operating system but do not include Ambari or HDP/HDF software.</td>
+<td>Yes</td>
+<td>Yes</td>
 </tr>
 </tbody>
 </table>
@@ -917,10 +957,10 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <li>Use an Ambari and HDP/HDF versions different than what the prewarmed image includes and/or  </li>
 <li>Choose a previously created custom base image</li>
 </ul>
-<p><strong>Choose image</strong>  </p>
+<h4 id="choose-image">Choose image</h4>
 <p>If under <a href="#choose-image-catalog">Choose image catalog</a>, you selected a custom image catalog, under <strong>Choose Image</strong> you can select an image from that catalog. For complete instructions, refer to <a href="../images/index.html">Using custom images</a>. </p>
 <p>If you are trying to customize Ambari and HDP/HDF versions, you can ignore the <strong>Choose Image</strong> option; in this case default base image is used.</p>
-<p><strong>Ambari repository specification</strong></p>
+<h4 id="ambari-repo-specification">Ambari repo specification</h4>
 <p>If you would like to use a custom Ambari version, provide the following information: </p>
 <table>
 <thead>
@@ -948,7 +988,7 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 </tr>
 </tbody>
 </table>
-<p><strong>HDP or HDF repository specification</strong></p>
+<h4 id="hdphdf-repo-specification">HDP/HDF repo specification</h4>
 <p>If you would like to use a custom HDP or HDF version, provide the following information: </p>
 <table>
 <thead>
@@ -999,40 +1039,6 @@ Ambari and HDP/HDF packages installed. You can optionally select the <strong>bas
 <p>If you choose to use a base image with custom Ambari and/or HDP/HDF version, Cloudbreak validates the information entered. When Cloudbreak detects that the information entered is incorrect, it displays a warning marked with the <img src="../images/cb_warning.png" width="25" title="Icon"> sign. You should review all the warnings before proceeding and make sure that the information that you entered is correct. If you choose to proceed in spite of the warnings, check "Ignore repository warnings".  </p>
 <p><strong>Related links</strong>    <br />
 <a href="../images/index.html">Using custom images</a>      </p>
-<h4 id="enable-lifetime-management">Enable lifetime management</h4>
-<p>Check this option if you would like your cluster to be automatically terminated after a specific amount of time (defined as "Time to Live" in minutes). </p>
-<h4 id="tags">Tags</h4>
-<p>You can optionally add tags, which will help you find your cluster-related resources, such as VMs, in your cloud provider account. </p>
-<p>By default, the following tags are created:</p>
-<table>
-<thead>
-<tr>
-<th>Tag</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cb-version</td>
-<td>Cloudbreak version</td>
-</tr>
-<tr>
-<td>Owner</td>
-<td>Your Cloudbreak admin email.</td>
-</tr>
-<tr>
-<td>cb-account-name</td>
-<td>Your automatically generated Cloudbreak account name stored in the identity server.</td>
-</tr>
-<tr>
-<td>cb-user-name</td>
-<td>Your Cloudbreak admin email.</td>
-</tr>
-</tbody>
-</table>
-<p>For more information, refer to <a href="../tags/index.html">Tagging resources</a>.</p>
-<p><strong>Related links</strong>    <br />
-<a href="../tags/index.html">Tagging resources</a> </p>
 <h4 id="recipes">Recipes</h4>
 <p>This option allows you to select previously uploaded recipes (scripts that can be run pre or post cluster deployment) for each host group. For more information on recipes, refer to <a href="../recipes/index.html">Using custom scripts (recipes)</a>. </p>
 <p><strong>Related links</strong>    <br />

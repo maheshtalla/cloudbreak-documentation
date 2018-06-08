@@ -762,27 +762,27 @@
 </thead>
 <tbody>
 <tr>
-<td>9443</td>
 <td>Cloudbreak</td>
 <td>Ambari server</td>
+<td>9443</td>
 <td><ul><li>This port is used by Cloudbreak to maintain management control of the cluster.</li><li>The default security group opens 9443 from anywhere. You should limit this CIDR further to <em>only allow access from the Cloudbreak host</em>. This can be done by default by <a href="../security-cb-inbound/index.html">restricting inbound access</a> from Cloudbreak to cluster.</li><ul></td>
 </tr>
 <tr>
-<td>22</td>
 <td>*</td>
 <td>All cluster hosts</td>
+<td>22</td>
 <td><ul><li>This is an optional port for end user SSH access to the hosts.</li><li>You should review and limit or remove this CIDR access.</li><ul></td>
 </tr>
 <tr>
-<td>8443</td>
 <td>*</td>
 <td>Ambari server</td>
+<td>8443</td>
 <td><ul><li>This port is used to access the gateway (if configured).</li><li>You should review and limit this CIDR access.</li><li>If you do not configure the gateway, this port does not need to be opened. If you want access to any cluster resources, you must open those ports explicitly on the security groups for their respective hosts.</li><ul></td>
 </tr>
 <tr>
-<td>443</td>
 <td>*</td>
 <td>Ambari server</td>
+<td>443</td>
 <td><ul><li>This port is used to access Ambari directly.</li><li>If you are configuring the gateway, you should access Ambari through the gateway. You do not need to open this port.</li><li>If you do not configure the gateway, to obtain access to Ambari, you can open this port on the security group for the respective host.</li><ul></td>
 </tr>
 </tbody>
