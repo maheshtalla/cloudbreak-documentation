@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/architecture/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/data-lake/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Architecture - Cloudbreak</title>
+    <title>Set up a data lake - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -85,7 +85,7 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Intro <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -96,8 +96,8 @@
 
                         
                             
-<li class="active">
-    <a href="index.html">Architecture</a>
+<li >
+    <a href="../architecture/index.html">Architecture</a>
 </li>
 
                         
@@ -283,13 +283,13 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../data-lake/index.html">Set up a data lake</a>
+<li class="active">
+    <a href="index.html">Set up a data lake</a>
 </li>
 
                         
@@ -627,12 +627,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../index.html">
+                        <a rel="next" href="../os-create/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../concepts/index.html">
+                        <a rel="prev" href="../clusters-access/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -657,72 +657,14 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#architecture">Architecture</a></li>
-        
-            <li class="second-level"><a href="#cloudbreak-deployer-architecture">Cloudbreak deployer architecture</a></li>
-            
-        
-            <li class="second-level"><a href="#cloudbreak-application-architecture">Cloudbreak application architecture</a></li>
-            
+        <li class="first-level active"><a href="#setting-up-a-data-lake">Setting up a data lake</a></li>
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="architecture">Architecture</h2>
-<p><strong>Cloudbreak deployer</strong> installs Cloudbreak components on a VM. Once these components are deployed, you can use <strong>Cloudbreak application</strong> or Cloudbreak CLI to create, manage, and monitor clusters. </p>
-<h3 id="cloudbreak-deployer-architecture">Cloudbreak deployer architecture</h3>
-<p><strong>Cloudbreak deployer</strong> installs Cloudbreak components on a VM. It includes the following components:</p>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Cloudbreak Application</strong></td>
-<td>Cloudbreak application is built on the foundation of cloud provider APIs and Apache Ambari.</td>
-</tr>
-<tr>
-<td><strong>Uluwatu</strong></td>
-<td>This is Cloudbreak web UI, which can be used to create, manage, and monitor clusters.</td>
-</tr>
-<tr>
-<td><strong>Cloudbreak CLI</strong></td>
-<td>This is Cloudbreak's command line tool, which can be used to create, manage, and monitor clusters.</td>
-</tr>
-<tr>
-<td><strong>Identity</strong></td>
-<td>This is Cloudbreak's OAuth identity server implementation, which utilizes UAA.</td>
-</tr>
-<tr>
-<td><strong>Sultans</strong></td>
-<td>This is Cloudbreak's user management system.</td>
-</tr>
-<tr>
-<td><strong>Periscope</strong></td>
-<td>This is Cloudbreak's autoscaling application, which is responsible for automatically increasing or decreasing the capacity of the cluster when your pre-defined conditions are met.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="cloudbreak-application-architecture">Cloudbreak application architecture</h3>
-<p>The Cloudbreak application is a web application which simplifies cluster provisioning in the cloud. Based on your input, Cloudbreak provisions all required cloud infrastructure and then provisions a cluster on your behalf within your cloud provider account.   </p>
-<p><a href="../images/cb_arch.png" target="_blank" title="click to enlarge"><img src="../images/cb_arch.png" width="550" title="Cloudbreak architecture"></a> </p>
-<p>Cloudbreak application is built on the foundation of cloud provider APIs and Apache Ambari:</p>
-<ul>
-<li>
-<p>Cloudbreak uses <strong>cloud provider APIs</strong> to communicate with the cloud providers. </p>
-</li>
-<li>
-<p>Cloudbreak uses the <strong>Cloudbreak credential</strong> to authenticate with your cloud provider account and provision cloud resources required for the clusters. </p>
-</li>
-<li>
-<p>Cloudbreak uses Apache Ambari and <strong>Ambari blueprints</strong> to provision, manage, and monitor clusters. Ambari blueprints are a declarative definition of a cluster. With a blueprint, you can specify stack, component layout, and configurations to materialize a cluster instance via Ambari REST API, without having to use the Ambari cluster install wizard.     </p>
-</li>
-</ul></div>
+<h2 id="setting-up-a-data-lake">Setting up a data lake</h2></div>
         
     </div>
 

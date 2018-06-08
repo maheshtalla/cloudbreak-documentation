@@ -172,6 +172,12 @@
     
         
     <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//data-lake/index.html</loc>
+     <lastmod>2018-06-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//clusters-access/index.html</loc>
      <lastmod>2018-06-08</lastmod>
      <changefreq>daily</changefreq>
