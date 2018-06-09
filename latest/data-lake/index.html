@@ -659,6 +659,21 @@
     
         <li class="first-level active"><a href="#setting-up-a-data-lake">Setting up a data lake</a></li>
         
+            <li class="second-level"><a href="#overview-of-data-lake-setup">Overview of data lake setup</a></li>
+            
+        
+            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
+            
+        
+            <li class="second-level"><a href="#register-the-databases-and-ldap-in-the-cloudbreak-web-ui">Register the databases and LDAP in the Cloudbreak web UI</a></li>
+            
+        
+            <li class="second-level"><a href="#create-a-data-lake">Create a data lake</a></li>
+            
+        
+            <li class="second-level"><a href="#create-attached-clusters">Create attached clusters</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -670,7 +685,10 @@
 </blockquote>
 <p>A <strong>data lake</strong> provides a way for you to centrally apply and enforce authentication, authorization, and audit policies across multiple ephemeral workload clusters. "Attaching" your workload cluster to the data lake instance allows the attached cluster workloads to access data and run in the security context provided by the data lake. </p>
 <p>While workloads are temporary, the security policies around your data schema are long-running and shared for all workloads. As your workloads come and go, the data lake instance lives on, providing consistent and available security policy definitions that are available for current and future ephemeral workloads. All information related to schema (Hive), security policies (Ranger) and audit (Ranger) is stored on external locations (external databases and cloud storage).</p>
+<p>This is illustrated in the following diagram: </p>
+<p><a href="../images/cb_datalake-diag01.png" target="_blank" title="click to enlarge"><img src="../images/cb_datalake-diag01.png" width="550" title="Cloudbreak architecture"></a></p>
 <p>Once you’ve created a data lake instance, you have an option to attach it to one or more ephemeral clusters. This allows you to apply the authentication, authorization, and audit across multiple workload clusters.</p>
+<p>The following table explains basic data lake terminology: </p>
 <table>
 <thead>
 <tr>
@@ -680,21 +698,16 @@
 </thead>
 <tbody>
 <tr>
-<td>Authentication source</td>
-<td>User source for authentication and definition of groups for authorization.</td>
-</tr>
-<tr>
 <td>Data lake</td>
 <td>Runs Ranger, which is used for configuring authorization. policies and is used for audit capture. Runs Hive Metastore, which is used for data schema.</td>
 </tr>
 <tr>
-<td>Attached clusters</td>
+<td>Workload clusters</td>
 <td>The clusters that get attached to the data lake to run workloads. This is where you run workloads such as Hive via <a href="../hive/index.html">JDBC</a>.</td>
 </tr>
 </tbody>
 </table>
-<p>The components of the data lake include:</p>
-<p><a href="../images/cb_datalake-diag01.png" target="_blank" title="click to enlarge"><img src="../images/cb_datalake-diag01.png" width="550" title="Cloudbreak architecture"></a></p>
+<p>The following table explains the components of a data lake: </p>
 <table>
 <thead>
 <tr>
@@ -730,7 +743,131 @@
 <td>Supports a single workload endpoint that can be protected with SSL and enabled for authentication to access to resources.</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h3 id="overview-of-data-lake-setup">Overview of data lake setup</h3>
+<p>Setting up a data lake involves the following steps:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Where to perform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prerequisites">Meet the prerequisites</a>:<ul><li>Create two external databases (one for Hive metastore and one for Ranger)</li><li>Create an external authentication source for LDAP/AD</li><li>Prepare a cloud storage location (depending on your cloud provider, this should be, on Amazon S3, Azure's ADLS or WASB, or GCS) for default Hive warehouse directory and Ranger audit logs)</li></ul></td>
+<td>You must create these resources on your own, outside of Cloudbreak. You may use one database instance and create two databases.</td>
+</tr>
+<tr>
+<td><a href="#register-the-databases-and-ldap-in-the-cloudbreak-web-ui">Register the two databases and LDAP</a></td>
+<td>In the Cloudbreak web UI &gt; External Sources</td>
+</tr>
+<tr>
+<td><a href="#create-a-data-lake">Create a data lake</a></td>
+<td>In the Cloudbreak web UI &gt; Create cluster</td>
+</tr>
+<tr>
+<td><a href="#create-attached-clusters">Create clusters attached to the data lake</a></td>
+<td>In the Cloudbreak web UI &gt; Create cluster</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>You must perform the following prerequisites <em>outside of Cloudbreak</em>: </p>
+<ol>
+<li>Set up two external database instances, one for the HIVE component, and one for the RANGER component. For supported databases, refer to <a href="../external-db/index.html#supported-databases">Using an external database</a>.     </li>
+<li>Create an LDAP instance and set up your users inside the LDAP.  </li>
+<li>Prepare a cloud storage location for default Hive warehouse directory and Ranger audit logs.  </li>
+</ol>
+<p>In the steps that follow, you will be required to provide the information related to these external resources. </p>
+<h3 id="register-the-databases-and-ldap-in-the-cloudbreak-web-ui">Register the databases and LDAP in the Cloudbreak web UI</h3>
+<p>Prior to creating a data lake, you must register the following resources in the Cloudbreak web UI:</p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>
+<p>Register each of your two RDS instances created as part of the prerequisites in the Cloudbreak web UI, under <strong>External Sources</strong> &gt; <strong>Database Configurations</strong>. For instructions, refer  <a href="../external-db/index.html#register-an-external-database">Using an external database</a>.    </p>
+<ul>
+<li>When registering the database for Hive, select <strong>Type &gt; Hive</strong>.  </li>
+<li>When registering the database for Ranger, select <strong>Type &gt; Ranger</strong>.  </li>
+</ul>
+</li>
+<li>
+<p>Register your LDAP (created as part of the prerequisites) in the Cloudbreak web UI, under <strong>External Sources &gt; Authentication Configurations</strong>. For instructions, refer to <a href="../external-ldap/index.html#register-an-authentication-source">Register an authentication source</a>.  </p>
+</li>
+</ol>
+<p>As an outcome of this step, you should have two external databases and one authentication source registered in the Cloudbreak web UI.  </p>
+<h3 id="create-a-data-lake">Create a data lake</h3>
+<p>Create a data lake by using the create cluster wizard. Among other information, make sure to provide the information listed in the steps below. </p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>Navigate to the advanced version of the create cluster wizard.  </li>
+<li>
+<p>On the <strong>General Configuration</strong> page:  </p>
+<ul>
+<li>Under <strong>Cluster Name</strong>, provide a name for your data lake. </li>
+<li>Under <strong>Cluster Type</strong>, choose the <strong>DATA LAKE</strong> blueprint:</li>
+</ul>
+<p><a href="../images/cb_datalake01.png" target="_blank" title="click to enlarge"><img src="../images/cb_datalake01.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>On the <strong>Cloud Storage</strong> page:  </p>
+<ul>
+<li>Under <strong>Cloud Storage</strong>, configure access to cloud storage via the method available for your cloud provider.  </li>
+<li>Under <strong>Storage Locations</strong>, provide an existing location within your cloud storage account that can be used for Hive warehouse directory and Ranger audit logs.  </li>
+</ul>
+<p><div class="danger">
+<p class="first admonition-title">Note</p>
+<p class="last">The storage location must exist prior to data lake provisioning. If the storage location does not exist then Ranger is installed properly, but it may not work.</p>
+</div></p>
+<p><a href="../images/cb_datalake02.png" target="_blank" title="click to enlarge"><img src="../images/cb_datalake02.png" width="650" title="Cloudbreak web UI"></a>  </p>
+</li>
+<li>
+<p>On the <strong>External Sources</strong> page, select the previously registered Ranger database, Hive database and LDAP:</p>
+<p><a href="../images/cb_datalake03.png" target="_blank" title="click to enlarge"><img src="../images/cb_datalake03.png" width="650" title="Cloudbreak web UI"></a> </p>
+</li>
+<li>
+<p>On the <strong>Gateway Configuration</strong> page, the gateway is enabled by default with Ambari exposed through the gateway. You should also enable Ranger by selecting the Ranger service and clicking <strong>Expose</strong>. </p>
+<p><a href="../images/cb_datalake04.png" target="_blank" title="click to enlarge"><img src="../images/cb_datalake04.png" width="650" title="Cloudbreak web UI"></a>    </p>
+</li>
+<li>
+<p>On the <strong>Security</strong> page:</p>
+<ul>
+<li>Under <strong>Password</strong>, provide a strong password for your cluster. For example “SomeRandomChars123!” is a strong password. A strong password is required for the default Ranger admin, which - among other cluster components like Ambari - will use this password. </li>
+<li>Select an SSH key.</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>CREATE CLUSTER</strong> to initiate data lake creation.       </p>
+</li>
+</ol>
+<p>As an outcome of this step, you should have a running data lake.</p>
+<h3 id="create-attached-clusters">Create attached clusters</h3>
+<p>Once your data lake is running, you can start creating clusters attached to the data lake. Follow these general steps to create an cluster attached to a data lake. </p>
+<p>In general, once you've selected the data lake that the cluster should be using, the cluster wizard should provide you with the cluster settings that should be used for the attached cluster.    </p>
+<p><strong>Steps</strong> </p>
+<ol>
+<li>
+<p>In the Cloudbreak web UI, click on the cluster tile representing your data lake.  </p>
+</li>
+<li>
+<p>From the <strong>ACTIONS</strong> menu, select <strong>CREATE ATTACHED CLUSTER</strong>.    </p>
+<p><a href="../images/cb_datalake05.png" target="_blank" title="click to enlarge"><img src="../images/cb_datalake05.png" width="350" title="Cloudbreak web UI"></a> </p>
+</li>
+<li>
+<p>In general, the cluster wizard should provide you with the cluster settings that should be used for the attached cluster. Still, make sure to do the following:</p>
+<ul>
+<li>Under <strong>Region</strong> and <strong>Availability Zone</strong>, select the same location where your data lake is running.   </li>
+<li>Select one of the three default blueprints.  </li>
+<li>On the <strong>Cloud Storage</strong> page, enter the same cloud storage location that your data lake is using.  </li>
+<li>On the <strong>External Sources</strong> page, the LDAP, and Ranger and Hive databases that you attached to the data lake should be attached to your cluster.      </li>
+<li>On the <strong>Network</strong> page, select the same VPC and subnet where the data lake is running.  </li>
+</ul>
+</li>
+<li>
+<p>Click on <strong>CREATE CLUSTER</strong> to initiate cluster creation. </p>
+</li>
+</ol>
+<p>As an outcome of this step, you should have a running cluster attached to the data lake. Access your attached clusters and run your workloads as normal.</p></div>
         
     </div>
 

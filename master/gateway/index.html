@@ -755,7 +755,13 @@
 <ul>
 <li>The gateway option is enabled by default.  </li>
 <li>The <strong>Name</strong> for your gateway is set to <code>db-proxy</code> by default. You can update it if you would like. This name is used in the URLs for the cluster resources, as described in <a href="#services-available-via-gateway">Services available via gateway</a>. </li>
-<li>Under <strong>Exposable Services</strong>, the choice of cluster services to expose and proxy through the gateway depends on your blueprint. Cloudbreak analyzes your blueprint and provides a list of services that can be exposed through the gateway. You should review this list and select the services that should be proxied through the gateway. By default, only Ambari is exposed through the gateway.  </li>
+<li>Under <strong>Exposable Services</strong>, the choice of cluster services to expose and proxy through the gateway depends on your blueprint. Cloudbreak analyzes your blueprint and provides a list of services that can be exposed through the gateway. You should review this list and select the services that should be proxied through the gateway. By default, only Ambari is exposed through the gateway. </li>
+<li>We recommend that you expose the following services through the gateway:<ul>
+<li><strong>Analytics blueprint</strong>: Hive and Zeppelin</li>
+<li><strong>ETL blueprint</strong>: No additional services need to be exposed</li>
+<li><strong>Data science</strong>: Spark and Zeppelin   </li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
