@@ -683,7 +683,7 @@
 <h3 id="creating-hdf-flow-management-clusters">Creating HDF flow management clusters</h3>
 <p>When creating a Flow Management cluster from the default blueprint, make sure to do the following:</p>
 <ul>
-<li>On the <strong>Hardware and Storage</strong> page, select to place the <strong>Ambari Server</strong> on the "Services" host group. </li>
+<li>On the <strong>Hardware and Storage</strong> page, place the <strong>Ambari Server</strong> on the "Services" host group. </li>
 <li>On the <strong>Network</strong> page, open the required ports:        <ul>
 <li>Open <strong>9091</strong> TCP port on the NiFi host group. This port is used by <strong>NiFi web UI</strong>; Without it, you will be unable to access the NiFi web UI.   </li>
 <li>Open <strong>61443</strong> TCP port on the Services host group. This port is used by <strong>NiFi Registry</strong>.       </li>
@@ -736,8 +736,8 @@ Caused by: org.apache.nifi.authorization.exception.AuthorizerCreationException: 
 <h3 id="creating-hdf-messaging-management-clusters">Creating HDF messaging management clusters</h3>
 <p>When creating a Messaging Management cluster from the default blueprint, make sure to do the following:</p>
 <ul>
-<li>Place the Ambari Server on the "Services" host group.  </li>
-<li>When creating a cluster, open 3000 TCP port on the Services host group for Grafana.    </li>
+<li>On the <strong>Hardware and Storage</strong> page, place the <strong>Ambari Server</strong> on the "Services" host group.  </li>
+<li>When creating a cluster, open <strong>3000</strong> TCP port on the Services host group for Grafana.    </li>
 </ul></div>
         
     </div>
