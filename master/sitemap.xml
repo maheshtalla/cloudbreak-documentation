@@ -5,31 +5,31 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//architecture/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//concepts/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//deployment-options/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//security/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -39,19 +39,19 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-quick/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-quick/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-quick/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -61,25 +61,25 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-pre/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-launch/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-create/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//aws-data/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -89,31 +89,31 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-pre/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-launch/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-create/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-data-adls/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//azure-data-wasb/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -123,25 +123,25 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-pre/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-launch/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-create/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//gcp-data/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -151,19 +151,19 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//os-pre/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//os-launch/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//os-create/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -173,25 +173,25 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//data-lake/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//clusters-access/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//clusters-manage/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//hive/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -221,13 +221,13 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//cb-upgrade/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//cb-delete/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -237,31 +237,31 @@
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//releasenotes/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//faq/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//dev/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//get-help/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//smartsense/index.html</loc>
-     <lastmod>2018-06-09</lastmod>
+     <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
