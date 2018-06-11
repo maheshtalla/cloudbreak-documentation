@@ -665,12 +665,37 @@
     
         <li class="first-level active"><a href="#creating-hdf-clusters">Creating HDF clusters</a></li>
         
+            <li class="second-level"><a href="#creating-hdf-flow-management-clusters">Creating HDF flow management clusters</a></li>
+            
+        
+            <li class="second-level"><a href="#creating-hdf-messaging-management-clusters">Creating HDF messaging management clusters</a></li>
+            
+        
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="creating-hdf-clusters">Creating HDF clusters</h2></div>
+<h2 id="creating-hdf-clusters">Creating HDF clusters</h2>
+<p>In general, creating HDF clusters is similar to creating to HHD clusters; however, there are a few HDF-specific configuration requirements that you should be aware of. </p>
+<h3 id="creating-hdf-flow-management-clusters">Creating HDF flow management clusters</h3>
+<p>When creating a Flow Management cluster from the default blueprint, make sure to do the following:</p>
+<ul>
+<li>Place the Ambari Server on the "Services" host group.     </li>
+<li>When creating a cluster, open 9091 TCP port on the NiFi host group. Without it, you will be unable to access the NiFi web UI.   </li>
+<li>When creating a cluster, open port 61443 on the Services host group. This port is used by NiFi Registry.      </li>
+<li>When creating the NiFi Registry controller service in NiFi, the internal hostname has to be used, <code>e.g. https://ip-1-2-3-4.us-west-2.compute.internal:61443</code>   </li>
+<li>Enable Kerberos. You can either use your own kerberos or select for Cloudbreak to create a test KDC.  </li>
+<li>Although Cloudbreak allows cluster scaling (including autoscaling), scaling is not supported by NiFi. Downscaling NiFi clusters is not supported - as it can result in data loss when a node is removed that has not yet processed all the data on that node. There is also a known issue related to scaling listed in the <a href="#known-issues">Known Issues</a> below.  </li>
+</ul>
+<p>For the list of available blueprints, refer to <a href="../index.html#default-cluster-configurations">Default Cluster Configurations</a>.<br />
+To get started creating NiFi clusters, refer to the following <a href="https://community.hortonworks.com/articles/182221/create-a-nifi-cluster-on-aws-azure-google-or-opens.html">HCC post</a>. </p>
+<h3 id="creating-hdf-messaging-management-clusters">Creating HDF messaging management clusters</h3>
+<p>When creating a Messaging Management cluster from the default blueprint, make sure to do the following:</p>
+<ul>
+<li>If using the default blueprint, place the Ambari Server on the "Services" host group.  </li>
+<li>When creating a cluster, open 3000 TCP port on the Services host group for Grafana.    </li>
+</ul></div>
         
     </div>
 
