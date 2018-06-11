@@ -668,6 +668,9 @@
             <li class="second-level"><a href="#permission-or-connection-problems">Permission or connection problems</a></li>
             
         
+            <li class="second-level"><a href="#creating-cbreak_sultans_1-error">Creating cbreak_sultans_1 ... Error</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -685,11 +688,88 @@
 <h3 id="permission-or-connection-problems">Permission or connection problems</h3>
 <p>If you face permission or connection issues, disable SELinux:</p>
 <ol>
-<li>Set <code>SELINUX=disabled</code> in <code>/etc/selinux/config</code>.  </li>
-<li>Reboot the machine.  </li>
+<li>
+<p>Disable SELINUX:</p>
+<p><pre>setenforce 0
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config</pre></p>
+</li>
 <li>
 <p>Ensure the SELinux is not turned on afterwards:</p>
-<p><presetenforce 0 && sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/ selinux/config</pre></p>
+<p><pre>sestatus | grep -i mode
+Current mode:                   permissive
+Mode from config file:          permissive</pre></p>
+</li>
+</ol>
+<h3 id="creating-cbreak_sultans_1-error">Creating cbreak_sultans_1 ... Error</h3>
+<p><code>cbd start</code> returns the following error:</p>
+<pre>Creating cbreak_sultans_1 ... error
+
+ERROR: for cbreak_sultans_1  Cannot create container for service sultans: unknown log opt 'max-size' for journald log driver
+Creating cbreak_consul_1
+Creating cbreak_logrotate_1 ... error
+Creating cbreak_periscope_1 ... error
+Creating cbreak_mail_1 ... error
+Creating cbreak_haveged_1 ... error
+
+ERROR: for cbreak_mail_1  Cannot create container for service mail: unknown log opt 'max-size' for journald log driver
+
+Creating cbreak_uluwatu_1 ... error
+
+Creating cbreak_smartsense_1 ... error
+
+Creating cbreak_consul_1 ... error
+Creating cbreak_identity_1 ... error
+
+ERROR: for cbreak_identity_1  Cannot create container for service identity: unknown log opt 'max-file' for journald log driver
+Creating cbreak_logsink_1 ... error
+Creating cbreak_commondb_1 ... error
+
+ERROR: for cbreak_commondb_1  Cannot create container for service commondb: unknown log opt 'max-size' for journald log driver
+
+ERROR: for haveged  Cannot create container for service haveged: unknown log opt 'max-size' for journald log driver
+
+ERROR: for uluwatu  Cannot create container for service uluwatu: unknown log opt 'max-size' for journald log driver
+
+ERROR: for consul  Cannot create container for service consul: unknown log opt 'max-size' for journald log driver
+
+ERROR: for commondb  Cannot create container for service commondb: unknown log opt 'max-size' for journald log driver
+
+ERROR: for logrotate  Cannot create container for service logrotate: unknown log opt 'max-size' for journald log driver
+
+ERROR: for periscope  Cannot create container for service periscope: unknown log opt 'max-size' for journald log driver
+
+ERROR: for sultans  Cannot create container for service sultans: unknown log opt 'max-size' for journald log driver
+
+ERROR: for mail  Cannot create container for service mail: unknown log opt 'max-size' for journald log driver
+
+ERROR: for logsink  Cannot create container for service logsink: unknown log opt 'max-size' for journald log driver
+
+ERROR: for smartsense  Cannot create container for service smartsense: unknown log opt 'max-size' for journald log driver
+
+ERROR: for identity  Cannot create container for service identity: unknown log opt 'max-file' for journald log driver
+Encountered errors while bringing up the project.</pre>
+
+<p>This means that your <a href="https://docs.docker.com/config/containers/logging/configure/">Docker logging drivers</a> are not configured correctly.</p>
+<p>To resolve the issue, on your Cloudbreak VM:</p>
+<ol>
+<li>
+<p>Check the Docker Logging Driver configuration:</p>
+<p><pre>docker info | grep "Logging Driver"</pre></p>
+<p>If it is set to "Logging Driver: journald", you must set it to "json-file". </p>
+</li>
+<li>
+<p>Open the <code>docker</code> file for editing:</p>
+<p><pre>vi /etc/sysconfig/docker</pre></p>
+</li>
+<li>
+<p>Edit the following part of the file so that it looks like below (showing <code>log-driver=json-file</code>):</p>
+<p><pre># Modify these options if you want to change the way the docker daemon runs
+OPTIONS='--selinux-enabled --log-driver=json-file --signature-verification=false'</pre>     </p>
+</li>
+<li>
+<p>Restart Docker:</p>
+<p><pre>systemctl restart docker
+systemctl status docker</pre></p>
 </li>
 </ol></div>
         

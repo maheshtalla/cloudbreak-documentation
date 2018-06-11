@@ -667,9 +667,11 @@
             
                 <li class="third-level"><a href="#system-updates">System updates</a></li>
             
-                <li class="third-level"><a href="#iptables">Iptables</a></li>
+                <li class="third-level"><a href="#install-iptables">Install iptables</a></li>
             
-                <li class="third-level"><a href="#docker">Docker</a></li>
+                <li class="third-level"><a href="#disable-selinux">Disable SELINUX</a></li>
+            
+                <li class="third-level"><a href="#install-docker">Install Docker</a></li>
             
         
             <li class="second-level"><a href="#install-cloudbreak-on-a-vm">Install Cloudbreak on a VM</a></li>
@@ -716,7 +718,7 @@ Before launching Cloudbreak on Azure, review and meet the <a href="#prerequisite
 <pre>yum -y update</pre>
 
 <p>Reboot it if necessary.</p>
-<h4 id="iptables">Iptables</h4>
+<h4 id="install-iptables">Install iptables</h4>
 <p>Perform these steps to install and configure iptables.</p>
 <p><strong>Steps</strong> </p>
 <ol>
@@ -735,12 +737,25 @@ systemctl disable firewalld &amp;&amp; systemctl stop firewalld</pre></p>
 iptables --flush FORWARD &amp;&amp; \
 service iptables save</pre></p>
 </li>
+</ol>
+<h4 id="disable-selinux">Disable SELINUX</h4>
+<p>Perform these steps to disable SELINUX.</p>
+<p><strong>Steps</strong> </p>
+<ol>
 <li>
 <p>Disable SELINUX:</p>
-<p><pre>sed -i --follow-symlinks 's/^SELINUX=.*/SELINUX=disabled/g' /etc/sysconfig/selinux</pre></p>
+<p><pre>setenforce 0
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' 
+/etc/selinux/config</pre></p>
+</li>
+<li>
+<p>Ensure the SELinux is not turned on afterwards:</p>
+<p><pre>sestatus | grep -i mode
+Current mode:                   permissive
+Mode from config file:          permissive</pre></p>
 </li>
 </ol>
-<h4 id="docker">Docker</h4>
+<h4 id="install-docker">Install Docker</h4>
 <p>Perform these steps to install Docker.</p>
 <p><strong>Steps</strong>    </p>
 <ol>
@@ -757,9 +772,32 @@ EOF</pre></p>
 </li>
 <li>
 <p>Install Docker service:</p>
-<p><pre>yum install -y docker-engine-1.9.1 docker-engine-selinux-1.9.1
+<p><pre>yum install -y docker-engine-1.13.1 docker-engine-selinux-1.13.1
 systemctl start docker
 systemctl enable docker</pre></p>
+</li>
+<li>
+<p>Check the Docker Logging Driver configuration:</p>
+<p><pre>docker info | grep "Logging Driver"</pre></p>
+</li>
+<li>
+<p>If it is set to <code>Logging Driver: journald</code>, you must  set it to "json-file" instead. To do that:</p>
+<ol>
+<li>
+<p>Open the <code>docker</code> file for editing:</p>
+<p><pre>vi /etc/sysconfig/docker</pre>  </p>
+</li>
+<li>
+<p>Edit the following part of the file so that it looks like below (showing <code>log-driver=json-file</code>):</p>
+<p><pre># Modify these options if you want to change the way the docker daemon runs
+OPTIONS='--selinux-enabled --log-driver=json-file --signature-verification=false'</pre>     </p>
+</li>
+<li>
+<p>Restart Docker:</p>
+<p><pre>systemctl restart docker
+systemctl status docker</pre></p>
+</li>
+</ol>
 </li>
 </ol>
 <h3 id="install-cloudbreak-on-a-vm">Install Cloudbreak on a VM</h3>
@@ -804,9 +842,12 @@ cbd generate</pre>   </p>
 </li>
 <li>
 <p>Start the Cloudbreak application by using the following commands:</p>
-<p><pre>cbd pull
+<p><pre>cbd pull --parallel
 cbd start</pre></p>
 <p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, the process will take longer than usual due to the download of all the necessary docker images.</p>
+<blockquote>
+<p>If you encounter errors during <code>cbd start</code>, refer to <a href="../trouble-cb/index.html">Toubleshooting</a>.  </p>
+</blockquote>
 </li>
 <li>
 <p>Next, check Cloudbreak application logs:</p>
@@ -819,7 +860,7 @@ cbd start</pre></p>
 <p><strong>Steps</strong> </p>
 <ol>
 <li>
-<p>You can log into the Cloudbreak application at <code>https://IP_Address</code>. For example <code>https://34.212.141.253</code>. You can obtain the VM's IP address from your cloud provider console.</p>
+<p>You can log into the Cloudbreak application at <code>https://IP_Address</code>. For example <code>https://34.212.141.253</code>. You may use <code>cbd start</code> to obtain the login information. Alternatively, you can obtain the VM's IP address from your cloud provider console. </p>
 </li>
 <li>
 <p>Confirm the security exception to proceed to the Cloudbreak web UI.</p>
