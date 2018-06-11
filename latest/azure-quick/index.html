@@ -698,7 +698,7 @@
 </ul>
 </li>
 <li>
-<p>In order to use Cloudbreak for creating clusters, you Azure account must have the minimum permissions described in <a href="../azure-pre#azure-roles">Azure roles</a>.      </p>
+<p>In order to create a Cloudbreak credential, you Azure account must have the minimum permissions described in <a href="../azure-pre#azure-roles">Azure roles</a>.      </p>
 </li>
 </ul>
 <h3 id="launch-cloudbreak-from-the-quickstart-template">Launch Cloudbreak from the quickstart template</h3>
@@ -882,8 +882,13 @@
 <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter network traffic with network security groups</a> (External)  </p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Before you can start using Cloudbreak to create clusters, you must create a Cloudbreak credential. Cloudbreak credential allows Cloudbreak to authenticate with your Azure account and provision resources on your behalf.</p>
-<p>There are two ways for Cloudbreak to authenticate with Azure: interactive and app-based. Since the interactive approach is simpler, the steps below describe how to configure an interactive Cloudbreak credential. If you would like to review both options, refer to <a href="../azure-launch#create-cloudbreak-credential">Create Cloudbreak credential</a>. </p>
+<p>There are two ways for Cloudbreak to authenticate with Azure: interactive and app-based. Since the interactive approach is simpler, the steps below describe how to configure an interactive Cloudbreak credential. </p>
 <p>Follow these steps to create an interactive Cloudbreak credential.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Your account must have have an Owner role in order for the interactive credential creation to work.   </p>
+<blockquote>
+<p>If your account does not have an Owner role, you must you the <a href="../azure-launch/index.html#create-app-based-credential">app-based credential</a> option instead of the interactive option. To review the requirements for both options. refer to <a href="../azure-pre/index.html#azure-roles">Prerequisites on Azure: Azure roles</a>. </p>
+</blockquote>
 <p><strong>Steps</strong></p>
 <ol>
 <li>

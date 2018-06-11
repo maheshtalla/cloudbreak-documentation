@@ -691,14 +691,11 @@
 <p>Have an existing an AWS account. If you don't have an account, you can create one at <a href="https://aws.amazon.com/">https://aws.amazon.com/</a>.</p>
 </li>
 <li>
-<p>Import an existing key pair or generate a new key pair in the AWS region which you are planning to use for launching Cloudbreak and clusters. If you don't have a key pair, use <a href="../aws-pre/index.html#ssh-key-pair">these</a> steps to create or import a key pair. </p>
-</li>
-<li>
-<p>Your AWS account must have the minimum permissions described in <a href="../aws-pre/index.html#credential-role">CloudbreakRole</a> as well as the permission to create an IAM role.  </p>
+<p>Import an existing SSH key pair or generate a new key pair in the AWS region which you are planning to use for launching Cloudbreak and clusters. If you don't have a key pair, use <a href="../aws-pre/index.html#ssh-key-pair">these</a> steps to create or import a key pair.    </p>
 </li>
 </ul>
 <h3 id="launch-cloudbreak-from-the-quickstart-template">Launch Cloudbreak from the quickstart template</h3>
-<p>Launch Cloudbreak from an CloudFormation template by using the following steps. This is the quickstart deployment option. </p>
+<p>Launch Cloudbreak from a CloudFormation template by using the following steps. This is the quickstart deployment option. </p>
 <p><strong>Steps</strong> </p>
 <ol>
 <li>
@@ -924,11 +921,19 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 </ol>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Before you can start using Cloudbreak to create clusters, you must create a Cloudbreak credential. Cloudbreak credential allows Cloudbreak to authenticate with your AWS account and provision resources on your behalf.</p>
-<p>There are two ways for Cloudbreak to authenticate with AWS: key-based and role-based. Since the key-based approach is faster, the steps below describe how to configure a key-based Cloudbreak credential.  </p>
-<p>If you would like to review both options, refer to <a href="../aws-pre#authentication">Authentication</a>. </p>
 <p><strong>Prerequisites</strong></p>
-<p>To perform these steps, you must know your access and secret key. If needed, you or your AWS administrator can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong> &gt; select a user &gt; <strong>Security credentials</strong>:</p>
-<p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a>  </p>
+<p>In order to use the key-based Cloudbreak credential: </p>
+<ul>
+<li>
+<p>You must have an access key and secret key. For information on how to generate it, refer to <a href="../aws-pre/index.html#option-1-use-key-based-authentication">Use key-based authentication</a>.  </p>
+</li>
+<li>
+<p>Your AWS user must have the minimum permissions described in <a href="../aws-pre/index.html#credential-role">CloudbreakRole</a> as well as the permission to create an IAM role. </p>
+<blockquote>
+<p>If you are using a corporate account and you are unable to obtain these permissions for your AWS user, you must use <a href="../aws-pre/index.html#option-2-configure-role-based-authentication">role-based authentication</a> instead of key-based authentication. If you would like to review both options, refer to <a href="../aws-pre/index.html#authentication">Authentication</a>. </p>
+</blockquote>
+</li>
+</ul>
 <p><strong>Steps</strong></p>
 <ol>
 <li>

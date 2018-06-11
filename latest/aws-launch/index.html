@@ -873,9 +873,20 @@ cbd start</pre></p>
 <li><a href="#create-role-based-credential">Create role-based credential</a></li>
 </ul>
 <h4 id="create-key-based-credential">Create key-based credential</h4>
+<p>Follow these steps to create a key-based Cloudbreak credential. </p>
 <p><strong>Prerequisites</strong></p>
-<p>To perform these steps, you must know your access and secret key. If needed, you or your AWS administrator can generate new access and secret keys from the <strong>IAM Console</strong> &gt; <strong>Users</strong> &gt; select a user &gt; <strong>Security credentials</strong>:</p>
-<p><a href="../images/cb_aws-iam_security_creds.png" target="_blank" title="click to enlarge"><img src="../images/cb_aws-iam_security_creds.png" width="650" title="IAM Console"></a>  </p>
+<p>In order to use the key-based Cloudbreak credential: </p>
+<ul>
+<li>
+<p>You must have an access key and secret key. For information on how to generate it, refer to <a href="../aws-pre/index.html#option-1-use-key-based-authentication">Use key-based authentication</a>.  </p>
+</li>
+<li>
+<p>Your AWS user must have the minimum permissions described in <a href="../aws-pre/index.html#credential-role">CloudbreakRole</a> as well as the permission to create an IAM role. </p>
+<blockquote>
+<p>If you are using a corporate account and you are unable to obtain these permissions for your AWS user, you must use <a href="../aws-pre/index.html#option-2-configure-role-based-authentication">role-based authentication</a> instead of key-based authentication. If you would like to review both options, refer to <a href="../aws-pre/index.html#authentication">Authentication</a>. </p>
+</blockquote>
+</li>
+</ul>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -930,10 +941,9 @@ cbd start</pre></p>
 </li>
 </ol>
 <h4 id="create-role-based-credential">Create role-based credential</h4>
-<p>To perform these steps, you must know the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" (configured as a <a href="#authentication">aws-pre.md#prerequisite</a>). </p>
-<blockquote>
-<p>In case you have not created the CredentialRole yet, follow the steps in <a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a>.  </p>
-</blockquote>
+<p>Follow these steps to create a role-based Cloudbreak credential. </p>
+<p><strong>Prerequisites</strong></p>
+<p>To perform these steps, you must know the <strong>IAM Role ARN</strong> corresponding to the "CredentialRole" (configured as part of <a href="../aws-pre/index.html#prerequisites">prerequisites</a>. In case you have not created the CredentialRole yet, follow the steps in <a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a>.  </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>

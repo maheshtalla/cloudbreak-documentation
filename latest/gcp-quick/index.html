@@ -727,7 +727,11 @@
 <li>Compute Image User     </li>
 <li>Compute Instance Admin </li>
 <li>Compute Network Admin  </li>
-<li>Compute Security Admin </li>
+<li>Compute Security Admin  </li>
+</ul>
+<p>Storage roles:</p>
+<ul>
+<li>Storage &gt; Storage Admin </li>
 </ul>
 <p>Other roles: </p>
 <ul>
@@ -908,7 +912,7 @@ deploymentIp  35.224.36.96</pre></p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Cloudbreak works by connecting your GCP account through this credential, and then uses it to create resources on your behalf. Before you can start provisioning cluster using Cloudbreak, you must create a <a href="../concepts/index.html#cloudbreak-credential">Cloudbreak credential</a>.  </p>
 <p><strong>Prerequisites</strong></p>
-<p>In order to launch clusters on GCP via Cloudbreak, you must have a service account that Cloudbreak can use to create resources.  </p>
+<p>As described in <a href="#service-account">Prerequisites</a>, in order to launch clusters on GCP via Cloudbreak, you must have a service account that Cloudbreak can use to create resources.   </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
