@@ -172,6 +172,24 @@
     
         
     <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation/</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation/</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://hortonworks.github.io/cloudbreak-documentation//hdf/index.html</loc>
+     <lastmod>2018-06-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//data-lake/index.html</loc>
      <lastmod>2018-06-11</lastmod>
      <changefreq>daily</changefreq>
@@ -192,18 +210,6 @@
     <url>
      <loc>http://hortonworks.github.io/cloudbreak-documentation//hive/index.html</loc>
      <lastmod>2018-06-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation/</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://hortonworks.github.io/cloudbreak-documentation/</loc>
-     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
