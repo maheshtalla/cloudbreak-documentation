@@ -732,7 +732,7 @@
 <tr>
 <td><a href="https://aws.amazon.com/documentation/iam/">AWS IAM</a></td>
 <td>AWS Identity &amp; Access Management (IAM) is used to control access to AWS services and resources.</td>
-<td>Cloudbreak provisions the CloudbreakRole IAM role (for role-based authentication).</td>
+<td>Cloudbreak provisions the CloudbreakQuickstartRole IAM role that is used during the quickstart deployment.</td>
 </tr>
 <tr>
 <td><a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a></td>
@@ -764,8 +764,9 @@
 <li>Firewall   </li>
 <li>VM instance  </li>
 <li>Config  </li>
-<li>Config waiter  </li>
+<li>Config waiter   </li>
 </ul>
+<p>The config and config waiter are scripts used for deploying Cloudbreak. The startup config script is watched by the waiter script and updated when the deployment in up and running or if it failed to start. The startup waiter script keeps the deployment "in-progress" until the startup script that's running on the created machine update the cbd-deployment-startup-config value to "success" or "failed".</p>
 <p>To launch Cloudbreak on GCP by using the quickstart option, refer to <a href="../gcp-quick/index.html">Launch Cloudbreak from template (GCP)</a>.</p>
 <h4 id="production-deployment-option">Production deployment option</h4>
 <p>The option to install Cloudbreak deployer manually on your own VM is available for all cloud providers. </p>

@@ -758,23 +758,12 @@ Mode from config file:          permissive</pre></p>
 </li>
 </ol>
 <h4 id="install-docker">Install Docker</h4>
-<p>Perform these steps to install Docker.</p>
+<p>Perform these steps to install Docker. The minimum Docker version is 1.13.1. </p>
 <p><strong>Steps</strong>    </p>
 <ol>
 <li>
-<p>Create Docker repo:</p>
-<p><pre>cat &gt; /etc/yum.repos.d/docker.repo &lt;&lt;"EOF"
-[dockerrepo]
-name=Docker Repository
-baseurl=https://yum.dockerproject.org/repo/main/centos/7
-enabled=1
-gpgcheck=1
-gpgkey=https://yum.dockerproject.org/gpg
-EOF</pre></p>
-</li>
-<li>
 <p>Install Docker service:</p>
-<p><pre>yum install -y docker-engine-1.13.1 docker-engine-selinux-1.13.1
+<p><pre>yum install -y docker
 systemctl start docker
 systemctl enable docker</pre></p>
 </li>
