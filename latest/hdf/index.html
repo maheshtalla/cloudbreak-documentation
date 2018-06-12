@@ -694,7 +694,7 @@
 <li>If using <strong>Kerberos</strong>, you can either use your own Kerberos (for production) or select for Cloudbreak to create a test KDC (for evaluation only).  </li>
 </ul>
 </li>
-<li>When creating a HDF cluster with LDAP, on the <strong>Security</strong> page, must must specify the <strong>Cluster User</strong> and <strong>Password</strong> that is a valid user in the LDAP.      </li>
+<li>When creating a HDF cluster with LDAP, on the <strong>Security</strong> page, must must specify the <strong>Cluster User</strong> and <strong>Password</strong> that is a valid user in the LDAP. This is a limitation with NiFi/NiFi Registry. Only one login provider can be configured for those components, and if an LDAP is supplied, then the login provider is set to LDAP; Consequently, this requires that the initial admin be in the given LDAP.      </li>
 <li>When creating the NiFi Registry controller service in NiFi, the internal hostname must be used, <code>e.g. https://ip-1-2-3-4.us-west-2.compute.internal:61443</code>   </li>
 <li>Although Cloudbreak allows cluster scaling (including autoscaling), scaling is not supported by NiFi:       <ul>
 <li><strong>Downscaling NiFi clusters is not supported</strong> - as it can result in data loss when a node is removed that has not yet processed all the data on that node.       </li>
