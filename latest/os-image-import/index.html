@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/gcp-data/index.html"> 
+    <link rel="canonical" href="http://hortonworks.github.io/cloudbreak-documentation/os-image-import/index.html"> 
     <link rel="shortcut icon" href="../images/favicon.png">
 
-    <title>Configure access to GCS - Cloudbreak</title>
+    <title>Manually import HDP and HDF images to OpenStack - Cloudbreak</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -223,7 +223,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">GCP <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -246,8 +246,8 @@
 
                         
                             
-<li class="active">
-    <a href="index.html">Configure access to GCS</a>
+<li >
+    <a href="../gcp-data/index.html">Configure access to GCS</a>
 </li>
 
                         
@@ -283,7 +283,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using Cloudbreak <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -446,8 +446,8 @@
 
         
             
-<li >
-    <a href="../os-image-import/index.html">Manually import HDP and HDF images to OpenStack</a>
+<li class="active">
+    <a href="index.html">Manually import HDP and HDF images to OpenStack</a>
 </li>
 
         
@@ -639,12 +639,12 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../gcp-create/index.html">
+                        <a rel="next" href="../cb-profile/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../os-pre/index.html">
+                        <a rel="prev" href="../hdf/index.html">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -669,18 +669,15 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#configuring-access-to-google-cloud-storage-gcs">Configuring access to Google Cloud Storage (GCS)</a></li>
+        <li class="first-level active"><a href="#manually-import-hdp-and-hdf-images-to-openstack">Manually import HDP and HDF images to OpenStack</a></li>
         
-            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
+            <li class="second-level"><a href="#import-hdp-prewarmed-image">Import HDP prewarmed image</a></li>
             
         
-            <li class="second-level"><a href="#configure-access-to-gcs">Configure access to GCS</a></li>
+            <li class="second-level"><a href="#import-hdf-prewarmed-image">Import HDF prewarmed image</a></li>
             
         
-            <li class="second-level"><a href="#testing-access-to-gcs">Testing access to GCS</a></li>
-            
-        
-            <li class="second-level"><a href="#configure-gcs-storage-locations">Configure GCS storage locations</a></li>
+            <li class="second-level"><a href="#import-hdphdf-base-image">Import HDP/HDF base image</a></li>
             
         
     
@@ -688,51 +685,77 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="configuring-access-to-google-cloud-storage-gcs">Configuring access to Google Cloud Storage (GCS)</h2>
-<p>Google Cloud Storage (GCS) is not supported as a default file system, but access to data in GCS is possible via the gs connector. Use these steps to configure access from your cluster to GCS. </p>
-<p>These steps assume that you are using an HDP version that supports the gs cloud storage connector (HDP 2.6.5 introduced this feature as a TP).</p>
-<h3 id="prerequisites">Prerequisites</h3>
-<ol>
-<li>
-<p>Access to Google Cloud Storage is via a service account. If you already started using Cloudbreak, you must already have a service account. </p>
-</li>
-<li>
-<p>The service account that you provide to Cloudbreak must have access to the buckets that you want to use with Cloudbreak-managed clusters. For example instructions on how to configure the access refer to <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.5/bk_cloud-data-access/content/edit-bucket-permissions.html">Modify GCS Bucket Permissions</a>. </p>
-</li>
-</ol>
-<h3 id="configure-access-to-gcs">Configure access to GCS</h3>
-<p>Access to Google Cloud Storage is via a service account. </p>
+<h2 id="manually-import-hdp-and-hdf-images-to-openstack">Manually import HDP and HDF images to OpenStack</h2>
+<p>An OpenStack administrator must perform these steps to add the Cloudbreak deployer image to your OpenStack deployment. </p>
+<blockquote>
+<p>Importing prewarmed and base HDP and HDF images is no longer required, because if these images are not imported manually, Cloudbreak will import them once you attempt to create a cluster.</p>
+</blockquote>
+<h3 id="import-hdp-prewarmed-image">Import HDP prewarmed image</h3>
+<p>These steps are no longer required, because if these images are not imported manually, Cloudbreak will import them once you attempt to create an HDP cluster. If you would like to import HDP prewarmed images manually (instead of having them imported), you can do this by using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>On the <strong>Cloud Storage</strong> page in the advanced cluster wizard view, select <strong>Use existing GSC storage</strong>. </p>
+<p>Download the latest HDP image to your local machine:</p>
+<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp-26-1803301748.img</small></pre></p>
 </li>
 <li>
-<p>Under <strong>Service Account Email Address</strong> provide the email for your GCS storage account.  </p>
+<p>Set the following environment variables for the OpenStack image import:</p>
+<p><pre><small>export CB_LATEST_IMAGE=cb-hdp-26-1803301748.img
+export CB_LATEST_IMAGE_NAME=cb-hdp-26-1803301748.img
+export OS_USERNAME=your_os_user_name
+export OS_AUTH_URL=your_authentication_url
+export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
+</li>
+<li>
+<p>Import the new image into your OpenStack:</p>
+<p><pre><small>glance image-create --name "$CB_LATEST_IMAGE_NAME" --file "$CB_LATEST_IMAGE" --disk-format qcow2 --container-format bare --progress</small></pre></p>
 </li>
 </ol>
-<p>Once your cluster is in the running state, you should be able to access buckets that the configured storage account has access to.  </p>
-<h3 id="testing-access-to-gcs">Testing access to GCS</h3>
-<p>Test access to the Google Cloud Storage bucket by running a few commands from any cluster node. For example, you can use the command listed below (replace “mytestbucket” with the name of your bucket):</p>
-<pre>hadoop fs -ls gs://my-test-bucket/</pre>
-
-<h3 id="configure-gcs-storage-locations">Configure GCS storage locations</h3>
-<p>After configuring access to GCS via service account, you can optionally use a GCS bucket as a base storage location; this storage location is mainly for the Hive Warehouse Directory (used for storing the table data for managed tables).   </p>
-<p><strong>Prerequisites</strong></p>
-<ul>
-<li>You must have an existing bucket. For instructions on how to create a bucket on GCS, refer to <a href="https://cloud.google.com/storage/docs/creating-buckets">GCP documentation</a>.  </li>
-<li>The service account that you configured under <a href="#configure-access-to-gcs">Configure access to GCS</a> must allow access to the bucket.   </li>
-</ul>
+<p>After performing the import, you should be able to see the Cloudbreak image among your OpenStack images.</p>
+<h3 id="import-hdf-prewarmed-image">Import HDF prewarmed image</h3>
+<p>These steps are no longer required, because if these images are not imported manually, Cloudbreak will import them once you attempt to create an HDF cluster. If you would like to import HDP prewarmed images manually (instead of having them imported), you can do this by using the following steps.</p>
 <p><strong>Steps</strong></p>
 <ol>
-<li>When creating a cluster, on the <strong>Cloud Storage</strong> page in the advanced cluster wizard view, select <strong>Use existing GCS storage</strong> and select the existing service account, as described in <a href="#configure-access-to-gcs">Configure access to GCS</a>.    </li>
-<li>Under <strong>Storage Locations</strong>, enable <strong>Configure Storage Locations</strong> by clicking the <img src="../images/cb_toggle.png" alt="On"/> button.   </li>
-<li>Provide your existing bucket name under <strong>Base Storage Location</strong>.  </li>
 <li>
-<p>Under <strong>Path for Hive Warehouse Directory property (hive.metastore.warehouse.dir)</strong>, Cloudbreak automatically suggests a location within the bucket. For example, if the bucket that you specified is <code>my-test-bucket</code> then the suggested location will be <code>my-test-bucket/apps/hive/warehouse</code>.  You may optionally update this path.        </p>
-<p>Cloudbreak automatically creates this directory structure in your bucket.  </p>
+<p>Download the latest HDF image to your local machine:</p>
+<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp-26-1803301748.img</small></pre></p>
 </li>
-</ol></div>
+<li>
+<p>Set the following environment variables for the OpenStack image import:</p>
+<p><pre><small>export CB_LATEST_IMAGE=cb-hdp-26-1803301748.img
+export CB_LATEST_IMAGE_NAME=cb-hdp-26-1803301748.img
+export OS_USERNAME=your_os_user_name
+export OS_AUTH_URL=your_authentication_url
+export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
+</li>
+<li>
+<p>Import the new image into your OpenStack:</p>
+<p><pre><small>glance image-create --name "$CB_LATEST_IMAGE_NAME" --file "$CB_LATEST_IMAGE" --disk-format qcow2 --container-format bare --progress</small></pre></p>
+</li>
+</ol>
+<p>After performing the import, you should be able to see the Cloudbreak image among your OpenStack images. </p>
+<h3 id="import-hdphdf-base-image">Import HDP/HDF base image</h3>
+<p>These steps are no longer required, because if these images are not imported manually, Cloudbreak will import them once you attempt to create an HDF cluster. If you would like to import HDP/HDF base images manually (instead of having them imported), you can do this by using the following steps.</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>
+<p>Download the latest HDP image to your local machine:</p>
+<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp--1803211203.img</small></pre></p>
+</li>
+<li>
+<p>Set the following environment variables for the OpenStack image import:</p>
+<p><pre><small>export CB_LATEST_IMAGE=cb-hdp--1803211203.img
+export CB_LATEST_IMAGE_NAME=cb-hdp--1803211203.img
+export OS_USERNAME=your_os_user_name
+export OS_AUTH_URL=your_authentication_url
+export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
+</li>
+<li>
+<p>Import the new image into your OpenStack:</p>
+<p><pre><small>glance image-create --name "$CB_LATEST_IMAGE_NAME" --file "$CB_LATEST_IMAGE" --disk-format qcow2 --container-format bare --progress</small></pre></p>
+</li>
+</ol>
+<p>After performing the import, you should be able to see the Cloudbreak image among your OpenStack images.</p></div>
         
     </div>
 

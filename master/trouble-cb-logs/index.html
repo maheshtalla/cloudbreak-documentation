@@ -445,6 +445,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../os-image-import/index.html">Manually import HDP and HDF images to OpenStack</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -718,11 +724,11 @@
 <p>There is a symlink called <code>cbreak.log</code> which points to the latest log file. Sharing this symlink does not share the log itself.</p>
 </blockquote>
 <h3 id="saltstack-logs">Saltstack logs</h3>
-<p>Cloudbreak uses Saltstack to install Ambari and the necessary packages for the HDP provisioning. Salt Master always runs alongside the Ambari Server node. Each instance in the cluster runs a Salt Minion, which connects to the Salt Master. There can be multiple Salt Masters if the cluster is configured to run in HA (High Availability) mode and in this case each Salt Minion connects to each Salt Master.</p>
+<p>Cloudbreak uses Saltstack to install Ambari and the necessary packages for the HDP/HDF provisioning. Salt Master always runs alongside the Ambari Server node. Each instance in the cluster runs a Salt Minion, which connects to the Salt Master. There can be multiple Salt Masters if the cluster is configured to run in HA (High Availability) mode and in this case each Salt Minion connects to each Salt Master.</p>
 <p>Cloudbreak also uses SaltStack to execute user-provided customization scripts called "recipes". </p>
 <p>Salt Master and Salt Minion logs can be found at the following location: <code>/var/log/salt</code></p>
 <h3 id="ambari-logs">Ambari logs</h3>
-<p>Cloudbreak uses Ambari to orchestrate the installation of the different HDP components. Each instance in the cluster runs an Ambari agent which connects to the Ambari server. Ambari server is declared by the user during the cluster installation wizard. </p>
+<p>Cloudbreak uses Ambari to orchestrate the installation of the different HDP/HDF components. Each instance in the cluster runs an Ambari agent which connects to the Ambari server. Ambari server is declared by the user during the cluster installation wizard. </p>
 <h4 id="ambari-server-logs">Ambari server logs</h4>
 <p>Ambari server logs can be found on the nodes where Ambari server is installed in the following locations:</p>
 <p><code>/var/log/ambari-server/ambari-server.log</code></p>
