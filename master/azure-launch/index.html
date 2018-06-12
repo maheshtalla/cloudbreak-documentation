@@ -758,11 +758,14 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g'
 <p>Ensure the SELinux is not turned on afterwards:</p>
 <p><pre>sestatus | grep -i mode
 Current mode:                   permissive
-Mode from config file:          permissive</pre></p>
+Mode from config file:          enforcing</pre></p>
 </li>
 </ol>
+<blockquote>
+<p>Rebooting the VM is not required, but in case you reboot, both "Current mode" and "Mode from config file" will be set to <code>permissive</code>. </p>
+</blockquote>
 <h4 id="install-docker">Install Docker</h4>
-<p>Perform these steps to install Docker. The minimum Docker version is 1.13.1. </p>
+<p>Perform these steps to install Docker. The minimum Docker version is 1.13.1. If you are using an older image that comes with an older Docker version, upgrade Docker to 1.13.1 or newer. </p>
 <p><strong>Steps</strong>    </p>
 <ol>
 <li>
@@ -837,7 +840,7 @@ cbd generate</pre>   </p>
 </li>
 <li>
 <p>Start the Cloudbreak application by using the following commands:</p>
-<p><pre>cbd pull --parallel
+<p><pre>cbd pull-parallel
 cbd start</pre></p>
 <p>This will start the Docker containers and initialize the application. The first time you start the Cloudbreak app, the process will take longer than usual due to the download of all the necessary docker images.</p>
 <blockquote>
