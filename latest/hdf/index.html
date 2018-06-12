@@ -665,12 +665,12 @@
     
         <li class="first-level active"><a href="#creating-hdf-clusters">Creating HDF clusters</a></li>
         
-            <li class="second-level"><a href="#creating-hdf-flow-management-clusters">Creating HDF flow management clusters</a></li>
+            <li class="second-level"><a href="#creating-hdf-flow-management-clusters">Creating HDF Flow Management clusters</a></li>
             
-                <li class="third-level"><a href="#troubleshooting-hdf-flow-management-cluster-creation">Troubleshooting HDF flow management cluster creation</a></li>
+                <li class="third-level"><a href="#troubleshooting-hdf-flow-management-cluster-creation">Troubleshooting HDF Flow Management cluster creation</a></li>
             
         
-            <li class="second-level"><a href="#creating-hdf-messaging-management-clusters">Creating HDF messaging management clusters</a></li>
+            <li class="second-level"><a href="#creating-hdf-messaging-management-clusters">Creating HDF Messaging Management clusters</a></li>
             
         
     
@@ -680,7 +680,7 @@
 
 <h2 id="creating-hdf-clusters">Creating HDF clusters</h2>
 <p>In general, the create cluster wizard offers prescriptive default settings that help you configure your HDF clusters properly; however, there are a few additional configuration requirements that you should be aware of. </p>
-<h3 id="creating-hdf-flow-management-clusters">Creating HDF flow management clusters</h3>
+<h3 id="creating-hdf-flow-management-clusters">Creating HDF Flow Management clusters</h3>
 <p>When creating a Flow Management cluster from the default blueprint, make sure to do the following:</p>
 <ul>
 <li>On the <strong>Hardware and Storage</strong> page, place the <strong>Ambari Server</strong> on the "Services" host group. </li>
@@ -706,8 +706,8 @@
 </ul>
 </li>
 </ul>
-<h4 id="troubleshooting-hdf-flow-management-cluster-creation">Troubleshooting HDF flow management cluster creation</h4>
-<p>NiFi returns the following error when the flow management cluster is set up with an LDAP: </p>
+<h4 id="troubleshooting-hdf-flow-management-cluster-creation">Troubleshooting HDF Flow Management cluster creation</h4>
+<p>NiFi returns the following error when the Flow Management cluster is set up with an LDAP: </p>
 <pre>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authorizer': FactoryBean threw exception on object creation; nested exception is org.apache.nifi.authorization.exception.AuthorizerCreationException: org.apache.nifi.authorization.exception.AuthorizerCreationException: Unable to locate initial admin admin to seed policies
         at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:175)
         at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:103)
@@ -737,7 +737,7 @@ Caused by: org.apache.nifi.authorization.exception.AuthorizerCreationException: 
 <p>When creating a HDF cluster with LDAP, on the <strong>Security</strong> page of the create cluster wizard you specified some <strong>Cluster User</strong> and <strong>Password</strong> that is not a valid user in the LDAP. </p>
 <p><strong>Solution</strong>:</p>
 <p>When creating a HDF cluster with LDAP, on the <strong>Security</strong> page of the create cluster wizard, specify the <strong>Cluster User</strong> and <strong>Password</strong> that is a valid user in the LDAP. </p>
-<h3 id="creating-hdf-messaging-management-clusters">Creating HDF messaging management clusters</h3>
+<h3 id="creating-hdf-messaging-management-clusters">Creating HDF Messaging Management clusters</h3>
 <p>When creating a Messaging Management cluster from the default blueprint, make sure to do the following:</p>
 <ul>
 <li>On the <strong>Hardware and Storage</strong> page, place the <strong>Ambari Server</strong> on the "Services" host group.  </li>
