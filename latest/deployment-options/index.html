@@ -745,7 +745,8 @@
 </tr>
 </tbody>
 </table>
-<p>To launch Cloudbreak on AWS by using the quickstart option, refer to <a href="../aws-quick/index.html">Quickstart on AWS</a>.   </p>
+<p><strong>Related links</strong> <br />
+<a href="../aws-quick/index.html">Quickstart on AWS</a>     </p>
 <h4 id="quickstart-option-for-azure">Quickstart option for Azure</h4>
 <p>The quickstart option allows you to instantiate Cloudbreak by using Azure Resource Manager (ARM) template. </p>
 <p>On Azure, resources are organized by using resource groups. When you launch Cloudbreak, you may either select to use an existing resource group or a new resource group is created. The following Azure resources are provisioned within the selected resource group:</p>
@@ -757,7 +758,8 @@
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface">Network interface</a> (NIC) attached to the VM provides the interconnection between the VM and the underlying software network.  </li>
 <li><a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction">Blob storage container</a> is created to store Cloudbreak Deployer OS disk's data.  </li>
 </ul>
-<p>To launch Cloudbreak on Azure by using the quickstart option, refer to <a href="../azure-quick/index.html">Quickstart on Azure</a>.</p>
+<p><strong>Related links</strong> <br />
+<a href="../azure-quick/index.html">Quickstart on Azure</a>  </p>
 <h4 id="quickstart-option-for-gcp">Quickstart option for GCP</h4>
 <p>Based on the Cloud Deployment Manager template, GCP automatically provisions a new VM that runs CentOS 7, installs Docker, and launches Cloudbreak. </p>
 <p>The following basic resources are provisioned on you GCP account:</p>
@@ -771,7 +773,8 @@
 <li>Config waiter   </li>
 </ul>
 <p>The config and config waiter are scripts used for deploying Cloudbreak. The startup config script is watched by the waiter script and updated when the deployment in up and running or if it failed to start. The startup waiter script keeps the deployment "in-progress" until the startup script that's running on the created machine update the cbd-deployment-startup-config value to "success" or "failed".</p>
-<p>To launch Cloudbreak on GCP by using the quickstart option, refer to <a href="../gcp-quick/index.html">Quickstart on GCP</a>.</p>
+<p><strong>Related links</strong> <br />
+<a href="../gcp-quick/index.html">Quickstart on GCP</a>   </p>
 <h4 id="production-deployment-option">Production deployment option</h4>
 <p>The option to install Cloudbreak deployer manually on your own VM is available for all cloud providers. </p>
 <p>This option:</p>
@@ -781,24 +784,24 @@
 <li>Requires you to install Docker  </li>
 <li>Requires you to download the cbd tarball, extract it, and configure Cloudbreak deployer  </li>
 </ul>
-<p>To get started with the production option, refer to the instructions for your cloud platform:</p>
-<ul>
-<li><a href="../aws-launch/index.html">Launch on AWS</a>   </li>
-<li><a href="../azure-launch/index.html">Launch on Azure</a>   </li>
-<li><a href="../gcp-launch/index.html">Launch on GCP</a>  </li>
-<li><a href="../os-launch/index.html">Launch on OpenStack</a> </li>
-</ul>
+<p><strong>Related links</strong><br />
+<a href="../aws-launch/index.html">Launch on AWS</a> <br />
+<a href="../azure-launch/index.html">Launch on Azure</a> <br />
+<a href="../gcp-launch/index.html">Launch on GCP</a> <br />
+<a href="../os-launch/index.html">Launch on OpenStack</a>  </p>
 <h3 id="cluster-deployment-options">Cluster deployment options</h3>
 <p>On a basic level, Cloudbreak offers three cluster deployment options:</p>
 <ul>
 <li>Basic cluster deployment with prescriptive options  </li>
 <li>Advanced cluster deployment with customized options  </li>
-<li>Enterprise cluster deployment with a <a href="../data-lake/index.html">data lake</a> and attached workload clusters:  </li>
+<li>Enterprise HDP cluster deployment with a data lake and attached workload clusters:  </li>
 </ul>
 <blockquote>
 <p>The data lake deployment option is technical preview.    </p>
 </blockquote>
-<p><a href="../images/cb_deployment-datalake.png" target="_blank" title="click to enlarge"><img src="../images/cb_deployment-datalake.png" width="650" title="Cluster deployment options"></a></p></div>
+<p><a href="../images/cb_deployment-datalake.png" target="_blank" title="click to enlarge"><img src="../images/cb_deployment-datalake.png" width="650" title="Cluster deployment options"></a></p>
+<p><strong>Related links</strong><br />
+<a href="../data-lake/index.html">Setting up a data lake</a>  </p></div>
         
     </div>
 
