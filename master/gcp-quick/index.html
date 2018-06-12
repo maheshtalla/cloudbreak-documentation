@@ -686,7 +686,7 @@
             <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
             
         
-            <li class="second-level"><a href="#create-cluster">Create cluster</a></li>
+            <li class="second-level"><a href="#create-a-cluster">Create a cluster</a></li>
             
         
             <li class="second-level"><a href="#next-steps">Next steps</a></li>
@@ -878,7 +878,7 @@ OUTPUTS       VALUE
 deploymentIp  35.224.36.96</pre></p>
 <p><div class="note">
 <p class="first admonition-title">Cleaning up after a failed deployment</p>
-<p class="last">For steps on how to delete Cloudbreak after a failed deployment, refer to <a href="../cb-delete/index.html#delete-cloudbreak-on-gcp">Delete Cloudbreak on GCP</a></p>
+<p class="last">For steps on how to delete Cloudbreak after a failed deployment, refer to <a href="../cb-delete/index.html#delete-cloudbreak-on-gcp">Delete Cloudbreak on GCP</a>.</p>
 </div></p>
 </li>
 <li>
@@ -927,7 +927,7 @@ deploymentIp  35.224.36.96</pre></p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Cloudbreak works by connecting your GCP account through this credential, and then uses it to create resources on your behalf. Before you can start provisioning cluster using Cloudbreak, you must create a <a href="../concepts/index.html#cloudbreak-credential">Cloudbreak credential</a>.  </p>
 <p><strong>Prerequisites</strong></p>
-<p>As described in <a href="#service-account">Prerequisites</a>, in order to launch clusters on GCP via Cloudbreak, you must have a service account that Cloudbreak can use to create resources.   </p>
+<p>As described in the <a href="#service-account">Service account</a> section in the prerequisites, in order to launch clusters on GCP via Cloudbreak, you must have a service account that Cloudbreak can use to create resources.   </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -982,10 +982,10 @@ deploymentIp  35.224.36.96</pre></p>
 </li>
 <li>
 <p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
-<p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to <a href="../gcp-create/index.html">create clusters</a>. </p>
+<p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to create clusters. </p>
 </li>
 </ol>
-<h3 id="create-cluster">Create cluster</h3>
+<h3 id="create-a-cluster">Create a cluster</h3>
 <p>Use these steps to create a cluster. This section only covers minimal steps required for creating a cluster based on the basic settings (2-node cluster with default hardware and storage options).  </p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -1003,7 +1003,7 @@ deploymentIp  35.224.36.96</pre></p>
 </ul>
 </li>
 <li>
-<p>Click <strong>Next</strong> 3 times to navigate to the <strong>Security Page</strong>. You do not need to enter anything on the <strong>Hardware and Storage</strong> and <strong>Network</strong> because by default Cloudbreak suggests the instance types, storage, and network to use (a new network and subnet is created by default).   </p>
+<p>Click <strong>Next</strong> three times to navigate to the <strong>Security Page</strong>. You do not need to enter anything on the <strong>Hardware and Storage</strong> and <strong>Network</strong> because by default Cloudbreak suggests the instance types, storage, and network to use (a new network and subnet is created by default).   </p>
 </li>
 <li>
 <p>One the <strong>Security</strong> page, provide the following:</p>

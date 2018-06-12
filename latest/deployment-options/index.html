@@ -698,7 +698,7 @@
 <p><a href="../images/cb_deployment-options.png" target="_blank" title="click to enlarge"><img src="../images/cb_deployment-options.png" width="650" title="Cloudbreak deployment options"></a>  </p>
 <ul>
 <li>The <strong>quickstart option</strong> allows you to get started with Cloudbreak quickly, but offers limited flexibility. Use this option for getting started with Cloudbreak. This option is not suitable a production.        </li>
-<li>The <strong>production option</strong> is less automated, but offers more configurability. This option is recommended when your production environments. For more information about this option, refer to <a href="#production-deployment-option">Production deployment option</a>.</li>
+<li>The <strong>production option</strong> is less automated, but offers more configurability. This option is recommended when your production environments. </li>
 </ul>
 <h4 id="deployment-option-cheatsheet">Deployment option cheatsheet</h4>
 <p>The following table summarizes the available Cloudbreak deployment options:  </p>
@@ -745,7 +745,7 @@
 </tr>
 </tbody>
 </table>
-<p>To launch Cloudbreak on AWS by using the quickstart option, refer to <a href="../aws-quick/index.html">Launch Cloubreak from template (AWS)</a>.   </p>
+<p>To launch Cloudbreak on AWS by using the quickstart option, refer to <a href="../aws-quick/index.html">Quickstart on AWS</a>.   </p>
 <h4 id="quickstart-option-for-azure">Quickstart option for Azure</h4>
 <p>The quickstart option allows you to instantiate Cloudbreak by using Azure Resource Manager (ARM) template. </p>
 <p>On Azure, resources are organized by using resource groups. When you launch Cloudbreak, you may either select to use an existing resource group or a new resource group is created. The following Azure resources are provisioned within the selected resource group:</p>
@@ -757,7 +757,7 @@
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface">Network interface</a> (NIC) attached to the VM provides the interconnection between the VM and the underlying software network.  </li>
 <li><a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction">Blob storage container</a> is created to store Cloudbreak Deployer OS disk's data.  </li>
 </ul>
-<p>To launch Cloudbreak on Azure by using the quickstart option, refer to <a href="../azure-quick/index.html">Launch Cloudbreak from template (Azure)</a>.</p>
+<p>To launch Cloudbreak on Azure by using the quickstart option, refer to <a href="../azure-quick/index.html">Quickstart on Azure</a>.</p>
 <h4 id="quickstart-option-for-gcp">Quickstart option for GCP</h4>
 <p>Based on the Cloud Deployment Manager template, GCP automatically provisions a new VM that runs CentOS 7, installs Docker, and launches Cloudbreak. </p>
 <p>The following basic resources are provisioned on you GCP account:</p>
@@ -771,7 +771,7 @@
 <li>Config waiter   </li>
 </ul>
 <p>The config and config waiter are scripts used for deploying Cloudbreak. The startup config script is watched by the waiter script and updated when the deployment in up and running or if it failed to start. The startup waiter script keeps the deployment "in-progress" until the startup script that's running on the created machine update the cbd-deployment-startup-config value to "success" or "failed".</p>
-<p>To launch Cloudbreak on GCP by using the quickstart option, refer to <a href="../gcp-quick/index.html">Launch Cloudbreak from template (GCP)</a>.</p>
+<p>To launch Cloudbreak on GCP by using the quickstart option, refer to <a href="../gcp-quick/index.html">Quickstart on GCP</a>.</p>
 <h4 id="production-deployment-option">Production deployment option</h4>
 <p>The option to install Cloudbreak deployer manually on your own VM is available for all cloud providers. </p>
 <p>This option:</p>

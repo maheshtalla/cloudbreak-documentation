@@ -683,7 +683,7 @@
             <li class="second-level"><a href="#create-cloudbreak-credential">Create Cloudbreak credential</a></li>
             
         
-            <li class="second-level"><a href="#create-cluster">Create cluster</a></li>
+            <li class="second-level"><a href="#create-a-cluster">Create a cluster</a></li>
             
         
             <li class="second-level"><a href="#next-steps">Next steps</a></li>
@@ -875,7 +875,7 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 </blockquote>
 <p><div class="note">
 <p class="first admonition-title">Cleaning up after a failed deployment</p>
-<p class="last">For steps on how to delete Cloudbreak after a failed deployment, refer to <a href="../cb-delete/index.html#delete-cloudbreak-on-aws">Delete Cloudbreak on AWS</a></p>
+<p class="last">For steps on how to delete Cloudbreak after a failed deployment, refer to <a href="../cb-delete/index.html#delete-cloudbreak-on-aws">Delete Cloudbreak on AWS</a>.</p>
 </div></p>
 </li>
 </ol>
@@ -940,7 +940,7 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 <p>You must have an access key and secret key. For information on how to generate it, refer to <a href="../aws-pre/index.html#option-1-use-key-based-authentication">Use key-based authentication</a>.  </p>
 </li>
 <li>
-<p>Your AWS user must have the minimum permissions described in <a href="../aws-pre/index.html#credential-role">CloudbreakRole</a> as well as the permission to create an IAM role. </p>
+<p>Your AWS user must have the minimum permissions described in <a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a> as well as the permission to create an IAM role. </p>
 <blockquote>
 <p>If you are using a corporate account and you are unable to obtain these permissions for your AWS user, you must use <a href="../aws-pre/index.html#option-2-configure-role-based-authentication">role-based authentication</a> instead of key-based authentication. If you would like to review both options, refer to <a href="../aws-pre/index.html#authentication">Authentication</a>. </p>
 </blockquote>
@@ -999,7 +999,7 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 <p>Congratulations! You've successfully launched Cloudbreak and create a Cloudbreak credential. Now it's time to <a href="../aws-create/index.html">create a cluster</a>.</p>
 </li>
 </ol>
-<h3 id="create-cluster">Create cluster</h3>
+<h3 id="create-a-cluster">Create a cluster</h3>
 <p>Use these steps to create a cluster. This section only covers minimal steps required for creating a cluster based on the basic settings (2-node cluster with default hardware and storage options).  </p>
 <p><strong>Steps</strong></p>
 <ol>
@@ -1017,7 +1017,7 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 </ul>
 </li>
 <li>
-<p>Click <strong>Next</strong> 3 times to navigate to the <strong>Security Page</strong>. You do not need to enter anything on the <strong>Hardware and Storage</strong> and <strong>Network</strong> because by default Cloudbreak suggests the instance types, storage, and network to use (a new network and subnet is created by default).   </p>
+<p>Click <strong>Next</strong> three times to navigate to the <strong>Security Page</strong>. You do not need to enter anything on the <strong>Hardware and Storage</strong> and <strong>Network</strong> because by default Cloudbreak suggests the instance types, storage, and network to use (a new network and subnet is created by default).   </p>
 </li>
 <li>
 <p>One the <strong>Security</strong> page, provide the following:</p>
