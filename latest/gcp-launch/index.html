@@ -757,15 +757,13 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g'
 /etc/selinux/config</pre></p>
 </li>
 <li>
-<p>Ensure the SELinux is not turned on afterwards:</p>
-<p><pre>sestatus | grep -i mode
-Current mode:                   permissive
-Mode from config file:          enforcing</pre></p>
+<p>Run the following command to ensure that SELinux is not turned on afterwards: </p>
+<p><pre>getenforce</pre></p>
+</li>
+<li>
+<p>The command should return "Disabled".     </p>
 </li>
 </ol>
-<blockquote>
-<p>Rebooting the VM is not required, but in case you reboot, both "Current mode" and "Mode from config file" will be set to <code>permissive</code>. </p>
-</blockquote>
 <h4 id="install-docker">Install Docker</h4>
 <p>Perform these steps to install Docker. The minimum Docker version is 1.13.1. If you are using an older image that comes with an older Docker version, upgrade Docker to 1.13.1 or newer. </p>
 <p><strong>Steps</strong>    </p>
