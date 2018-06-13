@@ -969,7 +969,6 @@ Default HDF version 3.1.1.0-35    </p>
 <h5 id="bug-96788-azure-availability-set-option-is-not-available-for-instance-count-of-1">(BUG-96788) <strong>Azure Availability Set Option Is Not Available for Instance Count of 1</strong></h5>
 <p>When creating a cluster, the Azure availability set feature is not available for host groups with the instance count of 1.</p>
 <p><em>Workaround</em>:</p>
-<p>This issue will be fixed in a future release.</p>
 <p>If you would like to use the Azure availability sets feature now, you must add at least 2 instances to the host group for which you want to use them. The option Azure availability sets is available on the advanced <strong>Hardware and Storage</strong> page of the create cluster wizard.   </p>
 <hr />
 <h5 id="bug-92605-cluster-creation-fails-with-resourceinerror">(BUG-92605) <strong>Cluster Creation Fails with ResourceInError</strong></h5>
@@ -977,6 +976,11 @@ Default HDF version 3.1.1.0-35    </p>
 <p><em>Infrastructure creation failed. Reason: Failed to create the stack for CloudContext{id=3689, name='test-exisitngnetwork', platform='StringType{value='OPENSTACK'}', owner='e0307f96-bd7d-4641-8c8f-b95f2667d9c6'} due to: Resource CREATE failed: ResourceInError: resources.ambari_volume_master_0_0: Went to status error due to "Unknown"</em></p>
 <p><em>Workaround</em>:</p>
 <p>This may mean that the volumes that you requested exceed volumes available on your cloud provider account. When creating a cluster, on the advanced <strong>Hardware and Storage</strong> page of the create cluster wizard, try reducing the amount of requested storage. If you need more storage, try using a different region or ask your cloud provider admin to increase the resource quota for volumes.  </p>
+<hr />
+<h5 id="bug-104825-upscaling-the-compute-host-group-is-not-possible-on-aws">(BUG-104825) <strong>Upscaling the Compute Host Group is Not Possible on AWS</strong></h5>
+<p>When using Ambari 2.6.2, upscaling the compute host group on AWS fails with the following error:   </p>
+<p><em>New node(s) could not be added to the cluster. Reason com.sequenceiq.cloudbreak.core.ClusterException: Ambari operation failed: component: 'UPSCALE_REQUEST', requestID: '8'</em></p>
+<p>The main reason for the error is that the HIVE_CLIENT cannot be installed. </p>
 <hr />
 <h5 id="bug-93241-error-when-scaling-multiple-host-groups">(BUG-93241) <strong>Error When Scaling Multiple Host Groups</strong></h5>
 <p>Scaling of multiple host groups fails with the following error:</p>
