@@ -703,10 +703,10 @@
 <h5 id="protected-gateway-powered-by-apache-knox"><strong>Protected Gateway Powered by Apache Knox</strong></h5>
 <p>To access HDP cluster resources, a gateway powered by Apache Knox is configured. When creating a cluster, you can optionally instruct Cloudbreak to install and configure this gateway to protect access to the cluster resources. By default, transport layer security on the gateway endpoint is via a self-signed SSL certificate on port 8443. By default, Ambari is proxied through the gateway. For more information, refer to <a href="../gateway/index.html">Configuring a Gateway</a>.  </p>
 <hr />
-<h5 id="microsoft-azure-adls-and-wasb-cloud-storage"><strong>Microsoft Azure ADLS and WASB Cloud Storage</strong></h5>
+<h5 id="configuring-access-to-microsoft-azure-adls-and-wasb-cloud-storage"><strong>Configuring Access to Microsoft Azure ADLS and WASB Cloud Storage</strong></h5>
 <p>When creating a cluster on Azure, you can configure access to ADLS and WASB from the <em>Cloud Storage</em> page of the advanced create cluster wizard. For more information, refer to <a href="../azure-data-adls/index.html">Access data in ADLS</a> and <a href="../azure-data-wasb/index.html">Access data in WASB</a>.  </p>
 <hr />
-<h5 id="google-gcs-cloud-storage"><strong>Google GCS Cloud Storage</strong></h5>
+<h5 id="configuring-access-to-google-gcs-cloud-storage"><strong>Configuring Access to Google GCS Cloud Storage</strong></h5>
 <p>When creating a cluster on Google Cloud, you can configure access to Google Cloud Storage from the <em>Cloud Storage</em> page of the advanced create cluster wizard. Authentication with GCS is via a service account. For more information, refer to <a href="../gcp-data/index.html">Access data in GCS</a>.    </p>
 <hr />
 <h5 id="configuring-base-cloud-storage-locations"><strong>Configuring Base Cloud Storage Locations</strong></h5>
@@ -746,7 +746,7 @@ For more information, refer to <a href="../concepts/index.html#dynamic-blueprint
 <h5 id="modifying-existing-cloudbreak-credentials"><strong>Modifying Existing Cloudbreak Credentials</strong></h5>
 <p>Cloudbreak allows you to modify existing credentials by using the edit option available in Cloudbreak UI or by using the <code>credential modify</code> command in the CLI. For more information, refer to <a href="../cb-credentials/index.html#modify-an-existing-credential">Modify an Existing Credential</a>.  </p>
 <hr />
-<h5 id="retrying-failed-cluster"><strong>Retrying Failed Cluster</strong></h5>
+<h5 id="retrying-failed-clusters"><strong>Retrying Failed Clusters</strong></h5>
 <p>When stack provisioning or cluster creation failure occurs, the new "retry" UI option allows you to resume the process from the last failed step. A corresponding <code>cb cluster retry</code> CLI command has been introduced. For more information, refer to <a href="../clusters-manage/index.html#retry-a-cluster">Retry a cluster</a> and <a href="../cli-reference/index.html">CLI</a> documentation.  </p>
 <hr />
 <h5 id="setting-root-volume-size"><strong>Setting Root Volume Size</strong></h5>
