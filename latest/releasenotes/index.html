@@ -720,7 +720,7 @@
 Dynamic blueprints offer the ability to manage external sources (such as RDBMS and LDAP/AD) outside of your blueprint.<br />
 For more information, refer to <a href="../concepts/index.html#dynamic-blueprints">Dynamic Blueprints</a> and <a href="../blueprints/index.html#creating-dynamic-blueprints">Creating dynamic blueprints</a>.   </p>
 <hr />
-<h5 id="creating-hdf-clusters"><strong>Creating HDF Clusters</strong></h5>
+<h5 id="hdf-clusters"><strong>HDF Clusters</strong></h5>
 <p>Cloudbreak introduces the ability to create HDF flow management clusters with Apache NiFi and NiFi Registry, as well as HDF messaging clusters with Apache Kafka. To help you get started, Cloudbreak provides two new built-in blueprints:  </p>
 <ul>
 <li>Flow Management: Apache NiFi  </li>
@@ -734,7 +734,7 @@ For more information, refer to <a href="../concepts/index.html#dynamic-blueprint
 <h5 id="external-authentication-sources-ldapad-for-clusters"><strong>External Authentication Sources (LDAP/AD) for Clusters</strong></h5>
 <p>You can configure an existing LDAP/AD authentication source in the Cloudbreak UI or CLI so that it can later be associated with one or more Cloudbreak-managed clusters. After the authentication source has been registered with Cloudbreak, it will be available during the cluster create and can be reused with multiple clusters. For more information, refer to <a href="../external-ldap/index.html">Register an Authentication Source</a>.    </p>
 <hr />
-<h5 id="configuring-cloudbreak-to-use-existing-ldapad"><strong>Configuring Cloudbreak to Use Existing LDAP/AD</strong></h5>
+<h5 id="configuring-cloudbreak-to-use-an-existing-ldapad"><strong>Configuring Cloudbreak to Use an Existing LDAP/AD</strong></h5>
 <p>You can configure Cloudbreak to use your existing LDAP/AD so that you can authenticate Cloudbreak users against an existing LDAP/AD server. For more information, refer to <a href="../cb-ldap/index.html">Configuring Cloudbreak for LDAP/AD Authentication</a>.  </p>
 <hr />
 <h5 id="launching-cloudbreak-in-environments-with-restricted-internet-access-or-required-use-of-proxy"><strong>Launching Cloudbreak in Environments with Restricted Internet Access or Required Use of Proxy</strong></h5>
@@ -749,7 +749,7 @@ For more information, refer to <a href="../concepts/index.html#dynamic-blueprint
 <h5 id="retrying-failed-clusters"><strong>Retrying Failed Clusters</strong></h5>
 <p>When stack provisioning or cluster creation failure occurs, the new "retry" UI option allows you to resume the process from the last failed step. A corresponding <code>cb cluster retry</code> CLI command has been introduced. For more information, refer to <a href="../clusters-manage/index.html#retry-a-cluster">Retry a cluster</a> and <a href="../cli-reference/index.html">CLI</a> documentation.  </p>
 <hr />
-<h5 id="root-volume-size"><strong>Root Volume Size</strong></h5>
+<h5 id="root-volume-size-configuration"><strong>Root Volume Size Configuration</strong></h5>
 <p>When creating a cluster, you can modify the root volume size. This option is available on the advanced <strong>Hardware and Storage</strong> page of the create cluster wizard. Default is 50 GB for AWS and GCP, and 30 GB for Azure. This option is useful if your custom image requires more space than provided by default.   </p>
 <hr />
 <h5 id="json-key-on-google-cloud"><strong>JSON Key on Google Cloud</strong></h5>
