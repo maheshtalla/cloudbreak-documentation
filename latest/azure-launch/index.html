@@ -857,6 +857,8 @@ cbd start</pre></p>
 <p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
 </li>
 </ol>
+<p><strong>Related links</strong><br />
+<a href="../trouble-cb/index.html">Toubleshooting</a>   </p>
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong> </p>
@@ -908,6 +910,8 @@ cbd start</pre></p>
 </ol>
 <h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
 <p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, you must <a href="../cb-db/index.html">configure an external database</a>.</p>
+<p><strong>Related links</strong><br />
+<a href="../cb-db/index.html">Configure an external database</a>  </p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Before you can start creating clusters, you must first create a <a href="../concepts/index.html#cloudbreak-credential">Cloudbreak credential</a>. Without this credential, you will not be able to create clusters via Cloudbreak. Cloudbreak works by connecting your Azure account through this credential, and then uses it to create resources on your behalf.</p>
 <p>There are two methods for creating a Cloudbreak credential:</p>
@@ -939,9 +943,7 @@ cbd start</pre></p>
 <p>Follow these steps to create an interactive Cloudbreak credential.</p>
 <p><strong>Prerequisites</strong></p>
 <p>Your account must have have an Owner role in order for the interactive credential creation to work.   </p>
-<blockquote>
 <p>If your account does not have an Owner role, you must you the <a href="index.html#create-app-based-credential">app-based credential</a> option instead of the interactive option. To review the requirements for both options. refer to <a href="../azure-pre/index.html#azure-roles">Azure roles</a>. </p>
-</blockquote>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -1020,6 +1022,12 @@ cbd start</pre></p>
 <p>Congratulations! You've successfully launched and configured Cloudbreak. Now you can use Cloudbreak to create clusters.</p>
 </li>
 </ol>
+<p><strong>Related links</strong><br />
+<a href="index.html#create-app-based-credential">Create app-based credential</a> <br />
+<a href="../azure-pre/index.html#azure-roles">Azure roles</a><br />
+<a href="../trouble-azure/index.html">Troubleshooting Azure</a><br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Contributor</a> (External)<br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles">Custom roles in Azure</a> (External)  </p>
 <h4 id="create-app-based-credential">Create app-based credential</h4>
 <p>Follow these steps to create an app based Cloudbreak credential.</p>
 <p><strong>Prerequisites</strong></p>

@@ -703,9 +703,11 @@
 <p>Have an existing an AWS account. If you don't have an account, you can create one at <a href="https://aws.amazon.com/">https://aws.amazon.com/</a>.</p>
 </li>
 <li>
-<p>Import an existing SSH key pair or generate a new key pair in the AWS region which you are planning to use for launching Cloudbreak and clusters. If you don't have a key pair, use <a href="../aws-pre/index.html#ssh-key-pair">these</a> steps to create or import a key pair.    </p>
+<p>Import an existing SSH key pair or generate a new key pair in the AWS region which you are planning to use for launching Cloudbreak and clusters. If you don't have a key pair, refer to <a href="../aws-pre/index.html#ssh-key-pair">SSH key pair</a> documentation to create or import a key pair.  </p>
 </li>
 </ul>
+<p><strong>Related links</strong>  <br />
+<a href="../aws-pre/index.html#ssh-key-pair">SSH key pair</a>   </p>
 <h3 id="launch-cloudbreak-from-the-quickstart-template">Launch Cloudbreak from the quickstart template</h3>
 <p>Launch Cloudbreak from a CloudFormation template by using the following steps. This is the quickstart deployment option. </p>
 <p><strong>Steps</strong> </p>
@@ -838,7 +840,7 @@
 <tbody>
 <tr>
 <td>SSH Key Name</td>
-<td>Name of an existing EC2 key pair to enable SSH to access the instances. Key pairs are region-specific, so only the key pairs that you created for a selected region will appear in the dropdown. See <a href="#prerequisites">Prerequisites</a> for more information.</td>
+<td>Name of an existing EC2 key pair to enable SSH to access the instances. Key pairs are region-specific, so only the key pairs that you created for a selected region will appear in the dropdown.If you don't have a key pair, refer to <a href="../aws-pre/index.html#ssh-key-pair">SSH key pair</a>.</td>
 </tr>
 <tr>
 <td>Remote Access</td>
@@ -879,6 +881,11 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 </div></p>
 </li>
 </ol>
+<p><strong>Related links</strong><br />
+<a href="../cb-delete/index.html#delete-cloudbreak-on-aws">Delete Cloudbreak on AWS</a><br />
+<a href="../security/index.html#network-security">Network security</a><br />
+<a href="../aws-pre/index.html#ssh-key-pair">SSH key pair</a><br />
+<a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> (External)  </p>
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Follow these steps to obtain Cloudbreak VM's public IP address and log in to the Cloudbreak web UI. </p>
 <p><strong>Steps</strong>     </p>
@@ -941,11 +948,9 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 </li>
 <li>
 <p>Your AWS user must have the minimum permissions described in <a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a> as well as the permission to create an IAM role. </p>
-<blockquote>
-<p>If you are using a corporate account and you are unable to obtain these permissions for your AWS user, you must use <a href="../aws-pre/index.html#option-2-configure-role-based-authentication">role-based authentication</a> instead of key-based authentication. If you would like to review both options, refer to <a href="../aws-pre/index.html#authentication">Authentication</a>. </p>
-</blockquote>
 </li>
 </ul>
+<p>If you are unable to obtain these permissions for your AWS user, you must use <a href="../aws-pre/index.html#option-2-configure-role-based-authentication">role-based authentication</a> instead of key-based authentication. If you would like to review both options, refer to <a href="../aws-pre/index.html#authentication">Authentication</a>. </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -996,9 +1001,14 @@ troubleshooting. Note that in this case you are responsible for deleting the sta
 </li>
 <li>
 <p>Your credential should now be displayed in the <strong>Credentials</strong> pane.</p>
-<p>Congratulations! You've successfully launched Cloudbreak and create a Cloudbreak credential. Now you can start creating clusters.</p>
+<p>Congratulations! You've successfully launched Cloudbreak and create a Cloudbreak credential. Now you can start creating clusters. </p>
 </li>
 </ol>
+<p><strong>Related links</strong> <br />
+<a href="../aws-pre/index.html#authentication">Authentication</a><br />
+<a href="../aws-pre/index.html#option-1-use-key-based-authentication">Use key-based authentication</a>  <br />
+<a href="../aws-pre/index.html#option-2-configure-role-based-authentication">Use role-based authentication</a>   <br />
+<a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a>  </p>
 <h3 id="create-a-cluster">Create a cluster</h3>
 <p>Use these steps to create a cluster. This section only covers minimal steps required for creating a cluster based on the basic settings (2-node cluster with default hardware and storage options).  </p>
 <p><strong>Steps</strong></p>

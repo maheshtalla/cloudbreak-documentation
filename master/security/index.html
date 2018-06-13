@@ -700,12 +700,15 @@
 <h2 id="security-overview">Security overview</h2>
 <p>Cloudbreak utilizes cloud provider security resources such as virtual networks, security groups, and identity and access management:</p>
 <ol>
-<li><strong>Network isolation</strong> is achieved via user-configured virtual networks and subnets.<br />
-    Read more about <a href="#virtual-networks">virtual networks</a>.  </li>
-<li><strong>Network security</strong> is achieved via out-of-the-box security group settings.<br />
-    Read more about <a href="#network-security">network security</a>.   </li>
-<li><strong>Controlled use of cloud resources</strong> using IAM roles (AWS, GCP) or Active Directory (in case of Azure). 
-    Read more about <a href="#identity-management">identity management</a>.    </li>
+<li>
+<p><strong>Network isolation</strong> is achieved via user-configured virtual networks and subnets.  </p>
+</li>
+<li>
+<p><strong>Network security</strong> is achieved via out-of-the-box security group settings.  </p>
+</li>
+<li>
+<p><strong>Controlled use of cloud resources</strong> using IAM roles (AWS, GCP) or Active Directory (in case of Azure). </p>
+</li>
 </ol>
 <h3 id="virtual-networks">Virtual networks</h3>
 <p>Cloud providers use virtual networks which resemble traditional networks. Depending on the options that you selected during deployment, your Cloudbreak instance and clusters are launched into new or existing cloud provider networking infrastructure (virtual networks and subnets). For more information about virtual networks, refer to the cloud-provider documentation:</p>
@@ -738,6 +741,8 @@
 <h3 id="network-security">Network security</h3>
 <p>Security groups are set up to control network traffic to the instances in the system.</p>
 <p>Cloudbreak uses public IP addresses when communicating with cluster nodes. On AWS, you can configure it to use private IPs instead. For instructions, refer to <a href="../trouble-cluster/index.html#configure-communication-via-private-ips-on-aws">Configure communication via private IPs on AWS</a>.  </p>
+<p><strong>Related links</strong><br />
+<a href="../trouble-cluster/index.html#configure-communication-via-private-ips-on-aws">Configure communication via private IPs on AWS</a></p>
 <h4 id="cloudbreak-instance-security-group">Cloudbreak instance security group</h4>
 <p>The following table lists the minimum security group port configuration required for the Cloudbreak instance:</p>
 <table>
@@ -805,6 +810,8 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Related links</strong> <br />
+<a href="../security-cb-inbound/index.html">Restrict inbound access</a>  </p>
 <h3 id="identity-management">Identity management</h3>
 <p>To securely control access to cloud resources, cloud providers use identity management services such as IAM roles (AWS and GCP) and Active Directory (Azure). </p>
 <table>

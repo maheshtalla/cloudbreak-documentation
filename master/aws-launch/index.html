@@ -857,6 +857,8 @@ cbd start</pre></p>
 <p>You should see a message like this in the log: <code>Started CloudbreakApplication in 36.823 seconds.</code> Cloudbreak normally takes less than a minute to start.</p>
 </li>
 </ol>
+<p><strong>Related links</strong><br />
+<a href="../trouble-cb/index.html">Toubleshooting</a>   </p>
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Log in to the Cloudbreak UI using the following steps.</p>
 <p><strong>Steps</strong> </p>
@@ -908,6 +910,8 @@ cbd start</pre></p>
 </ol>
 <h3 id="configure-external-cloudbreak-database">Configure external Cloudbreak database</h3>
 <p>By default, Cloudbreak uses an embedded PostgreSQL database to persist data related to Cloudbreak configuration, setup, and so on. For a production Cloudbreak deployment, you must <a href="../cb-db/index.html">configure an external database</a>.</p>
+<p><strong>Related links</strong><br />
+<a href="../cb-db/index.html">Configure an external database</a>  </p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Before you can start creating clusters, you must first create a <a href="../concepts/index.html#cloudbreak-credential">Cloudbreak credential</a>. Without this credential, you will not be able to create clusters via Cloudbreak. </p>
 <p>As part of the prerequisites, you had two options to allow Cloudbreak to authenticate with AWS and create resources on your behalf: key-based or role-based <a href="../aws-pre/index.html#authentication">authentication</a>. Depending on your choice, you must configure a key-based or role-based credential: </p>
@@ -925,11 +929,9 @@ cbd start</pre></p>
 </li>
 <li>
 <p>Your AWS user must have the minimum permissions described in <a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a> as well as the permission to create an IAM role. </p>
-<blockquote>
-<p>If you are using a corporate account and you are unable to obtain these permissions for your AWS user, you must use <a href="../aws-pre/index.html#option-2-configure-role-based-authentication">role-based authentication</a> instead of key-based authentication. If you would like to review both options, refer to <a href="../aws-pre/index.html#authentication">Authentication</a>. </p>
-</blockquote>
 </li>
 </ul>
+<p>If you are unable to obtain these permissions for your AWS user, you must use <a href="../aws-pre/index.html#option-2-configure-role-based-authentication">role-based authentication</a> instead of key-based authentication. If you would like to review both options, refer to <a href="../aws-pre/index.html#authentication">Authentication</a>. </p>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -983,6 +985,11 @@ cbd start</pre></p>
 <p>Congratulations! You've successfully launched Cloudbreak and create a Cloudbreak credential. Now you can start creating clusters. </p>
 </li>
 </ol>
+<p><strong>Related links</strong> <br />
+<a href="../aws-pre/index.html#authentication">Authentication</a><br />
+<a href="../aws-pre/index.html#option-1-use-key-based-authentication">Use key-based authentication</a>  <br />
+<a href="../aws-pre/index.html#option-2-configure-role-based-authentication">Use role-based authentication</a>   <br />
+<a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a>   </p>
 <h4 id="create-role-based-credential">Create role-based credential</h4>
 <p>Follow these steps to create a role-based Cloudbreak credential. </p>
 <p><strong>Prerequisites</strong></p>
@@ -1036,6 +1043,8 @@ cbd start</pre></p>
 <p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to create clusters. </p>
 </li>
 </ol>
+<p><strong>Related links</strong><br />
+<a href="../aws-pre/index.html#create-credentialrole">Create CredentialRole</a>        </p>
 <div class="next">
 <a href="../aws-create/index.html">Next: Create a Cluster</a>
 </div></div>

@@ -710,9 +710,12 @@
 </ul>
 </li>
 <li>
-<p>In order to create a Cloudbreak credential, you Azure account must have the minimum permissions described in <a href="../azure-pre/index.html#azure-roles">Azure roles</a>.      </p>
+<p>In order to create a Cloudbreak credential, you Azure account must have the minimum permissions described in <a href="../azure-pre/index.html#azure-roles">Azure roles</a>. </p>
 </li>
 </ul>
+<p><strong>Related links</strong><br />
+<a href="../azure-pre/index.html#azure-roles">Azure roles</a>
+<a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows">PuTTygen</a> (External)      </p>
 <h3 id="launch-cloudbreak-from-the-quickstart-template">Launch Cloudbreak from the quickstart template</h3>
 <p>Launch Cloudbreak from an Azure Resource Manager (ARM) template by using the following steps. This is the quickstart deployment option. </p>
 <p><strong>Steps</strong></p>
@@ -779,7 +782,7 @@
 </tr>
 <tr>
 <td>Remote Location</td>
-<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags. Default value is <code>Internet</code> which allows access from all IP addresses. Examples: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Azure documentation</a>.</p></td>
+<td><p>Enter a valid <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> or use one of the default tags. Default value is <code>Internet</code> which allows access from all IP addresses. Examples: </p><p><ul><li>10.0.0.0/24 will allow access from 10.0.0.0 through 10.0.0.255</li><li>'Internet' will allow access from all. This is not a secure option but you can use it it you are just getting started and are not planning to have the instance on for a longer period. </li><li>(Advanced) 'VirtualNetwork' will allow access from the address space of the Virtual Network.</li><li> (Advanced) 'AzureLoadBalancer' will allow access from the address space of the load balancer.</li></ul></p><p>For more information, refer to the <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Plan virtual networks</a> in Azure documentation.</p></td>
 </tr>
 <tr>
 <td>Ssh Key</td>
@@ -829,6 +832,11 @@
 </div></p>
 </li>
 </ol>
+<p><strong>Related links</strong><br />
+<a href="../cb-delete/index.html#delete-cloudbreak-on-azure">Delete Cloudbreak on Azure</a><br />
+<a href="../trouble-azure/index.html">Troubleshooting Cloudbreak on Azure</a>     <br />
+<a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> <br />
+<a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Plan virtual networks</a> (External)    </p>
 <h3 id="access-cloudbreak-web-ui">Access Cloudbreak web UI</h3>
 <p>Follow these steps to obtain Cloudbreak VM's public IP address and log in to the Cloudbreak web UI. </p>
 <p><strong>Steps</strong>       </p>
@@ -888,7 +896,7 @@
 <p><a href="../images/cb_cb-ui1.png" target="_blank" title="click to enlarge"><img src="../images/cb_cb-ui1.png" width="650" title="Cloudbreak web UI"></a>  </p>
 </li>
 </ol>
-<p>The last task that you need to perform before you can use Cloudbreak is to <a href="#create-cloudbreak-credential">create Cloudbreak credential</a>.     </p>
+<p>The last task that you need to perform before you can use Cloudbreak is to create Cloudbreak credential.     </p>
 <p><strong>Related links</strong><br />
 <a href="http://www.ipaddressguide.com/cidr">CIDR IP</a> (External) <br />
 <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg">Filter network traffic with network security groups</a> (External)  </p>
@@ -898,9 +906,7 @@
 <p>Follow these steps to create an interactive Cloudbreak credential.</p>
 <p><strong>Prerequisites</strong></p>
 <p>Your account must have have an Owner role in order for the interactive credential creation to work.   </p>
-<blockquote>
 <p>If your account does not have an Owner role, you must you the <a href="../azure-launch/index.html#create-app-based-credential">app-based credential</a> option instead of the interactive option. To review the requirements for both options. refer to <a href="../azure-pre/index.html#azure-roles">Azure roles</a>. </p>
-</blockquote>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
@@ -979,6 +985,12 @@
 <p>Congratulations! You've successfully launched and configured Cloudbreak. Now you can use Cloudbreak to create clusters.</p>
 </li>
 </ol>
+<p><strong>Related links</strong><br />
+<a href="../azure-launch/index.html#create-app-based-credential">Create app-based credential</a> <br />
+<a href="../azure-pre/index.html#azure-roles">Azure roles</a><br />
+<a href="../trouble-azure/index.html">Troubleshooting Azure</a><br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#contributor">Contributor</a> (External)<br />
+<a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles">Custom roles in Azure</a> (External)  </p>
 <h3 id="create-a-cluster">Create a cluster</h3>
 <p>Use these steps to create a cluster. This section only covers minimal steps required for creating a cluster based on the basic settings (2-node cluster with default hardware and storage options).  </p>
 <p><strong>Steps</strong></p>

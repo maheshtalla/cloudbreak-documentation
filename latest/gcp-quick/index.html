@@ -704,6 +704,8 @@
 <h4 id="cloud-sdk">Cloud SDK</h4>
 <p>In order to use the Cloud Deployment Manager, you must install the Google Cloud SDK on your machine. The SDK contains the gcloud CLI tool, which is used to deploy Cloudbreak. </p>
 <p>For instructions, refer to <a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> in the Google Cloud documentation. Make sure to perform all of the steps and validate that the <code>gcloud</code> command works on your computer. Only after validating, proceed to the next step.  </p>
+<p><strong>Related links</strong><br />
+<a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> (External)  </p>
 <h4 id="gcp-apis">GCP APIs</h4>
 <p>You must enable the <strong>Compute Engine API</strong> and the <strong>Cloud Runtime Configuration API</strong> services.</p>
 <p><strong>Steps</strong> </p>
@@ -923,7 +925,8 @@ deploymentIp  35.224.36.96</pre></p>
 </li>
 </ol>
 <p><strong>Related Links</strong><br />
-<a href="https://cloud.google.com/sdk/downloads">Installing Google Cloud SDK</a> (External)  </p>
+<a href="https://cloud.google.com/compute/docs/machine-types">Machine types</a> (External)  <br />
+<a href="https://cloud.google.com/compute/docs/regions-zones/">Regions and zones</a> (External)     </p>
 <h3 id="create-cloudbreak-credential">Create Cloudbreak credential</h3>
 <p>Cloudbreak works by connecting your GCP account through this credential, and then uses it to create resources on your behalf. Before you can start provisioning cluster using Cloudbreak, you must create a <a href="../concepts/index.html#cloudbreak-credential">Cloudbreak credential</a>.  </p>
 <p><strong>Prerequisites</strong></p>
@@ -985,6 +988,9 @@ deploymentIp  35.224.36.96</pre></p>
 <p>Congratulations! You have successfully launched Cloudbreak and created a Cloudbreak credential. Now you can use Cloudbreak to create clusters. </p>
 </li>
 </ol>
+<p><strong>Related links</strong><br />
+<a href="../concepts/index.html#cloudbreak-credential">Cloudbreak credential</a><br />
+<a href="#service-account">Service account</a> </p>
 <h3 id="create-a-cluster">Create a cluster</h3>
 <p>Use these steps to create a cluster. This section only covers minimal steps required for creating a cluster based on the basic settings (2-node cluster with default hardware and storage options).  </p>
 <p><strong>Steps</strong></p>
