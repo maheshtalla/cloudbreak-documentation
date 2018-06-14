@@ -440,6 +440,12 @@
 
         
             
+<li >
+    <a href="../cb-email/index.html">Set up email notifications</a>
+</li>
+
+        
+            
 <li class="active">
     <a href="index.html">Modify settings in Cloudbreak Profile</a>
 </li>
@@ -639,7 +645,7 @@
             <ul class="nav navbar-nav navbar-right">
                 
                     <li >
-                        <a rel="next" href="../cb-ports/index.html">
+                        <a rel="next" href="../cb-email/index.html">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -677,19 +683,13 @@
             <li class="second-level"><a href="#check-available-profile-variables">Check available Profile variables</a></li>
             
         
-            <li class="second-level"><a href="#create-environment-specific-profiles">Create environment-specific profiles</a></li>
+            <li class="second-level"><a href="#create-environment-specific-profile-files">Create environment-specific Profile files</a></li>
             
         
             <li class="second-level"><a href="#secure-the-profile-file">Secure the Profile file</a></li>
             
         
-            <li class="second-level"><a href="#configure-email-notifications">Configure email notifications</a></li>
-            
-        
-            <li class="second-level"><a href="#configure-consul">Configure Consul</a></li>
-            
-        
-            <li class="second-level"><a href="#add-tags-in-profile-aws">Add tags in Profile (AWS)</a></li>
+            <li class="second-level"><a href="#configuring-consul">Configuring Consul</a></li>
             
         
     
@@ -713,7 +713,7 @@ export MY_OTHER_VAR=another_value
 <pre><code>cbd env show
 </code></pre>
 
-<h3 id="create-environment-specific-profiles">Create environment-specific profiles</h3>
+<h3 id="create-environment-specific-profile-files">Create environment-specific Profile files</h3>
 <p>If you would like to use a different versions of Cloudbreak for prod and qa profile, you must create two environment specific configurations that can be sourced. For example:</p>
 <ul>
 <li>Profile.prod  </li>
@@ -766,63 +766,11 @@ cbd util add-default-user
 </li>
 </ol>
 <p>For more information about setting environment variables in Profile, refer to <a href="#set-profile-variables">Set Profile variables</a>.</p>
-<h3 id="configure-email-notifications">Configure email notifications</h3>
-<p>If you want to configure email notification, configure SMTP parameters in your <code>Profile</code>. </p>
-<blockquote>
-<p>In order to use this configuration, your email server must use SMTP. </p>
-</blockquote>
-<p>The default values of the SMTP parameters are:</p>
-<pre><code>export CLOUDBREAK_SMTP_SENDER_USERNAME=
-export CLOUDBREAK_SMTP_SENDER_PASSWORD=
-export CLOUDBREAK_SMTP_SENDER_HOST=
-export CLOUDBREAK_SMTP_SENDER_PORT=25
-export CLOUDBREAK_SMTP_SENDER_FROM=
-export CLOUDBREAK_SMTP_AUTH=true
-export CLOUDBREAK_SMTP_STARTTLS_ENABLE=true
-export CLOUDBREAK_SMTP_TYPE=smtp
-</code></pre>
-
-<p>For example: </p>
-<pre><code>export CLOUDBREAK_SMTP_SENDER_USERNAME='myemail@gmail.com'  
-export CLOUDBREAK_SMTP_SENDER_PASSWORD='Mypassword123'  
-export CLOUDBREAK_SMTP_SENDER_HOST='smtp.gmail.com'  
-export CLOUDBREAK_SMTP_SENDER_PORT=25  
-export CLOUDBREAK_SMTP_SENDER_FROM='myemail@gmail.com'  
-export CLOUDBREAK_SMTP_AUTH=true  
-export CLOUDBREAK_SMTP_STARTTLS_ENABLE=true  
-export CLOUDBREAK_SMTP_TYPE=smtp  
-</code></pre>
-
-<blockquote>
-<p>The example assumes that you are using gmail. You should use the settings appropriate for your SMTP server.</p>
-</blockquote>
-<p>If your SMTP server uses SMTPS, you must set the protocol in your <code>Profile</code> to smtps:</p>
-<pre><code>export CLOUDBREAK_SMTP_TYPE=smtps
-</code></pre>
-
-<h3 id="configure-consul">Configure Consul</h3>
+<h3 id="configuring-consul">Configuring Consul</h3>
 <p>Cloudbreak uses <a href="https://www.consul.io/">Consul</a> for DNS resolution. All Cloudbreak related services are registered as someservice.service.consul.</p>
-<p>Consul’s built-in DNS server is able to fallback on another DNS server. This option is called <code>-recursor</code>. Cloudbreak Deployer first tries to discover the DNS settings of the host by looking for nameserver entry in the <code>/etc/resolv.conf</code> file. If it finds one, consul will use it as a recursor. Otherwise, it will use <code>8.8.8.8</code>.</p>
+<p>Consul’s built-in DNS server is able to fallback on another DNS server. This option is called <code>-recursor</code>. Cloudbreak deployer first tries to discover the DNS settings of the host by looking for nameserver entry in the <code>/etc/resolv.conf</code> file. If it finds one, consul will use it as a recursor. Otherwise, it will use <code>8.8.8.8</code>.</p>
 <p>For a full list of available consul config options, refer to <a href="https://www.consul.io/docs/agent/options.html">Consul documentation</a>.</p>
-<p>To pass any additional Consul configuration, define the <code>DOCKER_CONSUL_OPTIONS</code> variable in the Profile file.</p>
-<h3 id="add-tags-in-profile-aws">Add tags in Profile (AWS)</h3>
-<p>In order to differentiate launched instances, you can optionally define custom tags for your AWS resources deployed by Cloudbreak. </p>
-<ul>
-<li>
-<p>If you want just one custom tag for your CloudFormation resources, set this variable in the <code>Profile</code>:</p>
-<p><code>export CB_AWS_DEFAULT_CF_TAG=mytagcontent</code></p>
-<p>In this example, the name of the tag will be <code>CloudbreakId</code> and the value will be <code>mytagcontent</code>.</p>
-</li>
-<li>
-<p>If you prefer to customize the tag name, set this variable:</p>
-<p><code>export CB_AWS_CUSTOM_CF_TAGS=mytagname:mytagvalue</code></p>
-<p>In this example the name of the tag will be <code>mytagname</code> and the value will be <code>mytagvalue</code>. </p>
-</li>
-<li>
-<p>You can specify a list of tags with a comma separated list: </p>
-<p><code>export CB_AWS_CUSTOM_CF_TAGS=tag1:value1,tag2:value2,tag3:value3</code></p>
-</li>
-</ul></div>
+<p>To pass any additional Consul configuration, define the <code>DOCKER_CONSUL_OPTIONS</code> variable in the Profile file.</p></div>
         
     </div>
 

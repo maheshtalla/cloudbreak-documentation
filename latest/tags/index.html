@@ -441,6 +441,12 @@
         
             
 <li >
+    <a href="../cb-email/index.html">Set up email notifications</a>
+</li>
+
+        
+            
+<li >
     <a href="../cb-profile/index.html">Modify settings in Cloudbreak Profile</a>
 </li>
 
@@ -674,6 +680,9 @@
             <li class="second-level"><a href="#add-tags-when-creating-a-cluster">Add tags when creating a cluster</a></li>
             
         
+            <li class="second-level"><a href="#add-tags-in-profile-aws">Add tags in Profile (AWS)</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -690,7 +699,25 @@
 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tags on AWS</a>  <br />
 <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags">Tags on Azure</a><br />
 <a href="https://cloud.google.com/resource-manager/docs/using-labels">Labels on GCP</a><br />
-<a href="https://docs.openstack.org/mitaka/networking-guide/ops-resource-tags.html">Tags on OpenStack</a>  </p></div>
+<a href="https://docs.openstack.org/mitaka/networking-guide/ops-resource-tags.html">Tags on OpenStack</a>  </p>
+<h3 id="add-tags-in-profile-aws">Add tags in Profile (AWS)</h3>
+<p>In order to differentiate launched instances, you can optionally define custom tags for your AWS resources deployed by Cloudbreak. </p>
+<ul>
+<li>
+<p>If you want just one custom tag for your CloudFormation resources, set this variable in the <code>Profile</code>:</p>
+<p><code>export CB_AWS_DEFAULT_CF_TAG=mytagcontent</code></p>
+<p>In this example, the name of the tag will be <code>CloudbreakId</code> and the value will be <code>mytagcontent</code>.</p>
+</li>
+<li>
+<p>If you prefer to customize the tag name, set this variable:</p>
+<p><code>export CB_AWS_CUSTOM_CF_TAGS=mytagname:mytagvalue</code></p>
+<p>In this example the name of the tag will be <code>mytagname</code> and the value will be <code>mytagvalue</code>. </p>
+</li>
+<li>
+<p>You can specify a list of tags with a comma separated list: </p>
+<p><code>export CB_AWS_CUSTOM_CF_TAGS=tag1:value1,tag2:value2,tag3:value3</code></p>
+</li>
+</ul></div>
         
     </div>
 
