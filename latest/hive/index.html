@@ -716,12 +716,12 @@ openssl s_client -servername ${GATEWAY_HOST} -connect ${GATEWAY_HOST}:8443 -show
 keytool -import -alias gateway-identity -file gateway.pem -keystore gateway.jks -storepass ${GATEWAY_JKS_PASSWORD}
 </code></pre>
 <p>After executing these commands, <strong>gateway.pem</strong> and <strong>gateway.jks</strong> files will be downloaded onto your computer to the location where you ran the commands.</p>
+<h3 id="examples">Examples</h3>
 <p>Here are two examples of using tools to connect to Hive via JDBC:</p>
 <ul>
 <li><a href="#example-sql-workbenchj">SQL Workbench/J</a>  </li>
 <li><a href="#example-tableau">Tableau</a>  </li>
 </ul>
-<h3 id="examples">Examples</h3>
 <h4 id="example-sql-workbenchj">Example: SQL Workbench/J</h4>
 <p><a href="http://www.sql-workbench.net/">SQL Workbench/J</a> is a cross-platform SQL tool that can be used to access database systems. In this example, we will provide a high-level overview of the steps required to setup SQL Workbench to access Hive via JDBC.</p>
 <p><strong>Prerequisite:</strong> <a href="#download-ssl-certificate">Download the SSL Certificate</a> </p>
