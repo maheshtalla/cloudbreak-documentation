@@ -2787,7 +2787,7 @@
         }, 
         {
             "location": "/releasenotes/index.html", 
-            "text": "Release notes\n\n\n2.7.0\n\n\nCloudbreak 2.7.0 is a general availability release, which is suitable for production deployments.\n\n\n\n\nNew features\n\n\n\n\nTBD \n\n\n\n\nBehavioral changes\n\n\n\n\nTBD\n\n\n\n\nImage catalog updates\n\n\n\n\nDefault versions provided:\n\n\nDefault Ambari version 2.6.2.0\n\nDefault HDP version 2.6.5.0-292\n\nDefault HDF version 3.1.1.0-35    \n\n\n\n\nFixed issues\n\n\n\n\n\n\n\n\n\n\nIssue\n\n\nIssue description\n\n\nCategory\n\n\nFix version\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKnown issues", 
+            "text": "Release notes\n\n\n2.8.0 TP\n\n\nCloudbreak 2.8.0 is a technical preview release, which is not suitable for production deployments.\n\n\n\n\nNew features\n\n\n\n\nTBD \n\n\n\n\nBehavioral changes\n\n\n\n\nTBD\n\n\n\n\nImage catalog updates\n\n\n\n\nDefault versions provided:\n\n\nDefault Ambari version 2.6.2.0\n\nDefault HDP version 2.6.5.0-292\n\nDefault HDF version 3.1.1.0-35    \n\n\n\n\nFixed issues\n\n\n\n\n\n\n\n\n\n\nIssue\n\n\nIssue description\n\n\nCategory\n\n\nFix version\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKnown issues", 
             "title": "Release Notes"
         }, 
         {
@@ -2796,9 +2796,9 @@
             "title": "Release notes"
         }, 
         {
-            "location": "/releasenotes/index.html#270", 
-            "text": "Cloudbreak 2.7.0 is a general availability release, which is suitable for production deployments.", 
-            "title": "2.7.0"
+            "location": "/releasenotes/index.html#280-tp", 
+            "text": "Cloudbreak 2.8.0 is a technical preview release, which is not suitable for production deployments.", 
+            "title": "2.8.0 TP"
         }, 
         {
             "location": "/releasenotes/index.html#new-features", 
