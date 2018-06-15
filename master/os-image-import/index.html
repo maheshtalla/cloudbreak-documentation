@@ -677,81 +677,58 @@
     
         <li class="first-level active"><a href="#manually-import-hdp-and-hdf-images-to-openstack">Manually import HDP and HDF images to OpenStack</a></li>
         
-            <li class="second-level"><a href="#import-hdp-prewarmed-image">Import HDP prewarmed image</a></li>
-            
-        
-            <li class="second-level"><a href="#import-hdf-prewarmed-image">Import HDF prewarmed image</a></li>
-            
-        
-            <li class="second-level"><a href="#import-hdphdf-base-image">Import HDP/HDF base image</a></li>
-            
-        
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h2 id="manually-import-hdp-and-hdf-images-to-openstack">Manually import HDP and HDF images to OpenStack</h2>
-<p>An OpenStack administrator must perform these steps to add the Cloudbreak deployer image to your OpenStack deployment. </p>
+<p>An OpenStack administrator can perform these steps to add the Cloudbreak deployer image to your OpenStack deployment. Perform these steps for each image. </p>
 <blockquote>
 <p>Importing prewarmed and base HDP and HDF images is no longer required, because if these images are not imported manually, Cloudbreak will import them once you attempt to create a cluster.</p>
 </blockquote>
-<h3 id="import-hdp-prewarmed-image">Import HDP prewarmed image</h3>
-<p>These steps are no longer required, because if these images are not imported manually, Cloudbreak will import them once you attempt to create an HDP cluster. If you would like to import HDP prewarmed images manually (instead of having them imported), you can do this by using the following steps.</p>
+<p>The following images can be imported:</p>
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Operating system</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prewarmed HDP 2.6 image</td>
+<td>centos7</td>
+<td>http://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp-26-1805171052.img</td>
+</tr>
+<tr>
+<td>Prewarmed HDF 3.1 image</td>
+<td>centos7</td>
+<td>http://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp-31-1805251001.img</td>
+</tr>
+<tr>
+<td>Base image</td>
+<td>centos7</td>
+<td>http://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp--1806131251.img</td>
+</tr>
+<tr>
+<td>Base image</td>
+<td>ubuntu</td>
+<td>http://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp--1805252042.img</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Steps</strong></p>
 <ol>
 <li>
-<p>Download the latest HDP image to your local machine:</p>
-<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp-26-1805181129.img</small></pre></p>
+<p>Download the image to your local machine. For example: </p>
+<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp-26-1805171052.img</small></pre></p>
 </li>
 <li>
 <p>Set the following environment variables for the OpenStack image import:</p>
-<p><pre><small>export CB_LATEST_IMAGE=cb-hdp-26-1805181129.img
-export CB_LATEST_IMAGE_NAME=cb-hdp-26-1805181129.img
-export OS_USERNAME=your_os_user_name
-export OS_AUTH_URL=your_authentication_url
-export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
-</li>
-<li>
-<p>Import the new image into your OpenStack:</p>
-<p><pre><small>glance image-create --name "$CB_LATEST_IMAGE_NAME" --file "$CB_LATEST_IMAGE" --disk-format qcow2 --container-format bare --progress</small></pre></p>
-</li>
-</ol>
-<p>After performing the import, you should be able to see the Cloudbreak image among your OpenStack images.</p>
-<h3 id="import-hdf-prewarmed-image">Import HDF prewarmed image</h3>
-<p>These steps are no longer required, because if these images are not imported manually, Cloudbreak will import them once you attempt to create an HDF cluster. If you would like to import HDP prewarmed images manually (instead of having them imported), you can do this by using the following steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Download the latest HDF image to your local machine:</p>
-<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp-31-1805251001.img</small></pre></p>
-</li>
-<li>
-<p>Set the following environment variables for the OpenStack image import:</p>
-<p><pre><small>export CB_LATEST_IMAGE=cb-hdp-31-1805251001.img
-export CB_LATEST_IMAGE_NAME=cb-hdp-31-1805251001.img
-export OS_USERNAME=your_os_user_name
-export OS_AUTH_URL=your_authentication_url
-export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
-</li>
-<li>
-<p>Import the new image into your OpenStack:</p>
-<p><pre><small>glance image-create --name "$CB_LATEST_IMAGE_NAME" --file "$CB_LATEST_IMAGE" --disk-format qcow2 --container-format bare --progress</small></pre></p>
-</li>
-</ol>
-<p>After performing the import, you should be able to see the Cloudbreak image among your OpenStack images. </p>
-<h3 id="import-hdphdf-base-image">Import HDP/HDF base image</h3>
-<p>These steps are no longer required, because if these images are not imported manually, Cloudbreak will import them once you attempt to create an HDF cluster. If you would like to import HDP/HDF base images manually (instead of having them imported), you can do this by using the following steps.</p>
-<p><strong>Steps</strong></p>
-<ol>
-<li>
-<p>Download the latest HDP image to your local machine:</p>
-<p><pre><small>curl -O https://public-repo-1.hortonworks.com/HDP/cloudbreak/cb-hdp--1801261636.img</small></pre></p>
-</li>
-<li>
-<p>Set the following environment variables for the OpenStack image import:</p>
-<p><pre><small>export CB_LATEST_IMAGE=cb-hdp--1801261636.img
-export CB_LATEST_IMAGE_NAME=cb-hdp--1801261636.img
+<p><pre><small>export CB_LATEST_IMAGE=cb-hdp-26-1805171052.img
+export CB_LATEST_IMAGE_NAME=cb-hdp-26-1805171052.img
 export OS_USERNAME=your_os_user_name
 export OS_AUTH_URL=your_authentication_url
 export OS_TENANT_NAME=your_os_tenant_name</small></pre></p>
