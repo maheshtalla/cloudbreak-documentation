@@ -1036,7 +1036,31 @@ Manual recovery is needed for the following failed nodes:
 One example that affects all users is that after HDF cluster upscale/downscale the <code>nifi.web.proxy.host</code> blueprint parameter does not get updated to include the new nodes, and as a result the NiFi UI is not reachable from these nodes.</p>
 <p><em>Workaround:</em>  </p>
 <p>Configuration parameters set in the blueprint are not applied when scaling an HDF cluster. One example that affects all NiFi users is that after HDF cluster upscale the <code>nifi.web.proxy.host</code> parameter does not get updated to include the new hosts, and as a result the NiFi UI is not reachable from these hosts.</p>
-<p><code>HOST1-IP:PORT,HOST2-IP:PORT,HOST3-IP:PORT</code></p></div>
+<p><code>HOST1-IP:PORT,HOST2-IP:PORT,HOST3-IP:PORT</code></p>
+<h5 id="bug-104109-websocket-connection-fails-on-ambari-27-cluster">(BUG-104109) <strong>Websocket Connection fails on Ambari 2.7 Cluster</strong></h5>
+<p>Websocket connection fails on Ambari 2.7 cluster with the following errors: </p>
+<p><em>Uncaught RangeError: Maximum call stack size exceeded
+    at RegExp.test (<anonymous>)
+    at getPath (vendor.js:13470)
+    at get (vendor.js:13353)
+    at Class.get (vendor.js:19791)
+    at Class.subscribe (app.js:197067)
+    at Class.addHandler (app.js:197095)
+    at Class.addHandler (app.js:197096)
+    at Class.addHandler (app.js:197096)
+    at Class.addHandler (app.js:197096)
+    at Class.addHandler (app.js:197096)</em></p>
+<p><em>Uncaught TypeError: Cannot read property 'handlers' of undefined
+    at Class.removeHandler (app.js:197112)
+    at Class.unsubscribeOfUpdates (app.js:21730)
+    at Class.willDestroyElement (app.js:226835)
+    at Class.newFunc [as willDestroyElement] (vendor.js:12954)
+    at Class.trigger (vendor.js:25526)
+    at Class.newFunc [as trigger] (vendor.js:12954)
+    at Class.<anonymous> (vendor.js:25031)
+    at Class.invokeRecursively (vendor.js:24941)
+    at Class.<anonymous> (vendor.js:24944)
+    at Class.forEachChildView (vendor.js:24727)</em></p></div>
         
     </div>
 
